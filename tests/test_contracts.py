@@ -81,6 +81,19 @@ class ContractTests(unittest.TestCase):
         record = extract_invoice(page)
         self.assertIn("AMBIGUOUS_DATE", {issue.code for issue in validate_invoice(record, page)})
 
+    def test_split_rightmost_row_amount_uses_spatial_evidence(self) -> None:
+        page = page_with_total("270.00")
+        spans = tuple(span for span in page.spans if span.id != "s7") + (
+            TextSpan("row-left", 1, "Research workshop 2 125.00", Box(.1, .44, .65, .47), "fixture"),
+            TextSpan("row-right", 1, "250.00", Box(.8, .44, .9, .47), "fixture"),
+        )
+        page = replace(page, spans=spans)
+        record = extract_invoice(page)
+        self.assertEqual(len(record.line_items), 1)
+        self.assertEqual(record.line_items[0].line_total.value, "250.00")
+        self.assertEqual(record.line_items[0].line_total.evidence_ids, ("row-right",))
+        self.assertEqual(validate_invoice(record, page), ())
+
 
 if __name__ == "__main__":
     unittest.main()

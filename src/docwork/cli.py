@@ -13,7 +13,8 @@ import time
 from dataclasses import asdict
 from pathlib import Path
 
-from .baseline import extract_invoice
+from .baseline import BASELINE_VERSION, extract_invoice
+from .evaluation import evaluate_development
 from .ocr import tesseract_page
 from .validation import validate_invoice
 
@@ -68,6 +69,7 @@ def baseline_fixture(path: Path) -> dict:
     issues = validate_invoice(record, page)
     return {
         "mode": "fresh_fixture_ocr_rules",
+        "baseline_version": BASELINE_VERSION,
         "python_version": platform.python_version(),
         "tesseract_version": (_run(["tesseract", "--version"]) or "unknown").splitlines()[0],
         "source_sha256": hashlib.sha256(resolved.read_bytes()).hexdigest(),
@@ -86,13 +88,20 @@ def main(argv: list[str] | None = None) -> int:
     baseline = commands.add_parser("baseline", help="Run OCR/rules on a self-authored sample PNG")
     baseline.add_argument("fixture", type=Path)
     baseline.add_argument("--output", type=Path)
+    development = commands.add_parser("eval-development", help="Score all frozen self-authored development PNGs")
+    development.add_argument("--output", type=Path, default=Path("artifacts/development-baseline.json"))
     args = parser.parse_args(argv)
     try:
-        data = doctor() if args.command == "doctor" else baseline_fixture(args.fixture)
+        if args.command == "doctor":
+            data = doctor()
+        elif args.command == "baseline":
+            data = baseline_fixture(args.fixture)
+        else:
+            data = evaluate_development(Path(__file__).resolve().parents[2], baseline_fixture)
     except (OSError, RuntimeError, ValueError, subprocess.TimeoutExpired) as exc:
         parser.exit(2, f"docwork: {exc}\n")
     rendered = json.dumps(data, indent=2) + "\n"
-    if args.command == "baseline" and args.output:
+    if args.command in ("baseline", "eval-development") and args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(rendered)
         print(args.output)

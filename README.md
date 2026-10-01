@@ -4,7 +4,7 @@ A local invoice workbench under development. The intended product extracts struc
 
 ## Current status
 
-Phase 0 has a runnable `ocr_rules` spike for two self-authored PNG invoices. It normalizes OCR line boxes, extracts header fields and a line item, checks source references and arithmetic, and preserves an observed total when it conflicts with a computed total. [Phase 0 notes](docs/phase0.md) record the preflight, observed run, limits, and next work.
+Phase 0 has a runnable `ocr_rules` spike for two demo PNGs and a separate 12-document, six-layout development set. It normalizes OCR line boxes, extracts header fields and line items, checks source references and arithmetic, and preserves an observed total when it conflicts with a computed total. [Phase 0 notes](docs/phase0.md) record the preflight and next work; the [development report](docs/development-baseline.md) records the measured baseline and its failure cases.
 
 This is a trusted-fixture development command, not an upload service. Arbitrary documents require the planned isolated parser and intake controls. There is no review UI, local language model, durable queue, or export yet.
 
@@ -17,6 +17,7 @@ make doctor
 make test
 make smoke-ocr
 make demo-baseline
+make eval-development
 ```
 
-`make demo-baseline` writes fresh results, including OCR spans and normalized source boxes, to ignored `artifacts/`. The deterministic contract suite runs without Tesseract; `smoke-ocr` exercises real OCR on the committed fixtures. No model or dataset download is performed by these commands.
+`make demo-baseline` and `make eval-development` write fresh results to ignored `artifacts/`. The development command verifies every committed image hash and label transform before scoring all 12 pages. The deterministic contract suite runs without Tesseract; `smoke-ocr` exercises real OCR on the committed demo fixtures. No model or dataset download is performed by these commands.

@@ -1,7 +1,7 @@
 PYTHON ?= python3.12
 PYTHONPATH := src
 
-.PHONY: doctor test smoke-ocr demo-baseline
+.PHONY: doctor test smoke-ocr demo-baseline eval-development
 
 doctor:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli doctor
@@ -15,3 +15,6 @@ smoke-ocr:
 demo-baseline:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli baseline samples/clean.png --output artifacts/clean-baseline.json
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli baseline samples/conflicting-total.png --output artifacts/conflicting-total-baseline.json
+
+eval-development:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli eval-development

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+from dataclasses import replace
 
 from .contracts import (
     CONTRACT_VERSION,
@@ -14,6 +15,8 @@ from .contracts import (
     TextSpan,
     missing,
 )
+
+BASELINE_VERSION = "ocr-rules-v0.2"
 
 LABELS = {
     "invoice_number": re.compile(r"^invoice\s*(?:number|no\.?|#)\s*:\s*(.+)$", re.I),
@@ -27,6 +30,8 @@ LABELS = {
     "total": re.compile(r"^total\s*:\s*(.+)$", re.I),
 }
 ROW = re.compile(r"^(.+?)\s+(\d+(?:\.\d+)?)\s+(\d+\.\d{2})\s+(\d+\.\d{2})$")
+ROW_WITHOUT_TOTAL = re.compile(r"^(.+?)\s+(\d+(?:\.\d+)?)\s+(\d+\.\d{2})$")
+AMOUNT_ONLY = re.compile(r"^\d+\.\d{2}$")
 
 
 def observed(value: str, span: TextSpan) -> FieldValue:
@@ -35,13 +40,12 @@ def observed(value: str, span: TextSpan) -> FieldValue:
 
 def extract_invoice(page: DocumentPage) -> InvoiceRecord:
     fields = {name: missing() for name in HEADER_FIELDS}
-    line_items: list[LineItem] = []
     for span in page.spans:
         line = span.text.strip()
         if not line:
             continue
         if fields["supplier_name"].value is None and line.lower() != "invoice":
-            fields["supplier_name"] = observed(line, span)
+            fields["supplier_name"] = observed(re.sub(r"\s+INVOICE$", "", line, flags=re.I), span)
             continue
         matched = False
         for name, pattern in LABELS.items():
@@ -53,17 +57,45 @@ def extract_invoice(page: DocumentPage) -> InvoiceRecord:
                 break
         if matched:
             continue
+    return InvoiceRecord(CONTRACT_VERSION, fields, _extract_rows(page))
+
+
+def _extract_rows(page: DocumentPage) -> tuple[LineItem, ...]:
+    amount_spans = [span for span in page.spans if span.box and AMOUNT_ONLY.fullmatch(span.text.strip())]
+    used_amounts: set[str] = set()
+    candidates: list[tuple[float, LineItem]] = []
+    for span in page.spans:
+        line = span.text.strip()
         match = ROW.fullmatch(line)
-        if match and not line.lower().startswith("description"):
+        if match:
             description, quantity, unit_price, line_total = match.groups()
-            line_items.append(
-                LineItem(
-                    row_id=f"row-{len(line_items) + 1:03d}",
-                    description=observed(description, span),
-                    quantity=observed(quantity, span),
-                    unit_price=observed(unit_price, span),
-                    line_total=observed(line_total, span),
-                    tax=missing("not_explicit_on_row"),
-                )
-            )
-    return InvoiceRecord(CONTRACT_VERSION, fields, tuple(line_items))
+            total = observed(line_total, span)
+        else:
+            match = ROW_WITHOUT_TOTAL.fullmatch(line)
+            if match is None or span.box is None:
+                continue
+            description, quantity, unit_price = match.groups()
+            center = (span.box.top + span.box.bottom) / 2
+            same_row = [
+                candidate for candidate in amount_spans
+                if candidate.id not in used_amounts
+                and candidate.box is not None
+                and candidate.box.left > span.box.right
+                and abs((candidate.box.top + candidate.box.bottom) / 2 - center) <= .015
+            ]
+            if same_row:
+                right = min(same_row, key=lambda candidate: candidate.box.left)
+                used_amounts.add(right.id)
+                total = observed(right.text.strip(), right)
+            else:
+                total = missing("rightmost_amount_not_observed")
+        row = LineItem(
+            row_id="pending",
+            description=observed(description, span),
+            quantity=observed(quantity, span),
+            unit_price=observed(unit_price, span),
+            line_total=total,
+            tax=missing("not_explicit_on_row"),
+        )
+        candidates.append((span.box.top if span.box else float(len(candidates)), row))
+    return tuple(replace(row, row_id=f"row-{index:03d}") for index, (_, row) in enumerate(sorted(candidates, key=lambda pair: pair[0]), start=1))

@@ -1,6 +1,6 @@
 # Phase 0 feasibility log
 
-Recorded September 30, 2026. This is an initial development spike, not a benchmark or a completed Phase 0 exit.
+Recorded September 30, 2026. This is an initial development spike, not a completed Phase 0 exit.
 
 ## Local preflight
 
@@ -23,18 +23,20 @@ The generated PNGs are self-authored. Their hashes are `925a3b1858f6b322330ba161
 
 The deterministic contract checks pass without OCR. Three separate OCR smoke checks pass against the committed fixtures. Results are local to this hardware and Tesseract installation.
 
+A separate [12-document development report](development-baseline.md) now measures the conventional baseline across six author-created layout families. Its manifest contains all expected fields, rows, image hashes, and source boxes; the runner checks crop and rotation transforms before scoring. The development set is used to change the baseline and is not held-out evidence.
+
 ## Contract and current limits
 
 - Invoice header fields follow the plan's ten-field set; required fields for this spike are supplier, invoice number, issue date, currency, and total. Missing values have explicit reasons, and monetary values are strings parsed with `Decimal` for checks.
-- Each observed value cites an OCR line span ID. The validator checks ID existence and case-insensitive substring alignment. Geometry is a normalized top-left line rectangle. This does not yet prove field-level semantic support or provide a precise box around each value within a line.
+- Each observed value cites an OCR line span ID. The validator checks ID existence and case-insensitive substring alignment. Geometry is a normalized top-left line rectangle on the image supplied to OCR. This does not yet prove field-level semantic support or provide a precise box around each value within a line.
 - The baseline recognizes explicit USD, ISO dates, dot-decimal amounts, and a simple single-line item pattern. Supplier selection assumes the first non-title line. It is deliberately a narrow conventional baseline, not an invoice parser for arbitrary layouts.
 - Total reconciliation assumes `subtotal + tax - discount + shipping`, with all components explicitly observed and a 0.01 tolerance. Missing components leave the total check incomplete; totals are never silently changed.
-- The CLI only reads PNGs under this repository's `samples/` directory. It does not accept user uploads or process untrusted originals. Docker parser isolation, PDF handling, page rotation/crop transforms, tables, multiple pages, and crash recovery remain to be built.
+- The CLI only reads PNGs under this repository's `samples/` directory. It does not accept user uploads or process untrusted originals. Crop and right-angle rotation transforms are implemented and tested for labels, but the OCR adapter does not yet correct an input page's orientation. Docker parser isolation, PDF handling, tables, multiple pages, and crash recovery remain to be built.
 
 ## Next implementation milestone
 
-1. Create a development set of 12 invoices across several layout families, including a scanned and a rotated/cropped page, with labels and source boxes separate from extraction input.
-2. Bring up the fixed, network-denied parser container and normalize its page/spans/table output. Verify transform and resource-limit behavior before enabling arbitrary uploads.
+1. Add a genuine scanned development invoice. The current blur/low-contrast image is synthetic degradation, and the sideways image intentionally reveals the missing orientation correction.
+2. Bring up the fixed, network-denied parser container and normalize its page/spans/table output. Verify orientation, geometry, and resource-limit behavior before enabling arbitrary uploads.
 3. Pin the Python/OCR/layout runtime and explicit model assets; test one local structured extractor and compare it with this baseline on the same development set. Record peak memory and per-stage latency.
 4. Add persistence, review revisions, approvals, and immutable export as the first product slice after the feasibility work.
 

@@ -1,7 +1,8 @@
 """Small, strict contracts shared by OCR, extraction, and validation.
 
-Coordinates refer to the displayed, rotation-corrected page, with a top-left
-origin. These types are the Phase 0 contract; persistent schema comes later.
+Coordinates refer to the raster supplied to OCR, with a top-left origin. The
+v1 parser must correct page rotation before constructing this contract.
+Persistent schema comes later.
 """
 
 from __future__ import annotations
