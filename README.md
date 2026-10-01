@@ -4,9 +4,9 @@ A local invoice workbench under development. The intended product extracts struc
 
 ## Current status
 
-Phase 0 has a runnable `ocr_rules` spike for two demo PNGs and a separate 12-document, six-layout development set. It normalizes OCR line boxes, extracts header fields and line items, checks source references and arithmetic, and preserves an observed total when it conflicts with a computed total. [Phase 0 notes](docs/phase0.md) record the preflight and next work; the [development report](docs/development-baseline.md) records the measured baseline and its failure cases.
+Phase 0 has a runnable `ocr_rules` spike for two demo PNGs and a separate 12-document, six-layout development set. It normalizes OCR line boxes, extracts header fields and line items, checks source references and arithmetic, and preserves an observed total when it conflicts with a computed total. A new local [review and export slice](docs/review.md) stores candidate revisions in SQLite, records issue decisions, binds approvals to exact revisions, and writes JSON/CSV exports. [Phase 0 notes](docs/phase0.md) record the preflight; the [development report](docs/development-baseline.md) records the measured baseline and its failure cases.
 
-This is a trusted-fixture development command, not an upload service. Arbitrary documents require the planned isolated parser and intake controls. There is no review UI, local language model, durable queue, or export yet.
+The OCR entrypoint is restricted to trusted repository fixtures. Arbitrary documents require the planned isolated parser and intake controls. The review slice is a local CLI prototype without authentication or a UI; there is no local language model or durable processing queue yet.
 
 ## Run the spike
 
@@ -21,3 +21,5 @@ make eval-development
 ```
 
 `make demo-baseline` and `make eval-development` write fresh results to ignored `artifacts/`. The development command verifies every committed image hash and label transform before scoring all 12 pages. The deterministic contract suite runs without Tesseract; `smoke-ocr` exercises real OCR on the committed demo fixtures. No model or dataset download is performed by these commands.
+
+See [review workflow](docs/review.md) for a complete fixture-to-export example.

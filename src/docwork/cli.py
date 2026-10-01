@@ -1,4 +1,4 @@
-"""Phase 0 CLI: local preflight and a trusted-fixture OCR baseline."""
+"""Local preflight, trusted-fixture OCR baseline, and review prototype CLI."""
 
 from __future__ import annotations
 
@@ -16,6 +16,7 @@ from pathlib import Path
 from .baseline import BASELINE_VERSION, extract_invoice
 from .evaluation import evaluate_development
 from .ocr import tesseract_page
+from .review import ReviewBlocked, ReviewConflict, ReviewStore, page_from_dict, record_from_dict
 from .validation import validate_invoice
 
 
@@ -90,15 +91,68 @@ def main(argv: list[str] | None = None) -> int:
     baseline.add_argument("--output", type=Path)
     development = commands.add_parser("eval-development", help="Score all frozen self-authored development PNGs")
     development.add_argument("--output", type=Path, default=Path("artifacts/development-baseline.json"))
+    review = commands.add_parser("review", help="Local review of trusted fixture candidates")
+    review.add_argument("--db", type=Path, default=Path("artifacts/review.sqlite"))
+    actions = review.add_subparsers(dest="action", required=True)
+    seed = actions.add_parser("seed", help="OCR a trusted sample into a new review record")
+    seed.add_argument("fixture", type=Path)
+    show = actions.add_parser("show", help="Show current or historical record")
+    show.add_argument("document_id")
+    show.add_argument("--revision", type=int)
+    history = actions.add_parser("history", help="Show review events")
+    history.add_argument("document_id")
+    edit = actions.add_parser("edit", help="Create a new revision with a field correction")
+    edit.add_argument("document_id")
+    edit.add_argument("path", help="fields.total or line_items.row-001.description")
+    edit.add_argument("value")
+    edit.add_argument("--revision", type=int, required=True)
+    edit.add_argument("--actor", required=True)
+    edit.add_argument("--evidence", action="append", help="Replacement source span ID; repeat for multiple")
+    acknowledge = actions.add_parser("acknowledge", help="Resolve a blocking issue with a reason")
+    acknowledge.add_argument("document_id")
+    acknowledge.add_argument("code")
+    acknowledge.add_argument("path")
+    acknowledge.add_argument("--revision", type=int, required=True)
+    acknowledge.add_argument("--actor", required=True)
+    acknowledge.add_argument("--reason", required=True)
+    approve = actions.add_parser("approve", help="Approve the exact current revision")
+    approve.add_argument("document_id")
+    approve.add_argument("--revision", type=int, required=True)
+    approve.add_argument("--actor", required=True)
+    export = actions.add_parser("export", help="Write an immutable approved JSON or CSV export")
+    export.add_argument("document_id")
+    export.add_argument("--format", choices=("json", "csv"), required=True)
     args = parser.parse_args(argv)
     try:
         if args.command == "doctor":
             data = doctor()
         elif args.command == "baseline":
             data = baseline_fixture(args.fixture)
+        elif args.command == "review":
+            store = ReviewStore(args.db)
+            if args.action == "seed":
+                candidate = baseline_fixture(args.fixture)
+                document_id = store.ingest(candidate["source_sha256"], candidate["source_name"],
+                                           page_from_dict(candidate["page"]), record_from_dict(candidate["record"]))
+                data = store.get(document_id)
+            elif args.action == "show":
+                data = store.get(args.document_id, args.revision)
+            elif args.action == "history":
+                data = store.history(args.document_id)
+            elif args.action == "edit":
+                revision = store.edit(args.document_id, args.revision, args.path, args.value, args.actor,
+                                      tuple(args.evidence) if args.evidence is not None else None)
+                data = store.get(args.document_id, revision)
+            elif args.action == "acknowledge":
+                store.acknowledge(args.document_id, args.revision, args.code, args.path, args.reason, args.actor)
+                data = store.get(args.document_id)
+            elif args.action == "approve":
+                data = store.approve(args.document_id, args.revision, args.actor)
+            else:
+                data = store.export(args.document_id, args.format)
         else:
             data = evaluate_development(Path(__file__).resolve().parents[2], baseline_fixture)
-    except (OSError, RuntimeError, ValueError, subprocess.TimeoutExpired) as exc:
+    except (KeyError, OSError, RuntimeError, ValueError, ReviewConflict, ReviewBlocked, subprocess.TimeoutExpired) as exc:
         parser.exit(2, f"docwork: {exc}\n")
     rendered = json.dumps(data, indent=2) + "\n"
     if args.command in ("baseline", "eval-development") and args.output:
