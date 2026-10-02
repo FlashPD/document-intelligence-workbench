@@ -15,6 +15,7 @@ from pathlib import Path
 
 from .baseline import BASELINE_VERSION, extract_invoice
 from .evaluation import evaluate_development
+from .intake import IntakeStore
 from .ocr import tesseract_page
 from .review import ReviewBlocked, ReviewConflict, ReviewStore, page_from_dict, record_from_dict
 from .validation import validate_invoice
@@ -122,6 +123,17 @@ def main(argv: list[str] | None = None) -> int:
     export = actions.add_parser("export", help="Write an immutable approved JSON or CSV export")
     export.add_argument("document_id")
     export.add_argument("--format", choices=("json", "csv"), required=True)
+    intake = commands.add_parser("intake", help="Store bounded documents and enqueue parser jobs")
+    intake.add_argument("--db", type=Path, default=Path("artifacts/review.sqlite"))
+    intake.add_argument("--objects", type=Path, default=Path("artifacts/intake"))
+    intake_actions = intake.add_subparsers(dest="action", required=True)
+    intake_submit = intake_actions.add_parser("submit", help="Validate and store one local document")
+    intake_submit.add_argument("file", type=Path)
+    intake_submit.add_argument("--mime", required=True, choices=("application/pdf", "image/png", "image/jpeg"))
+    intake_status = intake_actions.add_parser("status", help="Show submission and job state")
+    intake_status.add_argument("document_id")
+    intake_retry = intake_actions.add_parser("retry", help="Requeue a failed unreviewed document")
+    intake_retry.add_argument("document_id")
     args = parser.parse_args(argv)
     try:
         if args.command == "doctor":
@@ -150,6 +162,17 @@ def main(argv: list[str] | None = None) -> int:
                 data = store.approve(args.document_id, args.revision, args.actor)
             else:
                 data = store.export(args.document_id, args.format)
+        elif args.command == "intake":
+            store = IntakeStore(args.db, args.objects)
+            if args.action == "submit":
+                with args.file.open("rb") as source:
+                    document_id = store.submit(source, args.file.name, args.mime)
+                data = store.status(document_id)
+            elif args.action == "retry":
+                store.retry(args.document_id)
+                data = store.status(args.document_id)
+            else:
+                data = store.status(args.document_id)
         else:
             data = evaluate_development(Path(__file__).resolve().parents[2], baseline_fixture)
     except (KeyError, OSError, RuntimeError, ValueError, ReviewConflict, ReviewBlocked, subprocess.TimeoutExpired) as exc:

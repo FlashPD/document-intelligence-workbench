@@ -125,7 +125,9 @@ class ReviewStore:
             db.executescript("""
                 CREATE TABLE IF NOT EXISTS documents (
                     id TEXT PRIMARY KEY, source_sha256 TEXT NOT NULL, source_name TEXT NOT NULL,
-                    page_json TEXT NOT NULL, current_revision INTEGER NOT NULL, created_at TEXT NOT NULL
+                    page_json TEXT NOT NULL, current_revision INTEGER NOT NULL, created_at TEXT NOT NULL,
+                    media_type TEXT, size_bytes INTEGER, object_relpath TEXT,
+                    status TEXT NOT NULL DEFAULT 'REVIEW_READY'
                 );
                 CREATE TABLE IF NOT EXISTS revisions (
                     document_id TEXT NOT NULL, revision INTEGER NOT NULL, parent_revision INTEGER,
@@ -159,6 +161,14 @@ class ReviewStore:
                     detail TEXT NOT NULL, created_at TEXT NOT NULL
                 );
             """)
+            # Preserve databases created by the first review prototype.
+            columns = {row["name"] for row in db.execute("PRAGMA table_info(documents)")}
+            for name, definition in (
+                ("media_type", "TEXT"), ("size_bytes", "INTEGER"),
+                ("object_relpath", "TEXT"), ("status", "TEXT NOT NULL DEFAULT 'REVIEW_READY'"),
+            ):
+                if name not in columns:
+                    db.execute(f"ALTER TABLE documents ADD COLUMN {name} {definition}")
 
     @contextmanager
     def _connect(self):
@@ -200,16 +210,31 @@ class ReviewStore:
         record_data = record.to_dict()
         issues = [asdict(issue) for issue in validate_invoice(record, page)]
         with self._connect() as db:
-            db.execute("INSERT INTO documents VALUES (?,?,?,?,?,?)",
-                       (document_id, source_sha256, source_name, _json(asdict(page)), 1, _now()))
+            db.execute("INSERT INTO documents(id,source_sha256,source_name,page_json,current_revision,created_at,status) VALUES (?,?,?,?,?,?,?)",
+                       (document_id, source_sha256, source_name, _json(asdict(page)), 1, _now(), "REVIEW_READY"))
             db.execute("INSERT INTO revisions VALUES (?,?,?,?,?,?,?,?)",
                        (document_id, 1, None, _json(record_data), _hash(record_data), _json(issues), "extractor", _now()))
             self._event(db, document_id, 1, "candidate_created", "extractor", "")
         return document_id
 
+    def _attach_candidate(self, db: sqlite3.Connection, document_id: str,
+                          page: DocumentPage, record: InvoiceRecord) -> None:
+        data = record.to_dict()
+        issues = [asdict(issue) for issue in validate_invoice(record, page)]
+        doc = self._current(db, document_id, 0)
+        if doc["status"] not in ("RECEIVED", "PROCESSING"):
+            raise ReviewConflict(f"Cannot attach candidate in status {doc['status']}")
+        db.execute("INSERT INTO revisions VALUES (?,?,?,?,?,?,?,?)",
+                   (document_id, 1, None, _json(data), _hash(data), _json(issues), "extractor", _now()))
+        db.execute("UPDATE documents SET page_json=?, current_revision=1, status='REVIEW_READY' WHERE id=?",
+                   (_json(asdict(page)), document_id))
+        self._event(db, document_id, 1, "candidate_created", "extractor", "")
+
     def get(self, document_id: str, revision: int | None = None) -> dict:
         with self._connect() as db:
             doc = self._current(db, document_id)
+            if doc["current_revision"] == 0:
+                raise ReviewBlocked(f"Document is {doc['status']} and has no candidate record")
             selected = revision or doc["current_revision"]
             rev = self._revision(db, document_id, selected)
             decisions = db.execute("SELECT issue_key, reason, actor, created_at FROM decisions WHERE document_id=? AND revision=? ORDER BY issue_key",
