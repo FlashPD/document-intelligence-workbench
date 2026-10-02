@@ -10,16 +10,16 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from .baseline import extract_invoice
+from .baseline import extract_invoice_pages
 from .intake import IntakeStore, JobClaim, _check_content
-from .parser_protocol import MAX_PAGE_BYTES, MAX_RESULT_BYTES, PARSER_VERSION
+from .parser_protocol import MAX_PAGE_BYTES, MAX_PAGES, MAX_RESULT_BYTES, PARSER_VERSION
 from .review import ReviewConflict, page_from_dict
 
-PARSER_IMAGE = "docwork-parser:v1"
+PARSER_IMAGE = "docwork-parser:v2"
 PARSER_TIMEOUT = 180
 KNOWN_REJECTIONS = frozenset({
     "PDF_INFO_FAILED", "PDF_ENCRYPTED", "PDF_PAGE_COUNT_UNKNOWN", "PDF_PAGE_LIMIT",
-    "MULTIPAGE_NOT_SUPPORTED", "PDF_RENDER_FAILED", "IMAGE_PIXEL_LIMIT",
+    "PDF_RENDER_FAILED", "IMAGE_PIXEL_LIMIT",
     "IMAGE_DECODE_FAILED", "PAGE_OUTPUT_LIMIT", "SPAN_LIMIT", "RESULT_OUTPUT_LIMIT",
     "SOURCE_SIZE_LIMIT", "UNSUPPORTED_MEDIA_TYPE",
 })
@@ -40,33 +40,44 @@ def _regular_file(path: Path, maximum: int) -> bytes:
     return path.read_bytes()
 
 
-def validate_output(output: Path, source_hash: str) -> tuple[object, bytes]:
+def validate_output(output: Path, source_hash: str) -> tuple[tuple, tuple[bytes, ...]]:
     """Import only the expected regular files and valid canonical data."""
-    if {entry.name for entry in output.iterdir()} != {"page.png", "result.json"}:
-        raise ParserFailure("PARSER_OUTPUT_INVALID")
-    page_bytes = _regular_file(output / "page.png", MAX_PAGE_BYTES)
     encoded = _regular_file(output / "result.json", MAX_RESULT_BYTES)
     try:
         result = json.loads(encoded)
-        if set(result) != {"parser_version", "source_sha256", "page_sha256", "page"}:
+        if set(result) != {"parser_version", "source_sha256", "pages"}:
             raise ValueError("Unexpected parser output fields")
         if result["parser_version"] != PARSER_VERSION or result["source_sha256"] != source_hash:
             raise ValueError("Parser provenance mismatch")
-        if hashlib.sha256(page_bytes).hexdigest() != result["page_sha256"]:
-            raise ValueError("Rendered page hash mismatch")
-        temp_page = output / "page.png"
-        _check_content(temp_page, "page.png", "image/png")
-        page = page_from_dict(result["page"])
-        if page.number != 1 or len(page.spans) > 5000:
-            raise ValueError("Unsupported canonical page")
-        width = int.from_bytes(page_bytes[16:20], "big")
-        height = int.from_bytes(page_bytes[20:24], "big")
-        if (page.width_px, page.height_px) != (width, height):
-            raise ValueError("Page dimensions do not match raster")
-        for span in page.spans:
-            if not re.fullmatch(r"p1-l\d{4}", span.id) or span.method != "tesseract-eng":
-                raise ValueError("Unexpected OCR span provenance")
-        return page, page_bytes
+        entries = result["pages"]
+        if not isinstance(entries, list) or not 1 <= len(entries) <= MAX_PAGES:
+            raise ValueError("Invalid page count")
+        expected = {"result.json"} | {f"page-{number:04d}.png" for number in range(1, len(entries) + 1)}
+        if {entry.name for entry in output.iterdir()} != expected:
+            raise ValueError("Unexpected parser outputs")
+        pages = []
+        images = []
+        for number, entry in enumerate(entries, start=1):
+            if set(entry) != {"page_sha256", "page"}:
+                raise ValueError("Unexpected page fields")
+            path = output / f"page-{number:04d}.png"
+            page_bytes = _regular_file(path, MAX_PAGE_BYTES)
+            if hashlib.sha256(page_bytes).hexdigest() != entry["page_sha256"]:
+                raise ValueError("Rendered page hash mismatch")
+            _check_content(path, path.name, "image/png")
+            page = page_from_dict(entry["page"])
+            if page.number != number or len(page.spans) > 5000:
+                raise ValueError("Unsupported canonical page")
+            width = int.from_bytes(page_bytes[16:20], "big")
+            height = int.from_bytes(page_bytes[20:24], "big")
+            if (page.width_px, page.height_px) != (width, height):
+                raise ValueError("Page dimensions do not match raster")
+            for span in page.spans:
+                if not re.fullmatch(rf"p{number}-l\d{{4}}", span.id) or span.method != "tesseract-eng":
+                    raise ValueError("Unexpected OCR span provenance")
+            pages.append(page)
+            images.append(page_bytes)
+        return tuple(pages), tuple(images)
     except (KeyError, TypeError, ValueError, OverflowError) as exc:
         raise ParserFailure("PARSER_OUTPUT_INVALID") from exc
 
@@ -118,8 +129,8 @@ def process_one(store: IntakeStore, worker_id: str, *, image: str = PARSER_IMAGE
             # The unprivileged container user must be able to write its only output mount.
             output.chmod(0o777)
             (runner or _docker_run)(source, status["media_type"], output, claim, image=image)
-            page, page_bytes = validate_output(output, status["source_sha256"])
-            store.complete(claim, page, extract_invoice(page), page_bytes)
+            pages, page_bytes = validate_output(output, status["source_sha256"])
+            store.complete(claim, pages, extract_invoice_pages(pages), page_bytes)
     except ParserFailure as exc:
         store.fail(claim, exc.code)
     except ReviewConflict:

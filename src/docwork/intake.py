@@ -14,6 +14,7 @@ import struct
 import tempfile
 import time
 import uuid
+from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
 from typing import BinaryIO, Iterable
@@ -119,6 +120,12 @@ class IntakeStore(ReviewStore):
                     error_code TEXT, created_at TEXT NOT NULL,
                     FOREIGN KEY (document_id) REFERENCES documents(id)
                 );
+                CREATE TABLE IF NOT EXISTS document_pages (
+                    document_id TEXT NOT NULL, page_number INTEGER NOT NULL,
+                    image_sha256 TEXT NOT NULL, image_relpath TEXT NOT NULL,
+                    PRIMARY KEY (document_id, page_number),
+                    FOREIGN KEY (document_id) REFERENCES documents(id)
+                );
             """)
 
     def submit(self, stream: BinaryIO, filename: str, declared_mime: str) -> str:
@@ -186,11 +193,13 @@ class IntakeStore(ReviewStore):
         with self._connect() as db:
             doc = self._current(db, document_id)
             job = db.execute("SELECT id,status,attempts,fence,error_code FROM jobs WHERE document_id=?", (document_id,)).fetchone()
+            page_count = db.execute("SELECT COUNT(*) FROM document_pages WHERE document_id=?", (document_id,)).fetchone()[0]
             return {
                 "document_id": document_id, "source_name": doc["source_name"],
                 "source_sha256": doc["source_sha256"], "media_type": doc["media_type"],
                 "size_bytes": doc["size_bytes"], "status": doc["status"],
                 "page_image_sha256": doc["page_image_sha256"],
+                "page_count": page_count or (1 if doc["current_revision"] else 0),
                 "current_revision": doc["current_revision"], "job": dict(job) if job else None,
             }
 
@@ -216,14 +225,20 @@ class IntakeStore(ReviewStore):
                 raise ReviewConflict("Stored original failed checksum verification")
             return path
 
-    def page_image_path(self, document_id: str) -> Path:
+    def page_image_path(self, document_id: str, page_number: int = 1) -> Path:
+        if page_number < 1:
+            raise ValueError("Page number must be positive")
         with self._connect() as db:
             doc = self._current(db, document_id)
-            if not doc["page_image_relpath"]:
+            row = db.execute("SELECT image_sha256,image_relpath FROM document_pages WHERE document_id=? AND page_number=?",
+                             (document_id, page_number)).fetchone()
+            relative = row["image_relpath"] if row else doc["page_image_relpath"] if page_number == 1 else None
+            digest = row["image_sha256"] if row else doc["page_image_sha256"] if page_number == 1 else None
+            if not relative:
                 raise ReviewConflict("Document has no rendered page")
-            path = self.object_root / doc["page_image_relpath"]
+            path = self.object_root / relative
             if (not path.resolve().is_relative_to(self.object_root) or path.is_symlink() or not path.is_file()
-                    or hashlib.sha256(path.read_bytes()).hexdigest() != doc["page_image_sha256"]):
+                    or hashlib.sha256(path.read_bytes()).hexdigest() != digest):
                 raise ReviewConflict("Rendered page failed checksum verification")
             return path
 
@@ -255,18 +270,25 @@ class IntakeStore(ReviewStore):
                 or job["lease_until"] < time.time()):
             raise ReviewConflict("Processing lease is missing, expired, or fenced out")
 
-    def complete(self, claim: JobClaim, page: DocumentPage, record: InvoiceRecord,
-                 page_image: bytes | None = None) -> None:
+    def complete(self, claim: JobClaim, page: DocumentPage | Sequence[DocumentPage], record: InvoiceRecord,
+                 page_image: bytes | Sequence[bytes] | None = None) -> None:
+        pages = (page,) if isinstance(page, DocumentPage) else tuple(page)
+        images = () if page_image is None else (page_image,) if isinstance(page_image, bytes) else tuple(page_image)
+        if images and len(images) != len(pages):
+            raise ValueError("Each page needs one rendered image")
         with self._connect() as db:
             db.execute("BEGIN IMMEDIATE")
             self._verify_claim(db, claim)
-            if page_image is not None:
-                digest = hashlib.sha256(page_image).hexdigest()
+            for source_page, image in zip(pages, images):
+                digest = hashlib.sha256(image).hexdigest()
                 relative = Path("renders") / digest[:2] / f"{digest}.png"
-                _atomic_write(self.object_root / relative, page_image)
-                db.execute("UPDATE documents SET page_image_sha256=?,page_image_relpath=? WHERE id=?",
-                           (digest, str(relative), claim.document_id))
-            self._attach_candidate(db, claim.document_id, page, record)
+                _atomic_write(self.object_root / relative, image)
+                db.execute("INSERT INTO document_pages VALUES (?,?,?,?)",
+                           (claim.document_id, source_page.number, digest, str(relative)))
+                if source_page.number == 1:
+                    db.execute("UPDATE documents SET page_image_sha256=?,page_image_relpath=? WHERE id=?",
+                               (digest, str(relative), claim.document_id))
+            self._attach_candidate(db, claim.document_id, pages, record)
             db.execute("UPDATE jobs SET status='COMPLETE',lease_until=NULL WHERE id=?", (claim.job_id,))
 
     def fail(self, claim: JobClaim, error_code: str) -> None:

@@ -3,10 +3,11 @@
 from __future__ import annotations
 
 import re
+from collections.abc import Sequence
 from datetime import date
 from decimal import Decimal, InvalidOperation
 
-from .contracts import DocumentPage, FieldValue, InvoiceRecord, REQUIRED_FIELDS, ValidationIssue
+from .contracts import DocumentPage, FieldValue, InvoiceRecord, HEADER_FIELDS, REQUIRED_FIELDS, ValidationIssue
 
 MONEY = re.compile(r"^-?\d+\.\d{2}$")
 QUANTITY = re.compile(r"^\d+(?:\.\d+)?$")
@@ -32,9 +33,20 @@ def _all_values(record: InvoiceRecord):
             yield f"line_items.{row.row_id}.{name}", getattr(row, name)
 
 
-def validate_invoice(record: InvoiceRecord, page: DocumentPage) -> tuple[ValidationIssue, ...]:
+def validate_invoice(record: InvoiceRecord, page: DocumentPage | Sequence[DocumentPage]) -> tuple[ValidationIssue, ...]:
     issues: list[ValidationIssue] = []
-    spans = {span.id: span for span in page.spans}
+    pages = (page,) if isinstance(page, DocumentPage) else page
+    spans = {span.id: span for source_page in pages for span in source_page.spans}
+    if len(pages) > 1:
+        from .baseline import extract_invoice
+        candidates = [extract_invoice(source_page) for source_page in pages]
+        for name in HEADER_FIELDS:
+            if name == "supplier_name":
+                continue  # A continuation page may begin with a line item.
+            observed = [candidate.fields[name].value for candidate in candidates]
+            if len({value for value in observed if value is not None}) > 1:
+                issues.append(ValidationIssue("HEADER_CONFLICT", f"fields.{name}",
+                                              "Different observed values appear on separate pages"))
     for name in REQUIRED_FIELDS:
         if record.fields[name].value is None:
             issues.append(ValidationIssue("REQUIRED_MISSING", f"fields.{name}", "Required value was not observed"))

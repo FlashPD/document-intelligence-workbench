@@ -20,7 +20,7 @@ eval-development:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli eval-development
 
 parser-build:
-	docker build -f sandbox/Dockerfile -t docwork-parser:v1 .
+	docker build -f sandbox/Dockerfile -t docwork-parser:v2 .
 
 parser-smoke:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m unittest discover -s tests -p 'container_*.py' -v

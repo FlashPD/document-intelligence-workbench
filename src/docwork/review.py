@@ -15,6 +15,7 @@ import re
 import sqlite3
 import tempfile
 import uuid
+from collections.abc import Sequence
 from contextlib import contextmanager
 from dataclasses import asdict, replace
 from datetime import datetime, timezone
@@ -73,6 +74,15 @@ def page_from_dict(data: dict) -> DocumentPage:
             method=span["method"], confidence=span.get("confidence"),
         ) for span in data["spans"]),
     )
+
+
+def pages_from_json(encoded: str) -> tuple[DocumentPage, ...]:
+    data = json.loads(encoded)
+    return tuple(page_from_dict(page) for page in (data if isinstance(data, list) else [data]))
+
+
+def pages_to_json(pages: Sequence[DocumentPage]) -> str:
+    return _json([asdict(page) for page in pages])
 
 
 def _issue_key(issue: dict) -> str:
@@ -220,16 +230,21 @@ class ReviewStore:
         return document_id
 
     def _attach_candidate(self, db: sqlite3.Connection, document_id: str,
-                          page: DocumentPage, record: InvoiceRecord) -> None:
+                          pages: Sequence[DocumentPage], record: InvoiceRecord) -> None:
+        if not pages or [page.number for page in pages] != list(range(1, len(pages) + 1)):
+            raise ValueError("Candidate pages must be consecutive from page 1")
+        span_ids = [span.id for page in pages for span in page.spans]
+        if len(span_ids) != len(set(span_ids)):
+            raise ValueError("Span IDs must be unique across the document")
         data = record.to_dict()
-        issues = [asdict(issue) for issue in validate_invoice(record, page)]
+        issues = [asdict(issue) for issue in validate_invoice(record, pages)]
         doc = self._current(db, document_id, 0)
         if doc["status"] not in ("RECEIVED", "PROCESSING"):
             raise ReviewConflict(f"Cannot attach candidate in status {doc['status']}")
         db.execute("INSERT INTO revisions VALUES (?,?,?,?,?,?,?,?)",
                    (document_id, 1, None, _json(data), _hash(data), _json(issues), "extractor", _now()))
         db.execute("UPDATE documents SET page_json=?, current_revision=1, status='REVIEW_READY' WHERE id=?",
-                   (_json(asdict(page)), document_id))
+                   (pages_to_json(pages), document_id))
         self._event(db, document_id, 1, "candidate_created", "extractor", "")
 
     def get(self, document_id: str, revision: int | None = None) -> dict:
@@ -239,12 +254,14 @@ class ReviewStore:
                 raise ReviewBlocked(f"Document is {doc['status']} and has no candidate record")
             selected = revision or doc["current_revision"]
             rev = self._revision(db, document_id, selected)
+            pages = pages_from_json(doc["page_json"])
             decisions = db.execute("SELECT issue_key, reason, actor, created_at FROM decisions WHERE document_id=? AND revision=? ORDER BY issue_key",
                                    (document_id, selected)).fetchall()
             approval = db.execute("SELECT * FROM approvals WHERE document_id=? AND revision=?", (document_id, selected)).fetchone()
             return {
                 "document_id": document_id, "source_sha256": doc["source_sha256"],
-                "source_name": doc["source_name"], "page": json.loads(doc["page_json"]),
+                "source_name": doc["source_name"], "page": asdict(pages[0]),
+                "pages": [asdict(page) for page in pages],
                 "revision": selected, "current_revision": doc["current_revision"],
                 "record": json.loads(rev["record_json"]), "record_hash": rev["record_hash"],
                 "issues": json.loads(rev["issues_json"]), "decisions": [dict(row) for row in decisions],
@@ -260,7 +277,7 @@ class ReviewStore:
             doc = self._current(db, document_id, expected_revision)
             current = self._revision(db, document_id, expected_revision)
             record = record_from_dict(json.loads(current["record_json"]))
-            page = page_from_dict(json.loads(doc["page_json"]))
+            pages = pages_from_json(doc["page_json"])
             parts = path.split(".")
             if len(parts) == 2 and parts[0] == "fields" and parts[1] in record.fields:
                 old = record.fields[parts[1]]
@@ -274,7 +291,7 @@ class ReviewStore:
             else:
                 raise ValueError(f"Unsupported field path: {path}")
             refs = old.evidence_ids if evidence_ids is None else evidence_ids
-            unknown = set(refs) - {span.id for span in page.spans}
+            unknown = set(refs) - {span.id for page in pages for span in page.spans}
             if unknown:
                 raise ValueError(f"Unknown evidence IDs: {', '.join(sorted(unknown))}")
             revised = FieldValue(
@@ -291,7 +308,7 @@ class ReviewStore:
                 record = replace(record, line_items=rows)
             new_revision = expected_revision + 1
             data = record.to_dict()
-            issues = [asdict(issue) for issue in validate_invoice(record, page)]
+            issues = [asdict(issue) for issue in validate_invoice(record, pages)]
             db.execute("INSERT INTO revisions VALUES (?,?,?,?,?,?,?,?)",
                        (document_id, new_revision, expected_revision, _json(data), _hash(data), _json(issues), actor, _now()))
             db.execute("UPDATE documents SET current_revision=? WHERE id=?", (new_revision, document_id))
@@ -388,7 +405,8 @@ class ReviewStore:
                     "revision": revision, "source_sha256": doc["source_sha256"],
                     "record_hash": rev["record_hash"], "approval_hash": approved["approval_hash"],
                     "decision_hash": approved["decision_hash"],
-                    "record": record, "page": json.loads(doc["page_json"]),
+                    "record": record, "page": asdict(pages_from_json(doc["page_json"])[0]),
+                    "pages": [asdict(page) for page in pages_from_json(doc["page_json"])],
                     "issues": issues, "decisions": decisions,
                 }
                 path = base / "invoice.json"

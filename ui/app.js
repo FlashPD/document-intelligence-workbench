@@ -1,6 +1,6 @@
 "use strict";
 
-const state = { documents: [], selectedId: null, detail: null, selectedPath: "fields.invoice_number", history: [] };
+const state = { documents: [], selectedId: null, detail: null, selectedPath: "fields.invoice_number", pageNumber: 1, history: [] };
 const $ = (id) => document.getElementById(id);
 
 function node(tag, className, content) {
@@ -64,6 +64,7 @@ async function selectDocument(id) {
   state.selectedId = id;
   state.detail = null;
   state.selectedPath = "fields.invoice_number";
+  state.pageNumber = 1;
   $("downloads").replaceChildren();
   await refreshQueue();
   await refreshDocument();
@@ -138,6 +139,22 @@ function selectField(path) {
   const field = fieldAt(path);
   $("selection-label").textContent = labelFor(path);
   $("edit-value").value = field.value ?? "";
+  const cited = state.detail.pages.flatMap((page) => page.spans).find((span) => field.evidence_ids.includes(span.id));
+  if (cited) setPage(cited.page);
+  else renderHighlights();
+}
+
+function setPage(number) {
+  const pages = state.detail?.pages || [];
+  if (!pages.some((page) => page.number === number)) return;
+  state.pageNumber = number;
+  const page = pages[number - 1];
+  $("page-select").value = String(number);
+  $("page-previous").disabled = number === 1;
+  $("page-next").disabled = number === pages.length;
+  $("page-frame").style.aspectRatio = `${page.width_px} / ${page.height_px}`;
+  $("page-image").src = `/api/documents/${state.detail.document_id}/pages/${number}`;
+  $("page-image").alt = `Invoice page ${number} of ${pages.length}`;
   renderHighlights();
 }
 
@@ -146,7 +163,7 @@ function renderHighlights() {
   target.replaceChildren();
   const field = fieldAt(state.selectedPath);
   if (!field) return;
-  const spans = new Map(state.detail.page.spans.map((span) => [span.id, span]));
+  const spans = new Map(state.detail.pages[state.pageNumber - 1].spans.map((span) => [span.id, span]));
   let count = 0;
   for (const id of field.evidence_ids) {
     const span = spans.get(id);
@@ -159,7 +176,7 @@ function renderHighlights() {
     target.append(box);
     count++;
   }
-  $("evidence-note").textContent = count ? `${count} cited OCR line${count === 1 ? "" : "s"}` : "Precise source unavailable";
+  $("evidence-note").textContent = count ? `${count} cited OCR line${count === 1 ? "" : "s"} on this page` : "No cited line on this page";
 }
 
 function renderIssues() {
@@ -213,9 +230,13 @@ function renderReview() {
   $("doc-status").textContent = detail.approval ? "APPROVED" : "REVIEW_READY";
   $("revision-label").textContent = `Revision ${detail.revision}`;
   $("approve-button").disabled = Boolean(detail.approval);
-  const frame = $("page-frame");
-  frame.style.aspectRatio = `${detail.page.width_px} / ${detail.page.height_px}`;
-  $("page-image").src = `/api/documents/${detail.document_id}/page`;
+  const pageSelect = $("page-select");
+  pageSelect.replaceChildren(...detail.pages.map((page) => {
+    const option = node("option", "", `${page.number} of ${detail.pages.length}`);
+    option.value = String(page.number);
+    return option;
+  }));
+  setPage(Math.min(state.pageNumber, detail.pages.length));
   const fields = $("fields");
   fields.replaceChildren();
   for (const [name, field] of Object.entries(detail.record.fields)) addField(fields, `fields.${name}`, name.replaceAll("_", " "), field);
@@ -291,6 +312,9 @@ $("approve-button").addEventListener("click", () => action(async () => {
 }));
 $("export-json").addEventListener("click", () => action(() => exportRecord("json")));
 $("export-csv").addEventListener("click", () => action(() => exportRecord("csv")));
+$("page-select").addEventListener("change", () => setPage(Number($("page-select").value)));
+$("page-previous").addEventListener("click", () => setPage(state.pageNumber - 1));
+$("page-next").addEventListener("click", () => setPage(state.pageNumber + 1));
 document.addEventListener("keydown", (event) => {
   if (event.target instanceof HTMLInputElement) return;
   if (event.key === "ArrowDown" || event.key === "ArrowUp") {

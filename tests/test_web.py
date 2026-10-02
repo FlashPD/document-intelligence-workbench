@@ -10,7 +10,7 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 
-from docwork.baseline import extract_invoice
+from docwork.baseline import extract_invoice, extract_invoice_pages
 from docwork.contracts import Box, DocumentPage, TextSpan
 from docwork.intake import IntakeStore
 from docwork.web import ReviewHandler
@@ -147,6 +147,19 @@ class WebTests(unittest.TestCase):
         self.assertEqual(record["revision"], 1)
         self.assertEqual(ocr.call_count, 1)
         self.assertEqual(self.call("POST", "/api/demo/seed", {"fixture": "../../outside"})[0], 400)
+
+    def test_numbered_page_route(self):
+        doc_id = self.store.submit(io.BytesIO(SAMPLE), "clean.png", "image/png")
+        first, _ = candidate()
+        second = DocumentPage(2, first.width_px, first.height_px, (
+            TextSpan("p2-l0001", 2, "Second page", Box(.1, .1, .9, .2), "fixture"),
+        ))
+        claim = self.store.claim("test-worker")
+        self.store.complete(claim, (first, second), extract_invoice_pages((first, second)), (SAMPLE, SAMPLE))
+        self.login()
+        self.assertEqual(self.call("GET", f"/api/documents/{doc_id}/pages/2")[1], SAMPLE)
+        self.assertEqual(self.call("GET", f"/api/documents/{doc_id}/pages/3")[0], 404)
+        self.assertEqual(self.call("GET", f"/api/documents/{doc_id}")[1]["pages"][1]["number"], 2)
 
 
 if __name__ == "__main__":

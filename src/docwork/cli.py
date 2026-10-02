@@ -135,11 +135,12 @@ def main(argv: list[str] | None = None) -> int:
     intake_status.add_argument("document_id")
     intake_page = intake_actions.add_parser("page", help="Show the verified rendered page path")
     intake_page.add_argument("document_id")
+    intake_page.add_argument("--number", type=int, default=1, help="One-based source page number")
     intake_retry = intake_actions.add_parser("retry", help="Requeue a failed unreviewed document")
     intake_retry.add_argument("document_id")
     intake_process = intake_actions.add_parser("process-one", help="Run one job in the isolated parser container")
     intake_process.add_argument("--worker-id", default="local-worker")
-    intake_process.add_argument("--image", default="docwork-parser:v1")
+    intake_process.add_argument("--image", default="docwork-parser:v2")
     browser = commands.add_parser("serve", help="Run the loopback browser review prototype")
     browser.add_argument("--db", type=Path, default=Path("artifacts/review.sqlite"))
     browser.add_argument("--objects", type=Path, default=Path("artifacts/intake"))
@@ -189,7 +190,8 @@ def main(argv: list[str] | None = None) -> int:
                 document_id = process_one(store, args.worker_id, image=args.image)
                 data = store.status(document_id) if document_id else {"status": "IDLE"}
             elif args.action == "page":
-                data = {"document_id": args.document_id, "page_image": str(store.page_image_path(args.document_id))}
+                data = {"document_id": args.document_id, "page_number": args.number,
+                        "page_image": str(store.page_image_path(args.document_id, args.number))}
             else:
                 data = store.status(args.document_id)
         else:

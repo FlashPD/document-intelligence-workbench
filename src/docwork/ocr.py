@@ -29,7 +29,7 @@ def png_dimensions(path: Path) -> tuple[int, int]:
     return width, height
 
 
-def tesseract_page(path: Path, *, timeout_seconds: int = 90) -> DocumentPage:
+def tesseract_page(path: Path, *, page_number: int = 1, timeout_seconds: int = 90) -> DocumentPage:
     """Read one trusted PNG; untrusted originals need the planned container boundary."""
     width, height = png_dimensions(path)
     result = subprocess.run(
@@ -58,12 +58,12 @@ def tesseract_page(path: Path, *, timeout_seconds: int = 90) -> DocumentPage:
         confidences = [float(word["conf"]) for word in words if float(word["conf"]) >= 0]
         spans.append(
             TextSpan(
-                id=f"p1-l{index:04d}",
-                page=1,
+                id=f"p{page_number}-l{index:04d}",
+                page=page_number,
                 text=" ".join(word["text"].strip() for word in words),
                 box=Box(left / width, top / height, right / width, bottom / height),
                 method="tesseract-eng",
                 confidence=round(sum(confidences) / len(confidences), 2) if confidences else None,
             )
         )
-    return DocumentPage(number=1, width_px=width, height_px=height, spans=tuple(spans))
+    return DocumentPage(number=page_number, width_px=width, height_px=height, spans=tuple(spans))

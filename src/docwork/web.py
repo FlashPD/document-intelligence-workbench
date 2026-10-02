@@ -24,6 +24,7 @@ from .review import ReviewBlocked, ReviewConflict
 from .worker import process_one
 
 DOCUMENT_ID = re.compile(r"[0-9a-f]{32}")
+PAGE_ROUTE = re.compile(r"/api/documents/([0-9a-f]{32})/pages/([1-9]\d*)")
 EXPORT_ROUTE = re.compile(r"/api/exports/([0-9a-f]{32})/(\d+)/(json|csv)/(invoice\.json|header\.csv|line-items\.csv)")
 STATIC = {"/": ("index.html", "text/html; charset=utf-8"),
           "/app.js": ("app.js", "text/javascript; charset=utf-8"),
@@ -153,6 +154,8 @@ class ReviewHandler(BaseHTTPRequestHandler):
                 doc_id, revision, format, filename = match.groups()
                 content, media = self.server.store.exported_file(doc_id, int(revision), format, filename)
                 self._send(HTTPStatus.OK, content, media, headers={"Content-Disposition": f'attachment; filename="{filename}"'})
+            elif match := PAGE_ROUTE.fullmatch(url.path):
+                self._page(match.group(1), int(match.group(2)))
             elif route := self._document_route(url.path):
                 doc_id, action = route
                 if action == "":
@@ -162,7 +165,7 @@ class ReviewHandler(BaseHTTPRequestHandler):
                 elif action == "history":
                     self._json(HTTPStatus.OK, self.server.store.history(doc_id))
                 elif action == "page":
-                    self._page(doc_id)
+                    self._page(doc_id, 1)
                 else:
                     self._json(HTTPStatus.NOT_FOUND, {"error": "Unknown route"})
             else:
@@ -170,12 +173,14 @@ class ReviewHandler(BaseHTTPRequestHandler):
         except (KeyError, ValueError, OSError, ReviewConflict, ReviewBlocked) as exc:
             self._handle_error(exc)
 
-    def _page(self, doc_id: str) -> None:
+    def _page(self, doc_id: str, number: int) -> None:
+        if number > self.server.store.status(doc_id)["page_count"]:
+            raise KeyError("Unknown page")
         try:
-            page = self.server.store.page_image_path(doc_id)
+            page = self.server.store.page_image_path(doc_id, number)
         except ReviewConflict:
             status = self.server.store.status(doc_id)
-            if status["page_image_sha256"] is not None:
+            if number != 1 or status["page_image_sha256"] is not None:
                 raise
             sample = next((name for name in DEMO_FILES.values()
                            if hashlib.sha256((self.server.repo_root / "samples" / name).read_bytes()).hexdigest() == status["source_sha256"]), None)

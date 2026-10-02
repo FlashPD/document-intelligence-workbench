@@ -44,9 +44,6 @@ def extract_invoice(page: DocumentPage) -> InvoiceRecord:
         line = span.text.strip()
         if not line:
             continue
-        if fields["supplier_name"].value is None and line.lower() != "invoice":
-            fields["supplier_name"] = observed(re.sub(r"\s+INVOICE$", "", line, flags=re.I), span)
-            continue
         matched = False
         for name, pattern in LABELS.items():
             match = pattern.fullmatch(line)
@@ -57,7 +54,25 @@ def extract_invoice(page: DocumentPage) -> InvoiceRecord:
                 break
         if matched:
             continue
+        if fields["supplier_name"].value is None and line.lower() != "invoice":
+            fields["supplier_name"] = observed(re.sub(r"\s+INVOICE$", "", line, flags=re.I), span)
     return InvoiceRecord(CONTRACT_VERSION, fields, _extract_rows(page))
+
+
+def extract_invoice_pages(pages: tuple[DocumentPage, ...]) -> InvoiceRecord:
+    """Apply the narrow baseline per page, retaining source order and page spans."""
+    if not pages:
+        raise ValueError("At least one page is required")
+    fields = {name: missing() for name in HEADER_FIELDS}
+    rows: list[LineItem] = []
+    for page in pages:
+        candidate = extract_invoice(page)
+        for name in HEADER_FIELDS:
+            if fields[name].value is None and candidate.fields[name].value is not None:
+                fields[name] = candidate.fields[name]
+        for row in candidate.line_items:
+            rows.append(replace(row, row_id=f"row-{len(rows) + 1:03d}"))
+    return InvoiceRecord(CONTRACT_VERSION, fields, tuple(rows))
 
 
 def _extract_rows(page: DocumentPage) -> tuple[LineItem, ...]:
