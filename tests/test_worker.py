@@ -4,17 +4,20 @@ import hashlib
 import io
 import json
 import tempfile
+import time
 import unittest
 from dataclasses import asdict
 from pathlib import Path
+from unittest.mock import patch
 
+from docwork.baseline import extract_invoice
 from docwork.contracts import Box, DocumentPage, TextSpan, HEADER_FIELDS
 from docwork.intake import IntakeStore
 from docwork.local_model import LocalModelConfig, ModelUnavailable
 from docwork.ocr import png_dimensions
 from docwork.parser_protocol import PARSER_VERSION
-from docwork.review import ReviewBlocked
-from docwork.worker import ParserFailure, process_one, validate_output
+from docwork.review import ReviewBlocked, ReviewConflict
+from docwork.worker import ParserFailure, _keep_lease, process_one, validate_output
 
 SAMPLE = (Path(__file__).resolve().parents[1] / "samples" / "clean.png").read_bytes()
 LINES = (
@@ -102,6 +105,52 @@ class WorkerTests(unittest.TestCase):
         process_one(self.store, "worker", runner=lambda source, mime, output, claim, image: parser_result(output, source))
         self.assertEqual(self.store.status(document_id)["status"], "REVIEW_READY")
         self.assertEqual(self.store.status(document_id)["job"]["attempts"], 2)
+
+    def test_heartbeat_keeps_long_running_job_owned(self):
+        self.submit()
+        claim = self.store.claim("worker-one", lease_seconds=1)
+        assert claim is not None
+        with _keep_lease(self.store, claim, lease_seconds=1, interval_seconds=.1):
+            time.sleep(1.2)
+            self.assertIsNone(self.store.claim("worker-two"))
+        self.assertEqual(self.store.status(claim.document_id)["job"]["fence"], claim.fence)
+
+    def test_heartbeat_failure_is_reported_to_worker(self):
+        self.submit()
+        claim = self.store.claim("worker-one", lease_seconds=1)
+        assert claim is not None
+        with patch.object(self.store, "renew", side_effect=ReviewConflict("fenced out")):
+            with self.assertRaisesRegex(ReviewConflict, "renewal failed"):
+                with _keep_lease(self.store, claim, lease_seconds=1, interval_seconds=.01):
+                    time.sleep(.05)
+
+    def test_stale_worker_cannot_fail_reclaimed_job(self):
+        document_id = self.submit()
+        replacement = None
+
+        def stolen_runner(source, mime, output, claim, *, image):
+            nonlocal replacement
+            with patch("docwork.intake.time.time", return_value=claim.lease_until + 1):
+                replacement = self.store.claim("worker-two", lease_seconds=120)
+            parser_result(output, source)
+
+        with self.assertRaises(ReviewConflict):
+            process_one(self.store, "worker-one", runner=stolen_runner)
+        assert replacement is not None
+        status = self.store.status(document_id)
+        self.assertEqual(status["job"]["status"], "PROCESSING")
+        self.assertEqual(status["job"]["fence"], replacement.fence)
+        self.assertIsNone(status["job"]["error_code"])
+        page = DocumentPage(1, 1000, 1000, ())
+        # The replacement can still publish its own candidate.
+        self.store.complete(replacement, page, extract_invoice(page))
+        self.assertEqual(self.store.status(document_id)["status"], "REVIEW_READY")
+
+    def test_corrupted_original_fails_with_source_integrity_code(self):
+        document_id = self.submit()
+        self.store.object_path(document_id).write_bytes(b"changed")
+        self.assertEqual(process_one(self.store, "worker-one"), document_id)
+        self.assertEqual(self.store.status(document_id)["job"]["error_code"], "SOURCE_INTEGRITY_FAILED")
 
     def test_two_pages_merge_rows_and_keep_second_page_evidence(self):
         document_id = self.submit()

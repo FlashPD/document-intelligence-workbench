@@ -270,6 +270,17 @@ class IntakeStore(ReviewStore):
                 or job["lease_until"] < time.time()):
             raise ReviewConflict("Processing lease is missing, expired, or fenced out")
 
+    def renew(self, claim: JobClaim, *, lease_seconds: int = 120) -> JobClaim:
+        """Extend only the live, fenced claim held by this worker."""
+        if not 1 <= lease_seconds <= 3600:
+            raise ValueError("Lease must be 1-3600 seconds")
+        with self._connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            self._verify_claim(db, claim)
+            until = time.time() + lease_seconds
+            db.execute("UPDATE jobs SET lease_until=? WHERE id=?", (until, claim.job_id))
+        return JobClaim(claim.job_id, claim.document_id, claim.fence, claim.worker_id, until)
+
     def complete(self, claim: JobClaim, page: DocumentPage | Sequence[DocumentPage], record: InvoiceRecord,
                  page_image: bytes | Sequence[bytes] | None = None, *,
                  profile: str = "ocr_rules", model_id: str | None = None,

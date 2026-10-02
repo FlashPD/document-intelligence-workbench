@@ -122,6 +122,22 @@ class IntakeTests(unittest.TestCase):
         self.assertIsNotNone(second)
         self.assertEqual({first.document_id, second.document_id}, {first_doc, second_doc})
 
+    def test_renewal_extends_only_the_current_fenced_claim(self):
+        self.submit()
+        first = self.store.claim("worker-one", lease_seconds=1)
+        assert first is not None
+        with patch("docwork.intake.time.time", return_value=first.lease_until - .1):
+            renewed = self.store.renew(first, lease_seconds=60)
+        self.assertGreater(renewed.lease_until, first.lease_until)
+        with patch("docwork.intake.time.time", return_value=first.lease_until + 1):
+            self.assertIsNone(self.store.claim("worker-two"))
+        with patch("docwork.intake.time.time", return_value=renewed.lease_until + 1):
+            second = self.store.claim("worker-two", lease_seconds=60)
+            assert second is not None
+            with self.assertRaises(ReviewConflict):
+                self.store.renew(first)
+        self.assertGreater(second.fence, first.fence)
+
     def test_failure_retry_and_object_integrity(self):
         document = self.submit()
         claim = self.store.claim("worker")

@@ -8,6 +8,8 @@ import re
 import shutil
 import subprocess
 import tempfile
+import threading
+from contextlib import contextmanager
 from pathlib import Path
 
 from .baseline import extract_invoice_pages
@@ -20,7 +22,9 @@ from .parser_protocol import MAX_PAGE_BYTES, MAX_PAGES, MAX_RESULT_BYTES, PARSER
 from .review import ReviewConflict, page_from_dict
 
 PARSER_IMAGE = "docwork-parser:v2"
-PARSER_TIMEOUT = 180
+PARSER_TIMEOUT = 600
+WORKER_LEASE_SECONDS = 120
+HEARTBEAT_SECONDS = 30
 KNOWN_REJECTIONS = frozenset({
     "PDF_INFO_FAILED", "PDF_ENCRYPTED", "PDF_PAGE_COUNT_UNKNOWN", "PDF_PAGE_LIMIT",
     "PDF_RENDER_FAILED", "IMAGE_PIXEL_LIMIT",
@@ -119,6 +123,35 @@ def _docker_run(source: Path, media_type: str, output: Path, claim: JobClaim,
         raise ParserFailure(code)
 
 
+@contextmanager
+def _keep_lease(store: IntakeStore, claim: JobClaim, *,
+                lease_seconds: int = WORKER_LEASE_SECONDS,
+                interval_seconds: float = HEARTBEAT_SECONDS):
+    """Renew a processing claim while blocking parser and model calls run."""
+    if interval_seconds <= 0 or interval_seconds >= lease_seconds:
+        raise ValueError("Heartbeat interval must be shorter than the lease")
+    stop = threading.Event()
+    errors: list[Exception] = []
+
+    def heartbeat() -> None:
+        while not stop.wait(interval_seconds):
+            try:
+                store.renew(claim, lease_seconds=lease_seconds)
+            except Exception as exc:
+                errors.append(exc)
+                return
+
+    thread = threading.Thread(target=heartbeat, name="docwork-lease-heartbeat", daemon=True)
+    thread.start()
+    try:
+        yield
+    finally:
+        stop.set()
+        thread.join()
+    if errors:
+        raise ReviewConflict("Processing lease renewal failed") from errors[0]
+
+
 def process_one(store: IntakeStore, worker_id: str, *, image: str = PARSER_IMAGE,
                 runner=None, extractor: str = "ocr_rules",
                 model_config: LocalModelConfig | None = None, model_request=None) -> str | None:
@@ -127,30 +160,37 @@ def process_one(store: IntakeStore, worker_id: str, *, image: str = PARSER_IMAGE
         raise ValueError("Extractor must be ocr_rules or span_llm")
     if extractor == "span_llm" and model_config is None:
         raise ValueError("span_llm requires a local model configuration")
-    lease_seconds = (PARSER_TIMEOUT + 20 * model_config.timeout_seconds + 60
-                     if model_config is not None and extractor == "span_llm" else 240)
-    claim = store.claim(worker_id, lease_seconds=lease_seconds)
+    claim = store.claim(worker_id, lease_seconds=WORKER_LEASE_SECONDS)
     if claim is None:
         return None
     try:
-        source = store.object_path(claim.document_id)
+        try:
+            source = store.object_path(claim.document_id)
+        except ReviewConflict:
+            store.fail(claim, "SOURCE_INTEGRITY_FAILED")
+            return claim.document_id
         status = store.status(claim.document_id)
         with tempfile.TemporaryDirectory(prefix="parse-", dir=store.object_root / "quarantine") as scratch:
             output = Path(scratch)
             # The unprivileged container user must be able to write its only output mount.
             output.chmod(0o777)
-            (runner or _docker_run)(source, status["media_type"], output, claim, image=image)
-            pages, page_bytes = validate_output(output, status["source_sha256"])
-            if extractor == "span_llm":
-                if model_request is None:
-                    result = extract_pages(pages, model_config)
+            with _keep_lease(store, claim):
+                (runner or _docker_run)(source, status["media_type"], output, claim, image=image)
+                pages, page_bytes = validate_output(output, status["source_sha256"])
+                if extractor == "span_llm":
+                    if model_request is None:
+                        result = extract_pages(pages, model_config)
+                    else:
+                        result = extract_pages(pages, model_config, model_request)
                 else:
-                    result = extract_pages(pages, model_config, model_request)
+                    result = None
+                    record = extract_invoice_pages(pages)
+            if result is not None:
                 store.complete(claim, pages, result.record, page_bytes, profile=extractor,
                                model_id=model_config.model_id, prompt_sha256=PROMPT_SHA256,
                                extra_issues=result.issues)
             else:
-                store.complete(claim, pages, extract_invoice_pages(pages), page_bytes)
+                store.complete(claim, pages, record, page_bytes)
     except ModelUnavailable:
         store.fail(claim, "MODEL_UNAVAILABLE")
     except ModelRequestRejected:
@@ -161,8 +201,6 @@ def process_one(store: IntakeStore, worker_id: str, *, image: str = PARSER_IMAGE
         store.fail(claim, "MODEL_OUTPUT_INVALID")
     except ParserFailure as exc:
         store.fail(claim, exc.code)
-    except ReviewConflict:
-        store.fail(claim, "SOURCE_INTEGRITY_FAILED")
-    except (OSError, ValueError) as exc:
+    except (OSError, ValueError):
         store.fail(claim, "PARSER_OUTPUT_INVALID")
     return claim.document_id
