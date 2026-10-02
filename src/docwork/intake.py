@@ -20,7 +20,7 @@ from typing import BinaryIO, Iterable
 
 from .contracts import DocumentPage, InvoiceRecord
 from .ocr import MAX_FILE_BYTES, MAX_PIXELS, PNG_SIGNATURE
-from .review import ReviewConflict, ReviewStore, _now
+from .review import ReviewConflict, ReviewStore, _atomic_write, _now
 
 MAX_BATCH_FILES = 20
 MAX_STORE_BYTES = 1024 * 1024 * 1024
@@ -190,8 +190,20 @@ class IntakeStore(ReviewStore):
                 "document_id": document_id, "source_name": doc["source_name"],
                 "source_sha256": doc["source_sha256"], "media_type": doc["media_type"],
                 "size_bytes": doc["size_bytes"], "status": doc["status"],
+                "page_image_sha256": doc["page_image_sha256"],
                 "current_revision": doc["current_revision"], "job": dict(job) if job else None,
             }
+
+    def list_documents(self) -> list[dict]:
+        with self._connect() as db:
+            rows = db.execute("""
+                SELECT d.id, d.source_name, d.source_sha256, d.status,
+                       d.current_revision, d.created_at, j.status AS job_status,
+                       j.error_code
+                FROM documents d LEFT JOIN jobs j ON j.document_id=d.id
+                ORDER BY d.created_at DESC, d.id DESC
+            """).fetchall()
+            return [dict(row) for row in rows]
 
     def object_path(self, document_id: str) -> Path:
         with self._connect() as db:
@@ -199,8 +211,20 @@ class IntakeStore(ReviewStore):
             if not doc["object_relpath"]:
                 raise ValueError("Document has no stored original")
             path = self.object_root / doc["object_relpath"]
-            if path.is_symlink() or not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != doc["source_sha256"]:
+            if (not path.resolve().is_relative_to(self.object_root) or path.is_symlink() or not path.is_file()
+                    or hashlib.sha256(path.read_bytes()).hexdigest() != doc["source_sha256"]):
                 raise ReviewConflict("Stored original failed checksum verification")
+            return path
+
+    def page_image_path(self, document_id: str) -> Path:
+        with self._connect() as db:
+            doc = self._current(db, document_id)
+            if not doc["page_image_relpath"]:
+                raise ReviewConflict("Document has no rendered page")
+            path = self.object_root / doc["page_image_relpath"]
+            if (not path.resolve().is_relative_to(self.object_root) or path.is_symlink() or not path.is_file()
+                    or hashlib.sha256(path.read_bytes()).hexdigest() != doc["page_image_sha256"]):
+                raise ReviewConflict("Rendered page failed checksum verification")
             return path
 
     def claim(self, worker_id: str, *, lease_seconds: int = 120) -> JobClaim | None:
@@ -209,6 +233,9 @@ class IntakeStore(ReviewStore):
         now = time.time()
         with self._connect() as db:
             db.execute("BEGIN IMMEDIATE")
+            active = db.execute("SELECT 1 FROM jobs WHERE status='PROCESSING' AND lease_until>=? LIMIT 1", (now,)).fetchone()
+            if active:
+                return None
             job = db.execute("SELECT id,document_id,fence FROM jobs WHERE status='QUEUED' OR (status='PROCESSING' AND lease_until<?) ORDER BY created_at,id LIMIT 1", (now,)).fetchone()
             if job is None:
                 return None
@@ -228,10 +255,17 @@ class IntakeStore(ReviewStore):
                 or job["lease_until"] < time.time()):
             raise ReviewConflict("Processing lease is missing, expired, or fenced out")
 
-    def complete(self, claim: JobClaim, page: DocumentPage, record: InvoiceRecord) -> None:
+    def complete(self, claim: JobClaim, page: DocumentPage, record: InvoiceRecord,
+                 page_image: bytes | None = None) -> None:
         with self._connect() as db:
             db.execute("BEGIN IMMEDIATE")
             self._verify_claim(db, claim)
+            if page_image is not None:
+                digest = hashlib.sha256(page_image).hexdigest()
+                relative = Path("renders") / digest[:2] / f"{digest}.png"
+                _atomic_write(self.object_root / relative, page_image)
+                db.execute("UPDATE documents SET page_image_sha256=?,page_image_relpath=? WHERE id=?",
+                           (digest, str(relative), claim.document_id))
             self._attach_candidate(db, claim.document_id, page, record)
             db.execute("UPDATE jobs SET status='COMPLETE',lease_until=NULL WHERE id=?", (claim.job_id,))
 

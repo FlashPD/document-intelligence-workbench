@@ -1,0 +1,9 @@
+# Browser review prototype
+
+Run `make dev` from the repository root with Python 3.12 and Tesseract English data installed. Open the one-time URL printed in the terminal. The server binds only to `127.0.0.1`. The URL sets an ephemeral, HTTP-only same-site session cookie, then redirects to a URL without the token. Every mutation also requires a same-origin request. Reviewer names are audit labels supplied by the user, not verified identities.
+
+Choose **Clean sample** or **Conflicting total** to run fresh OCR on a committed, self-authored fixture. This does not use the Docker parser or a language model. Select any field to highlight the cited OCR line on the image. Correct a value to create a new revision; the original OCR text and source span remain in the record. For the conflicting-total example, enter a reason under `TOTAL_MISMATCH` to acknowledge the printed total, or correct the value. Approval applies only to the current revision. Export JSON or CSV, then use the verified download links.
+
+The **Upload** control queues PDF, PNG, and JPEG files under the same intake limits as the CLI. **Process next job** requires `make parser-build` and a running Docker daemon. A failed job displays its machine-readable error code and a retry action. The page preview is served only after a verified render, except for the two allowlisted trusted fixtures.
+
+This is a no-build local interface so the review workflow can be exercised on the current Mac. The architecture plan's FastAPI/React stack, authenticated identity, multi-page review, and model comparison remain future work. The deterministic suite exercises the HTTP handler in process. A separate loopback smoke run verified session setup, fresh sample OCR, and page delivery; visual browser behavior still needs checking outside the sandbox.

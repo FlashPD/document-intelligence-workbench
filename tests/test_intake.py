@@ -110,6 +110,18 @@ class IntakeTests(unittest.TestCase):
         self.assertEqual(self.store.get(document)["record"]["fields"]["total"]["value"], "270.00")
         self.assertIsNone(self.store.claim("another-worker"))
 
+    def test_only_one_live_processing_job_is_claimed(self):
+        first_doc = self.submit()
+        second_doc = self.submit()
+        first = self.store.claim("worker-one")
+        self.assertIsNotNone(first)
+        self.assertIsNone(self.store.claim("worker-two"))
+        page, record = candidate()
+        self.store.complete(first, page, record)
+        second = self.store.claim("worker-two")
+        self.assertIsNotNone(second)
+        self.assertEqual({first.document_id, second.document_id}, {first_doc, second_doc})
+
     def test_failure_retry_and_object_integrity(self):
         document = self.submit()
         claim = self.store.claim("worker")

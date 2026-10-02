@@ -1,7 +1,7 @@
 PYTHON ?= python3.12
 PYTHONPATH := src
 
-.PHONY: doctor test smoke-ocr demo-baseline eval-development
+.PHONY: doctor test smoke-ocr demo-baseline eval-development parser-build parser-smoke dev
 
 doctor:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli doctor
@@ -18,3 +18,12 @@ demo-baseline:
 
 eval-development:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli eval-development
+
+parser-build:
+	docker build -f sandbox/Dockerfile -t docwork-parser:v1 .
+
+parser-smoke:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m unittest discover -s tests -p 'container_*.py' -v
+
+dev:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli serve

@@ -4,9 +4,9 @@ A local invoice workbench under development. The intended product extracts struc
 
 ## Current status
 
-Phase 0 has a runnable `ocr_rules` spike for two demo PNGs and a separate 12-document, six-layout development set. It normalizes OCR line boxes, extracts header fields and line items, checks source references and arithmetic, and preserves an observed total when it conflicts with a computed total. A local [review and export slice](docs/review.md) stores candidate revisions in SQLite, records issue decisions, binds approvals to exact revisions, and writes JSON/CSV exports. [Bounded intake](docs/intake.md) now stores PDF/PNG/JPEG originals and enqueues durable parser jobs. [Phase 0 notes](docs/phase0.md) record the preflight; the [development report](docs/development-baseline.md) records the measured baseline and its failure cases.
+Phase 0 has a runnable `ocr_rules` spike for two demo PNGs and a separate 12-document, six-layout development set. It normalizes OCR line boxes, extracts header fields and line items, checks source references and arithmetic, and preserves an observed total when it conflicts with a computed total. A local [review and export slice](docs/review.md) stores candidate revisions in SQLite, records issue decisions, binds approvals to exact revisions, and writes JSON/CSV exports. [Bounded intake and a container worker](docs/intake.md) connect stored originals to reviewable single-page candidates. The [browser prototype](docs/browser.md) lets a reviewer inspect OCR evidence, correct fields, acknowledge issues, approve revisions, and download exports. [Phase 0 notes](docs/phase0.md) record the preflight; the [development report](docs/development-baseline.md) records the measured baseline and its failure cases.
 
-The OCR entrypoint is restricted to trusted repository fixtures. Intake accepts other documents for storage and signature checks, but does not parse them yet; an isolated parser is required before those bytes can be processed. The review slice is a local CLI prototype without authentication or a UI; there is no local language model or processing worker yet.
+The fixture OCR command remains restricted to trusted repository samples. Uploaded originals are processed only by the fixed, network-denied Docker parser image. The worker currently supports one page per document and uses Tesseract plus the deterministic baseline; multi-page documents receive an explicit failed job. The browser is a loopback-only prototype with an ephemeral session token, not an authenticated multi-user application. There is no local language model yet. The Docker parser has not been run on this host because the Docker daemon is unavailable; its host-side validation and job handoff are covered by deterministic tests.
 
 ## Run the spike
 
@@ -18,9 +18,13 @@ make test
 make smoke-ocr
 make demo-baseline
 make eval-development
+make dev
 ```
+
+`make dev` prints a one-time browser URL. Seed the trusted samples in the browser for an OCR-backed review demo without Docker. For uploaded documents, start Docker Desktop and run `make parser-build`, then follow [the intake guide](docs/intake.md). Run `make parser-smoke` to exercise the real container.
 
 `make demo-baseline` and `make eval-development` write fresh results to ignored `artifacts/`. The development command verifies every committed image hash and label transform before scoring all 12 pages. The deterministic contract suite runs without Tesseract; `smoke-ocr` exercises real OCR on the committed demo fixtures. No model or dataset download is performed by these commands.
 
 See [review workflow](docs/review.md) for a complete fixture-to-export example.
 See [intake status](docs/intake.md) for the current queued-document boundary.
+See [browser guide](docs/browser.md) for the visual review prototype.

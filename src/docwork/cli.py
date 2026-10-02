@@ -19,6 +19,7 @@ from .intake import IntakeStore
 from .ocr import tesseract_page
 from .review import ReviewBlocked, ReviewConflict, ReviewStore, page_from_dict, record_from_dict
 from .validation import validate_invoice
+from .worker import process_one
 
 
 def _run(args: list[str], timeout: int = 5) -> str | None:
@@ -132,10 +133,23 @@ def main(argv: list[str] | None = None) -> int:
     intake_submit.add_argument("--mime", required=True, choices=("application/pdf", "image/png", "image/jpeg"))
     intake_status = intake_actions.add_parser("status", help="Show submission and job state")
     intake_status.add_argument("document_id")
+    intake_page = intake_actions.add_parser("page", help="Show the verified rendered page path")
+    intake_page.add_argument("document_id")
     intake_retry = intake_actions.add_parser("retry", help="Requeue a failed unreviewed document")
     intake_retry.add_argument("document_id")
+    intake_process = intake_actions.add_parser("process-one", help="Run one job in the isolated parser container")
+    intake_process.add_argument("--worker-id", default="local-worker")
+    intake_process.add_argument("--image", default="docwork-parser:v1")
+    browser = commands.add_parser("serve", help="Run the loopback browser review prototype")
+    browser.add_argument("--db", type=Path, default=Path("artifacts/review.sqlite"))
+    browser.add_argument("--objects", type=Path, default=Path("artifacts/intake"))
+    browser.add_argument("--port", type=int, default=8765)
     args = parser.parse_args(argv)
     try:
+        if args.command == "serve":
+            from .web import serve
+            serve(args.db, args.objects, args.port)
+            return 0
         if args.command == "doctor":
             data = doctor()
         elif args.command == "baseline":
@@ -171,6 +185,11 @@ def main(argv: list[str] | None = None) -> int:
             elif args.action == "retry":
                 store.retry(args.document_id)
                 data = store.status(args.document_id)
+            elif args.action == "process-one":
+                document_id = process_one(store, args.worker_id, image=args.image)
+                data = store.status(document_id) if document_id else {"status": "IDLE"}
+            elif args.action == "page":
+                data = {"document_id": args.document_id, "page_image": str(store.page_image_path(args.document_id))}
             else:
                 data = store.status(args.document_id)
         else:

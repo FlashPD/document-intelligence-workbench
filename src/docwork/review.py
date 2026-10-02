@@ -127,6 +127,7 @@ class ReviewStore:
                     id TEXT PRIMARY KEY, source_sha256 TEXT NOT NULL, source_name TEXT NOT NULL,
                     page_json TEXT NOT NULL, current_revision INTEGER NOT NULL, created_at TEXT NOT NULL,
                     media_type TEXT, size_bytes INTEGER, object_relpath TEXT,
+                    page_image_sha256 TEXT, page_image_relpath TEXT,
                     status TEXT NOT NULL DEFAULT 'REVIEW_READY'
                 );
                 CREATE TABLE IF NOT EXISTS revisions (
@@ -166,6 +167,7 @@ class ReviewStore:
             for name, definition in (
                 ("media_type", "TEXT"), ("size_bytes", "INTEGER"),
                 ("object_relpath", "TEXT"), ("status", "TEXT NOT NULL DEFAULT 'REVIEW_READY'"),
+                ("page_image_sha256", "TEXT"), ("page_image_relpath", "TEXT"),
             ):
                 if name not in columns:
                     db.execute(f"ALTER TABLE documents ADD COLUMN {name} {definition}")
@@ -440,3 +442,27 @@ class ReviewStore:
         with self._connect() as db:
             self._current(db, document_id)
             return [dict(row) for row in db.execute("SELECT revision, kind, actor, detail, created_at FROM review_events WHERE document_id=? ORDER BY id", (document_id,))]
+
+    def exported_file(self, document_id: str, revision: int, format: str, filename: str) -> tuple[bytes, str]:
+        """Return only a file recorded by an immutable export manifest."""
+        if filename not in ("invoice.json", "header.csv", "line-items.csv"):
+            raise KeyError("Unknown export file")
+        with self._connect() as db:
+            self._current(db, document_id)
+            row = db.execute(
+                "SELECT manifest_json FROM exports WHERE document_id=? AND revision=? AND format=? AND schema_version=?",
+                (document_id, revision, format, EXPORT_SCHEMA_VERSION),
+            ).fetchone()
+            if row is None:
+                raise KeyError("Unknown export")
+            manifest = json.loads(row["manifest_json"])
+            entry = next((file for file in manifest["files"] if Path(file["path"]).name == filename), None)
+            if entry is None:
+                raise KeyError("File is not part of this export")
+            path = Path(entry["path"])
+            if not path.resolve().is_relative_to(self.export_root) or path.is_symlink() or not path.is_file():
+                raise ReviewConflict("Export file is missing or replaced")
+            content = path.read_bytes()
+            if hashlib.sha256(content).hexdigest() != entry["sha256"]:
+                raise ReviewConflict("Export file failed checksum verification")
+            return content, "application/json" if filename.endswith(".json") else "text/csv; charset=utf-8"
