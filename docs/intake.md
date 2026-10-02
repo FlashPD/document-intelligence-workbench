@@ -90,7 +90,7 @@ make eval-development
 PYTHONPATH=src python3.12 -m docwork.cli eval-compare artifacts/development-baseline.json artifacts/model-run-001/report.json --allow-change extractor
 ```
 
-See the [development report](development-baseline.md) for measured results and limitations. The pinned profile currently targets Apple Silicon only; Linux/Windows/PC inference needs a separately verified runtime profile.
+See the [development report](development-baseline.md#span-invoice-v2-follow-up--october-2-2026) for measured results and limitations. The pinned profile currently targets Apple Silicon only; Linux/Windows/PC inference needs a separately verified runtime profile.
 
 ## Current boundary
 

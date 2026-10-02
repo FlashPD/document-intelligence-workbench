@@ -44,6 +44,6 @@ The acceptance targets and larger evaluation plan remain in the architecture doc
 
 ## October 2 update: real model feasibility
 
-The [recorded local-model comparison](development-baseline.md#real-local-model-feasibility--october-2-2026) now verifies pinned Qwen3 4B Instruct and llama.cpp assets, real Apple M1 Metal offload, all 12 development predictions, per-stage timing, and sampled process memory. The existing prompt regresses line-total quality from 17/18 to 7/18; the deterministic baseline remains the default. An offline verifier reconstructs the saved scores and checks the evidence bundle.
+The [recorded local-model comparison](development-baseline.md#span-invoice-v2-follow-up--october-2-2026) verifies pinned Qwen3 4B Instruct and llama.cpp assets, real Apple M1 Metal offload, all 12 development predictions, per-stage timing, and sampled process memory. The revised prompt reaches 17/18 line totals and 108/120 headers on this tuned development set; the deterministic baseline remains the default pending held-out evidence and latency work. An offline verifier reconstructs the saved scores and checks the evidence bundle.
 
 Persistence, review/export, queued intake, and multi-page parser integration have also been implemented since the original September 30 spike. The earlier list describes the initial state. Phase 0 is still not fully exited: genuine scan evidence, real container verification, and pinned OCR assets remain open, and the current local-model extraction quality needs improvement. No held-out or human-time claim is made.

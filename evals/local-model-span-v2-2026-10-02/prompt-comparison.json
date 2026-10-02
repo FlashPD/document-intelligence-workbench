@@ -1,0 +1,327 @@
+{
+  "comparison_version": "development-comparison-v1",
+  "status": "pass",
+  "dataset_id": "self-authored-development-v0",
+  "split": "development",
+  "manifest_sha256": "f49e349a900e3d09612d00179027d10730f91786a059707f77ebb57f9589e60d",
+  "reasons": [],
+  "policy": {
+    "max_absolute_regression": 0.02,
+    "gated_metrics": [
+      "required_header_exact",
+      "line_total_exact_by_order",
+      "row_count_exact"
+    ],
+    "declared_changes": [
+      "extractor"
+    ],
+    "decision": "point-estimate regression; confidence intervals are descriptive"
+  },
+  "interpretation": "Development diagnostics only; not held-out quality, release acceptance, or real-invoice accuracy.",
+  "actual_changes": [
+    "extractor"
+  ],
+  "metrics": {
+    "header_exact": {
+      "baseline": 0.625,
+      "candidate": 0.9,
+      "delta": 0.275,
+      "delta_ci95": [
+        0.13333333333333341,
+        0.41666666666666663
+      ]
+    },
+    "required_header_exact": {
+      "baseline": 0.8,
+      "candidate": 0.9,
+      "delta": 0.09999999999999998,
+      "delta_ci95": [
+        0.033333333333333326,
+        0.16666666666666663
+      ]
+    },
+    "line_total_exact_by_order": {
+      "baseline": 0.3888888888888889,
+      "candidate": 0.9444444444444444,
+      "delta": 0.5555555555555556,
+      "delta_ci95": [
+        0.25,
+        0.875
+      ]
+    },
+    "row_count_exact": {
+      "baseline": 0.9166666666666666,
+      "candidate": 0.9166666666666666,
+      "delta": 0.0,
+      "delta_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "all_required_correct": {
+      "baseline": 0.3333333333333333,
+      "candidate": 0.8333333333333334,
+      "delta": 0.5,
+      "delta_ci95": [
+        0.16666666666666669,
+        0.8333333333333334
+      ]
+    },
+    "header_evidence_iou_mean_all_slots": {
+      "baseline": 0.2874,
+      "candidate": 0.4033,
+      "delta": 0.1159,
+      "delta_ci95": [
+        0.06619999999999998,
+        0.16560000000000002
+      ]
+    }
+  },
+  "bootstrap": {
+    "unit": "layout_family",
+    "groups": 6,
+    "samples": 2000,
+    "seed": 1729,
+    "method": "paired percentile; related documents remain in the same family",
+    "limitation": "Six author-created families do not represent arbitrary unseen vendors."
+  },
+  "by_family": [
+    {
+      "family": "classic",
+      "documents": 2,
+      "baseline": {
+        "header_exact": 0.75,
+        "required_header_exact": 0.9,
+        "line_total_exact_by_order": 0.5,
+        "row_count_exact": 1.0,
+        "all_required_correct": 0.5,
+        "header_evidence_iou_mean_all_slots": 0.3672
+      },
+      "candidate": {
+        "header_exact": 1.0,
+        "required_header_exact": 1.0,
+        "line_total_exact_by_order": 1.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 1.0,
+        "header_evidence_iou_mean_all_slots": 0.4665
+      }
+    },
+    {
+      "family": "right_header",
+      "documents": 2,
+      "baseline": {
+        "header_exact": 0.5,
+        "required_header_exact": 0.8,
+        "line_total_exact_by_order": 0.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 0.0,
+        "header_evidence_iou_mean_all_slots": 0.2016
+      },
+      "candidate": {
+        "header_exact": 1.0,
+        "required_header_exact": 1.0,
+        "line_total_exact_by_order": 1.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 1.0,
+        "header_evidence_iou_mean_all_slots": 0.4003
+      }
+    },
+    {
+      "family": "compact",
+      "documents": 2,
+      "baseline": {
+        "header_exact": 0.5,
+        "required_header_exact": 0.8,
+        "line_total_exact_by_order": 0.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 0.0,
+        "header_evidence_iou_mean_all_slots": 0.2691
+      },
+      "candidate": {
+        "header_exact": 1.0,
+        "required_header_exact": 1.0,
+        "line_total_exact_by_order": 1.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 1.0,
+        "header_evidence_iou_mean_all_slots": 0.4678
+      }
+    },
+    {
+      "family": "two_column",
+      "documents": 2,
+      "baseline": {
+        "header_exact": 0.75,
+        "required_header_exact": 0.9,
+        "line_total_exact_by_order": 0.5,
+        "row_count_exact": 1.0,
+        "all_required_correct": 0.5,
+        "header_evidence_iou_mean_all_slots": 0.2852
+      },
+      "candidate": {
+        "header_exact": 1.0,
+        "required_header_exact": 1.0,
+        "line_total_exact_by_order": 1.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 1.0,
+        "header_evidence_iou_mean_all_slots": 0.3845
+      }
+    },
+    {
+      "family": "summary_first",
+      "documents": 2,
+      "baseline": {
+        "header_exact": 1.0,
+        "required_header_exact": 1.0,
+        "line_total_exact_by_order": 1.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 1.0,
+        "header_evidence_iou_mean_all_slots": 0.4674
+      },
+      "candidate": {
+        "header_exact": 1.0,
+        "required_header_exact": 1.0,
+        "line_total_exact_by_order": 1.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 1.0,
+        "header_evidence_iou_mean_all_slots": 0.4674
+      }
+    },
+    {
+      "family": "degraded_orientation",
+      "documents": 2,
+      "baseline": {
+        "header_exact": 0.25,
+        "required_header_exact": 0.4,
+        "line_total_exact_by_order": 0.0,
+        "row_count_exact": 0.5,
+        "all_required_correct": 0.0,
+        "header_evidence_iou_mean_all_slots": 0.1337
+      },
+      "candidate": {
+        "header_exact": 0.4,
+        "required_header_exact": 0.4,
+        "line_total_exact_by_order": 0.5,
+        "row_count_exact": 0.5,
+        "all_required_correct": 0.0,
+        "header_evidence_iou_mean_all_slots": 0.2332
+      }
+    }
+  ],
+  "summaries": {
+    "baseline": {
+      "documents_scheduled": 12,
+      "documents_processed": 12,
+      "header_exact": {
+        "correct": 75,
+        "eligible": 120
+      },
+      "required_header_exact": {
+        "correct": 48,
+        "eligible": 60
+      },
+      "all_required_correct": {
+        "documents": 4,
+        "eligible": 12
+      },
+      "line_total_exact_by_order": {
+        "correct": 7,
+        "eligible": 18
+      },
+      "row_count_exact": {
+        "documents": 11,
+        "eligible": 12
+      },
+      "header_evidence_iou_mean_all_slots": 0.2874,
+      "injected_total_conflicts_detected": {
+        "correct": 1,
+        "eligible": 1
+      },
+      "false_total_conflict_warnings": {
+        "count": 0,
+        "eligible": 11
+      },
+      "sum_ocr_seconds": 5.514,
+      "failures_by_type": {},
+      "sum_model_seconds": 763.726
+    },
+    "candidate": {
+      "documents_scheduled": 12,
+      "documents_processed": 12,
+      "header_exact": {
+        "correct": 108,
+        "eligible": 120
+      },
+      "required_header_exact": {
+        "correct": 54,
+        "eligible": 60
+      },
+      "all_required_correct": {
+        "documents": 10,
+        "eligible": 12
+      },
+      "line_total_exact_by_order": {
+        "correct": 17,
+        "eligible": 18
+      },
+      "row_count_exact": {
+        "documents": 11,
+        "eligible": 12
+      },
+      "header_evidence_iou_mean_all_slots": 0.4033,
+      "injected_total_conflicts_detected": {
+        "correct": 1,
+        "eligible": 1
+      },
+      "false_total_conflict_warnings": {
+        "count": 0,
+        "eligible": 11
+      },
+      "sum_ocr_seconds": 5.652,
+      "failures_by_type": {},
+      "sum_model_seconds": 1037.406
+    }
+  },
+  "extractors": {
+    "baseline": {
+      "variant": "span_llm",
+      "version": "span-invoice-v1",
+      "model_id": "docwork-qwen3-4b-instruct",
+      "prompt_sha256": "bab8c9b9cedafbff670b95b6af742d1c92b2210f9730d18276dec3f34fb60b05",
+      "timeout_seconds": 150,
+      "max_output_tokens": 2048,
+      "weights_identity": "hash-verified assets loaded by an owned, authenticated child process",
+      "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+      "runtime_archive_sha256": "791eb0200a7c846ca925b6274fc21f0f21f537fda2924cc5a47402655816f56e",
+      "profile_sha256": "c453814de617120eea0f5b8d90f0a5dbfa7bfda214071b8dc03610aa03d555f7",
+      "implementation_sha256": "7e458511571c202703fc3466f95b227f5ace08b70514ffb1a91dec289d8e9ce4"
+    },
+    "candidate": {
+      "variant": "span_llm",
+      "version": "span-invoice-v2",
+      "model_id": "docwork-qwen3-4b-instruct",
+      "prompt_sha256": "e95fc231df9974a2fbfec84e9f36171bb9b15e8ce7b39005b8827e5ed4395e25",
+      "timeout_seconds": 150,
+      "max_output_tokens": 2048,
+      "weights_identity": "hash-verified assets loaded by an owned, authenticated child process",
+      "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+      "runtime_archive_sha256": "791eb0200a7c846ca925b6274fc21f0f21f537fda2924cc5a47402655816f56e",
+      "profile_sha256": "c453814de617120eea0f5b8d90f0a5dbfa7bfda214071b8dc03610aa03d555f7",
+      "implementation_sha256": "2155a4e5d01b145162e7b3b2272217877807df37538873dea12d90cc9d2c43f0"
+    }
+  },
+  "failures": {
+    "baseline": [],
+    "candidate": []
+  },
+  "timing_note": "Stage totals are recorded in the input summaries. No latency gate or speedup is claimed: hardware capacity, inference runtime, warmup, and failed-stage timing are not fully captured.",
+  "inputs": {
+    "baseline": {
+      "name": "report.json",
+      "sha256": "a1fce9e42a67985c2475f5ef7da9e04a9b72aa1c6e992935723a347103209a4e"
+    },
+    "candidate": {
+      "name": "report.json",
+      "sha256": "d3a54db61fc9eef19ece572b523bc589cf79ed37e4bf8020438e3b92e6887b53"
+    }
+  }
+}

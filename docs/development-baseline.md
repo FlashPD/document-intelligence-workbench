@@ -114,4 +114,36 @@ PYTHONPATH=src python3.12 -m docwork.cli eval-verify evals/local-model-instruct-
 PYTHONPATH=src python3.12 -m docwork.cli eval-compare evals/local-model-instruct-2026-10-02/baseline.json evals/local-model-instruct-2026-10-02/model/report.json --allow-change extractor
 ```
 
-For new inference, follow the [pinned model runbook](intake.md#pinned-local-model-evaluation) with a new output directory. The next extraction experiment should address numeric value representation and table/row context, then repeat this same development comparison. Genuine scanned documents, verified container execution, pinned OCR assets, the larger separated invoice/receipt corpora, held-out scoring, and a human review pilot remain open release requirements.
+For new inference, follow the [pinned model runbook](intake.md#pinned-local-model-evaluation) with a new output directory. The v2 experiment below addresses numeric value representation and table/row context. Genuine scanned documents, verified container execution, pinned OCR assets, the larger separated invoice/receipt corpora, held-out scoring, and a human review pilot remain open release requirements.
+
+## `span-invoice-v2` follow-up — October 2, 2026
+
+**Decision: the revised span model passes the development comparison; retain `ocr_rules` as the product default until held-out quality and latency are addressed.** The prompt now explicitly extracts every labeled amount before rows, rejects placeholders, and asks the model to align separately recognized line totals by page position. Each model input includes the OCR span's normalized box. This is one combined prompt-and-input experiment, so the run does not isolate which change caused the improvement. The source snapshot and prompt hash identify the exact implementation.
+
+The [verified model bundle](../evals/local-model-span-v2-2026-10-02/model/report.json), [paired OCR-rules comparison](../evals/local-model-span-v2-2026-10-02/comparison.json), and [v1-to-v2 comparison](../evals/local-model-span-v2-2026-10-02/prompt-comparison.json) preserve all 12 predictions, original OCR spans, runtime log, and per-document scores. This run used the same frozen author-created development set, pinned Qwen3-4B-Instruct-2507 Q4_K_M weights, llama.cpp b11149 runtime, Apple M1/16 GB Mac, and serial evaluation protocol as v1.
+
+| Diagnostic | OCR rules | Span model v1 | Span model v2 |
+|---|---:|---:|---:|
+| Documents processed | 12/12 | 12/12 | 12/12 |
+| Exact header values | 100/120 | 75/120 | 108/120 |
+| Exact required header values | 48/60 | 48/60 | 54/60 |
+| Documents with all required fields correct | 8/12 | 4/12 | 10/12 |
+| Exact line totals by source order | 17/18 | 7/18 | 17/18 |
+| Correct row count | 11/12 | 11/12 | 11/12 |
+| Mean header evidence-box IoU | 0.3810 | 0.2874 | 0.4033 |
+| Injected total conflict detected | 1/1 | 1/1 | 1/1 |
+
+Against OCR rules, v2 gains 0.067 absolute header accuracy and 0.100 required-header accuracy, with no line-total regression. The paired six-family bootstrap intervals include zero for these improvements, so this small tuned set does not establish a general gain. Against v1, v2 gains 0.275 header accuracy and 0.556 line-total accuracy; the comparison gate passes. All denominators include every scheduled page.
+
+The first ten documents have all header values and line totals correct. On both summary-first invoices, however, the model appends each quantity to its row description (`Design review 2` instead of `Design review`), so correct line totals do not mean fully correct rows. On the blurred/low-contrast `dev-06-01`, the OCR date strings remain ambiguous; validation flags both dates. On the sideways `dev-06-02`, OCR is unusable for this schema and the model emits six invalid rows; validation blocks those values. The intentionally conflicting `dev-05-02` keeps the printed total and raises `TOTAL_MISMATCH`. These cases remain in the report rather than being removed from the scores. The current scorer checks row count and line totals, not full description/quantity/unit-price accuracy, and its row matching is by source order; a release evaluator still needs the planned frozen row matcher and full row-field metrics.
+
+The v2 model stage took 1,037.406 seconds across 12 pages (about 86.45 seconds per page), compared with 763.726 seconds for v1. The managed process lived 1,047.965 seconds including startup and shutdown. Sampled peak server RSS was 5,001,379,840 bytes (about 4.66 GiB); this is not total application RAM or GPU allocation. The saved log confirms Metal offload. The model is more accurate on this development set but slower, and a fresh-checkout or real-container run remains unverified.
+
+Recheck the recorded evidence offline and reproduce the paired gate:
+
+```sh
+PYTHONPATH=src python3.12 -m docwork.cli eval-verify evals/local-model-span-v2-2026-10-02/model
+PYTHONPATH=src python3.12 -m docwork.cli eval-compare evals/local-model-span-v2-2026-10-02/baseline.json evals/local-model-span-v2-2026-10-02/model/report.json --allow-change extractor
+```
+
+This is a development result from layouts used during prompt design. Genuine scanned invoices, a separate calibration and held-out synthetic corpus, real receipt evaluation, a row-field scorer, review timing, and Docker parser execution remain open before portfolio release claims.

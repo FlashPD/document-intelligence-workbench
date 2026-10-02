@@ -48,6 +48,8 @@ class LocalModelTests(unittest.TestCase):
         self.assertEqual(len(requests), 2)
         self.assertEqual(requests[0]["response_format"]["type"], "json_object")
         self.assertIn("p1-l0001", requests[0]["messages"][1]["content"])
+        self.assertEqual(json.loads(requests[0]["messages"][1]["content"])["spans"][0]["box"],
+                         [.1, .1, .9, .2])
         self.assertEqual(len(requests[1]["messages"]), 3)
 
     def test_duplicate_keys_and_extra_fields_are_rejected(self):
