@@ -4,17 +4,22 @@ from __future__ import annotations
 
 import hashlib
 import json
+import platform
 import subprocess
 from collections import Counter
 from dataclasses import asdict
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable
 
 from .baseline import BASELINE_VERSION
-from .contracts import Box, HEADER_FIELDS, REQUIRED_FIELDS
+from .contracts import Box, CONTRACT_VERSION, HEADER_FIELDS, REQUIRED_FIELDS
 from .geometry import DisplayTransform, PixelBox
 from .local_model import ModelContextOverflow, ModelOutputInvalid, ModelRequestRejected, ModelUnavailable
 from .ocr import png_dimensions
+
+REPORT_VERSION = "development-evaluation-v1"
+SCORING_VERSION = "canonical-exact-source-order-v1"
 
 
 def _box(mapping: dict) -> Box:
@@ -89,6 +94,7 @@ def score_document(gold: dict, result: dict | None) -> dict:
     score = {
         "id": gold["id"],
         "family": gold["family"],
+        "family_group": gold["family_group"],
         "treatment": gold["treatment"],
         "processed": predicted is not None,
         "header_exact": field_matches,
@@ -125,18 +131,24 @@ def summarize_document_scores(scores: list[dict]) -> dict:
         },
         "all_required_correct": {"documents": sum(item["required_all_exact"] for item in scores), "eligible": len(scores)},
         "line_total_exact_by_order": {"correct": sum(sum(item["row_amount_exact_by_order"]) for item in scores), "eligible": row_slots},
-        "row_count_exact": {"documents": sum(item["gold_row_count"] == item["predicted_row_count"] for item in scores), "eligible": len(scores)},
+        "row_count_exact": {"documents": sum(item["processed"] and item["gold_row_count"] == item["predicted_row_count"] for item in scores), "eligible": len(scores)},
         "header_evidence_iou_mean_all_slots": round(sum(sum(item["header_evidence_iou"].values()) for item in scores) / header_slots, 4),
         "injected_total_conflicts_detected": {"correct": sum(item["total_mismatch_detected"] for item in injected), "eligible": len(injected)},
         "false_total_conflict_warnings": {"count": sum(item["total_mismatch_detected"] for item in normal), "eligible": len(normal)},
         "sum_ocr_seconds": round(sum(item["ocr_seconds"] or 0 for item in scores), 3),
+        "failures_by_type": dict(sorted(Counter(
+            item.get("failure_type", "MissingPrediction") for item in scores if not item["processed"]
+        ).items())),
     }
     if any(item.get("model_seconds") is not None for item in scores):
         summary["sum_model_seconds"] = round(sum(item.get("model_seconds") or 0 for item in scores), 3)
     return summary
 
 
-def evaluate_development(repo_root: Path, run_baseline: Callable[[Path], dict]) -> dict:
+def evaluate_development(repo_root: Path, run_baseline: Callable[[Path], dict], *,
+                         extractor: dict | None = None, evidence_kind: str = "fresh") -> dict:
+    if evidence_kind not in {"fresh", "replay", "test"}:
+        raise ValueError("unknown evaluation evidence kind")
     manifest_path = repo_root / "datasets" / "development-v0.json"
     manifest_bytes = manifest_path.read_bytes()
     manifest = json.loads(manifest_bytes)
@@ -157,8 +169,23 @@ def evaluate_development(repo_root: Path, run_baseline: Callable[[Path], dict]) 
             if runtime_versions is None:
                 runtime_versions = {"python": result["python_version"], "tesseract": result["tesseract_version"]}
         scores.append(score)
+    extractor = dict(extractor or {"variant": "ocr_rules", "version": BASELINE_VERSION})
+    source_hash = hashlib.sha256()
+    pipeline_files = ["contracts.py", "geometry.py", "ocr.py", "validation.py",
+                      "local_model.py" if extractor["variant"] == "span_llm" else "baseline.py"]
+    for name in sorted(pipeline_files):
+        source_hash.update(name.encode() + b"\0" + Path(__file__).with_name(name).read_bytes() + b"\0")
+    extractor["implementation_sha256"] = source_hash.hexdigest()
     return {
-        "mode": "fresh_development_ocr_rules",
+        "report_version": REPORT_VERSION,
+        "scoring_version": SCORING_VERSION,
+        "schema_version": CONTRACT_VERSION,
+        "split": manifest["split"],
+        "evidence_kind": evidence_kind,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "extractor": extractor,
+        "environment": {"platform": platform.platform(), "machine": platform.machine()},
+        "mode": f"{evidence_kind}_development_{extractor['variant']}",
         "baseline_version": BASELINE_VERSION,
         "dataset_id": manifest["dataset_id"],
         "manifest_sha256": hashlib.sha256(manifest_bytes).hexdigest(),

@@ -1,7 +1,7 @@
 PYTHON ?= python3.12
 PYTHONPATH := src
 
-.PHONY: doctor test smoke-ocr demo-baseline eval-development parser-build parser-smoke dev
+.PHONY: doctor test smoke-ocr demo-baseline eval-development eval-repeatability parser-build parser-smoke dev
 
 doctor:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli doctor
@@ -18,6 +18,11 @@ demo-baseline:
 
 eval-development:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli eval-development
+
+eval-repeatability:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli eval-development --output artifacts/development-baseline-current.json
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli eval-development --output artifacts/development-baseline-repeat.json
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli eval-compare artifacts/development-baseline-current.json artifacts/development-baseline-repeat.json
 
 parser-build:
 	docker build -f sandbox/Dockerfile -t docwork-parser:v2 .

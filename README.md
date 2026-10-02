@@ -27,6 +27,8 @@ make dev
 
 The optional `eval-development-model` command scores a configured loopback model on the same development images and counts failures. See [the intake guide](docs/intake.md) for the local endpoint setup and command.
 
+`make eval-repeatability` runs the development OCR baseline twice and writes an audited JSON comparison and a standalone HTML report to `artifacts/development-comparison.*`. The comparison includes paired intervals, per-layout scores, and failure counts. `eval-compare` rejects incompatible or incomplete reports and returns a nonzero exit code for regressions or unusable evidence. See the [comparison guide and measured repeatability check](docs/development-baseline.md#development-comparison-gate). A passing development gate does not establish release readiness or held-out accuracy.
+
 See [review workflow](docs/review.md) for a complete fixture-to-export example.
 See [intake status](docs/intake.md) for the current queued-document boundary.
 See [browser guide](docs/browser.md) for the visual review prototype.

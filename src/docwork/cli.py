@@ -14,6 +14,7 @@ from dataclasses import asdict
 from pathlib import Path
 
 from .baseline import BASELINE_VERSION, extract_invoice
+from .comparison import ALLOWED_CHANGES, compare_files, render_html
 from .evaluation import evaluate_development
 from .intake import IntakeStore
 from .local_model import (
@@ -131,6 +132,15 @@ def main(argv: list[str] | None = None) -> int:
     model_eval.add_argument("--model-endpoint", required=True)
     model_eval.add_argument("--model-id", required=True)
     model_eval.add_argument("--output", type=Path, default=Path("artifacts/development-model.json"))
+    comparison = commands.add_parser("eval-compare", help="Audit and compare two fresh development runs")
+    comparison.add_argument("baseline", type=Path)
+    comparison.add_argument("candidate", type=Path)
+    comparison.add_argument("--allow-change", action="append", choices=ALLOWED_CHANGES, default=[])
+    comparison.add_argument("--max-regression", type=float, default=.02)
+    comparison.add_argument("--bootstrap-samples", type=int, default=2000)
+    comparison.add_argument("--seed", type=int, default=1729)
+    comparison.add_argument("--output", type=Path, default=Path("artifacts/development-comparison.json"))
+    comparison.add_argument("--html", type=Path, default=Path("artifacts/development-comparison.html"))
     review = commands.add_parser("review", help="Local review of trusted fixture candidates")
     review.add_argument("--db", type=Path, default=Path("artifacts/review.sqlite"))
     actions = review.add_subparsers(dest="action", required=True)
@@ -187,6 +197,7 @@ def main(argv: list[str] | None = None) -> int:
     browser.add_argument("--objects", type=Path, default=Path("artifacts/intake"))
     browser.add_argument("--port", type=int, default=8765)
     args = parser.parse_args(argv)
+    exit_code = 0
     try:
         if args.command == "serve":
             from .web import serve
@@ -199,12 +210,29 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "eval-development-model":
             config = LocalModelConfig(args.model_endpoint, args.model_id)
             data = evaluate_development(Path(__file__).resolve().parents[2],
-                                        lambda path: model_fixture(path, config))
+                                        lambda path: model_fixture(path, config), extractor={
+                                            "variant": "span_llm", "version": PROMPT_VERSION,
+                                            "model_id": config.model_id, "prompt_sha256": PROMPT_SHA256,
+                                            "timeout_seconds": config.timeout_seconds,
+                                            "max_output_tokens": config.max_output_tokens,
+                                            "weights_identity": "server alias; weights hash not verified",
+                                        })
             data["mode"] = "fresh_development_span_llm"
             data["extractor_version"] = PROMPT_VERSION
             data["model_id"] = config.model_id
             data["prompt_sha256"] = PROMPT_SHA256
             del data["baseline_version"]
+        elif args.command == "eval-compare":
+            inputs = {args.baseline.resolve(), args.candidate.resolve(),
+                      (Path(__file__).resolve().parents[2] / "datasets" / "development-v0.json").resolve()}
+            if args.output.resolve() in inputs or args.html.resolve() in inputs or args.output.resolve() == args.html.resolve():
+                raise ValueError("comparison output paths must be distinct from each other and the inputs")
+            data = compare_files(args.baseline, args.candidate, Path(__file__).resolve().parents[2],
+                                 allow_changes=tuple(args.allow_change), max_regression=args.max_regression,
+                                 bootstrap_samples=args.bootstrap_samples, seed=args.seed)
+            args.html.parent.mkdir(parents=True, exist_ok=True)
+            args.html.write_text(render_html(data))
+            exit_code = {"pass": 0, "regression": 1, "unusable_evidence": 2}[data["status"]]
         elif args.command == "review":
             store = ReviewStore(args.db)
             if args.action == "seed":
@@ -252,13 +280,15 @@ def main(argv: list[str] | None = None) -> int:
     except (KeyError, OSError, RuntimeError, ValueError, ReviewConflict, ReviewBlocked, subprocess.TimeoutExpired) as exc:
         parser.exit(2, f"docwork: {exc}\n")
     rendered = json.dumps(data, indent=2) + "\n"
-    if args.command in ("baseline", "eval-development", "eval-development-model") and args.output:
+    if args.command in ("baseline", "eval-development", "eval-development-model", "eval-compare") and args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(rendered)
         print(args.output)
+        if args.command == "eval-compare":
+            print(f"{data['status']}: {args.html}")
     else:
         print(rendered, end="")
-    return 0
+    return exit_code
 
 
 if __name__ == "__main__":
