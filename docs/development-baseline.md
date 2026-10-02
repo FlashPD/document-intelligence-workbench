@@ -21,7 +21,7 @@ Exact header scoring compares canonical strings, with no fuzzy normalization. Mi
 
 The first regex-only pass found 4/18 line totals because Tesseract separated many rightmost amounts into their own spans. A development change joined spans on the same page row using vertical position, yielding 17/18. The remaining missing row is on the sideways page; the current OCR adapter does not rotate it upright. The two-column family also omits colons and merges header text across columns, leaving required fields missing. The low-contrast page renders dates as `MM/DD/YYYY`, which the strict parser flags as ambiguous rather than silently guessing a locale.
 
-These measurements show feasibility and specific failure modes only. They do not establish accuracy on held-out synthetic invoices, real invoices, or CORD receipts. No local language model, isolated parser, review workflow, or human-time comparison has been measured yet.
+These September 30 measurements show feasibility and specific failure modes only. They do not establish accuracy on held-out synthetic invoices, real invoices, or CORD receipts. At that point, no local language model, isolated parser, review workflow, or human-time comparison had been measured. The subsequent model experiment is recorded below.
 
 ## Development comparison gate
 
@@ -69,3 +69,49 @@ PYTHONPATH=src python3.12 -m docwork.cli eval-compare evals/development-repeatab
 ```
 
 This checks repeatability of the same rules extractor, not a model improvement. A fresh real-model comparison, pinned runtime/assets, the larger separated invoice/receipt corpora, and held-out scoring remain necessary for the portfolio release.
+
+## Real local model feasibility — October 2, 2026
+
+**Decision: retain `ocr_rules` as the default.** Qwen3-4B-Instruct-2507 Q4_K_M with the existing `span-invoice-v1` prompt completed all 12 development documents, but the line-total gate returned `regression`. This is an unsuccessful candidate quality comparison with a working, reproducible inference workflow. It is not a release-quality claim or a Docling/layout-model experiment.
+
+The [fresh baseline](../evals/local-model-instruct-2026-10-02/baseline.json), [model report](../evals/local-model-instruct-2026-10-02/model/report.json), and [paired comparison](../evals/local-model-instruct-2026-10-02/comparison.json) account for every scheduled document. The model bundle includes all original candidate predictions and OCR spans, the extraction source snapshot, exact profile, hardware preflight, and runtime log. `eval-verify` checks artifact hashes and reconstructs all scores without loading a model. Deterministic CI verifies these recorded artifacts; it does not generate fresh model predictions.
+
+| Diagnostic | OCR rules | Local span model |
+|---|---:|---:|
+| Documents processed | 12/12 | 12/12 |
+| Exact header values | 100/120 | 75/120 |
+| Exact required header values | 48/60 | 48/60 |
+| Documents with all required fields correct | 8/12 | 4/12 |
+| Exact line totals by source order | 17/18 | 7/18 |
+| Correct row count | 11/12 | 11/12 |
+| Mean header evidence-box IoU | 0.3810 | 0.2874 |
+| Injected total conflict detected | 1/1 | 1/1 |
+| False total-conflict warnings | 0/11 | 0/11 |
+
+The line-total delta is −0.556, with a descriptive 95% paired layout-family bootstrap interval of [−0.875, −0.250]. Required-field accuracy ties at 0.80, while the number of entirely correct required-field records halves. That tradeoff would be hidden by looking only at the aggregate required-field rate. The six-family, author-created development set remains too small and too familiar to establish unseen-vendor performance.
+
+Representative errors are inspectable in the preserved predictions:
+
+- [Classic invoice `dev-01-01`](../evals/local-model-instruct-2026-10-02/model/predictions/dev-01-01.json): OCR contains `Subtotal: 150.00` and `Total: 160.00`, but the model returns null for both. Eight of the 12 documents have missing model totals. This is an extraction failure even though the response passes the JSON schema.
+- [Two-column invoice `dev-04-01`](../evals/local-model-instruct-2026-10-02/model/predictions/dev-04-01.json): all ten headers and both line totals are correct, but both quantities are the literal string `value`. Evidence and numeric validation block review completion. Across the two-column family, required-field accuracy improves from 0.40 to 0.90 while row-amount accuracy declines from 1.00 to 0.50.
+- [Conflicting invoice `dev-05-02`](../evals/local-model-instruct-2026-10-02/model/predictions/dev-05-02.json): the model preserves observed total `424.00`; validation reports the conflict with computed `419.00`. A quantity error also remains. Correctly detecting the total conflict does not make the whole record correct.
+
+Eleven model candidates have at least one blocking validation issue. That is a review-required count, not a measured human workload or review-time improvement. No candidate was automatically approved or exported.
+
+### Runtime and reproduction
+
+The [profile](../config/model-mac-instruct.json) pins the 2,497,281,120-byte model and llama.cpp b11149 archive by SHA-256 and source revision. The owned child process uses one 8192-token slot, temperature 0, seed 42, a 2048-token output cap, and a 150-second request timeout. The prompt was not tuned during this run. A separate clean-demo smoke check preceded the full evaluation; it is excluded from these 12-document metrics.
+
+On the Apple M1 / 16 GB Mac, the [runtime log](../evals/local-model-instruct-2026-10-02/model/server.log) confirms all 37/37 layers offloaded to the Apple M1 Metal device. Median model stage time was 65.614 seconds per page (range 33.686–84.603), totaling 763.726 seconds. OCR added 5.514 seconds; the entire managed command took 776.256 seconds including verification, startup, recording, and shutdown. Sampled peak server RSS was 4,841,783,296 bytes (about 4.51 GiB) across 764 samples. This is process RSS, not a separately measured GPU peak or full application memory footprint.
+
+There was no explicit warmup and no clearing of OS/Metal caches. Later requests could reuse prompt prefixes. These are exploratory serial feasibility measurements, not a controlled throughput or cold/warm comparison. The server exited and its extracted temporary runtime directory was removed before the final report was written.
+
+```sh
+# Recheck recorded evidence offline; no model download or inference.
+PYTHONPATH=src python3.12 -m docwork.cli eval-verify evals/local-model-instruct-2026-10-02/model
+
+# Recreate the comparison and HTML report. Exit 1 is the expected regression.
+PYTHONPATH=src python3.12 -m docwork.cli eval-compare evals/local-model-instruct-2026-10-02/baseline.json evals/local-model-instruct-2026-10-02/model/report.json --allow-change extractor
+```
+
+For new inference, follow the [pinned model runbook](intake.md#pinned-local-model-evaluation) with a new output directory. The next extraction experiment should address numeric value representation and table/row context, then repeat this same development comparison. Genuine scanned documents, verified container execution, pinned OCR assets, the larger separated invoice/receipt corpora, held-out scoring, and a human review pilot remain open release requirements.

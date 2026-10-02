@@ -10,7 +10,7 @@ import hashlib
 import json
 import urllib.error
 import urllib.request
-from dataclasses import dataclass, replace
+from dataclasses import dataclass, field, replace
 from typing import Callable
 from urllib.parse import urlsplit
 
@@ -76,6 +76,7 @@ class LocalModelConfig:
     model_id: str
     timeout_seconds: int = 90
     max_output_tokens: int = 2048
+    api_key: str | None = field(default=None, repr=False)
 
     def __post_init__(self) -> None:
         parsed = urlsplit(self.endpoint)
@@ -87,6 +88,9 @@ class LocalModelConfig:
             raise ValueError("A bounded model ID is required")
         if not 1 <= self.timeout_seconds <= 150 or not 128 <= self.max_output_tokens <= 4096:
             raise ValueError("Model timeout or output token limit is outside bounds")
+        if self.api_key is not None and (not self.api_key or len(self.api_key) > 256
+                                        or any(not 33 <= ord(char) <= 126 for char in self.api_key)):
+            raise ValueError("Model API key must be bounded printable ASCII without whitespace")
 
     @property
     def url(self) -> str:
@@ -113,8 +117,10 @@ def _json_strict(encoded: str | bytes) -> object:
 
 def _request(config: LocalModelConfig, payload: dict) -> str:
     body = json.dumps(payload, ensure_ascii=False, separators=(",", ":")).encode()
-    request = urllib.request.Request(config.url, data=body, method="POST",
-                                     headers={"Content-Type": "application/json"})
+    headers = {"Content-Type": "application/json"}
+    if config.api_key is not None:
+        headers["Authorization"] = f"Bearer {config.api_key}"
+    request = urllib.request.Request(config.url, data=body, method="POST", headers=headers)
     try:
         with urllib.request.build_opener(urllib.request.ProxyHandler({}), _NoRedirect).open(
             request, timeout=config.timeout_seconds

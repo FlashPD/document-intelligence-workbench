@@ -41,3 +41,9 @@ A separate [12-document development report](development-baseline.md) now measure
 4. Add persistence, review revisions, approvals, and immutable export as the first product slice after the feasibility work.
 
 The acceptance targets and larger evaluation plan remain in the architecture document. No held-out quality or review-time claim is made here.
+
+## October 2 update: real model feasibility
+
+The [recorded local-model comparison](development-baseline.md#real-local-model-feasibility--october-2-2026) now verifies pinned Qwen3 4B Instruct and llama.cpp assets, real Apple M1 Metal offload, all 12 development predictions, per-stage timing, and sampled process memory. The existing prompt regresses line-total quality from 17/18 to 7/18; the deterministic baseline remains the default. An offline verifier reconstructs the saved scores and checks the evidence bundle.
+
+Persistence, review/export, queued intake, and multi-page parser integration have also been implemented since the original September 30 spike. The earlier list describes the initial state. Phase 0 is still not fully exited: genuine scan evidence, real container verification, and pinned OCR assets remain open, and the current local-model extraction quality needs improvement. No held-out or human-time claim is made.

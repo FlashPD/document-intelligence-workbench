@@ -132,6 +132,14 @@ def main(argv: list[str] | None = None) -> int:
     model_eval.add_argument("--model-endpoint", required=True)
     model_eval.add_argument("--model-id", required=True)
     model_eval.add_argument("--output", type=Path, default=Path("artifacts/development-model.json"))
+    managed_eval = commands.add_parser("eval-local-model", help="Verify assets and own a local model server for evaluation")
+    managed_eval.add_argument("--profile", type=Path, default=Path("config/model-mac-instruct.json"))
+    managed_eval.add_argument("--output-dir", type=Path, required=True, help="New directory for scores, predictions, and runtime evidence")
+    models = commands.add_parser("models", help="Explicitly fetch or verify pinned model/runtime assets")
+    models.add_argument("action", choices=("fetch", "verify"))
+    models.add_argument("--profile", type=Path, default=Path("config/model-mac-instruct.json"))
+    verify_evidence = commands.add_parser("eval-verify", help="Verify and rescore saved model evidence without inference")
+    verify_evidence.add_argument("run_directory", type=Path)
     comparison = commands.add_parser("eval-compare", help="Audit and compare two fresh development runs")
     comparison.add_argument("baseline", type=Path)
     comparison.add_argument("candidate", type=Path)
@@ -207,6 +215,25 @@ def main(argv: list[str] | None = None) -> int:
             data = doctor()
         elif args.command == "baseline":
             data = baseline_fixture(args.fixture)
+        elif args.command == "models":
+            from .model_runtime import fetch_assets, load_profile, verify_assets
+            profile = load_profile(args.profile)
+            root = Path(__file__).resolve().parents[2]
+            if args.action == "fetch":
+                data = fetch_assets(root, profile)
+            else:
+                paths = verify_assets(root, profile)
+                data = {"profile": profile["profile"], "status": "verified",
+                        "assets": {key: str(path) for key, path in paths.items()}}
+        elif args.command == "eval-local-model":
+            from .model_runtime import run_managed_evaluation
+            data = run_managed_evaluation(Path(__file__).resolve().parents[2], args.profile,
+                                          args.output_dir, model_fixture)
+            print(args.output_dir / "report.json")
+            return 0 if data["summary"]["documents_processed"] == data["summary"]["documents_scheduled"] else 2
+        elif args.command == "eval-verify":
+            from .evidence import verify_model_evidence
+            data = verify_model_evidence(args.run_directory, Path(__file__).resolve().parents[2])
         elif args.command == "eval-development-model":
             config = LocalModelConfig(args.model_endpoint, args.model_id)
             data = evaluate_development(Path(__file__).resolve().parents[2],
