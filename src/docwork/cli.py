@@ -149,6 +149,11 @@ def main(argv: list[str] | None = None) -> int:
     comparison.add_argument("--seed", type=int, default=1729)
     comparison.add_argument("--output", type=Path, default=Path("artifacts/development-comparison.json"))
     comparison.add_argument("--html", type=Path, default=Path("artifacts/development-comparison.html"))
+    release_score = commands.add_parser("eval-score-invoices", help="Score saved invoice predictions against a frozen manifest")
+    release_score.add_argument("manifest", type=Path)
+    release_score.add_argument("predictions", type=Path)
+    release_score.add_argument("--split", choices=("development", "calibration", "test"), required=True)
+    release_score.add_argument("--output", type=Path, required=True, help="New immutable report path")
     review = commands.add_parser("review", help="Local review of trusted fixture candidates")
     review.add_argument("--db", type=Path, default=Path("artifacts/review.sqlite"))
     actions = review.add_subparsers(dest="action", required=True)
@@ -264,6 +269,16 @@ def main(argv: list[str] | None = None) -> int:
             args.html.parent.mkdir(parents=True, exist_ok=True)
             args.html.write_text(render_html(data))
             exit_code = {"pass": 0, "regression": 1, "unusable_evidence": 2}[data["status"]]
+        elif args.command == "eval-score-invoices":
+            from .release_evaluation import score_saved_invoice_run
+            from .review import _atomic_write
+            output = args.output.resolve()
+            if output == args.manifest.resolve() or output.is_relative_to(args.predictions.resolve()):
+                raise ValueError("Report path must be outside the manifest and prediction directory")
+            data = score_saved_invoice_run(args.manifest, args.predictions, args.split)
+            _atomic_write(output, (json.dumps(data, indent=2) + "\n").encode("utf-8"))
+            print(output)
+            return 2 if data["status"] == "incomplete_evidence" else 0
         elif args.command == "review":
             store = ReviewStore(args.db)
             if args.action == "seed":

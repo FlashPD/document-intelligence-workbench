@@ -10,6 +10,8 @@ The fixture OCR command remains restricted to trusted repository samples. Upload
 
 `docwork intake reconcile` audits stored originals and page renders, and can prune aged unreferenced files after checking referenced artifacts. See [the intake guide](docs/intake.md#audit-stored-artifacts).
 
+The [frozen invoice scoring contract](docs/release-evaluation.md) adds order-independent duplicate-row matching, split checks, and hash-linked reports for the planned larger corpus. It has not produced held-out quality results yet.
+
 ## Run the spike
 
 On macOS with Python 3.12 and Tesseract with English language data:
