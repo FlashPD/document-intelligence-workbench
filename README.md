@@ -10,7 +10,9 @@ The fixture OCR command remains restricted to trusted repository samples. Upload
 
 `docwork intake reconcile` audits stored originals and page renders, and can prune aged unreferenced files after checking referenced artifacts. See [the intake guide](docs/intake.md#audit-stored-artifacts).
 
-The [frozen invoice scoring contract](docs/release-evaluation.md) adds order-independent duplicate-row matching, split checks, and hash-linked reports for the planned larger corpus. It has not produced held-out quality results yet.
+The [frozen invoice scoring contract](docs/release-evaluation.md) adds order-independent duplicate-row matching, split checks, and hash-linked reports for the larger corpus. It has not produced held-out quality results yet.
+
+The [self-authored invoice corpus](docs/invoice-corpus.md) now has 540 hash-verified documents across 18 isolated layout families and three 180-document splits, including multi-page PDFs and degraded derivatives. Run `PYTHONPATH=src python3.12 -m docwork.cli eval-verify-corpus` to check its assets and labels. The test split has not been scored.
 
 ## Run the spike
 

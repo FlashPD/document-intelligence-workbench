@@ -78,6 +78,12 @@ class ReleaseScoringTests(unittest.TestCase):
         self.assertEqual(score_invoice(source, prediction)["exact_rows"], 2)
         self.assertEqual(summarize_invoices([score_invoice(source, prediction)])["header_fields"]["total"]["tp"], 1)
 
+    def test_in_process_record_tuple_rows_are_scored(self):
+        source = gold()
+        prediction = candidate(source)
+        prediction["line_items"] = tuple(prediction["line_items"])
+        self.assertEqual(score_invoice(source, prediction)["exact_rows"], 2)
+
     def test_unrelated_rows_are_not_matched_by_one_shared_number(self):
         source = gold()
         row = {"description": "Other service", "quantity": "7", "unit_price": "99.00",
@@ -96,6 +102,19 @@ class ReleaseScoringTests(unittest.TestCase):
         source["fields"]["total"] = "NaN"
         with self.assertRaisesRegex(ValueError, "Invalid gold amount"):
             score_invoice(source, None)
+
+    def test_ambiguous_date_is_excluded_with_an_explicit_reason(self):
+        source = gold()
+        source["field_exclusions"] = {"issue_date": "ambiguous_printed_date"}
+        prediction = candidate(source)
+        prediction["fields"]["issue_date"]["value"] = "2026-12-09"
+        score = score_invoice(source, prediction)
+        summary = summarize_invoices([score])
+        self.assertIsNone(score["required_all_exact"])
+        self.assertEqual(summary["all_required_exact"]["eligible"], 0)
+        self.assertEqual(summary["header_field_exclusions"]["issue_date"], 1)
+        self.assertEqual(summary["header_fields"]["issue_date"]["tp"], 0)
+        self.assertEqual(summary["header_fields"]["issue_date"]["fp"], 0)
 
     def test_global_assignment_matches_exhaustive_small_cases(self):
         rng = random.Random(1729)

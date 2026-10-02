@@ -128,6 +128,8 @@ def main(argv: list[str] | None = None) -> int:
     baseline.add_argument("--output", type=Path)
     development = commands.add_parser("eval-development", help="Score all frozen self-authored development PNGs")
     development.add_argument("--output", type=Path, default=Path("artifacts/development-baseline.json"))
+    corpus = commands.add_parser("eval-verify-corpus", help="Verify the frozen 540-document invoice corpus")
+    corpus.add_argument("manifest", type=Path, nargs="?", default=Path("datasets/invoices-v1/manifest.json"))
     model_eval = commands.add_parser("eval-development-model", help="Score the local span model on the same development PNGs")
     model_eval.add_argument("--model-endpoint", required=True)
     model_eval.add_argument("--model-id", required=True)
@@ -224,6 +226,9 @@ def main(argv: list[str] | None = None) -> int:
             data = doctor()
         elif args.command == "baseline":
             data = baseline_fixture(args.fixture)
+        elif args.command == "eval-verify-corpus":
+            from .corpus import verify_synthetic_corpus
+            data = verify_synthetic_corpus(args.manifest)
         elif args.command == "models":
             from .model_runtime import fetch_assets, load_profile, verify_assets
             profile = load_profile(args.profile)

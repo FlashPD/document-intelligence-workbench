@@ -136,13 +136,17 @@ def score_invoice(gold: dict, prediction: dict | None) -> dict:
     """Score one invoice; `None` is a failed extraction, not an omitted document."""
     if not isinstance(gold, dict) or set(gold.get("fields", {})) != set(HEADER_FIELDS):
         raise ValueError("Gold invoice must label every header field, using null for absent values")
+    exclusions = gold.get("field_exclusions", {})
+    if (not isinstance(exclusions, dict) or not set(exclusions).issubset(HEADER_FIELDS) or
+            any(not isinstance(reason, str) or not reason.strip() for reason in exclusions.values())):
+        raise ValueError("Field exclusions need named invoice fields and nonempty reasons")
     record = prediction.get("record") if prediction is not None and "record" in prediction else prediction
     if record is not None and (not isinstance(record, dict) or not isinstance(record.get("fields"), dict)):
         raise ValueError("Prediction must be an invoice record or contain a record")
     gold_rows = gold.get("line_items")
     predicted_rows = record.get("line_items", []) if record is not None else []
-    if not isinstance(gold_rows, list) or not isinstance(predicted_rows, list):
-        raise ValueError("Line items must be lists")
+    if not isinstance(gold_rows, (list, tuple)) or not isinstance(predicted_rows, (list, tuple)):
+        raise ValueError("Line items must be lists or tuples")
     if len(gold_rows) > MAX_ROWS or len(predicted_rows) > MAX_ROWS:
         raise ValueError("Invoice row count exceeds scoring limit")
     if not isinstance(gold.get("id"), str) or not gold["id"]:
@@ -159,7 +163,8 @@ def score_invoice(gold: dict, prediction: dict | None) -> dict:
                 raise ValueError(f"Invalid gold amount: {name}")
     predicted_fields = {name: _normalize(name, _predicted_value(record["fields"].get(name)))
                         for name in HEADER_FIELDS} if record is not None else {name: None for name in HEADER_FIELDS}
-    header = {name: _counts(gold_fields[name], predicted_fields[name]) for name in HEADER_FIELDS}
+    header = {name: ({"tp": 0, "fp": 0, "fn": 0} if name in exclusions else
+                     _counts(gold_fields[name], predicted_fields[name])) for name in HEADER_FIELDS}
 
     def normalize_row(row: dict, *, candidate: bool) -> dict:
         if not isinstance(row, dict):
@@ -200,9 +205,11 @@ def score_invoice(gold: dict, prediction: dict | None) -> dict:
         "id": gold["id"], "family_group": gold.get("family_group"),
         "processed": record is not None,
         "header": header,
-        "required_all_exact": record is not None and all(gold_fields[name] is not None and
+        "excluded_header_fields": dict(exclusions),
+        "required_all_exact": None if set(REQUIRED_FIELDS) & set(exclusions) else
+                              (record is not None and all(gold_fields[name] is not None and
                                                        gold_fields[name] == predicted_fields[name]
-                                                       for name in REQUIRED_FIELDS),
+                                                       for name in REQUIRED_FIELDS)),
         "gold_rows": len(expected), "predicted_rows": len(actual),
         "matched_rows": len(matches), "exact_rows": exact_rows,
         "row_matches": [{"gold_index": gi, "predicted_index": pi} for gi, pi in matches],
@@ -234,8 +241,10 @@ def summarize_invoices(scores: list[dict]) -> dict:
         "scoring_version": SCORING_VERSION,
         "documents_scheduled": len(scores),
         "documents_processed": sum(score["processed"] for score in scores),
-        "all_required_exact": {"correct": sum(score["required_all_exact"] for score in scores),
-                               "eligible": len(scores)},
+        "all_required_exact": {"correct": sum(score["required_all_exact"] is True for score in scores),
+                               "eligible": sum(score["required_all_exact"] is not None for score in scores)},
+        "header_field_exclusions": {name: sum(name in score["excluded_header_fields"] for score in scores)
+                                    for name in HEADER_FIELDS},
         "header_fields": field_metrics,
         "header_macro_f1": round(sum(eligible_f1) / len(eligible_f1), 4) if eligible_f1 else None,
         "row_detection": _metrics(row_detection),
