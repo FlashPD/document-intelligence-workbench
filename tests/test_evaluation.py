@@ -34,6 +34,16 @@ class DevelopmentEvaluationTests(unittest.TestCase):
         self.assertEqual(report["header_exact"], {"correct": 0, "eligible": 10})
         self.assertEqual(report["line_total_exact_by_order"], {"correct": 0, "eligible": len(gold["line_items"])})
 
+    def test_model_failure_counts_and_retains_stage_time(self) -> None:
+        gold = MANIFEST["documents"][0]
+        result = {"page": {"spans": []}, "record": None, "issues": [],
+                  "runtime_seconds": {"ocr": .2, "model": .4}, "failure_type": "ModelUnavailable"}
+        score = score_document(gold, result)
+        report = summarize_document_scores([score])
+        self.assertFalse(score["processed"])
+        self.assertEqual(report["header_exact"], {"correct": 0, "eligible": 10})
+        self.assertEqual(report["sum_model_seconds"], .4)
+
     def test_box_iou(self) -> None:
         self.assertEqual(box_iou(Box(0, 0, .5, .5), Box(.5, .5, 1, 1)), 0)
         self.assertEqual(box_iou(Box(.1, .1, .2, .2), Box(.1, .1, .2, .2)), 1)

@@ -227,6 +227,9 @@ function renderHistory() {
 
 function renderReview() {
   const detail = state.detail;
+  $("doc-kind").textContent = detail.extraction?.profile === "span_llm"
+    ? `LOCAL SPAN MODEL · ${detail.extraction.model_id}`
+    : (state.documents.find((item) => item.id === detail.document_id)?.job_status ? "UPLOADED DOCUMENT · OCR RULES" : "TRUSTED SAMPLE · FRESH OCR");
   $("doc-status").textContent = detail.approval ? "APPROVED" : "REVIEW_READY";
   $("revision-label").textContent = `Revision ${detail.revision}`;
   $("approve-button").disabled = Boolean(detail.approval);
@@ -297,8 +300,17 @@ async function exportRecord(format) {
 $("seed-clean").addEventListener("click", () => action(() => seed("clean")));
 $("seed-conflict").addEventListener("click", () => action(() => seed("conflicting-total")));
 $("upload-button").addEventListener("click", () => action(upload));
+$("extractor").addEventListener("change", () => {
+  $("model-settings").hidden = $("extractor").value !== "span_llm";
+});
 $("process-button").addEventListener("click", () => action(async () => {
-  const result = await post("/api/process-one", {});
+  const extractor = $("extractor").value;
+  const input = { extractor };
+  if (extractor === "span_llm") {
+    input.model_endpoint = $("model-endpoint").value.trim();
+    input.model_id = $("model-id").value.trim();
+  }
+  const result = await post("/api/process-one", input);
   await refreshQueue();
   if (result.document_id) await selectDocument(result.document_id);
   notice(result.status === "IDLE" ? "No queued jobs." : `Job status: ${result.status}${result.job?.error_code ? ` (${result.job.error_code})` : ""}.`, result.status === "FAILED");

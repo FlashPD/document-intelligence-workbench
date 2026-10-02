@@ -33,6 +33,14 @@
           <button id="seed-conflict" type="button">Conflicting total</button>
         </div>
         <label class="file-label">PDF, PNG, or JPEG <input id="upload" type="file" accept=".pdf,.png,.jpg,.jpeg"></label>
+        <label class="file-label" for="extractor">Extractor</label>
+        <select id="extractor"><option value="ocr_rules">OCR rules</option><option value="span_llm">Local span model (experimental)</option></select>
+        <div id="model-settings" hidden>
+          <label class="file-label" for="model-endpoint">Local model endpoint</label>
+          <input id="model-endpoint" type="url" value="http://127.0.0.1:8080" autocomplete="off">
+          <label class="file-label" for="model-id">Model ID</label>
+          <input id="model-id" type="text" placeholder="Model served locally" autocomplete="off">
+        </div>
         <div class="button-row"><button id="upload-button" type="button">Upload</button><button id="process-button" type="button">Process next job</button></div>
       </section>
     </aside>

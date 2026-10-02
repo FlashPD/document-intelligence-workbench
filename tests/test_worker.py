@@ -8,8 +8,9 @@ import unittest
 from dataclasses import asdict
 from pathlib import Path
 
-from docwork.contracts import Box, DocumentPage, TextSpan
+from docwork.contracts import Box, DocumentPage, TextSpan, HEADER_FIELDS
 from docwork.intake import IntakeStore
+from docwork.local_model import LocalModelConfig, ModelUnavailable
 from docwork.ocr import png_dimensions
 from docwork.parser_protocol import PARSER_VERSION
 from docwork.review import ReviewBlocked
@@ -41,6 +42,23 @@ def parser_result(output: Path, source: Path, *, source_hash: str | None = None,
         "source_sha256": source_hash or hashlib.sha256(source.read_bytes()).hexdigest(),
         "pages": pages,
     }))
+
+
+def model_output() -> str:
+    values = {
+        "supplier_name": ("Aster Studio LLC", 1), "invoice_number": ("AST-1001", 3),
+        "issue_date": ("2026-09-12", 4), "due_date": ("2026-10-12", 5),
+        "currency": ("USD", 6), "subtotal": ("250.00", 8), "tax": ("20.00", 9),
+        "discount": ("0.00", 10), "shipping": ("0.00", 11), "total": ("270.00", 12),
+    }
+    fields = {name: {"value": values[name][0], "evidence_ids": [f"p1-l{values[name][1]:04d}"]}
+              for name in HEADER_FIELDS}
+    row = {name: {"value": value, "evidence_ids": ["p1-l0007"]} for name, value in (
+        ("description", "Research workshop"), ("quantity", "2"),
+        ("unit_price", "125.00"), ("line_total", "250.00"),
+    )}
+    row["tax"] = {"value": None, "evidence_ids": []}
+    return json.dumps({"fields": fields, "line_items": [row]})
 
 
 class WorkerTests(unittest.TestCase):
@@ -129,6 +147,56 @@ class WorkerTests(unittest.TestCase):
         self.store.acknowledge(document_id, 1, "HEADER_CONFLICT", "fields.total",
                                "Confirmed page one total", "reviewer")
         self.store.approve(document_id, 1, "reviewer")
+
+    def test_local_model_profile_is_reviewable_and_has_provenance(self):
+        document_id = self.submit()
+        config = LocalModelConfig("http://127.0.0.1:8080", "test-model")
+        process_one(self.store, "worker", extractor="span_llm", model_config=config,
+                    runner=lambda source, mime, output, claim, image: parser_result(output, source),
+                    model_request=lambda config, payload: model_output())
+        detail = self.store.get(document_id)
+        self.assertEqual(detail["extraction"]["profile"], "span_llm")
+        self.assertEqual(detail["extraction"]["model_id"], "test-model")
+        self.assertEqual(detail["record"]["fields"]["total"]["value"], "270.00")
+        self.assertEqual(detail["issues"], [])
+        self.store.approve(document_id, 1, "reviewer")
+        manifest = self.store.export(document_id, "json")
+        self.assertEqual(json.loads(Path(manifest["files"][0]["path"]).read_text())["extraction"]["profile"],
+                         "span_llm")
+
+    def test_local_model_failure_is_explicit_and_retryable(self):
+        document_id = self.submit()
+        config = LocalModelConfig("http://127.0.0.1:8080", "test-model")
+        runner = lambda source, mime, output, claim, image: parser_result(output, source)
+        def unavailable(config, payload):
+            raise ModelUnavailable("offline")
+        process_one(self.store, "worker", extractor="span_llm", model_config=config,
+                    runner=runner, model_request=unavailable)
+        self.assertEqual(self.store.status(document_id)["job"]["error_code"], "MODEL_UNAVAILABLE")
+        with self.assertRaises(ReviewBlocked):
+            self.store.get(document_id)
+        self.store.retry(document_id)
+        process_one(self.store, "worker", extractor="span_llm", model_config=config,
+                    runner=runner, model_request=lambda config, payload: model_output())
+        self.assertEqual(self.store.status(document_id)["status"], "REVIEW_READY")
+
+    def test_model_page_conflict_survives_review_edit(self):
+        document_id = self.submit()
+        config = LocalModelConfig("http://127.0.0.1:8080", "test-model")
+        def model_request(config, payload):
+            page = json.loads(payload["messages"][1]["content"])["page"]
+            if page == 1:
+                return model_output()
+            fields = {name: {"value": None, "evidence_ids": []} for name in HEADER_FIELDS}
+            fields["total"] = {"value": "275.00", "evidence_ids": ["p2-l0002"]}
+            return json.dumps({"fields": fields, "line_items": []})
+        process_one(self.store, "worker", extractor="span_llm", model_config=config,
+                    runner=lambda source, mime, output, claim, image: parser_result(
+                        output, source, lines_by_page=(LINES, ("INVOICE", "Amount due 275.00"))),
+                    model_request=model_request)
+        self.assertIn("MODEL_HEADER_CONFLICT", [issue["code"] for issue in self.store.get(document_id)["issues"]])
+        self.store.edit(document_id, 1, "fields.total", "275.00", "reviewer", ("p2-l0002",))
+        self.assertIn("MODEL_HEADER_CONFLICT", [issue["code"] for issue in self.store.get(document_id)["issues"]])
 
     def test_rejects_symlinks_and_unexpected_files(self):
         with tempfile.TemporaryDirectory() as scratch:

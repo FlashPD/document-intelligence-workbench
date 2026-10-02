@@ -21,7 +21,8 @@ from dataclasses import asdict, replace
 from datetime import datetime, timezone
 from pathlib import Path
 
-from .contracts import HEADER_FIELDS, REQUIRED_FIELDS, Box, DocumentPage, FieldValue, InvoiceRecord, LineItem, TextSpan
+from .contracts import HEADER_FIELDS, REQUIRED_FIELDS, Box, DocumentPage, FieldValue, InvoiceRecord, LineItem, TextSpan, ValidationIssue
+from .parser_protocol import PARSER_VERSION
 from .validation import validate_invoice
 
 POLICY_VERSION = "review-v1"
@@ -171,6 +172,12 @@ class ReviewStore:
                     revision INTEGER NOT NULL, kind TEXT NOT NULL, actor TEXT NOT NULL,
                     detail TEXT NOT NULL, created_at TEXT NOT NULL
                 );
+                CREATE TABLE IF NOT EXISTS extraction_runs (
+                    document_id TEXT PRIMARY KEY, profile TEXT NOT NULL, model_id TEXT,
+                    prompt_sha256 TEXT, parser_version TEXT NOT NULL, input_sha256 TEXT NOT NULL,
+                    extra_issues_json TEXT NOT NULL, created_at TEXT NOT NULL,
+                    FOREIGN KEY (document_id) REFERENCES documents(id)
+                );
             """)
             # Preserve databases created by the first review prototype.
             columns = {row["name"] for row in db.execute("PRAGMA table_info(documents)")}
@@ -226,23 +233,32 @@ class ReviewStore:
                        (document_id, source_sha256, source_name, _json(asdict(page)), 1, _now(), "REVIEW_READY"))
             db.execute("INSERT INTO revisions VALUES (?,?,?,?,?,?,?,?)",
                        (document_id, 1, None, _json(record_data), _hash(record_data), _json(issues), "extractor", _now()))
+            db.execute("INSERT INTO extraction_runs VALUES (?,?,?,?,?,?,?,?)",
+                       (document_id, "ocr_rules", None, None, "trusted-fixture-tesseract",
+                        _hash([asdict(page)]), "[]", _now()))
             self._event(db, document_id, 1, "candidate_created", "extractor", "")
         return document_id
 
     def _attach_candidate(self, db: sqlite3.Connection, document_id: str,
-                          pages: Sequence[DocumentPage], record: InvoiceRecord) -> None:
+                          pages: Sequence[DocumentPage], record: InvoiceRecord, *,
+                          profile: str = "ocr_rules", model_id: str | None = None,
+                          prompt_sha256: str | None = None,
+                          extra_issues: Sequence[ValidationIssue] = ()) -> None:
         if not pages or [page.number for page in pages] != list(range(1, len(pages) + 1)):
             raise ValueError("Candidate pages must be consecutive from page 1")
         span_ids = [span.id for page in pages for span in page.spans]
         if len(span_ids) != len(set(span_ids)):
             raise ValueError("Span IDs must be unique across the document")
         data = record.to_dict()
-        issues = [asdict(issue) for issue in validate_invoice(record, pages)]
+        issues = [asdict(issue) for issue in (*validate_invoice(record, pages), *extra_issues)]
         doc = self._current(db, document_id, 0)
         if doc["status"] not in ("RECEIVED", "PROCESSING"):
             raise ReviewConflict(f"Cannot attach candidate in status {doc['status']}")
         db.execute("INSERT INTO revisions VALUES (?,?,?,?,?,?,?,?)",
                    (document_id, 1, None, _json(data), _hash(data), _json(issues), "extractor", _now()))
+        db.execute("INSERT INTO extraction_runs VALUES (?,?,?,?,?,?,?,?)",
+                   (document_id, profile, model_id, prompt_sha256, PARSER_VERSION,
+                    _hash([asdict(page) for page in pages]), _json([asdict(issue) for issue in extra_issues]), _now()))
         db.execute("UPDATE documents SET page_json=?, current_revision=1, status='REVIEW_READY' WHERE id=?",
                    (pages_to_json(pages), document_id))
         self._event(db, document_id, 1, "candidate_created", "extractor", "")
@@ -255,6 +271,8 @@ class ReviewStore:
             selected = revision or doc["current_revision"]
             rev = self._revision(db, document_id, selected)
             pages = pages_from_json(doc["page_json"])
+            extraction = db.execute("SELECT profile,model_id,prompt_sha256,parser_version,input_sha256,created_at FROM extraction_runs WHERE document_id=?",
+                                    (document_id,)).fetchone()
             decisions = db.execute("SELECT issue_key, reason, actor, created_at FROM decisions WHERE document_id=? AND revision=? ORDER BY issue_key",
                                    (document_id, selected)).fetchall()
             approval = db.execute("SELECT * FROM approvals WHERE document_id=? AND revision=?", (document_id, selected)).fetchone()
@@ -262,6 +280,7 @@ class ReviewStore:
                 "document_id": document_id, "source_sha256": doc["source_sha256"],
                 "source_name": doc["source_name"], "page": asdict(pages[0]),
                 "pages": [asdict(page) for page in pages],
+                "extraction": dict(extraction) if extraction else None,
                 "revision": selected, "current_revision": doc["current_revision"],
                 "record": json.loads(rev["record_json"]), "record_hash": rev["record_hash"],
                 "issues": json.loads(rev["issues_json"]), "decisions": [dict(row) for row in decisions],
@@ -308,7 +327,9 @@ class ReviewStore:
                 record = replace(record, line_items=rows)
             new_revision = expected_revision + 1
             data = record.to_dict()
-            issues = [asdict(issue) for issue in validate_invoice(record, pages)]
+            run = db.execute("SELECT extra_issues_json FROM extraction_runs WHERE document_id=?", (document_id,)).fetchone()
+            extra_issues = json.loads(run["extra_issues_json"]) if run else []
+            issues = [asdict(issue) for issue in validate_invoice(record, pages)] + extra_issues
             db.execute("INSERT INTO revisions VALUES (?,?,?,?,?,?,?,?)",
                        (document_id, new_revision, expected_revision, _json(data), _hash(data), _json(issues), actor, _now()))
             db.execute("UPDATE documents SET current_revision=? WHERE id=?", (new_revision, document_id))
@@ -400,6 +421,8 @@ class ReviewStore:
             base = self.export_root / document_id / f"revision-{revision}"
             files: list[dict] = []
             if format == "json":
+                extraction = db.execute("SELECT profile,model_id,prompt_sha256,parser_version,input_sha256,created_at FROM extraction_runs WHERE document_id=?",
+                                        (document_id,)).fetchone()
                 data = {
                     "schema_version": EXPORT_SCHEMA_VERSION, "document_id": document_id,
                     "revision": revision, "source_sha256": doc["source_sha256"],
@@ -407,6 +430,7 @@ class ReviewStore:
                     "decision_hash": approved["decision_hash"],
                     "record": record, "page": asdict(pages_from_json(doc["page_json"])[0]),
                     "pages": [asdict(page) for page in pages_from_json(doc["page_json"])],
+                    "extraction": dict(extraction) if extraction else None,
                     "issues": issues, "decisions": decisions,
                 }
                 path = base / "invoice.json"

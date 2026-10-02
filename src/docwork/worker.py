@@ -12,6 +12,10 @@ from pathlib import Path
 
 from .baseline import extract_invoice_pages
 from .intake import IntakeStore, JobClaim, _check_content
+from .local_model import (
+    PROMPT_SHA256, LocalModelConfig, ModelContextOverflow, ModelOutputInvalid,
+    ModelRequestRejected, ModelUnavailable, extract_pages,
+)
 from .parser_protocol import MAX_PAGE_BYTES, MAX_PAGES, MAX_RESULT_BYTES, PARSER_VERSION
 from .review import ReviewConflict, page_from_dict
 
@@ -116,9 +120,16 @@ def _docker_run(source: Path, media_type: str, output: Path, claim: JobClaim,
 
 
 def process_one(store: IntakeStore, worker_id: str, *, image: str = PARSER_IMAGE,
-                runner=None) -> str | None:
+                runner=None, extractor: str = "ocr_rules",
+                model_config: LocalModelConfig | None = None, model_request=None) -> str | None:
     """Claim and process one job; return the document ID or None if idle."""
-    claim = store.claim(worker_id, lease_seconds=240)
+    if extractor not in ("ocr_rules", "span_llm"):
+        raise ValueError("Extractor must be ocr_rules or span_llm")
+    if extractor == "span_llm" and model_config is None:
+        raise ValueError("span_llm requires a local model configuration")
+    lease_seconds = (PARSER_TIMEOUT + 20 * model_config.timeout_seconds + 60
+                     if model_config is not None and extractor == "span_llm" else 240)
+    claim = store.claim(worker_id, lease_seconds=lease_seconds)
     if claim is None:
         return None
     try:
@@ -130,7 +141,24 @@ def process_one(store: IntakeStore, worker_id: str, *, image: str = PARSER_IMAGE
             output.chmod(0o777)
             (runner or _docker_run)(source, status["media_type"], output, claim, image=image)
             pages, page_bytes = validate_output(output, status["source_sha256"])
-            store.complete(claim, pages, extract_invoice_pages(pages), page_bytes)
+            if extractor == "span_llm":
+                if model_request is None:
+                    result = extract_pages(pages, model_config)
+                else:
+                    result = extract_pages(pages, model_config, model_request)
+                store.complete(claim, pages, result.record, page_bytes, profile=extractor,
+                               model_id=model_config.model_id, prompt_sha256=PROMPT_SHA256,
+                               extra_issues=result.issues)
+            else:
+                store.complete(claim, pages, extract_invoice_pages(pages), page_bytes)
+    except ModelUnavailable:
+        store.fail(claim, "MODEL_UNAVAILABLE")
+    except ModelRequestRejected:
+        store.fail(claim, "MODEL_API_REJECTED")
+    except ModelContextOverflow:
+        store.fail(claim, "MODEL_CONTEXT_OVERFLOW")
+    except ModelOutputInvalid:
+        store.fail(claim, "MODEL_OUTPUT_INVALID")
     except ParserFailure as exc:
         store.fail(claim, exc.code)
     except ReviewConflict:

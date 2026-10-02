@@ -13,6 +13,7 @@ from typing import Callable
 from .baseline import BASELINE_VERSION
 from .contracts import Box, HEADER_FIELDS, REQUIRED_FIELDS
 from .geometry import DisplayTransform, PixelBox
+from .local_model import ModelContextOverflow, ModelOutputInvalid, ModelRequestRejected, ModelUnavailable
 from .ocr import png_dimensions
 
 
@@ -85,11 +86,11 @@ def score_document(gold: dict, result: dict | None) -> dict:
     gold_rows = gold["line_items"]
     row_amount_matches = [index < len(predicted_rows) and predicted_rows[index]["line_total"]["value"] == row["line_total"] for index, row in enumerate(gold_rows)]
     issue_codes = {issue["code"] for issue in result["issues"]} if result else set()
-    return {
+    score = {
         "id": gold["id"],
         "family": gold["family"],
         "treatment": gold["treatment"],
-        "processed": result is not None,
+        "processed": predicted is not None,
         "header_exact": field_matches,
         "required_all_exact": all(field_matches[key] for key in REQUIRED_FIELDS),
         "header_evidence_iou": {key: round(value, 4) for key, value in field_iou.items()},
@@ -101,6 +102,9 @@ def score_document(gold: dict, result: dict | None) -> dict:
         "total_mismatch_detected": "TOTAL_MISMATCH" in issue_codes,
         "ocr_seconds": result["runtime_seconds"]["ocr"] if result else None,
     }
+    if result is not None and "model" in result["runtime_seconds"]:
+        score["model_seconds"] = result["runtime_seconds"]["model"]
+    return score
 
 
 def summarize_document_scores(scores: list[dict]) -> dict:
@@ -111,7 +115,7 @@ def summarize_document_scores(scores: list[dict]) -> dict:
     row_slots = sum(item["gold_row_count"] for item in scores)
     injected = [item for item in scores if "TOTAL_MISMATCH" in item["expected_issue_codes"]]
     normal = [item for item in scores if "TOTAL_MISMATCH" not in item["expected_issue_codes"]]
-    return {
+    summary = {
         "documents_scheduled": len(scores),
         "documents_processed": sum(item["processed"] for item in scores),
         "header_exact": {"correct": sum(sum(item["header_exact"].values()) for item in scores), "eligible": header_slots},
@@ -127,6 +131,9 @@ def summarize_document_scores(scores: list[dict]) -> dict:
         "false_total_conflict_warnings": {"count": sum(item["total_mismatch_detected"] for item in normal), "eligible": len(normal)},
         "sum_ocr_seconds": round(sum(item["ocr_seconds"] or 0 for item in scores), 3),
     }
+    if any(item.get("model_seconds") is not None for item in scores):
+        summary["sum_model_seconds"] = round(sum(item.get("model_seconds") or 0 for item in scores), 3)
+    return summary
 
 
 def evaluate_development(repo_root: Path, run_baseline: Callable[[Path], dict]) -> dict:
@@ -139,11 +146,14 @@ def evaluate_development(repo_root: Path, run_baseline: Callable[[Path], dict]) 
     for gold in manifest["documents"]:
         try:
             result = run_baseline(repo_root / gold["image"])
-        except (OSError, RuntimeError, ValueError, subprocess.TimeoutExpired) as exc:
+        except (OSError, RuntimeError, ValueError, subprocess.TimeoutExpired,
+                ModelUnavailable, ModelRequestRejected, ModelOutputInvalid, ModelContextOverflow) as exc:
             score = score_document(gold, None)
             score["failure_type"] = type(exc).__name__
         else:
             score = score_document(gold, result)
+            if "failure_type" in result:
+                score["failure_type"] = result["failure_type"]
             if runtime_versions is None:
                 runtime_versions = {"python": result["python_version"], "tesseract": result["tesseract_version"]}
         scores.append(score)

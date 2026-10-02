@@ -19,7 +19,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import BinaryIO, Iterable
 
-from .contracts import DocumentPage, InvoiceRecord
+from .contracts import DocumentPage, InvoiceRecord, ValidationIssue
 from .ocr import MAX_FILE_BYTES, MAX_PIXELS, PNG_SIGNATURE
 from .review import ReviewConflict, ReviewStore, _atomic_write, _now
 
@@ -271,7 +271,10 @@ class IntakeStore(ReviewStore):
             raise ReviewConflict("Processing lease is missing, expired, or fenced out")
 
     def complete(self, claim: JobClaim, page: DocumentPage | Sequence[DocumentPage], record: InvoiceRecord,
-                 page_image: bytes | Sequence[bytes] | None = None) -> None:
+                 page_image: bytes | Sequence[bytes] | None = None, *,
+                 profile: str = "ocr_rules", model_id: str | None = None,
+                 prompt_sha256: str | None = None,
+                 extra_issues: Sequence[ValidationIssue] = ()) -> None:
         pages = (page,) if isinstance(page, DocumentPage) else tuple(page)
         images = () if page_image is None else (page_image,) if isinstance(page_image, bytes) else tuple(page_image)
         if images and len(images) != len(pages):
@@ -288,7 +291,9 @@ class IntakeStore(ReviewStore):
                 if source_page.number == 1:
                     db.execute("UPDATE documents SET page_image_sha256=?,page_image_relpath=? WHERE id=?",
                                (digest, str(relative), claim.document_id))
-            self._attach_candidate(db, claim.document_id, pages, record)
+            self._attach_candidate(db, claim.document_id, pages, record, profile=profile,
+                                   model_id=model_id, prompt_sha256=prompt_sha256,
+                                   extra_issues=extra_issues)
             db.execute("UPDATE jobs SET status='COMPLETE',lease_until=NULL WHERE id=?", (claim.job_id,))
 
     def fail(self, claim: JobClaim, error_code: str) -> None:

@@ -16,6 +16,10 @@ from pathlib import Path
 from .baseline import BASELINE_VERSION, extract_invoice
 from .evaluation import evaluate_development
 from .intake import IntakeStore
+from .local_model import (
+    PROMPT_SHA256, PROMPT_VERSION, LocalModelConfig, ModelContextOverflow,
+    ModelOutputInvalid, ModelRequestRejected, ModelUnavailable, extract_pages,
+)
 from .ocr import tesseract_page
 from .review import ReviewBlocked, ReviewConflict, ReviewStore, page_from_dict, record_from_dict
 from .validation import validate_invoice
@@ -55,7 +59,7 @@ def doctor() -> dict:
         "tesseract_languages": [line for line in (langs or "").splitlines()[1:] if line],
         "docker_daemon_available": docker_version is not None,
         "docker_server_version": docker_version,
-        "local_model_status": "not_checked_in_phase_0",
+        "local_model_status": "configured_per_processing_job; not_probed_by_doctor",
         "phase_0_ready_for_fixture_baseline": bool(tesseract and langs and "eng" in langs),
     }
 
@@ -84,6 +88,36 @@ def baseline_fixture(path: Path) -> dict:
     }
 
 
+def model_fixture(path: Path, config: LocalModelConfig) -> dict:
+    """Run fresh trusted-fixture OCR and the local span model, without gold labels."""
+    repo_samples = Path(__file__).resolve().parents[2] / "samples"
+    resolved = path.resolve(strict=True)
+    if not resolved.is_relative_to(repo_samples.resolve()) or resolved.suffix.lower() != ".png":
+        raise ValueError("Development model evaluation accepts only committed sample PNGs")
+    start = time.perf_counter()
+    page = tesseract_page(resolved)
+    ocr_seconds = time.perf_counter() - start
+    model_start = time.perf_counter()
+    try:
+        extracted = extract_pages((page,), config)
+    except (ModelUnavailable, ModelRequestRejected, ModelOutputInvalid, ModelContextOverflow) as exc:
+        record, issues, failure = None, [], type(exc).__name__
+    else:
+        record = extracted.record.to_dict()
+        issues = [asdict(issue) for issue in validate_invoice(extracted.record, page)]
+        failure = None
+    result = {
+        "python_version": platform.python_version(),
+        "tesseract_version": (_run(["tesseract", "--version"]) or "unknown").splitlines()[0],
+        "page": asdict(page), "record": record, "issues": issues,
+        "runtime_seconds": {"ocr": round(ocr_seconds, 3),
+                            "model": round(time.perf_counter() - model_start, 3)},
+    }
+    if failure:
+        result["failure_type"] = failure
+    return result
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="docwork")
     commands = parser.add_subparsers(dest="command", required=True)
@@ -93,6 +127,10 @@ def main(argv: list[str] | None = None) -> int:
     baseline.add_argument("--output", type=Path)
     development = commands.add_parser("eval-development", help="Score all frozen self-authored development PNGs")
     development.add_argument("--output", type=Path, default=Path("artifacts/development-baseline.json"))
+    model_eval = commands.add_parser("eval-development-model", help="Score the local span model on the same development PNGs")
+    model_eval.add_argument("--model-endpoint", required=True)
+    model_eval.add_argument("--model-id", required=True)
+    model_eval.add_argument("--output", type=Path, default=Path("artifacts/development-model.json"))
     review = commands.add_parser("review", help="Local review of trusted fixture candidates")
     review.add_argument("--db", type=Path, default=Path("artifacts/review.sqlite"))
     actions = review.add_subparsers(dest="action", required=True)
@@ -141,6 +179,9 @@ def main(argv: list[str] | None = None) -> int:
     intake_process = intake_actions.add_parser("process-one", help="Run one job in the isolated parser container")
     intake_process.add_argument("--worker-id", default="local-worker")
     intake_process.add_argument("--image", default="docwork-parser:v2")
+    intake_process.add_argument("--extractor", choices=("ocr_rules", "span_llm"), default="ocr_rules")
+    intake_process.add_argument("--model-endpoint", help="Loopback HTTP URL of a local chat completion server")
+    intake_process.add_argument("--model-id", help="Model ID served by the local endpoint")
     browser = commands.add_parser("serve", help="Run the loopback browser review prototype")
     browser.add_argument("--db", type=Path, default=Path("artifacts/review.sqlite"))
     browser.add_argument("--objects", type=Path, default=Path("artifacts/intake"))
@@ -155,6 +196,15 @@ def main(argv: list[str] | None = None) -> int:
             data = doctor()
         elif args.command == "baseline":
             data = baseline_fixture(args.fixture)
+        elif args.command == "eval-development-model":
+            config = LocalModelConfig(args.model_endpoint, args.model_id)
+            data = evaluate_development(Path(__file__).resolve().parents[2],
+                                        lambda path: model_fixture(path, config))
+            data["mode"] = "fresh_development_span_llm"
+            data["extractor_version"] = PROMPT_VERSION
+            data["model_id"] = config.model_id
+            data["prompt_sha256"] = PROMPT_SHA256
+            del data["baseline_version"]
         elif args.command == "review":
             store = ReviewStore(args.db)
             if args.action == "seed":
@@ -187,7 +237,10 @@ def main(argv: list[str] | None = None) -> int:
                 store.retry(args.document_id)
                 data = store.status(args.document_id)
             elif args.action == "process-one":
-                document_id = process_one(store, args.worker_id, image=args.image)
+                model_config = (LocalModelConfig(args.model_endpoint or "", args.model_id or "")
+                                if args.extractor == "span_llm" else None)
+                document_id = process_one(store, args.worker_id, image=args.image,
+                                          extractor=args.extractor, model_config=model_config)
                 data = store.status(document_id) if document_id else {"status": "IDLE"}
             elif args.action == "page":
                 data = {"document_id": args.document_id, "page_number": args.number,
@@ -199,7 +252,7 @@ def main(argv: list[str] | None = None) -> int:
     except (KeyError, OSError, RuntimeError, ValueError, ReviewConflict, ReviewBlocked, subprocess.TimeoutExpired) as exc:
         parser.exit(2, f"docwork: {exc}\n")
     rendered = json.dumps(data, indent=2) + "\n"
-    if args.command in ("baseline", "eval-development") and args.output:
+    if args.command in ("baseline", "eval-development", "eval-development-model") and args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(rendered)
         print(args.output)

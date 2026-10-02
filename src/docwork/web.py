@@ -19,6 +19,7 @@ from urllib.parse import parse_qs, unquote, urlsplit
 
 from .baseline import extract_invoice
 from .intake import IntakeStore
+from .local_model import LocalModelConfig
 from .ocr import MAX_FILE_BYTES, tesseract_page
 from .review import ReviewBlocked, ReviewConflict
 from .worker import process_one
@@ -205,8 +206,17 @@ class ReviewHandler(BaseHTTPRequestHandler):
                 doc_id = self.server.store.submit(io.BytesIO(self._read_body(MAX_FILE_BYTES)), name, media)
                 self._json(HTTPStatus.CREATED, self.server.store.status(doc_id))
             elif path == "/api/process-one":
-                self._input()
-                doc_id = process_one(self.server.store, "browser-worker")
+                data = self._input()
+                extractor = data.get("extractor", "ocr_rules")
+                if extractor not in ("ocr_rules", "span_llm"):
+                    raise ValueError("Unknown extractor profile")
+                model_config = None
+                if extractor == "span_llm":
+                    endpoint = self._required(data, "model_endpoint", str)
+                    model_id = self._required(data, "model_id", str)
+                    model_config = LocalModelConfig(endpoint, model_id)
+                doc_id = process_one(self.server.store, "browser-worker", extractor=extractor,
+                                     model_config=model_config)
                 self._json(HTTPStatus.OK, self.server.store.status(doc_id) if doc_id else {"status": "IDLE"})
             elif path == "/api/demo/seed":
                 fixture = self._required(self._input(), "fixture", str)

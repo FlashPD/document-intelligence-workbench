@@ -34,6 +34,10 @@ h3 { margin-bottom: 5px; font-size: 13px; }
 .actions button { font-size: 12px; }
 .file-label { display: block; margin: 16px 0 9px; color: #516a59; font-size: 12px; }
 .file-label input { margin-top: 6px; font-size: 11px; }
+#extractor { width: 100%; border: 1px solid #b8c6b9; border-radius: 7px; background: #fff; padding: 8px 9px; color: #24352c; font-size: 12px; }
+#model-settings { margin: 9px 0; }
+#model-settings .file-label { margin: 8px 0 4px; }
+#model-settings input { font-size: 12px; }
 .workspace { min-width: 0; }
 .empty { min-height: 580px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #698371; }
 .empty p { max-width: 340px; }

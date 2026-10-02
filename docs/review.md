@@ -28,4 +28,4 @@ The JSON export includes the record, page spans and boxes, issues, decisions, so
 
 ## Current boundary
 
-This CLI assumes a trusted local operator. It has no identity verification or authorization. The `--actor` value is an audit label, not an authenticated reviewer. A [loopback browser prototype](browser.md) uses the same revisions and approvals. Bounded uploads and a container worker can supply multi-page candidates, but real container execution still needs verification on a host with a running Docker daemon. There is no local model inference. Do not use it for sensitive or arbitrary invoices.
+This CLI assumes a trusted local operator. It has no identity verification or authorization. The `--actor` value is an audit label, not an authenticated reviewer. A [loopback browser prototype](browser.md) uses the same revisions and approvals. Bounded uploads and a container worker can supply multi-page candidates, but real container execution still needs verification on a host with a running Docker daemon. The experimental local model profile is contract-tested but has not been run or scored with a real model. Do not use it for sensitive or arbitrary invoices.

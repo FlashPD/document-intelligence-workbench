@@ -161,6 +161,16 @@ class WebTests(unittest.TestCase):
         self.assertEqual(self.call("GET", f"/api/documents/{doc_id}/pages/3")[0], 404)
         self.assertEqual(self.call("GET", f"/api/documents/{doc_id}")[1]["pages"][1]["number"], 2)
 
+    def test_browser_model_profile_rejects_remote_endpoints(self):
+        self.login()
+        status, error, _ = self.call("POST", "/api/process-one", {
+            "extractor": "span_llm", "model_endpoint": "http://example.com:8080",
+            "model_id": "remote-model",
+        })
+        self.assertEqual(status, 400)
+        self.assertIn("loopback", error["error"])
+        self.assertEqual(self.call("GET", "/api/documents")[1], [])
+
 
 if __name__ == "__main__":
     unittest.main()
