@@ -242,6 +242,100 @@ class IntakeStore(ReviewStore):
                 raise ReviewConflict("Rendered page failed checksum verification")
             return path
 
+    def reconcile(self, *, prune: bool = False, min_age_seconds: int = 86400) -> dict:
+        """Audit stored objects and renders; optionally remove aged unreferenced files.
+
+        The database write lock prevents an intake or completion transaction from
+        publishing a reference while its file is being classified or removed.
+        Active upload scratch files live in quarantine and are never considered.
+        """
+        if min_age_seconds < 0:
+            raise ValueError("Minimum orphan age must be nonnegative")
+        references: dict[str, tuple[str, int | None]] = {}
+        protected_paths: set[str] = set()
+        metadata_errors: list[dict] = []
+
+        def add(relative: str, digest: str, size: int | None = None) -> None:
+            protected_paths.add(relative)
+            path = Path(relative)
+            if (path.is_absolute() or str(path) != relative or len(path.parts) != 3
+                    or path.parts[0] not in ("objects", "renders")
+                    or not re.fullmatch(r"[0-9a-f]{64}", digest or "")
+                    or path.parts[1] != digest[:2]
+                    or path.parts[2] != digest + (".png" if path.parts[0] == "renders" else "")):
+                metadata_errors.append({"path": relative, "reason": "unsafe_reference"})
+                return
+            prior = references.get(relative)
+            if prior is not None and (prior[0] != digest or
+                                      (prior[1] is not None and size is not None and prior[1] != size)):
+                metadata_errors.append({"path": relative, "reason": "conflicting_reference"})
+                return
+            references[relative] = (digest, size if size is not None else prior[1] if prior else None)
+
+        missing: list[dict] = []
+        corrupt: list[dict] = []
+        orphans: list[dict] = []
+        removed: list[str] = []
+        now = time.time()
+        with self._connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            for row in db.execute("SELECT relative_path,sha256,size_bytes FROM document_objects"):
+                add(row["relative_path"], row["sha256"], row["size_bytes"])
+            for row in db.execute("SELECT object_relpath,source_sha256,size_bytes,page_image_relpath,page_image_sha256 FROM documents"):
+                if row["object_relpath"]:
+                    add(row["object_relpath"], row["source_sha256"], row["size_bytes"])
+                if row["page_image_relpath"]:
+                    add(row["page_image_relpath"], row["page_image_sha256"])
+            for row in db.execute("SELECT image_relpath,image_sha256 FROM document_pages"):
+                add(row["image_relpath"], row["image_sha256"])
+
+            for relative, (digest, size) in sorted(references.items()):
+                path = self.object_root / relative
+                if not path.exists() and not path.is_symlink():
+                    missing.append({"path": relative, "reason": "missing"})
+                elif ((self.object_root / Path(relative).parts[0]).is_symlink() or
+                      path.parent.is_symlink() or path.is_symlink() or not path.is_file() or
+                      (size is not None and path.stat().st_size != size) or
+                      hashlib.sha256(path.read_bytes()).hexdigest() != digest):
+                    corrupt.append({"path": relative, "reason": "checksum_or_type"})
+
+            for category in ("objects", "renders"):
+                root = self.object_root / category
+                if not root.exists() and not root.is_symlink():
+                    continue
+                if root.is_symlink() or not root.is_dir():
+                    metadata_errors.append({"path": category, "reason": "unexpected_store_entry"})
+                    continue
+                for prefix in root.iterdir():
+                    if prefix.is_symlink() or not prefix.is_dir():
+                        metadata_errors.append({"path": str(prefix.relative_to(self.object_root)),
+                                                "reason": "unexpected_store_entry"})
+                        continue
+                    for path in prefix.iterdir():
+                        relative = str(path.relative_to(self.object_root))
+                        if relative in protected_paths:
+                            continue
+                        if (path.is_symlink() or not path.is_file() or
+                            not re.fullmatch(r"[0-9a-f]{2}", prefix.name) or
+                            not re.fullmatch(r"[0-9a-f]{64}" + (r"\.png" if category == "renders" else ""), path.name) or
+                            not path.name.startswith(prefix.name)):
+                            metadata_errors.append({"path": relative, "reason": "unexpected_store_entry"})
+                            continue
+                        age = max(0, now - path.stat().st_mtime)
+                        orphans.append({"path": relative, "age_seconds": int(age),
+                                        "eligible": age >= min_age_seconds})
+            if prune and not (missing or corrupt or metadata_errors):
+                for item in orphans:
+                    if item["eligible"]:
+                        path = self.object_root / item["path"]
+                        if path.is_symlink() or not path.is_file():
+                            raise ReviewConflict(f"Orphan changed during reconciliation: {path}")
+                        path.unlink()
+                        removed.append(item["path"])
+        return {"referenced": len(references), "missing": missing, "corrupt": corrupt,
+                "metadata_errors": metadata_errors, "orphans": orphans, "removed": removed,
+                "prune_blocked": prune and bool(missing or corrupt or metadata_errors)}
+
     def claim(self, worker_id: str, *, lease_seconds: int = 120) -> JobClaim | None:
         if not worker_id.strip() or not 1 <= lease_seconds <= 3600:
             raise ValueError("Worker ID and a 1-3600 second lease are required")

@@ -2,7 +2,7 @@
 
 The intake prototype streams a local file into a quarantine directory, rejects files over 20 MB, checks the extension, declared MIME type, and file signature, and checks PNG/JPEG header dimensions against the 20-megapixel limit. It stores valid bytes under their SHA-256 hash and creates a separate document and queued job for each submission. Up to 20 files can be submitted through the library's batch method. A duplicate hash shares one stored object but never shares a job, review record, or approval.
 
-The database and object store are local. Submission metadata and the queued job are committed in one SQLite transaction after the stored bytes pass a checksum check. A failed transaction can leave an unreferenced object file; a later reconciliation step will remove those orphans. Jobs use 120-second leases with renewal every 30 seconds during parsing and extraction. An expired worker cannot publish a candidate or mark another worker's reclaimed job as failed because completion and failure require its current fencing token. Candidate insertion, rendered-page metadata, review readiness, and job completion share one transaction. A crash stops renewal; the expired job can then be reclaimed by the next `process-one` call. This is deterministic contract coverage; a real interrupted Docker run remains to be exercised.
+The database and object store are local. Submission metadata and the queued job are committed in one SQLite transaction after the stored bytes pass a checksum check. A failed transaction can leave an unreferenced object file; `intake reconcile` audits these and unreferenced rendered pages. Jobs use 120-second leases with renewal every 30 seconds during parsing and extraction. An expired worker cannot publish a candidate or mark another worker's reclaimed job as failed because completion and failure require its current fencing token. Candidate insertion, rendered-page metadata, review readiness, and job completion share one transaction. A crash stops renewal; the expired job can then be reclaimed by the next `process-one` call. This is deterministic contract coverage; a real interrupted Docker run remains to be exercised.
 
 The parser image decodes and re-encodes each page, applies image EXIF rotation, runs English Tesseract, and emits numbered PNGs with canonical OCR spans. PDFs are limited to ten pages; the container has a 600-second document timeout. The worker starts it without network, with a read-only root, no capabilities, an unprivileged user, bounded CPU/memory/PIDs, a read-only original mount, and a scratch output mount. The host checks exact output filenames, regular files, sizes, checksums, page dimensions, page numbers, and span geometry before extraction. A failed parser job can be retried without inheriting review decisions. Docker and the image are required; the daemon was unavailable for a real-container run on this host.
 
@@ -30,6 +30,15 @@ PYTHONPATH=src python3.12 -m docwork.cli review show YOUR_DOCUMENT_ID
 ```
 
 `process-one` claims one queued job. Run it again for the next document. The `page` command reports a checked page PNG path for evidence inspection; omit `--number` for page 1. Review, approval, and export commands are documented in [review.md](review.md). If the job fails, inspect its `error_code` with `intake status`, then use `intake retry YOUR_DOCUMENT_ID` after fixing the cause.
+
+## Audit stored artifacts
+
+```sh
+PYTHONPATH=src python3.12 -m docwork.cli intake reconcile
+PYTHONPATH=src python3.12 -m docwork.cli intake reconcile --prune
+```
+
+The first command reports referenced files with missing or incorrect bytes, malformed references, and unreferenced files. It changes nothing. `--prune` removes only unreferenced originals and rendered pages at least 24 hours old. It never scans upload quarantine or exports, and it leaves every referenced file in place. Any missing, corrupt, or malformed reference blocks all pruning and makes the command exit with code 2; fix the integrity problem before retrying. Use `--min-age-seconds` to change the age threshold when recovering a known interrupted write. The database lock keeps a concurrent submission or job completion from publishing a reference during the audit.
 
 To process the next queued document with an experimental local span model, run a local chat completion server on loopback with schema-constrained JSON output support. For a separately obtained local GGUF, [llama-server documents these flags and the schema response format](https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md):
 

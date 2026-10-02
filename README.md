@@ -8,6 +8,8 @@ Phase 0 has a runnable `ocr_rules` spike for two demo PNGs and a separate 12-doc
 
 The fixture OCR command remains restricted to trusted repository samples. Uploaded originals are processed only by the fixed, network-denied Docker parser image. The worker supports up to ten PDF pages and uses Tesseract plus the deterministic baseline, with page-specific evidence in one invoice record. Processing leases renew during long parser and model calls; fenced completion and failure prevent a stale worker from changing a reclaimed job. An experimental `span_llm` profile sends canonical OCR spans and source boxes to a loopback model server. A [pinned Qwen3 4B / llama.cpp evaluation](docs/development-baseline.md#span-invoice-v2-follow-up--october-2-2026) measures all 12 development documents, with saved predictions, GPU-offload evidence, timings, and sampled process memory. The revised prompt passes the paired development gate against `ocr_rules` (108/120 exact headers and 17/18 exact line totals), though inference takes about 86 seconds per page and this tuned set cannot establish held-out quality. `ocr_rules` remains the default. The browser is a loopback-only prototype with an ephemeral session token, not an authenticated multi-user application. The Docker parser has not been run on this host because the Docker daemon is unavailable; its host-side validation and job handoff are covered by deterministic tests.
 
+`docwork intake reconcile` audits stored originals and page renders, and can prune aged unreferenced files after checking referenced artifacts. See [the intake guide](docs/intake.md#audit-stored-artifacts).
+
 ## Run the spike
 
 On macOS with Python 3.12 and Tesseract with English language data:

@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import io
+import hashlib
+import os
 import sqlite3
 import struct
 import tempfile
@@ -39,6 +41,10 @@ class IntakeTests(unittest.TestCase):
 
     def submit(self, data=SAMPLE, name="clean.png", mime="image/png"):
         return self.store.submit(io.BytesIO(data), name, mime)
+
+    def test_reconcile_empty_store_has_no_errors(self):
+        self.assertEqual(self.store.reconcile()["metadata_errors"], [])
+        self.assertEqual(self.store.reconcile()["referenced"], 0)
 
     def test_submission_stores_one_object_and_separate_jobs_for_duplicates(self):
         first = self.submit(name="../clean.png")
@@ -159,6 +165,69 @@ class IntakeTests(unittest.TestCase):
         upgraded = IntakeStore(old_db, Path(self.temp.name) / "upgraded-artifacts")
         document = upgraded.submit(io.BytesIO(SAMPLE), "clean.png", "image/png")
         self.assertEqual(upgraded.status(document)["status"], "RECEIVED")
+
+    def test_reconcile_preserves_references_and_prunes_only_aged_orphans(self):
+        document = self.submit()
+        claim = self.store.claim("worker")
+        assert claim is not None
+        page, record = candidate()
+        self.store.complete(claim, page, record, SAMPLE)
+        original = self.store.object_path(document)
+        rendered = self.store.page_image_path(document)
+
+        old_hash = hashlib.sha256(b"orphan-original").hexdigest()
+        old = self.store.object_root / "objects" / old_hash[:2] / old_hash
+        old.parent.mkdir(parents=True, exist_ok=True)
+        old.write_bytes(b"orphan-original")
+        os.utime(old, (1, 1))
+        new_hash = hashlib.sha256(b"recent-render").hexdigest()
+        recent = self.store.object_root / "renders" / new_hash[:2] / f"{new_hash}.png"
+        recent.parent.mkdir(parents=True, exist_ok=True)
+        recent.write_bytes(b"recent-render")
+
+        report = self.store.reconcile(min_age_seconds=3600)
+        self.assertEqual(report["referenced"], 2)
+        self.assertEqual(report["missing"], [])
+        self.assertEqual(report["corrupt"], [])
+        self.assertEqual(len(report["orphans"]), 2)
+        self.assertEqual(report["removed"], [])
+        self.store.reconcile(prune=True, min_age_seconds=3600)
+        self.assertFalse(old.exists())
+        self.assertTrue(recent.exists())
+        self.assertTrue(original.exists())
+        self.assertTrue(rendered.exists())
+
+    def test_reconcile_reports_broken_references_without_deleting_them(self):
+        document = self.submit()
+        claim = self.store.claim("worker")
+        assert claim is not None
+        page, record = candidate()
+        self.store.complete(claim, page, record, SAMPLE)
+        original = self.store.object_path(document)
+        rendered = self.store.page_image_path(document)
+        original.write_bytes(b"corrupt")
+        rendered.unlink()
+        report = self.store.reconcile(prune=True, min_age_seconds=0)
+        self.assertEqual([item["reason"] for item in report["corrupt"]], ["checksum_or_type"])
+        self.assertEqual([item["reason"] for item in report["missing"]], ["missing"])
+        self.assertEqual(report["removed"], [])
+        self.assertTrue(report["prune_blocked"])
+        self.assertTrue(original.exists())
+
+    def test_reconcile_does_not_prune_a_file_named_by_bad_metadata(self):
+        document = self.submit()
+        source_hash = self.store.status(document)["source_sha256"]
+        digest = hashlib.sha256(b"uncommitted").hexdigest()
+        relative = f"objects/{digest[:2]}/{digest}"
+        path = self.store.object_root / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(b"uncommitted")
+        with self.store._connect() as db:
+            db.execute("UPDATE document_objects SET relative_path=? WHERE sha256=?", (relative, source_hash))
+        report = self.store.reconcile(prune=True, min_age_seconds=0)
+        self.assertEqual(report["metadata_errors"][0]["reason"], "unsafe_reference")
+        self.assertTrue(report["prune_blocked"])
+        self.assertTrue(path.exists())
 
 
 if __name__ == "__main__":

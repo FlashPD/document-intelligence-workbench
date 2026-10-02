@@ -194,6 +194,10 @@ def main(argv: list[str] | None = None) -> int:
     intake_page.add_argument("--number", type=int, default=1, help="One-based source page number")
     intake_retry = intake_actions.add_parser("retry", help="Requeue a failed unreviewed document")
     intake_retry.add_argument("document_id")
+    intake_reconcile = intake_actions.add_parser("reconcile", help="Audit stored objects and rendered pages")
+    intake_reconcile.add_argument("--prune", action="store_true", help="Remove aged unreferenced files")
+    intake_reconcile.add_argument("--min-age-seconds", type=int, default=86400,
+                                  help="Minimum orphan age for pruning (default: 86400)")
     intake_process = intake_actions.add_parser("process-one", help="Run one job in the isolated parser container")
     intake_process.add_argument("--worker-id", default="local-worker")
     intake_process.add_argument("--image", default="docwork-parser:v2")
@@ -291,6 +295,10 @@ def main(argv: list[str] | None = None) -> int:
             elif args.action == "retry":
                 store.retry(args.document_id)
                 data = store.status(args.document_id)
+            elif args.action == "reconcile":
+                data = store.reconcile(prune=args.prune, min_age_seconds=args.min_age_seconds)
+                if data["missing"] or data["corrupt"] or data["metadata_errors"]:
+                    exit_code = 2
             elif args.action == "process-one":
                 model_config = (LocalModelConfig(args.model_endpoint or "", args.model_id or "")
                                 if args.extractor == "span_llm" else None)
