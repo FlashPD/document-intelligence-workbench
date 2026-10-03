@@ -1,7 +1,7 @@
 PYTHON ?= python3.12
 PYTHONPATH := src
 
-.PHONY: doctor test release-check review-browser-verify smoke-ocr demo-baseline eval-development eval-repeatability eval-verify-corpus models-fetch models-verify parser-build parser-smoke parser-verify model-workflow-verify dev dev-model
+.PHONY: doctor test release-check review-browser-verify smoke-ocr demo-baseline demo-replay eval-development eval-repeatability eval-verify-corpus models-fetch models-verify parser-build parser-smoke parser-verify model-workflow-verify dev dev-model
 
 doctor:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli doctor
@@ -53,6 +53,9 @@ model-workflow-verify:
 
 dev:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli serve
+
+demo-replay:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli demo-replay $(if $(OUTPUT),--output-dir $(OUTPUT))
 
 dev-model:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli serve --model-profile config/model-mac-instruct.json

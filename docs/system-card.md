@@ -26,6 +26,8 @@ flowchart LR
 
 The current stack uses Python 3.12 standard-library HTTP and SQLite, a no-build HTML/CSS/JavaScript interface, Poppler/Tesseract in Docker, and optional native llama.cpp inference. FastAPI, React, a telemetry stack, and PC inference from the plan are not implemented. This smaller local stack demonstrates the processing/review contract independently of a framework migration.
 
+`make demo-replay` provides an [offline portfolio entrypoint](demo-replay.md) with four recorded fictional development candidates. It verifies saved evidence before preparing a separate workbench; correction, approval, and export use the normal durable stores. Replay provenance remains visible in the UI and JSON exports. No parser, OCR, model, or human-timing measurement runs in this mode.
+
 | Boundary | Implemented control | Practical limit |
 |---|---|---|
 | Upload | Allowed PDF/PNG/JPEG types, signature checks, 20 MiB originals, 20 million image pixels, ten PDF pages, artifact quota | These bounds are not a parser exploit audit or a measured concurrent capacity |

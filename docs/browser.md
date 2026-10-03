@@ -1,5 +1,7 @@
 # Browser review prototype
 
+For an immediate demo needing only Python 3.12, run `make demo-replay`. The [offline replay guide](demo-replay.md) covers its four fictional cases, persistent session state, and recorded provenance. Live intake controls are unavailable in replay mode; the commands below run fresh processing.
+
 Run `make dev` from the repository root with Python 3.12 and Tesseract English data installed. Open the one-time URL printed in the terminal. The server binds only to `127.0.0.1`. The URL sets an ephemeral, HTTP-only same-site session cookie, then redirects to a URL without the token. Every mutation also requires a same-origin request. Reviewer names are audit labels supplied by the user, not verified identities.
 
 Choose **Clean sample** or **Conflicting total** to run fresh OCR on a committed, self-authored fixture. This does not use the Docker parser or a language model. Review-ready documents appear in descending [triage priority](review.md#review-queue-priority); the shown points and leading issue code help order work, but zero points do not establish correctness. Select any field to highlight the cited OCR line on the image. Correct a value to create a new revision; the original OCR text and source span remain in the record. For the conflicting-total example, enter a reason under `TOTAL_MISMATCH` to acknowledge the printed total, or correct the value. Approval applies only to the current revision. Export JSON or CSV, then use the verified download links.

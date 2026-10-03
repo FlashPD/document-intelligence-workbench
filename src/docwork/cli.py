@@ -314,9 +314,24 @@ def main(argv: list[str] | None = None) -> int:
     browser.add_argument("--objects", type=Path, default=Path("artifacts/intake"))
     browser.add_argument("--port", type=int, default=8765)
     browser.add_argument("--model-profile", type=Path, help="Verify local assets and own a pinned authenticated model server")
+    replay = commands.add_parser("demo-replay", help="Open a model-free portfolio demo using recorded development OCR")
+    replay.add_argument("--output-dir", type=Path, help="New workbench directory; default creates a unique directory under artifacts/demo-replay")
+    replay.add_argument("--port", type=int, default=8765)
+    replay.add_argument("--prepare-only", action="store_true", help="Verify and prepare the offline workbench without starting HTTP")
     args = parser.parse_args(argv)
     exit_code = 0
     try:
+        if args.command == "demo-replay":
+            import uuid
+            from .demo_replay import prepare_replay
+            from .web import serve
+            root = Path(__file__).resolve().parents[2]
+            output = args.output_dir or root / "artifacts/demo-replay" / uuid.uuid4().hex
+            replay = prepare_replay(root, output)
+            print(f"Recorded OCR replay · fictional development invoices · no live extraction\nWorkbench saved at {output.resolve()}", flush=True)
+            if not args.prepare_only:
+                serve(output / "review.sqlite", output / "objects", args.port, demo_replay=replay)
+            return 0
         if args.command == "serve":
             from .web import serve
             if args.model_profile:

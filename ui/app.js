@@ -426,6 +426,17 @@ action(async () => {
   const runtime = await request("/api/runtime");
   state.reviewPilot = Boolean(runtime.review_pilot);
   managedModel = runtime.managed_model;
+  if (runtime.demo_replay) {
+    $("replay-panel").hidden = false;
+    $("intake-panel").hidden = true;
+    document.querySelector(".mode").textContent = "Recorded OCR replay · human approval";
+    for (const fixture of runtime.demo_replay.cases) {
+      const button = node("button", "queue-item", fixture.label);
+      button.type = "button";
+      button.addEventListener("click", () => action(() => selectDocument(fixture.document_id)));
+      $("replay-cases").append(button);
+    }
+  }
   if (managedModel) {
     $("managed-model").hidden = false;
     $("managed-model").textContent = `Pinned local model ready: ${runtime.model_id}. Choose Local span model to use it.`;
@@ -433,5 +444,6 @@ action(async () => {
   }
   await refreshQueue();
   if (runtime.review_pilot) await initializePilot();
+  else if (runtime.demo_replay) await selectDocument(runtime.demo_replay.cases[0].document_id);
   else if (state.documents.length) await selectDocument(state.documents[0].id);
 });

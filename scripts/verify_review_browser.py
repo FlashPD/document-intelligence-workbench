@@ -22,6 +22,7 @@ from pathlib import Path
 from urllib.request import urlopen
 
 from docwork.geometry import DisplayTransform, PixelBox
+from docwork.demo_replay import CASES as REPLAY_CASES, prepare_replay
 from docwork.intake import IntakeStore
 from docwork.model_runtime import file_hash
 from docwork.pilot_bundle import SOURCES, prepare_pilot
@@ -158,12 +159,17 @@ def main():
     parser.add_argument("--chrome", type=Path, default=Path("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"))
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--skip-recording", action="store_true", help="Verify controls and save screenshots without WebM encoding")
+    parser.add_argument("--demo-replay", action="store_true", help="Verify the offline portfolio demo entrypoint and its four cases")
     args = parser.parse_args()
     output = args.output_dir.absolute()
     if output.exists() or output.is_symlink() or not args.chrome.is_file():
         parser.error("Use a new output directory and an installed Chrome executable")
     root = Path(__file__).resolve().parents[1]
-    snapshot = {name: (root / name).read_text() for name in (*SOURCES, "scripts/verify_pilot_browser.py", "scripts/verify_review_browser.py", "src/docwork/geometry.py")}
+    cases = tuple(case[0] for case in REPLAY_CASES) if args.demo_replay else CASES
+    source_names = (*SOURCES, "scripts/verify_pilot_browser.py", "scripts/verify_review_browser.py", "src/docwork/geometry.py")
+    if args.demo_replay:
+        source_names += ("src/docwork/demo_replay.py", "src/docwork/cli.py", "Makefile")
+    snapshot = {name: (root / name).read_text() for name in source_names}
     output.mkdir(parents=True)
     (output / "source_snapshot.json").write_text(json.dumps(snapshot, indent=2) + "\n")
     checked, frames = [], []
@@ -171,11 +177,12 @@ def main():
     process = client = None
     with tempfile.TemporaryDirectory(prefix="docwork-review-browser-") as temporary:
         directory = Path(temporary)
-        protocol = prepare_pilot(root, root / "datasets/invoices-v1/manifest.json",
-                                 root / "evals/invoice-freeze-2026-10-03/development", directory / "fixtures", document_ids=CASES)
+        replay = prepare_replay(root, directory / "fixtures") if args.demo_replay else None
+        protocol = None if replay else prepare_pilot(root, root / "datasets/invoices-v1/manifest.json",
+                                 root / "evals/invoice-freeze-2026-10-03/development", directory / "fixtures", document_ids=cases)
         store = IntakeStore(directory / "fixtures/review.sqlite", directory / "fixtures/objects")
-        ids = {doc["corpus_id"]: doc["document_id"] for doc in protocol["documents"]}
-        with ReviewServer(("127.0.0.1", 0), store) as server:
+        ids = {doc["corpus_id"]: doc["document_id"] for doc in (replay["cases"] if replay else protocol["documents"])}
+        with ReviewServer(("127.0.0.1", 0), store, demo_replay=replay) as server:
             thread = threading.Thread(target=server.serve_forever, daemon=True)
             thread.start()
             try:
@@ -195,6 +202,16 @@ def main():
                 client.call("Page.navigate", {"url": f"{server.origin}/?token={server.token}"})
                 client.wait("typeof state !== 'undefined' && state.detail !== null && !$('page-canvas').hidden")
                 client.evaluate("$('actor').value='scripted-fictional-demo'")
+                if replay:
+                    assert client.evaluate("!$('replay-panel').hidden && $('intake-panel').hidden && document.querySelector('.mode').textContent.includes('replay')")
+                    assert client.evaluate("$('replay-cases').children.length===4")
+                    assert client.evaluate(f"state.detail.document_id === {json.dumps(ids[cases[0]])}")
+                    for route in ("/api/upload", "/api/process-one", "/api/demo/seed"):
+                        assert client.evaluate(f"post({json.dumps(route)},{{}}).then(()=>false,error=>error.message.includes('Replay uses recorded'))")
+                    for index, case in enumerate(cases):
+                        client.evaluate(f"$('replay-cases').children[{index}].click()")
+                        client.wait(f"state.detail?.document_id === {json.dumps(ids[case])} && !$('page-canvas').hidden")
+                    checked.append("offline replay entrypoint and controls")
 
                 def select(case):
                     client.evaluate(f"selectDocument({json.dumps(ids[case])})")
@@ -208,7 +225,7 @@ def main():
                     (output / relative).write_bytes(base64.b64decode(data["data"]))
                     frames.append({"path": relative, "caption": caption})
 
-                clean = select(CASES[0])
+                clean = select(cases[0])
                 assert client.evaluate("$('doc-kind').textContent === 'RECORDED OCR RULES · REPLAY' && $('pilot-panel').hidden")
                 checked.append("recorded provenance")
                 focus(client, '[data-path="fields.invoice_number"]')
@@ -222,8 +239,8 @@ def main():
                 client.call("Input.insertText", {"text": original + "-DEMO"})
                 enter(client, "#save-edit")
                 client.wait("state.detail.revision === 2")
-                assert store.get(ids[CASES[0]])["record"]["fields"]["invoice_number"]["value"] == original + "-DEMO"
-                assert store.get(ids[CASES[0]], 1)["record"]["fields"]["invoice_number"]["value"] == original
+                assert store.get(ids[cases[0]])["record"]["fields"]["invoice_number"]["value"] == original + "-DEMO"
+                assert store.get(ids[cases[0]], 1)["record"]["fields"]["invoice_number"]["value"] == original
                 checked.extend(["keyboard field navigation", "native action buttons", "correction creates revision"])
                 assert client.evaluate("(() => {const box=$('page-frame').getBoundingClientRect();return box.bottom>50 && box.top<innerHeight && getComputedStyle(document.querySelector('.page-panel')).position==='sticky'})()")
                 checked.append("source stays visible during correction")
@@ -231,17 +248,17 @@ def main():
                 capture("A keyboard correction creates revision 2 and preserves the original suggestion.")
                 enter(client, "#export-json")
                 client.wait("$('notice').classList.contains('error')")
-                assert store.get(ids[CASES[0]])["approval"] is None
+                assert store.get(ids[cases[0]])["approval"] is None
                 checked.append("unapproved export blocked")
-                response = client.evaluate(f"post('/api/documents/{ids[CASES[0]]}/edit',{{revision:1,path:'fields.total',value:'0',actor:'scripted-fictional-demo'}}).then(()=>false,error=>error.message)")
-                assert response and store.get(ids[CASES[0]])["revision"] == 2
+                response = client.evaluate(f"post('/api/documents/{ids[cases[0]]}/edit',{{revision:1,path:'fields.total',value:'0',actor:'scripted-fictional-demo'}}).then(()=>false,error=>error.message)")
+                assert response and store.get(ids[cases[0]])["revision"] == 2
                 checked.append("stale revision rejected")
                 client.evaluate(f"$('edit-value').value={json.dumps(original)}")
                 enter(client, "#save-edit")
                 client.wait("state.detail.revision===3")
                 enter(client, "#approve-button")
                 client.wait("state.detail.approval!==null")
-                assert store.get(ids[CASES[0]])["approval"]["revision"] == 3
+                assert store.get(ids[cases[0]])["approval"]["revision"] == 3
                 checked.append("approval bound to revision")
                 for kind in ("json", "csv"):
                     enter(client, f"#export-{kind}")
@@ -251,30 +268,32 @@ def main():
                     assert {d["name"] for d in downloads} == ({"invoice.json"} if kind == "json" else {"header.csv", "line-items.csv"})
                     for downloaded in downloads:
                         assert downloaded["ok"]
-                        saved, _ = store.exported_file(ids[CASES[0]], 3, kind, downloaded["name"])
+                        saved, _ = store.exported_file(ids[cases[0]], 3, kind, downloaded["name"])
                         assert bytes(downloaded["bytes"]) == saved
+                        if replay and kind == "json":
+                            assert json.loads(saved)["extraction"]["profile"] == "replay_ocr_rules"
                 checked.append("JSON and CSV downloads")
                 capture("Only the approved revision can produce verified JSON and CSV downloads.")
-                select(CASES[1])
+                select(cases[1])
                 enter(client, "#approve-button")
                 client.wait("$('notice').classList.contains('error')")
-                assert store.get(ids[CASES[1]])["approval"] is None
+                assert store.get(ids[cases[1]])["approval"] is None
                 client.evaluate("$('issues').scrollIntoView(); document.querySelector('#issues input').value='Scripted fixture: preserve the printed conflicting total; no business approval claim'; document.querySelector('#issues button').click()")
                 client.wait("state.detail.decisions.length===1")
                 capture("Printed total conflict: the reviewer records a reason; source values stay unchanged.")
-                rotated = select(CASES[2])
+                rotated = select(cases[2])
                 client.evaluate("window.scrollTo(0,0)")
                 for angle in (0, 90, 180, 270):
                     if angle:
                         enter(client, "#rotate-right")
                     verify_geometry(client, rotated, angle)
-                capture("Sideways source: the page and cited line highlights rotate together.")
+                capture("Review rotation: the page and cited line highlights rotate together.")
                 checked.append("rotated page pixels and highlights")
                 client.evaluate("document.querySelector('#line-items [data-path$=\".tax\"]').click()")
                 client.wait("$('highlights').children.length===0")
                 assert client.evaluate("$('evidence-note').textContent==='No cited line on this page'")
                 checked.append("missing evidence visible")
-                multiple = select(CASES[3])
+                multiple = select(cases[3])
                 client.evaluate("document.querySelector('[data-path=\"fields.invoice_number\"]').click()")
                 client.evaluate("globalThis.pageKeys=[];document.addEventListener('keydown',event=>{if(event.target.id==='page-select')queueMicrotask(()=>pageKeys.push({key:event.key,prevented:event.defaultPrevented,trusted:event.isTrusted}))})")
                 focus(client, "#page-select")
@@ -311,7 +330,7 @@ def main():
                 checked.append("responsive layout")
                 client.call("Emulation.clearDeviceMetricsOverride")
                 client.evaluate("window.scrollTo(0,0)")
-                assert set(checked) == CHECKS
+                assert set(checked) == CHECKS | ({"offline replay entrypoint and controls"} if replay else set())
                 print(json.dumps({"status": "controls_passed", "checks": len(checked), "frames": len(frames)}), flush=True)
                 if not args.skip_recording:
                     client.call("Page.navigate", {"url": "about:blank"})
@@ -323,9 +342,9 @@ def main():
                         client.socket.settimeout(10)
                 assert all((root / name).read_text() == text for name, text in snapshot.items()), "Source changed during verification"
                 (output / "index.html").write_text(render_demo(frames, recording))
-                report = {"report_version": "review-browser-workflow-v1", "status": "passed", "checks": checked,
+                report = {"report_version": "portfolio-demo-replay-browser-v1" if replay else "review-browser-workflow-v1", "status": "passed", "checks": checked,
                           "human_timing_measurement": False, "browser": client.call("Browser.getVersion")["product"],
-                          "cases": list(CASES), "frames": frames, "recording": recording,
+                          "cases": list(cases), "frames": frames, "recording": recording,
                           "page_selector_method": "Trusted CDP arrow/Enter events must remain uncanceled and preserve field selection/focus. Page choice uses a separate DOM change; OS popup-menu navigation is not verified.",
                           "source_sha256": {name: hashlib.sha256(text.encode()).hexdigest() for name, text in snapshot.items()},
                           "artifacts": {str(p.relative_to(output)): file_hash(p) for p in sorted(output.rglob('*')) if p.is_file()},

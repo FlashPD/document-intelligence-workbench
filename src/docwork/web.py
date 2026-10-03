@@ -39,7 +39,7 @@ class ReviewServer(ThreadingHTTPServer):
 
     def __init__(self, address: tuple[str, int], store: IntakeStore, *, token: str | None = None,
                  model_config: LocalModelConfig | None = None, model_profile: str | None = None,
-                 review_pilot=None):
+                 review_pilot=None, demo_replay: dict | None = None):
         if address[0] not in ("127.0.0.1", "::1"):
             raise ValueError("Review server must bind to loopback")
         self.store = store
@@ -47,6 +47,9 @@ class ReviewServer(ThreadingHTTPServer):
         self.model_config = model_config
         self.model_profile = model_profile
         self.review_pilot = review_pilot
+        if demo_replay is not None and (model_config is not None or review_pilot is not None):
+            raise ValueError("Replay uses recorded candidates without a model or timed pilot")
+        self.demo_replay = demo_replay
         self.repo_root = Path(__file__).resolve().parents[2]
         super().__init__(address, ReviewHandler)
 
@@ -162,6 +165,7 @@ class ReviewHandler(BaseHTTPRequestHandler):
                 self._json(HTTPStatus.OK, {"managed_model": config is not None,
                                           "model_id": config.model_id if config else None,
                                           "profile": self.server.model_profile,
+                                          "demo_replay": getattr(self.server, "demo_replay", None),
                                           "review_pilot": getattr(self.server, "review_pilot", None) is not None})
             elif url.path == "/api/pilot" and getattr(self.server, "review_pilot", None) is not None:
                 self._json(HTTPStatus.OK, self.server.review_pilot.view())
@@ -218,7 +222,9 @@ class ReviewHandler(BaseHTTPRequestHandler):
         path = urlsplit(self.path).path
         try:
             pilot = getattr(self.server, "review_pilot", None)
-            if path == "/api/pilot/start" and pilot is not None:
+            if getattr(self.server, "demo_replay", None) is not None and path in ("/api/upload", "/api/process-one", "/api/demo/seed"):
+                raise ReviewBlocked("Replay uses recorded candidates. Start make dev for live processing.")
+            elif path == "/api/pilot/start" and pilot is not None:
                 data = self._input()
                 self._json(HTTPStatus.CREATED, pilot.start(self._required(data, "document_id", str),
                                                           self._required(data, "actor", str)))
@@ -309,10 +315,11 @@ class ReviewHandler(BaseHTTPRequestHandler):
 
 
 def serve(database: Path, object_root: Path, port: int = 8765, *,
-          model_config: LocalModelConfig | None = None, model_profile: str | None = None) -> None:
+          model_config: LocalModelConfig | None = None, model_profile: str | None = None,
+          demo_replay: dict | None = None) -> None:
     store = IntakeStore(database, object_root)
     with ReviewServer(("127.0.0.1", port), store,
-                      model_config=model_config, model_profile=model_profile) as server:
+                      model_config=model_config, model_profile=model_profile, demo_replay=demo_replay) as server:
         print(f"Open {server.origin}/?token={server.token}", flush=True)
         try:
             server.serve_forever()

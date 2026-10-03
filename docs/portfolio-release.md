@@ -17,7 +17,17 @@ PYTHONPATH=src python3.12 -m docwork.cli eval-verify-model-workflow \
   evals/real-model-upload-2026-10-03
 ```
 
-These are offline integrity/contract checks. They do not require Docker, Tesseract, model weights, or CORD downloads. Recorded model evidence is audited without executing the model. To run fresh trusted-fixture OCR, install Tesseract with English language data on the host, then:
+These are offline integrity/contract checks. They do not require Docker, Tesseract, model weights, or CORD downloads. Recorded model evidence is audited without executing the model.
+
+For an immediate interactive demo with only Python 3.12:
+
+```sh
+make demo-replay
+```
+
+The [offline replay](demo-replay.md) loads four fictional development candidates with source highlights, real corrections, approval, and downloads. The interface and exports label recorded OCR; no OCR, parser, model, or downloads run. Each launch preserves its own workbench under `artifacts/demo-replay/` and starts with fresh unapproved candidates. This entrypoint makes the workflow reviewable before live runtime setup; it does not satisfy model, held-out quality, or human-pilot evidence requirements.
+
+To run fresh trusted-fixture OCR, install Tesseract with English language data on the host, then:
 
 ```sh
 make doctor

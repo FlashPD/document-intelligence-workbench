@@ -1,0 +1,10 @@
+{
+  "source_sha256": "e9907652c5c0549885b8f34b5e56077957a415bcdfc211761cea19ffff3d3846",
+  "record": null,
+  "freeze_sha256": "bd51713c2766a01da72d5e46f8265ee01179880c243991157d73c378c68405ae",
+  "ocr_prediction_sha256": "ef5e1c292fa5e7eb2151fd1c6c1540c5344b603cd579ef160a888bd5626649a7",
+  "failure_type": "ModelUnavailable",
+  "runtime_seconds": {
+    "model": 150.052
+  }
+}

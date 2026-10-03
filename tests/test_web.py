@@ -181,7 +181,7 @@ class WebTests(unittest.TestCase):
         self.login()
         status, runtime, _ = self.call("GET", "/api/runtime")
         self.assertEqual(status, 200)
-        self.assertEqual(runtime, {"managed_model": True, "model_id": "pinned-model", "profile": "pinned-profile", "review_pilot": False})
+        self.assertEqual(runtime, {"managed_model": True, "model_id": "pinned-model", "profile": "pinned-profile", "demo_replay": None, "review_pilot": False})
         self.assertNotIn("private-key", json.dumps(runtime))
         with patch("docwork.web.process_one", return_value=None) as process:
             self.assertEqual(self.call("POST", "/api/process-one", {"extractor": "span_llm"})[0], 200)
@@ -196,6 +196,42 @@ class WebTests(unittest.TestCase):
         self.assertEqual(status, 400)
         self.assertIn("omit endpoint overrides", error["error"])
         process.assert_not_called()
+
+    def test_replay_runtime_and_server_enforced_processing_boundary(self):
+        self.server.demo_replay = {"version": "portfolio-demo-replay-v1", "cases": []}
+        self.assertEqual(self.call("GET", "/api/runtime")[0], 401)
+        self.login()
+        self.assertEqual(self.call("GET", "/api/runtime")[1]["demo_replay"], self.server.demo_replay)
+        with patch("docwork.web.tesseract_page") as ocr, patch("docwork.web.process_one") as process:
+            for path, data in (("/api/demo/seed", {"fixture": "clean"}),
+                               ("/api/process-one", {"extractor": "ocr_rules"}),
+                               ("/api/upload", SAMPLE)):
+                self.assertEqual(self.call("POST", path, data)[0], 422)
+            ocr.assert_not_called()
+            process.assert_not_called()
+        self.assertEqual(self.store.list_documents(), [])
+
+    def test_replay_retains_review_approval_and_export_provenance(self):
+        from docwork.demo_replay import prepare_replay
+        root = self.server.repo_root
+        output = self.store.database.parent / "replay"
+        self.server.demo_replay = prepare_replay(root, output)
+        self.store = self.server.store = IntakeStore(output / "review.sqlite", output / "objects")
+        self.login()
+        doc_id = self.server.demo_replay["cases"][0]["document_id"]
+        route = f"/api/documents/{doc_id}"
+        self.assertEqual(self.call("GET", route + "/pages/1")[0], 200)
+        self.assertEqual(self.call("POST", route + "/export", {"format": "json"})[0], 409)
+        original = self.call("GET", route)[1]["record"]["fields"]["invoice_number"]["value"]
+        self.assertEqual(self.call("POST", route + "/edit", {
+            "revision": 1, "path": "fields.invoice_number", "value": original,
+            "actor": "replay-test"})[1]["revision"], 2)
+        self.assertEqual(self.call("POST", route + "/approve", {"revision": 1, "actor": "replay-test"})[0], 409)
+        self.assertEqual(self.call("POST", route + "/approve", {"revision": 2, "actor": "replay-test"})[0], 200)
+        manifest = self.call("POST", route + "/export", {"format": "json"})[1]
+        exported = self.call("GET", manifest["files"][0]["url"])[1]
+        self.assertEqual(exported["extraction"]["profile"], "replay_ocr_rules")
+        self.assertEqual(exported["revision"], 2)
 
 
 if __name__ == "__main__":

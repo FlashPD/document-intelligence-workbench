@@ -34,8 +34,21 @@ The current stack is Python 3.12 standard-library HTTP/SQLite, HTML/CSS/JavaScri
 | [CORD rules validation](evals/cord-validation-2026-10-03/ocr-rules/report.json) | 100/100 receipts; total F1 **0.1273**, eligible exact-row F1 **0.0774** | Separate public-receipt domain; exposes a large gap for this English OCR prototype |
 | [Browser pilot controls](docs/review-pilot.md) | Automated Chrome check passes | Source highlight, pause/resume, approval, export, completion; human results pending |
 | [Browser workflow and recording](docs/browser-verification.md) | 15 Chrome checks pass; captioned WebM decodes and plays | Keyboard, rotation/highlight alignment, page navigation, revisions, verified downloads; scripted saved-OCR demonstration |
+| [Offline portfolio replay](docs/demo-replay.md#recorded-checks) | 16 Chrome checks; clean-source preparation; 259 deterministic tests pass | Four recorded development cases, Python-only entrypoint, real review/export, explicit replay provenance |
 
 Synthetic invoice results cannot establish real vendor accuracy. Valid span IDs and substring alignment do not prove semantic evidence accuracy. Model stage timings on saved OCR exclude new parsing and human review. No time-saved or unattended-approval claim is made. See the cards and complete run reports for denominators, representative failures, hardware, and limitations.
+
+## Try the portfolio demo
+
+With Python 3.12, run this from the repository root:
+
+```sh
+make demo-replay
+```
+
+Open the session URL printed in the terminal. This offline demo needs no Docker, Tesseract, model weights, Python packages, or downloads. Four fictional development invoices replay recorded OCR/rules candidates: a clean invoice, a printed-total conflict, a low-contrast scan with an extraction error, and a two-page invoice. Select a case, inspect its source highlights, correct or acknowledge issues, approve, and download JSON/CSV. Replay is labeled in the interface and exported provenance; the demo does not measure extraction quality, live latency, or human productivity.
+
+Each launch creates a separate workbench under `artifacts/demo-replay/`. Reviews and exports remain there after Ctrl+C; another launch starts fresh. See the [replay guide](docs/demo-replay.md) for the walkthrough and offline verification. For live OCR and uploads, use the commands below.
 
 ## Run locally
 

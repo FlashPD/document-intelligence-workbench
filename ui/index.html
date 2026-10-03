@@ -22,6 +22,13 @@
   <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
   <main class="shell">
     <aside class="sidebar">
+      <section id="replay-panel" class="panel" hidden>
+        <div class="eyebrow">PORTFOLIO DEMO · RECORDED OCR</div>
+        <h2>Try the review workflow</h2>
+        <p class="muted">Fictional invoices with saved extraction results. This session runs without OCR, Docker, or a model.</p>
+        <div id="replay-cases" class="queue"></div>
+        <p class="hint">Select a field to inspect its source. Correct an extraction error or explain a printed conflict, then approve and download JSON/CSV. Start a new demo for fresh candidates; this session's reviews and exports stay on disk.</p>
+      </section>
       <section id="pilot-panel" class="panel" hidden>
         <div class="eyebrow">AUTHOR PILOT · RECORDED OCR RULES</div>
         <h2>Timed assisted review</h2>
@@ -41,7 +48,7 @@
         <div class="section-head"><h2>Documents</h2><span id="queue-count"></span></div>
         <div id="queue" class="queue"></div>
       </section>
-      <section class="panel actions">
+      <section id="intake-panel" class="panel actions">
         <h2>Add a document</h2>
         <p class="muted">Uploaded files need the Docker parser. Trusted samples run fresh local OCR for the demo.</p>
         <div class="button-row">
