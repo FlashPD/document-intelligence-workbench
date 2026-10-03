@@ -1,7 +1,7 @@
 PYTHON ?= python3.12
 PYTHONPATH := src
 
-.PHONY: doctor test smoke-ocr demo-baseline eval-development eval-repeatability eval-verify-corpus models-fetch models-verify parser-build parser-smoke dev
+.PHONY: doctor test smoke-ocr demo-baseline eval-development eval-repeatability eval-verify-corpus models-fetch models-verify parser-build parser-smoke parser-verify dev
 
 doctor:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli doctor
@@ -38,6 +38,9 @@ parser-build:
 
 parser-smoke:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m unittest discover -s tests -p 'container_*.py' -v
+
+parser-verify:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/verify_parser.py --output $(or $(OUTPUT),artifacts/parser-verification.json)
 
 dev:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli serve

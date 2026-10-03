@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import io
 import json
+import subprocess
 import tempfile
 import time
 import unittest
@@ -12,12 +13,12 @@ from unittest.mock import patch
 
 from docwork.baseline import extract_invoice
 from docwork.contracts import Box, DocumentPage, TextSpan, HEADER_FIELDS
-from docwork.intake import IntakeStore
+from docwork.intake import IntakeStore, JobClaim
 from docwork.local_model import LocalModelConfig, ModelUnavailable
 from docwork.ocr import png_dimensions
 from docwork.parser_protocol import PARSER_VERSION
 from docwork.review import ReviewBlocked, ReviewConflict
-from docwork.worker import ParserFailure, _keep_lease, process_one, validate_output
+from docwork.worker import ParserFailure, _docker_run, _keep_lease, process_one, validate_output
 
 SAMPLE = (Path(__file__).resolve().parents[1] / "samples" / "clean.png").read_bytes()
 LINES = (
@@ -73,6 +74,18 @@ class WorkerTests(unittest.TestCase):
 
     def submit(self):
         return self.store.submit(io.BytesIO(SAMPLE), "clean.png", "image/png")
+
+    def test_missing_parser_image_does_not_attempt_network_pull(self):
+        claim = JobClaim("job-1", "document-1", 1, "worker", 0)
+        result = subprocess.CompletedProcess([], 125, b"", b"No such image: absent")
+        with patch("docwork.worker.shutil.which", return_value="docker"), \
+                patch("docwork.worker.subprocess.run", return_value=result) as run:
+            with self.assertRaises(ParserFailure) as failure:
+                _docker_run(Path("source"), "image/png", Path("output"), claim, image="absent")
+        self.assertEqual(failure.exception.code, "PARSER_IMAGE_MISSING")
+        command = run.call_args.args[0]
+        self.assertEqual(command[command.index("--pull") + 1], "never")
+        self.assertEqual(run.call_count, 1)
 
     def test_queued_upload_becomes_reviewable_and_page_is_preserved(self):
         document_id = self.submit()

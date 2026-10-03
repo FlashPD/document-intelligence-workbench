@@ -90,13 +90,12 @@ def validate_output(output: Path, source_hash: str) -> tuple[tuple, tuple[bytes,
         raise ParserFailure("PARSER_OUTPUT_INVALID") from exc
 
 
-def _docker_run(source: Path, media_type: str, output: Path, claim: JobClaim,
-                *, image: str) -> None:
-    if shutil.which("docker") is None:
-        raise ParserFailure("PARSER_UNAVAILABLE")
+def parser_command(source: Path, media_type: str, output: Path, claim: JobClaim,
+                   *, image: str) -> list[str]:
+    """One container policy shared by production parsing and live verification."""
     container_name = f"docwork-{claim.job_id[:16]}-{claim.fence}"
-    command = [
-        "docker", "run", "--rm", "--name", container_name,
+    return [
+        "docker", "run", "--rm", "--pull", "never", "--name", container_name,
         "--network", "none", "--read-only", "--cap-drop", "ALL",
         "--security-opt", "no-new-privileges", "--pids-limit", "64",
         "--memory", "1g", "--cpus", "2", "--user", "65534:65534",
@@ -105,6 +104,14 @@ def _docker_run(source: Path, media_type: str, output: Path, claim: JobClaim,
         "--mount", f"type=bind,src={output},dst=/output",
         image, "/input/original", media_type, "/output",
     ]
+
+
+def _docker_run(source: Path, media_type: str, output: Path, claim: JobClaim,
+                *, image: str) -> None:
+    if shutil.which("docker") is None:
+        raise ParserFailure("PARSER_UNAVAILABLE")
+    command = parser_command(source, media_type, output, claim, image=image)
+    container_name = command[command.index("--name") + 1]
     try:
         completed = subprocess.run(command, capture_output=True, timeout=PARSER_TIMEOUT, check=False)
     except OSError as exc:
