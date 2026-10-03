@@ -21,7 +21,7 @@ from .local_model import (
 from .parser_protocol import MAX_PAGE_BYTES, MAX_PAGES, MAX_RESULT_BYTES, PARSER_VERSION
 from .review import ReviewConflict, page_from_dict
 
-PARSER_IMAGE = "docwork-parser:v2"
+PARSER_IMAGE = "docwork-parser:v3"
 PARSER_TIMEOUT = 600
 WORKER_LEASE_SECONDS = 120
 HEARTBEAT_SECONDS = 30

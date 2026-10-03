@@ -1,0 +1,201 @@
+{
+  "record": {
+    "schema_version": "invoice-v1-spike",
+    "fields": {
+      "supplier_name": {
+        "value": "Aster Studio LLC",
+        "raw": "Aster Studio LLC",
+        "evidence_ids": [
+          "p1-l0002"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "invoice_number": {
+        "value": "F01-018",
+        "raw": "Invoice No.: F01-018",
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "issue_date": {
+        "value": "2026-01-18",
+        "raw": "Date: 2026-01-18",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "due_date": {
+        "value": "2026-02-17",
+        "raw": "Due date: 2026-02-17",
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "currency": {
+        "value": "USD",
+        "raw": "Currency: USD",
+        "evidence_ids": [
+          "p1-l0007"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "subtotal": {
+        "value": "542.00",
+        "raw": "Subtotal: 542.00",
+        "evidence_ids": [
+          "p1-l0011"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "tax": {
+        "value": "5.00",
+        "raw": "Tax: 5.00",
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": "0.00",
+        "raw": "Discount: 0.00",
+        "evidence_ids": [
+          "p1-l0013"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "shipping": {
+        "value": "2.00",
+        "raw": "Shipping: 2.00",
+        "evidence_ids": [
+          "p1-l0014"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": "549.00",
+        "raw": "Total: 549.00",
+        "evidence_ids": [
+          "p1-l0015"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Prototype analysis",
+          "raw": "Prototype analysis 2 67.00 134.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "2",
+          "raw": "Prototype analysis 2 67.00 134.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "67.00",
+          "raw": "Prototype analysis 2 67.00 134.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "134.00",
+          "raw": "Prototype analysis 2 67.00 134.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Prototype analysis",
+          "raw": "Prototype analysis 4 102.00 408.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "4",
+          "raw": "Prototype analysis 4 102.00 408.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "102.00",
+          "raw": "Prototype analysis 4 102.00 408.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "408.00",
+          "raw": "Prototype analysis 4 102.00 408.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      }
+    ]
+  },
+  "issue_codes": [],
+  "source_sha256": "ecb02e8a648e305aebc0b3a9934f32ab05bd31fbea24c2e89cd9aec8ca439a3f",
+  "run_version": "invoice-preview-ocr-rules-v2",
+  "baseline_version": "ocr-rules-v0.3",
+  "ocr_psm": 1,
+  "input_mode": "verified_corpus_png_previews",
+  "runtime_seconds": {
+    "ocr": 0.714,
+    "total": 0.715
+  }
+}

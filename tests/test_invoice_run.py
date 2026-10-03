@@ -39,7 +39,7 @@ class InvoiceRunTests(unittest.TestCase):
         self.addCleanup(runtime.stop)
 
     @staticmethod
-    def page(path, *, page_number):
+    def page(path, *, page_number, page_segmentation_mode=1):
         lines = ["Aster Studio LLC", "Invoice Number: AST-1", "Date: 2026-09-12",
                  "Currency: USD", "Subtotal: 30.00", "Total: 30.00",
                  "Design review 1 10.00 10.00", "Design review 2 10.00 20.00"]
@@ -59,6 +59,7 @@ class InvoiceRunTests(unittest.TestCase):
         prediction = json.loads((self.run_dir / "predictions" / "invoice-1.json").read_text())
         self.assertEqual(prediction["source_sha256"], self.document["source_sha256"])
         self.assertEqual(prediction["input_mode"], "verified_corpus_png_previews")
+        self.assertEqual(prediction["ocr_psm"], 1)
         self.assertEqual(verify_invoice_run(self.manifest, self.run_dir)["status"], "verified")
 
     def test_ocr_failure_is_explicit_and_stays_in_denominator(self):

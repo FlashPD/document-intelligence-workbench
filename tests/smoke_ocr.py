@@ -9,6 +9,7 @@ from docwork.ocr import png_dimensions, tesseract_page
 from docwork.validation import validate_invoice
 
 SAMPLES = Path(__file__).resolve().parents[1] / "samples"
+CORPUS = Path(__file__).resolve().parents[1] / "datasets" / "invoices-v1" / "assets"
 
 
 class FixtureIntegrationTests(unittest.TestCase):
@@ -34,6 +35,20 @@ class FixtureIntegrationTests(unittest.TestCase):
     def test_fixture_boundary_rejects_external_file(self) -> None:
         with self.assertRaises(ValueError):
             baseline_fixture(Path(__file__))
+
+    def test_orientation_aware_ocr_keeps_boxes_on_rotated_page(self) -> None:
+        path = CORPUS / "inv-f01-30.png"
+        page = tesseract_page(path)
+        self.assertEqual((page.width_px, page.height_px), png_dimensions(path))
+        record = extract_invoice(page)
+        self.assertEqual(record.fields["supplier_name"].value, "Aster Studio LLC")
+        self.assertEqual(record.fields["invoice_number"].value, "F01-005")
+        self.assertEqual(record.line_items[0].line_total.value, "25.00")
+        cited = {span.id: span for span in page.spans}
+        for field in (record.fields["supplier_name"], record.fields["invoice_number"],
+                      record.line_items[0].line_total):
+            self.assertTrue(field.evidence_ids)
+            self.assertTrue(all(cited[span_id].box is not None for span_id in field.evidence_ids))
 
 
 if __name__ == "__main__":

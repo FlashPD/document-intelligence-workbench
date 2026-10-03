@@ -29,16 +29,25 @@ def png_dimensions(path: Path) -> tuple[int, int]:
     return width, height
 
 
-def tesseract_page(path: Path, *, page_number: int = 1, timeout_seconds: int = 90) -> DocumentPage:
+def tesseract_page(path: Path, *, page_number: int = 1, timeout_seconds: int = 90,
+                   page_segmentation_mode: int = 1) -> DocumentPage:
     """Read one trusted PNG; untrusted originals need the planned container boundary."""
+    if page_segmentation_mode not in (1, 3):
+        raise ValueError("Supported Tesseract page segmentation modes are 1 and 3")
     width, height = png_dimensions(path)
-    result = subprocess.run(
-        ["tesseract", str(path), "stdout", "-l", "eng", "tsv"],
-        capture_output=True,
-        text=True,
-        timeout=timeout_seconds,
-        check=False,
-    )
+    def recognize(mode: int) -> subprocess.CompletedProcess[str]:
+        return subprocess.run(
+            ["tesseract", str(path), "stdout", "-l", "eng", "--psm", str(mode), "tsv"],
+            capture_output=True,
+            text=True,
+            timeout=timeout_seconds,
+            check=False,
+        )
+
+    result = recognize(page_segmentation_mode)
+    if result.returncode and page_segmentation_mode == 1:
+        # Orientation detection can reject sparse but otherwise readable pages.
+        result = recognize(3)
     if result.returncode:
         raise RuntimeError(f"Tesseract failed with exit code {result.returncode}")
 

@@ -14,7 +14,7 @@ The [frozen invoice scoring contract](docs/release-evaluation.md) adds order-ind
 
 The [self-authored invoice corpus](docs/invoice-corpus.md) now has 540 hash-verified documents across 18 isolated layout families and three 180-document splits, including multi-page PDFs and degraded derivatives. Run `PYTHONPATH=src python3.12 -m docwork.cli eval-verify-corpus` to check its assets and labels. The test split has not been scored.
 
-A [full development-split OCR/rules run](docs/invoice-development-run.md) now scores all 180 development invoices from verified PNG previews. A measured supplier-name correction raises header macro F1 from 0.9093 to 0.9738; the v0.3 run has 145/166 eligible documents with all required fields exact and 0.9688 exact-row F1. Both prediction sets are stored under `evals/` for offline audit. This diagnostic does not exercise PDF parsing, and neither calibration nor test has been scored.
+A [full development-split OCR/rules run](docs/invoice-development-run.md) now scores all 180 development invoices from verified PNG previews. A supplier-name correction raises header macro F1 from 0.9093 to 0.9738. A paired orientation-aware OCR run raises it further to 0.9911, with 150/166 eligible documents with all required fields exact and 0.9817 exact-row F1. All prediction sets are stored under `evals/` for offline audit. These diagnostics do not exercise PDF parsing, and neither calibration nor test has been scored.
 
 ## Run the spike
 

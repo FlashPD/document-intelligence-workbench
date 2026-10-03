@@ -16,7 +16,7 @@ from .ocr import tesseract_page
 from .release_evaluation import score_saved_invoice_run, verify_invoice_manifest
 from .validation import validate_invoice
 
-RUN_VERSION = "invoice-preview-ocr-rules-v1"
+RUN_VERSION = "invoice-preview-ocr-rules-v2"
 
 
 def _write_new(path: Path, value: dict) -> None:
@@ -47,7 +47,7 @@ def _preview_paths(document: dict, root: Path) -> tuple[Path, ...]:
     return tuple(root / asset["path"] for asset in previews)
 
 
-def _extract(document: dict, root: Path) -> dict:
+def _extract(document: dict, root: Path, ocr_psm: int) -> dict:
     started = time.perf_counter()
     ocr_seconds = 0.0
     try:
@@ -55,7 +55,8 @@ def _extract(document: dict, root: Path) -> dict:
         pages = []
         for number, path in enumerate(paths, start=1):
             page_start = time.perf_counter()
-            pages.append(tesseract_page(path, page_number=number))
+            pages.append(tesseract_page(path, page_number=number,
+                                        page_segmentation_mode=ocr_psm))
             ocr_seconds += time.perf_counter() - page_start
         record = extract_invoice_pages(tuple(pages))
         issues = validate_invoice(record, tuple(pages))
@@ -66,6 +67,7 @@ def _extract(document: dict, root: Path) -> dict:
         "source_sha256": document["source_sha256"],
         "run_version": RUN_VERSION,
         "baseline_version": BASELINE_VERSION,
+        "ocr_psm": ocr_psm,
         "input_mode": "verified_corpus_png_previews",
         "runtime_seconds": {"ocr": round(ocr_seconds, 3),
                             "total": round(time.perf_counter() - started, 3)},
@@ -73,13 +75,16 @@ def _extract(document: dict, root: Path) -> dict:
     return result
 
 
-def run_invoice_baseline(manifest_path: Path, output_dir: Path, *, resume: bool = False) -> dict:
+def run_invoice_baseline(manifest_path: Path, output_dir: Path, *, resume: bool = False,
+                         ocr_psm: int = 1) -> dict:
     """Score development only. PDF page previews are a diagnostic, not PDF parsing."""
     manifest_path = manifest_path.resolve(strict=True)
     root = manifest_path.parent
     output_dir = output_dir.resolve()
     if output_dir.is_relative_to(root):
         raise ValueError("Run output must be outside the corpus directory")
+    if ocr_psm not in (1, 3):
+        raise ValueError("OCR page segmentation mode must be 1 or 3")
     manifest_bytes = manifest_path.read_bytes()
     manifest = json.loads(manifest_bytes)
     verify_invoice_manifest(manifest, manifest_path)
@@ -94,6 +99,7 @@ def run_invoice_baseline(manifest_path: Path, output_dir: Path, *, resume: bool 
         "split": "development",
         "manifest_sha256": hashlib.sha256(manifest_bytes).hexdigest(),
         "baseline_version": BASELINE_VERSION,
+        "ocr_psm": ocr_psm,
         "tesseract_version": version,
         "python_version": platform.python_version(),
         "input_mode": "verified_corpus_png_previews",
@@ -131,10 +137,11 @@ def run_invoice_baseline(manifest_path: Path, output_dir: Path, *, resume: bool 
             saved = json.loads(path.read_text())
             if (saved.get("source_sha256") != document["source_sha256"]
                     or saved.get("run_version") != RUN_VERSION
-                    or saved.get("baseline_version") != BASELINE_VERSION):
+                    or saved.get("baseline_version") != BASELINE_VERSION
+                    or saved.get("ocr_psm") != ocr_psm):
                 raise ValueError(f"Existing prediction does not match run: {document['id']}")
             continue
-        _write_new(path, _extract(document, root))
+        _write_new(path, _extract(document, root, ocr_psm))
     report = score_saved_invoice_run(manifest_path, predictions_dir, "development")
     report["run_identity"] = identity
     timing = [json.loads((predictions_dir / f"{doc['id']}.json").read_text())["runtime_seconds"]
@@ -170,6 +177,7 @@ def verify_invoice_run(manifest_path: Path, run_dir: Path) -> dict:
         prediction = json.loads(path.read_text())
         if (prediction.get("run_version") != identity.get("run_version")
                 or prediction.get("baseline_version") != identity.get("baseline_version")
+                or prediction.get("ocr_psm") != identity.get("ocr_psm")
                 or prediction.get("input_mode") != identity.get("input_mode")):
             raise ValueError(f"Prediction run identity differs: {path.name}")
         predictions.append(prediction)
