@@ -2,13 +2,13 @@
 
 A local invoice application that extracts structured fields and rows, links suggestions to page evidence, and exports JSON/CSV only after human approval. Corrections create auditable revisions; approvals and export bytes belong to an exact revision. Uploaded PDFs and images run through an isolated Docker parser, with an optional pinned local language model.
 
-**Status: experimental; portfolio release evidence is being completed.** The upload/review/export workflow, parser recovery, and portable backups are implemented. Full held-out model comparisons, the author review pilot, and a presentation recording remain pending. [`release-check`](docs/portfolio-release.md#generate-the-release-audit) runs fresh contracts and makes missing, changed, and complete evidence visible without scoring partial inference.
+**Status: experimental; portfolio release evidence is being completed.** The upload/review/export workflow, parser recovery, and portable backups are implemented. A [captioned scripted demo](evals/review-browser-2026-10-03-v2/index.html) now shows the review workflow using saved OCR on fictional cases. Full held-out model comparisons and the human review pilot remain pending. [`release-check`](docs/portfolio-release.md#generate-the-release-audit) runs fresh contracts and makes missing, changed, and complete evidence visible without scoring partial inference.
 
 Start with the [portfolio runbook](docs/portfolio-release.md), [system card](docs/system-card.md), and [data card](docs/data-card.md). The [architecture plan](arch_plan/document-intelligence-workbench-plan.md) records the original design and broader acceptance criteria.
 
-![Review workspace with source evidence and author pilot controls](evals/review-pilot-browser-2026-10-03-v3/review.png)
+![Review workspace with source evidence and a versioned correction](evals/review-browser-2026-10-03-v2/frames/01.png)
 
-*Recorded automated Chrome check on a disposable fictional development fixture. This is interface evidence, not human review-time evidence.*
+*Automated Chrome capture on a disposable fictional development fixture using recorded OCR. This is interface evidence, not human review-time or live extraction evidence.*
 
 ## Why this project
 
@@ -33,6 +33,7 @@ The current stack is Python 3.12 standard-library HTTP/SQLite, HTML/CSS/JavaScri
 | [Parser resource/recovery checks](docs/parser-resources.md) | 16 recorded Docker checks pass | Timeout/OOM probes, checkpoint recovery, backup restoration, and review/export fixtures; source freshness checked separately |
 | [CORD rules validation](evals/cord-validation-2026-10-03/ocr-rules/report.json) | 100/100 receipts; total F1 **0.1273**, eligible exact-row F1 **0.0774** | Separate public-receipt domain; exposes a large gap for this English OCR prototype |
 | [Browser pilot controls](docs/review-pilot.md) | Automated Chrome check passes | Source highlight, pause/resume, approval, export, completion; human results pending |
+| [Browser workflow and recording](docs/browser-verification.md) | 15 Chrome checks pass; captioned WebM decodes and plays | Keyboard, rotation/highlight alignment, page navigation, revisions, verified downloads; scripted saved-OCR demonstration |
 
 Synthetic invoice results cannot establish real vendor accuracy. Valid span IDs and substring alignment do not prove semantic evidence accuracy. Model stage timings on saved OCR exclude new parsing and human review. No time-saved or unattended-approval claim is made. See the cards and complete run reports for denominators, representative failures, hardware, and limitations.
 
@@ -78,6 +79,7 @@ make release-check OUTPUT=artifacts/portfolio-audit-001
 | Pinned-model feasibility and initial spike | [Development baseline](docs/development-baseline.md), [Phase 0 history](docs/phase0.md) |
 | Real model through uploaded documents | [Model workflow](docs/real-model-upload.md) |
 | Assisted author study and limitations | [Review pilot](docs/review-pilot.md) |
+| Browser geometry, keyboard controls, and captioned demo | [Browser verification](docs/browser-verification.md) |
 | Release audit, recording script, remaining work | [Portfolio release](docs/portfolio-release.md) |
 
 Fresh experiments write to ignored `artifacts/`; committed `evals/` preserve recorded evidence. The original reports are historical measurements, not claims that every later source revision was tested with their runtime. The release audit reports that distinction explicitly.

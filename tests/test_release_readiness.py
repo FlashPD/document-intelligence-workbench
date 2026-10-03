@@ -159,12 +159,12 @@ class ReleaseReadinessTests(unittest.TestCase):
             audit_release(self.root, self.root / "src/audit")
 
     def test_browser_evidence_cannot_be_relabeled_as_human_time_or_lose_screenshot(self):
-        source = ROOT / DEFAULTS["browser"]
+        source = ROOT / "evals/review-pilot-browser-2026-10-03-v3"
         report = json.loads((source / "report.json").read_text())
         directory = self.root / "browser"
         directory.mkdir()
         (directory / "review.png").write_bytes((source / "review.png").read_bytes())
-        self.assertEqual(verify_browser_report(ROOT, source)["status"], "passed")
+        self.assertEqual(verify_browser_report(ROOT, source)["recorded_run"], "verified")
         report["human_timing_measurement"] = True
         (directory / "report.json").write_text(json.dumps(report))
         with self.assertRaises(ValueError):

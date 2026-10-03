@@ -1,6 +1,6 @@
 # Portfolio release runbook
 
-The portfolio presentation should show a local, evidence-linked invoice workflow and explain its measured limits. The product remains experimental while the complete invoice/receipt model comparisons, author review pilot, current-build model workflow rerun, and presentation recording are pending. The [system card](system-card.md) and [data card](data-card.md) distinguish implemented behavior from the larger [architecture plan](../arch_plan/document-intelligence-workbench-plan.md).
+The portfolio presentation should show a local, evidence-linked invoice workflow and explain its measured limits. A [captioned scripted recording](../evals/review-browser-2026-10-03-v2/index.html) is now available, with [Chrome verification](browser-verification.md) of keyboard, rotation, page navigation, revision, and export behavior on fictional recorded-OCR fixtures. The product remains experimental while the complete invoice/receipt model comparisons, human review pilot, and current-build model workflow rerun are pending. The [system card](system-card.md) and [data card](data-card.md) distinguish implemented behavior from the larger [architecture plan](../arch_plan/document-intelligence-workbench-plan.md).
 
 ## Fresh checkout and first demo
 
@@ -25,7 +25,7 @@ make smoke-ocr
 make dev
 ```
 
-The [recorded clean-source check](../evals/portfolio-checkout-2026-10-03/report.json) passes all four offline commands above, including 246 deterministic tests, in a temporary copy of 2,686 tracked/current-change files. It excludes the active inference bundle and starts without `artifacts/`, a virtual environment, or model assets. Saved source/log hashes identify the check. This is a source-snapshot reproduction check before commit; cloning the eventual release tag remains a separate final check.
+The [browser-release clean-source check](../evals/review-release-checkout-2026-10-03/report.json) passes all four offline commands above, including 253 deterministic tests, in a temporary copy of 2,721 tracked/current-change files. It excludes the active inference bundle and starts without `artifacts/`, a virtual environment, or model assets. Saved source/log hashes identify the check. The [initial packaging check](../evals/portfolio-checkout-2026-10-03/report.json) remains as historical evidence. These are source-snapshot reproduction checks before commit; cloning the eventual release tag remains a separate final check.
 
 Open the one-time loopback URL printed by `make dev`. Choose **Clean sample**; click fields to inspect source highlights, review the values, approve the current revision, and export JSON/CSV. Choose **Conflicting total**; inspect the printed total and `TOTAL_MISMATCH`, enter a reason to retain the printed value or correct an extraction error from its source, and approve the resulting revision. Export is blocked until approval. Fixture buttons use fresh host OCR, not Docker or model inference.
 
@@ -71,13 +71,13 @@ PYTHONPATH=src python3.12 -m docwork.cli release-check \
   --output-dir artifacts/portfolio-audit-002 \
   --parser-report artifacts/parser-checkout-fresh.json \
   --model-workflow-directory artifacts/model-workflow-fresh \
-  --pilot-directory artifacts/review-pilot-author-2026-10-03 \
-  --demo-recording artifacts/portfolio-demo.mp4
+  --pilot-directory artifacts/review-pilot-author-2026-10-03-v3 \
+  --demo-recording evals/review-browser-2026-10-03-v2/demo.webm
 ```
 
 Run the audit only after supplied evidence writers stop. It checks input stability around verification and marks changed evidence invalid. Source drift in historical parser/model/browser reports remains visible; it does not rewrite original reports or rerun costly inference. Existing pending progress can be inspected with `python3.12 scripts/evaluation_status.py`. The serialized coordinator and final comparison export are described in [release evaluation](release-evaluation.md).
 
-The parser default points to the [final portfolio parser report](../evals/portfolio-parser-2026-10-03-final/report.json). The [first verification attempt](../evals/portfolio-parser-2026-10-03/report.json) retained its failed stale-image check; the image was rebuilt before repeating verification. This preserves the failed attempt rather than rewriting it into a passing result.
+The parser default points to the [browser-release parser report](../evals/review-release-parser-2026-10-03/report.json). The earlier [first verification attempt](../evals/portfolio-parser-2026-10-03/report.json) retained its failed stale-image check; the image was rebuilt before repeating verification. This preserves the failed attempt rather than rewriting it into a passing result.
 
 ## Three minute presentation script
 
@@ -99,7 +99,7 @@ A model upload can be a separate recorded segment with its actual elapsed time l
 1. Let the frozen invoice model run and serialized CORD evaluations finish; audit and export both complete comparisons without selecting successful cases or tuning on test results.
 2. After those jobs finish, rerun the real-model HTTP workflow against the current source with a new output directory. Its previous report is valid historical evidence but predates worker/browser changes.
 3. Finish the six-case author review pilot yourself and stop its server. Its report can describe effort; there is no manual-entry baseline to support time saved.
-4. Capture the presentation recording and check rotated/multi-page behavior visually. Add genuine scanner-captured development evidence with permission and declared labels.
+4. Review the captioned scripted recording and its scope, or replace it with a narrated continuous capture. The four-case automated browser check covers stated rotated/multi-page geometry; OS popup menus and broader visual acceptance remain separate. Add genuine scanner-captured development evidence with permission and declared labels.
 5. Review the system/data cards and fresh-checkout instructions, identify any remaining architecture criteria deliberately deferred, and tag an experimental release with scoped claims when that evidence is ready.
 
 Packaging documentation and an audit do not publish or tag a release. Optional PC/GPU inference, framework migration, telemetry, and a VLM are separate workstreams; no claim is made that they have been completed.

@@ -47,7 +47,12 @@ class DevTools:
     def send(self, payload: bytes, opcode=1):
         mask = os.urandom(4)
         length = len(payload)
-        prefix = bytes((0x80 | opcode, 0x80 | length)) if length < 126 else bytes((0x80 | opcode, 0x80 | 126)) + struct.pack("!H", length)
+        if length < 126:
+            prefix = bytes((0x80 | opcode, 0x80 | length))
+        elif length <= 65535:
+            prefix = bytes((0x80 | opcode, 0x80 | 126)) + struct.pack("!H", length)
+        else:
+            prefix = bytes((0x80 | opcode, 0x80 | 127)) + struct.pack("!Q", length)
         self.socket.sendall(prefix + mask + bytes(c ^ mask[i % 4] for i, c in enumerate(payload)))
 
     def read(self):

@@ -1,7 +1,7 @@
 PYTHON ?= python3.12
 PYTHONPATH := src
 
-.PHONY: doctor test release-check smoke-ocr demo-baseline eval-development eval-repeatability eval-verify-corpus models-fetch models-verify parser-build parser-smoke parser-verify model-workflow-verify dev dev-model
+.PHONY: doctor test release-check review-browser-verify smoke-ocr demo-baseline eval-development eval-repeatability eval-verify-corpus models-fetch models-verify parser-build parser-smoke parser-verify model-workflow-verify dev dev-model
 
 doctor:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli doctor
@@ -11,6 +11,9 @@ test:
 
 release-check:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli release-check --output-dir $(or $(OUTPUT),artifacts/portfolio-readiness-fresh)
+
+review-browser-verify:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/verify_review_browser.py --output-dir $(or $(OUTPUT),artifacts/review-browser-fresh)
 
 smoke-ocr:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m unittest discover -s tests -p 'smoke_*.py' -v

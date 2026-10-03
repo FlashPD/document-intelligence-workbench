@@ -30,9 +30,9 @@ DEFAULTS = {
     "invoice_model": "evals/invoice-model-heldout-2026-10-03",
     "receipts": "evals/cord-heldout-2026-10-03",
     "receipt_manifest": "artifacts/cord-v2/prepared-v1/manifest.json",
-    "parser": "evals/portfolio-parser-2026-10-03-final/report.json",
+    "parser": "evals/review-release-parser-2026-10-03/report.json",
     "workflow": "evals/real-model-upload-2026-10-03",
-    "browser": "evals/review-pilot-browser-2026-10-03-v3",
+    "browser": "evals/review-browser-2026-10-03-v2",
 }
 DOCS = ("README.md", "docs/system-card.md", "docs/data-card.md", "docs/portfolio-release.md")
 PARSER_CHECKS = {
@@ -55,6 +55,10 @@ PARSER_CHECKS = {
 BROWSER_CHECKS = {"declared pilot mode", "no source before start", "source canvas and field highlight",
                   "hidden empty workspace", "pause hides review", "reviewer label locked", "resume",
                   "approval", "JSON export", "completion"}
+REVIEW_BROWSER_CHECKS = {"recorded provenance", "keyboard field navigation", "native page selector", "native action buttons", "source stays visible during correction",
+                        "correction creates revision", "stale revision rejected", "unapproved export blocked",
+                        "approval bound to revision", "JSON and CSV downloads", "rotated page pixels and highlights",
+                        "page-specific rotation", "field jumps to source page", "missing evidence visible", "responsive layout"}
 
 
 def safe_path(root: Path, relative: str) -> Path:
@@ -113,12 +117,38 @@ def verify_parser_report(root: Path, path: Path) -> dict:
 def verify_browser_report(root: Path, directory: Path) -> dict:
     report = json.loads((directory / "report.json").read_text())
     checks = report["checks"]
+    if report.get("report_version") == "review-browser-workflow-v1":
+        if (report.get("status") != "passed" or report.get("human_timing_measurement") is not False or
+                len(checks) != len(set(checks)) or not REVIEW_BROWSER_CHECKS <= set(checks) or
+                report.get("cases") != ["inv-f02-02", "inv-f01-12", "inv-f05-30", "inv-f06-04"]):
+            raise ValueError("Browser workflow coverage is incomplete or relabeled as human timing")
+        actual = inventory(directory, [directory])
+        actual.pop("report.json")
+        if actual != report["artifacts"]:
+            raise ValueError("Browser artifact inventory or checksums differ")
+        snapshot = json.loads((directory / "source_snapshot.json").read_text())
+        if {name: hashlib.sha256(text.encode()).hexdigest() for name, text in snapshot.items()} != report["source_sha256"]:
+            raise ValueError("Browser source snapshot differs")
+        for frame in report["frames"]:
+            if not frame["path"].startswith("frames/") or frame["path"] not in actual:
+                raise ValueError("Browser frame is outside its artifact inventory")
+        if len(report["frames"]) < 5 or "index.html" not in actual:
+            raise ValueError("Browser demonstration is missing frames or its index")
+        recording = report["recording"]
+        if recording is not None and ("demo.webm" not in actual or
+                (directory / "demo.webm").read_bytes()[:4] != b"\x1aE\xdf\xa3" or
+                recording["playback"]["width"] != 1440 or recording["playback"]["height"] != 1190 or
+                recording["playback"]["current_time"] <= 0):
+            raise ValueError("Browser recording does not record successful playback")
+        required = set(SOURCES) | {"scripts/verify_pilot_browser.py", "scripts/verify_review_browser.py", "src/docwork/geometry.py"}
+        return {**source_status(root, report["source_sha256"], required), "checks": len(checks),
+                "recording": recording, "note": "Scripted recorded-OCR browser workflow; no human timing or fresh extraction claim."}
     if (report.get("report_version") != "review-pilot-browser-check-v1" or report.get("status") != "passed" or
             report.get("human_timing_measurement") is not False or len(checks) != len(set(checks)) or
-            not BROWSER_CHECKS <= set(checks) or file_hash(directory / "review.png") != report["screenshot_sha256"] or
-            file_hash(root / "scripts/verify_pilot_browser.py") != report["verification_script_sha256"]):
+            not BROWSER_CHECKS <= set(checks) or file_hash(directory / "review.png") != report["screenshot_sha256"]):
         raise ValueError("Browser evidence is incomplete, changed, or relabeled as human timing")
-    return {**source_status(root, report["source_sha256"], set(SOURCES)), "checks": len(checks),
+    hashes = {**report["source_sha256"], "scripts/verify_pilot_browser.py": report["verification_script_sha256"]}
+    return {**source_status(root, hashes, set(SOURCES) | {"scripts/verify_pilot_browser.py"}), "checks": len(checks),
             "note": "Automated disposable-fixture UI check; no human timing or complete visual acceptance claim."}
 
 

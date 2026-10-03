@@ -1,6 +1,6 @@
 "use strict";
 
-const state = { documents: [], selectedId: null, detail: null, selectedPath: "fields.invoice_number", pageNumber: 1, history: [], rotations: new Map(), pageImages: new Map(), renderToken: 0 };
+const state = { documents: [], selectedId: null, detail: null, selectedPath: "fields.invoice_number", pageNumber: 1, history: [], rotations: new Map(), pageImages: new Map(), renderToken: 0, reviewPilot: false };
 const $ = (id) => document.getElementById(id);
 
 function node(tag, className, content) {
@@ -299,7 +299,7 @@ function renderHistory() {
 function renderReview() {
   const detail = state.detail;
   $("doc-kind").textContent = detail.extraction?.profile === "replay_ocr_rules"
-    ? "AUTHOR PILOT · RECORDED OCR RULES"
+    ? (state.reviewPilot ? "AUTHOR PILOT · RECORDED OCR RULES" : "RECORDED OCR RULES · REPLAY")
     : detail.extraction?.profile === "span_llm"
     ? `LOCAL SPAN MODEL · ${detail.extraction.model_id}`
     : (state.documents.find((item) => item.id === detail.document_id)?.job_status ? "UPLOADED DOCUMENT · OCR RULES" : "TRUSTED SAMPLE · FRESH OCR");
@@ -404,20 +404,27 @@ $("page-next").addEventListener("click", () => setPage(state.pageNumber + 1));
 $("rotate-left").addEventListener("click", () => rotatePage(-90));
 $("rotate-right").addEventListener("click", () => rotatePage(90));
 document.addEventListener("keydown", (event) => {
-  if (event.target instanceof HTMLInputElement) return;
+  if (event.defaultPrevented || event.isComposing || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+  const fieldButton = event.target.closest?.("button.field");
+  if (!fieldButton && event.target !== document.body && event.target !== $("page-canvas")) return;
   if (event.key === "ArrowDown" || event.key === "ArrowUp") {
-    const paths = [...document.querySelectorAll(".field")].map((button) => button.dataset.path);
-    if (!paths.length) return;
-    const current = paths.indexOf(state.selectedPath);
-    selectField(paths[Math.max(0, Math.min(paths.length - 1, current + (event.key === "ArrowDown" ? 1 : -1)))]);
+    const buttons = [...document.querySelectorAll("button.field")];
+    if (!buttons.length) return;
+    const current = buttons.findIndex((button) => button.dataset.path === state.selectedPath);
+    const next = buttons[Math.max(0, Math.min(buttons.length - 1, current + (event.key === "ArrowDown" ? 1 : -1)))];
+    selectField(next.dataset.path);
+    next.focus();
     event.preventDefault();
   } else if (event.key === "Enter" && state.detail) {
+    if (fieldButton) selectField(fieldButton.dataset.path);
     $("edit-value").focus();
+    event.preventDefault();
   }
 });
 
 action(async () => {
   const runtime = await request("/api/runtime");
+  state.reviewPilot = Boolean(runtime.review_pilot);
   managedModel = runtime.managed_model;
   if (managedModel) {
     $("managed-model").hidden = false;
