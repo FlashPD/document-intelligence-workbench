@@ -29,6 +29,7 @@ PAGE_ROUTE = re.compile(r"/api/documents/([0-9a-f]{32})/pages/([1-9]\d*)")
 EXPORT_ROUTE = re.compile(r"/api/exports/([0-9a-f]{32})/(\d+)/(json|csv)/(invoice\.json|header\.csv|line-items\.csv)")
 STATIC = {"/": ("index.html", "text/html; charset=utf-8"),
           "/app.js": ("app.js", "text/javascript; charset=utf-8"),
+          "/pilot.js": ("pilot.js", "text/javascript; charset=utf-8"),
           "/style.css": ("style.css", "text/css; charset=utf-8")}
 DEMO_FILES = {"clean": "clean.png", "conflicting-total": "conflicting-total.png"}
 
@@ -37,13 +38,15 @@ class ReviewServer(ThreadingHTTPServer):
     daemon_threads = True
 
     def __init__(self, address: tuple[str, int], store: IntakeStore, *, token: str | None = None,
-                 model_config: LocalModelConfig | None = None, model_profile: str | None = None):
+                 model_config: LocalModelConfig | None = None, model_profile: str | None = None,
+                 review_pilot=None):
         if address[0] not in ("127.0.0.1", "::1"):
             raise ValueError("Review server must bind to loopback")
         self.store = store
         self.token = token or secrets.token_urlsafe(32)
         self.model_config = model_config
         self.model_profile = model_profile
+        self.review_pilot = review_pilot
         self.repo_root = Path(__file__).resolve().parents[2]
         super().__init__(address, ReviewHandler)
 
@@ -158,7 +161,10 @@ class ReviewHandler(BaseHTTPRequestHandler):
                 config = self.server.model_config
                 self._json(HTTPStatus.OK, {"managed_model": config is not None,
                                           "model_id": config.model_id if config else None,
-                                          "profile": self.server.model_profile})
+                                          "profile": self.server.model_profile,
+                                          "review_pilot": getattr(self.server, "review_pilot", None) is not None})
+            elif url.path == "/api/pilot" and getattr(self.server, "review_pilot", None) is not None:
+                self._json(HTTPStatus.OK, self.server.review_pilot.view())
             elif match := EXPORT_ROUTE.fullmatch(url.path):
                 doc_id, revision, format, filename = match.groups()
                 content, media = self.server.store.exported_file(doc_id, int(revision), format, filename)
@@ -168,6 +174,8 @@ class ReviewHandler(BaseHTTPRequestHandler):
             elif route := self._document_route(url.path):
                 doc_id, action = route
                 if action == "":
+                    if getattr(self.server, "review_pilot", None) is not None:
+                        self.server.review_pilot.guard_view(doc_id)
                     self._json(HTTPStatus.OK, self.server.store.get(doc_id))
                 elif action == "status":
                     self._json(HTTPStatus.OK, self.server.store.status(doc_id))
@@ -183,6 +191,8 @@ class ReviewHandler(BaseHTTPRequestHandler):
             self._handle_error(exc)
 
     def _page(self, doc_id: str, number: int) -> None:
+        if getattr(self.server, "review_pilot", None) is not None:
+            self.server.review_pilot.guard_view(doc_id)
         if number > self.server.store.status(doc_id)["page_count"]:
             raise KeyError("Unknown page")
         try:
@@ -207,7 +217,19 @@ class ReviewHandler(BaseHTTPRequestHandler):
             return
         path = urlsplit(self.path).path
         try:
-            if path == "/api/upload":
+            pilot = getattr(self.server, "review_pilot", None)
+            if path == "/api/pilot/start" and pilot is not None:
+                data = self._input()
+                self._json(HTTPStatus.CREATED, pilot.start(self._required(data, "document_id", str),
+                                                          self._required(data, "actor", str)))
+            elif path == "/api/pilot/event" and pilot is not None:
+                data = self._input()
+                self._json(HTTPStatus.OK, pilot.event(self._required(data, "trial_id", str),
+                                                    self._required(data, "kind", str),
+                                                    self._required(data, "event_id", str)))
+            elif pilot is not None and path in ("/api/upload", "/api/process-one", "/api/demo/seed"):
+                raise ReviewBlocked("The pilot uses its declared precomputed documents")
+            elif path == "/api/upload":
                 name = unquote(self.headers.get("X-File-Name", ""))
                 media = self.headers.get("Content-Type", "")
                 import io
@@ -244,6 +266,8 @@ class ReviewHandler(BaseHTTPRequestHandler):
             elif route := self._document_route(path):
                 doc_id, action = route
                 data = self._input()
+                if pilot is not None:
+                    pilot.guard(doc_id, data.get("actor"))
                 if action == "edit":
                     revision = self._required(data, "revision", int)
                     field_path = self._required(data, "path", str)

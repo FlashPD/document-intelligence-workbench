@@ -103,3 +103,9 @@ python3.12 scripts/evaluation_status.py
 ```
 
 The invoice and receipt model stages require several hours of serial CPU/GPU inference on this Mac. Progress is an immutable completion count, not a quality estimate. For an interrupted run, resume the invoice command first if necessary, then restart the coordinator; it retains completed reports and ledger entries. HTML export requires a new output path and recomputes both paired comparisons, including receipt intervals, before publishing.
+
+The release export now requires the complete 180-invoice and 100-receipt **test** splits; a validation run or limited smoke cannot be labeled a release. Alongside the HTML it writes `<output-stem>.evidence.json`, bound to the audited invoice report and receipt comparison hashes. The export shows per-variant stage total/P50/P95 seconds across all scheduled calls, including failures, and sampled model-server RSS where available. Percentiles use nearest rank. OCR and saved-OCR model timing boundaries remain separate; uncontrolled machine load cannot establish warm/cold or concurrent capacity.
+
+Each variant also shows up to three mechanically selected failure/disagreement examples: processing failures first, then largest exact-row FP+FN, header FP+FN, and document ID. No cause is inferred from those scores, and complete denominators remain the headline. Missing, negative, or non-finite stage timings refuse export. Both output paths must be new; if publication is interrupted, choose a new output stem on retry.
+
+Human workflow measurements are independent of extraction metrics. The [assisted author pilot](review-pilot.md) uses six declared development invoices, separately records active/idle/paused time, retains unfinished cases, and requires approved JSON exports. Human results remain pending; automated browser checks cannot supply them.

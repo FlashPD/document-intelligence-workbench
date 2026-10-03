@@ -181,7 +181,7 @@ class WebTests(unittest.TestCase):
         self.login()
         status, runtime, _ = self.call("GET", "/api/runtime")
         self.assertEqual(status, 200)
-        self.assertEqual(runtime, {"managed_model": True, "model_id": "pinned-model", "profile": "pinned-profile"})
+        self.assertEqual(runtime, {"managed_model": True, "model_id": "pinned-model", "profile": "pinned-profile", "review_pilot": False})
         self.assertNotIn("private-key", json.dumps(runtime))
         with patch("docwork.web.process_one", return_value=None) as process:
             self.assertEqual(self.call("POST", "/api/process-one", {"extractor": "span_llm"})[0], 200)

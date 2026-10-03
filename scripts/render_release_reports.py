@@ -5,13 +5,59 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import math
 from pathlib import Path
 
 from docwork.invoice_model_run import verify_invoice_model
+from docwork.model_runtime import file_hash
 from docwork.receipt_comparison import verify_receipt_comparison
 
 
-def render(invoice: dict, receipts: dict) -> str:
+def require_release_scope(invoice: dict, receipts: dict) -> None:
+    if (invoice.get("split") != "test" or invoice["summary"]["documents_scheduled"] != 180 or
+            receipts.get("split") != "test" or receipts.get("documents") != 100):
+        raise ValueError("Release export requires all 180 test invoices and 100 official test receipts")
+
+
+def supplementary_evidence(directory: Path, stage: str) -> dict:
+    """Call only after the domain verifier audits the completed report bundle."""
+    report = json.loads((directory / "report.json").read_text())
+    documents = report["documents"]
+    if len(documents) != report["summary"]["documents_scheduled"]:
+        raise ValueError("Timing requires every scheduled document")
+    seconds = []
+    for doc in documents:
+        prediction = json.loads((directory / "predictions" / f"{doc['id']}.json").read_text())
+        value = prediction.get("runtime_seconds", {}).get(stage)
+        if type(value) not in (float, int) or not math.isfinite(value) or value < 0:
+            raise ValueError("Stage timing is missing or invalid")
+        seconds.append(value)
+    seconds.sort()
+    if not seconds:
+        raise ValueError("Timing cannot describe an empty run")
+    sessions = [json.loads(path.read_text()) for path in sorted((directory / "sessions").glob("*/runtime.json"))]
+    peaks = [s["peak_sampled_rss_bytes"] for s in sessions if s.get("peak_sampled_rss_bytes") is not None]
+    cases = []
+    for doc in documents:
+        errors = sum(v["fp"] + v["fn"] for v in doc["header"].values())
+        row_errors = doc["gold_rows"] + doc["predicted_rows"] - 2 * doc["exact_rows"]
+        if doc["failure_type"] or errors or row_errors:
+            cases.append({"id": doc["id"], "failure_type": doc["failure_type"],
+                          "header_fp_plus_fn": errors, "row_fp_plus_fn": row_errors,
+                          "exact_rows": doc["exact_rows"], "gold_rows": doc["gold_rows"]})
+    cases.sort(key=lambda c: (c["failure_type"] is None, -c["row_fp_plus_fn"], -c["header_fp_plus_fn"], c["id"]))
+    return {"stage": stage, "documents": len(seconds), "sum_seconds": round(sum(seconds), 3),
+            "p50_seconds": seconds[math.ceil(.5 * len(seconds)) - 1],
+            "p95_seconds": seconds[math.ceil(.95 * len(seconds)) - 1],
+            "peak_sampled_server_rss_bytes": max(peaks) if peaks else None,
+            "representative_cases": cases[:3],
+            "case_selection": "Processing failures first, then largest exact-row FP+FN, header FP+FN, and ID; at most three. "
+                              "Examples do not replace all-document denominators; no causal explanation inferred.",
+            "timing_method": "Nearest-rank percentiles over every scheduled call, including failures; saved OCR inference, "
+                             "uncontrolled machine load. Sampled RSS is process memory, not GPU or workbench peak."}
+
+
+def render(invoice: dict, receipts: dict, systems: dict | None = None) -> str:
     def value(number):
         return "—" if number is None else f"{number:.4f}" if isinstance(number, float) else html.escape(str(number))
 
@@ -37,6 +83,20 @@ def render(invoice: dict, receipts: dict) -> str:
             interval = report["paired_95_intervals"].get(name)
             rows.append((domain, name, delta, "—" if interval is None else f"[{interval[0]:.4f}, {interval[1]:.4f}]"))
     cols = ("Metric", "OCR rules", "Local span model")
+    supplement = ""
+    if systems:
+        timing_rows = [(name, data["stage"], data["documents"], data["sum_seconds"], data["p50_seconds"], data["p95_seconds"],
+                        None if data["peak_sampled_server_rss_bytes"] is None else round(data["peak_sampled_server_rss_bytes"] / 1024 ** 3, 3))
+                       for name, data in systems.items()]
+        case_rows = [(name, case["id"], case["failure_type"] or "Header/row disagreement", case["header_fp_plus_fn"],
+                      case["row_fp_plus_fn"], f"{case['exact_rows']}/{case['gold_rows']}")
+                     for name, data in systems.items() for case in data["representative_cases"]]
+        supplement = f"""<section><h2>Measured stage timings</h2>
+{table(timing_rows, ('Variant','Stage','Calls','Total seconds','P50 seconds','P95 seconds','Sampled server RSS GiB'))}
+<p>Nearest-rank percentiles include every scheduled call, including failures. OCR times describe verified corpus previews for invoices and prepared PNGs for receipts. Model times describe inference on those saved OCR inputs. Machine load was uncontrolled; no warm/cold, concurrency, or end-to-end latency claim. RSS is the largest sampled process value across owned sessions, not GPU allocation or total application memory.</p></section>
+<section><h2>Representative failures and disagreements</h2>
+{table(case_rows, ('Variant','Document','Outcome','Header FP + FN','Exact-row FP + FN','Exact / gold rows'))}
+<p>Up to three examples per variant: processing failures first, then largest exact-row FP + FN, header FP + FN, and document ID. Wrong nonempty headers contribute both FP and FN. Selection is mechanical and does not replace complete denominators or explain the cause of an error. Inspect the hash-bound saved predictions to investigate each example.</p></section>"""
     return f"""<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Document Intelligence — measured extraction comparisons</title>
 <style>body{{font:16px/1.6 system-ui,sans-serif;max-width:1000px;margin:auto;padding:32px;color:#182a38;background:#f5f8fa}}h1{{line-height:1.15}}section{{background:white;border:1px solid #d5dfe7;border-radius:12px;padding:24px;margin:24px 0}}table{{width:100%;border-collapse:collapse;margin:20px 0;font-variant-numeric:tabular-nums}}td,th{{text-align:left;border-bottom:1px solid #d5dfe7;padding:10px}}th{{color:#365a73}}code{{overflow-wrap:anywhere}}.label{{color:#365a73;font-weight:600}}@media(max-width:650px){{body{{padding:16px}}section{{padding:12px}}td,th{{padding:5px;font-size:13px}}}}</style>
@@ -51,7 +111,7 @@ def render(invoice: dict, receipts: dict) -> str:
 <p>Data: Park et al., CORD (NeurIPS Document Intelligence Workshop, 2019), NAVER CLOVA, CC BY 4.0.</p></section>
 <section><h2>Paired uncertainty</h2>{table(rows, ('Dataset','Metric','Model − rules','95% interval'))}
 <p>Invoice derivatives are grouped with parents within the six fixed test families. Receipt intervals resample within the official test split. These intervals do not represent arbitrary unseen vendors or document types.</p></section>
-<section><h2>Failures and timing boundaries</h2><p>Invoice model failures: <code>{html.escape(json.dumps(after['failures_by_type']))}</code>.</p>
+{supplement}<section><h2>Failures and timing boundaries</h2><p>Invoice model failures: <code>{html.escape(json.dumps(after['failures_by_type']))}</code>.</p>
 <p>Receipt model failures: <code>{html.escape(json.dumps(receipts['model']['failures_by_type']))}</code>.</p>
 <p>Model times describe serial inference on saved OCR. They exclude new OCR/PDF rendering and human review, and do not establish a controlled warm/cold latency target.</p></section></html>"""
 
@@ -69,9 +129,21 @@ def main():
     receipts = verify_receipt_comparison(manifest, args.receipts / "test-rules", args.receipts / "test-model",
                                          args.receipts / "comparison.json")
     invoice = json.loads((args.invoice / "report.json").read_text())
+    require_release_scope(invoice, receipts)
+    systems = {"Synthetic invoices · OCR rules": supplementary_evidence(root / "evals/invoice-heldout-2026-10-03/ocr-rules-v0.3-psm1", "ocr"),
+               "Synthetic invoices · span model": supplementary_evidence(args.invoice, "model"),
+               "CORD receipts · OCR rules": supplementary_evidence(args.receipts / "test-rules", "ocr"),
+               "CORD receipts · span model": supplementary_evidence(args.receipts / "test-model", "model")}
+    evidence_output = args.output.with_suffix(".evidence.json")
+    if args.output.exists() or evidence_output.exists():
+        parser.error("Comparison export needs new HTML and evidence paths")
     args.output.parent.mkdir(parents=True, exist_ok=True)
+    with evidence_output.open("x") as stream:
+        stream.write(json.dumps({"invoice_report_sha256": file_hash(args.invoice / "report.json"),
+                                 "receipt_comparison_sha256": file_hash(args.receipts / "comparison.json"),
+                                 "systems": systems}, indent=2) + "\n")
     with args.output.open("x") as stream:
-        stream.write(render(invoice, receipts))
+        stream.write(render(invoice, receipts, systems))
     print(args.output)
 
 

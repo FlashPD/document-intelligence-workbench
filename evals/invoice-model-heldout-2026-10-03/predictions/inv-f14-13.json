@@ -1,0 +1,387 @@
+{
+  "source_sha256": "ef93d2e610949cc2f28a71a60ba78813a092836845cab6be180cf5bcca8f67b5",
+  "record": {
+    "schema_version": "invoice-v1-spike",
+    "fields": {
+      "supplier_name": {
+        "value": "Blue Heron Research",
+        "raw": "Blue Heron Research",
+        "evidence_ids": [
+          "p1-l0002"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "invoice_number": {
+        "value": "F14-013",
+        "raw": "Invoice No.: F14-013",
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "issue_date": {
+        "value": "2026-07-01",
+        "raw": "Date: 2026-07-01",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "due_date": {
+        "value": "2026-07-31",
+        "raw": "Due date: 2026-07-31",
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "currency": {
+        "value": "USD",
+        "raw": "Currency: USD",
+        "evidence_ids": [
+          "p1-l0007"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "subtotal": {
+        "value": "188.00",
+        "raw": "Subtotal: 188.00",
+        "evidence_ids": [
+          "p1-l0011"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "tax": {
+        "value": "8.00",
+        "raw": "Tax: 8.00",
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed"
+      },
+      "shipping": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed"
+      },
+      "total": {
+        "value": "196.00",
+        "raw": "Total: 196.00",
+        "evidence_ids": [
+          "p1-l0013"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Research workshop",
+          "raw": "Research workshop 1 80.00 80.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "Research workshop 1 80.00 80.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "80.00",
+          "raw": "Research workshop 1 80.00 80.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "80.00",
+          "raw": "Research workshop 1 80.00 80.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Technical editing",
+          "raw": "Technical editing 1 108.00 108.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "Technical editing 1 108.00 108.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "108.00",
+          "raw": "Technical editing 1 108.00 108.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "108.00",
+          "raw": "Technical editing 1 108.00 108.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed"
+        }
+      }
+    ]
+  },
+  "freeze_sha256": "bd51713c2766a01da72d5e46f8265ee01179880c243991157d73c378c68405ae",
+  "ocr_prediction_sha256": "f2d7988a2240242067ad8668897f333ca2d7874f7c0153b12e809de6a374da23",
+  "issue_codes": [
+    "TOTAL_NOT_CHECKED"
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "width_px": 1000,
+      "height_px": 1800,
+      "spans": [
+        {
+          "id": "p1-l0001",
+          "page": 1,
+          "text": "a",
+          "box": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 1.0,
+            "bottom": 0.010555555555555556
+          },
+          "method": "tesseract-eng",
+          "confidence": 0.0
+        },
+        {
+          "id": "p1-l0002",
+          "page": 1,
+          "text": "Blue Heron Research",
+          "box": {
+            "left": 0.068,
+            "top": 0.02388888888888889,
+            "right": 0.425,
+            "bottom": 0.03888888888888889
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.38
+        },
+        {
+          "id": "p1-l0003",
+          "page": 1,
+          "text": "INVOICE",
+          "box": {
+            "left": 0.573,
+            "top": 0.05722222222222222,
+            "right": 0.724,
+            "bottom": 0.07222222222222222
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.2
+        },
+        {
+          "id": "p1-l0004",
+          "page": 1,
+          "text": "Invoice No.: F14-013",
+          "box": {
+            "left": 0.512,
+            "top": 0.15833333333333333,
+            "right": 0.73,
+            "bottom": 0.16777777777777778
+          },
+          "method": "tesseract-eng",
+          "confidence": 91.82
+        },
+        {
+          "id": "p1-l0005",
+          "page": 1,
+          "text": "Date: 2026-07-01",
+          "box": {
+            "left": 0.512,
+            "top": 0.19111111111111112,
+            "right": 0.69,
+            "bottom": 0.20055555555555554
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.55
+        },
+        {
+          "id": "p1-l0006",
+          "page": 1,
+          "text": "Due date: 2026-07-31",
+          "box": {
+            "left": 0.512,
+            "top": 0.2238888888888889,
+            "right": 0.736,
+            "bottom": 0.23333333333333334
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.61
+        },
+        {
+          "id": "p1-l0007",
+          "page": 1,
+          "text": "Currency: USD",
+          "box": {
+            "left": 0.511,
+            "top": 0.25666666666666665,
+            "right": 0.669,
+            "bottom": 0.2688888888888889
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.07
+        },
+        {
+          "id": "p1-l0008",
+          "page": 1,
+          "text": "Description Qty Unit price Amount",
+          "box": {
+            "left": 0.057,
+            "top": 0.4172222222222222,
+            "right": 0.896,
+            "bottom": 0.43444444444444447
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.66
+        },
+        {
+          "id": "p1-l0009",
+          "page": 1,
+          "text": "Research workshop 1 80.00 80.00",
+          "box": {
+            "left": 0.057,
+            "top": 0.45944444444444443,
+            "right": 0.873,
+            "bottom": 0.4716666666666667
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.09
+        },
+        {
+          "id": "p1-l0010",
+          "page": 1,
+          "text": "Technical editing 1 108.00 108.00",
+          "box": {
+            "left": 0.055,
+            "top": 0.5044444444444445,
+            "right": 0.886,
+            "bottom": 0.5166666666666667
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.56
+        },
+        {
+          "id": "p1-l0011",
+          "page": 1,
+          "text": "Subtotal: 188.00",
+          "box": {
+            "left": 0.531,
+            "top": 0.7638888888888888,
+            "right": 0.702,
+            "bottom": 0.7733333333333333
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.83
+        },
+        {
+          "id": "p1-l0012",
+          "page": 1,
+          "text": "Tax: 8.00",
+          "box": {
+            "left": 0.53,
+            "top": 0.7955555555555556,
+            "right": 0.629,
+            "bottom": 0.805
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.93
+        },
+        {
+          "id": "p1-l0013",
+          "page": 1,
+          "text": "Total: 196.00",
+          "box": {
+            "left": 0.53,
+            "top": 0.8905555555555555,
+            "right": 0.668,
+            "bottom": 0.9
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.11
+        },
+        {
+          "id": "p1-l0014",
+          "page": 1,
+          "text": "Page 1",
+          "box": {
+            "left": 0.772,
+            "top": 0.9666666666666667,
+            "right": 0.841,
+            "bottom": 0.9788888888888889
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.5
+        }
+      ]
+    }
+  ],
+  "runtime_seconds": {
+    "model": 76.829
+  }
+}

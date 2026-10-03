@@ -298,7 +298,9 @@ function renderHistory() {
 
 function renderReview() {
   const detail = state.detail;
-  $("doc-kind").textContent = detail.extraction?.profile === "span_llm"
+  $("doc-kind").textContent = detail.extraction?.profile === "replay_ocr_rules"
+    ? "AUTHOR PILOT · RECORDED OCR RULES"
+    : detail.extraction?.profile === "span_llm"
     ? `LOCAL SPAN MODEL · ${detail.extraction.model_id}`
     : (state.documents.find((item) => item.id === detail.document_id)?.job_status ? "UPLOADED DOCUMENT · OCR RULES" : "TRUSTED SAMPLE · FRESH OCR");
   $("doc-status").textContent = detail.approval ? "APPROVED" : "REVIEW_READY";
@@ -423,5 +425,6 @@ action(async () => {
     $("model-settings").hidden = true;
   }
   await refreshQueue();
-  if (state.documents.length) await selectDocument(state.documents[0].id);
+  if (runtime.review_pilot) await initializePilot();
+  else if (state.documents.length) await selectDocument(state.documents[0].id);
 });

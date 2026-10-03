@@ -6,6 +6,7 @@
   <title>Document Intelligence Workbench</title>
   <link rel="stylesheet" href="/style.css">
   <script src="/app.js" defer></script>
+  <script src="/pilot.js" defer></script>
 </head>
 <body>
   <header class="topbar">
@@ -21,6 +22,21 @@
   <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
   <main class="shell">
     <aside class="sidebar">
+      <section id="pilot-panel" class="panel" hidden>
+        <div class="eyebrow">AUTHOR PILOT · RECORDED OCR RULES</div>
+        <h2>Timed assisted review</h2>
+        <p class="muted">Compare every header and row with the source. Correct suggestions or explain printed conflicts, then approve and export JSON. This pilot measures assisted review only.</p>
+        <p id="pilot-progress" role="status" aria-live="polite"></p>
+        <p id="pilot-timing" class="muted"></p>
+        <div class="button-row">
+          <button id="pilot-start" type="button">Start next invoice</button>
+          <button id="pilot-pause" type="button" hidden>Pause</button>
+          <button id="pilot-resume" type="button" hidden>Resume</button>
+          <button id="pilot-finish" type="button" hidden>Finish trial</button>
+          <button id="pilot-abandon" type="button" hidden>Unable to finish</button>
+        </div>
+        <p class="hint">Pause before stepping away. Switching tabs pauses the trial. After 60 seconds without an interaction, excess time is excluded as idle; use the page or field controls while reviewing. Interrupted trials remain incomplete.</p>
+      </section>
       <section class="panel">
         <div class="section-head"><h2>Documents</h2><span id="queue-count"></span></div>
         <div id="queue" class="queue"></div>
