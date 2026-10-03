@@ -1,0 +1,247 @@
+{
+  "record": {
+    "schema_version": "invoice-v1-spike",
+    "fields": {
+      "supplier_name": {
+        "value": "Birch Signal Works",
+        "raw": "Birch Signal Works",
+        "evidence_ids": [
+          "p1-l0001"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "invoice_number": {
+        "value": "F08-020",
+        "raw": "Invoice No.: F08-020",
+        "evidence_ids": [
+          "p1-l0003"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "issue_date": {
+        "value": "2026-04-21",
+        "raw": "Date: 2026-04-21",
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "due_date": {
+        "value": "2026-05-21",
+        "raw": "Due date: 2026-05-21",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "currency": {
+        "value": "USD",
+        "raw": "Currency: USD",
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "subtotal": {
+        "value": "309.00",
+        "raw": "Subtotal: 309.00",
+        "evidence_ids": [
+          "p1-l0011"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "tax": {
+        "value": "7.00",
+        "raw": "Tax: 7.00",
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": "0.00",
+        "raw": "Discount: 0.00",
+        "evidence_ids": [
+          "p1-l0013"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "shipping": {
+        "value": "0.00",
+        "raw": "Shipping: 0.00",
+        "evidence_ids": [
+          "p1-l0014"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": "316.00",
+        "raw": "Total: 316.00",
+        "evidence_ids": [
+          "p1-l0015"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Data cleanup",
+          "raw": "Data cleanup 2 32.00 64.00",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "2",
+          "raw": "Data cleanup 2 32.00 64.00",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "32.00",
+          "raw": "Data cleanup 2 32.00 64.00",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "64.00",
+          "raw": "Data cleanup 2 32.00 64.00",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Design review",
+          "raw": "Design review 3 39.00 117.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "3",
+          "raw": "Design review 3 39.00 117.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "39.00",
+          "raw": "Design review 3 39.00 117.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "117.00",
+          "raw": "Design review 3 39.00 117.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "Data cleanup",
+          "raw": "Data cleanup 4 32.00 128.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "4",
+          "raw": "Data cleanup 4 32.00 128.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "32.00",
+          "raw": "Data cleanup 4 32.00 128.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "128.00",
+          "raw": "Data cleanup 4 32.00 128.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      }
+    ]
+  },
+  "issue_codes": [],
+  "source_sha256": "f090efe5b90caf5ba8502dafd9d5f3f132f8001b2576222047ae1787ae408db1",
+  "run_version": "invoice-preview-ocr-rules-v2",
+  "baseline_version": "ocr-rules-v0.3",
+  "ocr_psm": 1,
+  "input_mode": "verified_corpus_png_previews",
+  "runtime_seconds": {
+    "ocr": 0.573,
+    "total": 0.574
+  }
+}

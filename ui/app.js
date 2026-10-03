@@ -54,6 +54,12 @@ async function refreshQueue() {
     item.type = "button";
     item.append(node("strong", "", doc.source_name));
     item.append(node("span", "", `${doc.status} · ${doc.current_revision ? `revision ${doc.current_revision}` : "awaiting parser"}`));
+    if (doc.status === "REVIEW_READY" && doc.review_priority) {
+      const leading = doc.review_priority.signals[0];
+      const priority = node("span", "", `Triage ${doc.review_priority.points}${leading ? ` · ${leading.code}` : " · no validation signal"}`);
+      priority.title = "Triage points rank validation signals; zero points do not establish correctness.";
+      item.append(priority);
+    }
     if (doc.error_code) item.append(node("span", "", doc.error_code));
     item.addEventListener("click", () => action(() => selectDocument(doc.id)));
     queue.append(item);

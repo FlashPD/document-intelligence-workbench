@@ -76,8 +76,8 @@ def _extract(document: dict, root: Path, ocr_psm: int) -> dict:
 
 
 def run_invoice_baseline(manifest_path: Path, output_dir: Path, *, resume: bool = False,
-                         ocr_psm: int = 1) -> dict:
-    """Score development only. PDF page previews are a diagnostic, not PDF parsing."""
+                         ocr_psm: int = 1, split: str = "development") -> dict:
+    """Score development or calibration previews; leave held-out test sealed."""
     manifest_path = manifest_path.resolve(strict=True)
     root = manifest_path.parent
     output_dir = output_dir.resolve()
@@ -85,18 +85,20 @@ def run_invoice_baseline(manifest_path: Path, output_dir: Path, *, resume: bool 
         raise ValueError("Run output must be outside the corpus directory")
     if ocr_psm not in (1, 3):
         raise ValueError("OCR page segmentation mode must be 1 or 3")
+    if split not in ("development", "calibration"):
+        raise ValueError("Preview runs may score development or calibration only")
     manifest_bytes = manifest_path.read_bytes()
     manifest = json.loads(manifest_bytes)
     verify_invoice_manifest(manifest, manifest_path)
-    scheduled = [doc for doc in manifest["documents"] if doc["split"] == "development"]
+    scheduled = [doc for doc in manifest["documents"] if doc["split"] == split]
     if not scheduled:
-        raise ValueError("Manifest has no development documents")
+        raise ValueError(f"Manifest has no {split} documents")
     version = subprocess.run(["tesseract", "--version"], capture_output=True, text=True,
                              timeout=10, check=True).stdout.splitlines()[0]
     identity = {
         "run_version": RUN_VERSION,
         "dataset_id": manifest["dataset_id"],
-        "split": "development",
+        "split": split,
         "manifest_sha256": hashlib.sha256(manifest_bytes).hexdigest(),
         "baseline_version": BASELINE_VERSION,
         "ocr_psm": ocr_psm,
@@ -142,7 +144,7 @@ def run_invoice_baseline(manifest_path: Path, output_dir: Path, *, resume: bool 
                 raise ValueError(f"Existing prediction does not match run: {document['id']}")
             continue
         _write_new(path, _extract(document, root, ocr_psm))
-    report = score_saved_invoice_run(manifest_path, predictions_dir, "development")
+    report = score_saved_invoice_run(manifest_path, predictions_dir, split)
     report["run_identity"] = identity
     timing = [json.loads((predictions_dir / f"{doc['id']}.json").read_text())["runtime_seconds"]
               for doc in scheduled]
@@ -166,7 +168,7 @@ def verify_invoice_run(manifest_path: Path, run_dir: Path) -> dict:
     manifest_bytes = manifest_path.resolve(strict=True).read_bytes()
     if (identity.get("manifest_sha256") != hashlib.sha256(manifest_bytes).hexdigest()
             or identity.get("input_mode") != "verified_corpus_png_previews"
-            or identity.get("split") != "development"
+            or identity.get("split") not in ("development", "calibration")
             or recorded.get("run_identity") != identity):
         raise ValueError("Run identity or corpus hash differs from the saved report")
     predictions_dir = run_dir / "predictions"
@@ -181,7 +183,7 @@ def verify_invoice_run(manifest_path: Path, run_dir: Path) -> dict:
                 or prediction.get("input_mode") != identity.get("input_mode")):
             raise ValueError(f"Prediction run identity differs: {path.name}")
         predictions.append(prediction)
-    rescored = score_saved_invoice_run(manifest_path, predictions_dir, "development")
+    rescored = score_saved_invoice_run(manifest_path, predictions_dir, identity["split"])
     if (rescored["status"] != "scored" or
             identity.get("documents_scheduled") != len(rescored["documents"])):
         raise ValueError("Saved invoice run is incomplete")

@@ -14,7 +14,9 @@ The [frozen invoice scoring contract](docs/release-evaluation.md) adds order-ind
 
 The [self-authored invoice corpus](docs/invoice-corpus.md) now has 540 hash-verified documents across 18 isolated layout families and three 180-document splits, including multi-page PDFs and degraded derivatives. Run `PYTHONPATH=src python3.12 -m docwork.cli eval-verify-corpus` to check its assets and labels. The test split has not been scored.
 
-A [full development-split OCR/rules run](docs/invoice-development-run.md) now scores all 180 development invoices from verified PNG previews. A supplier-name correction raises header macro F1 from 0.9093 to 0.9738. A paired orientation-aware OCR run raises it further to 0.9911, with 150/166 eligible documents with all required fields exact and 0.9817 exact-row F1. All prediction sets are stored under `evals/` for offline audit. These diagnostics do not exercise PDF parsing, and neither calibration nor test has been scored.
+A [full development-split OCR/rules run](docs/invoice-development-run.md) scores all 180 development invoices from verified PNG previews. A supplier-name correction raises header macro F1 from 0.9093 to 0.9738. A paired orientation-aware OCR run raises it further to 0.9911, with 150/166 eligible documents with all required fields exact and 0.9817 exact-row F1. An unchanged [calibration run](docs/invoice-calibration-run.md) processes 180 new-family invoices and reaches 0.9263 header macro F1 and 0.8321 exact-row F1, exposing a large row-recall gap. All prediction sets are stored under `evals/` for offline audit. These diagnostics do not exercise PDF parsing; the test split remains unscored.
+
+The review queue now ranks review-ready revisions with [explainable triage points](docs/review.md#review-queue-priority). A [verified development diagnostic](docs/invoice-development-run.md#review-priority-diagnostic--october-3-2026) found 7 wrong required fields among 74 zero-point documents, so zero validation issues cannot justify skipping human review. The calibration run also shows that missing extracted amounts can prevent an injected total conflict from being checked.
 
 ## Run the spike
 

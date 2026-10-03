@@ -23,6 +23,7 @@ from pathlib import Path
 
 from .contracts import HEADER_FIELDS, REQUIRED_FIELDS, Box, DocumentPage, FieldValue, InvoiceRecord, LineItem, TextSpan, ValidationIssue
 from .parser_protocol import PARSER_VERSION
+from .review_priority import score_review_priority
 from .validation import validate_invoice
 
 POLICY_VERSION = "review-v1"
@@ -276,6 +277,7 @@ class ReviewStore:
             decisions = db.execute("SELECT issue_key, reason, actor, created_at FROM decisions WHERE document_id=? AND revision=? ORDER BY issue_key",
                                    (document_id, selected)).fetchall()
             approval = db.execute("SELECT * FROM approvals WHERE document_id=? AND revision=?", (document_id, selected)).fetchone()
+            issues = json.loads(rev["issues_json"])
             return {
                 "document_id": document_id, "source_sha256": doc["source_sha256"],
                 "source_name": doc["source_name"], "page": asdict(pages[0]),
@@ -283,7 +285,8 @@ class ReviewStore:
                 "extraction": dict(extraction) if extraction else None,
                 "revision": selected, "current_revision": doc["current_revision"],
                 "record": json.loads(rev["record_json"]), "record_hash": rev["record_hash"],
-                "issues": json.loads(rev["issues_json"]), "decisions": [dict(row) for row in decisions],
+                "issues": issues, "review_priority": score_review_priority(issues),
+                "decisions": [dict(row) for row in decisions],
                 "approval": dict(approval) if approval else None,
             }
 
@@ -332,7 +335,8 @@ class ReviewStore:
             issues = [asdict(issue) for issue in validate_invoice(record, pages)] + extra_issues
             db.execute("INSERT INTO revisions VALUES (?,?,?,?,?,?,?,?)",
                        (document_id, new_revision, expected_revision, _json(data), _hash(data), _json(issues), actor, _now()))
-            db.execute("UPDATE documents SET current_revision=? WHERE id=?", (new_revision, document_id))
+            db.execute("UPDATE documents SET current_revision=?, status='REVIEW_READY' WHERE id=?",
+                       (new_revision, document_id))
             self._event(db, document_id, new_revision, "field_edited", actor, path)
             return new_revision
 
@@ -390,6 +394,7 @@ class ReviewStore:
             db.execute("INSERT INTO approvals VALUES (?,?,?,?,?,?,?,?)",
                        (document_id, expected_revision, rev["record_hash"], payload["decision_hash"],
                         approval_hash, actor, POLICY_VERSION, created_at))
+            db.execute("UPDATE documents SET status='APPROVED' WHERE id=?", (document_id,))
             self._event(db, document_id, expected_revision, "approved", actor, approval_hash)
             return {**payload, "approval_hash": approval_hash, "created_at": created_at}
 

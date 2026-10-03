@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import hashlib
 import itertools
+import json
 import os
 import re
 import struct
@@ -22,6 +23,7 @@ from typing import BinaryIO, Iterable
 from .contracts import DocumentPage, InvoiceRecord, ValidationIssue
 from .ocr import MAX_FILE_BYTES, MAX_PIXELS, PNG_SIGNATURE
 from .review import ReviewConflict, ReviewStore, _atomic_write, _now
+from .review_priority import score_review_priority
 
 MAX_BATCH_FILES = 20
 MAX_STORE_BYTES = 1024 * 1024 * 1024
@@ -194,10 +196,12 @@ class IntakeStore(ReviewStore):
             doc = self._current(db, document_id)
             job = db.execute("SELECT id,status,attempts,fence,error_code FROM jobs WHERE document_id=?", (document_id,)).fetchone()
             page_count = db.execute("SELECT COUNT(*) FROM document_pages WHERE document_id=?", (document_id,)).fetchone()[0]
+            approved = db.execute("SELECT 1 FROM approvals WHERE document_id=? AND revision=?",
+                                  (document_id, doc["current_revision"])).fetchone()
             return {
                 "document_id": document_id, "source_name": doc["source_name"],
                 "source_sha256": doc["source_sha256"], "media_type": doc["media_type"],
-                "size_bytes": doc["size_bytes"], "status": doc["status"],
+                "size_bytes": doc["size_bytes"], "status": "APPROVED" if approved else doc["status"],
                 "page_image_sha256": doc["page_image_sha256"],
                 "page_count": page_count or (1 if doc["current_revision"] else 0),
                 "current_revision": doc["current_revision"], "job": dict(job) if job else None,
@@ -206,13 +210,27 @@ class IntakeStore(ReviewStore):
     def list_documents(self) -> list[dict]:
         with self._connect() as db:
             rows = db.execute("""
-                SELECT d.id, d.source_name, d.source_sha256, d.status,
+                SELECT d.id, d.source_name, d.source_sha256,
+                       CASE WHEN a.document_id IS NOT NULL THEN 'APPROVED' ELSE d.status END AS status,
                        d.current_revision, d.created_at, j.status AS job_status,
-                       j.error_code
+                       j.error_code, r.issues_json
                 FROM documents d LEFT JOIN jobs j ON j.document_id=d.id
+                LEFT JOIN revisions r ON r.document_id=d.id AND r.revision=d.current_revision
+                LEFT JOIN approvals a ON a.document_id=d.id AND a.revision=d.current_revision
                 ORDER BY d.created_at DESC, d.id DESC
             """).fetchall()
-            return [dict(row) for row in rows]
+            documents = []
+            for row in rows:
+                document = dict(row)
+                issues_json = document.pop("issues_json")
+                document["review_priority"] = (score_review_priority(json.loads(issues_json))
+                                               if issues_json is not None else None)
+                documents.append(document)
+            status_order = {"REVIEW_READY": 3, "FAILED": 2, "APPROVED": 0}
+            documents.sort(key=lambda item: (status_order.get(item["status"], 1),
+                                             item["review_priority"]["points"] if item["review_priority"] else 0,
+                                             item["created_at"], item["id"]), reverse=True)
+            return documents
 
     def object_path(self, document_id: str) -> Path:
         with self._connect() as db:

@@ -69,6 +69,17 @@ class InvoiceRunTests(unittest.TestCase):
         self.assertEqual(report["summary"]["documents_processed"], 0)
         self.assertEqual(report["summary"]["failures_by_type"], {"RuntimeError": 1})
 
+    def test_calibration_uses_its_own_split_and_test_stays_sealed(self):
+        self.document["split"] = "calibration"
+        self.manifest.write_text(json.dumps({"manifest_version": "invoice-corpus-v1",
+                                             "dataset_id": "test-run", "documents": [self.document]}))
+        with patch("docwork.invoice_run.tesseract_page", side_effect=self.page):
+            report = run_invoice_baseline(self.manifest, self.run_dir, split="calibration")
+        self.assertEqual(report["split"], "calibration")
+        self.assertEqual(verify_invoice_run(self.manifest, self.run_dir)["status"], "verified")
+        with self.assertRaisesRegex(ValueError, "development or calibration only"):
+            run_invoice_baseline(self.manifest, self.root / "sealed", split="test")
+
     def test_resume_rejects_changed_prediction(self):
         with patch("docwork.invoice_run.tesseract_page", side_effect=self.page):
             run_invoice_baseline(self.manifest, self.run_dir)

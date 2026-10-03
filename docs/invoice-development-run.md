@@ -1,6 +1,6 @@
 # Invoice corpus development baseline — October 2, 2026
 
-The first full split run scores all 180 development invoices in the [frozen synthetic corpus](invoice-corpus.md). It uses host Tesseract 5.4.1 on the corpus's hash-verified PNG page previews, then the deterministic `ocr_rules` extractor and [release scorer](release-evaluation.md). Python was 3.12.12 on the Apple M1 / 16 GB Mac. Multi-page PDF invoices contribute both preview pages, but this run does **not** exercise PDF rendering, container isolation, or the upload worker. The test and calibration splits were not run.
+The first full split run scores all 180 development invoices in the [frozen synthetic corpus](invoice-corpus.md). It uses host Tesseract 5.4.1 on the corpus's hash-verified PNG page previews, then the deterministic `ocr_rules` extractor and [release scorer](release-evaluation.md). Python was 3.12.12 on the Apple M1 / 16 GB Mac. Multi-page PDF invoices contribute both preview pages, but this run does **not** exercise PDF rendering, container isolation, or the upload worker. Calibration was run later with the unchanged baseline; see the [separate report](invoice-calibration-run.md). The test split remains unscored.
 
 The [v0.2 evidence](../evals/invoice-development-2026-10-02/ocr-rules-v0.2/report.json) exposed an OCR-order bug: Tesseract frequently produced a clipped glyph at the upper-left page corner before the printed supplier name. Version `ocr-rules-v0.3` ignores that corner span when choosing the supplier. The [v0.3 evidence](../evals/invoice-development-2026-10-02/ocr-rules-v0.3/report.json) is a fresh run on the same development images. Both bundles include all 180 original predictions, source hashes, timings, issue codes, and scored reports.
 
@@ -59,4 +59,28 @@ PYTHONPATH=src python3.12 -m docwork.cli eval-run-invoices \
   --output-dir artifacts/invoice-development-orientation-fresh
 PYTHONPATH=src python3.12 -m docwork.cli eval-verify-invoice-run \
   evals/invoice-development-2026-10-03/ocr-rules-v0.3-psm1
+```
+
+## Review-priority diagnostic — October 3, 2026
+
+The [saved priority report](../evals/invoice-development-2026-10-03/ocr-rules-v0.3-psm1/priority-report.json) applies the same additive [triage score](review.md#review-queue-priority) used by the browser to all 180 verified PSM 1 development predictions. It ranks using prediction issue codes only; gold labels are read afterward to measure errors among documents at or below each score threshold. The table describes a hypothetical selection analysis. The product still requires a reviewer to approve every export.
+
+| Maximum triage points | Selected documents | Wrong required fields among label-eligible selected | Exact-row errors among selected |
+|---:|---:|---:|---:|
+| 0 | 74/180 | 7/74 (9.5%) | 1 |
+| 2 | 145/180 | 14/145 (9.7%) | 1 |
+| 5 | 164/180 | 15/162 (9.3%); 2 labels excluded | 6 |
+| 10 | 180/180 | 16/166 (9.6%); 14 labels excluded | 10 |
+
+Seven of the zero-point documents have a wrong required field, chiefly invoice numbers in the continuation-page family where OCR reads `F06` as `FO6` or `FO06` without triggering a validation issue. Thus even the strictest threshold fails the proposed below-1% critical-field error target on development data. The full report contains every document's signals, all distinct thresholds, observed error rates, a one-sided document-level Wilson upper bound, and a deterministic parent-group bootstrap 95th percentile with layout families held fixed. The Wilson bound assumes independent documents, while the bootstrap only resamples observed parent groups; neither estimates behavior on unseen vendors or genuine scans. No threshold is being promoted to a production skip-review rule.
+
+Recompute and verify the saved report without OCR or model inference:
+
+```sh
+PYTHONPATH=src python3.12 -m docwork.cli eval-review-priority \
+  evals/invoice-development-2026-10-03/ocr-rules-v0.3-psm1 \
+  --output artifacts/development-priority-check.json
+PYTHONPATH=src python3.12 -m docwork.cli eval-verify-review-priority \
+  evals/invoice-development-2026-10-03/ocr-rules-v0.3-psm1 \
+  evals/invoice-development-2026-10-03/ocr-rules-v0.3-psm1/priority-report.json
 ```

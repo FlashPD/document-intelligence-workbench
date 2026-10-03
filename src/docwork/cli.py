@@ -130,15 +130,24 @@ def main(argv: list[str] | None = None) -> int:
     development.add_argument("--output", type=Path, default=Path("artifacts/development-baseline.json"))
     corpus = commands.add_parser("eval-verify-corpus", help="Verify the frozen 540-document invoice corpus")
     corpus.add_argument("manifest", type=Path, nargs="?", default=Path("datasets/invoices-v1/manifest.json"))
-    invoice_run = commands.add_parser("eval-run-invoices", help="OCR trusted corpus previews and score the development split")
+    invoice_run = commands.add_parser("eval-run-invoices", help="OCR trusted corpus previews and score development or calibration")
     invoice_run.add_argument("--manifest", type=Path, default=Path("datasets/invoices-v1/manifest.json"))
     invoice_run.add_argument("--output-dir", type=Path, required=True)
     invoice_run.add_argument("--resume", action="store_true")
+    invoice_run.add_argument("--split", choices=("development", "calibration"), default="development")
     invoice_run.add_argument("--ocr-psm", type=int, choices=(1, 3), default=1,
                              help="Tesseract page segmentation mode; 1 enables orientation detection")
     invoice_verify = commands.add_parser("eval-verify-invoice-run", help="Rescore saved invoice predictions and verify their report")
     invoice_verify.add_argument("run_directory", type=Path)
     invoice_verify.add_argument("--manifest", type=Path, default=Path("datasets/invoices-v1/manifest.json"))
+    priority = commands.add_parser("eval-review-priority", help="Measure triage coverage on a verified development or calibration invoice run")
+    priority.add_argument("run_directory", type=Path)
+    priority.add_argument("--manifest", type=Path, default=Path("datasets/invoices-v1/manifest.json"))
+    priority.add_argument("--output", type=Path, required=True)
+    priority_verify = commands.add_parser("eval-verify-review-priority", help="Recompute a saved triage report")
+    priority_verify.add_argument("run_directory", type=Path)
+    priority_verify.add_argument("report", type=Path)
+    priority_verify.add_argument("--manifest", type=Path, default=Path("datasets/invoices-v1/manifest.json"))
     model_eval = commands.add_parser("eval-development-model", help="Score the local span model on the same development PNGs")
     model_eval.add_argument("--model-endpoint", required=True)
     model_eval.add_argument("--model-id", required=True)
@@ -241,12 +250,20 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "eval-run-invoices":
             from .invoice_run import run_invoice_baseline
             data = run_invoice_baseline(args.manifest, args.output_dir, resume=args.resume,
-                                        ocr_psm=args.ocr_psm)
+                                        ocr_psm=args.ocr_psm, split=args.split)
             print(args.output_dir / "report.json")
             return 0 if data["status"] == "scored" else 2
         elif args.command == "eval-verify-invoice-run":
             from .invoice_run import verify_invoice_run
             data = verify_invoice_run(args.manifest, args.run_directory)
+        elif args.command == "eval-review-priority":
+            from .priority_evaluation import write_priority_report
+            write_priority_report(args.manifest, args.run_directory, args.output)
+            print(args.output)
+            return 0
+        elif args.command == "eval-verify-review-priority":
+            from .priority_evaluation import verify_priority_report
+            data = verify_priority_report(args.manifest, args.run_directory, args.report)
         elif args.command == "models":
             from .model_runtime import fetch_assets, load_profile, verify_assets
             profile = load_profile(args.profile)

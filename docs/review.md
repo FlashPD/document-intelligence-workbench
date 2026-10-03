@@ -26,6 +26,12 @@ To correct the total instead, use `review edit "$DOC_ID" fields.total 270.00 --r
 
 The JSON export includes the record, page spans and boxes, issues, decisions, source hash, record hash, and approval hash. CSV writes separate header and line-item files with values, origins, missing reasons, and evidence IDs. Text cells that could become spreadsheet formulas are escaped. Export retries return the same manifest after checking file hashes; changed or missing files are reported as an error.
 
+## Review queue priority
+
+The browser orders review-ready documents by additive triage points from the current revision's validation issues. `REQUIRED_MISSING` contributes 8 points; missing, unknown, or mismatched evidence contributes 6; header and arithmetic conflicts contribute 5; invalid values, ambiguous dates, no rows, and previously unseen issue codes contribute 4; `TOTAL_NOT_CHECKED` contributes 2. Failed extractions receive 100 points in offline analysis. The API returns the total and each contributing code, so the ordering is inspectable. Approval moves a document out of the review-ready queue; an edit creates a new review-ready revision and recalculates its priority without changing the older revision's issues. Reviewer acknowledgments do not lower the score.
+
+These points rank visible problems; they are not calibrated probabilities. Zero points means the current validator raised no signal, not that extraction is correct. All exports still require approval. The [development triage analysis](invoice-development-run.md#review-priority-diagnostic--october-3-2026) measures errors missed by this score.
+
 ## Current boundary
 
 This CLI assumes a trusted local operator. It has no identity verification or authorization. The `--actor` value is an audit label, not an authenticated reviewer. A [loopback browser prototype](browser.md) uses the same revisions and approvals. Bounded uploads and a container worker can supply multi-page candidates, but real container execution still needs verification on a host with a running Docker daemon. The experimental local model has been [scored on fictional development invoices](development-baseline.md#span-invoice-v2-follow-up--october-2-2026), not validated on arbitrary or sensitive invoices.
