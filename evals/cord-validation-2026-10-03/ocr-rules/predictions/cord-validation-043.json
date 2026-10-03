@@ -1,0 +1,218 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "dec4bd8c98933a8851afa823b46facc2776bff95e9ffd1cc0a370b555680d386",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.565,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 960,
+    "height_px": 1280,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "txt",
+        "box": {
+          "left": 0.33229166666666665,
+          "top": 0.26796875,
+          "right": 0.3489583333333333,
+          "bottom": 0.290625
+        },
+        "method": "tesseract-eng",
+        "confidence": 12.81
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "<x",
+        "box": {
+          "left": 0.31145833333333334,
+          "top": 0.26875,
+          "right": 0.3302083333333333,
+          "bottom": 0.28984375
+        },
+        "method": "tesseract-eng",
+        "confidence": 20.01
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "a",
+        "box": {
+          "left": 0.2916666666666667,
+          "top": 0.2671875,
+          "right": 0.309375,
+          "bottom": 0.28984375
+        },
+        "method": "tesseract-eng",
+        "confidence": 19.74
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "tu",
+        "box": {
+          "left": 0.271875,
+          "top": 0.265625,
+          "right": 0.28958333333333336,
+          "bottom": 0.2890625
+        },
+        "method": "tesseract-eng",
+        "confidence": 53.56
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "ct",
+        "box": {
+          "left": 0.2520833333333333,
+          "top": 0.265625,
+          "right": 0.26979166666666665,
+          "bottom": 0.2875
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "co",
+        "box": {
+          "left": 0.209375,
+          "top": 0.26484375,
+          "right": 0.22708333333333333,
+          "bottom": 0.28671875
+        },
+        "method": "tesseract-eng",
+        "confidence": 32.1
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "x",
+        "box": {
+          "left": 0.1875,
+          "top": 0.2640625,
+          "right": 0.20729166666666668,
+          "bottom": 0.2859375
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.01
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "ey",
+        "box": {
+          "left": 0.16770833333333332,
+          "top": 0.2625,
+          "right": 0.18645833333333334,
+          "bottom": 0.28515625
+        },
+        "method": "tesseract-eng",
+        "confidence": 12.54
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "ii",
+        "box": {
+          "left": 0.08020833333333334,
+          "top": 0.259375,
+          "right": 0.14895833333333333,
+          "bottom": 0.28515625
+        },
+        "method": "tesseract-eng",
+        "confidence": 51.97
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "=",
+        "box": {
+          "left": 0.06354166666666666,
+          "top": 0.2640625,
+          "right": 0.084375,
+          "bottom": 0.2859375
+        },
+        "method": "tesseract-eng",
+        "confidence": 80.07
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "a,",
+        "box": {
+          "left": 0.04375,
+          "top": 0.2640625,
+          "right": 0.065625,
+          "bottom": 0.2953125
+        },
+        "method": "tesseract-eng",
+        "confidence": 46.79
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "ROTI. UNYIL",
+        "box": {
+          "left": 0.04791666666666667,
+          "top": 0.22734375,
+          "right": 0.24895833333333334,
+          "bottom": 0.25234375
+        },
+        "method": "tesseract-eng",
+        "confidence": 73.24
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -9,6 +9,9 @@ description = "Local, evidence-linked invoice extraction and review workbench"
 requires-python = ">=3.12"
 dependencies = []
 
+[project.optional-dependencies]
+evaluation = ["pyarrow==25.0.0", "Pillow==11.3.0"]
+
 [project.scripts]
 docwork = "docwork.cli:main"
 

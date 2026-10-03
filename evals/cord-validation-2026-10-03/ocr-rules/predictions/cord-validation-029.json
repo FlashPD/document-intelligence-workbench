@@ -1,0 +1,157 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "30000",
+        "raw": "30000",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": "0",
+        "raw": "0",
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "63f142c28bc3d87a0a2c26f574ebda11224049477a36c9d7d9de5aa5904eccee",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 1.223,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 576,
+    "height_px": 864,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Tid,",
+        "box": {
+          "left": 0.0,
+          "top": 0.032407407407407406,
+          "right": 0.022569444444444444,
+          "bottom": 0.11226851851851852
+        },
+        "method": "tesseract-eng",
+        "confidence": 27.37
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "syicisteks So PEE 10 RN I EDIE C0) rer opm",
+        "box": {
+          "left": 0.04513888888888889,
+          "top": 0.0,
+          "right": 1.0,
+          "bottom": 0.037037037037037035
+        },
+        "method": "tesseract-eng",
+        "confidence": 15.18
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Sal i",
+        "box": {
+          "left": 0.03819444444444445,
+          "top": 0.3425925925925926,
+          "right": 0.5503472222222222,
+          "bottom": 0.3819444444444444
+        },
+        "method": "tesseract-eng",
+        "confidence": 57.62
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "jae Beras 1 40000",
+        "box": {
+          "left": 0.034722222222222224,
+          "top": 0.34953703703703703,
+          "right": 0.5920138888888888,
+          "bottom": 0.4039351851851852
+        },
+        "method": "tesseract-eng",
+        "confidence": 74.19
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Sub Total 30000",
+        "box": {
+          "left": 0.027777777777777776,
+          "top": 0.46064814814814814,
+          "right": 0.5920138888888888,
+          "bottom": 0.5081018518518519
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.46
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Discount (0 %)",
+        "box": {
+          "left": 0.024305555555555556,
+          "top": 0.5115740740740741,
+          "right": 0.2986111111111111,
+          "bottom": 0.5428240740740741
+        },
+        "method": "tesseract-eng",
+        "confidence": 69.86
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Tunai 50000",
+        "box": {
+          "left": 0.020833333333333332,
+          "top": 0.5613425925925926,
+          "right": 0.5920138888888888,
+          "bottom": 0.6041666666666666
+        },
+        "method": "tesseract-eng",
+        "confidence": 81.2
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 2,
+    "valid_reference_values": 2,
+    "aligned_values": 2,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

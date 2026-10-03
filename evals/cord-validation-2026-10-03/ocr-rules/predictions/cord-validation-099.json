@@ -1,0 +1,326 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "39000",
+        "raw": "Rp. 39.000",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "39000",
+        "raw": "Rp. 39.000",
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Giant Squid x",
+          "raw": "Giant Squid x",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "39000",
+          "raw": "Rp. 39.000",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "C.Finishing - Cut",
+          "raw": "C.Finishing - Cut",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "Rp. 0",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "B.Spicy Level - Extreme Hot",
+          "raw": "B.Spicy Level - Extreme Hot",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "Rp. 0",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "A.Flavour - Salt & Pepper",
+          "raw": "A.Flavour - Salt & Pepper",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "Rp. 0",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "0495349327273b9cdc9f654225edf2f91b8ebd82751aa94c944614f61c5685dc",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 1.244,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Giant Squid x1 Rp. 39.000",
+        "box": {
+          "left": 0.061342592592592594,
+          "top": 0.5979938271604939,
+          "right": 0.8599537037037037,
+          "bottom": 0.6226851851851852
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.88
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "C.Finishing - Cut Rp. 0",
+        "box": {
+          "left": 0.07291666666666667,
+          "top": 0.6365740740740741,
+          "right": 0.41550925925925924,
+          "bottom": 0.6612654320987654
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.85
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "B.Spicy Level - Extreme Hot Rp. 0",
+        "box": {
+          "left": 0.07060185185185185,
+          "top": 0.6689814814814815,
+          "right": 0.5972222222222222,
+          "bottom": 0.6944444444444444
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.88
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "A.Flavour - Salt & Pepper Rp. 0",
+        "box": {
+          "left": 0.06481481481481481,
+          "top": 0.7013888888888888,
+          "right": 0.5567129629629629,
+          "bottom": 0.7283950617283951
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.48
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Subtotal Rp. 39.000",
+        "box": {
+          "left": 0.04976851851851852,
+          "top": 0.75,
+          "right": 0.875,
+          "bottom": 0.7908950617283951
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.36
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Total Rp. 39.000",
+        "box": {
+          "left": 0.04861111111111111,
+          "top": 0.8171296296296297,
+          "right": 0.8761574074074074,
+          "bottom": 0.8672839506172839
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.68
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Cash Rp. 50.000",
+        "box": {
+          "left": 0.05439814814814815,
+          "top": 0.8734567901234568,
+          "right": 0.8796296296296297,
+          "bottom": 0.9104938271604939
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.38
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Change",
+        "box": {
+          "left": 0.059027777777777776,
+          "top": 0.9074074074074074,
+          "right": 0.17592592592592593,
+          "bottom": 0.9305555555555556
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.99
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "Rp. 11.000",
+        "box": {
+          "left": 0.7013888888888888,
+          "top": 0.9212962962962963,
+          "right": 0.8796296296296297,
+          "bottom": 0.9452160493827161
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.59
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 11,
+    "valid_reference_values": 11,
+    "aligned_values": 11,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

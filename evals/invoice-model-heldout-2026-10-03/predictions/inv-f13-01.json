@@ -1,0 +1,344 @@
+{
+  "source_sha256": "1fc9052d8b504f340b1a58719ea94f0f49fb257a756ce0adb392a7dc3a3a02eb",
+  "record": {
+    "schema_version": "invoice-v1-spike",
+    "fields": {
+      "supplier_name": {
+        "value": "Marigold Frame Works",
+        "raw": "Marigold Frame Works",
+        "evidence_ids": [
+          "p1-l0002"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "invoice_number": {
+        "value": "F13-001",
+        "raw": "Invoice No.: F13-001",
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "issue_date": {
+        "value": "05/06/2026",
+        "raw": "Date: 05/06/2026",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "due_date": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed"
+      },
+      "currency": {
+        "value": "USD",
+        "raw": "Currency: USD",
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "subtotal": {
+        "value": "107.00",
+        "raw": "Subtotal: 107.00",
+        "evidence_ids": [
+          "p1-l0009"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "tax": {
+        "value": "0.00",
+        "raw": "Tax: 0.00",
+        "evidence_ids": [
+          "p1-l0010"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": "3.00",
+        "raw": "Discount: 3.00",
+        "evidence_ids": [
+          "p1-l0011"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "shipping": {
+        "value": "0.00",
+        "raw": "Shipping: 0.00",
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": "109.00",
+        "raw": "Total: 109.00",
+        "evidence_ids": [
+          "p1-l0013"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Accessibility audit",
+          "raw": "Accessibility audit 1 107.00 107.00",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "Accessibility audit 1 107.00 107.00",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "107.00",
+          "raw": "Accessibility audit 1 107.00 107.00",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "107.00",
+          "raw": "Accessibility audit 1 107.00 107.00",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed"
+        }
+      }
+    ]
+  },
+  "freeze_sha256": "bd51713c2766a01da72d5e46f8265ee01179880c243991157d73c378c68405ae",
+  "ocr_prediction_sha256": "7c5daad6b2ed60c7658b44dd2f03e3ce007658646951bfc2c448c4d3265ee1c6",
+  "issue_codes": [
+    "AMBIGUOUS_DATE",
+    "TOTAL_MISMATCH"
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "width_px": 1000,
+      "height_px": 1800,
+      "spans": [
+        {
+          "id": "p1-l0001",
+          "page": 1,
+          "text": "a...",
+          "box": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 1.0,
+            "bottom": 0.010555555555555556
+          },
+          "method": "tesseract-eng",
+          "confidence": 15.13
+        },
+        {
+          "id": "p1-l0002",
+          "page": 1,
+          "text": "Marigold Frame Works",
+          "box": {
+            "left": 0.068,
+            "top": 0.02388888888888889,
+            "right": 0.449,
+            "bottom": 0.043333333333333335
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.62
+        },
+        {
+          "id": "p1-l0003",
+          "page": 1,
+          "text": "INVOICE",
+          "box": {
+            "left": 0.063,
+            "top": 0.05722222222222222,
+            "right": 0.214,
+            "bottom": 0.07222222222222222
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.2
+        },
+        {
+          "id": "p1-l0004",
+          "page": 1,
+          "text": "Invoice No.: F13-001",
+          "box": {
+            "left": 0.062,
+            "top": 0.16666666666666666,
+            "right": 0.277,
+            "bottom": 0.1761111111111111
+          },
+          "method": "tesseract-eng",
+          "confidence": 91.84
+        },
+        {
+          "id": "p1-l0005",
+          "page": 1,
+          "text": "Date: 05/06/2026",
+          "box": {
+            "left": 0.062,
+            "top": 0.19944444444444445,
+            "right": 0.241,
+            "bottom": 0.2088888888888889
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.76
+        },
+        {
+          "id": "p1-l0006",
+          "page": 1,
+          "text": "Currency: USD",
+          "box": {
+            "left": 0.061,
+            "top": 0.265,
+            "right": 0.219,
+            "bottom": 0.2772222222222222
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.07
+        },
+        {
+          "id": "p1-l0007",
+          "page": 1,
+          "text": "Description Qty Unit price Amount",
+          "box": {
+            "left": 0.057,
+            "top": 0.42277777777777775,
+            "right": 0.897,
+            "bottom": 0.44
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.65
+        },
+        {
+          "id": "p1-l0008",
+          "page": 1,
+          "text": "Accessibility audit 1 107.00 107.00",
+          "box": {
+            "left": 0.055,
+            "top": 0.465,
+            "right": 0.886,
+            "bottom": 0.4772222222222222
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.34
+        },
+        {
+          "id": "p1-l0009",
+          "page": 1,
+          "text": "Subtotal: 107.00",
+          "box": {
+            "left": 0.061,
+            "top": 0.7694444444444445,
+            "right": 0.232,
+            "bottom": 0.7788888888888889
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.74
+        },
+        {
+          "id": "p1-l0010",
+          "page": 1,
+          "text": "Tax: 0.00",
+          "box": {
+            "left": 0.06,
+            "top": 0.8011111111111111,
+            "right": 0.159,
+            "bottom": 0.8105555555555556
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.92
+        },
+        {
+          "id": "p1-l0011",
+          "page": 1,
+          "text": "Discount: 3.00",
+          "box": {
+            "left": 0.062,
+            "top": 0.8327777777777777,
+            "right": 0.211,
+            "bottom": 0.8422222222222222
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.92
+        },
+        {
+          "id": "p1-l0012",
+          "page": 1,
+          "text": "Shipping: 0.00",
+          "box": {
+            "left": 0.061,
+            "top": 0.8644444444444445,
+            "right": 0.21,
+            "bottom": 0.8766666666666667
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.49
+        },
+        {
+          "id": "p1-l0013",
+          "page": 1,
+          "text": "Total: 109.00",
+          "box": {
+            "left": 0.06,
+            "top": 0.8961111111111111,
+            "right": 0.198,
+            "bottom": 0.9055555555555556
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.76
+        },
+        {
+          "id": "p1-l0014",
+          "page": 1,
+          "text": "Page 1",
+          "box": {
+            "left": 0.772,
+            "top": 0.9666666666666667,
+            "right": 0.841,
+            "bottom": 0.9788888888888889
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.5
+        }
+      ]
+    }
+  ],
+  "runtime_seconds": {
+    "model": 61.548
+  }
+}

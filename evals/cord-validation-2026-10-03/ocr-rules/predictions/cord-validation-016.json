@@ -1,0 +1,189 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "O",
+          "raw": "O",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "00",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "090f7d598707ac5ec3d687511113fec45e560a7f018aa725f04d99a2c3133baa",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 2.279,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 2376,
+    "height_px": 4224,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Pan Oe JONUH",
+        "box": {
+          "left": 0.2335858585858586,
+          "top": 0.6439393939393939,
+          "right": 0.6755050505050505,
+          "bottom": 0.6723484848484849
+        },
+        "method": "tesseract-eng",
+        "confidence": 29.22
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "000\u00b0 O0T HSUd",
+        "box": {
+          "left": 0.2638888888888889,
+          "top": 0.6276041666666666,
+          "right": 0.6763468013468014,
+          "bottom": 0.6479640151515151
+        },
+        "method": "tesseract-eng",
+        "confidence": 1.64
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "ooome be",
+        "box": {
+          "left": 0.30513468013468015,
+          "top": 0.6107954545454546,
+          "right": 0.67003367003367,
+          "bottom": 0.6297348484848485
+        },
+        "method": "tesseract-eng",
+        "confidence": 12.78
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "ooo*\u2018o02\\",
+        "box": {
+          "left": 0.5370370370370371,
+          "top": 0.59375,
+          "right": 0.6759259259259259,
+          "bottom": 0.6072443181818182
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "O00",
+        "box": {
+          "left": 0.5812289562289562,
+          "top": 0.5769412878787878,
+          "right": 0.625,
+          "bottom": 0.5894886363636364
+        },
+        "method": "tesseract-eng",
+        "confidence": 42.42
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Pa",
+        "box": {
+          "left": 0.37626262626262624,
+          "top": 0.5213068181818182,
+          "right": 0.5488215488215489,
+          "bottom": 0.5928030303030303
+        },
+        "method": "tesseract-eng",
+        "confidence": 39.47
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "{i",
+        "box": {
+          "left": 0.4027777777777778,
+          "top": 0.5213068181818182,
+          "right": 0.5446127946127947,
+          "bottom": 0.5435606060606061
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 2,
+    "valid_reference_values": 2,
+    "aligned_values": 2,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "cc3323238d18761c562098499b36de588e1f45e4cad073b4f519251ddf949d85",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.54,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "va",
+        "box": {
+          "left": 0.28703703703703703,
+          "top": 0.44135802469135804,
+          "right": 0.3287037037037037,
+          "bottom": 0.4567901234567901
+        },
+        "method": "tesseract-eng",
+        "confidence": 59.38
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "2,000}",
+        "box": {
+          "left": 0.7847222222222222,
+          "top": 0.4591049382716049,
+          "right": 0.9409722222222222,
+          "bottom": 0.48302469135802467
+        },
+        "method": "tesseract-eng",
+        "confidence": 67.06
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "weevecessossssse*'",
+        "box": {
+          "left": 0.11805555555555555,
+          "top": 0.4660493827160494,
+          "right": 0.3194444444444444,
+          "bottom": 0.4799382716049383
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Seaweed Chicken",
+        "box": {
+          "left": 0.2013888888888889,
+          "top": 0.47608024691358025,
+          "right": 0.5081018518518519,
+          "bottom": 0.5030864197530864
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.37
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "- Sedang",
+        "box": {
+          "left": 0.20023148148148148,
+          "top": 0.5030864197530864,
+          "right": 0.3541666666666667,
+          "bottom": 0.5254629629629629
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.97
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "b",
+        "box": {
+          "left": 0.9583333333333334,
+          "top": 0.5439814814814815,
+          "right": 0.9664351851851852,
+          "bottom": 0.5655864197530864
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Change .8,000 '",
+        "box": {
+          "left": 0.65625,
+          "top": 0.5570987654320988,
+          "right": 0.9988425925925926,
+          "bottom": 0.6481481481481481
+        },
+        "method": "tesseract-eng",
+        "confidence": 48.88
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": ":",
+        "box": {
+          "left": 0.9918981481481481,
+          "top": 0.6481481481481481,
+          "right": 1.0,
+          "bottom": 0.6651234567901234
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "-\u201c-",
+        "box": {
+          "left": 0.7881944444444444,
+          "top": 0.6666666666666666,
+          "right": 0.8865740740740741,
+          "bottom": 0.6898148148148148
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

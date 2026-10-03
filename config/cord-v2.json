@@ -1,0 +1,12 @@
+{
+  "dataset_id": "naver-clova-ix/cord-v2",
+  "revision": "7f0115a4b758a71d6473b8d085751692da2fef98",
+  "license": "CC-BY-4.0",
+  "attribution": "Park et al., CORD: A Consolidated Receipt Dataset for Post-OCR Parsing, Document Intelligence Workshop at NeurIPS, 2019. NAVER CLOVA.",
+  "source": "https://github.com/clovaai/cord",
+  "files": [
+    {"split": "validation", "rows": 100, "path": "data/validation-00000-of-00001-cc3c5779fe22e8ca.parquet", "size_bytes": 242080800, "sha256": "0d0f6dac11fdcc549de2746aa9f53136a3bc22a2a1aff2b0b847f7622ad60c15"},
+    {"split": "test", "rows": 100, "path": "data/test-00000-of-00001-9c204eb3f4e11791.parquet", "size_bytes": 234202795, "sha256": "51c65f1788faff392abe2a0b55b023eb23e9be551c509138eaa3a832514224e7"}
+  ],
+  "note": "Official validation and test only; 800 training rows remain unimported. Test scoring is sealed until development evidence and extraction settings are frozen."
+}

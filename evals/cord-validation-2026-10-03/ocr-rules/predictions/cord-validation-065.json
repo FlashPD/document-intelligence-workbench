@@ -1,0 +1,692 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "\u00e9 op tony gee eed \u201cbow",
+          "raw": "\u00e9 op tony gee eed \u201cbow",
+          "evidence_ids": [
+            "p1-l0027",
+            "p1-l0026",
+            "p1-l0028"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "8",
+          "raw": "8",
+          "evidence_ids": [
+            "p1-l0027",
+            "p1-l0026",
+            "p1-l0028"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "AND TOTAL",
+          "raw": "AND TOTAL",
+          "evidence_ids": [
+            "p1-l0034"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "34600",
+          "raw": "34.600",
+          "evidence_ids": [
+            "p1-l0034"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "TUNAL \u00a3",
+          "raw": "TUNAL \u00a3",
+          "evidence_ids": [
+            "p1-l0035"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "100",
+          "raw": "0,100",
+          "evidence_ids": [
+            "p1-l0035"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "e0ef2b0dc26b9d28b64851be51594bb10ffdbedcbb4543a65908ebfc3e634a16",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 2.539,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 1836,
+    "height_px": 3264,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "lV.",
+        "box": {
+          "left": 0.8867102396514162,
+          "top": 0.1792279411764706,
+          "right": 0.9242919389978214,
+          "bottom": 0.25153186274509803
+        },
+        "method": "tesseract-eng",
+        "confidence": 48.28
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "r",
+        "box": {
+          "left": 0.8888888888888888,
+          "top": 0.25183823529411764,
+          "right": 0.8932461873638344,
+          "bottom": 0.2542892156862745
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "a.",
+        "box": {
+          "left": 0.9193899782135077,
+          "top": 0.25183823529411764,
+          "right": 0.9242919389978214,
+          "bottom": 0.25674019607843135
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Ss",
+        "box": {
+          "left": 0.9264705882352942,
+          "top": 0.3072916666666667,
+          "right": 0.9308278867102396,
+          "bottom": 0.3121936274509804
+        },
+        "method": "tesseract-eng",
+        "confidence": 51.36
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "SAP",
+        "box": {
+          "left": 0.914488017429194,
+          "top": 0.3241421568627451,
+          "right": 0.934640522875817,
+          "bottom": 0.3697916666666667
+        },
+        "method": "tesseract-eng",
+        "confidence": 77.14
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "NAV",
+        "box": {
+          "left": 0.8823529411764706,
+          "top": 0.37346813725490197,
+          "right": 0.9215686274509803,
+          "bottom": 0.44607843137254904
+        },
+        "method": "tesseract-eng",
+        "confidence": 77.12
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "2",
+        "box": {
+          "left": 0.8812636165577342,
+          "top": 0.4494485294117647,
+          "right": 0.9183006535947712,
+          "bottom": 0.4699754901960784
+        },
+        "method": "tesseract-eng",
+        "confidence": 59.0
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "=",
+        "box": {
+          "left": 0.9193899782135077,
+          "top": 0.49264705882352944,
+          "right": 0.9237472766884531,
+          "bottom": 0.49785539215686275
+        },
+        "method": "tesseract-eng",
+        "confidence": 23.9
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "Rovereeeentdasmaperscnceemn soopees ames",
+        "box": {
+          "left": 0.11819172113289761,
+          "top": 0.5269607843137255,
+          "right": 0.29411764705882354,
+          "bottom": 0.5355392156862745
+        },
+        "method": "tesseract-eng",
+        "confidence": 5.91
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "daceannesushospnpenns Seanmnoneppeeenncenephennnseeneneenedaunnannnhhintbaaancnaanieeryneryryynannnaneharts",
+        "box": {
+          "left": 0.11819172113289761,
+          "top": 0.5324754901960784,
+          "right": 0.605119825708061,
+          "bottom": 0.5386029411764706
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "Vv",
+        "box": {
+          "left": 0.8888888888888888,
+          "top": 0.5545343137254902,
+          "right": 0.9259259259259259,
+          "bottom": 0.5753676470588235
+        },
+        "method": "tesseract-eng",
+        "confidence": 61.21
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": ".",
+        "box": {
+          "left": 0.8828976034858388,
+          "top": 0.5998774509803921,
+          "right": 0.8905228758169934,
+          "bottom": 0.6029411764705882
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "=",
+        "box": {
+          "left": 0.5424836601307189,
+          "top": 0.6485906862745098,
+          "right": 0.5528322440087146,
+          "bottom": 0.6556372549019608
+        },
+        "method": "tesseract-eng",
+        "confidence": 53.56
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "x",
+        "box": {
+          "left": 0.5533769063180828,
+          "top": 0.6488970588235294,
+          "right": 0.5604575163398693,
+          "bottom": 0.6553308823529411
+        },
+        "method": "tesseract-eng",
+        "confidence": 18.74
+      },
+      {
+        "id": "p1-l0015",
+        "page": 1,
+        "text": "be",
+        "box": {
+          "left": 0.5996732026143791,
+          "top": 0.640625,
+          "right": 0.6100217864923747,
+          "bottom": 0.6449142156862745
+        },
+        "method": "tesseract-eng",
+        "confidence": 32.12
+      },
+      {
+        "id": "p1-l0016",
+        "page": 1,
+        "text": "=,",
+        "box": {
+          "left": 0.6111111111111112,
+          "top": 0.6403186274509803,
+          "right": 0.6236383442265795,
+          "bottom": 0.6522671568627451
+        },
+        "method": "tesseract-eng",
+        "confidence": 56.91
+      },
+      {
+        "id": "p1-l0017",
+        "page": 1,
+        "text": ">",
+        "box": {
+          "left": 0.6274509803921569,
+          "top": 0.6424632352941176,
+          "right": 0.6339869281045751,
+          "bottom": 0.6550245098039216
+        },
+        "method": "tesseract-eng",
+        "confidence": 52.04
+      },
+      {
+        "id": "p1-l0018",
+        "page": 1,
+        "text": "a",
+        "box": {
+          "left": 0.7450980392156863,
+          "top": 0.6473651960784313,
+          "right": 0.7516339869281046,
+          "bottom": 0.6565563725490197
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0019",
+        "page": 1,
+        "text": "RJ",
+        "box": {
+          "left": 0.7527233115468409,
+          "top": 0.649203431372549,
+          "right": 0.7630718954248366,
+          "bottom": 0.6565563725490197
+        },
+        "method": "tesseract-eng",
+        "confidence": 45.93
+      },
+      {
+        "id": "p1-l0020",
+        "page": 1,
+        "text": "x",
+        "box": {
+          "left": 0.7685185185185185,
+          "top": 0.6519607843137255,
+          "right": 0.7772331154684096,
+          "bottom": 0.65625
+        },
+        "method": "tesseract-eng",
+        "confidence": 80.3
+      },
+      {
+        "id": "p1-l0021",
+        "page": 1,
+        "text": "ome,",
+        "box": {
+          "left": 0.7821350762527233,
+          "top": 0.6415441176470589,
+          "right": 0.7908496732026143,
+          "bottom": 0.65625
+        },
+        "method": "tesseract-eng",
+        "confidence": 30.81
+      },
+      {
+        "id": "p1-l0022",
+        "page": 1,
+        "text": "*. a",
+        "box": {
+          "left": 0.789760348583878,
+          "top": 0.6390931372549019,
+          "right": 0.8006535947712419,
+          "bottom": 0.6574754901960784
+        },
+        "method": "tesseract-eng",
+        "confidence": 48.92
+      },
+      {
+        "id": "p1-l0023",
+        "page": 1,
+        "text": "o*,",
+        "box": {
+          "left": 0.7962962962962963,
+          "top": 0.6390931372549019,
+          "right": 0.8137254901960784,
+          "bottom": 0.6559436274509803
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.05
+      },
+      {
+        "id": "p1-l0024",
+        "page": 1,
+        "text": "\u201cat",
+        "box": {
+          "left": 0.8126361655773421,
+          "top": 0.6415441176470589,
+          "right": 0.8235294117647058,
+          "bottom": 0.6534926470588235
+        },
+        "method": "tesseract-eng",
+        "confidence": 45.68
+      },
+      {
+        "id": "p1-l0025",
+        "page": 1,
+        "text": "eas*",
+        "box": {
+          "left": 0.8311546840958606,
+          "top": 0.6415441176470589,
+          "right": 0.8382352941176471,
+          "bottom": 0.6510416666666666
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0026",
+        "page": 1,
+        "text": "op tony gee",
+        "box": {
+          "left": 0.7320261437908496,
+          "top": 0.6084558823529411,
+          "right": 0.8311546840958606,
+          "bottom": 0.6136642156862745
+        },
+        "method": "tesseract-eng",
+        "confidence": 48.87
+      },
+      {
+        "id": "p1-l0027",
+        "page": 1,
+        "text": "\u00e9",
+        "box": {
+          "left": 0.7276688453159041,
+          "top": 0.6124387254901961,
+          "right": 0.7320261437908496,
+          "bottom": 0.616421568627451
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0028",
+        "page": 1,
+        "text": "eed \u201cbow 8",
+        "box": {
+          "left": 0.7837690631808278,
+          "top": 0.6204044117647058,
+          "right": 0.8289760348583878,
+          "bottom": 0.6289828431372549
+        },
+        "method": "tesseract-eng",
+        "confidence": 32.72
+      },
+      {
+        "id": "p1-l0029",
+        "page": 1,
+        "text": "i ij : i. Pe wie",
+        "box": {
+          "left": 0.12854030501089325,
+          "top": 0.6786151960784313,
+          "right": 0.8442265795206971,
+          "bottom": 0.6917892156862745
+        },
+        "method": "tesseract-eng",
+        "confidence": 38.6
+      },
+      {
+        "id": "p1-l0030",
+        "page": 1,
+        "text": "3 .",
+        "box": {
+          "left": 0.7598039215686274,
+          "top": 0.7297794117647058,
+          "right": 0.8229847494553377,
+          "bottom": 0.7334558823529411
+        },
+        "method": "tesseract-eng",
+        "confidence": 10.56
+      },
+      {
+        "id": "p1-l0031",
+        "page": 1,
+        "text": "a ae i eo st 2% 7% tas",
+        "box": {
+          "left": 0.12037037037037036,
+          "top": 0.7340686274509803,
+          "right": 0.32461873638344224,
+          "bottom": 0.7423406862745098
+        },
+        "method": "tesseract-eng",
+        "confidence": 35.26
+      },
+      {
+        "id": "p1-l0032",
+        "page": 1,
+        "text": "TAX 10.00 964",
+        "box": {
+          "left": 0.12745098039215685,
+          "top": 0.7297794117647058,
+          "right": 0.8485838779956427,
+          "bottom": 0.7484681372549019
+        },
+        "method": "tesseract-eng",
+        "confidence": 55.4
+      },
+      {
+        "id": "p1-l0033",
+        "page": 1,
+        "text": "i rh il? tt LA i th,",
+        "box": {
+          "left": 0.12581699346405228,
+          "top": 0.7310049019607843,
+          "right": 0.7864923747276689,
+          "bottom": 0.7533700980392157
+        },
+        "method": "tesseract-eng",
+        "confidence": 53.85
+      },
+      {
+        "id": "p1-l0034",
+        "page": 1,
+        "text": "AND TOTAL 34.600",
+        "box": {
+          "left": 0.15305010893246188,
+          "top": 0.7598039215686274,
+          "right": 0.8453159041394336,
+          "bottom": 0.7837009803921569
+        },
+        "method": "tesseract-eng",
+        "confidence": 74.2
+      },
+      {
+        "id": "p1-l0035",
+        "page": 1,
+        "text": "TUNAL \u00a30,100",
+        "box": {
+          "left": 0.12418300653594772,
+          "top": 0.7901348039215687,
+          "right": 0.8513071895424836,
+          "bottom": 0.8152573529411765
+        },
+        "method": "tesseract-eng",
+        "confidence": 62.66
+      },
+      {
+        "id": "p1-l0036",
+        "page": 1,
+        "text": "aa",
+        "box": {
+          "left": 0.7559912854030502,
+          "top": 0.8219975490196079,
+          "right": 0.7870370370370371,
+          "bottom": 0.8412990196078431
+        },
+        "method": "tesseract-eng",
+        "confidence": 6.82
+      },
+      {
+        "id": "p1-l0037",
+        "page": 1,
+        "text": "\u2018\\ a",
+        "box": {
+          "left": 0.39869281045751637,
+          "top": 0.8569240196078431,
+          "right": 0.4678649237472767,
+          "bottom": 0.8783700980392157
+        },
+        "method": "tesseract-eng",
+        "confidence": 13.07
+      },
+      {
+        "id": "p1-l0038",
+        "page": 1,
+        "text": "eee tease he et nt ton ne teint poy baen ak ne on",
+        "box": {
+          "left": 0.12636165577342048,
+          "top": 0.8851102941176471,
+          "right": 0.30119825708061004,
+          "bottom": 0.8936887254901961
+        },
+        "method": "tesseract-eng",
+        "confidence": 27.35
+      },
+      {
+        "id": "p1-l0039",
+        "page": 1,
+        "text": "Sonera nne kn pean tne antag nd paeae he heen",
+        "box": {
+          "left": 0.12690631808278868,
+          "top": 0.8893995098039216,
+          "right": 0.30610021786492375,
+          "bottom": 0.8979779411764706
+        },
+        "method": "tesseract-eng",
+        "confidence": 12.71
+      },
+      {
+        "id": "p1-l0040",
+        "page": 1,
+        "text": "oat a",
+        "box": {
+          "left": 0.15196078431372548,
+          "top": 0.9145220588235294,
+          "right": 0.18627450980392157,
+          "bottom": 0.9194240196078431
+        },
+        "method": "tesseract-eng",
+        "confidence": 32.5
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 6,
+    "valid_reference_values": 6,
+    "aligned_values": 6,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

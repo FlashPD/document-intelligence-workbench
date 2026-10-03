@@ -1,0 +1,198 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "AWPINERAL BOTH i",
+          "raw": "AWPINERAL BOTH i",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "8000",
+          "raw": "8,000",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "TAK 16.00 % i :",
+          "raw": "TAK 16.00 % i :",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "4144",
+          "raw": "4,144",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "43d713cb950a5be11f399fc8419d229d1bf0653f406f72326ef766030e2c799d",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.784,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "AWPINERAL BOTH i 8,000",
+        "box": {
+          "left": 0.14467592592592593,
+          "top": 0.6033950617283951,
+          "right": 0.6701388888888888,
+          "bottom": 0.6280864197530864
+        },
+        "method": "tesseract-eng",
+        "confidence": 41.86
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "TOTAL -",
+        "box": {
+          "left": 0.14467592592592593,
+          "top": 0.6396604938271605,
+          "right": 0.27199074074074076,
+          "bottom": 0.6635802469135802
+        },
+        "method": "tesseract-eng",
+        "confidence": 73.47
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "-",
+        "box": {
+          "left": 0.13773148148148148,
+          "top": 0.6751543209876543,
+          "right": 0.19328703703703703,
+          "bottom": 0.7006172839506173
+        },
+        "method": "tesseract-eng",
+        "confidence": 21.67
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "TAK 16.00 % i : 4,144",
+        "box": {
+          "left": 0.1423611111111111,
+          "top": 0.7137345679012346,
+          "right": 0.8807870370370371,
+          "bottom": 0.7507716049382716
+        },
+        "method": "tesseract-eng",
+        "confidence": 51.64
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "84, G)",
+        "box": {
+          "left": 0.7638888888888888,
+          "top": 0.7523148148148148,
+          "right": 0.8796296296296297,
+          "bottom": 0.7839506172839507
+        },
+        "method": "tesseract-eng",
+        "confidence": 13.7
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 4,
+    "valid_reference_values": 4,
+    "aligned_values": 4,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "26000",
+        "raw": "26,000",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "coo ~~\u00bb _",
+          "raw": "coo ~~\u00bb _",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "26000",
+          "raw": "26,000",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "OVO",
+          "raw": "OVO",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "176",
+          "raw": "0176",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "26000",
+          "raw": "26,000",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "44259c566c1256f5c0ce3415cefe607fff54355c2b6049e3049aca8c59f440fa",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.69,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "LEMONADE 220Z",
+        "box": {
+          "left": 0.15046296296296297,
+          "top": 0.4722222222222222,
+          "right": 0.42476851851851855,
+          "bottom": 0.5023148148148148
+        },
+        "method": "tesseract-eng",
+        "confidence": 88.27
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "26,000",
+        "box": {
+          "left": 0.7604166666666666,
+          "top": 0.5061728395061729,
+          "right": 0.8622685185185185,
+          "bottom": 0.5254629629629629
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.51
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "1 26,000",
+        "box": {
+          "left": 0.15162037037037038,
+          "top": 0.5077160493827161,
+          "right": 0.3738425925925926,
+          "bottom": 0.5277777777777778
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.54
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "coo ~~\u00bb _ 26,000",
+        "box": {
+          "left": 0.08449074074074074,
+          "top": 0.5455246913580247,
+          "right": 0.8668981481481481,
+          "bottom": 0.5756172839506173
+        },
+        "method": "tesseract-eng",
+        "confidence": 36.35
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "GRAND TOTAL 26,000",
+        "box": {
+          "left": 0.10300925925925926,
+          "top": 0.6242283950617284,
+          "right": 0.8726851851851852,
+          "bottom": 0.6450617283950617
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.22
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "OVO 0176 26,000",
+        "box": {
+          "left": 0.09490740740740741,
+          "top": 0.6774691358024691,
+          "right": 0.8761574074074074,
+          "bottom": 0.6983024691358025
+        },
+        "method": "tesseract-eng",
+        "confidence": 51.0
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "CHANGE DUE 0",
+        "box": {
+          "left": 0.08796296296296297,
+          "top": 0.7307098765432098,
+          "right": 0.8784722222222222,
+          "bottom": 0.7507716049382716
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.74
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 6,
+    "valid_reference_values": 6,
+    "aligned_values": 6,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

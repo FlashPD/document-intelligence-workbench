@@ -1,0 +1,101 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "3e97880fa9f48761d3dce27277b84170e9b72b975cc956120385d54674d0fef5",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.673,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "CASH 30.000",
+        "box": {
+          "left": 0.14467592592592593,
+          "top": 0.7199074074074074,
+          "right": 0.8159722222222222,
+          "bottom": 0.7677469135802469
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.29
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "7 CHANGED Pane",
+        "box": {
+          "left": 0.07407407407407407,
+          "top": 0.7669753086419753,
+          "right": 0.8125,
+          "bottom": 0.7955246913580247
+        },
+        "method": "tesseract-eng",
+        "confidence": 37.92
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "\\ Lemon Tea (L)",
+        "box": {
+          "left": 0.13773148148148148,
+          "top": 0.6280864197530864,
+          "right": 0.4131944444444444,
+          "bottom": 0.6504629629629629
+        },
+        "method": "tesseract-eng",
+        "confidence": 85.3
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

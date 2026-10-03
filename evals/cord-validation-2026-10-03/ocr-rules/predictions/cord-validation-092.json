@@ -1,0 +1,250 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "CFC Winger HC",
+          "raw": "CFC Winger HC",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "20900",
+          "raw": "20,900",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "SHARGE Tis",
+          "raw": "SHARGE Tis",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "303",
+          "raw": "303",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "5ac405ae8b042af16c476c158f48108ba71afbbc6c066f11b1a605cc45a418ac",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 2.051,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 1836,
+    "height_px": 3264,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": ".. a",
+        "box": {
+          "left": 0.3812636165577342,
+          "top": 0.20680147058823528,
+          "right": 0.5898692810457516,
+          "bottom": 0.2858455882352941
+        },
+        "method": "tesseract-eng",
+        "confidence": 30.62
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "i",
+        "box": {
+          "left": 0.5386710239651417,
+          "top": 0.23314950980392157,
+          "right": 0.5571895424836601,
+          "bottom": 0.2503063725490196
+        },
+        "method": "tesseract-eng",
+        "confidence": 68.3
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "CFC Winger HC 20,900",
+        "box": {
+          "left": 0.29901960784313725,
+          "top": 0.40318627450980393,
+          "right": 0.7440087145969498,
+          "bottom": 0.4227941176470588
+        },
+        "method": "tesseract-eng",
+        "confidence": 64.71
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "SHARGE Tis 303",
+        "box": {
+          "left": 0.2995642701525055,
+          "top": 0.4221813725490196,
+          "right": 0.7450980392156863,
+          "bottom": 0.4411764705882353
+        },
+        "method": "tesseract-eng",
+        "confidence": 76.94
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Sub Total ya ree)",
+        "box": {
+          "left": 0.4422657952069717,
+          "top": 0.4574142156862745,
+          "right": 0.7456427015250545,
+          "bottom": 0.47549019607843135
+        },
+        "method": "tesseract-eng",
+        "confidence": 58.14
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "P Pest 10 %",
+        "box": {
+          "left": 0.41721132897603486,
+          "top": 0.5153186274509803,
+          "right": 0.5610021786492375,
+          "bottom": 0.5300245098039216
+        },
+        "method": "tesseract-eng",
+        "confidence": 82.51
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Tota!",
+        "box": {
+          "left": 0.49836601307189543,
+          "top": 0.5664828431372549,
+          "right": 0.5588235294117647,
+          "bottom": 0.5793504901960784
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.1
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Casin",
+        "box": {
+          "left": 0.5125272331154684,
+          "top": 0.5821078431372549,
+          "right": 0.5642701525054467,
+          "bottom": 0.5946691176470589
+        },
+        "method": "tesseract-eng",
+        "confidence": 41.16
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "Kembei| |",
+        "box": {
+          "left": 0.47276688453159044,
+          "top": 0.6204044117647058,
+          "right": 0.5620915032679739,
+          "bottom": 0.6338848039215687
+        },
+        "method": "tesseract-eng",
+        "confidence": 51.95
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 4,
+    "valid_reference_values": 4,
+    "aligned_values": 4,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

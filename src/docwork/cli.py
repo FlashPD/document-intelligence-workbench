@@ -155,6 +155,46 @@ def main(argv: list[str] | None = None) -> int:
     heldout_verify = commands.add_parser("eval-verify-heldout", help="Verify and rescore a frozen held-out invoice run offline")
     heldout_verify.add_argument("run_directory", type=Path)
     heldout_verify.add_argument("--manifest", type=Path, default=Path("datasets/invoices-v1/manifest.json"))
+    paired_model = commands.add_parser("eval-invoice-model", help="Compare the pinned model with all frozen test OCR records")
+    paired_model.add_argument("--manifest", type=Path, default=Path("datasets/invoices-v1/manifest.json"))
+    paired_model.add_argument("--baseline", type=Path, default=Path("evals/invoice-heldout-2026-10-03/ocr-rules-v0.3-psm1"))
+    paired_model.add_argument("--development", type=Path, default=Path("evals/local-model-span-v2-2026-10-02/model"))
+    paired_model.add_argument("--profile", type=Path, default=Path("config/model-mac-instruct.json"))
+    paired_model.add_argument("--output-dir", type=Path, required=True)
+    paired_model.add_argument("--resume", action="store_true")
+    paired_verify = commands.add_parser("eval-verify-invoice-model", help="Audit and rescore a saved paired model comparison")
+    paired_verify.add_argument("run_directory", type=Path)
+    paired_verify.add_argument("--manifest", type=Path, default=Path("datasets/invoices-v1/manifest.json"))
+    paired_verify.add_argument("--baseline", type=Path, default=Path("evals/invoice-heldout-2026-10-03/ocr-rules-v0.3-psm1"))
+    cord = commands.add_parser("cord", help="Explicitly download, prepare, or verify pinned CORD receipt data")
+    cord.add_argument("action", choices=("fetch", "prepare", "verify"))
+    cord.add_argument("--profile", type=Path, default=Path("config/cord-v2.json"))
+    cord.add_argument("--cache", type=Path, default=Path("artifacts/cord-v2/shards"))
+    cord.add_argument("--output-dir", type=Path, default=Path("artifacts/cord-v2/prepared-v1"))
+    receipt_run = commands.add_parser("eval-receipts", help="Evaluate receipt rules or the pinned model, with sealed test settings")
+    receipt_run.add_argument("--manifest", type=Path, default=Path("artifacts/cord-v2/prepared-v1/manifest.json"))
+    receipt_run.add_argument("--profile", type=Path, default=Path("config/model-mac-instruct.json"))
+    receipt_run.add_argument("--split", choices=("validation", "test"), default="validation")
+    receipt_run.add_argument("--variant", choices=("ocr_rules", "span_llm"), default="ocr_rules")
+    receipt_run.add_argument("--ocr-run", type=Path)
+    receipt_run.add_argument("--freeze", type=Path)
+    receipt_run.add_argument("--limit", type=int, help="Validation smoke subset only; test always schedules all 100")
+    receipt_run.add_argument("--resume", action="store_true")
+    receipt_run.add_argument("--output-dir", type=Path, required=True)
+    receipt_freeze = commands.add_parser("eval-freeze-receipts", help="Freeze receipt settings from verified validation evidence")
+    receipt_freeze.add_argument("--manifest", type=Path, default=Path("artifacts/cord-v2/prepared-v1/manifest.json"))
+    receipt_freeze.add_argument("--profile", type=Path, default=Path("config/model-mac-instruct.json"))
+    receipt_freeze.add_argument("--rules", type=Path, required=True)
+    receipt_freeze.add_argument("--model", type=Path, required=True)
+    receipt_freeze.add_argument("--output", type=Path, required=True)
+    receipt_verify = commands.add_parser("eval-verify-receipts", help="Audit receipt evidence and reproduce scores offline")
+    receipt_verify.add_argument("run_directory", type=Path)
+    receipt_verify.add_argument("--manifest", type=Path, default=Path("artifacts/cord-v2/prepared-v1/manifest.json"))
+    receipt_compare = commands.add_parser("eval-compare-receipts", help="Write an audited paired CORD comparison")
+    receipt_compare.add_argument("baseline", type=Path)
+    receipt_compare.add_argument("model", type=Path)
+    receipt_compare.add_argument("--manifest", type=Path, default=Path("artifacts/cord-v2/prepared-v1/manifest.json"))
+    receipt_compare.add_argument("--output", type=Path, required=True)
     finalize = commands.add_parser("eval-finalize-heldout", help="Finalize fully saved frozen predictions after a reporting-only failure")
     finalize.add_argument("run_directory", type=Path)
     finalize.add_argument("--manifest", type=Path, default=Path("datasets/invoices-v1/manifest.json"))
@@ -331,6 +371,39 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "eval-verify-heldout":
             from .heldout import verify_heldout
             data = verify_heldout(args.manifest, args.run_directory)
+        elif args.command == "eval-invoice-model":
+            from .invoice_model_run import run_invoice_model
+            data = run_invoice_model(Path(__file__).resolve().parents[2], args.manifest, args.baseline,
+                                     args.development, args.profile, args.output_dir, resume=args.resume)
+            print(args.output_dir / "report.json")
+            return 2 if data["summary"]["failures_by_type"] else 1 if data["comparison"]["status"] == "regression" else 0
+        elif args.command == "eval-verify-invoice-model":
+            from .invoice_model_run import verify_invoice_model
+            data = verify_invoice_model(args.manifest, args.baseline, args.run_directory)
+        elif args.command == "cord":
+            from .cord import fetch_cord, prepare_cord, verify_cord
+            if args.action == "fetch":
+                data = fetch_cord(args.profile, args.cache)
+            elif args.action == "prepare":
+                data = prepare_cord(args.profile, args.cache, args.output_dir)
+            else:
+                data = verify_cord(args.output_dir / "manifest.json")
+        elif args.command == "eval-receipts":
+            from .receipt_run import run_receipts
+            data = run_receipts(Path(__file__).resolve().parents[2], args.manifest, args.profile,
+                                args.output_dir, split=args.split, variant=args.variant,
+                                ocr_run=args.ocr_run, freeze_path=args.freeze, limit=args.limit, resume=args.resume)
+            print(args.output_dir / "report.json")
+            return 2 if data["summary"]["failures_by_type"] else 0
+        elif args.command == "eval-freeze-receipts":
+            from .receipt_run import freeze_receipts
+            data = freeze_receipts(args.manifest, args.rules, args.model, args.profile, args.output)
+        elif args.command == "eval-verify-receipts":
+            from .receipt_run import verify_receipt_run
+            data = verify_receipt_run(args.manifest, args.run_directory)
+        elif args.command == "eval-compare-receipts":
+            from .receipt_comparison import compare_receipts
+            data = compare_receipts(args.manifest, args.baseline, args.model, args.output)
         elif args.command == "eval-finalize-heldout":
             from .heldout import finalize_saved_heldout
             data = finalize_saved_heldout(args.manifest, args.run_directory)

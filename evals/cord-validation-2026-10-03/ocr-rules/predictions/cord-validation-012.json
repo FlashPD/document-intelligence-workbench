@@ -1,0 +1,176 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "ES KOPI SUSU |",
+          "raw": "ES KOPI SUSU |",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "4",
+          "raw": "4",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "df3c8fda9a86120a9f897ae278b4c214d1ec45e64f33cd539b808d4c7802d6ab",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 1.178,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 1108,
+    "height_px": 1478,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "~~ \u00a9 me me",
+        "box": {
+          "left": 0.2888086642599278,
+          "top": 0.07848443843031123,
+          "right": 0.6949458483754513,
+          "bottom": 0.14411366711772666
+        },
+        "method": "tesseract-eng",
+        "confidence": 19.61
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "> &",
+        "box": {
+          "left": 0.17418772563176896,
+          "top": 0.21515561569688768,
+          "right": 0.3799638989169675,
+          "bottom": 0.2543978349120433
+        },
+        "method": "tesseract-eng",
+        "confidence": 52.55
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "oe ee",
+        "box": {
+          "left": 0.17418772563176896,
+          "top": 0.25372124492557513,
+          "right": 0.5126353790613718,
+          "bottom": 0.2936400541271989
+        },
+        "method": "tesseract-eng",
+        "confidence": 34.74
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "\u2014_\u2014 hho eee",
+        "box": {
+          "left": 0.18862815884476533,
+          "top": 0.2943166441136671,
+          "right": 0.5794223826714802,
+          "bottom": 0.3349120433017591
+        },
+        "method": "tesseract-eng",
+        "confidence": 25.32
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "~ 2 eee",
+        "box": {
+          "left": 0.17689530685920576,
+          "top": 0.3376184032476319,
+          "right": 0.6534296028880866,
+          "bottom": 0.36671177266576455
+        },
+        "method": "tesseract-eng",
+        "confidence": 36.31
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "ES KOPI SUSU | 4",
+        "box": {
+          "left": 0.18231046931407943,
+          "top": 0.4093369418132612,
+          "right": 0.41606498194945846,
+          "bottom": 0.4519621109607578
+        },
+        "method": "tesseract-eng",
+        "confidence": 67.04
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 2,
+    "valid_reference_values": 2,
+    "aligned_values": 2,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

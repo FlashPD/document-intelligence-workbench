@@ -1,0 +1,114 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "e83ff52e4945fb7204f6d99be70f952a0bcd2684d4afc5eef6806c53ca6bbad2",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 2.371,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 1836,
+    "height_px": 3264,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "10, 000",
+        "box": {
+          "left": 0.7706971677559913,
+          "top": 0.47794117647058826,
+          "right": 0.8774509803921569,
+          "bottom": 0.5009191176470589
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.58
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "5, 000",
+        "box": {
+          "left": 0.7886710239651417,
+          "top": 0.4990808823529412,
+          "right": 0.8801742919389978,
+          "bottom": 0.5168504901960784
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.29
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "15, 000",
+        "box": {
+          "left": 0.7728758169934641,
+          "top": 0.5416666666666666,
+          "right": 0.8812636165577342,
+          "bottom": 0.5591299019607843
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.92
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "1, 500",
+        "box": {
+          "left": 0.7924836601307189,
+          "top": 0.5628063725490197,
+          "right": 0.8823529411764706,
+          "bottom": 0.5805759803921569
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.58
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

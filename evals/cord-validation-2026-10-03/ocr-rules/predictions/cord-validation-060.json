@@ -1,0 +1,127 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "ae6a84aa52e1f2305b98b49ee426c12381962693c2138ea4208eb59be2882b62",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.769,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "ee",
+        "box": {
+          "left": 0.3298611111111111,
+          "top": 0.038580246913580245,
+          "right": 0.4583333333333333,
+          "bottom": 0.04938271604938271
+        },
+        "method": "tesseract-eng",
+        "confidence": 21.14
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "\u00a7",
+        "box": {
+          "left": 0.8738425925925926,
+          "top": 0.14351851851851852,
+          "right": 0.8865740740740741,
+          "bottom": 0.16049382716049382
+        },
+        "method": "tesseract-eng",
+        "confidence": 37.79
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "tvs om",
+        "box": {
+          "left": 0.28587962962962965,
+          "top": 0.2962962962962963,
+          "right": 0.4675925925925926,
+          "bottom": 0.3611111111111111
+        },
+        "method": "tesseract-eng",
+        "confidence": 27.42
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "TOTAL",
+        "box": {
+          "left": 0.30787037037037035,
+          "top": 0.3549382716049383,
+          "right": 0.4270833333333333,
+          "bottom": 0.38348765432098764
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.26
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "VISA CARD",
+        "box": {
+          "left": 0.30671296296296297,
+          "top": 0.3873456790123457,
+          "right": 0.5254629629629629,
+          "bottom": 0.4158950617283951
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.61
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

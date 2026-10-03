@@ -1,0 +1,180 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "36000",
+        "raw": "Rp 36.000",
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": "3600",
+        "raw": "Rp 3.600",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "| 2k",
+          "raw": "| 2k",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "812000",
+          "raw": "812.000",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "2811d54a6abdb3559fadb49e83b4da9790a9a9986bdd321c794e2f3f4e513dd8",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.776,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 605,
+    "height_px": 1280,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "_ Arem Arem",
+        "box": {
+          "left": 0.23140495867768596,
+          "top": 0.425,
+          "right": 0.40826446280991735,
+          "bottom": 0.4375
+        },
+        "method": "tesseract-eng",
+        "confidence": 57.67
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "| 2k 812.000",
+        "box": {
+          "left": 0.228099173553719,
+          "top": 0.44375,
+          "right": 0.45289256198347105,
+          "bottom": 0.4578125
+        },
+        "method": "tesseract-eng",
+        "confidence": 35.33
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "@12.000",
+        "box": {
+          "left": 0.3421487603305785,
+          "top": 0.490625,
+          "right": 0.4512396694214876,
+          "bottom": 0.5046875
+        },
+        "method": "tesseract-eng",
+        "confidence": 72.11
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Subtotal Rp 36.000",
+        "box": {
+          "left": 0.2578512396694215,
+          "top": 0.52890625,
+          "right": 0.7702479338842976,
+          "bottom": 0.5484375
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.55
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Tax (10.0%) Rp 3.600",
+        "box": {
+          "left": 0.2578512396694215,
+          "top": 0.54921875,
+          "right": 0.7702479338842976,
+          "bottom": 0.56875
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.69
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Rp 39.600",
+        "box": {
+          "left": 0.6264462809917355,
+          "top": 0.6140625,
+          "right": 0.771900826446281,
+          "bottom": 0.63046875
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.62
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 4,
+    "valid_reference_values": 4,
+    "aligned_values": 4,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

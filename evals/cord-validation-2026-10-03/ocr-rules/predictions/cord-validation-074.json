@@ -1,0 +1,246 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "20000",
+        "raw": "20.000",
+        "evidence_ids": [
+          "p1-l0003",
+          "p1-l0008"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "CHANGED",
+          "raw": "CHANGED",
+          "evidence_ids": [
+            "p1-l0005",
+            "p1-l0011"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "0",
+          "evidence_ids": [
+            "p1-l0005",
+            "p1-l0011"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "5ec98bad1a313a15a2f58976d24faec2c16b4bd7ea0b5c527373d7d7046dc533",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.522,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "THAT ICED TEA",
+        "box": {
+          "left": 0.18518518518518517,
+          "top": 0.4591049382716049,
+          "right": 0.4074074074074074,
+          "bottom": 0.4976851851851852
+        },
+        "method": "tesseract-eng",
+        "confidence": 81.5
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "1 @20 000",
+        "box": {
+          "left": 0.2013888888888889,
+          "top": 0.5054012345679012,
+          "right": 0.4074074074074074,
+          "bottom": 0.5262345679012346
+        },
+        "method": "tesseract-eng",
+        "confidence": 64.84
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "SUB-TOTAL",
+        "box": {
+          "left": 0.1736111111111111,
+          "top": 0.5655864197530864,
+          "right": 0.3333333333333333,
+          "bottom": 0.5887345679012346
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.32
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "CASH",
+        "box": {
+          "left": 0.16550925925925927,
+          "top": 0.7160493827160493,
+          "right": 0.23842592592592593,
+          "bottom": 0.7399691358024691
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.9
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "CHANGED",
+        "box": {
+          "left": 0.16550925925925927,
+          "top": 0.7484567901234568,
+          "right": 0.29398148148148145,
+          "bottom": 0.7739197530864198
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.85
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "CRuNTOTHL =",
+        "box": {
+          "left": 0.2986111111111111,
+          "top": 0.6057098765432098,
+          "right": 0.6041666666666666,
+          "bottom": 0.6705246913580247
+        },
+        "method": "tesseract-eng",
+        "confidence": 15.72
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "20.000",
+        "box": {
+          "left": 0.6400462962962963,
+          "top": 0.5007716049382716,
+          "right": 0.7465277777777778,
+          "bottom": 0.5223765432098766
+        },
+        "method": "tesseract-eng",
+        "confidence": 66.72
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "20.000",
+        "box": {
+          "left": 0.6423611111111112,
+          "top": 0.5640432098765432,
+          "right": 0.7476851851851852,
+          "bottom": 0.5856481481481481
+        },
+        "method": "tesseract-eng",
+        "confidence": 55.18
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "mn.",
+        "box": {
+          "left": 0.6458333333333334,
+          "top": 0.6057098765432098,
+          "right": 0.7546296296296297,
+          "bottom": 0.6720679012345679
+        },
+        "method": "tesseract-eng",
+        "confidence": 16.52
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "20.000",
+        "box": {
+          "left": 0.6504629629629629,
+          "top": 0.7160493827160493,
+          "right": 0.7615740740740741,
+          "bottom": 0.7422839506172839
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.25
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "0",
+        "box": {
+          "left": 0.7465277777777778,
+          "top": 0.7530864197530864,
+          "right": 0.7638888888888888,
+          "bottom": 0.7754629629629629
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.93
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 3,
+    "valid_reference_values": 3,
+    "aligned_values": 3,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

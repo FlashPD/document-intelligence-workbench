@@ -1,0 +1,448 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Bakso Lobster",
+          "raw": "Bakso Lobster",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "10000",
+          "raw": "10.000",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Sawi Putin",
+          "raw": "Sawi Putin",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "7000",
+          "raw": "7,000",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "Jamur Enoki",
+          "raw": "Jamur Enoki",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "8000",
+          "raw": "8.000",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "Jamur Kuping",
+          "raw": "Jamur Kuping",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "8000",
+          "raw": "8.000",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-005",
+        "description": {
+          "value": "i",
+          "raw": "i",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "12000",
+          "raw": "12000",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "24000",
+          "raw": "24.000",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-006",
+        "description": {
+          "value": "~ 1 Nasi (MLY)",
+          "raw": "~ 1 Nasi (MLY)",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "6000",
+          "raw": "6.000",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-007",
+        "description": {
+          "value": "= Subtotal",
+          "raw": "= Subtotal",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "72000",
+          "raw": "72.000",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "697896968bf0ad00e8478c1a31d2dad88dec38963d2f8660f6a4de7f34a86acc",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.585,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 960,
+    "height_px": 1280,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "1 Grab Stick",
+        "box": {
+          "left": 0.19895833333333332,
+          "top": 0.44140625,
+          "right": 0.3614583333333333,
+          "bottom": 0.471875
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.92
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "1 Bakso Lobster 10.000",
+        "box": {
+          "left": 0.20104166666666667,
+          "top": 0.453125,
+          "right": 0.653125,
+          "bottom": 0.49765625
+        },
+        "method": "tesseract-eng",
+        "confidence": 89.51
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "1 Sawi Putin 7,000",
+        "box": {
+          "left": 0.20208333333333334,
+          "top": 0.48203125,
+          "right": 0.65625,
+          "bottom": 0.52421875
+        },
+        "method": "tesseract-eng",
+        "confidence": 73.99
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "1 Jamur Enoki 8.000",
+        "box": {
+          "left": 0.20416666666666666,
+          "top": 0.5109375,
+          "right": 0.659375,
+          "bottom": 0.55
+        },
+        "method": "tesseract-eng",
+        "confidence": 81.11
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "1 Jamur Kuping 8.000",
+        "box": {
+          "left": 0.20520833333333333,
+          "top": 0.5390625,
+          "right": 0.6614583333333334,
+          "bottom": 0.57734375
+        },
+        "method": "tesseract-eng",
+        "confidence": 83.01
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "+ 2 Maling",
+        "box": {
+          "left": 0.171875,
+          "top": 0.58046875,
+          "right": 0.31666666666666665,
+          "bottom": 0.6046875
+        },
+        "method": "tesseract-eng",
+        "confidence": 56.03
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "i 12000 24.000",
+        "box": {
+          "left": 0.23125,
+          "top": 0.59609375,
+          "right": 0.6677083333333333,
+          "bottom": 0.63984375
+        },
+        "method": "tesseract-eng",
+        "confidence": 76.0
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "~ 1 Nasi (MLY) 6.000",
+        "box": {
+          "left": 0.159375,
+          "top": 0.62578125,
+          "right": 0.6708333333333333,
+          "bottom": 0.671875
+        },
+        "method": "tesseract-eng",
+        "confidence": 62.84
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "= Subtotal 72.000",
+        "box": {
+          "left": 0.17083333333333334,
+          "top": 0.6828125,
+          "right": 0.6760416666666667,
+          "bottom": 0.7140625
+        },
+        "method": "tesseract-eng",
+        "confidence": 89.78
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": ": 72.000",
+        "box": {
+          "left": 0.18020833333333333,
+          "top": 0.71171875,
+          "right": 0.678125,
+          "bottom": 0.7359375
+        },
+        "method": "tesseract-eng",
+        "confidence": 62.79
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 19,
+    "valid_reference_values": 19,
+    "aligned_values": 19,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

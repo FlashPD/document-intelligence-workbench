@@ -1,0 +1,231 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "6beb57628bbfa07349d9a9223c34c0375e52dc56a7bb8f2f2b7ebc514c95dc42",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.533,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 960,
+    "height_px": 1280,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Ld",
+        "box": {
+          "left": 0.44583333333333336,
+          "top": 0.29453125,
+          "right": 0.5572916666666666,
+          "bottom": 0.325
+        },
+        "method": "tesseract-eng",
+        "confidence": 41.98
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "saith he ter",
+        "box": {
+          "left": 0.41770833333333335,
+          "top": 0.3171875,
+          "right": 0.65625,
+          "bottom": 0.35625
+        },
+        "method": "tesseract-eng",
+        "confidence": 16.36
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "\u201d",
+        "box": {
+          "left": 0.621875,
+          "top": 0.35,
+          "right": 0.6614583333333334,
+          "bottom": 0.371875
+        },
+        "method": "tesseract-eng",
+        "confidence": 49.15
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "&:",
+        "box": {
+          "left": 0.33125,
+          "top": 0.32578125,
+          "right": 0.42916666666666664,
+          "bottom": 0.38359375
+        },
+        "method": "tesseract-eng",
+        "confidence": 63.85
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "-",
+        "box": {
+          "left": 0.43854166666666666,
+          "top": 0.35703125,
+          "right": 0.5739583333333333,
+          "bottom": 0.4140625
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Th.",
+        "box": {
+          "left": 0.6114583333333333,
+          "top": 0.4765625,
+          "right": 0.6635416666666667,
+          "bottom": 0.50234375
+        },
+        "method": "tesseract-eng",
+        "confidence": 32.95
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "1 Dum Dum Thai Coffee",
+        "box": {
+          "left": 0.2604166666666667,
+          "top": 0.596875,
+          "right": 0.584375,
+          "bottom": 0.62578125
+        },
+        "method": "tesseract-eng",
+        "confidence": 85.83
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "\u00bb 1 Ice",
+        "box": {
+          "left": 0.28958333333333336,
+          "top": 0.63125,
+          "right": 0.4,
+          "bottom": 0.65859375
+        },
+        "method": "tesseract-eng",
+        "confidence": 72.55
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "oe subtotal",
+        "box": {
+          "left": 0.009375,
+          "top": 0.6734375,
+          "right": 0.38229166666666664,
+          "bottom": 0.74296875
+        },
+        "method": "tesseract-eng",
+        "confidence": 49.63
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "TOTAL",
+        "box": {
+          "left": 0.2552083333333333,
+          "top": 0.73203125,
+          "right": 0.3385416666666667,
+          "bottom": 0.7625
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.85
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "Cash",
+        "box": {
+          "left": 0.2552083333333333,
+          "top": 0.76640625,
+          "right": 0.32395833333333335,
+          "bottom": 0.8
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.33
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "change Pue",
+        "box": {
+          "left": 0.25625,
+          "top": 0.7953125,
+          "right": 0.42083333333333334,
+          "bottom": 0.834375
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.18
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "Ball",
+        "box": {
+          "left": 0.33958333333333335,
+          "top": 0.8265625,
+          "right": 0.425,
+          "bottom": 0.859375
+        },
+        "method": "tesseract-eng",
+        "confidence": 4.28
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,636 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "2000000",
+        "raw": "2,000,000",
+        "evidence_ids": [
+          "p1-l0019"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "2352460",
+        "raw": "2,352,460",
+        "evidence_ids": [
+          "p1-l0022"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "(OGI JAPCHAE = 1_\u2014Ss\u2018",
+          "raw": "(OGI JAPCHAE = 1_\u2014Ss\u2018",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "180000",
+          "raw": "180,000",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "GONG GIBAB",
+          "raw": "GONG GIBAB",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "7",
+          "raw": "7",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "105000",
+          "raw": "105,000",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "CHULPAN CHEESE",
+          "raw": "CHULPAN CHEESE",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "230000",
+          "raw": "230,000",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "CREAM TEOKPOKI",
+          "raw": "CREAM TEOKPOKI",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "95000",
+          "raw": "95,000",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-005",
+        "description": {
+          "value": "EL KEUN",
+          "raw": "EL KEUN",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "120000",
+          "raw": "120,000",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-006",
+        "description": {
+          "value": "CHAM KKOT SAL",
+          "raw": "CHAM KKOT SAL",
+          "evidence_ids": [
+            "p1-l0013"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "2",
+          "raw": "2",
+          "evidence_ids": [
+            "p1-l0013"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "620000",
+          "raw": "620,000",
+          "evidence_ids": [
+            "p1-l0013"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-007",
+        "description": {
+          "value": "U SAM GYEOP",
+          "raw": "U SAM GYEOP",
+          "evidence_ids": [
+            "p1-l0014"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "2",
+          "raw": "2",
+          "evidence_ids": [
+            "p1-l0014"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "390000",
+          "raw": "390,000",
+          "evidence_ids": [
+            "p1-l0014"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "7ad869f7787a35fff1d4c94e3fcfd045caaef6e2c3974aa3e7b30b4170930a2a",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 2.609,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 493,
+    "height_px": 1040,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": ",",
+        "box": {
+          "left": 0.0,
+          "top": 0.08461538461538462,
+          "right": 0.010141987829614604,
+          "bottom": 0.09615384615384616
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "4",
+        "box": {
+          "left": 0.0,
+          "top": 0.10192307692307692,
+          "right": 0.036511156186612576,
+          "bottom": 0.12403846153846154
+        },
+        "method": "tesseract-eng",
+        "confidence": 71.77
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "4 0248780773",
+        "box": {
+          "left": 0.0,
+          "top": 0.15384615384615385,
+          "right": 0.5801217038539553,
+          "bottom": 0.1875
+        },
+        "method": "tesseract-eng",
+        "confidence": 44.91
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Fable",
+        "box": {
+          "left": 0.13793103448275862,
+          "top": 0.24519230769230768,
+          "right": 0.22515212981744423,
+          "bottom": 0.2653846153846154
+        },
+        "method": "tesseract-eng",
+        "confidence": 67.78
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "(OGI JAPCHAE = 1_\u2014Ss\u2018 180,000",
+        "box": {
+          "left": 0.21703853955375255,
+          "top": 0.2721153846153846,
+          "right": 0.8032454361054767,
+          "bottom": 0.30288461538461536
+        },
+        "method": "tesseract-eng",
+        "confidence": 38.77
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "GONG GIBAB 7 105,000",
+        "box": {
+          "left": 0.12981744421906694,
+          "top": 0.3019230769230769,
+          "right": 0.8032454361054767,
+          "bottom": 0.31826923076923075
+        },
+        "method": "tesseract-eng",
+        "confidence": 79.59
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "CHULPAN CHEESE 1 230,000",
+        "box": {
+          "left": 0.12778904665314403,
+          "top": 0.3211538461538462,
+          "right": 0.8012170385395537,
+          "bottom": 0.3375
+        },
+        "method": "tesseract-eng",
+        "confidence": 89.16
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "DAK GALBI",
+        "box": {
+          "left": 0.1257606490872211,
+          "top": 0.34134615384615385,
+          "right": 0.3265720081135903,
+          "bottom": 0.35673076923076924
+        },
+        "method": "tesseract-eng",
+        "confidence": 62.11
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "CREAM TEOKPOKI 1 95,000",
+        "box": {
+          "left": 0.1257606490872211,
+          "top": 0.3625,
+          "right": 0.7991886409736308,
+          "bottom": 0.3817307692307692
+        },
+        "method": "tesseract-eng",
+        "confidence": 60.93
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "EL KEUN 1 120,000",
+        "box": {
+          "left": 0.12373225152129817,
+          "top": 0.3836538461538462,
+          "right": 0.7971602434077079,
+          "bottom": 0.40576923076923077
+        },
+        "method": "tesseract-eng",
+        "confidence": 75.08
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "HWANGTAE",
+        "box": {
+          "left": 0.12170385395537525,
+          "top": 0.40576923076923077,
+          "right": 0.3407707910750507,
+          "bottom": 0.42115384615384616
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.27
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "SUNDUBU(TUKBEG!)",
+        "box": {
+          "left": 0.11764705882352941,
+          "top": 0.42596153846153845,
+          "right": 0.5010141987829615,
+          "bottom": 0.4423076923076923
+        },
+        "method": "tesseract-eng",
+        "confidence": 13.86
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "CHAM KKOT SAL 2 620,000",
+        "box": {
+          "left": 0.11764705882352941,
+          "top": 0.4461538461538462,
+          "right": 0.7971602434077079,
+          "bottom": 0.45865384615384613
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.89
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "U SAM GYEOP 2 390,000",
+        "box": {
+          "left": 0.11764705882352941,
+          "top": 0.4653846153846154,
+          "right": 0.8012170385395537,
+          "bottom": 0.4951923076923077
+        },
+        "method": "tesseract-eng",
+        "confidence": 68.51
+      },
+      {
+        "id": "p1-l0015",
+        "page": 1,
+        "text": "U Sarena { [IN] ] [ES\u00a2> rye oe",
+        "box": {
+          "left": 0.11764705882352941,
+          "top": 0.47884615384615387,
+          "right": 0.8052738336713996,
+          "bottom": 0.5288461538461539
+        },
+        "method": "tesseract-eng",
+        "confidence": 41.93
+      },
+      {
+        "id": "p1-l0016",
+        "page": 1,
+        "text": "us",
+        "box": {
+          "left": 0.11561866125760649,
+          "top": 0.510576923076923,
+          "right": 0.17647058823529413,
+          "bottom": 0.5240384615384616
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.34
+      },
+      {
+        "id": "p1-l0017",
+        "page": 1,
+        "text": "ICE qe oY 23 ;",
+        "box": {
+          "left": 0.11764705882352941,
+          "top": 0.4980769230769231,
+          "right": 0.8052738336713996,
+          "bottom": 0.55
+        },
+        "method": "tesseract-eng",
+        "confidence": 30.16
+      },
+      {
+        "id": "p1-l0018",
+        "page": 1,
+        "text": "ICEIBLACK COFFE y ()",
+        "box": {
+          "left": 0.11764705882352941,
+          "top": 0.5298076923076923,
+          "right": 0.8052738336713996,
+          "bottom": 0.5788461538461539
+        },
+        "method": "tesseract-eng",
+        "confidence": 41.07
+      },
+      {
+        "id": "p1-l0019",
+        "page": 1,
+        "text": "SubTotal 2,000,000",
+        "box": {
+          "left": 0.1257606490872211,
+          "top": 0.5817307692307693,
+          "right": 0.8032454361054767,
+          "bottom": 0.5990384615384615
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.78
+      },
+      {
+        "id": "p1-l0020",
+        "page": 1,
+        "text": "140,000",
+        "box": {
+          "left": 0.6632860040567952,
+          "top": 0.6028846153846154,
+          "right": 0.7991886409736308,
+          "bottom": 0.614423076923077
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.65
+      },
+      {
+        "id": "p1-l0021",
+        "page": 1,
+        "text": "Discount :",
+        "box": {
+          "left": 0.12778904665314403,
+          "top": 0.6432692307692308,
+          "right": 0.8012170385395537,
+          "bottom": 0.6730769230769231
+        },
+        "method": "tesseract-eng",
+        "confidence": 48.42
+      },
+      {
+        "id": "p1-l0022",
+        "page": 1,
+        "text": "TOTAL 2,352,460",
+        "box": {
+          "left": 0.12778904665314403,
+          "top": 0.6740384615384616,
+          "right": 0.8113590263691683,
+          "bottom": 0.7028846153846153
+        },
+        "method": "tesseract-eng",
+        "confidence": 60.51
+      },
+      {
+        "id": "p1-l0023",
+        "page": 1,
+        "text": "Card 2,352,460",
+        "box": {
+          "left": 0.12981744421906694,
+          "top": 0.6961538461538461,
+          "right": 0.8154158215010142,
+          "bottom": 0.725
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.14
+      },
+      {
+        "id": "p1-l0024",
+        "page": 1,
+        "text": "CHANGE 0",
+        "box": {
+          "left": 0.13387423935091278,
+          "top": 0.7375,
+          "right": 0.8174442190669371,
+          "bottom": 0.7653846153846153
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.4
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 22,
+    "valid_reference_values": 22,
+    "aligned_values": 22,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

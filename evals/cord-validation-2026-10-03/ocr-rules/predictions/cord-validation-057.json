@@ -1,0 +1,211 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "il 85,",
+          "raw": "il 85,",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "000",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "f a SALMON",
+          "raw": "f a SALMON",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "85500",
+          "raw": "85.500",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "53e412bb80ef1fe814d13c0140243a9395557fed3eb68ece9b383c1e7e0c2ad9",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.606,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "il 85, 000",
+        "box": {
+          "left": 0.4525462962962963,
+          "top": 0.7152777777777778,
+          "right": 0.8645833333333334,
+          "bottom": 0.7368827160493827
+        },
+        "method": "tesseract-eng",
+        "confidence": 78.21
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "f a SALMON 85.500",
+        "box": {
+          "left": 0.46296296296296297,
+          "top": 0.746141975308642,
+          "right": 0.8657407407407407,
+          "bottom": 0.7932098765432098
+        },
+        "method": "tesseract-eng",
+        "confidence": 66.02
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": ": 77,000",
+        "box": {
+          "left": 0.5277777777777778,
+          "top": 0.7762345679012346,
+          "right": 0.8645833333333334,
+          "bottom": 0.8001543209876543
+        },
+        "method": "tesseract-eng",
+        "confidence": 56.85
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "247,500",
+        "box": {
+          "left": 0.7407407407407407,
+          "top": 0.8070987654320988,
+          "right": 0.8657407407407407,
+          "bottom": 0.8317901234567902
+        },
+        "method": "tesseract-eng",
+        "confidence": 76.93
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "14,850",
+        "box": {
+          "left": 0.7604166666666666,
+          "top": 0.8387345679012346,
+          "right": 0.8680555555555556,
+          "bottom": 0.8634259259259259
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.37
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "- 26,735",
+        "box": {
+          "left": 0.7395833333333334,
+          "top": 0.8657407407407407,
+          "right": 0.8726851851851852,
+          "bottom": 0.9097222222222222
+        },
+        "method": "tesseract-eng",
+        "confidence": 34.68
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 4,
+    "valid_reference_values": 4,
+    "aligned_values": 4,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "6000",
+        "raw": "6.000",
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "6000",
+        "raw": "6.000",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Nasi (MLY)",
+          "raw": "Nasi (MLY)",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "6000",
+          "raw": "6.000",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Go-Pay static OR",
+          "raw": "Go-Pay static OR",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "6000",
+          "raw": "6.000",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "80a46f02dd5374b13781b25c2eca7ff3e58c1ba432633ac8c7a7773505d31ee1",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 1.122,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 960,
+    "height_px": 1280,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "vs \u2018 a kL...",
+        "box": {
+          "left": 0.18541666666666667,
+          "top": 0.4421875,
+          "right": 0.778125,
+          "bottom": 0.47265625
+        },
+        "method": "tesseract-eng",
+        "confidence": 34.38
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "% ieee oe",
+        "box": {
+          "left": 0.5208333333333334,
+          "top": 0.48515625,
+          "right": 0.7635416666666667,
+          "bottom": 0.50703125
+        },
+        "method": "tesseract-eng",
+        "confidence": 24.78
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "1 Nasi (MLY) 6.000",
+        "box": {
+          "left": 0.15,
+          "top": 0.5921875,
+          "right": 0.7729166666666667,
+          "bottom": 0.621875
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.81
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Subtotal 6.000",
+        "box": {
+          "left": 0.15,
+          "top": 0.66328125,
+          "right": 0.7708333333333334,
+          "bottom": 0.690625
+        },
+        "method": "tesseract-eng",
+        "confidence": 85.7
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "TOTAL 6.000",
+        "box": {
+          "left": 0.15104166666666666,
+          "top": 0.7,
+          "right": 0.7697916666666667,
+          "bottom": 0.7296875
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.09
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Go-Pay static OR 6.000",
+        "box": {
+          "left": 0.14375,
+          "top": 0.77578125,
+          "right": 0.7729166666666667,
+          "bottom": 0.80859375
+        },
+        "method": "tesseract-eng",
+        "confidence": 88.83
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Se ee |",
+        "box": {
+          "left": 0.2520833333333333,
+          "top": 0.81328125,
+          "right": 0.6864583333333333,
+          "bottom": 0.8515625
+        },
+        "method": "tesseract-eng",
+        "confidence": 33.67
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "~~ 6F",
+        "box": {
+          "left": 0.38229166666666664,
+          "top": 0.89375,
+          "right": 0.5395833333333333,
+          "bottom": 0.92265625
+        },
+        "method": "tesseract-eng",
+        "confidence": 43.87
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 7,
+    "valid_reference_values": 7,
+    "aligned_values": 7,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

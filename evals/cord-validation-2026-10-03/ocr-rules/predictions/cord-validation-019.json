@@ -1,0 +1,213 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "EGG TART 13,0 { ALN gpouve MONSIEUR 7,",
+          "raw": "EGG TART 13,0 { ALN gpouve MONSIEUR 7,",
+          "evidence_ids": [
+            "p1-l0002",
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "000",
+          "evidence_ids": [
+            "p1-l0002",
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "AL",
+          "raw": "AL",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "42500",
+          "raw": "42,500",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "885c954fff1d2b298ada955f5c48cb0b5bac0a9ab31e23825f3719c4c8ca340d",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 1.105,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "7 FUTAHI 17 GREEN TEA (CLAS 12, aa",
+        "box": {
+          "left": 0.2650462962962963,
+          "top": 0.45601851851851855,
+          "right": 0.7662037037037037,
+          "bottom": 0.5007716049382716
+        },
+        "method": "tesseract-eng",
+        "confidence": 66.76
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "EGG TART 13,0",
+        "box": {
+          "left": 0.28703703703703703,
+          "top": 0.48225308641975306,
+          "right": 0.7384259259259259,
+          "bottom": 0.5100308641975309
+        },
+        "method": "tesseract-eng",
+        "confidence": 81.43
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "{ ALN gpouve MONSIEUR 7, 000",
+        "box": {
+          "left": 0.28935185185185186,
+          "top": 0.48225308641975306,
+          "right": 0.7685185185185185,
+          "bottom": 0.5486111111111112
+        },
+        "method": "tesseract-eng",
+        "confidence": 45.53
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "AL 42,500",
+        "box": {
+          "left": 0.38425925925925924,
+          "top": 0.5532407407407407,
+          "right": 0.7719907407407407,
+          "bottom": 0.5910493827160493
+        },
+        "method": "tesseract-eng",
+        "confidence": 65.93
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "50,000",
+        "box": {
+          "left": 0.6932870370370371,
+          "top": 0.5902777777777778,
+          "right": 0.7789351851851852,
+          "bottom": 0.6095679012345679
+        },
+        "method": "tesseract-eng",
+        "confidence": 58.61
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "7,500",
+        "box": {
+          "left": 0.6388888888888888,
+          "top": 0.6157407407407407,
+          "right": 0.7824074074074074,
+          "bottom": 0.6558641975308642
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.06
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 4,
+    "valid_reference_values": 4,
+    "aligned_values": 4,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

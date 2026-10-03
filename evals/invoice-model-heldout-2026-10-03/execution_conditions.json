@@ -1,0 +1,6 @@
+{
+  "timing_protocol": "Serial model documents on saved frozen OCR; no explicit warmup, cache clearing, or controlled machine-load benchmark.",
+  "early_overlap": "The first family ran while CORD shards were prepared, CORD validation OCR was evaluated, and deterministic tests were run on the same Apple M1 Mac. Later model workloads are serialized.",
+  "failure_policy": "Completed failures remain in the completion ledger and scoring denominators. No timeout increase, prompt adjustment, selective retry, or default promotion based on test observations.",
+  "interpretation": "Fresh model extraction quality under the recorded local constraints; timings are exploratory and exclude new OCR, PDF parsing, and reviewer wait."
+}

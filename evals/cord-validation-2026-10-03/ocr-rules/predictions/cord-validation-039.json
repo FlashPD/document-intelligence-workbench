@@ -1,0 +1,289 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "89000",
+        "raw": "89,000",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": "8900",
+        "raw": "8,900",
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "ye",
+          "raw": "ye",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "23000",
+          "raw": "23,000",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "SBL GR ATI/AMPLA 20 ,",
+          "raw": "SBL GR ATI/AMPLA 20 ,",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "000",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "NESTLE 330 ML 8 ,",
+          "raw": "NESTLE 330 ML 8 ,",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "000",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "af47c003b84ca25dba4d5344ca56bd4bbdef8de3767ad0e14a0d0c221f97917e",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 4.038,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 2304,
+    "height_px": 4096,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "ye 23,000",
+        "box": {
+          "left": 0.24696180555555555,
+          "top": 0.3984375,
+          "right": 0.7955729166666666,
+          "bottom": 0.4296875
+        },
+        "method": "tesseract-eng",
+        "confidence": 60.5
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "SBL GR ATI/AMPLA 20 ,000",
+        "box": {
+          "left": 0.2465277777777778,
+          "top": 0.425048828125,
+          "right": 0.7986111111111112,
+          "bottom": 0.453125
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.89
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "NESTLE 330 ML 8 ,000",
+        "box": {
+          "left": 0.24609375,
+          "top": 0.447998046875,
+          "right": 0.80078125,
+          "bottom": 0.476318359375
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.54
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "5 OOXITEMS",
+        "box": {
+          "left": 0.4357638888888889,
+          "top": 0.47802734375,
+          "right": 0.6063368055555556,
+          "bottom": 0.497802734375
+        },
+        "method": "tesseract-eng",
+        "confidence": 65.03
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "SUBTOTAL 89,000",
+        "box": {
+          "left": 0.2417534722222222,
+          "top": 0.498046875,
+          "right": 0.8029513888888888,
+          "bottom": 0.52392578125
+        },
+        "method": "tesseract-eng",
+        "confidence": 69.74
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "TAX 10% 8,900",
+        "box": {
+          "left": 0.24088541666666666,
+          "top": 0.5234375,
+          "right": 0.8046875,
+          "bottom": 0.548583984375
+        },
+        "method": "tesseract-eng",
+        "confidence": 80.55
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "TOTAL",
+        "box": {
+          "left": 0.2387152777777778,
+          "top": 0.5556640625,
+          "right": 0.3263888888888889,
+          "bottom": 0.57373046875
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.34
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": ": eee ww ee ee i ee ee",
+        "box": {
+          "left": 0.25,
+          "top": 0.631591796875,
+          "right": 0.609375,
+          "bottom": 0.640380859375
+        },
+        "method": "tesseract-eng",
+        "confidence": 28.54
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "SS a a ee ee eS Ea eee",
+        "box": {
+          "left": 0.2309027777777778,
+          "top": 0.636474609375,
+          "right": 0.8107638888888888,
+          "bottom": 0.647216796875
+        },
+        "method": "tesseract-eng",
+        "confidence": 28.79
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 8,
+    "valid_reference_values": 8,
+    "aligned_values": 8,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

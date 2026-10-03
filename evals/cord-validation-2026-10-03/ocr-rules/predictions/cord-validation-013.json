@@ -1,0 +1,211 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "41364",
+        "raw": "41,364",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": "4136",
+        "raw": "4,136",
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "BULGOGI RICE R",
+          "raw": "BULGOGI RICE R",
+          "evidence_ids": [
+            "p1-l0003",
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0003",
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "33636",
+          "raw": "33,636",
+          "evidence_ids": [
+            "p1-l0003",
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "ea239a07e2d5e7afe77c15d7854ce32e340be3c50561ec0d4c4bb504a99a965e",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 1.128,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 1108,
+    "height_px": 1478,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "1 ee",
+        "box": {
+          "left": 0.18501805054151624,
+          "top": 0.44113667117726657,
+          "right": 0.8023465703971119,
+          "bottom": 0.46075778078484436
+        },
+        "method": "tesseract-eng",
+        "confidence": 44.32
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "1 MINERAL 600 ML Gf2/",
+        "box": {
+          "left": 0.22111913357400723,
+          "top": 0.46820027063599456,
+          "right": 0.8077617328519856,
+          "bottom": 0.493234100135318
+        },
+        "method": "tesseract-eng",
+        "confidence": 75.4
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "1 BULGOGI RICE R",
+        "box": {
+          "left": 0.22021660649819494,
+          "top": 0.5020297699594046,
+          "right": 0.5018050541516246,
+          "bottom": 0.5230040595399188
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.1
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "33,636",
+        "box": {
+          "left": 0.703971119133574,
+          "top": 0.5013531799729364,
+          "right": 0.8086642599277978,
+          "bottom": 0.5311231393775372
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.32
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Subtotal 41,364",
+        "box": {
+          "left": 0.4196750902527076,
+          "top": 0.5629228687415426,
+          "right": 0.8086642599277978,
+          "bottom": 0.5967523680649527
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.83
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Tax 4,136",
+        "box": {
+          "left": 0.48375451263537905,
+          "top": 0.5981055480378891,
+          "right": 0.8113718411552346,
+          "bottom": 0.625169147496617
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.59
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "45,500",
+        "box": {
+          "left": 0.6759927797833934,
+          "top": 0.6373477672530447,
+          "right": 0.8095667870036101,
+          "bottom": 0.6650879566982408
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.53
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "50,000",
+        "box": {
+          "left": 0.677797833935018,
+          "top": 0.6691474966170501,
+          "right": 0.8104693140794224,
+          "bottom": 0.6968876860622463
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.31
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 5,
+    "valid_reference_values": 5,
+    "aligned_values": 5,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

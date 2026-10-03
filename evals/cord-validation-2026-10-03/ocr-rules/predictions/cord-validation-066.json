@@ -1,0 +1,189 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "AIR MINERAL +7,",
+          "raw": "AIR MINERAL +7,",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "000",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "370e77e86fec266657327c9e53b3f76069df05c87f1d290486023be95679bb56",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.56,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 576,
+    "height_px": 864,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "\u2018i. eae",
+        "box": {
+          "left": 0.2690972222222222,
+          "top": 0.1863425925925926,
+          "right": 0.6232638888888888,
+          "bottom": 0.2152777777777778
+        },
+        "method": "tesseract-eng",
+        "confidence": 26.23
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "et] oisdien",
+        "box": {
+          "left": 0.2725694444444444,
+          "top": 0.2199074074074074,
+          "right": 0.6770833333333334,
+          "bottom": 0.2488425925925926
+        },
+        "method": "tesseract-eng",
+        "confidence": 11.33
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "\u201c2 oe \u2018eet",
+        "box": {
+          "left": 0.06770833333333333,
+          "top": 0.3599537037037037,
+          "right": 0.7447916666666666,
+          "bottom": 0.3993055555555556
+        },
+        "method": "tesseract-eng",
+        "confidence": 29.15
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "fore ee",
+        "box": {
+          "left": 0.6701388888888888,
+          "top": 0.41435185185185186,
+          "right": 0.8489583333333334,
+          "bottom": 0.4363425925925926
+        },
+        "method": "tesseract-eng",
+        "confidence": 14.61
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "AIR MINERAL +7, 000",
+        "box": {
+          "left": 0.0642361111111111,
+          "top": 0.4791666666666667,
+          "right": 0.8541666666666666,
+          "bottom": 0.5150462962962963
+        },
+        "method": "tesseract-eng",
+        "confidence": 59.16
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "THE Ze ce) )",
+        "box": {
+          "left": 0.1736111111111111,
+          "top": 0.5162037037037037,
+          "right": 0.8524305555555556,
+          "bottom": 0.5636574074074074
+        },
+        "method": "tesseract-eng",
+        "confidence": 41.81
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "CASH +7, 000",
+        "box": {
+          "left": 0.171875,
+          "top": 0.5613425925925926,
+          "right": 0.859375,
+          "bottom": 0.5914351851851852
+        },
+        "method": "tesseract-eng",
+        "confidence": 36.51
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 2,
+    "valid_reference_values": 2,
+    "aligned_values": 2,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "154545",
+        "raw": "154,545",
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": "15455",
+        "raw": "15,455",
+        "evidence_ids": [
+          "p1-l0013"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "1c66d1df450af10ad35ba60f8564ca9a777cea6df5f1a8569b6dec5affe22ad4",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 1.404,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "REG Ae",
+        "box": {
+          "left": 0.16898148148148148,
+          "top": 0.3904320987654321,
+          "right": 0.31828703703703703,
+          "bottom": 0.4050925925925926
+        },
+        "method": "tesseract-eng",
+        "confidence": 37.59
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "{BREAN # CHEESE. JEL",
+        "box": {
+          "left": 0.16898148148148148,
+          "top": 0.3881172839506173,
+          "right": 0.5798611111111112,
+          "bottom": 0.4513888888888889
+        },
+        "method": "tesseract-eng",
+        "confidence": 65.96
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "1 TUNA DEL",
+        "box": {
+          "left": 0.1701388888888889,
+          "top": 0.43287037037037035,
+          "right": 0.3726851851851852,
+          "bottom": 0.47608024691358025
+        },
+        "method": "tesseract-eng",
+        "confidence": 74.83
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "1 CRARSTICK FUSTLLI DEL",
+        "box": {
+          "left": 0.1701388888888889,
+          "top": 0.48919753086419754,
+          "right": 0.6423611111111112,
+          "bottom": 0.5123456790123457
+        },
+        "method": "tesseract-eng",
+        "confidence": 71.06
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "1 LEMON TEA HANSAT DEL",
+        "box": {
+          "left": 0.16898148148148148,
+          "top": 0.5270061728395061,
+          "right": 0.6226851851851852,
+          "bottom": 0.5501543209876543
+        },
+        "method": "tesseract-eng",
+        "confidence": 84.69
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "1 BLACKCURRANT DEL",
+        "box": {
+          "left": 0.16782407407407407,
+          "top": 0.5625,
+          "right": 0.5370370370370371,
+          "bottom": 0.5856481481481481
+        },
+        "method": "tesseract-eng",
+        "confidence": 56.24
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "1 SC/P THOUSAND 1S HEL",
+        "box": {
+          "left": 0.16666666666666666,
+          "top": 0.5987654320987654,
+          "right": 0.6203703703703703,
+          "bottom": 0.6226851851851852
+        },
+        "method": "tesseract-eng",
+        "confidence": 69.47
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "i SCSC/P BRO BEEF BEL",
+        "box": {
+          "left": 0.16666666666666666,
+          "top": 0.6350308641975309,
+          "right": 0.6018518518518519,
+          "bottom": 0.6589506172839507
+        },
+        "method": "tesseract-eng",
+        "confidence": 72.06
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "1 CR/P BEEF HAYO BEL",
+        "box": {
+          "left": 0.16550925925925927,
+          "top": 0.6720679012345679,
+          "right": 0.5798611111111112,
+          "bottom": 0.6967592592592593
+        },
+        "method": "tesseract-eng",
+        "confidence": 78.91
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "1 SUNRISE ITALIAN SODA",
+        "box": {
+          "left": 0.16435185185185186,
+          "top": 0.7091049382716049,
+          "right": 0.6226851851851852,
+          "bottom": 0.7330246913580247
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.82
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "1 SUNRISE ITALIAN SODA",
+        "box": {
+          "left": 0.16435185185185186,
+          "top": 0.746141975308642,
+          "right": 0.6226851851851852,
+          "bottom": 0.7700617283950617
+        },
+        "method": "tesseract-eng",
+        "confidence": 88.62
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "SUBTOTAL 154,545",
+        "box": {
+          "left": 0.3298611111111111,
+          "top": 0.8202160493827161,
+          "right": 0.7951388888888888,
+          "bottom": 0.8503086419753086
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.65
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "TAX 15,455",
+        "box": {
+          "left": 0.4340277777777778,
+          "top": 0.8572530864197531,
+          "right": 0.7928240740740741,
+          "bottom": 0.8873456790123457
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.91
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "se et tet tt",
+        "box": {
+          "left": 0.5219907407407407,
+          "top": 0.9035493827160493,
+          "right": 0.7719907407407407,
+          "bottom": 0.9089506172839507
+        },
+        "method": "tesseract-eng",
+        "confidence": 35.13
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 2,
+    "valid_reference_values": 2,
+    "aligned_values": 2,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "abec81ec532eeb4a41f677ade7ed3768060e825e497db45a414c79745ec5202f",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 1.028,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 576,
+    "height_px": 864,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "te Dae",
+        "box": {
+          "left": 0.2725694444444444,
+          "top": 0.22685185185185186,
+          "right": 0.4461805555555556,
+          "bottom": 0.2523148148148148
+        },
+        "method": "tesseract-eng",
+        "confidence": 25.59
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Thai Iced T..x1",
+        "box": {
+          "left": 0.2552083333333333,
+          "top": 0.5601851851851852,
+          "right": 0.5052083333333334,
+          "bottom": 0.5914351851851852
+        },
+        "method": "tesseract-eng",
+        "confidence": 85.02
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Subtotal a",
+        "box": {
+          "left": 0.2569444444444444,
+          "top": 0.5659722222222222,
+          "right": 0.8194444444444444,
+          "bottom": 0.6585648148148148
+        },
+        "method": "tesseract-eng",
+        "confidence": 54.35
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Total",
+        "box": {
+          "left": 0.2604166666666667,
+          "top": 0.6967592592592593,
+          "right": 0.3454861111111111,
+          "bottom": 0.7268518518518519
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.2
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Cash a",
+        "box": {
+          "left": 0.2638888888888889,
+          "top": 0.7083333333333334,
+          "right": 0.8246527777777778,
+          "bottom": 0.7962962962962963
+        },
+        "method": "tesseract-eng",
+        "confidence": 63.9
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "change 20.000",
+        "box": {
+          "left": 0.265625,
+          "top": 0.7766203703703703,
+          "right": 0.8263888888888888,
+          "bottom": 0.8310185185185185
+        },
+        "method": "tesseract-eng",
+        "confidence": 65.25
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "[o)",
+        "box": {
+          "left": 0.2690972222222222,
+          "top": 0.8738425925925926,
+          "right": 0.3211805555555556,
+          "bottom": 0.9120370370370371
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}
