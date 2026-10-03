@@ -14,6 +14,7 @@ from docwork.baseline import extract_invoice, extract_invoice_pages
 from docwork.contracts import Box, DocumentPage, TextSpan
 from docwork.intake import IntakeStore
 from docwork.web import ReviewHandler
+from docwork.local_model import LocalModelConfig
 
 SAMPLE = (Path(__file__).resolve().parents[1] / "samples" / "clean.png").read_bytes()
 
@@ -40,6 +41,7 @@ class WebTests(unittest.TestCase):
         self.server = SimpleNamespace(
             store=self.store, token="test-token", origin="http://127.0.0.1:8765",
             repo_root=Path(__file__).resolve().parents[1],
+            model_config=None, model_profile=None,
         )
         self.cookie = ""
 
@@ -170,6 +172,30 @@ class WebTests(unittest.TestCase):
         self.assertEqual(status, 400)
         self.assertIn("loopback", error["error"])
         self.assertEqual(self.call("GET", "/api/documents")[1], [])
+
+    def test_managed_model_credentials_stay_server_side(self):
+        config = LocalModelConfig("http://127.0.0.1:8080", "pinned-model", api_key="private-key")
+        self.server.model_config = config
+        self.server.model_profile = "pinned-profile"
+        self.assertEqual(self.call("GET", "/api/runtime")[0], 401)
+        self.login()
+        status, runtime, _ = self.call("GET", "/api/runtime")
+        self.assertEqual(status, 200)
+        self.assertEqual(runtime, {"managed_model": True, "model_id": "pinned-model", "profile": "pinned-profile"})
+        self.assertNotIn("private-key", json.dumps(runtime))
+        with patch("docwork.web.process_one", return_value=None) as process:
+            self.assertEqual(self.call("POST", "/api/process-one", {"extractor": "span_llm"})[0], 200)
+        self.assertIs(process.call_args.kwargs["model_config"], config)
+
+    def test_managed_model_rejects_browser_endpoint_overrides(self):
+        self.server.model_config = LocalModelConfig("http://127.0.0.1:8080", "pinned-model", api_key="private-key")
+        self.login()
+        with patch("docwork.web.process_one") as process:
+            status, error, _ = self.call("POST", "/api/process-one", {
+                "extractor": "span_llm", "model_endpoint": "http://127.0.0.1:9090", "model_id": "other-model"})
+        self.assertEqual(status, 400)
+        self.assertIn("omit endpoint overrides", error["error"])
+        process.assert_not_called()
 
 
 if __name__ == "__main__":

@@ -35,6 +35,7 @@
         <label class="file-label">PDF, PNG, or JPEG <input id="upload" type="file" accept=".pdf,.png,.jpg,.jpeg"></label>
         <label class="file-label" for="extractor">Extractor</label>
         <select id="extractor"><option value="ocr_rules">OCR rules</option><option value="span_llm">Local span model (experimental)</option></select>
+        <p id="managed-model" hidden></p>
         <div id="model-settings" hidden>
           <label class="file-label" for="model-endpoint">Local model endpoint</label>
           <input id="model-endpoint" type="url" value="http://127.0.0.1:8080" autocomplete="off">

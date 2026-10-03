@@ -36,11 +36,14 @@ DEMO_FILES = {"clean": "clean.png", "conflicting-total": "conflicting-total.png"
 class ReviewServer(ThreadingHTTPServer):
     daemon_threads = True
 
-    def __init__(self, address: tuple[str, int], store: IntakeStore, *, token: str | None = None):
+    def __init__(self, address: tuple[str, int], store: IntakeStore, *, token: str | None = None,
+                 model_config: LocalModelConfig | None = None, model_profile: str | None = None):
         if address[0] not in ("127.0.0.1", "::1"):
             raise ValueError("Review server must bind to loopback")
         self.store = store
         self.token = token or secrets.token_urlsafe(32)
+        self.model_config = model_config
+        self.model_profile = model_profile
         self.repo_root = Path(__file__).resolve().parents[2]
         super().__init__(address, ReviewHandler)
 
@@ -151,6 +154,11 @@ class ReviewHandler(BaseHTTPRequestHandler):
                 self._send(HTTPStatus.OK, content, media)
             elif url.path == "/api/documents":
                 self._json(HTTPStatus.OK, self.server.store.list_documents())
+            elif url.path == "/api/runtime":
+                config = self.server.model_config
+                self._json(HTTPStatus.OK, {"managed_model": config is not None,
+                                          "model_id": config.model_id if config else None,
+                                          "profile": self.server.model_profile})
             elif match := EXPORT_ROUTE.fullmatch(url.path):
                 doc_id, revision, format, filename = match.groups()
                 content, media = self.server.store.exported_file(doc_id, int(revision), format, filename)
@@ -212,9 +220,15 @@ class ReviewHandler(BaseHTTPRequestHandler):
                     raise ValueError("Unknown extractor profile")
                 model_config = None
                 if extractor == "span_llm":
-                    endpoint = self._required(data, "model_endpoint", str)
-                    model_id = self._required(data, "model_id", str)
-                    model_config = LocalModelConfig(endpoint, model_id)
+                    configured = self.server.model_config
+                    if configured is not None:
+                        if "model_endpoint" in data or "model_id" in data:
+                            raise ValueError("The managed model is selected by the server; omit endpoint overrides")
+                        model_config = configured
+                    else:
+                        endpoint = self._required(data, "model_endpoint", str)
+                        model_id = self._required(data, "model_id", str)
+                        model_config = LocalModelConfig(endpoint, model_id)
                 doc_id = process_one(self.server.store, "browser-worker", extractor=extractor,
                                      model_config=model_config)
                 self._json(HTTPStatus.OK, self.server.store.status(doc_id) if doc_id else {"status": "IDLE"})
@@ -270,9 +284,11 @@ class ReviewHandler(BaseHTTPRequestHandler):
             self._handle_error(exc)
 
 
-def serve(database: Path, object_root: Path, port: int = 8765) -> None:
+def serve(database: Path, object_root: Path, port: int = 8765, *,
+          model_config: LocalModelConfig | None = None, model_profile: str | None = None) -> None:
     store = IntakeStore(database, object_root)
-    with ReviewServer(("127.0.0.1", port), store) as server:
+    with ReviewServer(("127.0.0.1", port), store,
+                      model_config=model_config, model_profile=model_profile) as server:
         print(f"Open {server.origin}/?token={server.token}", flush=True)
         try:
             server.serve_forever()

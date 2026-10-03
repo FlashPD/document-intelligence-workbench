@@ -22,7 +22,7 @@ from .local_model import (
     ModelOutputInvalid, ModelRequestRejected, ModelUnavailable, extract_pages,
 )
 from .ocr import tesseract_page
-from .review import ReviewBlocked, ReviewConflict, ReviewStore, page_from_dict, record_from_dict
+from .review import ReviewBlocked, ReviewConflict, ReviewStore, _atomic_write, page_from_dict, record_from_dict
 from .validation import validate_invoice
 from .worker import process_one
 
@@ -142,6 +142,21 @@ def main(argv: list[str] | None = None) -> int:
     invoice_verify = commands.add_parser("eval-verify-invoice-run", help="Rescore saved invoice predictions and verify their report")
     invoice_verify.add_argument("run_directory", type=Path)
     invoice_verify.add_argument("--manifest", type=Path, default=Path("datasets/invoices-v1/manifest.json"))
+    freeze = commands.add_parser("eval-freeze-invoices", help="Freeze the experimental default baseline from development/calibration evidence")
+    freeze.add_argument("--manifest", type=Path, default=Path("datasets/invoices-v1/manifest.json"))
+    freeze.add_argument("--evidence", type=Path, action="append", required=True, help="Verified development or calibration run directory")
+    freeze.add_argument("--output", type=Path, required=True)
+    heldout = commands.add_parser("eval-heldout-invoices", help="Score every test invoice with an explicit frozen baseline")
+    heldout.add_argument("--manifest", type=Path, default=Path("datasets/invoices-v1/manifest.json"))
+    heldout.add_argument("--freeze", type=Path, required=True)
+    heldout.add_argument("--output-dir", type=Path, required=True)
+    heldout.add_argument("--resume", action="store_true")
+    heldout_verify = commands.add_parser("eval-verify-heldout", help="Verify and rescore a frozen held-out invoice run offline")
+    heldout_verify.add_argument("run_directory", type=Path)
+    heldout_verify.add_argument("--manifest", type=Path, default=Path("datasets/invoices-v1/manifest.json"))
+    finalize = commands.add_parser("eval-finalize-heldout", help="Finalize fully saved frozen predictions after a reporting-only failure")
+    finalize.add_argument("run_directory", type=Path)
+    finalize.add_argument("--manifest", type=Path, default=Path("datasets/invoices-v1/manifest.json"))
     priority = commands.add_parser("eval-review-priority", help="Measure triage coverage on a verified development or calibration invoice run")
     priority.add_argument("run_directory", type=Path)
     priority.add_argument("--manifest", type=Path, default=Path("datasets/invoices-v1/manifest.json"))
@@ -162,6 +177,8 @@ def main(argv: list[str] | None = None) -> int:
     models.add_argument("--profile", type=Path, default=Path("config/model-mac-instruct.json"))
     verify_evidence = commands.add_parser("eval-verify", help="Verify and rescore saved model evidence without inference")
     verify_evidence.add_argument("run_directory", type=Path)
+    workflow_verify = commands.add_parser("eval-verify-model-workflow", help="Check saved real-model upload workflow evidence offline")
+    workflow_verify.add_argument("run_directory", type=Path)
     comparison = commands.add_parser("eval-compare", help="Audit and compare two fresh development runs")
     comparison.add_argument("baseline", type=Path)
     comparison.add_argument("candidate", type=Path)
@@ -236,17 +253,38 @@ def main(argv: list[str] | None = None) -> int:
     browser.add_argument("--db", type=Path, default=Path("artifacts/review.sqlite"))
     browser.add_argument("--objects", type=Path, default=Path("artifacts/intake"))
     browser.add_argument("--port", type=int, default=8765)
+    browser.add_argument("--model-profile", type=Path, help="Verify local assets and own a pinned authenticated model server")
     args = parser.parse_args(argv)
     exit_code = 0
     try:
         if args.command == "serve":
             from .web import serve
-            serve(args.db, args.objects, args.port)
+            if args.model_profile:
+                import uuid
+                from .model_runtime import load_profile, managed_server
+                root = Path(__file__).resolve().parents[2]
+                profile = load_profile(args.model_profile)
+                session = root / "artifacts" / "model-sessions" / uuid.uuid4().hex
+                session.mkdir(parents=True)
+                _atomic_write(session / "profile.json", args.model_profile.read_bytes())
+                runtime = None
+                try:
+                    with managed_server(root, profile, session / "server.log") as (config, runtime):
+                        print(f"Pinned model ready: {profile['profile']} ({config.model_id})", flush=True)
+                        serve(args.db, args.objects, args.port, model_config=config, model_profile=profile["profile"])
+                finally:
+                    if runtime is not None:
+                        _atomic_write(session / "runtime.json", (json.dumps(runtime, indent=2) + "\n").encode())
+            else:
+                serve(args.db, args.objects, args.port)
             return 0
         if args.command == "doctor":
             data = doctor()
         elif args.command == "baseline":
             data = baseline_fixture(args.fixture)
+        elif args.command == "eval-verify-model-workflow":
+            from .workflow_evidence import verify_workflow_evidence
+            data = verify_workflow_evidence(args.run_directory)
         elif args.command == "eval-verify-corpus":
             from .corpus import verify_synthetic_corpus
             data = verify_synthetic_corpus(args.manifest)
@@ -259,6 +297,24 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "eval-verify-invoice-run":
             from .invoice_run import verify_invoice_run
             data = verify_invoice_run(args.manifest, args.run_directory)
+        elif args.command == "eval-freeze-invoices":
+            from .heldout import create_freeze
+            create_freeze(Path(__file__).resolve().parents[2], args.manifest, args.output, args.evidence)
+            print(args.output)
+            return 0
+        elif args.command == "eval-heldout-invoices":
+            from .heldout import run_heldout
+            data = run_heldout(args.manifest, args.freeze, args.output_dir, resume=args.resume)
+            print(args.output_dir / "report.json")
+            return 0 if data["status"] == "scored" and not data["summary"]["failures_by_type"] else 2
+        elif args.command == "eval-verify-heldout":
+            from .heldout import verify_heldout
+            data = verify_heldout(args.manifest, args.run_directory)
+        elif args.command == "eval-finalize-heldout":
+            from .heldout import finalize_saved_heldout
+            data = finalize_saved_heldout(args.manifest, args.run_directory)
+            print(args.run_directory / "report.json")
+            return 0 if data["status"] == "scored" and not data["summary"]["failures_by_type"] else 2
         elif args.command == "eval-review-priority":
             from .priority_evaluation import write_priority_report
             write_priority_report(args.manifest, args.run_directory, args.output)
@@ -314,7 +370,6 @@ def main(argv: list[str] | None = None) -> int:
             exit_code = {"pass": 0, "regression": 1, "unusable_evidence": 2}[data["status"]]
         elif args.command == "eval-score-invoices":
             from .release_evaluation import score_saved_invoice_run
-            from .review import _atomic_write
             output = args.output.resolve()
             if output == args.manifest.resolve() or output.is_relative_to(args.predictions.resolve()):
                 raise ValueError("Report path must be outside the manifest and prediction directory")

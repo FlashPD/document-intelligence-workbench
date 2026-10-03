@@ -1,6 +1,6 @@
 # Frozen invoice scoring contract
 
-The release scorer is ready for the [540-document invoice corpus](invoice-corpus.md). It scores saved candidate records; it does not run OCR or a model. No held-out result has been produced yet. The 12-document development reports keep their existing `canonical-exact-source-order-v1` scorer, so historical comparisons do not change.
+The release scorer supports the [540-document invoice corpus](invoice-corpus.md). It scores saved candidate records; it does not run OCR or a model. A [frozen experimental baseline](invoice-heldout-run.md) now measures all 180 test invoices. The full paired local-model and receipt evaluations remain open. The 12-document development reports keep their existing `canonical-exact-source-order-v1` scorer, so historical comparisons do not change.
 
 ## Inputs and command
 

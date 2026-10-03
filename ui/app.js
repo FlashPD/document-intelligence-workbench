@@ -371,13 +371,14 @@ async function exportRecord(format) {
 $("seed-clean").addEventListener("click", () => action(() => seed("clean")));
 $("seed-conflict").addEventListener("click", () => action(() => seed("conflicting-total")));
 $("upload-button").addEventListener("click", () => action(upload));
+let managedModel = false;
 $("extractor").addEventListener("change", () => {
-  $("model-settings").hidden = $("extractor").value !== "span_llm";
+  $("model-settings").hidden = managedModel || $("extractor").value !== "span_llm";
 });
 $("process-button").addEventListener("click", () => action(async () => {
   const extractor = $("extractor").value;
   const input = { extractor };
-  if (extractor === "span_llm") {
+  if (extractor === "span_llm" && !managedModel) {
     input.model_endpoint = $("model-endpoint").value.trim();
     input.model_id = $("model-id").value.trim();
   }
@@ -414,6 +415,13 @@ document.addEventListener("keydown", (event) => {
 });
 
 action(async () => {
+  const runtime = await request("/api/runtime");
+  managedModel = runtime.managed_model;
+  if (managedModel) {
+    $("managed-model").hidden = false;
+    $("managed-model").textContent = `Pinned local model ready: ${runtime.model_id}. Choose Local span model to use it.`;
+    $("model-settings").hidden = true;
+  }
   await refreshQueue();
   if (state.documents.length) await selectDocument(state.documents[0].id);
 });

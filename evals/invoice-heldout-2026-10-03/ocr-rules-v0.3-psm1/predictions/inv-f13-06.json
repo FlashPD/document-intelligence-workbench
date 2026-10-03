@@ -1,0 +1,421 @@
+{
+  "record": {
+    "schema_version": "invoice-v1-spike",
+    "fields": {
+      "supplier_name": {
+        "value": "Marigold Frame Works",
+        "raw": "Marigold Frame Works",
+        "evidence_ids": [
+          "p1-l0002"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "invoice_number": {
+        "value": "F13-006",
+        "raw": "Invoice No.: F13-006",
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "issue_date": {
+        "value": "2026-06-11",
+        "raw": "Date: 2026-06-11",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "due_date": {
+        "value": "2026-07-11",
+        "raw": "Due date: 2026-07-11",
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "currency": {
+        "value": "USD",
+        "raw": "Currency: USD",
+        "evidence_ids": [
+          "p1-l0007"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "subtotal": {
+        "value": "435.00",
+        "raw": "Subtotal: 435.00",
+        "evidence_ids": [
+          "p1-l0011"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "tax": {
+        "value": "7.00",
+        "raw": "Tax: 7.00",
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": "3.00",
+        "raw": "Discount: 3.00",
+        "evidence_ids": [
+          "p1-l0013"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "shipping": {
+        "value": "0.00",
+        "raw": "Shipping: 0.00",
+        "evidence_ids": [
+          "p1-l0014"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": "439.00",
+        "raw": "Total: 439.00",
+        "evidence_ids": [
+          "p1-l0015"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Field interview",
+          "raw": "Field interview 3 114.00 342.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "3",
+          "raw": "Field interview 3 114.00 342.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "114.00",
+          "raw": "Field interview 3 114.00 342.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "342.00",
+          "raw": "Field interview 3 114.00 342.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Research workshop",
+          "raw": "Research workshop 1 93.00 93.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "Research workshop 1 93.00 93.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "93.00",
+          "raw": "Research workshop 1 93.00 93.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "93.00",
+          "raw": "Research workshop 1 93.00 93.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      }
+    ]
+  },
+  "issue_codes": [],
+  "pages": [
+    {
+      "number": 1,
+      "width_px": 1000,
+      "height_px": 1800,
+      "spans": [
+        {
+          "id": "p1-l0001",
+          "page": 1,
+          "text": "a...",
+          "box": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 1.0,
+            "bottom": 0.010555555555555556
+          },
+          "method": "tesseract-eng",
+          "confidence": 15.13
+        },
+        {
+          "id": "p1-l0002",
+          "page": 1,
+          "text": "Marigold Frame Works",
+          "box": {
+            "left": 0.068,
+            "top": 0.02388888888888889,
+            "right": 0.449,
+            "bottom": 0.043333333333333335
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.62
+        },
+        {
+          "id": "p1-l0003",
+          "page": 1,
+          "text": "INVOICE",
+          "box": {
+            "left": 0.063,
+            "top": 0.05722222222222222,
+            "right": 0.214,
+            "bottom": 0.07222222222222222
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.2
+        },
+        {
+          "id": "p1-l0004",
+          "page": 1,
+          "text": "Invoice No.: F13-006",
+          "box": {
+            "left": 0.062,
+            "top": 0.16666666666666666,
+            "right": 0.28,
+            "bottom": 0.1761111111111111
+          },
+          "method": "tesseract-eng",
+          "confidence": 91.37
+        },
+        {
+          "id": "p1-l0005",
+          "page": 1,
+          "text": "Date: 2026-06-11",
+          "box": {
+            "left": 0.062,
+            "top": 0.19944444444444445,
+            "right": 0.24,
+            "bottom": 0.2088888888888889
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.85
+        },
+        {
+          "id": "p1-l0006",
+          "page": 1,
+          "text": "Due date: 2026-07-11",
+          "box": {
+            "left": 0.062,
+            "top": 0.23222222222222222,
+            "right": 0.286,
+            "bottom": 0.24166666666666667
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.64
+        },
+        {
+          "id": "p1-l0007",
+          "page": 1,
+          "text": "Currency: USD",
+          "box": {
+            "left": 0.061,
+            "top": 0.265,
+            "right": 0.219,
+            "bottom": 0.2772222222222222
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.07
+        },
+        {
+          "id": "p1-l0008",
+          "page": 1,
+          "text": "Description Qty Unit price Amount",
+          "box": {
+            "left": 0.057,
+            "top": 0.42277777777777775,
+            "right": 0.897,
+            "bottom": 0.44
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.65
+        },
+        {
+          "id": "p1-l0009",
+          "page": 1,
+          "text": "Field interview 3 114.00 342.00",
+          "box": {
+            "left": 0.057,
+            "top": 0.465,
+            "right": 0.886,
+            "bottom": 0.47444444444444445
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.29
+        },
+        {
+          "id": "p1-l0010",
+          "page": 1,
+          "text": "Research workshop 1 93.00 93.00",
+          "box": {
+            "left": 0.057,
+            "top": 0.51,
+            "right": 0.873,
+            "bottom": 0.5222222222222223
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.0
+        },
+        {
+          "id": "p1-l0011",
+          "page": 1,
+          "text": "Subtotal: 435.00",
+          "box": {
+            "left": 0.061,
+            "top": 0.7694444444444445,
+            "right": 0.232,
+            "bottom": 0.7788888888888889
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.83
+        },
+        {
+          "id": "p1-l0012",
+          "page": 1,
+          "text": "Tax: 7.00",
+          "box": {
+            "left": 0.06,
+            "top": 0.8011111111111111,
+            "right": 0.159,
+            "bottom": 0.8105555555555556
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.8
+        },
+        {
+          "id": "p1-l0013",
+          "page": 1,
+          "text": "Discount: 3.00",
+          "box": {
+            "left": 0.062,
+            "top": 0.8327777777777777,
+            "right": 0.211,
+            "bottom": 0.8422222222222222
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.92
+        },
+        {
+          "id": "p1-l0014",
+          "page": 1,
+          "text": "Shipping: 0.00",
+          "box": {
+            "left": 0.061,
+            "top": 0.8644444444444445,
+            "right": 0.21,
+            "bottom": 0.8766666666666667
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.49
+        },
+        {
+          "id": "p1-l0015",
+          "page": 1,
+          "text": "Total: 439.00",
+          "box": {
+            "left": 0.06,
+            "top": 0.8961111111111111,
+            "right": 0.198,
+            "bottom": 0.9055555555555556
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.23
+        },
+        {
+          "id": "p1-l0016",
+          "page": 1,
+          "text": "Page 1",
+          "box": {
+            "left": 0.772,
+            "top": 0.9666666666666667,
+            "right": 0.841,
+            "bottom": 0.9788888888888889
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.5
+        }
+      ]
+    }
+  ],
+  "source_sha256": "52d0459e7a1375467b71cf4b79d7a2362887d57e0c9b9ecbd4517bbe4f425968",
+  "run_version": "invoice-preview-ocr-rules-v4",
+  "baseline_version": "ocr-rules-v0.3",
+  "extractor": "ocr_rules",
+  "pipeline_sha256": "0cba602bf84e3ca47315f49cb90aeff87bd1316742443ae4d633594561646fb3",
+  "ocr_psm": 1,
+  "input_mode": "verified_corpus_png_previews",
+  "runtime_seconds": {
+    "ocr": 0.667,
+    "total": 0.667
+  },
+  "freeze_sha256": "0cba602bf84e3ca47315f49cb90aeff87bd1316742443ae4d633594561646fb3"
+}

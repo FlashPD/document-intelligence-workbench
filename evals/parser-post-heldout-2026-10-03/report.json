@@ -1,0 +1,382 @@
+{
+  "report_version": "parser-verification-v1",
+  "status": "passed",
+  "started_at_utc": "2026-10-03T16:48:41.847317+00:00",
+  "host": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.12.12"
+  },
+  "parser_image": "docwork-parser:v3",
+  "source_sha256": {
+    "src/docwork/__init__.py": "bd204b322b31c45f1b340090c93a77b04676e305d448ed9551b780b56b758a50",
+    "src/docwork/baseline.py": "2153cffacafa5085746e28a555ba785338aba97d211879db296c30412e44dda8",
+    "src/docwork/cli.py": "106e94eaccd6111fbbcbbc629f7560977b1af4aaef85508e7569f569ba9dc6a5",
+    "src/docwork/comparison.py": "bc714e8434172cbaa3a8f2257dd4b9f71ec9816a44114b1e7220b091ef62088a",
+    "src/docwork/contracts.py": "ce29932f2668f181612c80e445ee64f8891b7ff51d3a5c8ecd675bcd19637ccf",
+    "src/docwork/corpus.py": "98c1f13e913640dbcb1b4b1d20b70989f3a37eb1430c7c252b966b763573c2b2",
+    "src/docwork/evaluation.py": "c3ff271e01fb39fd00a3b669d07cf9ad2090be68c6c1caf80a312cd635d3f664",
+    "src/docwork/evidence.py": "9fdae805aefed4980ca55abdda44055345d29e7970d43659165f435756a2beea",
+    "src/docwork/geometry.py": "0f8cd59f8c205cb0b076fd21511be99aff13077453aa15631120b4ad08cf0275",
+    "src/docwork/heldout.py": "915ec2594a0562e99ace415c4770770c1ca0f8bb3abda27c3f65583ac27f5216",
+    "src/docwork/intake.py": "46a4de19a2c9dd9071711ae60adc93973aeca892b35b5dce018323b4919d6789",
+    "src/docwork/invoice_run.py": "8b3d74ea35a3d5598f156cdfc6765ab743a6646ab5ae57460497b9d6e01911ac",
+    "src/docwork/local_model.py": "b7fb04b8caa7acd9c6f782a6b0cbbd8c97e8add1fdc8f767d62f7df1b6b9c4c1",
+    "src/docwork/model_runtime.py": "d0b924aabcbe51afeb09fb9d9b43fde3f1eb0841d309ba2fb12b01043c8868bf",
+    "src/docwork/ocr.py": "1f2eb6538fb5417c7d427d507a4cddc8ec82c6d9d6077d4d38f9ea54f6908ac0",
+    "src/docwork/parser_entry.py": "e3e5c809a8c8b6eb06102b8db9377c5dbc3c43759d0fb756ebb9fcfb4b7c5bad",
+    "src/docwork/parser_protocol.py": "634fc5c68616c2919c5dd32728bfcc4a1d983a38fa53681426bb756c1ab24ff1",
+    "src/docwork/priority_evaluation.py": "e12aff8581cb5259062744c54623260942f7ea9a8f8f58a5b7e8379ec3162863",
+    "src/docwork/release_evaluation.py": "49e007c7ea619d8f56a2e32f9176edf7f027d4791fb486cdfbf0ca8903ed7561",
+    "src/docwork/release_scoring.py": "ab4d9958e4afa7db9c0d88d3168c762def7dfa96387697bedaab3894a5c7be44",
+    "src/docwork/review.py": "dfd3bb2bc700b71e8592e5cb0923155e6caf4aaaafb78462fd7199cc8df9b317",
+    "src/docwork/review_priority.py": "df9530ad79cbc6cbfea3c1be908de511fb774eed1e7f1e1337ae0c096dc40821",
+    "src/docwork/spatial_baseline.py": "6e41e2818a4b0b827b5cd56f29e84d5af27c7480c4f4cdad5570aca16b940f3b",
+    "src/docwork/spatial_lines.py": "8f1eee7e2ab298833e31f7c10bfb6a7aac77ed6364c817bfb3c993738d05036d",
+    "src/docwork/validation.py": "d3729d8341e8886bcdcfe73e093439a2494ce275b9b85966ebdedab4928f7e58",
+    "src/docwork/web.py": "d7d60b2f2dbdd58b846e783321d4857bd40d46c8000c2e7587bc02142589166a",
+    "src/docwork/worker.py": "6ab7b5a229ddac0d88484ebee56838be4abd3ebb9300b52ba83f5f37c558ab95",
+    "src/docwork/workflow_evidence.py": "eff02e73951c62df5282eab0bfaf7c6df4dd5dbe2466faf4c568106bfa507e88",
+    "tests/container_parser.py": "0cb45386ebd9d0d22bb2d8ec45a148f0e011e4339a3446e199b6f7b0763b8756",
+    "scripts/verify_parser.py": "07578aac7b91725bfe84043abe8a3b357e171551804be7a56ed159625412de9f",
+    "sandbox/Dockerfile": "fa3c9557d133dde936522b3d9d60b3b70a276bf1cdd836ba075673e4b381d270",
+    "samples/clean.png": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+    "samples/conflicting-total.png": "13f2eef374c009a698a31e17639417d0b970df0feca6329e1053a59e8be331d3"
+  },
+  "checks": [
+    {
+      "id": "container_parser.ParserSmoke.test_abrupt_worker_exit_resumes_committed_parser_checkpoint",
+      "status": "passed",
+      "seconds": 3.741,
+      "evidence": {
+        "process_exit_code": 73,
+        "lease_seconds": 2,
+        "fence_before": 1,
+        "fence_after": 2,
+        "parser_checkpoint": {
+          "cache_key": "34214e1a8eee3e6ef1867812b20b7fea7ebca98f7f98f55976c47caaa1445941",
+          "parser_identity": "sha256:c66291a31ab54016d8c1ad0e668b3f0193055fa40dada69197b8514fa6f2da51",
+          "created_at": "2026-10-03T16:48:43.716106+00:00"
+        },
+        "parser_rerun": false,
+        "orphaned_scratch_directories": 0,
+        "model_request": "Exit callback; no model inference"
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_conflict_review_export_and_reopen",
+      "status": "passed",
+      "seconds": 1.566,
+      "evidence": {
+        "source_sha256": "13f2eef374c009a698a31e17639417d0b970df0feca6329e1053a59e8be331d3",
+        "status": "REVIEW_READY",
+        "error_code": null,
+        "page_count": 1,
+        "approved_revision": 1,
+        "new_unapproved_revision": 2,
+        "approval_hash": "4baeec27342eba71116f7271077ecfb8a08f102e573615fe8e207caf818454ea",
+        "export_sha256": [
+          "e1e60beed9f7f9024ee4b2bd3d96749fc593b8d47696cf98fe948b2390b652c9",
+          "de9c1531d71dc3490b89ac1da8dbe32c0033bfa051caf9dd45c00a7e911a1af1",
+          "7f30c95068111cb2bcc90f25d2f6d68ceeb1c996621cce8d72565ac88965207f"
+        ],
+        "historical_export_preserved": true
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_duplicate_submissions_have_independent_approval",
+      "status": "passed",
+      "seconds": 3.032,
+      "evidence": {
+        "source_sha256": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+        "status": "REVIEW_READY",
+        "error_code": null,
+        "page_count": 1,
+        "shared_original": true,
+        "independent_approval": true
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_jpeg_exif_rotation",
+      "status": "passed",
+      "seconds": 1.999,
+      "evidence": {
+        "source_sha256": "89ce593dc826c8c4d98388a7dd1912e47595f6864d62b9bd6e40c0c693bdaef8",
+        "status": "REVIEW_READY",
+        "error_code": null,
+        "page_count": 1,
+        "render_dimensions": [
+          1800,
+          2200
+        ]
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_missing_image_retry",
+      "status": "passed",
+      "seconds": 1.5,
+      "evidence": {
+        "source_sha256": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+        "attempts": 2,
+        "status": "REVIEW_READY",
+        "initial_error": "PARSER_IMAGE_MISSING"
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_processes_committed_png",
+      "status": "passed",
+      "seconds": 1.455,
+      "evidence": {
+        "source_sha256": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+        "status": "REVIEW_READY",
+        "error_code": null,
+        "page_count": 1
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_processes_two_page_pdf",
+      "status": "passed",
+      "seconds": 1.866,
+      "evidence": {
+        "source_sha256": "44750f6dce7de66f5f5a6b4e731dc4a3315c3674b266a60d8eb4c5de5907f492",
+        "status": "REVIEW_READY",
+        "error_code": null,
+        "page_count": 2,
+        "second_page_row_evidence": [
+          "p2-l0002"
+        ]
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_rejects_eleven_page_pdf",
+      "status": "passed",
+      "seconds": 0.53,
+      "evidence": {
+        "source_sha256": "6f3d7db617ec7508b6c08eb88e291ccb18417d4300e774b48de5dc2190b2dd6f",
+        "status": "FAILED",
+        "error_code": "PDF_PAGE_LIMIT",
+        "page_count": 0
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_rejects_malformed_pdf",
+      "status": "passed",
+      "seconds": 0.535,
+      "evidence": {
+        "source_sha256": "35217a88798d9dfa15e6c69b3d3eb5db544484f14beaeec7592e398b8ef7785e",
+        "status": "FAILED",
+        "error_code": "PDF_INFO_FAILED",
+        "page_count": 0
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_rejects_truncated_png",
+      "status": "passed",
+      "seconds": 0.566,
+      "evidence": {
+        "source_sha256": "913a5cd40bce3f7da491716b8ad6601069dda16ee414117a08363b766417e001",
+        "status": "FAILED",
+        "error_code": "IMAGE_DECODE_FAILED",
+        "page_count": 0
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_runtime_restrictions",
+      "status": "passed",
+      "seconds": 0.41,
+      "evidence": {
+        "image_id": "sha256:c66291a31ab54016d8c1ad0e668b3f0193055fa40dada69197b8514fa6f2da51",
+        "runtime": {
+          "uid": 65534,
+          "gid": 65534,
+          "cap_effective": "0000000000000000",
+          "no_new_privileges": "1",
+          "interfaces": [
+            "lo",
+            "tunl0",
+            "gre0",
+            "gretap0",
+            "erspan0",
+            "ip_vti0",
+            "ip6_vti0",
+            "sit0",
+            "ip6tnl0",
+            "ip6gre0"
+          ],
+          "up_interfaces": [
+            "lo"
+          ],
+          "ipv4_routes": [],
+          "root_write_denied": true,
+          "input_write_denied": true,
+          "python": "3.12.12",
+          "pillow": "11.3.0",
+          "packages": [
+            "poppler-utils=22.12.0-2+deb12u3",
+            "tesseract-ocr=5.3.0-2",
+            "tesseract-ocr-eng=1:4.1.0-2",
+            "tesseract-ocr-osd=1:4.1.0-2"
+          ],
+          "ocr_assets": {
+            "eng.traineddata": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2",
+            "osd.traineddata": "9cf5d576fcc47564f11265841e5ca839001e7e6f38ff7f7aacf46d15a96b00ff"
+          },
+          "source_sha256": {
+            "priority_evaluation.py": "e12aff8581cb5259062744c54623260942f7ea9a8f8f58a5b7e8379ec3162863",
+            "intake.py": "46a4de19a2c9dd9071711ae60adc93973aeca892b35b5dce018323b4919d6789",
+            "spatial_lines.py": "8f1eee7e2ab298833e31f7c10bfb6a7aac77ed6364c817bfb3c993738d05036d",
+            "spatial_baseline.py": "6e41e2818a4b0b827b5cd56f29e84d5af27c7480c4f4cdad5570aca16b940f3b",
+            "review_priority.py": "df9530ad79cbc6cbfea3c1be908de511fb774eed1e7f1e1337ae0c096dc40821",
+            "model_runtime.py": "d0b924aabcbe51afeb09fb9d9b43fde3f1eb0841d309ba2fb12b01043c8868bf",
+            "web.py": "d7d60b2f2dbdd58b846e783321d4857bd40d46c8000c2e7587bc02142589166a",
+            "validation.py": "d3729d8341e8886bcdcfe73e093439a2494ce275b9b85966ebdedab4928f7e58",
+            "review.py": "dfd3bb2bc700b71e8592e5cb0923155e6caf4aaaafb78462fd7199cc8df9b317",
+            "invoice_run.py": "8b3d74ea35a3d5598f156cdfc6765ab743a6646ab5ae57460497b9d6e01911ac",
+            "local_model.py": "b7fb04b8caa7acd9c6f782a6b0cbbd8c97e8add1fdc8f767d62f7df1b6b9c4c1",
+            "release_scoring.py": "ab4d9958e4afa7db9c0d88d3168c762def7dfa96387697bedaab3894a5c7be44",
+            "parser_entry.py": "e3e5c809a8c8b6eb06102b8db9377c5dbc3c43759d0fb756ebb9fcfb4b7c5bad",
+            "evidence.py": "9fdae805aefed4980ca55abdda44055345d29e7970d43659165f435756a2beea",
+            "parser_protocol.py": "634fc5c68616c2919c5dd32728bfcc4a1d983a38fa53681426bb756c1ab24ff1",
+            "worker.py": "6ab7b5a229ddac0d88484ebee56838be4abd3ebb9300b52ba83f5f37c558ab95",
+            "ocr.py": "1f2eb6538fb5417c7d427d507a4cddc8ec82c6d9d6077d4d38f9ea54f6908ac0",
+            "release_evaluation.py": "49e007c7ea619d8f56a2e32f9176edf7f027d4791fb486cdfbf0ca8903ed7561",
+            "workflow_evidence.py": "eff02e73951c62df5282eab0bfaf7c6df4dd5dbe2466faf4c568106bfa507e88",
+            "comparison.py": "bc714e8434172cbaa3a8f2257dd4b9f71ec9816a44114b1e7220b091ef62088a",
+            "heldout.py": "915ec2594a0562e99ace415c4770770c1ca0f8bb3abda27c3f65583ac27f5216",
+            "__init__.py": "bd204b322b31c45f1b340090c93a77b04676e305d448ed9551b780b56b758a50",
+            "evaluation.py": "c3ff271e01fb39fd00a3b669d07cf9ad2090be68c6c1caf80a312cd635d3f664",
+            "contracts.py": "ce29932f2668f181612c80e445ee64f8891b7ff51d3a5c8ecd675bcd19637ccf",
+            "baseline.py": "2153cffacafa5085746e28a555ba785338aba97d211879db296c30412e44dda8",
+            "corpus.py": "98c1f13e913640dbcb1b4b1d20b70989f3a37eb1430c7c252b966b763573c2b2",
+            "geometry.py": "0f8cd59f8c205cb0b076fd21511be99aff13077453aa15631120b4ad08cf0275",
+            "cli.py": "106e94eaccd6111fbbcbbc629f7560977b1af4aaef85508e7569f569ba9dc6a5"
+          }
+        },
+        "container_policy": {
+          "NetworkMode": "none",
+          "ReadonlyRootfs": true,
+          "CapDrop": [
+            "ALL"
+          ],
+          "SecurityOpt": [
+            "no-new-privileges"
+          ],
+          "Memory": 1073741824,
+          "NanoCpus": 2000000000,
+          "PidsLimit": 64,
+          "Tmpfs": {
+            "/tmp": "rw,nosuid,noexec,size=64m"
+          }
+        },
+        "mounts": {
+          "/input/original": false,
+          "/output": true
+        }
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_model_outage_retry_reuses_real_two_page_parser_output",
+      "status": "passed",
+      "seconds": 9.727,
+      "evidence": {
+        "parser_checkpoint": {
+          "cache_key": "3b5a9ea648cbf0040d344cb9082b5e98fd50821d37da392ad9664e3ee518ee33",
+          "parser_identity": "sha256:c66291a31ab54016d8c1ad0e668b3f0193055fa40dada69197b8514fa6f2da51",
+          "created_at": "2026-10-03T16:49:00.959569+00:00"
+        },
+        "reused_pages": 2,
+        "parser_rerun": false,
+        "model_outage": "Real HTTP connection refused on bound non-listening loopback socket",
+        "resumed_extractor": "ocr_rules",
+        "approved_revision": 1
+      },
+      "detail": null
+    }
+  ],
+  "scope": "Self-authored fixtures and runtime probes; OCR/rules only. Includes refused-loopback-model retry and abrupt host worker exit after a parser checkpoint, with rules extraction on resume and a shortened real lease. No held-out quality, real model inference, genuine-scan, OOM, timeout, machine crash, or arbitrary-stage interruption claim.",
+  "docker_version": {
+    "Client": {
+      "Version": "29.7.2",
+      "ApiVersion": "1.55",
+      "DefaultAPIVersion": "1.55",
+      "GitCommit": "a7dcaa6",
+      "GoVersion": "go1.26.5",
+      "Os": "darwin",
+      "Arch": "arm64",
+      "BuildTime": "Wed Aug  5 18:27:50 2026",
+      "Context": "desktop-linux"
+    },
+    "Server": {
+      "Platform": {
+        "Name": "Docker Desktop 4.90.0 (238679)"
+      },
+      "Version": "29.7.2",
+      "ApiVersion": "1.55",
+      "MinAPIVersion": "1.40",
+      "Os": "linux",
+      "Arch": "arm64",
+      "Components": [
+        {
+          "Name": "Engine",
+          "Version": "29.7.2",
+          "Details": {
+            "ApiVersion": "1.55",
+            "Arch": "arm64",
+            "BuildTime": "Wed Aug  5 18:28:35 2026",
+            "Experimental": "false",
+            "GitCommit": "6a43e3d",
+            "GoVersion": "go1.26.5",
+            "KernelVersion": "7.0.12-linuxkit",
+            "MinAPIVersion": "1.40",
+            "Module": "github.com/moby/moby/v2",
+            "ModuleVersion": "v2.0.0+unknown",
+            "Os": "linux"
+          }
+        },
+        {
+          "Name": "containerd",
+          "Version": "v2.3.3",
+          "Details": {
+            "GitCommit": "aad11006b869517fcd3009450b6f82da282e1a9b"
+          }
+        },
+        {
+          "Name": "runc",
+          "Version": "1.4.3",
+          "Details": {
+            "GitCommit": "v1.4.3-0-gbb14dabe"
+          }
+        },
+        {
+          "Name": "docker-init",
+          "Version": "0.19.0",
+          "Details": {
+            "GitCommit": "de40ad0"
+          }
+        }
+      ],
+      "GitCommit": "6a43e3d",
+      "GoVersion": "go1.26.5",
+      "KernelVersion": "7.0.12-linuxkit",
+      "BuildTime": "2026-08-05T18:28:35.000000000+00:00"
+    }
+  },
+  "image": {
+    "Id": "sha256:c66291a31ab54016d8c1ad0e668b3f0193055fa40dada69197b8514fa6f2da51",
+    "Os": "linux",
+    "Architecture": "arm64",
+    "RepoDigests": []
+  },
+  "inputs_unchanged": true
+}
