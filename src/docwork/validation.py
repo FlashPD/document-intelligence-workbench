@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from collections.abc import Sequence
+from collections.abc import Callable, Sequence
 from datetime import date
 from decimal import Decimal, InvalidOperation
 
@@ -33,13 +33,34 @@ def _all_values(record: InvoiceRecord):
             yield f"line_items.{row.row_id}.{name}", getattr(row, name)
 
 
-def validate_invoice(record: InvoiceRecord, page: DocumentPage | Sequence[DocumentPage]) -> tuple[ValidationIssue, ...]:
+def _evidence_supports(value: str, texts: list[str]) -> bool:
+    value = " ".join(value.casefold().split())
+    parts = [" ".join(text.casefold().split()) for text in texts]
+    if all(value in part for part in parts):
+        return True  # Preserve support from repeated complete observations.
+    source = " ".join(parts)
+    start = source.find(value)
+    if start < 0:
+        return False
+    end = start + len(value)
+    offset = 0
+    for part in parts:
+        if not (offset < end and offset + len(part) > start):
+            return False  # An unrelated extra citation is not supporting evidence.
+        offset += len(part) + 1
+    return True
+
+
+def validate_invoice(record: InvoiceRecord, page: DocumentPage | Sequence[DocumentPage], *,
+                     header_extractor: Callable[[DocumentPage], InvoiceRecord] | None = None) -> tuple[ValidationIssue, ...]:
     issues: list[ValidationIssue] = []
     pages = (page,) if isinstance(page, DocumentPage) else page
     spans = {span.id: span for source_page in pages for span in source_page.spans}
     if len(pages) > 1:
-        from .baseline import extract_invoice
-        candidates = [extract_invoice(source_page) for source_page in pages]
+        if header_extractor is None:
+            from .baseline import extract_invoice
+            header_extractor = extract_invoice
+        candidates = [header_extractor(source_page) for source_page in pages]
         for name in HEADER_FIELDS:
             if name == "supplier_name":
                 continue  # A continuation page may begin with a line item.
@@ -59,8 +80,9 @@ def validate_invoice(record: InvoiceRecord, page: DocumentPage | Sequence[Docume
             span = spans.get(span_id)
             if span is None:
                 issues.append(ValidationIssue("EVIDENCE_UNKNOWN", path, f"Unknown span ID: {span_id}"))
-            elif field.origin == "observed" and field.value.casefold() not in span.text.casefold():
-                issues.append(ValidationIssue("EVIDENCE_MISMATCH", path, "Value does not occur in cited span"))
+        if field.origin == "observed" and field.evidence_ids and all(ref in spans for ref in field.evidence_ids):
+            if not _evidence_supports(field.value, [spans[ref].text for ref in field.evidence_ids]):
+                issues.append(ValidationIssue("EVIDENCE_MISMATCH", path, "Value does not occur in cited spans"))
 
     for name in ("subtotal", "tax", "discount", "shipping", "total"):
         field = record.fields[name]

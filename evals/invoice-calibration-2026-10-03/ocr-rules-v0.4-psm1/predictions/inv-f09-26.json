@@ -1,0 +1,333 @@
+{
+  "record": {
+    "schema_version": "invoice-v1-spike",
+    "fields": {
+      "supplier_name": {
+        "value": "Harbor Tile Studio",
+        "raw": "Harbor Tile Studio",
+        "evidence_ids": [
+          "p1-l0001"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "invoice_number": {
+        "value": "F09-001",
+        "raw": "Invoice No.: F09-001",
+        "evidence_ids": [
+          "p1-l0003"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "issue_date": {
+        "value": "05/06/2026",
+        "raw": "Date: 05/06/2026",
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "due_date": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed"
+      },
+      "currency": {
+        "value": "USD",
+        "raw": "Currency: USD",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed"
+      },
+      "tax": {
+        "value": "0.00",
+        "raw": "Tax: 0.00",
+        "evidence_ids": [
+          "p1-l0009"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": "3.00",
+        "raw": "Discount: 3.00",
+        "evidence_ids": [
+          "p1-l0010"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "shipping": {
+        "value": "0.00",
+        "raw": "Shipping: 0.00",
+        "evidence_ids": [
+          "p1-l0011"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": "194.00",
+        "raw": "Total: 194.00",
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Accessibility audit",
+          "raw": "Accessibility audit 2 96.00 192.00",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "2",
+          "raw": "Accessibility audit 2 96.00 192.00",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "96.00",
+          "raw": "Accessibility audit 2 96.00 192.00",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "192.00",
+          "raw": "Accessibility audit 2 96.00 192.00",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      }
+    ]
+  },
+  "issue_codes": [
+    "AMBIGUOUS_DATE",
+    "TOTAL_NOT_CHECKED"
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "width_px": 1500,
+      "height_px": 1100,
+      "spans": [
+        {
+          "id": "p1-l0001",
+          "page": 1,
+          "text": "Harbor Tile Studio",
+          "box": {
+            "left": 0.04533333333333334,
+            "top": 0.03909090909090909,
+            "right": 0.27466666666666667,
+            "bottom": 0.06727272727272728
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.3
+        },
+        {
+          "id": "p1-l0002",
+          "page": 1,
+          "text": "INVOICE",
+          "box": {
+            "left": 0.04933333333333333,
+            "top": 0.09363636363636364,
+            "right": 0.16333333333333333,
+            "bottom": 0.12181818181818181
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.25
+        },
+        {
+          "id": "p1-l0003",
+          "page": 1,
+          "text": "Invoice No.: F09-001",
+          "box": {
+            "left": 0.648,
+            "top": 0.18636363636363637,
+            "right": 0.802,
+            "bottom": 0.20363636363636364
+          },
+          "method": "tesseract-eng",
+          "confidence": 81.14
+        },
+        {
+          "id": "p1-l0004",
+          "page": 1,
+          "text": "Date: 05/06/2026",
+          "box": {
+            "left": 0.648,
+            "top": 0.24,
+            "right": 0.776,
+            "bottom": 0.25727272727272726
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.7
+        },
+        {
+          "id": "p1-l0005",
+          "page": 1,
+          "text": "Currency: USD",
+          "box": {
+            "left": 0.6473333333333333,
+            "top": 0.3472727272727273,
+            "right": 0.762,
+            "bottom": 0.3690909090909091
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.78
+        },
+        {
+          "id": "p1-l0006",
+          "page": 1,
+          "text": "Description Qty Unit price Amount",
+          "box": {
+            "left": 0.048,
+            "top": 0.4827272727272727,
+            "right": 0.6986666666666667,
+            "bottom": 0.5127272727272727
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.49
+        },
+        {
+          "id": "p1-l0007",
+          "page": 1,
+          "text": "a ; Subtotal: 192.00",
+          "box": {
+            "left": 0.10333333333333333,
+            "top": 0.5318181818181819,
+            "right": 0.896,
+            "bottom": 0.5536363636363636
+          },
+          "method": "tesseract-eng",
+          "confidence": 47.99
+        },
+        {
+          "id": "p1-l0008",
+          "page": 1,
+          "text": "Accessibility audit 2 96.00 192.00",
+          "box": {
+            "left": 0.04666666666666667,
+            "top": 0.5481818181818182,
+            "right": 0.6913333333333334,
+            "bottom": 0.5772727272727273
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.75
+        },
+        {
+          "id": "p1-l0009",
+          "page": 1,
+          "text": "Tax: 0.00",
+          "box": {
+            "left": 0.7733333333333333,
+            "top": 0.5836363636363636,
+            "right": 0.844,
+            "bottom": 0.600909090909091
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.92
+        },
+        {
+          "id": "p1-l0010",
+          "page": 1,
+          "text": "Discount: 3.00",
+          "box": {
+            "left": 0.7746666666666666,
+            "top": 0.6354545454545455,
+            "right": 0.882,
+            "bottom": 0.6527272727272727
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.46
+        },
+        {
+          "id": "p1-l0011",
+          "page": 1,
+          "text": "Shipping: 0.00",
+          "box": {
+            "left": 0.774,
+            "top": 0.6872727272727273,
+            "right": 0.8813333333333333,
+            "bottom": 0.7090909090909091
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.55
+        },
+        {
+          "id": "p1-l0012",
+          "page": 1,
+          "text": "Total: 194.00",
+          "box": {
+            "left": 0.7733333333333333,
+            "top": 0.7390909090909091,
+            "right": 0.872,
+            "bottom": 0.7563636363636363
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.92
+        },
+        {
+          "id": "p1-l0013",
+          "page": 1,
+          "text": "Page 1",
+          "box": {
+            "left": 0.848,
+            "top": 0.9454545454545454,
+            "right": 0.8973333333333333,
+            "bottom": 0.9672727272727273
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.51
+        }
+      ]
+    }
+  ],
+  "source_sha256": "c48b5169fc50f5ee086de93815b94dc520a4806d3c122d7edf271757f58ba9b4",
+  "run_version": "invoice-preview-ocr-rules-v3",
+  "baseline_version": "ocr-rules-v0.4",
+  "pipeline_sha256": "b79588d6331e367c1d94483ab82371a0f470b5706d55b41baef59389d9082833",
+  "ocr_psm": 1,
+  "input_mode": "verified_corpus_png_previews",
+  "runtime_seconds": {
+    "ocr": 0.496,
+    "total": 0.497
+  }
+}

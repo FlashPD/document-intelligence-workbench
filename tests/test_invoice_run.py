@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 from docwork.baseline import extract_invoice
 from docwork.contracts import Box, DocumentPage, TextSpan
-from docwork.invoice_run import run_invoice_baseline, verify_invoice_run
+from docwork.invoice_run import _pipeline_snapshot, run_invoice_baseline, verify_invoice_run
 from tests.test_release_scoring import gold
 
 
@@ -60,6 +60,8 @@ class InvoiceRunTests(unittest.TestCase):
         self.assertEqual(prediction["source_sha256"], self.document["source_sha256"])
         self.assertEqual(prediction["input_mode"], "verified_corpus_png_previews")
         self.assertEqual(prediction["ocr_psm"], 1)
+        self.assertEqual(len(prediction["pages"]), 1)
+        self.assertTrue((self.run_dir / "source_snapshot.json").is_file())
         self.assertEqual(verify_invoice_run(self.manifest, self.run_dir)["status"], "verified")
 
     def test_ocr_failure_is_explicit_and_stays_in_denominator(self):
@@ -119,6 +121,58 @@ class InvoiceRunTests(unittest.TestCase):
             self.assertEqual(ocr.call_count, 2)
         self.assertEqual(report["status"], "scored")
         self.assertFalse((self.run_dir / "predictions" / ".invoice-1.json.tmp").exists())
+
+    def test_source_snapshot_tampering_is_rejected(self):
+        with patch("docwork.invoice_run.tesseract_page", side_effect=self.page):
+            run_invoice_baseline(self.manifest, self.run_dir)
+        path = self.run_dir / "source_snapshot.json"
+        snapshot = json.loads(path.read_text())
+        snapshot["baseline.py"] += "\n# altered\n"
+        path.write_text(json.dumps(snapshot))
+        with self.assertRaisesRegex(ValueError, "source snapshot"):
+            verify_invoice_run(self.manifest, self.run_dir)
+        with self.assertRaisesRegex(ValueError, "Pipeline source changed"):
+            run_invoice_baseline(self.manifest, self.run_dir, resume=True)
+
+    def test_unknown_ocr_reference_in_saved_prediction_is_rejected(self):
+        with patch("docwork.invoice_run.tesseract_page", side_effect=self.page):
+            run_invoice_baseline(self.manifest, self.run_dir)
+        path = self.run_dir / "predictions/invoice-1.json"
+        saved = json.loads(path.read_text())
+        saved["record"]["line_items"][0]["description"]["evidence_ids"] = ["invented"]
+        path.write_text(json.dumps(saved))
+        with self.assertRaisesRegex(ValueError, "unknown OCR evidence"):
+            verify_invoice_run(self.manifest, self.run_dir)
+
+    def test_source_change_during_run_cannot_publish_scored_report(self):
+        snapshot = _pipeline_snapshot()
+        changed = {**snapshot, "baseline.py": snapshot["baseline.py"] + "\n# changed\n"}
+        with patch("docwork.invoice_run.tesseract_page", side_effect=self.page), \
+                patch("docwork.invoice_run._pipeline_snapshot", side_effect=[snapshot, changed]):
+            with self.assertRaisesRegex(ValueError, "Pipeline source changed during run"):
+                run_invoice_baseline(self.manifest, self.run_dir)
+        self.assertFalse((self.run_dir / "report.json").exists())
+
+    def test_spatial_profile_is_explicit_and_resume_cannot_change_extractor(self):
+        from dataclasses import replace
+        original = self.page(self.source, page_number=1)
+        split = replace(original, spans=tuple(
+            replace(span, text="Design review", box=Box(.1, .35, .3, .38))
+            if span.id == "p1-l7" else span for span in original.spans
+        ) + (TextSpan("quantity", 1, "1", Box(.45, .35, .46, .38), "fixture"),
+             TextSpan("prices", 1, "10.00 10.00", Box(.65, .35, .85, .38), "fixture")))
+        candidate_dir = self.root / "spatial"
+        with patch("docwork.invoice_run.tesseract_page", return_value=split):
+            default = run_invoice_baseline(self.manifest, self.run_dir)
+            candidate = run_invoice_baseline(self.manifest, candidate_dir, extractor="spatial_rules")
+        self.assertEqual(default["run_identity"]["baseline_version"], "ocr-rules-v0.3")
+        self.assertEqual(default["summary"]["row_detection"]["tp"], 1)
+        self.assertEqual(candidate["run_identity"]["extractor"], "spatial_rules")
+        self.assertEqual(candidate["run_identity"]["baseline_version"], "ocr-rules-v0.4")
+        self.assertEqual(candidate["summary"]["row_detection"]["tp"], 2)
+        self.assertEqual(verify_invoice_run(self.manifest, candidate_dir)["status"], "verified")
+        with self.assertRaisesRegex(ValueError, "Run identity changed"):
+            run_invoice_baseline(self.manifest, candidate_dir, resume=True)
 
 
 if __name__ == "__main__":

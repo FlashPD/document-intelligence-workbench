@@ -9,14 +9,31 @@ import platform
 import subprocess
 import time
 from collections import Counter
+from dataclasses import asdict
 from pathlib import Path
 
-from .baseline import BASELINE_VERSION, extract_invoice_pages
+from .baseline import BASELINE_VERSION, extract_invoice, extract_invoice_pages
+from .spatial_baseline import (BASELINE_VERSION as SPATIAL_VERSION,
+                               extract_invoice as extract_spatial_invoice,
+                               extract_invoice_pages as extract_spatial_pages)
 from .ocr import tesseract_page
 from .release_evaluation import score_saved_invoice_run, verify_invoice_manifest
 from .validation import validate_invoice
+from .review import page_from_dict, record_from_dict
 
-RUN_VERSION = "invoice-preview-ocr-rules-v2"
+RUN_VERSION = "invoice-preview-ocr-rules-v4"
+V3_PIPELINE_FILES = ("baseline.py", "contracts.py", "ocr.py", "spatial_lines.py", "validation.py", "invoice_run.py")
+PIPELINE_FILES = (*V3_PIPELINE_FILES, "spatial_baseline.py")
+EXTRACTORS = {"ocr_rules": (BASELINE_VERSION, extract_invoice_pages, extract_invoice),
+              "spatial_rules": (SPATIAL_VERSION, extract_spatial_pages, extract_spatial_invoice)}
+
+
+def _pipeline_snapshot() -> dict[str, str]:
+    return {name: Path(__file__).with_name(name).read_text() for name in PIPELINE_FILES}
+
+
+def _snapshot_hash(snapshot: dict) -> str:
+    return hashlib.sha256(json.dumps(snapshot, sort_keys=True).encode()).hexdigest()
 
 
 def _write_new(path: Path, value: dict) -> None:
@@ -47,7 +64,7 @@ def _preview_paths(document: dict, root: Path) -> tuple[Path, ...]:
     return tuple(root / asset["path"] for asset in previews)
 
 
-def _extract(document: dict, root: Path, ocr_psm: int) -> dict:
+def _extract(document: dict, root: Path, ocr_psm: int, pipeline_sha256: str, extractor: str) -> dict:
     started = time.perf_counter()
     ocr_seconds = 0.0
     try:
@@ -58,15 +75,19 @@ def _extract(document: dict, root: Path, ocr_psm: int) -> dict:
             pages.append(tesseract_page(path, page_number=number,
                                         page_segmentation_mode=ocr_psm))
             ocr_seconds += time.perf_counter() - page_start
-        record = extract_invoice_pages(tuple(pages))
-        issues = validate_invoice(record, tuple(pages))
-        result = {"record": record.to_dict(), "issue_codes": [issue.code for issue in issues]}
+        _, extract, header_extract = EXTRACTORS[extractor]
+        record = extract(tuple(pages))
+        issues = validate_invoice(record, tuple(pages), header_extractor=header_extract)
+        result = {"record": record.to_dict(), "issue_codes": [issue.code for issue in issues],
+                  "pages": [asdict(page) for page in pages]}
     except (OSError, RuntimeError, ValueError, subprocess.TimeoutExpired) as exc:
         result = {"record": None, "failure_type": type(exc).__name__}
     result.update({
         "source_sha256": document["source_sha256"],
         "run_version": RUN_VERSION,
-        "baseline_version": BASELINE_VERSION,
+        "baseline_version": EXTRACTORS[extractor][0],
+        "extractor": extractor,
+        "pipeline_sha256": pipeline_sha256,
         "ocr_psm": ocr_psm,
         "input_mode": "verified_corpus_png_previews",
         "runtime_seconds": {"ocr": round(ocr_seconds, 3),
@@ -76,7 +97,8 @@ def _extract(document: dict, root: Path, ocr_psm: int) -> dict:
 
 
 def run_invoice_baseline(manifest_path: Path, output_dir: Path, *, resume: bool = False,
-                         ocr_psm: int = 1, split: str = "development") -> dict:
+                         ocr_psm: int = 1, split: str = "development",
+                         extractor: str = "ocr_rules") -> dict:
     """Score development or calibration previews; leave held-out test sealed."""
     manifest_path = manifest_path.resolve(strict=True)
     root = manifest_path.parent
@@ -87,6 +109,8 @@ def run_invoice_baseline(manifest_path: Path, output_dir: Path, *, resume: bool 
         raise ValueError("OCR page segmentation mode must be 1 or 3")
     if split not in ("development", "calibration"):
         raise ValueError("Preview runs may score development or calibration only")
+    if extractor not in EXTRACTORS:
+        raise ValueError("Extractor must be ocr_rules or spatial_rules")
     manifest_bytes = manifest_path.read_bytes()
     manifest = json.loads(manifest_bytes)
     verify_invoice_manifest(manifest, manifest_path)
@@ -95,12 +119,16 @@ def run_invoice_baseline(manifest_path: Path, output_dir: Path, *, resume: bool 
         raise ValueError(f"Manifest has no {split} documents")
     version = subprocess.run(["tesseract", "--version"], capture_output=True, text=True,
                              timeout=10, check=True).stdout.splitlines()[0]
+    snapshot = _pipeline_snapshot()
+    pipeline_hash = _snapshot_hash(snapshot)
     identity = {
         "run_version": RUN_VERSION,
         "dataset_id": manifest["dataset_id"],
         "split": split,
         "manifest_sha256": hashlib.sha256(manifest_bytes).hexdigest(),
-        "baseline_version": BASELINE_VERSION,
+        "baseline_version": EXTRACTORS[extractor][0],
+        "extractor": extractor,
+        "pipeline_sha256": pipeline_hash,
         "ocr_psm": ocr_psm,
         "tesseract_version": version,
         "python_version": platform.python_version(),
@@ -112,10 +140,13 @@ def run_invoice_baseline(manifest_path: Path, output_dir: Path, *, resume: bool 
             raise ValueError("Resume directory does not exist")
         if json.loads((output_dir / "run.json").read_text()) != identity:
             raise ValueError("Run identity changed; resume requires the original corpus and runtime")
+        if json.loads((output_dir / "source_snapshot.json").read_text()) != snapshot:
+            raise ValueError("Pipeline source changed; resume requires the original implementation")
     else:
         output_dir.mkdir(parents=True, exist_ok=False)
         (output_dir / "predictions").mkdir()
         _write_new(output_dir / "run.json", identity)
+        _write_new(output_dir / "source_snapshot.json", snapshot)
     report_path = output_dir / "report.json"
     if resume and report_path.exists():
         verify_invoice_run(manifest_path, output_dir)
@@ -139,11 +170,15 @@ def run_invoice_baseline(manifest_path: Path, output_dir: Path, *, resume: bool 
             saved = json.loads(path.read_text())
             if (saved.get("source_sha256") != document["source_sha256"]
                     or saved.get("run_version") != RUN_VERSION
-                    or saved.get("baseline_version") != BASELINE_VERSION
+                    or saved.get("baseline_version") != EXTRACTORS[extractor][0]
+                    or saved.get("extractor") != extractor
+                    or saved.get("pipeline_sha256") != pipeline_hash
                     or saved.get("ocr_psm") != ocr_psm):
                 raise ValueError(f"Existing prediction does not match run: {document['id']}")
             continue
-        _write_new(path, _extract(document, root, ocr_psm))
+        _write_new(path, _extract(document, root, ocr_psm, pipeline_hash, extractor))
+    if _pipeline_snapshot() != snapshot:
+        raise ValueError("Pipeline source changed during run; use a fresh output directory")
     report = score_saved_invoice_run(manifest_path, predictions_dir, split)
     report["run_identity"] = identity
     timing = [json.loads((predictions_dir / f"{doc['id']}.json").read_text())["runtime_seconds"]
@@ -172,6 +207,12 @@ def verify_invoice_run(manifest_path: Path, run_dir: Path) -> dict:
             or recorded.get("run_identity") != identity):
         raise ValueError("Run identity or corpus hash differs from the saved report")
     predictions_dir = run_dir / "predictions"
+    snapshot_run = identity.get("run_version") in ("invoice-preview-ocr-rules-v3", RUN_VERSION)
+    if snapshot_run:
+        snapshot = json.loads((run_dir / "source_snapshot.json").read_text())
+        required = V3_PIPELINE_FILES if identity["run_version"] == "invoice-preview-ocr-rules-v3" else PIPELINE_FILES
+        if set(snapshot) != set(required) or _snapshot_hash(snapshot) != identity.get("pipeline_sha256"):
+            raise ValueError("Saved pipeline source snapshot differs from run identity")
     predictions = []
     for path in predictions_dir.iterdir():
         if path.is_symlink() or not path.is_file():
@@ -182,6 +223,22 @@ def verify_invoice_run(manifest_path: Path, run_dir: Path) -> dict:
                 or prediction.get("ocr_psm") != identity.get("ocr_psm")
                 or prediction.get("input_mode") != identity.get("input_mode")):
             raise ValueError(f"Prediction run identity differs: {path.name}")
+        if identity.get("run_version") == RUN_VERSION and (identity.get("extractor") not in EXTRACTORS
+                or prediction.get("extractor") != identity["extractor"]):
+            raise ValueError(f"Prediction extractor identity differs: {path.name}")
+        if snapshot_run:
+            if prediction.get("pipeline_sha256") != identity.get("pipeline_sha256"):
+                raise ValueError(f"Prediction pipeline identity differs: {path.name}")
+            if prediction.get("record") is not None:
+                pages = tuple(page_from_dict(page) for page in prediction["pages"])
+                if not pages or [page.number for page in pages] != list(range(1, len(pages) + 1)):
+                    raise ValueError("Prediction pages are missing or out of sequence")
+                record = record_from_dict(prediction["record"])
+                known_ids = {span.id for page in pages for span in page.spans}
+                fields = list(record.fields.values()) + [getattr(row, name) for row in record.line_items
+                          for name in ("description", "quantity", "unit_price", "line_total", "tax")]
+                if any(set(field.evidence_ids) - known_ids for field in fields):
+                    raise ValueError("Prediction references unknown OCR evidence")
         predictions.append(prediction)
     rescored = score_saved_invoice_run(manifest_path, predictions_dir, identity["split"])
     if (rescored["status"] != "scored" or

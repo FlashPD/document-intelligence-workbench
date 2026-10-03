@@ -1,0 +1,309 @@
+<!doctype html><html lang='en'><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Document extraction comparison</title><style>body{font:16px system-ui;max-width:1100px;margin:40px auto;padding:0 24px;color:#152b39;background:#f7f9fb}table{border-collapse:collapse;width:100%;background:white;margin:20px 0}th,td{padding:12px;text-align:left;border-bottom:1px solid #dce3e8}th{background:#eaf0f4}code{overflow-wrap:anywhere}p{line-height:1.6}caption{text-align:left;font-weight:600;padding:10px 0}</style><h1>Document extraction comparison</h1><p><strong>Gate: pass</strong> · development</p><p>Development diagnostics only; not held-out quality, release acceptance, or real-invoice accuracy.</p><table><caption>All scheduled documents; delta = candidate − baseline</caption><tr><th>Metric</th><th>Baseline</th><th>Candidate</th><th>Delta</th><th>95% paired interval</th></tr><tr><th>header_exact</th><td>0.900</td><td>0.900</td><td>+0.000</td><td>[+0.000, +0.000]</td></tr><tr><th>required_header_exact</th><td>0.867</td><td>0.867</td><td>+0.000</td><td>[+0.000, +0.000]</td></tr><tr><th>line_total_exact_by_order</th><td>0.944</td><td>0.944</td><td>+0.000</td><td>[+0.000, +0.000]</td></tr><tr><th>row_count_exact</th><td>0.917</td><td>0.917</td><td>+0.000</td><td>[+0.000, +0.000]</td></tr><tr><th>all_required_correct</th><td>0.667</td><td>0.667</td><td>+0.000</td><td>[+0.000, +0.000]</td></tr><tr><th>header_evidence_iou_mean_all_slots</th><td>0.420</td><td>0.420</td><td>+0.000</td><td>[+0.000, +0.000]</td></tr></table><p>Intervals resample six layout families together. They describe this development set; they do not establish generalization to unseen vendors.</p><table><caption>Required header exact match by layout</caption><tr><th>Layout</th><th>Documents</th><th>Baseline</th><th>Candidate</th></tr><tr><th>classic</th><td>2</td><td>1.000</td><td>1.000</td></tr><tr><th>right_header</th><td>2</td><td>1.000</td><td>1.000</td></tr><tr><th>compact</th><td>2</td><td>1.000</td><td>1.000</td></tr><tr><th>two_column</th><td>2</td><td>0.400</td><td>0.400</td></tr><tr><th>summary_first</th><td>2</td><td>1.000</td><td>1.000</td></tr><tr><th>degraded_orientation</th><td>2</td><td>0.800</td><td>0.800</td></tr></table><h2>Failures and eligibility</h2><p>baseline: 12 / 12 processed. Failures: {}</p><p>candidate: 12 / 12 processed. Failures: {}</p><p>Stage totals are recorded in the input summaries. No latency gate or speedup is claimed: hardware capacity, inference runtime, warmup, and failed-stage timing are not fully captured.</p><details><summary>Complete comparison, policy, and provenance</summary><pre><code>{
+  &quot;comparison_version&quot;: &quot;development-comparison-v1&quot;,
+  &quot;status&quot;: &quot;pass&quot;,
+  &quot;dataset_id&quot;: &quot;self-authored-development-v0&quot;,
+  &quot;split&quot;: &quot;development&quot;,
+  &quot;manifest_sha256&quot;: &quot;f49e349a900e3d09612d00179027d10730f91786a059707f77ebb57f9589e60d&quot;,
+  &quot;reasons&quot;: [],
+  &quot;policy&quot;: {
+    &quot;max_absolute_regression&quot;: 0.02,
+    &quot;gated_metrics&quot;: [
+      &quot;required_header_exact&quot;,
+      &quot;line_total_exact_by_order&quot;,
+      &quot;row_count_exact&quot;
+    ],
+    &quot;declared_changes&quot;: [
+      &quot;extractor&quot;
+    ],
+    &quot;decision&quot;: &quot;point-estimate regression; confidence intervals are descriptive&quot;
+  },
+  &quot;interpretation&quot;: &quot;Development diagnostics only; not held-out quality, release acceptance, or real-invoice accuracy.&quot;,
+  &quot;actual_changes&quot;: [
+    &quot;extractor&quot;
+  ],
+  &quot;metrics&quot;: {
+    &quot;header_exact&quot;: {
+      &quot;baseline&quot;: 0.9,
+      &quot;candidate&quot;: 0.9,
+      &quot;delta&quot;: 0.0,
+      &quot;delta_ci95&quot;: [
+        0.0,
+        0.0
+      ]
+    },
+    &quot;required_header_exact&quot;: {
+      &quot;baseline&quot;: 0.8666666666666667,
+      &quot;candidate&quot;: 0.8666666666666667,
+      &quot;delta&quot;: 0.0,
+      &quot;delta_ci95&quot;: [
+        0.0,
+        0.0
+      ]
+    },
+    &quot;line_total_exact_by_order&quot;: {
+      &quot;baseline&quot;: 0.9444444444444444,
+      &quot;candidate&quot;: 0.9444444444444444,
+      &quot;delta&quot;: 0.0,
+      &quot;delta_ci95&quot;: [
+        0.0,
+        0.0
+      ]
+    },
+    &quot;row_count_exact&quot;: {
+      &quot;baseline&quot;: 0.9166666666666666,
+      &quot;candidate&quot;: 0.9166666666666666,
+      &quot;delta&quot;: 0.0,
+      &quot;delta_ci95&quot;: [
+        0.0,
+        0.0
+      ]
+    },
+    &quot;all_required_correct&quot;: {
+      &quot;baseline&quot;: 0.6666666666666666,
+      &quot;candidate&quot;: 0.6666666666666666,
+      &quot;delta&quot;: 0.0,
+      &quot;delta_ci95&quot;: [
+        0.0,
+        0.0
+      ]
+    },
+    &quot;header_evidence_iou_mean_all_slots&quot;: {
+      &quot;baseline&quot;: 0.4199,
+      &quot;candidate&quot;: 0.4199,
+      &quot;delta&quot;: 0.0,
+      &quot;delta_ci95&quot;: [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  &quot;bootstrap&quot;: {
+    &quot;unit&quot;: &quot;layout_family&quot;,
+    &quot;groups&quot;: 6,
+    &quot;samples&quot;: 2000,
+    &quot;seed&quot;: 1729,
+    &quot;method&quot;: &quot;paired percentile; related documents remain in the same family&quot;,
+    &quot;limitation&quot;: &quot;Six author-created families do not represent arbitrary unseen vendors.&quot;
+  },
+  &quot;by_family&quot;: [
+    {
+      &quot;family&quot;: &quot;classic&quot;,
+      &quot;documents&quot;: 2,
+      &quot;baseline&quot;: {
+        &quot;header_exact&quot;: 1.0,
+        &quot;required_header_exact&quot;: 1.0,
+        &quot;line_total_exact_by_order&quot;: 1.0,
+        &quot;row_count_exact&quot;: 1.0,
+        &quot;all_required_correct&quot;: 1.0,
+        &quot;header_evidence_iou_mean_all_slots&quot;: 0.4665
+      },
+      &quot;candidate&quot;: {
+        &quot;header_exact&quot;: 1.0,
+        &quot;required_header_exact&quot;: 1.0,
+        &quot;line_total_exact_by_order&quot;: 1.0,
+        &quot;row_count_exact&quot;: 1.0,
+        &quot;all_required_correct&quot;: 1.0,
+        &quot;header_evidence_iou_mean_all_slots&quot;: 0.4665
+      }
+    },
+    {
+      &quot;family&quot;: &quot;right_header&quot;,
+      &quot;documents&quot;: 2,
+      &quot;baseline&quot;: {
+        &quot;header_exact&quot;: 1.0,
+        &quot;required_header_exact&quot;: 1.0,
+        &quot;line_total_exact_by_order&quot;: 1.0,
+        &quot;row_count_exact&quot;: 1.0,
+        &quot;all_required_correct&quot;: 1.0,
+        &quot;header_evidence_iou_mean_all_slots&quot;: 0.4003
+      },
+      &quot;candidate&quot;: {
+        &quot;header_exact&quot;: 1.0,
+        &quot;required_header_exact&quot;: 1.0,
+        &quot;line_total_exact_by_order&quot;: 1.0,
+        &quot;row_count_exact&quot;: 1.0,
+        &quot;all_required_correct&quot;: 1.0,
+        &quot;header_evidence_iou_mean_all_slots&quot;: 0.4003
+      }
+    },
+    {
+      &quot;family&quot;: &quot;compact&quot;,
+      &quot;documents&quot;: 2,
+      &quot;baseline&quot;: {
+        &quot;header_exact&quot;: 1.0,
+        &quot;required_header_exact&quot;: 1.0,
+        &quot;line_total_exact_by_order&quot;: 1.0,
+        &quot;row_count_exact&quot;: 1.0,
+        &quot;all_required_correct&quot;: 1.0,
+        &quot;header_evidence_iou_mean_all_slots&quot;: 0.4678
+      },
+      &quot;candidate&quot;: {
+        &quot;header_exact&quot;: 1.0,
+        &quot;required_header_exact&quot;: 1.0,
+        &quot;line_total_exact_by_order&quot;: 1.0,
+        &quot;row_count_exact&quot;: 1.0,
+        &quot;all_required_correct&quot;: 1.0,
+        &quot;header_evidence_iou_mean_all_slots&quot;: 0.4678
+      }
+    },
+    {
+      &quot;family&quot;: &quot;two_column&quot;,
+      &quot;documents&quot;: 2,
+      &quot;baseline&quot;: {
+        &quot;header_exact&quot;: 0.6,
+        &quot;required_header_exact&quot;: 0.4,
+        &quot;line_total_exact_by_order&quot;: 1.0,
+        &quot;row_count_exact&quot;: 1.0,
+        &quot;all_required_correct&quot;: 0.0,
+        &quot;header_evidence_iou_mean_all_slots&quot;: 0.2507
+      },
+      &quot;candidate&quot;: {
+        &quot;header_exact&quot;: 0.6,
+        &quot;required_header_exact&quot;: 0.4,
+        &quot;line_total_exact_by_order&quot;: 1.0,
+        &quot;row_count_exact&quot;: 1.0,
+        &quot;all_required_correct&quot;: 0.0,
+        &quot;header_evidence_iou_mean_all_slots&quot;: 0.2507
+      }
+    },
+    {
+      &quot;family&quot;: &quot;summary_first&quot;,
+      &quot;documents&quot;: 2,
+      &quot;baseline&quot;: {
+        &quot;header_exact&quot;: 1.0,
+        &quot;required_header_exact&quot;: 1.0,
+        &quot;line_total_exact_by_order&quot;: 1.0,
+        &quot;row_count_exact&quot;: 1.0,
+        &quot;all_required_correct&quot;: 1.0,
+        &quot;header_evidence_iou_mean_all_slots&quot;: 0.4674
+      },
+      &quot;candidate&quot;: {
+        &quot;header_exact&quot;: 1.0,
+        &quot;required_header_exact&quot;: 1.0,
+        &quot;line_total_exact_by_order&quot;: 1.0,
+        &quot;row_count_exact&quot;: 1.0,
+        &quot;all_required_correct&quot;: 1.0,
+        &quot;header_evidence_iou_mean_all_slots&quot;: 0.4674
+      }
+    },
+    {
+      &quot;family&quot;: &quot;degraded_orientation&quot;,
+      &quot;documents&quot;: 2,
+      &quot;baseline&quot;: {
+        &quot;header_exact&quot;: 0.8,
+        &quot;required_header_exact&quot;: 0.8,
+        &quot;line_total_exact_by_order&quot;: 0.5,
+        &quot;row_count_exact&quot;: 0.5,
+        &quot;all_required_correct&quot;: 0.0,
+        &quot;header_evidence_iou_mean_all_slots&quot;: 0.4669
+      },
+      &quot;candidate&quot;: {
+        &quot;header_exact&quot;: 0.8,
+        &quot;required_header_exact&quot;: 0.8,
+        &quot;line_total_exact_by_order&quot;: 0.5,
+        &quot;row_count_exact&quot;: 0.5,
+        &quot;all_required_correct&quot;: 0.0,
+        &quot;header_evidence_iou_mean_all_slots&quot;: 0.4669
+      }
+    }
+  ],
+  &quot;summaries&quot;: {
+    &quot;baseline&quot;: {
+      &quot;documents_scheduled&quot;: 12,
+      &quot;documents_processed&quot;: 12,
+      &quot;header_exact&quot;: {
+        &quot;correct&quot;: 108,
+        &quot;eligible&quot;: 120
+      },
+      &quot;required_header_exact&quot;: {
+        &quot;correct&quot;: 52,
+        &quot;eligible&quot;: 60
+      },
+      &quot;all_required_correct&quot;: {
+        &quot;documents&quot;: 8,
+        &quot;eligible&quot;: 12
+      },
+      &quot;line_total_exact_by_order&quot;: {
+        &quot;correct&quot;: 17,
+        &quot;eligible&quot;: 18
+      },
+      &quot;row_count_exact&quot;: {
+        &quot;documents&quot;: 11,
+        &quot;eligible&quot;: 12
+      },
+      &quot;header_evidence_iou_mean_all_slots&quot;: 0.4199,
+      &quot;injected_total_conflicts_detected&quot;: {
+        &quot;correct&quot;: 1,
+        &quot;eligible&quot;: 1
+      },
+      &quot;false_total_conflict_warnings&quot;: {
+        &quot;count&quot;: 0,
+        &quot;eligible&quot;: 11
+      },
+      &quot;sum_ocr_seconds&quot;: 7.26,
+      &quot;failures_by_type&quot;: {}
+    },
+    &quot;candidate&quot;: {
+      &quot;documents_scheduled&quot;: 12,
+      &quot;documents_processed&quot;: 12,
+      &quot;header_exact&quot;: {
+        &quot;correct&quot;: 108,
+        &quot;eligible&quot;: 120
+      },
+      &quot;required_header_exact&quot;: {
+        &quot;correct&quot;: 52,
+        &quot;eligible&quot;: 60
+      },
+      &quot;all_required_correct&quot;: {
+        &quot;documents&quot;: 8,
+        &quot;eligible&quot;: 12
+      },
+      &quot;line_total_exact_by_order&quot;: {
+        &quot;correct&quot;: 17,
+        &quot;eligible&quot;: 18
+      },
+      &quot;row_count_exact&quot;: {
+        &quot;documents&quot;: 11,
+        &quot;eligible&quot;: 12
+      },
+      &quot;header_evidence_iou_mean_all_slots&quot;: 0.4199,
+      &quot;injected_total_conflicts_detected&quot;: {
+        &quot;correct&quot;: 1,
+        &quot;eligible&quot;: 1
+      },
+      &quot;false_total_conflict_warnings&quot;: {
+        &quot;count&quot;: 0,
+        &quot;eligible&quot;: 11
+      },
+      &quot;sum_ocr_seconds&quot;: 8.254,
+      &quot;failures_by_type&quot;: {}
+    }
+  },
+  &quot;extractors&quot;: {
+    &quot;baseline&quot;: {
+      &quot;variant&quot;: &quot;ocr_rules&quot;,
+      &quot;version&quot;: &quot;ocr-rules-v0.3&quot;,
+      &quot;implementation_sha256&quot;: &quot;fda483fa5f5acafdcd8373772b94f47fba37fa7bfa1c6a950a0859bc2e230db7&quot;
+    },
+    &quot;candidate&quot;: {
+      &quot;variant&quot;: &quot;ocr_rules&quot;,
+      &quot;version&quot;: &quot;ocr-rules-v0.4&quot;,
+      &quot;implementation_sha256&quot;: &quot;2300bf75b6ea35b4868705856b00bc2bee4ea68ad4208447ba289bb5570968c7&quot;
+    }
+  },
+  &quot;failures&quot;: {
+    &quot;baseline&quot;: [],
+    &quot;candidate&quot;: []
+  },
+  &quot;timing_note&quot;: &quot;Stage totals are recorded in the input summaries. No latency gate or speedup is claimed: hardware capacity, inference runtime, warmup, and failed-stage timing are not fully captured.&quot;,
+  &quot;inputs&quot;: {
+    &quot;baseline&quot;: {
+      &quot;name&quot;: &quot;baseline.json&quot;,
+      &quot;sha256&quot;: &quot;1f74a75d187760ef7a8c49e892f6f5d837230b823e02380d2c4455d28fd9679a&quot;
+    },
+    &quot;candidate&quot;: {
+      &quot;name&quot;: &quot;candidate.json&quot;,
+      &quot;sha256&quot;: &quot;6825ddaf012937025532e31d41d81f719d3ed9e8464028934aab1afe59557c61&quot;
+    }
+  }
+}</code></pre></details></html>

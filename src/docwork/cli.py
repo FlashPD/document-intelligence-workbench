@@ -135,6 +135,8 @@ def main(argv: list[str] | None = None) -> int:
     invoice_run.add_argument("--output-dir", type=Path, required=True)
     invoice_run.add_argument("--resume", action="store_true")
     invoice_run.add_argument("--split", choices=("development", "calibration"), default="development")
+    invoice_run.add_argument("--extractor", choices=("ocr_rules", "spatial_rules"), default="ocr_rules",
+                             help="spatial_rules is experimental; calibration rejected default promotion")
     invoice_run.add_argument("--ocr-psm", type=int, choices=(1, 3), default=1,
                              help="Tesseract page segmentation mode; 1 enables orientation detection")
     invoice_verify = commands.add_parser("eval-verify-invoice-run", help="Rescore saved invoice predictions and verify their report")
@@ -250,7 +252,7 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "eval-run-invoices":
             from .invoice_run import run_invoice_baseline
             data = run_invoice_baseline(args.manifest, args.output_dir, resume=args.resume,
-                                        ocr_psm=args.ocr_psm, split=args.split)
+                                        ocr_psm=args.ocr_psm, split=args.split, extractor=args.extractor)
             print(args.output_dir / "report.json")
             return 0 if data["status"] == "scored" else 2
         elif args.command == "eval-verify-invoice-run":

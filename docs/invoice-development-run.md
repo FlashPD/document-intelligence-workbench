@@ -84,3 +84,36 @@ PYTHONPATH=src python3.12 -m docwork.cli eval-verify-review-priority \
   evals/invoice-development-2026-10-03/ocr-rules-v0.3-psm1 \
   evals/invoice-development-2026-10-03/ocr-rules-v0.3-psm1/priority-report.json
 ```
+
+## Spatial-fragment extraction — October 3, 2026
+
+The [v0.4 development run](../evals/invoice-development-2026-10-03/ocr-rules-v0.4-psm1/report.json) tests the experimental [spatial fragment grouping](spatial-extraction.md) candidate with unchanged Tesseract PSM 1 and the frozen scorer. It processes all 180 invoices and saves every prediction's OCR pages plus a hash-bound pipeline source snapshot. `eval-verify-invoice-run` verifies the new bundle; the original v0.3 bundle also still verifies.
+
+| Measure | v0.3 PSM 1 | v0.4 PSM 1 |
+|---|---:|---:|
+| Header macro F1 | 0.9911 | 0.9911 |
+| All required fields exact | 150/166 | 150/166 |
+| Row detection F1 | 0.9855 | 0.9914 |
+| Detected gold rows | 511/522 | 517/522 |
+| Exact-row F1 | 0.9817 | 0.9779 |
+| Exact gold rows | 509/522 | 510/522 |
+| Line-total F1 | 0.9874 | 0.9933 |
+
+Six additional gold rows are detected. One becomes fully exact: [inv-f02-24](../evals/invoice-development-2026-10-03/ocr-rules-v0.4-psm1/predictions/inv-f02-24.json) has a description, quantity, and price pair in separate OCR spans. The other five recovered rows have no recognized quantity. They remain partial rows with `quantity_not_observed` and blocking `INVALID_ROW_AMOUNT`. The stricter exact-row scorer penalizes those additional inexact predictions, so its F1 decreases despite one more exact row. No previously exact row or required-field-complete document regresses in the paired run. This change improves visible row coverage for human correction; it is not an improvement in every quality measure, and no review-time benefit has been measured.
+
+The [new triage diagnostic](../evals/invoice-development-2026-10-03/ocr-rules-v0.4-psm1/priority-report.json) still finds seven wrong required-field records among 75 zero-point documents. All 24 injected total conflicts and 14 ambiguous dates are flagged; `TOTAL_NOT_CHECKED` remains on 72 documents. Human approval remains required for every export.
+
+The separate 12-image development set also passes its [paired comparison gate](../evals/spatial-development-2026-10-03/comparison.html), with unchanged 108/120 headers and 17/18 line totals. That small-set gate does not override the larger split's exact-row tradeoff. The [prototype Docker evidence bundle](../evals/parser-verification-2026-10-03-v0.4/report.json) passed all ten basic workflow checks before promotion was rejected. Those fixture checks did not reveal the calibration regression. The [final default-workflow bundle](../evals/parser-verification-2026-10-03-final/report.json) records verification after restoring v0.3. The 180-invoice quality run continues to use host PNG previews, rather than container PDF rendering. Its serial OCR sum is 141.925 seconds; other local checks ran during portions of evaluation, so these timings do not support a speed comparison.
+
+Reproduce the spatial development run at a new path:
+
+```sh
+PYTHONPATH=src python3.12 -m docwork.cli eval-run-invoices \
+  --extractor spatial_rules --output-dir artifacts/invoice-spatial-development-fresh
+PYTHONPATH=src python3.12 -m docwork.cli eval-verify-invoice-run \
+  evals/invoice-development-2026-10-03/ocr-rules-v0.4-psm1
+```
+
+The extraction and validation source was frozen after development and before the follow-up calibration run. Calibration diagnostics do not become held-out evidence; the test families remain unscored.
+
+The unchanged candidate subsequently regressed on calibration and was [rejected for default promotion](invoice-calibration-run.md#spatial-candidate-rejected--october-3-2026). The product and ordinary evaluation commands continue to use v0.3. The spatial candidate is retained behind an explicit evaluation-only option; improved development coverage is not used to override the calibration result.
