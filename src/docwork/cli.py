@@ -130,6 +130,13 @@ def main(argv: list[str] | None = None) -> int:
     development.add_argument("--output", type=Path, default=Path("artifacts/development-baseline.json"))
     corpus = commands.add_parser("eval-verify-corpus", help="Verify the frozen 540-document invoice corpus")
     corpus.add_argument("manifest", type=Path, nargs="?", default=Path("datasets/invoices-v1/manifest.json"))
+    invoice_run = commands.add_parser("eval-run-invoices", help="OCR trusted corpus previews and score the development split")
+    invoice_run.add_argument("--manifest", type=Path, default=Path("datasets/invoices-v1/manifest.json"))
+    invoice_run.add_argument("--output-dir", type=Path, required=True)
+    invoice_run.add_argument("--resume", action="store_true")
+    invoice_verify = commands.add_parser("eval-verify-invoice-run", help="Rescore saved invoice predictions and verify their report")
+    invoice_verify.add_argument("run_directory", type=Path)
+    invoice_verify.add_argument("--manifest", type=Path, default=Path("datasets/invoices-v1/manifest.json"))
     model_eval = commands.add_parser("eval-development-model", help="Score the local span model on the same development PNGs")
     model_eval.add_argument("--model-endpoint", required=True)
     model_eval.add_argument("--model-id", required=True)
@@ -229,6 +236,14 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "eval-verify-corpus":
             from .corpus import verify_synthetic_corpus
             data = verify_synthetic_corpus(args.manifest)
+        elif args.command == "eval-run-invoices":
+            from .invoice_run import run_invoice_baseline
+            data = run_invoice_baseline(args.manifest, args.output_dir, resume=args.resume)
+            print(args.output_dir / "report.json")
+            return 0 if data["status"] == "scored" else 2
+        elif args.command == "eval-verify-invoice-run":
+            from .invoice_run import verify_invoice_run
+            data = verify_invoice_run(args.manifest, args.run_directory)
         elif args.command == "models":
             from .model_runtime import fetch_assets, load_profile, verify_assets
             profile = load_profile(args.profile)

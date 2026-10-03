@@ -1,0 +1,154 @@
+{
+  "record": {
+    "schema_version": "invoice-v1-spike",
+    "fields": {
+      "supplier_name": {
+        "value": "Oe",
+        "raw": "Oe",
+        "evidence_ids": [
+          "p1-l0001"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "invoice_number": {
+        "value": "F02-004",
+        "raw": "Invoice No.: F02-004",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "issue_date": {
+        "value": "2026-01-17",
+        "raw": "Date: 2026-01-17",
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "due_date": {
+        "value": "2026-02-16",
+        "raw": "Due date: 2026-02-16",
+        "evidence_ids": [
+          "p1-l0007"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "currency": {
+        "value": "USD",
+        "raw": "Currency: USD",
+        "evidence_ids": [
+          "p1-l0008"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "subtotal": {
+        "value": "206.00",
+        "raw": "Subtotal: 206.00",
+        "evidence_ids": [
+          "p1-l0011"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "tax": {
+        "value": "6.00",
+        "raw": "Tax: 6.00",
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": "0.00",
+        "raw": "Discount: 0.00",
+        "evidence_ids": [
+          "p1-l0013"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "shipping": {
+        "value": "0.00",
+        "raw": "Shipping: 0.00",
+        "evidence_ids": [
+          "p1-l0014"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": "212.00",
+        "raw": "Total: 212.00",
+        "evidence_ids": [
+          "p1-l0015"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Extended technical documentation review",
+          "raw": "Extended technical documentation review 2 103.00 206.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "2",
+          "raw": "Extended technical documentation review 2 103.00 206.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "103.00",
+          "raw": "Extended technical documentation review 2 103.00 206.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "206.00",
+          "raw": "Extended technical documentation review 2 103.00 206.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      }
+    ]
+  },
+  "issue_codes": [],
+  "source_sha256": "e2e775a7702034cc5e40430435e8d60697e610e89c0f31ba0bbb3c6ce190a1b6",
+  "run_version": "invoice-preview-ocr-rules-v1",
+  "baseline_version": "ocr-rules-v0.2",
+  "input_mode": "verified_corpus_png_previews",
+  "runtime_seconds": {
+    "ocr": 0.536,
+    "total": 0.536
+  }
+}

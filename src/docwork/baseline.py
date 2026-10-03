@@ -16,7 +16,7 @@ from .contracts import (
     missing,
 )
 
-BASELINE_VERSION = "ocr-rules-v0.2"
+BASELINE_VERSION = "ocr-rules-v0.3"
 
 LABELS = {
     "invoice_number": re.compile(r"^invoice\s*(?:number|no\.?|#)\s*:\s*(.+)$", re.I),
@@ -54,7 +54,11 @@ def extract_invoice(page: DocumentPage) -> InvoiceRecord:
                 break
         if matched:
             continue
-        if fields["supplier_name"].value is None and line.lower() != "invoice":
+        # Tesseract can emit a clipped page-corner glyph before the actual
+        # printed header. A source box touching both top and left edges is
+        # unreliable as a supplier name.
+        corner_artifact = span.box is not None and span.box.top <= .005 and span.box.left <= .005
+        if fields["supplier_name"].value is None and line.lower() != "invoice" and not corner_artifact:
             fields["supplier_name"] = observed(re.sub(r"\s+INVOICE$", "", line, flags=re.I), span)
     return InvoiceRecord(CONTRACT_VERSION, fields, _extract_rows(page))
 
