@@ -89,6 +89,18 @@ Run the audit only after supplied evidence writers stop. It checks input stabili
 
 The parser default points to the [browser-release parser report](../evals/review-release-parser-2026-10-03/report.json). The earlier [first verification attempt](../evals/portfolio-parser-2026-10-03/report.json) retained its failed stale-image check; the image was rebuilt before repeating verification. This preserves the failed attempt rather than rewriting it into a passing result.
 
+After the offline replay entrypoint, the [queue-release parser refresh](../evals/queue-release-parser-2026-10-03/report.json) passes all 16 workflow/recovery/resource checks, and the [browser refresh](../evals/queue-release-browser-2026-10-03/report.json) passes all 15 normal-workbench controls. They identify the newer source and parser image. The browser refresh captures frames without making a new video; the earlier captioned recording remains separately labeled historical presentation evidence. Use these explicit overrides when auditing this source snapshot:
+
+```sh
+PYTHONPATH=src python3.12 -m docwork.cli release-check \
+  --output-dir artifacts/queue-release-audit-fresh \
+  --parser-report evals/queue-release-parser-2026-10-03/report.json \
+  --browser-directory evals/queue-release-browser-2026-10-03 \
+  --demo-recording evals/review-browser-2026-10-03-v2/demo.webm
+```
+
+The [20-document parser queue](parser-queue.md) separately measures real serial processing of development PNG/PDF originals with declared concurrent model load. It is supplemental performance evidence, not an additional passing gate in `release-check`. The full invoice/receipt comparisons, current real-model workflow rerun, and human pilot are still required. A fresh six-case pilot was prepared at `artifacts/review-pilot-author-2026-10-03-v4`; its outcomes remain pending until the author reviews it and its server stops. Supply that directory to the final audit only after completion and shutdown.
+
 ## Three minute presentation script
 
 Use fictional samples and a disposable local workbench. Complete setup before recording. Frame the browser after the session URL has exchanged its token, and keep terminal session credentials and local paths out of the capture. Keep the extraction variant and whether OCR is live/replayed visible in the narration.

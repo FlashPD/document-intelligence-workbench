@@ -1,0 +1,526 @@
+{
+  "source_sha256": "821d4dd39f7899d3e52e5df3d420615beacbe882513c9c6ed7efb7528b211f30",
+  "pages": [
+    {
+      "number": 1,
+      "width_px": 1200,
+      "height_px": 1600,
+      "spans": [
+        {
+          "id": "p1-l0001",
+          "page": 1,
+          "text": "a",
+          "box": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 1.0,
+            "bottom": 0.011875
+          },
+          "method": "tesseract-eng",
+          "confidence": 21.87
+        },
+        {
+          "id": "p1-l0002",
+          "page": 1,
+          "text": "Maple Lantern Works",
+          "box": {
+            "left": 0.056666666666666664,
+            "top": 0.026875,
+            "right": 0.395,
+            "bottom": 0.051875
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.48
+        },
+        {
+          "id": "p1-l0003",
+          "page": 1,
+          "text": "INVOICE",
+          "box": {
+            "left": 0.6116666666666667,
+            "top": 0.064375,
+            "right": 0.7541666666666667,
+            "bottom": 0.08375
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.19
+        },
+        {
+          "id": "p1-l0004",
+          "page": 1,
+          "text": "Invoice No.: F04-001",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.171875,
+            "right": 0.2608333333333333,
+            "bottom": 0.18375
+          },
+          "method": "tesseract-eng",
+          "confidence": 91.39
+        },
+        {
+          "id": "p1-l0005",
+          "page": 1,
+          "text": "Date: 05/06/2026",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.20875,
+            "right": 0.2275,
+            "bottom": 0.220625
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.79
+        },
+        {
+          "id": "p1-l0006",
+          "page": 1,
+          "text": "Currency: USD",
+          "box": {
+            "left": 0.0675,
+            "top": 0.2825,
+            "right": 0.21083333333333334,
+            "bottom": 0.2975
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.26
+        },
+        {
+          "id": "p1-l0007",
+          "page": 1,
+          "text": "Subtotal: 938.00",
+          "box": {
+            "left": 0.5841666666666666,
+            "top": 0.328125,
+            "right": 0.7358333333333333,
+            "bottom": 0.34
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.48
+        },
+        {
+          "id": "p1-l0008",
+          "page": 1,
+          "text": "Tax: 0.00",
+          "box": {
+            "left": 0.5833333333333334,
+            "top": 0.36375,
+            "right": 0.6708333333333333,
+            "bottom": 0.375625
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.86
+        },
+        {
+          "id": "p1-l0009",
+          "page": 1,
+          "text": "Discount: 3.00",
+          "box": {
+            "left": 0.585,
+            "top": 0.399375,
+            "right": 0.7183333333333334,
+            "bottom": 0.41125
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.55
+        },
+        {
+          "id": "p1-l0010",
+          "page": 1,
+          "text": "Shipping: 0.00",
+          "box": {
+            "left": 0.5841666666666666,
+            "top": 0.435,
+            "right": 0.7175,
+            "bottom": 0.45
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.44
+        },
+        {
+          "id": "p1-l0011",
+          "page": 1,
+          "text": "Total: 940.00",
+          "box": {
+            "left": 0.5833333333333334,
+            "top": 0.470625,
+            "right": 0.7058333333333333,
+            "bottom": 0.4825
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.72
+        },
+        {
+          "id": "p1-l0012",
+          "page": 1,
+          "text": "Description Qty Unit price Amount",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.500625,
+            "right": 0.9066666666666666,
+            "bottom": 0.52125
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.42
+        },
+        {
+          "id": "p1-l0013",
+          "page": 1,
+          "text": "Layout study 4 77.00 308.00",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.548125,
+            "right": 0.8966666666666666,
+            "bottom": 0.563125
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.5
+        },
+        {
+          "id": "p1-l0014",
+          "page": 1,
+          "text": "Layout study 2 105.00 210.00",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.59875,
+            "right": 0.8966666666666666,
+            "bottom": 0.61375
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.69
+        },
+        {
+          "id": "p1-l0015",
+          "page": 1,
+          "text": "Field interview 2 56.00 112.00",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.649375,
+            "right": 0.8966666666666666,
+            "bottom": 0.66125
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.45
+        },
+        {
+          "id": "p1-l0016",
+          "page": 1,
+          "text": "Paper mockup 4 77.00 308.00",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.7,
+            "right": 0.8966666666666666,
+            "bottom": 0.715
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.2
+        },
+        {
+          "id": "p1-l0017",
+          "page": 1,
+          "text": "Page 1",
+          "box": {
+            "left": 0.81,
+            "top": 0.9625,
+            "right": 0.8716666666666667,
+            "bottom": 0.9775
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.27
+        }
+      ]
+    }
+  ],
+  "record": {
+    "fields": {
+      "currency": {
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Currency: USD",
+        "value": "USD"
+      },
+      "discount": {
+        "evidence_ids": [
+          "p1-l0009"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Discount: 3.00",
+        "value": "3.00"
+      },
+      "due_date": {
+        "evidence_ids": [],
+        "missing_reason": "not_observed",
+        "origin": "observed",
+        "raw": null,
+        "value": null
+      },
+      "invoice_number": {
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Invoice No.: F04-001",
+        "value": "F04-001"
+      },
+      "issue_date": {
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Date: 05/06/2026",
+        "value": "05/06/2026"
+      },
+      "shipping": {
+        "evidence_ids": [
+          "p1-l0010"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Shipping: 0.00",
+        "value": "0.00"
+      },
+      "subtotal": {
+        "evidence_ids": [
+          "p1-l0007"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Subtotal: 938.00",
+        "value": "938.00"
+      },
+      "supplier_name": {
+        "evidence_ids": [
+          "p1-l0002"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Maple Lantern Works",
+        "value": "Maple Lantern Works"
+      },
+      "tax": {
+        "evidence_ids": [
+          "p1-l0008"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Tax: 0.00",
+        "value": "0.00"
+      },
+      "total": {
+        "evidence_ids": [
+          "p1-l0011"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Total: 940.00",
+        "value": "940.00"
+      }
+    },
+    "line_items": [
+      {
+        "description": {
+          "evidence_ids": [
+            "p1-l0013"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 4 77.00 308.00",
+          "value": "Layout study"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p1-l0013"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 4 77.00 308.00",
+          "value": "308.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p1-l0013"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 4 77.00 308.00",
+          "value": "4"
+        },
+        "row_id": "row-001",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_explicit_on_row",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p1-l0013"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 4 77.00 308.00",
+          "value": "77.00"
+        }
+      },
+      {
+        "description": {
+          "evidence_ids": [
+            "p1-l0014"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 2 105.00 210.00",
+          "value": "Layout study"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p1-l0014"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 2 105.00 210.00",
+          "value": "210.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p1-l0014"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 2 105.00 210.00",
+          "value": "2"
+        },
+        "row_id": "row-002",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_explicit_on_row",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p1-l0014"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 2 105.00 210.00",
+          "value": "105.00"
+        }
+      },
+      {
+        "description": {
+          "evidence_ids": [
+            "p1-l0015"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Field interview 2 56.00 112.00",
+          "value": "Field interview"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p1-l0015"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Field interview 2 56.00 112.00",
+          "value": "112.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p1-l0015"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Field interview 2 56.00 112.00",
+          "value": "2"
+        },
+        "row_id": "row-003",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_explicit_on_row",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p1-l0015"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Field interview 2 56.00 112.00",
+          "value": "56.00"
+        }
+      },
+      {
+        "description": {
+          "evidence_ids": [
+            "p1-l0016"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Paper mockup 4 77.00 308.00",
+          "value": "Paper mockup"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p1-l0016"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Paper mockup 4 77.00 308.00",
+          "value": "308.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p1-l0016"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Paper mockup 4 77.00 308.00",
+          "value": "4"
+        },
+        "row_id": "row-004",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_explicit_on_row",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p1-l0016"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Paper mockup 4 77.00 308.00",
+          "value": "77.00"
+        }
+      }
+    ],
+    "schema_version": "invoice-v1-spike"
+  },
+  "issues": [
+    {
+      "blocking": true,
+      "code": "AMBIGUOUS_DATE",
+      "detail": "Expected YYYY-MM-DD",
+      "path": "fields.issue_date"
+    },
+    {
+      "blocking": true,
+      "code": "TOTAL_MISMATCH",
+      "detail": "Observed total differs from computed 935.00",
+      "path": "fields.total"
+    }
+  ]
+}

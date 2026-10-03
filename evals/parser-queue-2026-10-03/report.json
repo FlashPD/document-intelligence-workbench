@@ -1,0 +1,425 @@
+{
+  "report_version": "bounded-parser-queue-v1",
+  "status": "completed",
+  "run": {
+    "version": "bounded-parser-queue-v1",
+    "started_at_utc": "2026-10-03T20:44:58.991137+00:00",
+    "manifest_sha256": "a39a99cf5543888ebd7b9af5a42a18ac82e4ff6baf2534b8cd6d16ca9c76f61c",
+    "documents": [
+      {
+        "corpus_id": "inv-f01-01",
+        "path": "assets/inv-f01-01.png",
+        "source_sha256": "6c5e47d67f548a7c00df002abb1386f31e763c09c3419c4fbd2d3b5f18b115ed",
+        "media_type": "image/png"
+      },
+      {
+        "corpus_id": "inv-f01-02",
+        "path": "assets/inv-f01-02.png",
+        "source_sha256": "ca48452db059f3d8ce8fb9c498525f51faded68fc2fb430e3b6239b6bed803c5",
+        "media_type": "image/png"
+      },
+      {
+        "corpus_id": "inv-f01-03",
+        "path": "assets/inv-f01-03.png",
+        "source_sha256": "e5b38de429ab86bcfa6000d36d02fa4c4ae71982d93b7f10e75a294724a135a7",
+        "media_type": "image/png"
+      },
+      {
+        "corpus_id": "inv-f01-04",
+        "path": "assets/inv-f01-04.png",
+        "source_sha256": "7fffe68ea9fd7e911774bcf693194ab0ebf6a0671e4dde35259f04efb48c436e",
+        "media_type": "image/png"
+      },
+      {
+        "corpus_id": "inv-f02-01",
+        "path": "assets/inv-f02-01.png",
+        "source_sha256": "48d84cdf1b5f50f7fd4230aaf97c027c32f58ab3253b7b2cc2ebe13f05a4dce5",
+        "media_type": "image/png"
+      },
+      {
+        "corpus_id": "inv-f02-02",
+        "path": "assets/inv-f02-02.png",
+        "source_sha256": "bdd8ee263d7877fade240cd1622c101e7a680b0d0e924494003e0a5c64a96165",
+        "media_type": "image/png"
+      },
+      {
+        "corpus_id": "inv-f02-03",
+        "path": "assets/inv-f02-03.png",
+        "source_sha256": "c046e16eeb8ff12506c8c79163ec1e3c31c7b4be368894087eff49831f7ca2f5",
+        "media_type": "image/png"
+      },
+      {
+        "corpus_id": "inv-f03-01",
+        "path": "assets/inv-f03-01.png",
+        "source_sha256": "5c89ff705290f7a3fe38cfb99f61a5fbb3a66b076f1c51e337664ea9aef95bcf",
+        "media_type": "image/png"
+      },
+      {
+        "corpus_id": "inv-f03-02",
+        "path": "assets/inv-f03-02.png",
+        "source_sha256": "d2d4c111cc8e621486de0f6c72fc3e6a88941fdf10c41203b53bcf62af5ff568",
+        "media_type": "image/png"
+      },
+      {
+        "corpus_id": "inv-f03-03",
+        "path": "assets/inv-f03-03.png",
+        "source_sha256": "d287881b8f59f9149973274495893dd63be0ff7247932c2128bfb82f6968af38",
+        "media_type": "image/png"
+      },
+      {
+        "corpus_id": "inv-f04-01",
+        "path": "assets/inv-f04-01.png",
+        "source_sha256": "821d4dd39f7899d3e52e5df3d420615beacbe882513c9c6ed7efb7528b211f30",
+        "media_type": "image/png"
+      },
+      {
+        "corpus_id": "inv-f04-02",
+        "path": "assets/inv-f04-02.png",
+        "source_sha256": "3f3e8fd6d0a2db76027076a4063a10ff434ba794fed58f01cb7bac59f82b4c40",
+        "media_type": "image/png"
+      },
+      {
+        "corpus_id": "inv-f04-03",
+        "path": "assets/inv-f04-03.png",
+        "source_sha256": "22b9e68719d53d3b5e4a5783b1b3decf613146816258874fdd73767489dd9392",
+        "media_type": "image/png"
+      },
+      {
+        "corpus_id": "inv-f05-01",
+        "path": "assets/inv-f05-01.png",
+        "source_sha256": "a0e6c17a6e08faea41eef2f7079c90d90cdc9a33093aebe5128bc1d35f012f58",
+        "media_type": "image/png"
+      },
+      {
+        "corpus_id": "inv-f05-02",
+        "path": "assets/inv-f05-02.png",
+        "source_sha256": "d774faec30dafcfdd280dae6fdcf01f2c2f25ec88ce2923369c8a698be6d2051",
+        "media_type": "image/png"
+      },
+      {
+        "corpus_id": "inv-f05-03",
+        "path": "assets/inv-f05-03.png",
+        "source_sha256": "c5d1b1cff61314fe6fe733d7ca0fbbba13ae44d59ee767b70f4358c187647fb4",
+        "media_type": "image/png"
+      },
+      {
+        "corpus_id": "inv-f06-01",
+        "path": "assets/inv-f06-01.pdf",
+        "source_sha256": "23ad930f19502a31157718f453f48e35a6881f563024458342de69cffe468ee1",
+        "media_type": "application/pdf"
+      },
+      {
+        "corpus_id": "inv-f06-02",
+        "path": "assets/inv-f06-02.pdf",
+        "source_sha256": "99397e7b3433ad2ebfe0278e08ae1df1871cc77bf0d33c336fec46ae044695f4",
+        "media_type": "application/pdf"
+      },
+      {
+        "corpus_id": "inv-f06-03",
+        "path": "assets/inv-f06-03.pdf",
+        "source_sha256": "1568bd24fd3a49d9773f9c63b749556573f8cf433d7d21fd6eaaa0c8b6bb86ef",
+        "media_type": "application/pdf"
+      },
+      {
+        "corpus_id": "inv-f06-04",
+        "path": "assets/inv-f06-04.pdf",
+        "source_sha256": "c5b2d285935cc9f80519e7470f5d9cd8ec1afda9c12aae4eb177aa9fb03b3758",
+        "media_type": "application/pdf"
+      }
+    ],
+    "parser_image_id": "sha256:979e41cb86292165b830309222627c6a578295558337c6b8aed83cca1c07a8a8",
+    "co_running_workload": "Frozen invoice span-model evaluation running on the same Apple M1 host; no controlled machine-load study",
+    "worker_count": 1,
+    "extractor": "ocr_rules",
+    "reparse": true,
+    "host": {
+      "system": "Darwin",
+      "machine": "arm64",
+      "python": "3.12.12"
+    },
+    "source_sha256": {
+      "src/docwork/__init__.py": "bd204b322b31c45f1b340090c93a77b04676e305d448ed9551b780b56b758a50",
+      "src/docwork/backup.py": "a2ca63dfed29607336cf8a0611496f164a32cbcaf6b291cead023c6bb6ce5592",
+      "src/docwork/baseline.py": "2153cffacafa5085746e28a555ba785338aba97d211879db296c30412e44dda8",
+      "src/docwork/cli.py": "88b622c88a716859fafd9e6fbb959778d66a4bd27c1aba8eff41680eb00046af",
+      "src/docwork/comparison.py": "bc714e8434172cbaa3a8f2257dd4b9f71ec9816a44114b1e7220b091ef62088a",
+      "src/docwork/contracts.py": "ce29932f2668f181612c80e445ee64f8891b7ff51d3a5c8ecd675bcd19637ccf",
+      "src/docwork/cord.py": "06ce54d05bd32e440e5df989e70a4cf92d588253171822a5682d7a0f11e98421",
+      "src/docwork/corpus.py": "98c1f13e913640dbcb1b4b1d20b70989f3a37eb1430c7c252b966b763573c2b2",
+      "src/docwork/demo_replay.py": "14a096ea3ef62f18ead2cc3f633e868e10622c911a46934f22b491f8294122d3",
+      "src/docwork/evaluation.py": "c3ff271e01fb39fd00a3b669d07cf9ad2090be68c6c1caf80a312cd635d3f664",
+      "src/docwork/evidence.py": "9fdae805aefed4980ca55abdda44055345d29e7970d43659165f435756a2beea",
+      "src/docwork/geometry.py": "0f8cd59f8c205cb0b076fd21511be99aff13077453aa15631120b4ad08cf0275",
+      "src/docwork/heldout.py": "915ec2594a0562e99ace415c4770770c1ca0f8bb3abda27c3f65583ac27f5216",
+      "src/docwork/intake.py": "46a4de19a2c9dd9071711ae60adc93973aeca892b35b5dce018323b4919d6789",
+      "src/docwork/invoice_model_run.py": "04a59b375fe1a0a3c3f022da484f0acea70b4df601b140ab741bbec12d89d720",
+      "src/docwork/invoice_run.py": "8b3d74ea35a3d5598f156cdfc6765ab743a6646ab5ae57460497b9d6e01911ac",
+      "src/docwork/local_model.py": "b7fb04b8caa7acd9c6f782a6b0cbbd8c97e8add1fdc8f767d62f7df1b6b9c4c1",
+      "src/docwork/model_runtime.py": "d0b924aabcbe51afeb09fb9d9b43fde3f1eb0841d309ba2fb12b01043c8868bf",
+      "src/docwork/ocr.py": "1f2eb6538fb5417c7d427d507a4cddc8ec82c6d9d6077d4d38f9ea54f6908ac0",
+      "src/docwork/parser_entry.py": "e3e5c809a8c8b6eb06102b8db9377c5dbc3c43759d0fb756ebb9fcfb4b7c5bad",
+      "src/docwork/parser_protocol.py": "634fc5c68616c2919c5dd32728bfcc4a1d983a38fa53681426bb756c1ab24ff1",
+      "src/docwork/pilot_bundle.py": "431952a5824ec4d75644dc5423b6ed04e7593d281e493fcedb531f603e2940e8",
+      "src/docwork/priority_evaluation.py": "e12aff8581cb5259062744c54623260942f7ea9a8f8f58a5b7e8379ec3162863",
+      "src/docwork/queue_benchmark.py": "6cbe40bd08db9f1d55fa805d4fd5fae50b81c29c3bf290a80249eb2614e769b1",
+      "src/docwork/receipt.py": "0b2f73b7ee6f828eb13b5a7f46b7718365b53e0f6da7289e3139a3ba3c64c39b",
+      "src/docwork/receipt_comparison.py": "9cf409f2299359f7f59eb981bc2f68d9cdce2cc429297490fc2b04f1843abd13",
+      "src/docwork/receipt_run.py": "bff88fdd418154dfa5aee128bee56d5b6c0d2a1b3f572a5a57fb4c0ad092c3e6",
+      "src/docwork/release_evaluation.py": "49e007c7ea619d8f56a2e32f9176edf7f027d4791fb486cdfbf0ca8903ed7561",
+      "src/docwork/release_readiness.py": "f0f95d62b90edcbf4b3dd955b2820997ad9b6bf1ce2da9bdae6ad8cee2d1eae0",
+      "src/docwork/release_scoring.py": "ab4d9958e4afa7db9c0d88d3168c762def7dfa96387697bedaab3894a5c7be44",
+      "src/docwork/review.py": "dfd3bb2bc700b71e8592e5cb0923155e6caf4aaaafb78462fd7199cc8df9b317",
+      "src/docwork/review_pilot.py": "cf4989b1d8f889b0be9b259c2998249ebdea7d7e315e9c6b99ffaf01af17ed2f",
+      "src/docwork/review_priority.py": "df9530ad79cbc6cbfea3c1be908de511fb774eed1e7f1e1337ae0c096dc40821",
+      "src/docwork/spatial_baseline.py": "6e41e2818a4b0b827b5cd56f29e84d5af27c7480c4f4cdad5570aca16b940f3b",
+      "src/docwork/spatial_lines.py": "8f1eee7e2ab298833e31f7c10bfb6a7aac77ed6364c817bfb3c993738d05036d",
+      "src/docwork/validation.py": "d3729d8341e8886bcdcfe73e093439a2494ce275b9b85966ebdedab4928f7e58",
+      "src/docwork/web.py": "38224907ce81c690d2e2054751b1ebc83ac33b33fd32ebcddea907a292162d8f",
+      "src/docwork/worker.py": "b9bf8dae83c3bcc71001ac91712dcd2a63a6547daf50aebbd8aff5056f4f9e24",
+      "src/docwork/workflow_evidence.py": "eff02e73951c62df5282eab0bfaf7c6df4dd5dbe2466faf4c568106bfa507e88",
+      "scripts/benchmark_queue.py": "cb45b00d406b9d149343fabf6bd65b1ad861f3dbaafabb28e6a0a6719cd5a72f",
+      "sandbox/Dockerfile": "fa3c9557d133dde936522b3d9d60b3b70a276bf1cdd836ba075673e4b381d270"
+    }
+  },
+  "intake_seconds": 0.054574,
+  "measurements": [
+    {
+      "corpus_id": "inv-f01-01",
+      "document_id": "2ba5081c5b9549df985f71721f831fd5",
+      "media_type": "image/png",
+      "status": "REVIEW_READY",
+      "page_count": 1,
+      "error_code": null,
+      "started_seconds": 1e-05,
+      "finished_seconds": 1.935285
+    },
+    {
+      "corpus_id": "inv-f01-02",
+      "document_id": "975fabab0fc14f2a8ed437f8572afc7a",
+      "media_type": "image/png",
+      "status": "REVIEW_READY",
+      "page_count": 1,
+      "error_code": null,
+      "started_seconds": 1.939643,
+      "finished_seconds": 3.841203
+    },
+    {
+      "corpus_id": "inv-f01-03",
+      "document_id": "69018bf7cebb459fbf2eb971d17a590e",
+      "media_type": "image/png",
+      "status": "REVIEW_READY",
+      "page_count": 1,
+      "error_code": null,
+      "started_seconds": 3.846267,
+      "finished_seconds": 5.594771
+    },
+    {
+      "corpus_id": "inv-f01-04",
+      "document_id": "17afcba2e5274584ac484b28f1d8a2b8",
+      "media_type": "image/png",
+      "status": "REVIEW_READY",
+      "page_count": 1,
+      "error_code": null,
+      "started_seconds": 5.5994,
+      "finished_seconds": 7.762013
+    },
+    {
+      "corpus_id": "inv-f02-01",
+      "document_id": "636933f87cfc40958a14e73b3939fc19",
+      "media_type": "image/png",
+      "status": "REVIEW_READY",
+      "page_count": 1,
+      "error_code": null,
+      "started_seconds": 7.767251,
+      "finished_seconds": 9.336751
+    },
+    {
+      "corpus_id": "inv-f02-02",
+      "document_id": "5d1ae47fb2fb4c9c9aafa4416859d49e",
+      "media_type": "image/png",
+      "status": "REVIEW_READY",
+      "page_count": 1,
+      "error_code": null,
+      "started_seconds": 9.341061,
+      "finished_seconds": 11.340872
+    },
+    {
+      "corpus_id": "inv-f02-03",
+      "document_id": "ee688a35aa71430bbade8c851f5b08f1",
+      "media_type": "image/png",
+      "status": "REVIEW_READY",
+      "page_count": 1,
+      "error_code": null,
+      "started_seconds": 11.34589,
+      "finished_seconds": 13.078794
+    },
+    {
+      "corpus_id": "inv-f03-01",
+      "document_id": "b2840447810f4cdea11669cba0a7cd89",
+      "media_type": "image/png",
+      "status": "REVIEW_READY",
+      "page_count": 1,
+      "error_code": null,
+      "started_seconds": 13.083015,
+      "finished_seconds": 14.417066
+    },
+    {
+      "corpus_id": "inv-f03-02",
+      "document_id": "d1c25205fca54e3696ddcc6d1b939ecc",
+      "media_type": "image/png",
+      "status": "REVIEW_READY",
+      "page_count": 1,
+      "error_code": null,
+      "started_seconds": 14.420971,
+      "finished_seconds": 15.940811
+    },
+    {
+      "corpus_id": "inv-f03-03",
+      "document_id": "bc76ba25aa4e4dd2b6013989d2817491",
+      "media_type": "image/png",
+      "status": "REVIEW_READY",
+      "page_count": 1,
+      "error_code": null,
+      "started_seconds": 15.946402,
+      "finished_seconds": 17.452373
+    },
+    {
+      "corpus_id": "inv-f04-01",
+      "document_id": "afe7937582f34b9781c9c18c6198bc9c",
+      "media_type": "image/png",
+      "status": "REVIEW_READY",
+      "page_count": 1,
+      "error_code": null,
+      "started_seconds": 17.45679,
+      "finished_seconds": 19.251259
+    },
+    {
+      "corpus_id": "inv-f04-02",
+      "document_id": "2ed7b2a7f4404882bf7b0aa1ebc4582b",
+      "media_type": "image/png",
+      "status": "REVIEW_READY",
+      "page_count": 1,
+      "error_code": null,
+      "started_seconds": 19.255633,
+      "finished_seconds": 20.80317
+    },
+    {
+      "corpus_id": "inv-f04-03",
+      "document_id": "85ba9127c67a49cdba8d1df2ccb5a9f3",
+      "media_type": "image/png",
+      "status": "REVIEW_READY",
+      "page_count": 1,
+      "error_code": null,
+      "started_seconds": 20.806995,
+      "finished_seconds": 23.176141
+    },
+    {
+      "corpus_id": "inv-f05-01",
+      "document_id": "529d90b0104d4b03a2d726a25c4438af",
+      "media_type": "image/png",
+      "status": "REVIEW_READY",
+      "page_count": 1,
+      "error_code": null,
+      "started_seconds": 23.182348,
+      "finished_seconds": 25.075364
+    },
+    {
+      "corpus_id": "inv-f05-02",
+      "document_id": "804d43ee2cb843549f530de137df36ed",
+      "media_type": "image/png",
+      "status": "REVIEW_READY",
+      "page_count": 1,
+      "error_code": null,
+      "started_seconds": 25.079369,
+      "finished_seconds": 26.652388
+    },
+    {
+      "corpus_id": "inv-f05-03",
+      "document_id": "aedee89b81d4449382e1991526f7c049",
+      "media_type": "image/png",
+      "status": "REVIEW_READY",
+      "page_count": 1,
+      "error_code": null,
+      "started_seconds": 26.656401,
+      "finished_seconds": 28.233974
+    },
+    {
+      "corpus_id": "inv-f06-01",
+      "document_id": "313c384d5dcb4a6eb58d2142adfa7c7b",
+      "media_type": "application/pdf",
+      "status": "REVIEW_READY",
+      "page_count": 2,
+      "error_code": null,
+      "started_seconds": 28.237999,
+      "finished_seconds": 31.616794
+    },
+    {
+      "corpus_id": "inv-f06-02",
+      "document_id": "cc7d0c6cb396467db2ba34f49c4b606f",
+      "media_type": "application/pdf",
+      "status": "REVIEW_READY",
+      "page_count": 2,
+      "error_code": null,
+      "started_seconds": 31.621161,
+      "finished_seconds": 34.793535
+    },
+    {
+      "corpus_id": "inv-f06-03",
+      "document_id": "0436d705244f48329f0a2fc680f10ef2",
+      "media_type": "application/pdf",
+      "status": "REVIEW_READY",
+      "page_count": 2,
+      "error_code": null,
+      "started_seconds": 34.798194,
+      "finished_seconds": 38.210395
+    },
+    {
+      "corpus_id": "inv-f06-04",
+      "document_id": "9885d17794c6418a96deda856fdd11d8",
+      "media_type": "application/pdf",
+      "status": "REVIEW_READY",
+      "page_count": 2,
+      "error_code": null,
+      "started_seconds": 38.214718,
+      "finished_seconds": 41.798977
+    }
+  ],
+  "summary": {
+    "scheduled": 20,
+    "review_ready": 20,
+    "failed": 0,
+    "failure_codes": {},
+    "pages_ready": 24,
+    "processing_sum_seconds": 41.712,
+    "processing_p50_seconds": 1.794,
+    "processing_p95_seconds": 3.412,
+    "queue_drain_seconds": 41.798977,
+    "last_start_wait_seconds": 38.214718
+  },
+  "scope": "Fixed 20 fictional development originals, fresh production Docker parsing and OCR/rules, one serial worker. PNG and original two-page PDF inputs; all failures retained. No tuning or held-out quality scores.",
+  "artifacts": {
+    "measurements.json": "f0758e93dd3e7764f7c9f15ac20f34c27bf75cf8a78a5e11d70bebbf4b46a45a",
+    "predictions/inv-f01-01.json": "c5657dc624066e41827b296f8425117152148d2b3ca77019e93ffd20d381b839",
+    "predictions/inv-f01-02.json": "c6e5e3d24cb1f72ef1e87b32c10ca9eb9c0f955e027ccd6fe3a3bf0634930f88",
+    "predictions/inv-f01-03.json": "4bb494be2f09a0fa2038c4d2bbbf02b7a7c2e3c30d5c03334bc19aec1e05e89b",
+    "predictions/inv-f01-04.json": "62ae1ddeb40ee1a167926e6167ce10e7240fadff26250f8fd84a4723389ae507",
+    "predictions/inv-f02-01.json": "9f7b7bee28c7578a9a48a6e16532ee809b9206eed0330204890abd397a1a4cf8",
+    "predictions/inv-f02-02.json": "f0927260560fd0e5b4aa9860b51bd60311b57d8aad7fae314adc77debfbcff14",
+    "predictions/inv-f02-03.json": "407a5f60e90febf5716c9b8cb29144f7246b030dc7c97784b7f6ed4a5b69ec62",
+    "predictions/inv-f03-01.json": "1850da0803d3f1cf2bd0e3e37a1ecc530d75bcd105ecabe74dea2fad8b773901",
+    "predictions/inv-f03-02.json": "3e33672a5b5fdd542c57c683d84c8246a767f3f0847cfc62ae84b41aa42be710",
+    "predictions/inv-f03-03.json": "4ea642eb10a0126416eb9bf4d9ea93802eb7a2148fc49148bade69829771f46d",
+    "predictions/inv-f04-01.json": "0f0d2b42bb3264d4f6ee801ea098c1f29ada9163053a33faeee0e859d54a7519",
+    "predictions/inv-f04-02.json": "c1819f3fd9547b9107bb34c6deb881622e6eaea43e928d351a0743535d751183",
+    "predictions/inv-f04-03.json": "faee53979edb20cf8f945b4d44d0e9b51caf46b1b809149a2dca738c740a838d",
+    "predictions/inv-f05-01.json": "43deaa86af57ed5bd79f27b7fcc3b7cff3028c741a6c14c5c32ed0ab7d51d997",
+    "predictions/inv-f05-02.json": "c59279bd29d82d146ae284f32e142cff371339b9d93c41249c9b8db96883bcb8",
+    "predictions/inv-f05-03.json": "83193ed6f6171f97aa5425895ef10f80578dc6696a77055b7eda1bfadf59db11",
+    "predictions/inv-f06-01.json": "177bfb4fc008e277642a304074d67ac081b0932d39dbe24cd0a8c07ae828e822",
+    "predictions/inv-f06-02.json": "5b369ba4a21254316e7d1fc8a4e312270c277b2a84350c04422f7ce5207b1795",
+    "predictions/inv-f06-03.json": "c5cafbb0fff16f0765e7ebbaba457d97eeeb54a61d95e4a064ff22fd1cfa4c4d",
+    "predictions/inv-f06-04.json": "982f34de8e1aec55d8d3e16feae93103c58150cbdfe373ff3d918141c72a6e7e",
+    "run.json": "046691ffe22293e65feb35c7f67f26567739b7f0c4cf572aa88bdd6a248a71c2",
+    "source_snapshot.json": "20eb0887f18641cb80ad2f563fd3f1ff10bfaa9348340a93ed3cd1c0160873a7"
+  }
+}

@@ -35,6 +35,7 @@ The current stack is Python 3.12 standard-library HTTP/SQLite, HTML/CSS/JavaScri
 | [Browser pilot controls](docs/review-pilot.md) | Automated Chrome check passes | Source highlight, pause/resume, approval, export, completion; human results pending |
 | [Browser workflow and recording](docs/browser-verification.md) | 15 Chrome checks pass; captioned WebM decodes and plays | Keyboard, rotation/highlight alignment, page navigation, revisions, verified downloads; scripted saved-OCR demonstration |
 | [Offline portfolio replay](docs/demo-replay.md#recorded-checks) | 16 Chrome checks; clean-source preparation; 259 deterministic tests pass | Four recorded development cases, Python-only entrypoint, real review/export, explicit replay provenance |
+| [Bounded production parser queue](docs/parser-queue.md) | 20/20 review-ready; 24 pages in **41.799 s**; worker P50/P95 **1.794/3.412 s** | Fixed development originals, serial Docker OCR/rules, including four original PDFs; concurrent model workload disclosed |
 
 Synthetic invoice results cannot establish real vendor accuracy. Valid span IDs and substring alignment do not prove semantic evidence accuracy. Model stage timings on saved OCR exclude new parsing and human review. No time-saved or unattended-approval claim is made. See the cards and complete run reports for denominators, representative failures, hardware, and limitations.
 

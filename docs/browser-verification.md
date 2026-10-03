@@ -49,3 +49,5 @@ PYTHONPATH=src python3.12 -m docwork.cli release-check \
 ```
 
 The browser default selects the new bundle. Supply `--browser-directory` to audit a later run. This recording check can pass while extraction comparisons and human timing remain pending.
+
+The [queue-release refresh](../evals/queue-release-browser-2026-10-03/report.json) reruns all 15 controls after the offline portfolio entrypoint was committed. It retains current source hashes and [five frames](../evals/queue-release-browser-2026-10-03/index.html), without recording a new video. Supply `--browser-directory evals/queue-release-browser-2026-10-03` to audit that build. The [replay entrypoint check](demo-replay.md#recorded-checks) is separate and additionally verifies its four-case chooser and prohibition on live processing.

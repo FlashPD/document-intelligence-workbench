@@ -1,0 +1,338 @@
+{
+  "source_sha256": "d287881b8f59f9149973274495893dd63be0ff7247932c2128bfb82f6968af38",
+  "pages": [
+    {
+      "number": 1,
+      "width_px": 1200,
+      "height_px": 1600,
+      "spans": [
+        {
+          "id": "p1-l0001",
+          "page": 1,
+          "text": "Cobalt Paper Co",
+          "box": {
+            "left": 0.05583333333333333,
+            "top": 0.026875,
+            "right": 0.31833333333333336,
+            "bottom": 0.051875
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.36
+        },
+        {
+          "id": "p1-l0002",
+          "page": 1,
+          "text": "INVOICE",
+          "box": {
+            "left": 0.07,
+            "top": 0.064375,
+            "right": 0.2125,
+            "bottom": 0.08375
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.05
+        },
+        {
+          "id": "p1-l0003",
+          "page": 1,
+          "text": "Invoice No.: F03-003",
+          "box": {
+            "left": 0.5683333333333334,
+            "top": 0.175,
+            "right": 0.7633333333333333,
+            "bottom": 0.186875
+          },
+          "method": "tesseract-eng",
+          "confidence": 88.26
+        },
+        {
+          "id": "p1-l0004",
+          "page": 1,
+          "text": "Date: 2026-01-29",
+          "box": {
+            "left": 0.5683333333333334,
+            "top": 0.211875,
+            "right": 0.7308333333333333,
+            "bottom": 0.22375
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.04
+        },
+        {
+          "id": "p1-l0005",
+          "page": 1,
+          "text": "Due date: 2026-02-28",
+          "box": {
+            "left": 0.5683333333333334,
+            "top": 0.24875,
+            "right": 0.7716666666666666,
+            "bottom": 0.260625
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.5
+        },
+        {
+          "id": "p1-l0006",
+          "page": 1,
+          "text": "Currency: USD",
+          "box": {
+            "left": 0.5675,
+            "top": 0.285625,
+            "right": 0.7108333333333333,
+            "bottom": 0.300625
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.26
+        },
+        {
+          "id": "p1-l0007",
+          "page": 1,
+          "text": "Description Qty Unit price Amount",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.431875,
+            "right": 0.9066666666666666,
+            "bottom": 0.4525
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.42
+        },
+        {
+          "id": "p1-l0008",
+          "page": 1,
+          "text": "Data cleanup 1 41.00 41.00",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.479375,
+            "right": 0.885,
+            "bottom": 0.494375
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.5
+        },
+        {
+          "id": "p1-l0009",
+          "page": 1,
+          "text": "Subtotal: 41.00",
+          "box": {
+            "left": 0.0675,
+            "top": 0.765625,
+            "right": 0.2075,
+            "bottom": 0.7775
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.48
+        },
+        {
+          "id": "p1-l0010",
+          "page": 1,
+          "text": "Tax: 7.00",
+          "box": {
+            "left": 0.06666666666666667,
+            "top": 0.80125,
+            "right": 0.15416666666666667,
+            "bottom": 0.813125
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.83
+        },
+        {
+          "id": "p1-l0011",
+          "page": 1,
+          "text": "Discount: 0.00",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.836875,
+            "right": 0.20166666666666666,
+            "bottom": 0.84875
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.48
+        },
+        {
+          "id": "p1-l0012",
+          "page": 1,
+          "text": "Shipping: 0.00",
+          "box": {
+            "left": 0.0675,
+            "top": 0.8725,
+            "right": 0.20083333333333334,
+            "bottom": 0.8875
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.44
+        },
+        {
+          "id": "p1-l0013",
+          "page": 1,
+          "text": "Total: 48.00",
+          "box": {
+            "left": 0.06666666666666667,
+            "top": 0.908125,
+            "right": 0.1775,
+            "bottom": 0.92
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.89
+        },
+        {
+          "id": "p1-l0014",
+          "page": 1,
+          "text": "Page 1",
+          "box": {
+            "left": 0.81,
+            "top": 0.9625,
+            "right": 0.8716666666666667,
+            "bottom": 0.9775
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.27
+        }
+      ]
+    }
+  ],
+  "record": {
+    "fields": {
+      "currency": {
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Currency: USD",
+        "value": "USD"
+      },
+      "discount": {
+        "evidence_ids": [
+          "p1-l0011"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Discount: 0.00",
+        "value": "0.00"
+      },
+      "due_date": {
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Due date: 2026-02-28",
+        "value": "2026-02-28"
+      },
+      "invoice_number": {
+        "evidence_ids": [
+          "p1-l0003"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Invoice No.: F03-003",
+        "value": "F03-003"
+      },
+      "issue_date": {
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Date: 2026-01-29",
+        "value": "2026-01-29"
+      },
+      "shipping": {
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Shipping: 0.00",
+        "value": "0.00"
+      },
+      "subtotal": {
+        "evidence_ids": [
+          "p1-l0009"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Subtotal: 41.00",
+        "value": "41.00"
+      },
+      "supplier_name": {
+        "evidence_ids": [
+          "p1-l0001"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Cobalt Paper Co",
+        "value": "Cobalt Paper Co"
+      },
+      "tax": {
+        "evidence_ids": [
+          "p1-l0010"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Tax: 7.00",
+        "value": "7.00"
+      },
+      "total": {
+        "evidence_ids": [
+          "p1-l0013"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Total: 48.00",
+        "value": "48.00"
+      }
+    },
+    "line_items": [
+      {
+        "description": {
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Data cleanup 1 41.00 41.00",
+          "value": "Data cleanup"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Data cleanup 1 41.00 41.00",
+          "value": "41.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Data cleanup 1 41.00 41.00",
+          "value": "1"
+        },
+        "row_id": "row-001",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_explicit_on_row",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Data cleanup 1 41.00 41.00",
+          "value": "41.00"
+        }
+      }
+    ],
+    "schema_version": "invoice-v1-spike"
+  },
+  "issues": []
+}

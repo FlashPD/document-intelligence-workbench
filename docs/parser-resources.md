@@ -27,6 +27,8 @@ An ordinary parser rejection retains its specific code, such as `PDF_PAGE_LIMIT`
 
 The timeout cleanup names only the claimed container: `docwork-<first 16 characters of job ID>-<fencing token>`. Obtain those values from `docwork intake status <document_id>` or the document status API. If cleanup fails, inspect that exact container with `docker container inspect <container_name>`. Cleanup errors are now persisted rather than escaping as an unhandled subprocess timeout or being ignored.
 
+The [queue-release refresh](../evals/queue-release-parser-2026-10-03/report.json) repeats all 16 checks against the rebuilt current image after the replay and queue-benchmark additions. It passes with unchanged inputs; the original reports remain historical measurements. The separate [20-document queue](parser-queue.md) measures ordinary serial processing rather than fault probes. The current deterministic suite passes 263 tests.
+
 ## Reproduce
 
 Start Docker Desktop and build the current image. From the repository root:
