@@ -15,6 +15,7 @@ import uuid
 from pathlib import Path
 from unittest.mock import patch
 
+from docwork.backup import create_backup, restore_backup, verify_backup
 from docwork.intake import IntakeStore, JobClaim
 from docwork.local_model import LocalModelConfig
 from docwork.review import ReviewBlocked, ReviewConflict
@@ -249,6 +250,86 @@ with Image.open('/input/original') as source:
         self.evidence.update(parser_checkpoint=checkpoint, reused_pages=2, parser_rerun=False,
                              model_outage="Real HTTP connection refused on bound non-listening loopback socket",
                              resumed_extractor="ocr_rules", approved_revision=1)
+
+    def test_backup_restores_real_pdf_review_and_immutable_exports(self):
+        document_id = self.process(two_page_pdf(), "two-page.pdf", "application/pdf")
+        self.store.approve(document_id, 1, "smoke-reviewer")
+        self.store.export(document_id, "json")
+        self.store.edit(document_id, 1, "fields.total", "275.00", "smoke-reviewer")
+        self.store.acknowledge(document_id, 2, "TOTAL_MISMATCH", "fields.total",
+                               "Fictional restoration drill", "smoke-reviewer")
+        self.store.approve(document_id, 2, "smoke-reviewer")
+        manifests = {kind: self.store.export(document_id, kind) for kind in ("json", "csv")}
+        before = self.store.get(document_id)
+        history = self.store.history(document_id)
+        page_hashes = [hashlib.sha256(self.store.page_image_path(document_id, number).read_bytes()).hexdigest()
+                       for number in (1, 2)]
+        bundle, target = self.root / "backup", self.root / "restored"
+        created = create_backup(self.store.database, self.store.object_root, bundle)
+        self.assertEqual(verify_backup(bundle)["manifest_sha256"], created["manifest_sha256"])
+        result = restore_backup(bundle, target)
+        restored = IntakeStore(target / "database.sqlite", target / "intake")
+        self.assertEqual(restored.get(document_id), before)
+        self.assertEqual(restored.history(document_id), history)
+        self.assertEqual(restored.object_path(document_id).read_bytes(), two_page_pdf())
+        for number, digest in enumerate(page_hashes, start=1):
+            self.assertEqual(hashlib.sha256(restored.page_image_path(document_id, number).read_bytes()).hexdigest(), digest)
+        for kind, manifest in manifests.items():
+            for file in manifest["files"]:
+                filename = Path(file["path"]).name
+                self.assertEqual(restored.exported_file(document_id, 2, kind, filename)[0], Path(file["path"]).read_bytes())
+            self.assertEqual([file["sha256"] for file in restored.export(document_id, kind)["files"]],
+                             [file["sha256"] for file in manifest["files"]])
+        self.assertEqual(restored.exported_file(document_id, 1, "json", "invoice.json")[0],
+                         self.store.exported_file(document_id, 1, "json", "invoice.json")[0])
+        restored.edit(document_id, 2, "fields.total", "270.00", "smoke-reviewer")
+        with self.assertRaises(ReviewConflict):
+            restored.export(document_id, "json")
+        self.evidence.update(backup_manifest_sha256=created["manifest_sha256"],
+                             backup_counts=created["counts"], requeued_jobs=result["requeued_jobs"],
+                             original_and_two_pages_verified=True, historical_export_preserved=True,
+                             review_history_preserved=True, export_retries_idempotent=True,
+                             export_sha256=[file["sha256"] for manifest in manifests.values() for file in manifest["files"]])
+
+    def test_backup_restores_interrupted_real_parser_checkpoint(self):
+        sample = Path(__file__).resolve().parents[1] / "samples" / "clean.png"
+        document_id = self.store.submit(io.BytesIO(sample.read_bytes()), sample.name, "image/png")
+        code = """
+import os, sys
+from pathlib import Path
+from docwork.intake import IntakeStore
+from docwork.local_model import LocalModelConfig
+from docwork.worker import process_one
+def terminate_after_checkpoint(config, payload):
+    os._exit(73)
+store = IntakeStore(Path(sys.argv[1]), Path(sys.argv[2]))
+process_one(store, 'backup-exit-probe', extractor='span_llm',
+    model_config=LocalModelConfig('http://127.0.0.1:8080', 'exit-probe'),
+    model_request=terminate_after_checkpoint)
+"""
+        result = subprocess.run([sys.executable, "-c", code, str(self.store.database), str(self.store.object_root)],
+                                capture_output=True, text=True, timeout=90, check=False)
+        self.assertEqual(result.returncode, 73, result.stderr)
+        before = self.store.status(document_id)
+        self.assertEqual(before["job"]["status"], "PROCESSING")
+        bundle, target = self.root / "backup", self.root / "restored"
+        created = create_backup(self.store.database, self.store.object_root, bundle)
+        restored_result = restore_backup(bundle, target)
+        self.assertEqual(restored_result["requeued_jobs"], 1)
+        restored = IntakeStore(target / "database.sqlite", target / "intake")
+        with patch("docwork.worker._docker_run", side_effect=AssertionError("Parser must not rerun")):
+            self.assertEqual(process_one(restored, "restored-worker"), document_id)
+        detail = restored.get(document_id)
+        after = restored.status(document_id)
+        self.assertEqual(detail["record"]["fields"]["invoice_number"]["value"], "AST-1001")
+        self.assertIsNone(detail["approval"])
+        self.assertGreater(after["job"]["fence"], before["job"]["fence"])
+        self.assertEqual(self.store.status(document_id), before)
+        self.evidence.update(backup_manifest_sha256=created["manifest_sha256"],
+                             process_exit_code=73, requeued_jobs=1, parser_rerun=False,
+                             fence_before=before["job"]["fence"], fence_after=after["job"]["fence"],
+                             source_workbench_unchanged=True, current_revision=detail["revision"],
+                             model_request="Exit callback; no model inference")
 
     def test_abrupt_worker_exit_resumes_committed_parser_checkpoint(self):
         sample = Path(__file__).resolve().parents[1] / "samples" / "clean.png"

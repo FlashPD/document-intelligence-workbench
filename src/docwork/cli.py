@@ -7,6 +7,7 @@ import hashlib
 import json
 import platform
 import shutil
+import sqlite3
 import subprocess
 import sys
 import time
@@ -249,6 +250,18 @@ def main(argv: list[str] | None = None) -> int:
     intake_process.add_argument("--extractor", choices=("ocr_rules", "span_llm"), default="ocr_rules")
     intake_process.add_argument("--model-endpoint", help="Loopback HTTP URL of a local chat completion server")
     intake_process.add_argument("--model-id", help="Model ID served by the local endpoint")
+    backup = commands.add_parser("backup", help="Create, verify, or restore a portable workbench backup")
+    backup_actions = backup.add_subparsers(dest="action", required=True)
+    backup_create = backup_actions.add_parser("create", help="Snapshot SQLite and all referenced artifacts")
+    backup_create.add_argument("--db", type=Path, default=Path("artifacts/review.sqlite"))
+    backup_create.add_argument("--objects", type=Path, default=Path("artifacts/intake"))
+    backup_create.add_argument("--exports", type=Path, help="Custom export root; default is beside the database")
+    backup_create.add_argument("--output", type=Path, required=True, help="New backup directory")
+    backup_verify = backup_actions.add_parser("verify", help="Check database, references, and every artifact checksum offline")
+    backup_verify.add_argument("bundle", type=Path)
+    backup_restore = backup_actions.add_parser("restore", help="Restore into a new workbench directory")
+    backup_restore.add_argument("bundle", type=Path)
+    backup_restore.add_argument("--output", type=Path, required=True, help="New destination; existing directories are refused")
     browser = commands.add_parser("serve", help="Run the loopback browser review prototype")
     browser.add_argument("--db", type=Path, default=Path("artifacts/review.sqlite"))
     browser.add_argument("--objects", type=Path, default=Path("artifacts/intake"))
@@ -280,6 +293,14 @@ def main(argv: list[str] | None = None) -> int:
             return 0
         if args.command == "doctor":
             data = doctor()
+        elif args.command == "backup":
+            from .backup import create_backup, restore_backup, verify_backup
+            if args.action == "create":
+                data = create_backup(args.db, args.objects, args.output, export_root=args.exports)
+            elif args.action == "verify":
+                data = verify_backup(args.bundle)
+            else:
+                data = restore_backup(args.bundle, args.output)
         elif args.command == "baseline":
             data = baseline_fixture(args.fixture)
         elif args.command == "eval-verify-model-workflow":
@@ -425,7 +446,7 @@ def main(argv: list[str] | None = None) -> int:
                 data = store.status(args.document_id)
         else:
             data = evaluate_development(Path(__file__).resolve().parents[2], baseline_fixture)
-    except (KeyError, OSError, RuntimeError, ValueError, ReviewConflict, ReviewBlocked, subprocess.TimeoutExpired) as exc:
+    except (KeyError, OSError, RuntimeError, ValueError, sqlite3.Error, ReviewConflict, ReviewBlocked, subprocess.TimeoutExpired) as exc:
         parser.exit(2, f"docwork: {exc}\n")
     rendered = json.dumps(data, indent=2) + "\n"
     if args.command in ("baseline", "eval-development", "eval-development-model", "eval-compare") and args.output:

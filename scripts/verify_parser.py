@@ -72,7 +72,8 @@ def main() -> int:
               "parser_image": PARSER_IMAGE, "source_sha256": hashes, "checks": [],
               "scope": "Self-authored fixtures and runtime probes; OCR/rules only. "
                        "Includes refused-loopback-model retry and abrupt host worker exit after a parser checkpoint, "
-                       "with rules extraction on resume and a shortened real lease. "
+                       "with rules extraction on resume and a shortened real lease; "
+                       "also portable backup/restore of a reviewed two-page PDF and an interrupted checkpoint. "
                        "No held-out quality, real model inference, genuine-scan, OOM, timeout, machine crash, "
                        "or arbitrary-stage interruption claim."}
     try:

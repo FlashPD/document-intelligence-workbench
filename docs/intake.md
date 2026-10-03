@@ -102,6 +102,32 @@ PYTHONPATH=src python3.12 -m docwork.cli eval-compare artifacts/development-base
 
 See the [development report](development-baseline.md#span-invoice-v2-follow-up--october-2-2026) for measured results and limitations. The pinned profile currently targets Apple Silicon only; Linux/Windows/PC inference needs a separately verified runtime profile.
 
+## Portable backup and restoration
+
+The workbench can snapshot its SQLite database and all referenced originals, rendered pages, parser checkpoints, and historical JSON/CSV exports. Stop the browser and processing worker before a routine backup: creation holds a database write lock while copying the referenced files, so concurrent writes wait and a long copy can exceed their ten-second lock timeout. SQLite's backup API includes committed WAL data; copying the database file alone is insufficient.
+
+```sh
+PYTHONPATH=src python3.12 -m docwork.cli backup create \
+  --db artifacts/review.sqlite --objects artifacts/intake \
+  --output artifacts/backups/workbench-001
+PYTHONPATH=src python3.12 -m docwork.cli backup verify artifacts/backups/workbench-001
+PYTHONPATH=src python3.12 -m docwork.cli backup restore artifacts/backups/workbench-001 \
+  --output artifacts/restored-workbench-001
+PYTHONPATH=src python3.12 -m docwork.cli serve \
+  --db artifacts/restored-workbench-001/database.sqlite \
+  --objects artifacts/restored-workbench-001/intake
+```
+
+Both creation and restoration require a **new destination directory**. They stage files, check every copied checksum, and publish only a verified result. An existing destination is refused. Missing/corrupt originals, renders, checkpoints, or exports fail creation rather than produce a partial successful backup. Restoring a corrupt, incomplete, or symlink-containing bundle fails without publishing a workbench. The commands exit 2 on failure. A custom source export directory can be supplied with `backup create --exports /absolute/path/to/exports`.
+
+The bundle contains `database.sqlite`, `manifest.json`, and only referenced files under `intake/` and `exports/`. The verifier checks SQLite integrity and foreign keys, supported schema, exact artifact inventory, database references, sizes, SHA-256 checksums, checkpoint payload hashes, and record counts. It rejects traversal paths and symlink artifacts. Duplicate originals/renders are copied once. Quarantine scratch files, orphan artifacts, model weights, configuration, runtime logs, and session credentials are excluded. The backup does contain invoice data and reviewer history; its directory is private to the creating user. It is neither encrypted nor a signed attestation. A person able to rewrite both a bundle and its hashes can replace its contents.
+
+Restoration relocates export manifest paths to the new directory while preserving the bytes of every export, revision, correction, issue decision, approval hash, and review event. A subsequent edit still needs a new approval. Failed jobs retain their errors and require explicit retry. Jobs that were `PROCESSING` in the snapshot become `QUEUED`, clear their worker/lease, advance their fencing token, and gain a `backup_restored` event. Their verified parser checkpoints remain available; the normal worker checks the current parser identity/cache key before reuse. Restore does not run parsing or inference, approve a record, or modify the source workbench. Start only the restored copy when recovering; independently running the old copy can still duplicate processing outside this single-node boundary.
+
+Legacy trusted sample seeds have records and OCR spans but no intake-stored originals. Their backup count explicitly reports `documents_without_stored_original`; viewing those sample images still requires the repository fixtures. Uploaded originals are included. The command accepts the current intake/review schema, not arbitrary older or future SQLite schemas, and performs no migration. Model/runtime assets and the parser image must be set up separately on a fresh machine.
+
+The deterministic suite covers moved-directory restoration, historical/current approvals and exports, duplicate submission isolation, WAL snapshots with a concurrent writer, corrupt/missing inputs, disk-copy failures, and restored checkpoint reuse. The [live Docker restoration report](../evals/backup-restoration-2026-10-03/report.json) adds an actual parsed two-page PDF and an actual host worker exit after checkpointing. Reproduce the entire parser/recovery/restoration suite with `make parser-build` and `make parser-verify OUTPUT=artifacts/parser-restoration-fresh.json`. The saved report records assertions and hashes; temporary test databases and backup bundles are removed. These checks do not establish power-loss durability, interrupted directory publication, cross-version migration, or backups on arbitrary filesystems.
+
 ## Current boundary
 
 The default is a narrow English OCR baseline. The parser now handles PDFs of up to ten pages, and the host merges page-level extraction into one record. It takes the first observed header value for each field and raises a blocking issue when later pages show a different labeled value. The model profile uses the same canonical spans and flags conflicting per-page model values; it is not yet a measured layout-model comparison. The container uses a versioned Python base and pinned Pillow, while Debian OCR/Poppler package versions are not yet locked. Live Docker execution and bounded PDF/JPEG cases now have [recorded fixture evidence](parser-verification.md). The [real-model HTTP workflow](real-model-upload.md) now covers two fictional PNG uploads with the pinned authenticated model. Genuine scans, multi-page model uploads, resource-failure drills, interruptions during parsing/export, and a security review remain before claiming an arbitrary-document workflow. A host worker exit after verified parsing now has the narrower checkpoint recovery evidence above. The CLI assumes a trusted local operator; the browser uses an ephemeral loopback session token rather than authenticated reviewer identities.
