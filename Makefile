@@ -1,13 +1,16 @@
 PYTHON ?= python3.12
 PYTHONPATH := src
 
-.PHONY: doctor test smoke-ocr demo-baseline eval-development eval-repeatability eval-verify-corpus models-fetch models-verify parser-build parser-smoke parser-verify model-workflow-verify dev dev-model
+.PHONY: doctor test release-check smoke-ocr demo-baseline eval-development eval-repeatability eval-verify-corpus models-fetch models-verify parser-build parser-smoke parser-verify model-workflow-verify dev dev-model
 
 doctor:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli doctor
 
 test:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m unittest discover -s tests -p 'test_*.py' -v
+
+release-check:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli release-check --output-dir $(or $(OUTPUT),artifacts/portfolio-readiness-fresh)
 
 smoke-ocr:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m unittest discover -s tests -p 'smoke_*.py' -v

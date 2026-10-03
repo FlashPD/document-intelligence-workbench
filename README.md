@@ -1,64 +1,83 @@
 # Local Document Intelligence & Review Workbench
 
-A local invoice workbench under development. The intended product extracts structured fields and line items, links each suggestion to page evidence, flags conflicts, and exports only after human review. See the [architecture plan](arch_plan/document-intelligence-workbench-plan.md).
+A local invoice application that extracts structured fields and rows, links suggestions to page evidence, and exports JSON/CSV only after human approval. Corrections create auditable revisions; approvals and export bytes belong to an exact revision. Uploaded PDFs and images run through an isolated Docker parser, with an optional pinned local language model.
 
-## Current status
+**Status: experimental; portfolio release evidence is being completed.** The upload/review/export workflow, parser recovery, and portable backups are implemented. Full held-out model comparisons, the author review pilot, and a presentation recording remain pending. [`release-check`](docs/portfolio-release.md#generate-the-release-audit) runs fresh contracts and makes missing, changed, and complete evidence visible without scoring partial inference.
 
-Phase 0 has a runnable `ocr_rules` spike for two demo PNGs and a separate 12-document, six-layout development set. It normalizes OCR line boxes, extracts header fields and line items, checks source references and arithmetic, and preserves an observed total when it conflicts with a computed total. A local [review and export slice](docs/review.md) stores candidate revisions in SQLite, records issue decisions, binds approvals to exact revisions, and writes JSON/CSV exports. [Bounded intake and a container worker](docs/intake.md) connect stored originals to reviewable image and multi-page PDF candidates. The [browser prototype](docs/browser.md) lets a reviewer switch pages, inspect OCR evidence, correct fields, acknowledge issues, approve revisions, and download exports. [Phase 0 notes](docs/phase0.md) record the preflight; the [development report](docs/development-baseline.md) records the measured baseline and its failure cases.
+Start with the [portfolio runbook](docs/portfolio-release.md), [system card](docs/system-card.md), and [data card](docs/data-card.md). The [architecture plan](arch_plan/document-intelligence-workbench-plan.md) records the original design and broader acceptance criteria.
 
-The fixture OCR command remains restricted to trusted repository samples. Uploaded originals are processed only by the fixed, network-denied Docker parser image. The worker supports up to ten PDF pages and uses Tesseract plus the deterministic baseline, with page-specific evidence in one invoice record. Processing leases renew during long parser and model calls; fenced completion and failure prevent a stale worker from changing a reclaimed job. An experimental `span_llm` profile sends canonical OCR spans and source boxes to a loopback model server. A [pinned Qwen3 4B / llama.cpp evaluation](docs/development-baseline.md#span-invoice-v2-follow-up--october-2-2026) measures all 12 development documents, with saved predictions, GPU-offload evidence, timings, and sampled process memory. The revised prompt passes the paired development gate against `ocr_rules` (108/120 exact headers and 17/18 exact line totals), though inference takes about 86 seconds per page and this tuned set cannot establish held-out quality. `ocr_rules` remains the default. The browser is a loopback-only prototype with an ephemeral session token, not an authenticated multi-user application. Reviewers can rotate sideways pages while keeping cited OCR highlights aligned. The [live Docker verification](docs/parser-verification.md) now passes ten checks covering PNG/PDF/JPEG processing, rejected inputs, container restrictions, retry, duplicate approval isolation, and version-bound exports across database reopening. Genuine scans and resource-failure drills still need live evidence. A [real pinned-model HTTP upload workflow](docs/real-model-upload.md) now verifies both fictional PNGs through Docker, source-linked extraction, correction, approval, and downloaded exports.
+![Review workspace with source evidence and author pilot controls](evals/review-pilot-browser-2026-10-03-v3/review.png)
 
-`docwork intake reconcile` audits stored originals and page renders, and can prune aged unreferenced files after checking referenced artifacts. See [the intake guide](docs/intake.md#audit-stored-artifacts).
+*Recorded automated Chrome check on a disposable fictional development fixture. This is interface evidence, not human review-time evidence.*
 
-[Portable backup and restoration](docs/intake.md#portable-backup-and-restoration) now snapshot SQLite with a hash-verified inventory of referenced originals, renders, checkpoints, review history, approvals, and immutable exports. Restore into a new directory preserves export bytes and requeues interrupted jobs with new fencing tokens. The [live restoration report](evals/backup-restoration-2026-10-03/report.json) passes all 14 Docker workflow/recovery/restoration checks, including a two-page PDF and a real host worker exit recovered without parsing again. The deterministic suite passes 181 tests. This is tested local restoration, not power-loss durability or cross-version migration.
+## Why this project
 
-[Parser checkpoints and recovery](docs/parser-recovery.md) now preserve verified OCR before extraction. Model retries and a reclaimed worker can resume without repeating parsing; the cache binds to original bytes, the immutable local image ID, and host contract hashes. The [final live recovery report](evals/parser-recovery-2026-10-03-final/report.json) passes all 12 Docker checks, including an actual host worker exit after checkpointing and a refused loopback model connection followed by an explicit rules retry. No parser rerun occurs in either recovery case. The deterministic suite passes 148 tests. These checks do not establish machine-crash durability, every interruption point, or real model inference through uploads.
+The engineering question is whether a measured extraction pipeline can make document errors easier to find and correct. The default is conventional OCR and deterministic rules; a local span model is an explicit comparison. The product preserves printed values when arithmetic conflicts, exposes evidence limits, and requires review even when validation finds no issue.
 
-The [frozen invoice scoring contract](docs/release-evaluation.md) adds order-independent duplicate-row matching, split checks, and hash-linked reports for the larger corpus. A [frozen experimental default-baseline report](docs/invoice-heldout-run.md) now scores all 180 test invoices; the paired held-out model comparison remains open.
+The implementation emphasizes the boundaries around AI output:
 
-The [paired model runner](docs/release-evaluation.md#held-out-model-comparison) now freezes the pinned model/prompt and compares fresh inference against all 180 saved baseline OCR inputs, with resumable predictions and paired parent-group intervals. A live run is in progress under `evals/invoice-model-heldout-2026-10-03`; partial predictions are not a completed comparison. The [separate CORD adapter and runbook](docs/release-evaluation.md#cord-receipt-evaluation) add explicit pinned dataset setup, masked receipt scoring, source-alignment diagnostics, sealed test settings, and paired rules/model reports. The first [100-receipt validation rules run](evals/cord-validation-2026-10-03/ocr-rules/report.json) processes every receipt but reaches only 0.1273 total F1 and 0.0774 eligible exact-row F1, exposing the gap between this English OCR prototype and real receipt images. Receipt model/test quality remains unmeasured until the serialized inference runs finish.
+- **Inspectability:** canonical page/span references, page navigation, line highlights, and distinct observed/computed/reviewer values.
+- **State integrity:** immutable candidate revisions, stale-edit protection, current-revision approval, and hash-verified exports.
+- **Isolation and recovery:** bounded network-denied parsing, renewable leases and fencing, verified OCR checkpoints, explicit retries, and portable restoration.
+- **Measurement:** split-isolated corpora, frozen settings, all-document failure accounting, duplicate-aware row matching, paired uncertainty, and explicit rejection of a regressing extraction experiment.
 
-The evaluation additions bring the deterministic suite to **205 passing tests**. The serialized coordinator queues receipt inference after invoice inference, audits both comparisons, and exports `evals/release-comparison-2026-10-03.html` only when complete. Check the current ledger counts with `python3.12 scripts/evaluation_status.py`; full inference takes several hours on this Mac.
+The current stack is Python 3.12 standard-library HTTP/SQLite, HTML/CSS/JavaScript, Docker, Poppler/Tesseract, and optional native llama.cpp. It is a loopback single-user prototype with audit labels, not an authenticated multi-user application. Model assets and public receipt data are downloaded only through explicit setup commands. See [trust boundaries and limits](docs/system-card.md).
 
-The [release comparison export](docs/release-evaluation.md) now requires complete test splits and adds per-variant total/P50/P95 stage timings, sampled server RSS, mechanically selected failure examples, and a hash-bound `.evidence.json` companion. The active serialized inference run will use that exporter when it finishes; no partial predictions are published as comparison results.
+## Measured evidence
 
-An [assisted author review-time pilot](docs/review-pilot.md) now prepares six declared development invoices with recorded default OCR suggestions, explicit start/pause/resume/finish controls, idle exclusion, and approval/export-bound completion. Interrupted or unfinished cases remain in the report. A [real Chrome check](evals/review-pilot-browser-2026-10-03-v3/report.json) verifies the visible workflow on a disposable fixture. **Human timing results remain pending**; automated clicks do not establish review time or time saved. The deterministic suite now passes **230 tests**.
+| Evidence | Recorded result | Scope |
+|---|---|---|
+| [Frozen default invoice baseline](docs/invoice-heldout-run.md) | 180/180 test invoices; header macro F1 **0.9981**; required fields exact **163/166** eligible documents; exact-row F1 **0.9423** | Self-authored held-out families, trusted PNG previews; excludes production PDF parsing |
+| [Spatial extraction experiment](docs/spatial-extraction.md) | Rejected: calibration exact-row F1 falls from 0.8321 to 0.7863 | Default stays `ocr_rules` v0.3; improved development scores did not justify promotion |
+| [Real local-model HTTP workflow](docs/real-model-upload.md) | Both fictional PNGs pass upload, evidence checks, correction, approval, and downloads | Pinned Qwen3 4B / llama.cpp on Apple M1; historical source snapshot, two fixtures |
+| [Parser resource/recovery checks](docs/parser-resources.md) | 16 recorded Docker checks pass | Timeout/OOM probes, checkpoint recovery, backup restoration, and review/export fixtures; source freshness checked separately |
+| [CORD rules validation](evals/cord-validation-2026-10-03/ocr-rules/report.json) | 100/100 receipts; total F1 **0.1273**, eligible exact-row F1 **0.0774** | Separate public-receipt domain; exposes a large gap for this English OCR prototype |
+| [Browser pilot controls](docs/review-pilot.md) | Automated Chrome check passes | Source highlight, pause/resume, approval, export, completion; human results pending |
 
-[Live parser resource drills](docs/parser-resources.md) now verify a deliberate deadline and cgroup memory exhaustion, container/scratch cleanup, absence of a candidate after failure, and successful retries through the normal parser. The [recorded report](evals/parser-resources-2026-10-03/report.json) passes all **16 Docker checks**, including the earlier review/export, checkpoint recovery, and backup restoration cases. The supervisor distinguishes killed containers and unconfirmed timeout cleanup; exit 137 alone is not labeled OOM. The drills use shortened deadlines and a reduced memory/swap limit. The deterministic suite now passes **210 tests**. Held-out inference remains in progress; these workflow checks do not establish extraction quality or natural document resource requirements.
+Synthetic invoice results cannot establish real vendor accuracy. Valid span IDs and substring alignment do not prove semantic evidence accuracy. Model stage timings on saved OCR exclude new parsing and human review. No time-saved or unattended-approval claim is made. See the cards and complete run reports for denominators, representative failures, hardware, and limitations.
 
-The [self-authored invoice corpus](docs/invoice-corpus.md) now has 540 hash-verified documents across 18 isolated layout families and three 180-document splits, including multi-page PDFs and degraded derivatives. Run `PYTHONPATH=src python3.12 -m docwork.cli eval-verify-corpus` to check its assets and labels. The [default held-out baseline](docs/invoice-heldout-run.md) now accounts for every test document.
+## Run locally
 
-A [full development-split OCR/rules run](docs/invoice-development-run.md) scores all 180 development invoices from verified PNG previews. A supplier-name correction raises header macro F1 from 0.9093 to 0.9738. A paired orientation-aware OCR run raises it further to 0.9911, with 150/166 eligible documents with all required fields exact and 0.9817 exact-row F1. An unchanged [calibration run](docs/invoice-calibration-run.md) processes 180 new-family invoices and reaches 0.9263 header macro F1 and 0.8321 exact-row F1, exposing a large row-recall gap. All prediction sets are stored under `evals/` for offline audit. These diagnostics do not exercise PDF parsing. A later [frozen test run](docs/invoice-heldout-run.md) measures the retained default on the separate test families.
+From the repository root, with Python 3.12:
 
-The [spatial OCR experiment](docs/spatial-extraction.md) was **rejected for default promotion**. It raises development row detection F1 from 0.9855 to 0.9914, but lowers [calibration](docs/invoice-calibration-run.md#spatial-candidate-rejected--october-3-2026) row detection F1 from 0.8364 to 0.7909 and exact-row F1 from 0.8321 to 0.7863. `ocr_rules` v0.3 remains the product and evaluation default; `--extractor spatial_rules` explicitly selects the experimental v0.4 candidate for preview evaluation. Both measured 180-document bundles preserve OCR spans and a hash-bound source snapshot. The default reproduces the original records on all 360 saved OCR inputs, and [final Docker workflow verification](evals/parser-verification-2026-10-03-final/report.json) passes all ten checks.
+```sh
+make test
+make eval-verify-corpus
+```
 
-The review queue now ranks review-ready revisions with [explainable triage points](docs/review.md#review-queue-priority). A [verified development diagnostic](docs/invoice-development-run.md#review-priority-diagnostic--october-3-2026) found 7 wrong required fields among 74 zero-point documents, so zero validation issues cannot justify skipping human review. The calibration run also shows that missing extracted amounts can prevent an injected total conflict from being checked.
-
-The [held-out invoice baseline](docs/invoice-heldout-run.md) processes 180/180 documents, with header macro F1 **0.9981**, all required fields exact on **163/166** eligible documents, and exact-row F1 **0.9423**. Its original freeze and predictions are preserved alongside an explicitly recorded bootstrap reporting correction. This is synthetic preview evidence; the full local-model test comparison and CORD receipts remain pending. The [real-model upload runbook](docs/real-model-upload.md) adds `make dev-model` for a server-owned pinned model with credentials kept out of the browser. The earlier held-out milestone passed 168 deterministic tests and [12 Docker workflow/recovery checks](evals/parser-post-heldout-2026-10-03-final/report.json); the backup milestone above records the expanded suite.
-
-## Run the spike
-
-On macOS with Python 3.12 and Tesseract with English language data:
+These deterministic/offline checks need no Docker, OCR installation, model, or downloads. To run the browser with fresh trusted-sample OCR, install Tesseract with English language data, then:
 
 ```sh
 make doctor
-make test
 make smoke-ocr
-make demo-baseline
-make eval-development
 make dev
 ```
 
-`make dev` prints a one-time browser URL. Seed the trusted samples in the browser for an OCR-backed review demo without Docker. For uploaded documents, start Docker Desktop and run `make parser-build`, then follow [the intake guide](docs/intake.md). Run `make parser-smoke` to exercise the real container, or `make parser-verify OUTPUT=artifacts/parser-verification-fresh.json` to save an evidence report at a new path.
+Open the one-time URL printed by the server. Choose **Clean sample** or **Conflicting total**, inspect evidence, correct or acknowledge issues with a reason, approve, and export. Sample buttons run host OCR on trusted fixtures. For uploaded PDF/PNG/JPEG files, start Docker Desktop and run `make parser-build`; uploaded originals are processed only by the fixed parser image.
 
-`make demo-baseline` and `make eval-development` write fresh results to ignored `artifacts/`. The development command verifies every committed image hash and label transform before scoring all 12 pages. The deterministic contract suite runs without Tesseract; `smoke-ocr` exercises real OCR on the committed demo fixtures. No model or dataset download is performed by these commands.
+For the pinned Apple Silicon model, follow [explicit model setup](docs/intake.md#pinned-local-model-evaluation), then `make models-verify` and `make dev-model`. The server owns model credentials. Missing assets fail startup; they are never downloaded implicitly. Run one model workload at a time while held-out inference is active.
 
-The optional `eval-development-model` command scores a configured loopback model on the same development images and counts failures. See [the intake guide](docs/intake.md) for the local endpoint setup and command.
+```sh
+python3.12 scripts/evaluation_status.py
+make release-check OUTPUT=artifacts/portfolio-audit-001
+```
 
-For a reproducible Apple Silicon run, `make models-fetch` explicitly downloads the pinned model/runtime assets; `make models-verify` verifies their hashes. `docwork eval-local-model --output-dir artifacts/model-run-001` manages a temporary authenticated server and saves the evidence. `docwork eval-verify evals/local-model-instruct-2026-10-02/model` checks the recorded run offline without model assets. Use `PYTHONPATH=src python3.12 -m docwork.cli` in place of `docwork` when running directly from the checkout. See the [pinned model runbook](docs/intake.md#pinned-local-model-evaluation).
+`release-check` writes standalone HTML, a hash-bound JSON snapshot, and a fresh deterministic test log. Exit 1 means pending evidence; exit 2 means invalid evidence; exit 0 means this checklist's supplied evidence is complete, subject to manual content review and the broader architecture acceptance criteria. Always use a new output directory. See [fresh checkout and demo instructions](docs/portfolio-release.md).
 
-`make eval-repeatability` runs the development OCR baseline twice and writes an audited JSON comparison and a standalone HTML report to `artifacts/development-comparison.*`. The comparison includes paired intervals, per-layout scores, and failure counts. `eval-compare` rejects incompatible or incomplete reports and returns a nonzero exit code for regressions or unusable evidence. See the [comparison guide and measured repeatability check](docs/development-baseline.md#development-comparison-gate). A passing development gate does not establish release readiness or held-out accuracy.
+## Implementation and evaluation guides
 
-See [review workflow](docs/review.md) for a complete fixture-to-export example.
-See [intake status](docs/intake.md) for the current queued-document boundary.
-See [browser guide](docs/browser.md) for the visual review prototype.
+| Topic | Guide |
+|---|---|
+| Intake, quotas, reconciliation, backups | [Local intake](docs/intake.md) |
+| Revisions, issue decisions, priority, approvals, exports | [Review workflow](docs/review.md) |
+| Evidence overlays, rotations, session boundary | [Browser prototype](docs/browser.md) |
+| Parser checkpoints and host worker recovery | [Parser recovery](docs/parser-recovery.md) |
+| Container policy and real runtime checks | [Parser verification](docs/parser-verification.md), [resource drills](docs/parser-resources.md) |
+| Corpus, development, calibration, held-out baseline | [Invoice corpus](docs/invoice-corpus.md), [development](docs/invoice-development-run.md), [calibration](docs/invoice-calibration-run.md), [test](docs/invoice-heldout-run.md) |
+| Frozen scoring, invoice/model and CORD comparisons | [Release evaluation](docs/release-evaluation.md) |
+| Pinned-model feasibility and initial spike | [Development baseline](docs/development-baseline.md), [Phase 0 history](docs/phase0.md) |
+| Real model through uploaded documents | [Model workflow](docs/real-model-upload.md) |
+| Assisted author study and limitations | [Review pilot](docs/review-pilot.md) |
+| Release audit, recording script, remaining work | [Portfolio release](docs/portfolio-release.md) |
+
+Fresh experiments write to ignored `artifacts/`; committed `evals/` preserve recorded evidence. The original reports are historical measurements, not claims that every later source revision was tested with their runtime. The release audit reports that distinction explicitly.

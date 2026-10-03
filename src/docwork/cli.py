@@ -124,6 +124,13 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="docwork")
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("doctor", help="Report local Phase 0 runtime facts")
+    release = commands.add_parser("release-check", help="Audit portfolio evidence and run fresh deterministic contracts offline")
+    release.add_argument("--output-dir", type=Path, required=True, help="New immutable audit directory")
+    release.add_argument("--parser-report", help="Repository-relative current-build parser report")
+    release.add_argument("--model-workflow-directory", help="Repository-relative fresh real-model workflow evidence")
+    release.add_argument("--browser-directory", help="Repository-relative fresh browser evidence")
+    release.add_argument("--pilot-directory", help="Repository-relative stopped author pilot session")
+    release.add_argument("--demo-recording", help="Repository-relative recording; content needs human review")
     baseline = commands.add_parser("baseline", help="Run OCR/rules on a self-authored sample PNG")
     baseline.add_argument("fixture", type=Path)
     baseline.add_argument("--output", type=Path)
@@ -333,6 +340,15 @@ def main(argv: list[str] | None = None) -> int:
             return 0
         if args.command == "doctor":
             data = doctor()
+        elif args.command == "release-check":
+            from .release_readiness import audit_release
+            report = audit_release(Path(__file__).resolve().parents[2], args.output_dir,
+                                   parser_report=args.parser_report, workflow_directory=args.model_workflow_directory,
+                                   browser_directory=args.browser_directory, pilot_directory=args.pilot_directory,
+                                   demo_recording=args.demo_recording)
+            data = {"status": report["status"], "checks": [{"id": c["id"], "status": c["status"]} for c in report["checks"]],
+                    "report": str(args.output_dir / "report.json"), "html": str(args.output_dir / "index.html")}
+            exit_code = {"evidence_complete": 0, "pending": 1, "invalid": 2}[report["status"]]
         elif args.command == "backup":
             from .backup import create_backup, restore_backup, verify_backup
             if args.action == "create":

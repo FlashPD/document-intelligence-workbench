@@ -5230,3 +5230,1272 @@ How are you?<|im_end|>
 102.45.124.835 I slot print_timing: id  0 | task 38565 | n_gen =    633, tg =   9.25 t/s, tg_3s =   8.87 t/s
 102.48.220.480 I slot print_timing: id  0 | task 38565 | n_gen =    661, tg =   9.24 t/s, tg_3s =   9.04 t/s
 102.51.257.240 I slot print_timing: id  0 | task 38565 | n_gen =    689, tg =   9.24 t/s, tg_3s =   9.22 t/s
+102.54.302.879 I slot print_timing: id  0 | task 38565 | n_gen =    715, tg =   9.21 t/s, tg_3s =   8.54 t/s
+102.57.363.840 I slot print_timing: id  0 | task 38565 | n_gen =    739, tg =   9.16 t/s, tg_3s =   7.84 t/s
+103.00.479.108 I slot print_timing: id  0 | task 38565 | n_gen =    766, tg =   9.14 t/s, tg_3s =   8.67 t/s
+103.03.512.581 I slot print_timing: id  0 | task 38565 | n_gen =    790, tg =   9.10 t/s, tg_3s =   7.91 t/s
+103.06.537.500 I slot print_timing: id  0 | task 38565 | n_gen =    815, tg =   9.07 t/s, tg_3s =   8.26 t/s
+103.09.699.475 I slot print_timing: id  0 | task 38565 | n_gen =    842, tg =   9.05 t/s, tg_3s =   8.54 t/s
+103.12.795.857 I slot print_timing: id  0 | task 38565 | n_gen =    869, tg =   9.04 t/s, tg_3s =   8.72 t/s
+103.15.809.695 I slot print_timing: id  0 | task 38565 | n_gen =    896, tg =   9.04 t/s, tg_3s =   8.96 t/s
+103.18.837.753 I slot print_timing: id  0 | task 38565 | n_gen =    922, tg =   9.03 t/s, tg_3s =   8.59 t/s
+103.21.865.977 I slot print_timing: id  0 | task 38565 | n_gen =    945, tg =   8.99 t/s, tg_3s =   7.60 t/s
+103.24.897.210 I slot print_timing: id  0 | task 38565 | n_gen =    972, tg =   8.98 t/s, tg_3s =   8.91 t/s
+103.27.923.710 I slot print_timing: id  0 | task 38565 | n_gen =   1000, tg =   8.99 t/s, tg_3s =   9.25 t/s
+103.28.647.133 I slot print_timing: id  0 | task 38565 | prompt eval time =    8778.79 ms /   763 tokens (   11.51 ms per token,    86.91 tokens per second)
+103.28.647.139 I slot print_timing: id  0 | task 38565 |        eval time =  111845.08 ms /  1006 tokens (  111.29 ms per token,     8.99 tokens per second)
+103.28.647.140 I slot print_timing: id  0 | task 38565 |       total time =  120623.87 ms /  1769 tokens
+103.28.647.141 I slot print_timing: id  0 | task 38565 |    graphs reused =      39253
+103.28.647.508 I slot      release: id  0 | task 38565 | stop processing: n_tokens = 2126, truncated = 0
+103.28.647.560 I srv  update_slots: all slots are idle
+103.28.681.478 I srv  server_strea: conv_id= (empty=1)
+103.28.686.124 I srv    operator(): chat format: peg-native
+103.28.686.518 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.363 (358/986) > 0.100
+103.28.686.522 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.363 (> 0.100 thold), f_keep = 0.168
+103.28.686.523 I srv  get_availabl: updating prompt cache
+103.28.686.669 I srv   prompt_save:  - saving prompt with length 2126, total state size = 298.994 MiB (draft: 0.000 MiB)
+103.28.686.734 W srv         alloc:  - making room for prompt cache entry, removing oldest entry (size = 296.884 MiB)
+103.28.844.581 I srv          load:  - looking for better prompt, base f_keep = 0.168, f_sim = 0.363
+103.28.844.592 I srv          load:    - prompt with length    1410, lcp =     224, f_keep = 0.159, f_sim = 0.227
+103.28.844.594 I srv          load:    - prompt with length    1628, lcp =     224, f_keep = 0.138, f_sim = 0.227
+103.28.844.598 I srv          load:    - prompt with length    1903, lcp =     224, f_keep = 0.118, f_sim = 0.227
+103.28.844.599 I srv          load:    - prompt with length    2155, lcp =     224, f_keep = 0.104, f_sim = 0.227
+103.28.844.600 I srv          load:    - prompt with length    1350, lcp =     224, f_keep = 0.166, f_sim = 0.227
+103.28.844.600 I srv          load:    - prompt with length    1399, lcp =     223, f_keep = 0.159, f_sim = 0.226
+103.28.844.601 I srv          load:    - prompt with length    1689, lcp =     223, f_keep = 0.132, f_sim = 0.226
+103.28.844.602 I srv          load:    - prompt with length    1898, lcp =     223, f_keep = 0.117, f_sim = 0.226
+103.28.844.603 I srv          load:    - prompt with length    2211, lcp =     223, f_keep = 0.101, f_sim = 0.226
+103.28.844.604 I srv          load:    - prompt with length    1412, lcp =     223, f_keep = 0.158, f_sim = 0.226
+103.28.844.605 I srv          load:    - prompt with length    1628, lcp =     357, f_keep = 0.219, f_sim = 0.362
+103.28.844.606 I srv          load:    - prompt with length    1899, lcp =     357, f_keep = 0.188, f_sim = 0.362
+103.28.844.607 I srv          load:    - prompt with length    2110, lcp =     357, f_keep = 0.169, f_sim = 0.362
+103.28.844.608 I srv          load:    - prompt with length    1511, lcp =     357, f_keep = 0.236, f_sim = 0.362
+103.28.844.609 I srv          load:    - prompt with length    1622, lcp =     357, f_keep = 0.220, f_sim = 0.362
+103.28.844.610 I srv          load:    - prompt with length    1903, lcp =     357, f_keep = 0.188, f_sim = 0.362
+103.28.844.611 I srv          load:    - prompt with length    2059, lcp =     357, f_keep = 0.173, f_sim = 0.362
+103.28.844.612 I srv          load:    - prompt with length    1409, lcp =     357, f_keep = 0.253, f_sim = 0.362
+103.28.844.613 I srv          load:    - prompt with length    1622, lcp =     357, f_keep = 0.220, f_sim = 0.362
+103.28.844.614 I srv          load:    - prompt with length    1831, lcp =     357, f_keep = 0.195, f_sim = 0.362
+103.28.844.615 I srv          load:    - prompt with length    2120, lcp =     357, f_keep = 0.168, f_sim = 0.362
+103.28.844.616 I srv          load:    - prompt with length    1463, lcp =     357, f_keep = 0.244, f_sim = 0.362
+103.28.844.617 I srv          load:    - prompt with length    1561, lcp =     357, f_keep = 0.229, f_sim = 0.362
+103.28.844.618 I srv          load:    - prompt with length    1949, lcp =     357, f_keep = 0.183, f_sim = 0.362
+103.28.844.619 I srv          load:    - prompt with length    2058, lcp =     357, f_keep = 0.173, f_sim = 0.362
+103.28.844.620 I srv          load:    - prompt with length    1467, lcp =     357, f_keep = 0.243, f_sim = 0.362
+103.28.844.621 I srv          load:    - prompt with length    1630, lcp =     357, f_keep = 0.219, f_sim = 0.362
+103.28.844.622 I srv          load:    - prompt with length    1901, lcp =     357, f_keep = 0.188, f_sim = 0.362
+103.28.844.649 I srv          load:    - prompt with length    1993, lcp =     357, f_keep = 0.179, f_sim = 0.362
+103.28.844.650 I srv          load:    - prompt with length    1467, lcp =     358, f_keep = 0.244, f_sim = 0.363
+103.28.844.651 I srv          load:    - prompt with length    1627, lcp =     358, f_keep = 0.220, f_sim = 0.363
+103.28.844.652 I srv          load:    - prompt with length    1846, lcp =     358, f_keep = 0.194, f_sim = 0.363
+103.28.844.653 I srv          load:    - prompt with length    2126, lcp =     358, f_keep = 0.168, f_sim = 0.363
+103.28.844.656 I srv        update:  - cache state: 33 prompts, 8136.831 MiB (limits: 8192.000 MiB, 8192 tokens, 58249 est)
+103.28.844.657 I srv        update:    - prompt 0xc78fd26d0:    1410 tokens, checkpoints:  0,   198.298 MiB
+103.28.844.657 I srv        update:    - prompt 0xc78fd1b90:    1628 tokens, checkpoints:  0,   228.957 MiB
+103.28.844.658 I srv        update:    - prompt 0xc78fd0ab0:    1903 tokens, checkpoints:  0,   267.632 MiB
+103.28.844.659 I srv        update:    - prompt 0xc78fd0510:    2155 tokens, checkpoints:  0,   303.072 MiB
+103.28.844.659 I srv        update:    - prompt 0xc78fd1190:    1350 tokens, checkpoints:  0,   189.860 MiB
+103.28.844.660 I srv        update:    - prompt 0xc7ad724f0:    1399 tokens, checkpoints:  0,   196.751 MiB
+103.28.844.660 I srv        update:    - prompt 0xc78fd3170:    1689 tokens, checkpoints:  0,   237.536 MiB
+103.28.844.661 I srv        update:    - prompt 0xc7ad73b70:    1898 tokens, checkpoints:  0,   266.929 MiB
+103.28.844.661 I srv        update:    - prompt 0xc78fd0e70:    2211 tokens, checkpoints:  0,   310.948 MiB
+103.28.844.662 I srv        update:    - prompt 0xc7ad738f0:    1412 tokens, checkpoints:  0,   198.580 MiB
+103.28.844.662 I srv        update:    - prompt 0xc78fd06f0:    1628 tokens, checkpoints:  0,   228.957 MiB
+103.28.844.663 I srv        update:    - prompt 0xc7ad73170:    1899 tokens, checkpoints:  0,   267.069 MiB
+103.28.844.663 I srv        update:    - prompt 0xc78fd37b0:    2110 tokens, checkpoints:  0,   296.744 MiB
+103.28.844.664 I srv        update:    - prompt 0xc7ad73710:    1511 tokens, checkpoints:  0,   212.503 MiB
+103.28.844.665 I srv        update:    - prompt 0xc78fd32b0:    1622 tokens, checkpoints:  0,   228.113 MiB
+103.28.844.665 I srv        update:    - prompt 0xc7ad73350:    1903 tokens, checkpoints:  0,   267.632 MiB
+103.28.844.666 I srv        update:    - prompt 0xc78fd0650:    2059 tokens, checkpoints:  0,   289.571 MiB
+103.28.844.666 I srv        update:    - prompt 0xc7ad73c10:    1409 tokens, checkpoints:  0,   198.158 MiB
+103.28.844.667 I srv        update:    - prompt 0xc78fd2bd0:    1622 tokens, checkpoints:  0,   228.113 MiB
+103.28.844.667 I srv        update:    - prompt 0xc7ad732b0:    1831 tokens, checkpoints:  0,   257.506 MiB
+103.28.844.668 I srv        update:    - prompt 0xc78fd2770:    2120 tokens, checkpoints:  0,   298.150 MiB
+103.28.844.668 I srv        update:    - prompt 0xc7ad726d0:    1463 tokens, checkpoints:  0,   205.752 MiB
+103.28.844.669 I srv        update:    - prompt 0xc78fd3a30:    1561 tokens, checkpoints:  0,   219.534 MiB
+103.28.844.669 I srv        update:    - prompt 0xc7ad73850:    1949 tokens, checkpoints:  0,   274.101 MiB
+103.28.844.670 I srv        update:    - prompt 0xc78fd12d0:    2058 tokens, checkpoints:  0,   289.431 MiB
+103.28.844.670 I srv        update:    - prompt 0xc7ad72c70:    1467 tokens, checkpoints:  0,   206.315 MiB
+103.28.844.671 I srv        update:    - prompt 0xc78fd0290:    1630 tokens, checkpoints:  0,   229.238 MiB
+103.28.844.671 I srv        update:    - prompt 0xc7ad72950:    1901 tokens, checkpoints:  0,   267.351 MiB
+103.28.844.672 I srv        update:    - prompt 0xc78fd2270:    1993 tokens, checkpoints:  0,   280.289 MiB
+103.28.844.672 I srv        update:    - prompt 0xc7ad73a30:    1467 tokens, checkpoints:  0,   206.315 MiB
+103.28.844.673 I srv        update:    - prompt 0xc78fd3990:    1627 tokens, checkpoints:  0,   228.816 MiB
+103.28.844.673 I srv        update:    - prompt 0xc7ad73030:    1846 tokens, checkpoints:  0,   259.616 MiB
+103.28.844.674 I srv        update:    - prompt 0xc78fd3530:    2126 tokens, checkpoints:  0,   298.994 MiB
+103.28.844.676 I srv  get_availabl: prompt cache update took 158.15 ms
+103.28.845.295 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+103.28.845.308 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+103.28.845.310 I slot launch_slot_: id  0 | task 39572 | processing task, is_child = 0
+103.28.845.330 I slot   operator(): id  0 | task 39572 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 986
+103.28.845.335 I slot   operator(): id  0 | task 39572 | cached n_tokens = 358, memory_seq_rm [358, end)
+103.28.846.091 I slot init_sampler: id  0 | task 39572 | init sampler, took 0.22 ms, tokens: text = 986, total = 986
+103.47.196.821 I slot print_timing: id  0 | task 39572 | n_gen =    100, tg =   9.31 t/s, tg_3s =   9.40 t/s
+103.50.217.721 I slot print_timing: id  0 | task 39572 | n_gen =    129, tg =   9.37 t/s, tg_3s =   9.60 t/s
+103.53.224.267 I slot print_timing: id  0 | task 39572 | n_gen =    158, tg =   9.42 t/s, tg_3s =   9.65 t/s
+103.56.260.002 I slot print_timing: id  0 | task 39572 | n_gen =    187, tg =   9.44 t/s, tg_3s =   9.55 t/s
+103.59.262.161 I slot print_timing: id  0 | task 39572 | n_gen =    216, tg =   9.47 t/s, tg_3s =   9.66 t/s
+104.02.263.402 I slot print_timing: id  0 | task 39572 | n_gen =    245, tg =   9.49 t/s, tg_3s =   9.66 t/s
+104.05.284.062 I slot print_timing: id  0 | task 39572 | n_gen =    274, tg =   9.50 t/s, tg_3s =   9.60 t/s
+104.08.337.399 I slot print_timing: id  0 | task 39572 | n_gen =    303, tg =   9.50 t/s, tg_3s =   9.50 t/s
+104.11.370.134 I slot print_timing: id  0 | task 39572 | n_gen =    332, tg =   9.51 t/s, tg_3s =   9.56 t/s
+104.14.393.014 I slot print_timing: id  0 | task 39572 | n_gen =    361, tg =   9.52 t/s, tg_3s =   9.59 t/s
+104.17.461.215 I slot print_timing: id  0 | task 39572 | n_gen =    390, tg =   9.51 t/s, tg_3s =   9.45 t/s
+104.20.487.971 I slot print_timing: id  0 | task 39572 | n_gen =    419, tg =   9.52 t/s, tg_3s =   9.58 t/s
+104.23.568.061 I slot print_timing: id  0 | task 39572 | n_gen =    448, tg =   9.51 t/s, tg_3s =   9.42 t/s
+104.26.582.758 I slot print_timing: id  0 | task 39572 | n_gen =    477, tg =   9.52 t/s, tg_3s =   9.62 t/s
+104.29.673.516 I slot print_timing: id  0 | task 39572 | n_gen =    506, tg =   9.51 t/s, tg_3s =   9.38 t/s
+104.31.868.242 I slot print_timing: id  0 | task 39572 | prompt eval time =    7715.45 ms /   628 tokens (   12.29 ms per token,    81.40 tokens per second)
+104.31.868.276 I slot print_timing: id  0 | task 39572 |        eval time =   55307.44 ms /   526 tokens (  105.35 ms per token,     9.49 tokens per second)
+104.31.868.282 I slot print_timing: id  0 | task 39572 |       total time =   63022.90 ms /  1154 tokens
+104.31.868.284 I slot print_timing: id  0 | task 39572 |    graphs reused =      39775
+104.31.868.431 I slot      release: id  0 | task 39572 | stop processing: n_tokens = 1511, truncated = 0
+104.31.868.466 I srv  update_slots: all slots are idle
+104.31.907.424 I srv  server_strea: conv_id= (empty=1)
+104.31.908.878 I srv    operator(): chat format: peg-native
+104.31.909.269 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.396 (358/904) > 0.100
+104.31.909.276 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.396 (> 0.100 thold), f_keep = 0.237
+104.31.909.276 I srv  get_availabl: updating prompt cache
+104.31.909.381 I srv   prompt_save:  - saving prompt with length 1511, total state size = 212.503 MiB (draft: 0.000 MiB)
+104.31.909.411 W srv         alloc:  - making room for prompt cache entry, removing oldest entry (size = 198.298 MiB)
+104.31.986.378 I srv          load:  - looking for better prompt, base f_keep = 0.237, f_sim = 0.396
+104.31.986.383 I srv          load:    - prompt with length    1628, lcp =     224, f_keep = 0.138, f_sim = 0.248
+104.31.986.384 I srv          load:    - prompt with length    1903, lcp =     224, f_keep = 0.118, f_sim = 0.248
+104.31.986.385 I srv          load:    - prompt with length    2155, lcp =     224, f_keep = 0.104, f_sim = 0.248
+104.31.986.386 I srv          load:    - prompt with length    1350, lcp =     224, f_keep = 0.166, f_sim = 0.248
+104.31.986.389 I srv          load:    - prompt with length    1399, lcp =     223, f_keep = 0.159, f_sim = 0.247
+104.31.986.390 I srv          load:    - prompt with length    1689, lcp =     223, f_keep = 0.132, f_sim = 0.247
+104.31.986.394 I srv          load:    - prompt with length    1898, lcp =     223, f_keep = 0.117, f_sim = 0.247
+104.31.986.395 I srv          load:    - prompt with length    2211, lcp =     223, f_keep = 0.101, f_sim = 0.247
+104.31.986.395 I srv          load:    - prompt with length    1412, lcp =     223, f_keep = 0.158, f_sim = 0.247
+104.31.986.396 I srv          load:    - prompt with length    1628, lcp =     357, f_keep = 0.219, f_sim = 0.395
+104.31.986.397 I srv          load:    - prompt with length    1899, lcp =     357, f_keep = 0.188, f_sim = 0.395
+104.31.986.398 I srv          load:    - prompt with length    2110, lcp =     357, f_keep = 0.169, f_sim = 0.395
+104.31.986.399 I srv          load:    - prompt with length    1511, lcp =     357, f_keep = 0.236, f_sim = 0.395
+104.31.986.400 I srv          load:    - prompt with length    1622, lcp =     357, f_keep = 0.220, f_sim = 0.395
+104.31.986.401 I srv          load:    - prompt with length    1903, lcp =     357, f_keep = 0.188, f_sim = 0.395
+104.31.986.402 I srv          load:    - prompt with length    2059, lcp =     357, f_keep = 0.173, f_sim = 0.395
+104.31.986.403 I srv          load:    - prompt with length    1409, lcp =     357, f_keep = 0.253, f_sim = 0.395
+104.31.986.410 I srv          load:    - prompt with length    1622, lcp =     357, f_keep = 0.220, f_sim = 0.395
+104.31.986.411 I srv          load:    - prompt with length    1831, lcp =     357, f_keep = 0.195, f_sim = 0.395
+104.31.986.412 I srv          load:    - prompt with length    2120, lcp =     357, f_keep = 0.168, f_sim = 0.395
+104.31.986.413 I srv          load:    - prompt with length    1463, lcp =     357, f_keep = 0.244, f_sim = 0.395
+104.31.986.414 I srv          load:    - prompt with length    1561, lcp =     357, f_keep = 0.229, f_sim = 0.395
+104.31.986.415 I srv          load:    - prompt with length    1949, lcp =     357, f_keep = 0.183, f_sim = 0.395
+104.31.986.416 I srv          load:    - prompt with length    2058, lcp =     357, f_keep = 0.173, f_sim = 0.395
+104.31.986.417 I srv          load:    - prompt with length    1467, lcp =     357, f_keep = 0.243, f_sim = 0.395
+104.31.986.418 I srv          load:    - prompt with length    1630, lcp =     357, f_keep = 0.219, f_sim = 0.395
+104.31.986.419 I srv          load:    - prompt with length    1901, lcp =     357, f_keep = 0.188, f_sim = 0.395
+104.31.986.420 I srv          load:    - prompt with length    1993, lcp =     357, f_keep = 0.179, f_sim = 0.395
+104.31.986.421 I srv          load:    - prompt with length    1467, lcp =     358, f_keep = 0.244, f_sim = 0.396
+104.31.986.422 I srv          load:    - prompt with length    1627, lcp =     358, f_keep = 0.220, f_sim = 0.396
+104.31.986.430 I srv          load:    - prompt with length    1846, lcp =     358, f_keep = 0.194, f_sim = 0.396
+104.31.986.431 I srv          load:    - prompt with length    2126, lcp =     358, f_keep = 0.168, f_sim = 0.396
+104.31.986.432 I srv          load:    - prompt with length    1511, lcp =     358, f_keep = 0.237, f_sim = 0.396
+104.31.986.443 I srv        update:  - cache state: 33 prompts, 8151.035 MiB (limits: 8192.000 MiB, 8192 tokens, 58249 est)
+104.31.986.445 I srv        update:    - prompt 0xc78fd1b90:    1628 tokens, checkpoints:  0,   228.957 MiB
+104.31.986.446 I srv        update:    - prompt 0xc78fd0ab0:    1903 tokens, checkpoints:  0,   267.632 MiB
+104.31.986.447 I srv        update:    - prompt 0xc78fd0510:    2155 tokens, checkpoints:  0,   303.072 MiB
+104.31.986.448 I srv        update:    - prompt 0xc78fd1190:    1350 tokens, checkpoints:  0,   189.860 MiB
+104.31.986.448 I srv        update:    - prompt 0xc7ad724f0:    1399 tokens, checkpoints:  0,   196.751 MiB
+104.31.986.449 I srv        update:    - prompt 0xc78fd3170:    1689 tokens, checkpoints:  0,   237.536 MiB
+104.31.986.449 I srv        update:    - prompt 0xc7ad73b70:    1898 tokens, checkpoints:  0,   266.929 MiB
+104.31.986.450 I srv        update:    - prompt 0xc78fd0e70:    2211 tokens, checkpoints:  0,   310.948 MiB
+104.31.986.451 I srv        update:    - prompt 0xc7ad738f0:    1412 tokens, checkpoints:  0,   198.580 MiB
+104.31.986.451 I srv        update:    - prompt 0xc78fd06f0:    1628 tokens, checkpoints:  0,   228.957 MiB
+104.31.986.452 I srv        update:    - prompt 0xc7ad73170:    1899 tokens, checkpoints:  0,   267.069 MiB
+104.31.986.452 I srv        update:    - prompt 0xc78fd37b0:    2110 tokens, checkpoints:  0,   296.744 MiB
+104.31.986.473 I srv        update:    - prompt 0xc7ad73710:    1511 tokens, checkpoints:  0,   212.503 MiB
+104.31.986.474 I srv        update:    - prompt 0xc78fd32b0:    1622 tokens, checkpoints:  0,   228.113 MiB
+104.31.986.475 I srv        update:    - prompt 0xc7ad73350:    1903 tokens, checkpoints:  0,   267.632 MiB
+104.31.986.475 I srv        update:    - prompt 0xc78fd0650:    2059 tokens, checkpoints:  0,   289.571 MiB
+104.31.986.476 I srv        update:    - prompt 0xc7ad73c10:    1409 tokens, checkpoints:  0,   198.158 MiB
+104.31.986.476 I srv        update:    - prompt 0xc78fd2bd0:    1622 tokens, checkpoints:  0,   228.113 MiB
+104.31.986.477 I srv        update:    - prompt 0xc7ad732b0:    1831 tokens, checkpoints:  0,   257.506 MiB
+104.31.986.477 I srv        update:    - prompt 0xc78fd2770:    2120 tokens, checkpoints:  0,   298.150 MiB
+104.31.986.478 I srv        update:    - prompt 0xc7ad726d0:    1463 tokens, checkpoints:  0,   205.752 MiB
+104.31.986.479 I srv        update:    - prompt 0xc78fd3a30:    1561 tokens, checkpoints:  0,   219.534 MiB
+104.31.986.479 I srv        update:    - prompt 0xc7ad73850:    1949 tokens, checkpoints:  0,   274.101 MiB
+104.31.986.480 I srv        update:    - prompt 0xc78fd12d0:    2058 tokens, checkpoints:  0,   289.431 MiB
+104.31.986.480 I srv        update:    - prompt 0xc7ad72c70:    1467 tokens, checkpoints:  0,   206.315 MiB
+104.31.986.481 I srv        update:    - prompt 0xc78fd0290:    1630 tokens, checkpoints:  0,   229.238 MiB
+104.31.986.481 I srv        update:    - prompt 0xc7ad72950:    1901 tokens, checkpoints:  0,   267.351 MiB
+104.31.986.482 I srv        update:    - prompt 0xc78fd2270:    1993 tokens, checkpoints:  0,   280.289 MiB
+104.31.986.482 I srv        update:    - prompt 0xc7ad73a30:    1467 tokens, checkpoints:  0,   206.315 MiB
+104.31.986.483 I srv        update:    - prompt 0xc78fd3990:    1627 tokens, checkpoints:  0,   228.816 MiB
+104.31.986.483 I srv        update:    - prompt 0xc7ad73030:    1846 tokens, checkpoints:  0,   259.616 MiB
+104.31.986.484 I srv        update:    - prompt 0xc78fd3530:    2126 tokens, checkpoints:  0,   298.994 MiB
+104.31.986.484 I srv        update:    - prompt 0xc7ad72a90:    1511 tokens, checkpoints:  0,   212.503 MiB
+104.31.986.486 I srv  get_availabl: prompt cache update took 77.21 ms
+104.31.986.910 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+104.31.986.917 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+104.31.986.919 I slot launch_slot_: id  0 | task 40099 | processing task, is_child = 0
+104.31.986.926 I slot   operator(): id  0 | task 40099 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 904
+104.31.986.929 I slot   operator(): id  0 | task 40099 | cached n_tokens = 358, memory_seq_rm [358, end)
+104.31.987.274 I slot init_sampler: id  0 | task 40099 | init sampler, took 0.15 ms, tokens: text = 904, total = 904
+104.49.142.700 I slot print_timing: id  0 | task 40099 | n_gen =    100, tg =   9.28 t/s, tg_3s =   9.37 t/s
+104.52.236.716 I slot print_timing: id  0 | task 40099 | n_gen =    128, tg =   9.23 t/s, tg_3s =   9.05 t/s
+104.55.344.471 I slot print_timing: id  0 | task 40099 | n_gen =    152, tg =   8.95 t/s, tg_3s =   7.72 t/s
+104.58.471.445 I slot print_timing: id  0 | task 40099 | n_gen =    174, tg =   8.65 t/s, tg_3s =   7.04 t/s
+105.01.473.737 I slot print_timing: id  0 | task 40099 | n_gen =    195, tg =   8.43 t/s, tg_3s =   6.99 t/s
+105.04.478.830 I slot print_timing: id  0 | task 40099 | n_gen =    218, tg =   8.34 t/s, tg_3s =   7.65 t/s
+105.07.493.728 I slot print_timing: id  0 | task 40099 | n_gen =    245, tg =   8.41 t/s, tg_3s =   8.96 t/s
+105.10.525.687 I slot print_timing: id  0 | task 40099 | n_gen =    269, tg =   8.36 t/s, tg_3s =   7.92 t/s
+105.13.548.416 I slot print_timing: id  0 | task 40099 | n_gen =    292, tg =   8.30 t/s, tg_3s =   7.61 t/s
+105.16.630.800 I slot print_timing: id  0 | task 40099 | n_gen =    317, tg =   8.28 t/s, tg_3s =   8.11 t/s
+105.19.637.243 I slot print_timing: id  0 | task 40099 | n_gen =    344, tg =   8.33 t/s, tg_3s =   8.98 t/s
+105.22.727.565 I slot print_timing: id  0 | task 40099 | n_gen =    368, tg =   8.29 t/s, tg_3s =   7.77 t/s
+105.25.787.670 I slot print_timing: id  0 | task 40099 | n_gen =    393, tg =   8.28 t/s, tg_3s =   8.17 t/s
+105.28.889.231 I slot print_timing: id  0 | task 40099 | n_gen =    422, tg =   8.35 t/s, tg_3s =   9.35 t/s
+105.31.889.775 I slot print_timing: id  0 | task 40099 | n_gen =    448, tg =   8.37 t/s, tg_3s =   8.67 t/s
+105.34.986.935 I slot print_timing: id  0 | task 40099 | n_gen =    477, tg =   8.42 t/s, tg_3s =   9.36 t/s
+105.37.988.826 I slot print_timing: id  0 | task 40099 | n_gen =    504, tg =   8.45 t/s, tg_3s =   8.99 t/s
+105.41.046.043 I slot print_timing: id  0 | task 40099 | n_gen =    533, tg =   8.50 t/s, tg_3s =   9.49 t/s
+105.44.094.656 I slot print_timing: id  0 | task 40099 | n_gen =    562, tg =   8.55 t/s, tg_3s =   9.51 t/s
+105.47.106.531 I slot print_timing: id  0 | task 40099 | n_gen =    587, tg =   8.54 t/s, tg_3s =   8.30 t/s
+105.50.143.110 I slot print_timing: id  0 | task 40099 | n_gen =    616, tg =   8.58 t/s, tg_3s =   9.55 t/s
+105.53.238.941 I slot print_timing: id  0 | task 40099 | n_gen =    643, tg =   8.59 t/s, tg_3s =   8.72 t/s
+105.55.660.382 I slot print_timing: id  0 | task 40099 | prompt eval time =    6486.25 ms /   546 tokens (   11.88 ms per token,    84.18 tokens per second)
+105.55.660.391 I slot print_timing: id  0 | task 40099 |        eval time =   77187.13 ms /   665 tokens (  116.25 ms per token,     8.60 tokens per second)
+105.55.660.393 I slot print_timing: id  0 | task 40099 |       total time =   83673.38 ms /  1211 tokens
+105.55.660.394 I slot print_timing: id  0 | task 40099 |    graphs reused =      40435
+105.55.661.298 I slot      release: id  0 | task 40099 | stop processing: n_tokens = 1568, truncated = 0
+105.55.661.379 I srv  update_slots: all slots are idle
+105.55.704.501 I srv  server_strea: conv_id= (empty=1)
+105.55.709.932 I srv    operator(): chat format: peg-native
+105.55.710.338 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.285 (270/949) > 0.100
+105.55.710.340 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.285 (> 0.100 thold), f_keep = 0.172
+105.55.710.341 I srv  get_availabl: updating prompt cache
+105.55.710.444 I srv   prompt_save:  - saving prompt with length 1568, total state size = 220.519 MiB (draft: 0.000 MiB)
+105.55.710.508 W srv         alloc:  - making room for prompt cache entry, removing oldest entry (size = 228.957 MiB)
+105.56.653.961 I srv          load:  - looking for better prompt, base f_keep = 0.172, f_sim = 0.285
+105.56.653.968 I srv          load:    - prompt with length    1903, lcp =     224, f_keep = 0.118, f_sim = 0.236
+105.56.653.969 I srv          load:    - prompt with length    2155, lcp =     224, f_keep = 0.104, f_sim = 0.236
+105.56.653.970 I srv          load:    - prompt with length    1350, lcp =     224, f_keep = 0.166, f_sim = 0.236
+105.56.653.971 I srv          load:    - prompt with length    1399, lcp =     223, f_keep = 0.159, f_sim = 0.235
+105.56.653.972 I srv          load:    - prompt with length    1689, lcp =     223, f_keep = 0.132, f_sim = 0.235
+105.56.653.973 I srv          load:    - prompt with length    1898, lcp =     223, f_keep = 0.117, f_sim = 0.235
+105.56.653.974 I srv          load:    - prompt with length    2211, lcp =     223, f_keep = 0.101, f_sim = 0.235
+105.56.653.975 I srv          load:    - prompt with length    1412, lcp =     223, f_keep = 0.158, f_sim = 0.235
+105.56.653.976 I srv          load:    - prompt with length    1628, lcp =     270, f_keep = 0.166, f_sim = 0.285
+105.56.653.977 I srv          load:    - prompt with length    1899, lcp =     270, f_keep = 0.142, f_sim = 0.285
+105.56.653.978 I srv          load:    - prompt with length    2110, lcp =     270, f_keep = 0.128, f_sim = 0.285
+105.56.653.979 I srv          load:    - prompt with length    1511, lcp =     270, f_keep = 0.179, f_sim = 0.285
+105.56.653.980 I srv          load:    - prompt with length    1622, lcp =     270, f_keep = 0.166, f_sim = 0.285
+105.56.653.981 I srv          load:    - prompt with length    1903, lcp =     270, f_keep = 0.142, f_sim = 0.285
+105.56.653.982 I srv          load:    - prompt with length    2059, lcp =     270, f_keep = 0.131, f_sim = 0.285
+105.56.653.983 I srv          load:    - prompt with length    1409, lcp =     270, f_keep = 0.192, f_sim = 0.285
+105.56.653.984 I srv          load:    - prompt with length    1622, lcp =     270, f_keep = 0.166, f_sim = 0.285
+105.56.653.985 I srv          load:    - prompt with length    1831, lcp =     270, f_keep = 0.147, f_sim = 0.285
+105.56.653.985 I srv          load:    - prompt with length    2120, lcp =     270, f_keep = 0.127, f_sim = 0.285
+105.56.653.987 I srv          load:    - prompt with length    1463, lcp =     270, f_keep = 0.185, f_sim = 0.285
+105.56.653.987 I srv          load:    - prompt with length    1561, lcp =     270, f_keep = 0.173, f_sim = 0.285
+105.56.653.988 I srv          load:    - prompt with length    1949, lcp =     270, f_keep = 0.139, f_sim = 0.285
+105.56.653.989 I srv          load:    - prompt with length    2058, lcp =     270, f_keep = 0.131, f_sim = 0.285
+105.56.653.990 I srv          load:    - prompt with length    1467, lcp =     270, f_keep = 0.184, f_sim = 0.285
+105.56.653.991 I srv          load:    - prompt with length    1630, lcp =     270, f_keep = 0.166, f_sim = 0.285
+105.56.653.992 I srv          load:    - prompt with length    1901, lcp =     270, f_keep = 0.142, f_sim = 0.285
+105.56.653.993 I srv          load:    - prompt with length    1993, lcp =     270, f_keep = 0.135, f_sim = 0.285
+105.56.653.994 I srv          load:    - prompt with length    1467, lcp =     270, f_keep = 0.184, f_sim = 0.285
+105.56.653.995 I srv          load:    - prompt with length    1627, lcp =     270, f_keep = 0.166, f_sim = 0.285
+105.56.653.995 I srv          load:    - prompt with length    1846, lcp =     270, f_keep = 0.146, f_sim = 0.285
+105.56.653.996 I srv          load:    - prompt with length    2126, lcp =     270, f_keep = 0.127, f_sim = 0.285
+105.56.653.997 I srv          load:    - prompt with length    1511, lcp =     270, f_keep = 0.179, f_sim = 0.285
+105.56.653.998 I srv          load:    - prompt with length    1568, lcp =     270, f_keep = 0.172, f_sim = 0.285
+105.56.654.000 I srv        update:  - cache state: 33 prompts, 8142.597 MiB (limits: 8192.000 MiB, 8192 tokens, 58249 est)
+105.56.654.001 I srv        update:    - prompt 0xc78fd0ab0:    1903 tokens, checkpoints:  0,   267.632 MiB
+105.56.654.002 I srv        update:    - prompt 0xc78fd0510:    2155 tokens, checkpoints:  0,   303.072 MiB
+105.56.654.003 I srv        update:    - prompt 0xc78fd1190:    1350 tokens, checkpoints:  0,   189.860 MiB
+105.56.654.003 I srv        update:    - prompt 0xc7ad724f0:    1399 tokens, checkpoints:  0,   196.751 MiB
+105.56.654.004 I srv        update:    - prompt 0xc78fd3170:    1689 tokens, checkpoints:  0,   237.536 MiB
+105.56.654.004 I srv        update:    - prompt 0xc7ad73b70:    1898 tokens, checkpoints:  0,   266.929 MiB
+105.56.654.005 I srv        update:    - prompt 0xc78fd0e70:    2211 tokens, checkpoints:  0,   310.948 MiB
+105.56.654.005 I srv        update:    - prompt 0xc7ad738f0:    1412 tokens, checkpoints:  0,   198.580 MiB
+105.56.654.006 I srv        update:    - prompt 0xc78fd06f0:    1628 tokens, checkpoints:  0,   228.957 MiB
+105.56.654.006 I srv        update:    - prompt 0xc7ad73170:    1899 tokens, checkpoints:  0,   267.069 MiB
+105.56.654.007 I srv        update:    - prompt 0xc78fd37b0:    2110 tokens, checkpoints:  0,   296.744 MiB
+105.56.654.007 I srv        update:    - prompt 0xc7ad73710:    1511 tokens, checkpoints:  0,   212.503 MiB
+105.56.654.008 I srv        update:    - prompt 0xc78fd32b0:    1622 tokens, checkpoints:  0,   228.113 MiB
+105.56.654.008 I srv        update:    - prompt 0xc7ad73350:    1903 tokens, checkpoints:  0,   267.632 MiB
+105.56.654.009 I srv        update:    - prompt 0xc78fd0650:    2059 tokens, checkpoints:  0,   289.571 MiB
+105.56.654.009 I srv        update:    - prompt 0xc7ad73c10:    1409 tokens, checkpoints:  0,   198.158 MiB
+105.56.654.010 I srv        update:    - prompt 0xc78fd2bd0:    1622 tokens, checkpoints:  0,   228.113 MiB
+105.56.654.010 I srv        update:    - prompt 0xc7ad732b0:    1831 tokens, checkpoints:  0,   257.506 MiB
+105.56.654.011 I srv        update:    - prompt 0xc78fd2770:    2120 tokens, checkpoints:  0,   298.150 MiB
+105.56.654.011 I srv        update:    - prompt 0xc7ad726d0:    1463 tokens, checkpoints:  0,   205.752 MiB
+105.56.654.012 I srv        update:    - prompt 0xc78fd3a30:    1561 tokens, checkpoints:  0,   219.534 MiB
+105.56.654.012 I srv        update:    - prompt 0xc7ad73850:    1949 tokens, checkpoints:  0,   274.101 MiB
+105.56.654.013 I srv        update:    - prompt 0xc78fd12d0:    2058 tokens, checkpoints:  0,   289.431 MiB
+105.56.654.013 I srv        update:    - prompt 0xc7ad72c70:    1467 tokens, checkpoints:  0,   206.315 MiB
+105.56.654.014 I srv        update:    - prompt 0xc78fd0290:    1630 tokens, checkpoints:  0,   229.238 MiB
+105.56.654.014 I srv        update:    - prompt 0xc7ad72950:    1901 tokens, checkpoints:  0,   267.351 MiB
+105.56.654.015 I srv        update:    - prompt 0xc78fd2270:    1993 tokens, checkpoints:  0,   280.289 MiB
+105.56.654.015 I srv        update:    - prompt 0xc7ad73a30:    1467 tokens, checkpoints:  0,   206.315 MiB
+105.56.654.016 I srv        update:    - prompt 0xc78fd3990:    1627 tokens, checkpoints:  0,   228.816 MiB
+105.56.654.016 I srv        update:    - prompt 0xc7ad73030:    1846 tokens, checkpoints:  0,   259.616 MiB
+105.56.654.022 I srv        update:    - prompt 0xc78fd3530:    2126 tokens, checkpoints:  0,   298.994 MiB
+105.56.654.023 I srv        update:    - prompt 0xc7ad72a90:    1511 tokens, checkpoints:  0,   212.503 MiB
+105.56.654.023 I srv        update:    - prompt 0xc78fd1b90:    1568 tokens, checkpoints:  0,   220.519 MiB
+105.56.654.025 I srv  get_availabl: prompt cache update took 943.68 ms
+105.56.654.493 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+105.56.654.500 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+105.56.654.502 I slot launch_slot_: id  0 | task 40765 | processing task, is_child = 0
+105.56.654.511 I slot   operator(): id  0 | task 40765 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 949
+105.56.654.514 I slot   operator(): id  0 | task 40765 | cached n_tokens = 270, memory_seq_rm [270, end)
+105.56.654.964 I slot init_sampler: id  0 | task 40765 | init sampler, took 0.15 ms, tokens: text = 949, total = 949
+106.15.494.863 I slot print_timing: id  0 | task 40765 | n_gen =    100, tg =   9.22 t/s, tg_3s =   9.31 t/s
+106.18.550.292 I slot print_timing: id  0 | task 40765 | n_gen =    129, tg =   9.28 t/s, tg_3s =   9.49 t/s
+106.21.566.966 I slot print_timing: id  0 | task 40765 | n_gen =    158, tg =   9.34 t/s, tg_3s =   9.61 t/s
+106.24.612.451 I slot print_timing: id  0 | task 40765 | n_gen =    187, tg =   9.37 t/s, tg_3s =   9.52 t/s
+106.27.656.859 I slot print_timing: id  0 | task 40765 | n_gen =    216, tg =   9.39 t/s, tg_3s =   9.53 t/s
+106.30.735.788 I slot print_timing: id  0 | task 40765 | n_gen =    245, tg =   9.39 t/s, tg_3s =   9.42 t/s
+106.33.784.140 I slot print_timing: id  0 | task 40765 | n_gen =    274, tg =   9.40 t/s, tg_3s =   9.51 t/s
+106.36.797.732 I slot print_timing: id  0 | task 40765 | n_gen =    303, tg =   9.42 t/s, tg_3s =   9.62 t/s
+106.39.841.040 I slot print_timing: id  0 | task 40765 | n_gen =    332, tg =   9.43 t/s, tg_3s =   9.53 t/s
+106.42.922.685 I slot print_timing: id  0 | task 40765 | n_gen =    361, tg =   9.43 t/s, tg_3s =   9.41 t/s
+106.45.937.372 I slot print_timing: id  0 | task 40765 | n_gen =    388, tg =   9.40 t/s, tg_3s =   8.96 t/s
+106.48.985.558 I slot print_timing: id  0 | task 40765 | n_gen =    417, tg =   9.41 t/s, tg_3s =   9.51 t/s
+106.52.013.319 I slot print_timing: id  0 | task 40765 | n_gen =    446, tg =   9.42 t/s, tg_3s =   9.58 t/s
+106.55.066.724 I slot print_timing: id  0 | task 40765 | n_gen =    475, tg =   9.42 t/s, tg_3s =   9.50 t/s
+106.58.132.414 I slot print_timing: id  0 | task 40765 | n_gen =    504, tg =   9.42 t/s, tg_3s =   9.46 t/s
+107.01.164.919 I slot print_timing: id  0 | task 40765 | n_gen =    533, tg =   9.43 t/s, tg_3s =   9.56 t/s
+107.04.196.366 I slot print_timing: id  0 | task 40765 | n_gen =    562, tg =   9.44 t/s, tg_3s =   9.57 t/s
+107.07.240.352 I slot print_timing: id  0 | task 40765 | n_gen =    591, tg =   9.44 t/s, tg_3s =   9.53 t/s
+107.10.285.564 I slot print_timing: id  0 | task 40765 | n_gen =    618, tg =   9.42 t/s, tg_3s =   8.87 t/s
+107.13.401.800 I slot print_timing: id  0 | task 40765 | n_gen =    646, tg =   9.40 t/s, tg_3s =   8.99 t/s
+107.16.496.267 I slot print_timing: id  0 | task 40765 | n_gen =    675, tg =   9.39 t/s, tg_3s =   9.37 t/s
+107.17.015.680 I slot print_timing: id  0 | task 40765 | prompt eval time =    8100.56 ms /   679 tokens (   11.93 ms per token,    83.82 tokens per second)
+107.17.015.687 I slot print_timing: id  0 | task 40765 |        eval time =   72260.59 ms /   680 tokens (  106.42 ms per token,     9.40 tokens per second)
+107.17.015.688 I slot print_timing: id  0 | task 40765 |       total time =   80361.15 ms /  1359 tokens
+107.17.015.690 I slot print_timing: id  0 | task 40765 |    graphs reused =      41110
+107.17.015.834 I slot      release: id  0 | task 40765 | stop processing: n_tokens = 1628, truncated = 0
+107.17.015.871 I srv  update_slots: all slots are idle
+107.17.055.155 I srv  server_strea: conv_id= (empty=1)
+107.17.057.162 I srv    operator(): chat format: peg-native
+107.17.057.565 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.210 (223/1061) > 0.100
+107.17.057.568 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.210 (> 0.100 thold), f_keep = 0.137
+107.17.057.568 I srv  get_availabl: updating prompt cache
+107.17.057.671 I srv   prompt_save:  - saving prompt with length 1628, total state size = 228.957 MiB (draft: 0.000 MiB)
+107.17.057.694 W srv         alloc:  - making room for prompt cache entry, removing oldest entry (size = 267.632 MiB)
+107.17.985.691 I srv          load:  - looking for better prompt, base f_keep = 0.137, f_sim = 0.210
+107.17.985.702 I srv          load:    - prompt with length    2155, lcp =     223, f_keep = 0.103, f_sim = 0.210
+107.17.985.705 I srv          load:    - prompt with length    1350, lcp =     223, f_keep = 0.165, f_sim = 0.210
+107.17.985.707 I srv          load:    - prompt with length    1399, lcp =     223, f_keep = 0.159, f_sim = 0.210
+107.17.985.709 I srv          load:    - prompt with length    1689, lcp =     223, f_keep = 0.132, f_sim = 0.210
+107.17.985.712 I srv          load:    - prompt with length    1898, lcp =     259, f_keep = 0.136, f_sim = 0.244
+107.17.985.717 I srv          load:    - prompt with length    2211, lcp =     223, f_keep = 0.101, f_sim = 0.210
+107.17.985.718 I srv          load:    - prompt with length    1412, lcp =     223, f_keep = 0.158, f_sim = 0.210
+107.17.985.719 I srv          load:    - prompt with length    1628, lcp =     223, f_keep = 0.137, f_sim = 0.210
+107.17.985.722 I srv          load:    - prompt with length    1899, lcp =     223, f_keep = 0.117, f_sim = 0.210
+107.17.985.724 I srv          load:    - prompt with length    2110, lcp =     223, f_keep = 0.106, f_sim = 0.210
+107.17.985.725 I srv          load:    - prompt with length    1511, lcp =     223, f_keep = 0.148, f_sim = 0.210
+107.17.985.726 I srv          load:    - prompt with length    1622, lcp =     223, f_keep = 0.137, f_sim = 0.210
+107.17.985.727 I srv          load:    - prompt with length    1903, lcp =     223, f_keep = 0.117, f_sim = 0.210
+107.17.985.728 I srv          load:    - prompt with length    2059, lcp =     223, f_keep = 0.108, f_sim = 0.210
+107.17.985.729 I srv          load:    - prompt with length    1409, lcp =     223, f_keep = 0.158, f_sim = 0.210
+107.17.985.730 I srv          load:    - prompt with length    1622, lcp =     223, f_keep = 0.137, f_sim = 0.210
+107.17.985.732 I srv          load:    - prompt with length    1831, lcp =     223, f_keep = 0.122, f_sim = 0.210
+107.17.985.784 I srv          load:    - prompt with length    2120, lcp =     223, f_keep = 0.105, f_sim = 0.210
+107.17.985.787 I srv          load:    - prompt with length    1463, lcp =     223, f_keep = 0.152, f_sim = 0.210
+107.17.985.789 I srv          load:    - prompt with length    1561, lcp =     223, f_keep = 0.143, f_sim = 0.210
+107.17.985.792 I srv          load:    - prompt with length    1949, lcp =     223, f_keep = 0.114, f_sim = 0.210
+107.17.985.794 I srv          load:    - prompt with length    2058, lcp =     223, f_keep = 0.108, f_sim = 0.210
+107.17.985.795 I srv          load:    - prompt with length    1467, lcp =     223, f_keep = 0.152, f_sim = 0.210
+107.17.985.795 I srv          load:    - prompt with length    1630, lcp =     223, f_keep = 0.137, f_sim = 0.210
+107.17.985.797 I srv          load:    - prompt with length    1901, lcp =     223, f_keep = 0.117, f_sim = 0.210
+107.17.985.798 I srv          load:    - prompt with length    1993, lcp =     223, f_keep = 0.112, f_sim = 0.210
+107.17.985.798 I srv          load:    - prompt with length    1467, lcp =     223, f_keep = 0.152, f_sim = 0.210
+107.17.985.802 I srv          load:    - prompt with length    1627, lcp =     223, f_keep = 0.137, f_sim = 0.210
+107.17.985.803 I srv          load:    - prompt with length    1846, lcp =     223, f_keep = 0.121, f_sim = 0.210
+107.17.985.804 I srv          load:    - prompt with length    2126, lcp =     223, f_keep = 0.105, f_sim = 0.210
+107.17.985.805 I srv          load:    - prompt with length    1511, lcp =     223, f_keep = 0.148, f_sim = 0.210
+107.17.985.806 I srv          load:    - prompt with length    1568, lcp =     223, f_keep = 0.142, f_sim = 0.210
+107.17.985.807 I srv          load:    - prompt with length    1628, lcp =     223, f_keep = 0.137, f_sim = 0.210
+107.17.985.809 I srv        update:  - cache state: 33 prompts, 8103.922 MiB (limits: 8192.000 MiB, 8192 tokens, 58249 est)
+107.17.985.810 I srv        update:    - prompt 0xc78fd0510:    2155 tokens, checkpoints:  0,   303.072 MiB
+107.17.985.811 I srv        update:    - prompt 0xc78fd1190:    1350 tokens, checkpoints:  0,   189.860 MiB
+107.17.985.812 I srv        update:    - prompt 0xc7ad724f0:    1399 tokens, checkpoints:  0,   196.751 MiB
+107.17.985.812 I srv        update:    - prompt 0xc78fd3170:    1689 tokens, checkpoints:  0,   237.536 MiB
+107.17.985.813 I srv        update:    - prompt 0xc7ad73b70:    1898 tokens, checkpoints:  0,   266.929 MiB
+107.17.985.813 I srv        update:    - prompt 0xc78fd0e70:    2211 tokens, checkpoints:  0,   310.948 MiB
+107.17.985.814 I srv        update:    - prompt 0xc7ad738f0:    1412 tokens, checkpoints:  0,   198.580 MiB
+107.17.985.814 I srv        update:    - prompt 0xc78fd06f0:    1628 tokens, checkpoints:  0,   228.957 MiB
+107.17.985.815 I srv        update:    - prompt 0xc7ad73170:    1899 tokens, checkpoints:  0,   267.069 MiB
+107.17.985.815 I srv        update:    - prompt 0xc78fd37b0:    2110 tokens, checkpoints:  0,   296.744 MiB
+107.17.985.816 I srv        update:    - prompt 0xc7ad73710:    1511 tokens, checkpoints:  0,   212.503 MiB
+107.17.985.816 I srv        update:    - prompt 0xc78fd32b0:    1622 tokens, checkpoints:  0,   228.113 MiB
+107.17.985.817 I srv        update:    - prompt 0xc7ad73350:    1903 tokens, checkpoints:  0,   267.632 MiB
+107.17.985.817 I srv        update:    - prompt 0xc78fd0650:    2059 tokens, checkpoints:  0,   289.571 MiB
+107.17.985.818 I srv        update:    - prompt 0xc7ad73c10:    1409 tokens, checkpoints:  0,   198.158 MiB
+107.17.985.818 I srv        update:    - prompt 0xc78fd2bd0:    1622 tokens, checkpoints:  0,   228.113 MiB
+107.17.985.819 I srv        update:    - prompt 0xc7ad732b0:    1831 tokens, checkpoints:  0,   257.506 MiB
+107.17.985.819 I srv        update:    - prompt 0xc78fd2770:    2120 tokens, checkpoints:  0,   298.150 MiB
+107.17.985.820 I srv        update:    - prompt 0xc7ad726d0:    1463 tokens, checkpoints:  0,   205.752 MiB
+107.17.985.820 I srv        update:    - prompt 0xc78fd3a30:    1561 tokens, checkpoints:  0,   219.534 MiB
+107.17.985.821 I srv        update:    - prompt 0xc7ad73850:    1949 tokens, checkpoints:  0,   274.101 MiB
+107.17.985.821 I srv        update:    - prompt 0xc78fd12d0:    2058 tokens, checkpoints:  0,   289.431 MiB
+107.17.985.822 I srv        update:    - prompt 0xc7ad72c70:    1467 tokens, checkpoints:  0,   206.315 MiB
+107.17.985.822 I srv        update:    - prompt 0xc78fd0290:    1630 tokens, checkpoints:  0,   229.238 MiB
+107.17.985.823 I srv        update:    - prompt 0xc7ad72950:    1901 tokens, checkpoints:  0,   267.351 MiB
+107.17.985.823 I srv        update:    - prompt 0xc78fd2270:    1993 tokens, checkpoints:  0,   280.289 MiB
+107.17.985.824 I srv        update:    - prompt 0xc7ad73a30:    1467 tokens, checkpoints:  0,   206.315 MiB
+107.17.985.824 I srv        update:    - prompt 0xc78fd3990:    1627 tokens, checkpoints:  0,   228.816 MiB
+107.17.985.825 I srv        update:    - prompt 0xc7ad73030:    1846 tokens, checkpoints:  0,   259.616 MiB
+107.17.985.825 I srv        update:    - prompt 0xc78fd3530:    2126 tokens, checkpoints:  0,   298.994 MiB
+107.17.985.826 I srv        update:    - prompt 0xc7ad72a90:    1511 tokens, checkpoints:  0,   212.503 MiB
+107.17.985.826 I srv        update:    - prompt 0xc78fd1b90:    1568 tokens, checkpoints:  0,   220.519 MiB
+107.17.985.827 I srv        update:    - prompt 0xc7ad72590:    1628 tokens, checkpoints:  0,   228.957 MiB
+107.17.985.829 I srv  get_availabl: prompt cache update took 928.26 ms
+107.17.988.701 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+107.17.988.712 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+107.17.988.715 I slot launch_slot_: id  0 | task 41446 | processing task, is_child = 0
+107.17.988.723 I slot   operator(): id  0 | task 41446 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 1061
+107.17.988.727 I slot   operator(): id  0 | task 41446 | cached n_tokens = 223, memory_seq_rm [223, end)
+107.17.989.167 I slot init_sampler: id  0 | task 41446 | init sampler, took 0.18 ms, tokens: text = 1061, total = 1061
+107.38.403.796 I slot print_timing: id  0 | task 41446 | n_gen =    100, tg =   9.25 t/s, tg_3s =   9.34 t/s
+107.41.504.810 I slot print_timing: id  0 | task 41446 | n_gen =    127, tg =   9.13 t/s, tg_3s =   8.71 t/s
+107.44.515.624 I slot print_timing: id  0 | task 41446 | n_gen =    156, tg =   9.22 t/s, tg_3s =   9.63 t/s
+107.47.617.488 I slot print_timing: id  0 | task 41446 | n_gen =    186, tg =   9.29 t/s, tg_3s =   9.67 t/s
+107.50.633.304 I slot print_timing: id  0 | task 41446 | n_gen =    215, tg =   9.33 t/s, tg_3s =   9.62 t/s
+107.53.643.265 I slot print_timing: id  0 | task 41446 | n_gen =    243, tg =   9.33 t/s, tg_3s =   9.30 t/s
+107.56.644.496 I slot print_timing: id  0 | task 41446 | n_gen =    272, tg =   9.36 t/s, tg_3s =   9.66 t/s
+107.59.714.443 I slot print_timing: id  0 | task 41446 | n_gen =    301, tg =   9.37 t/s, tg_3s =   9.45 t/s
+108.02.789.292 I slot print_timing: id  0 | task 41446 | n_gen =    330, tg =   9.38 t/s, tg_3s =   9.43 t/s
+108.05.798.591 I slot print_timing: id  0 | task 41446 | n_gen =    358, tg =   9.37 t/s, tg_3s =   9.30 t/s
+108.08.830.959 I slot print_timing: id  0 | task 41446 | n_gen =    386, tg =   9.36 t/s, tg_3s =   9.23 t/s
+108.11.898.320 I slot print_timing: id  0 | task 41446 | n_gen =    415, tg =   9.37 t/s, tg_3s =   9.45 t/s
+108.14.957.065 I slot print_timing: id  0 | task 41446 | n_gen =    444, tg =   9.37 t/s, tg_3s =   9.48 t/s
+108.17.989.291 I slot print_timing: id  0 | task 41446 | n_gen =    472, tg =   9.37 t/s, tg_3s =   9.23 t/s
+108.21.076.732 I slot print_timing: id  0 | task 41446 | n_gen =    496, tg =   9.27 t/s, tg_3s =   7.77 t/s
+108.24.113.239 I slot print_timing: id  0 | task 41446 | n_gen =    518, tg =   9.16 t/s, tg_3s =   7.25 t/s
+108.27.186.422 I slot print_timing: id  0 | task 41446 | n_gen =    545, tg =   9.15 t/s, tg_3s =   8.79 t/s
+108.30.358.207 I slot print_timing: id  0 | task 41446 | n_gen =    570, tg =   9.08 t/s, tg_3s =   7.88 t/s
+108.33.431.449 I slot print_timing: id  0 | task 41446 | n_gen =    592, tg =   8.99 t/s, tg_3s =   7.16 t/s
+108.36.542.206 I slot print_timing: id  0 | task 41446 | n_gen =    614, tg =   8.90 t/s, tg_3s =   7.07 t/s
+108.39.584.504 I slot print_timing: id  0 | task 41446 | n_gen =    637, tg =   8.85 t/s, tg_3s =   7.56 t/s
+108.42.640.250 I slot print_timing: id  0 | task 41446 | n_gen =    657, tg =   8.75 t/s, tg_3s =   6.55 t/s
+108.45.662.572 I slot print_timing: id  0 | task 41446 | n_gen =    683, tg =   8.75 t/s, tg_3s =   8.60 t/s
+108.48.741.647 I slot print_timing: id  0 | task 41446 | n_gen =    703, tg =   8.66 t/s, tg_3s =   6.50 t/s
+108.51.844.117 I slot print_timing: id  0 | task 41446 | n_gen =    730, tg =   8.66 t/s, tg_3s =   8.70 t/s
+108.54.886.107 I slot print_timing: id  0 | task 41446 | n_gen =    758, tg =   8.68 t/s, tg_3s =   9.20 t/s
+108.57.913.353 I slot print_timing: id  0 | task 41446 | n_gen =    785, tg =   8.69 t/s, tg_3s =   8.92 t/s
+109.00.913.467 I slot print_timing: id  0 | task 41446 | n_gen =    812, tg =   8.70 t/s, tg_3s =   9.00 t/s
+109.04.007.683 I slot print_timing: id  0 | task 41446 | n_gen =    833, tg =   8.64 t/s, tg_3s =   6.79 t/s
+109.04.677.184 I slot print_timing: id  0 | task 41446 | prompt eval time =    9713.15 ms /   838 tokens (   11.59 ms per token,    86.27 tokens per second)
+109.04.677.209 I slot print_timing: id  0 | task 41446 |        eval time =   96975.27 ms /   839 tokens (  115.72 ms per token,     8.64 tokens per second)
+109.04.677.212 I slot print_timing: id  0 | task 41446 |       total time =  106688.42 ms /  1677 tokens
+109.04.677.215 I slot print_timing: id  0 | task 41446 |    graphs reused =      41944
+109.04.678.034 I slot      release: id  0 | task 41446 | stop processing: n_tokens = 1899, truncated = 0
+109.04.678.126 I srv  update_slots: all slots are idle
+109.04.717.949 I srv  server_strea: conv_id= (empty=1)
+109.04.724.715 I srv    operator(): chat format: peg-native
+109.04.725.085 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.199 (223/1120) > 0.100
+109.04.725.088 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.199 (> 0.100 thold), f_keep = 0.117
+109.04.725.088 I srv  get_availabl: updating prompt cache
+109.04.725.199 I srv   prompt_save:  - saving prompt with length 1899, total state size = 267.069 MiB (draft: 0.000 MiB)
+109.04.725.256 W srv         alloc:  - making room for prompt cache entry, removing oldest entry (size = 303.072 MiB)
+109.05.957.516 I srv          load:  - looking for better prompt, base f_keep = 0.117, f_sim = 0.199
+109.05.957.523 I srv          load:    - prompt with length    1350, lcp =     223, f_keep = 0.165, f_sim = 0.199
+109.05.957.524 I srv          load:    - prompt with length    1399, lcp =     223, f_keep = 0.159, f_sim = 0.199
+109.05.957.525 I srv          load:    - prompt with length    1689, lcp =     223, f_keep = 0.132, f_sim = 0.199
+109.05.957.526 I srv          load:    - prompt with length    1898, lcp =     223, f_keep = 0.117, f_sim = 0.199
+109.05.957.527 I srv          load:    - prompt with length    2211, lcp =     223, f_keep = 0.101, f_sim = 0.199
+109.05.957.528 I srv          load:    - prompt with length    1412, lcp =     223, f_keep = 0.158, f_sim = 0.199
+109.05.957.529 I srv          load:    - prompt with length    1628, lcp =     223, f_keep = 0.137, f_sim = 0.199
+109.05.957.529 I srv          load:    - prompt with length    1899, lcp =     223, f_keep = 0.117, f_sim = 0.199
+109.05.957.530 I srv          load:    - prompt with length    2110, lcp =     223, f_keep = 0.106, f_sim = 0.199
+109.05.957.533 I srv          load:    - prompt with length    1511, lcp =     223, f_keep = 0.148, f_sim = 0.199
+109.05.957.534 I srv          load:    - prompt with length    1622, lcp =     223, f_keep = 0.137, f_sim = 0.199
+109.05.957.536 I srv          load:    - prompt with length    1903, lcp =     223, f_keep = 0.117, f_sim = 0.199
+109.05.957.537 I srv          load:    - prompt with length    2059, lcp =     223, f_keep = 0.108, f_sim = 0.199
+109.05.957.538 I srv          load:    - prompt with length    1409, lcp =     223, f_keep = 0.158, f_sim = 0.199
+109.05.957.539 I srv          load:    - prompt with length    1622, lcp =     223, f_keep = 0.137, f_sim = 0.199
+109.05.957.540 I srv          load:    - prompt with length    1831, lcp =     223, f_keep = 0.122, f_sim = 0.199
+109.05.957.541 I srv          load:    - prompt with length    2120, lcp =     223, f_keep = 0.105, f_sim = 0.199
+109.05.957.542 I srv          load:    - prompt with length    1463, lcp =     223, f_keep = 0.152, f_sim = 0.199
+109.05.957.543 I srv          load:    - prompt with length    1561, lcp =     223, f_keep = 0.143, f_sim = 0.199
+109.05.957.544 I srv          load:    - prompt with length    1949, lcp =     223, f_keep = 0.114, f_sim = 0.199
+109.05.957.545 I srv          load:    - prompt with length    2058, lcp =     223, f_keep = 0.108, f_sim = 0.199
+109.05.957.545 I srv          load:    - prompt with length    1467, lcp =     223, f_keep = 0.152, f_sim = 0.199
+109.05.957.546 I srv          load:    - prompt with length    1630, lcp =     223, f_keep = 0.137, f_sim = 0.199
+109.05.957.547 I srv          load:    - prompt with length    1901, lcp =     223, f_keep = 0.117, f_sim = 0.199
+109.05.957.548 I srv          load:    - prompt with length    1993, lcp =     223, f_keep = 0.112, f_sim = 0.199
+109.05.957.560 I srv          load:    - prompt with length    1467, lcp =     223, f_keep = 0.152, f_sim = 0.199
+109.05.957.561 I srv          load:    - prompt with length    1627, lcp =     223, f_keep = 0.137, f_sim = 0.199
+109.05.957.562 I srv          load:    - prompt with length    1846, lcp =     223, f_keep = 0.121, f_sim = 0.199
+109.05.957.563 I srv          load:    - prompt with length    2126, lcp =     223, f_keep = 0.105, f_sim = 0.199
+109.05.957.563 I srv          load:    - prompt with length    1511, lcp =     223, f_keep = 0.148, f_sim = 0.199
+109.05.957.570 I srv          load:    - prompt with length    1568, lcp =     223, f_keep = 0.142, f_sim = 0.199
+109.05.957.571 I srv          load:    - prompt with length    1628, lcp =     223, f_keep = 0.137, f_sim = 0.199
+109.05.957.572 I srv          load:    - prompt with length    1899, lcp =     223, f_keep = 0.117, f_sim = 0.199
+109.05.957.575 I srv        update:  - cache state: 33 prompts, 8067.919 MiB (limits: 8192.000 MiB, 8192 tokens, 58249 est)
+109.05.957.576 I srv        update:    - prompt 0xc78fd1190:    1350 tokens, checkpoints:  0,   189.860 MiB
+109.05.957.577 I srv        update:    - prompt 0xc7ad724f0:    1399 tokens, checkpoints:  0,   196.751 MiB
+109.05.957.577 I srv        update:    - prompt 0xc78fd3170:    1689 tokens, checkpoints:  0,   237.536 MiB
+109.05.957.578 I srv        update:    - prompt 0xc7ad73b70:    1898 tokens, checkpoints:  0,   266.929 MiB
+109.05.957.578 I srv        update:    - prompt 0xc78fd0e70:    2211 tokens, checkpoints:  0,   310.948 MiB
+109.05.957.579 I srv        update:    - prompt 0xc7ad738f0:    1412 tokens, checkpoints:  0,   198.580 MiB
+109.05.957.580 I srv        update:    - prompt 0xc78fd06f0:    1628 tokens, checkpoints:  0,   228.957 MiB
+109.05.957.580 I srv        update:    - prompt 0xc7ad73170:    1899 tokens, checkpoints:  0,   267.069 MiB
+109.05.957.581 I srv        update:    - prompt 0xc78fd37b0:    2110 tokens, checkpoints:  0,   296.744 MiB
+109.05.957.581 I srv        update:    - prompt 0xc7ad73710:    1511 tokens, checkpoints:  0,   212.503 MiB
+109.05.957.582 I srv        update:    - prompt 0xc78fd32b0:    1622 tokens, checkpoints:  0,   228.113 MiB
+109.05.957.582 I srv        update:    - prompt 0xc7ad73350:    1903 tokens, checkpoints:  0,   267.632 MiB
+109.05.957.583 I srv        update:    - prompt 0xc78fd0650:    2059 tokens, checkpoints:  0,   289.571 MiB
+109.05.957.583 I srv        update:    - prompt 0xc7ad73c10:    1409 tokens, checkpoints:  0,   198.158 MiB
+109.05.957.584 I srv        update:    - prompt 0xc78fd2bd0:    1622 tokens, checkpoints:  0,   228.113 MiB
+109.05.957.584 I srv        update:    - prompt 0xc7ad732b0:    1831 tokens, checkpoints:  0,   257.506 MiB
+109.05.957.585 I srv        update:    - prompt 0xc78fd2770:    2120 tokens, checkpoints:  0,   298.150 MiB
+109.05.957.585 I srv        update:    - prompt 0xc7ad726d0:    1463 tokens, checkpoints:  0,   205.752 MiB
+109.05.957.586 I srv        update:    - prompt 0xc78fd3a30:    1561 tokens, checkpoints:  0,   219.534 MiB
+109.05.957.586 I srv        update:    - prompt 0xc7ad73850:    1949 tokens, checkpoints:  0,   274.101 MiB
+109.05.957.587 I srv        update:    - prompt 0xc78fd12d0:    2058 tokens, checkpoints:  0,   289.431 MiB
+109.05.957.587 I srv        update:    - prompt 0xc7ad72c70:    1467 tokens, checkpoints:  0,   206.315 MiB
+109.05.957.588 I srv        update:    - prompt 0xc78fd0290:    1630 tokens, checkpoints:  0,   229.238 MiB
+109.05.957.588 I srv        update:    - prompt 0xc7ad72950:    1901 tokens, checkpoints:  0,   267.351 MiB
+109.05.957.589 I srv        update:    - prompt 0xc78fd2270:    1993 tokens, checkpoints:  0,   280.289 MiB
+109.05.957.589 I srv        update:    - prompt 0xc7ad73a30:    1467 tokens, checkpoints:  0,   206.315 MiB
+109.05.957.590 I srv        update:    - prompt 0xc78fd3990:    1627 tokens, checkpoints:  0,   228.816 MiB
+109.05.957.590 I srv        update:    - prompt 0xc7ad73030:    1846 tokens, checkpoints:  0,   259.616 MiB
+109.05.957.591 I srv        update:    - prompt 0xc78fd3530:    2126 tokens, checkpoints:  0,   298.994 MiB
+109.05.957.591 I srv        update:    - prompt 0xc7ad72a90:    1511 tokens, checkpoints:  0,   212.503 MiB
+109.05.957.592 I srv        update:    - prompt 0xc78fd1b90:    1568 tokens, checkpoints:  0,   220.519 MiB
+109.05.957.592 I srv        update:    - prompt 0xc7ad72590:    1628 tokens, checkpoints:  0,   228.957 MiB
+109.05.957.593 I srv        update:    - prompt 0xc78fd0510:    1899 tokens, checkpoints:  0,   267.069 MiB
+109.05.957.594 I srv  get_availabl: prompt cache update took 1232.51 ms
+109.05.958.107 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+109.05.958.126 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+109.05.958.129 I slot launch_slot_: id  0 | task 42286 | processing task, is_child = 0
+109.05.958.137 I slot   operator(): id  0 | task 42286 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 1120
+109.05.958.142 I slot   operator(): id  0 | task 42286 | cached n_tokens = 223, memory_seq_rm [223, end)
+109.05.959.052 I slot init_sampler: id  0 | task 42286 | init sampler, took 0.19 ms, tokens: text = 1120, total = 1120
+109.27.420.513 I slot print_timing: id  0 | task 42286 | n_gen =    100, tg =   9.27 t/s, tg_3s =   9.36 t/s
+109.30.512.958 I slot print_timing: id  0 | task 42286 | n_gen =    129, tg =   9.29 t/s, tg_3s =   9.38 t/s
+109.33.531.619 I slot print_timing: id  0 | task 42286 | n_gen =    158, tg =   9.35 t/s, tg_3s =   9.61 t/s
+109.36.532.937 I slot print_timing: id  0 | task 42286 | n_gen =    183, tg =   9.20 t/s, tg_3s =   8.33 t/s
+109.39.575.256 I slot print_timing: id  0 | task 42286 | n_gen =    208, tg =   9.07 t/s, tg_3s =   8.22 t/s
+109.42.599.191 I slot print_timing: id  0 | task 42286 | n_gen =    235, tg =   9.05 t/s, tg_3s =   8.93 t/s
+109.45.652.029 I slot print_timing: id  0 | task 42286 | n_gen =    264, tg =   9.10 t/s, tg_3s =   9.50 t/s
+109.48.689.305 I slot print_timing: id  0 | task 42286 | n_gen =    293, tg =   9.14 t/s, tg_3s =   9.55 t/s
+109.51.724.293 I slot print_timing: id  0 | task 42286 | n_gen =    322, tg =   9.18 t/s, tg_3s =   9.56 t/s
+109.54.767.086 I slot print_timing: id  0 | task 42286 | n_gen =    351, tg =   9.20 t/s, tg_3s =   9.53 t/s
+109.57.859.000 I slot print_timing: id  0 | task 42286 | n_gen =    380, tg =   9.22 t/s, tg_3s =   9.38 t/s
+110.00.922.750 I slot print_timing: id  0 | task 42286 | n_gen =    409, tg =   9.23 t/s, tg_3s =   9.47 t/s
+110.03.999.852 I slot print_timing: id  0 | task 42286 | n_gen =    438, tg =   9.25 t/s, tg_3s =   9.42 t/s
+110.07.051.389 I slot print_timing: id  0 | task 42286 | n_gen =    467, tg =   9.26 t/s, tg_3s =   9.50 t/s
+110.10.089.594 I slot print_timing: id  0 | task 42286 | n_gen =    492, tg =   9.20 t/s, tg_3s =   8.23 t/s
+110.13.178.820 I slot print_timing: id  0 | task 42286 | n_gen =    521, tg =   9.21 t/s, tg_3s =   9.39 t/s
+110.16.249.148 I slot print_timing: id  0 | task 42286 | n_gen =    549, tg =   9.21 t/s, tg_3s =   9.12 t/s
+110.19.356.392 I slot print_timing: id  0 | task 42286 | n_gen =    574, tg =   9.15 t/s, tg_3s =   8.05 t/s
+110.22.415.365 I slot print_timing: id  0 | task 42286 | n_gen =    603, tg =   9.17 t/s, tg_3s =   9.48 t/s
+110.25.460.123 I slot print_timing: id  0 | task 42286 | n_gen =    631, tg =   9.17 t/s, tg_3s =   9.20 t/s
+110.28.521.058 I slot print_timing: id  0 | task 42286 | n_gen =    659, tg =   9.17 t/s, tg_3s =   9.15 t/s
+110.31.576.600 I slot print_timing: id  0 | task 42286 | n_gen =    687, tg =   9.17 t/s, tg_3s =   9.16 t/s
+110.34.645.008 I slot print_timing: id  0 | task 42286 | n_gen =    716, tg =   9.18 t/s, tg_3s =   9.45 t/s
+110.37.724.089 I slot print_timing: id  0 | task 42286 | n_gen =    745, tg =   9.19 t/s, tg_3s =   9.42 t/s
+110.40.803.838 I slot print_timing: id  0 | task 42286 | n_gen =    774, tg =   9.20 t/s, tg_3s =   9.42 t/s
+110.43.847.241 I slot print_timing: id  0 | task 42286 | n_gen =    802, tg =   9.20 t/s, tg_3s =   9.20 t/s
+110.46.923.256 I slot print_timing: id  0 | task 42286 | n_gen =    831, tg =   9.20 t/s, tg_3s =   9.43 t/s
+110.49.998.884 I slot print_timing: id  0 | task 42286 | n_gen =    860, tg =   9.21 t/s, tg_3s =   9.43 t/s
+110.53.075.781 I slot print_timing: id  0 | task 42286 | n_gen =    889, tg =   9.22 t/s, tg_3s =   9.43 t/s
+110.56.099.967 I slot print_timing: id  0 | task 42286 | n_gen =    917, tg =   9.22 t/s, tg_3s =   9.26 t/s
+110.59.175.127 I slot print_timing: id  0 | task 42286 | n_gen =    944, tg =   9.21 t/s, tg_3s =   8.78 t/s
+111.02.219.249 I slot print_timing: id  0 | task 42286 | n_gen =    972, tg =   9.21 t/s, tg_3s =   9.20 t/s
+111.04.622.014 I slot print_timing: id  0 | task 42286 | prompt eval time =   10783.18 ms /   897 tokens (   12.02 ms per token,    83.19 tokens per second)
+111.04.622.026 I slot print_timing: id  0 | task 42286 |        eval time =  107880.64 ms /   994 tokens (  108.64 ms per token,     9.20 tokens per second)
+111.04.622.028 I slot print_timing: id  0 | task 42286 |       total time =  118663.83 ms /  1891 tokens
+111.04.622.029 I slot print_timing: id  0 | task 42286 |    graphs reused =      42932
+111.04.624.185 I slot      release: id  0 | task 42286 | stop processing: n_tokens = 2113, truncated = 0
+111.04.624.273 I srv  update_slots: all slots are idle
+111.04.666.225 I srv  server_strea: conv_id= (empty=1)
+111.04.672.909 I srv    operator(): chat format: peg-native
+111.04.673.283 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.215 (223/1035) > 0.100
+111.04.673.286 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.215 (> 0.100 thold), f_keep = 0.106
+111.04.673.286 I srv  get_availabl: updating prompt cache
+111.04.673.412 I srv   prompt_save:  - saving prompt with length 2113, total state size = 297.166 MiB (draft: 0.000 MiB)
+111.04.673.493 W srv         alloc:  - making room for prompt cache entry, removing oldest entry (size = 189.860 MiB)
+111.04.787.597 I srv          load:  - looking for better prompt, base f_keep = 0.106, f_sim = 0.215
+111.04.787.603 I srv          load:    - prompt with length    1399, lcp =     223, f_keep = 0.159, f_sim = 0.215
+111.04.787.604 I srv          load:    - prompt with length    1689, lcp =     223, f_keep = 0.132, f_sim = 0.215
+111.04.787.605 I srv          load:    - prompt with length    1898, lcp =     223, f_keep = 0.117, f_sim = 0.215
+111.04.787.606 I srv          load:    - prompt with length    2211, lcp =     261, f_keep = 0.118, f_sim = 0.252
+111.04.787.607 I srv          load:    - prompt with length    1412, lcp =     223, f_keep = 0.158, f_sim = 0.215
+111.04.787.608 I srv          load:    - prompt with length    1628, lcp =     223, f_keep = 0.137, f_sim = 0.215
+111.04.787.609 I srv          load:    - prompt with length    1899, lcp =     223, f_keep = 0.117, f_sim = 0.215
+111.04.787.610 I srv          load:    - prompt with length    2110, lcp =     223, f_keep = 0.106, f_sim = 0.215
+111.04.787.611 I srv          load:    - prompt with length    1511, lcp =     223, f_keep = 0.148, f_sim = 0.215
+111.04.787.611 I srv          load:    - prompt with length    1622, lcp =     223, f_keep = 0.137, f_sim = 0.215
+111.04.787.612 I srv          load:    - prompt with length    1903, lcp =     223, f_keep = 0.117, f_sim = 0.215
+111.04.787.614 I srv          load:    - prompt with length    2059, lcp =     223, f_keep = 0.108, f_sim = 0.215
+111.04.787.615 I srv          load:    - prompt with length    1409, lcp =     223, f_keep = 0.158, f_sim = 0.215
+111.04.787.616 I srv          load:    - prompt with length    1622, lcp =     223, f_keep = 0.137, f_sim = 0.215
+111.04.787.617 I srv          load:    - prompt with length    1831, lcp =     223, f_keep = 0.122, f_sim = 0.215
+111.04.787.618 I srv          load:    - prompt with length    2120, lcp =     223, f_keep = 0.105, f_sim = 0.215
+111.04.787.619 I srv          load:    - prompt with length    1463, lcp =     223, f_keep = 0.152, f_sim = 0.215
+111.04.787.619 I srv          load:    - prompt with length    1561, lcp =     223, f_keep = 0.143, f_sim = 0.215
+111.04.787.620 I srv          load:    - prompt with length    1949, lcp =     223, f_keep = 0.114, f_sim = 0.215
+111.04.787.621 I srv          load:    - prompt with length    2058, lcp =     223, f_keep = 0.108, f_sim = 0.215
+111.04.787.622 I srv          load:    - prompt with length    1467, lcp =     223, f_keep = 0.152, f_sim = 0.215
+111.04.787.623 I srv          load:    - prompt with length    1630, lcp =     223, f_keep = 0.137, f_sim = 0.215
+111.04.787.624 I srv          load:    - prompt with length    1901, lcp =     223, f_keep = 0.117, f_sim = 0.215
+111.04.787.624 I srv          load:    - prompt with length    1993, lcp =     223, f_keep = 0.112, f_sim = 0.215
+111.04.787.625 I srv          load:    - prompt with length    1467, lcp =     223, f_keep = 0.152, f_sim = 0.215
+111.04.787.626 I srv          load:    - prompt with length    1627, lcp =     223, f_keep = 0.137, f_sim = 0.215
+111.04.787.627 I srv          load:    - prompt with length    1846, lcp =     223, f_keep = 0.121, f_sim = 0.215
+111.04.787.628 I srv          load:    - prompt with length    2126, lcp =     223, f_keep = 0.105, f_sim = 0.215
+111.04.787.629 I srv          load:    - prompt with length    1511, lcp =     223, f_keep = 0.148, f_sim = 0.215
+111.04.787.629 I srv          load:    - prompt with length    1568, lcp =     223, f_keep = 0.142, f_sim = 0.215
+111.04.787.630 I srv          load:    - prompt with length    1628, lcp =     223, f_keep = 0.137, f_sim = 0.215
+111.04.787.631 I srv          load:    - prompt with length    1899, lcp =     223, f_keep = 0.117, f_sim = 0.215
+111.04.787.632 I srv          load:    - prompt with length    2113, lcp =     223, f_keep = 0.106, f_sim = 0.215
+111.04.787.634 I srv        update:  - cache state: 33 prompts, 8175.224 MiB (limits: 8192.000 MiB, 8192 tokens, 58249 est)
+111.04.787.635 I srv        update:    - prompt 0xc7ad724f0:    1399 tokens, checkpoints:  0,   196.751 MiB
+111.04.787.649 I srv        update:    - prompt 0xc78fd3170:    1689 tokens, checkpoints:  0,   237.536 MiB
+111.04.787.649 I srv        update:    - prompt 0xc7ad73b70:    1898 tokens, checkpoints:  0,   266.929 MiB
+111.04.787.650 I srv        update:    - prompt 0xc78fd0e70:    2211 tokens, checkpoints:  0,   310.948 MiB
+111.04.787.660 I srv        update:    - prompt 0xc7ad738f0:    1412 tokens, checkpoints:  0,   198.580 MiB
+111.04.787.661 I srv        update:    - prompt 0xc78fd06f0:    1628 tokens, checkpoints:  0,   228.957 MiB
+111.04.787.661 I srv        update:    - prompt 0xc7ad73170:    1899 tokens, checkpoints:  0,   267.069 MiB
+111.04.787.662 I srv        update:    - prompt 0xc78fd37b0:    2110 tokens, checkpoints:  0,   296.744 MiB
+111.04.787.662 I srv        update:    - prompt 0xc7ad73710:    1511 tokens, checkpoints:  0,   212.503 MiB
+111.04.787.663 I srv        update:    - prompt 0xc78fd32b0:    1622 tokens, checkpoints:  0,   228.113 MiB
+111.04.787.663 I srv        update:    - prompt 0xc7ad73350:    1903 tokens, checkpoints:  0,   267.632 MiB
+111.04.787.663 I srv        update:    - prompt 0xc78fd0650:    2059 tokens, checkpoints:  0,   289.571 MiB
+111.04.787.664 I srv        update:    - prompt 0xc7ad73c10:    1409 tokens, checkpoints:  0,   198.158 MiB
+111.04.787.664 I srv        update:    - prompt 0xc78fd2bd0:    1622 tokens, checkpoints:  0,   228.113 MiB
+111.04.787.665 I srv        update:    - prompt 0xc7ad732b0:    1831 tokens, checkpoints:  0,   257.506 MiB
+111.04.787.666 I srv        update:    - prompt 0xc78fd2770:    2120 tokens, checkpoints:  0,   298.150 MiB
+111.04.787.666 I srv        update:    - prompt 0xc7ad726d0:    1463 tokens, checkpoints:  0,   205.752 MiB
+111.04.787.667 I srv        update:    - prompt 0xc78fd3a30:    1561 tokens, checkpoints:  0,   219.534 MiB
+111.04.787.667 I srv        update:    - prompt 0xc7ad73850:    1949 tokens, checkpoints:  0,   274.101 MiB
+111.04.787.668 I srv        update:    - prompt 0xc78fd12d0:    2058 tokens, checkpoints:  0,   289.431 MiB
+111.04.787.668 I srv        update:    - prompt 0xc7ad72c70:    1467 tokens, checkpoints:  0,   206.315 MiB
+111.04.787.669 I srv        update:    - prompt 0xc78fd0290:    1630 tokens, checkpoints:  0,   229.238 MiB
+111.04.787.669 I srv        update:    - prompt 0xc7ad72950:    1901 tokens, checkpoints:  0,   267.351 MiB
+111.04.787.669 I srv        update:    - prompt 0xc78fd2270:    1993 tokens, checkpoints:  0,   280.289 MiB
+111.04.787.670 I srv        update:    - prompt 0xc7ad73a30:    1467 tokens, checkpoints:  0,   206.315 MiB
+111.04.787.670 I srv        update:    - prompt 0xc78fd3990:    1627 tokens, checkpoints:  0,   228.816 MiB
+111.04.787.671 I srv        update:    - prompt 0xc7ad73030:    1846 tokens, checkpoints:  0,   259.616 MiB
+111.04.787.671 I srv        update:    - prompt 0xc78fd3530:    2126 tokens, checkpoints:  0,   298.994 MiB
+111.04.787.672 I srv        update:    - prompt 0xc7ad72a90:    1511 tokens, checkpoints:  0,   212.503 MiB
+111.04.787.672 I srv        update:    - prompt 0xc78fd1b90:    1568 tokens, checkpoints:  0,   220.519 MiB
+111.04.787.673 I srv        update:    - prompt 0xc7ad72590:    1628 tokens, checkpoints:  0,   228.957 MiB
+111.04.787.673 I srv        update:    - prompt 0xc78fd0510:    1899 tokens, checkpoints:  0,   267.069 MiB
+111.04.787.674 I srv        update:    - prompt 0xc7ad728b0:    2113 tokens, checkpoints:  0,   297.166 MiB
+111.04.787.676 I srv  get_availabl: prompt cache update took 114.39 ms
+111.04.788.183 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+111.04.788.191 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+111.04.788.193 I slot launch_slot_: id  0 | task 43281 | processing task, is_child = 0
+111.04.788.199 I slot   operator(): id  0 | task 43281 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 1035
+111.04.788.202 I slot   operator(): id  0 | task 43281 | cached n_tokens = 223, memory_seq_rm [223, end)
+111.04.788.774 I slot init_sampler: id  0 | task 43281 | init sampler, took 0.17 ms, tokens: text = 1035, total = 1035
+111.24.812.691 I slot print_timing: id  0 | task 43281 | n_gen =    100, tg =   9.32 t/s, tg_3s =   9.41 t/s
+111.27.869.117 I slot print_timing: id  0 | task 43281 | n_gen =    129, tg =   9.35 t/s, tg_3s =   9.49 t/s
+111.30.981.713 I slot print_timing: id  0 | task 43281 | n_gen =    158, tg =   9.35 t/s, tg_3s =   9.32 t/s
+111.34.011.432 I slot print_timing: id  0 | task 43281 | n_gen =    187, tg =   9.38 t/s, tg_3s =   9.57 t/s
+111.37.121.483 I slot print_timing: id  0 | task 43281 | n_gen =    215, tg =   9.33 t/s, tg_3s =   9.00 t/s
+111.40.167.175 I slot print_timing: id  0 | task 43281 | n_gen =    244, tg =   9.35 t/s, tg_3s =   9.52 t/s
+111.43.254.911 I slot print_timing: id  0 | task 43281 | n_gen =    273, tg =   9.36 t/s, tg_3s =   9.39 t/s
+111.46.303.910 I slot print_timing: id  0 | task 43281 | n_gen =    302, tg =   9.37 t/s, tg_3s =   9.51 t/s
+111.49.312.316 I slot print_timing: id  0 | task 43281 | n_gen =    331, tg =   9.39 t/s, tg_3s =   9.64 t/s
+111.52.339.048 I slot print_timing: id  0 | task 43281 | n_gen =    360, tg =   9.41 t/s, tg_3s =   9.58 t/s
+111.55.391.697 I slot print_timing: id  0 | task 43281 | n_gen =    386, tg =   9.34 t/s, tg_3s =   8.52 t/s
+111.58.431.828 I slot print_timing: id  0 | task 43281 | n_gen =    415, tg =   9.36 t/s, tg_3s =   9.54 t/s
+112.01.480.440 I slot print_timing: id  0 | task 43281 | n_gen =    444, tg =   9.37 t/s, tg_3s =   9.51 t/s
+112.04.559.812 I slot print_timing: id  0 | task 43281 | n_gen =    472, tg =   9.35 t/s, tg_3s =   9.09 t/s
+112.07.599.757 I slot print_timing: id  0 | task 43281 | n_gen =    501, tg =   9.36 t/s, tg_3s =   9.54 t/s
+112.10.276.410 I slot print_timing: id  0 | task 43281 | prompt eval time =    9397.63 ms /   812 tokens (   11.57 ms per token,    86.40 tokens per second)
+112.10.276.425 I slot print_timing: id  0 | task 43281 |        eval time =   56090.56 ms /   526 tokens (  106.84 ms per token,     9.36 tokens per second)
+112.10.276.427 I slot print_timing: id  0 | task 43281 |       total time =   65488.19 ms /  1338 tokens
+112.10.276.428 I slot print_timing: id  0 | task 43281 |    graphs reused =      43454
+112.10.276.662 I slot      release: id  0 | task 43281 | stop processing: n_tokens = 1560, truncated = 0
+112.10.276.711 I srv  update_slots: all slots are idle
+112.10.319.663 I srv  server_strea: conv_id= (empty=1)
+112.10.322.214 I srv    operator(): chat format: peg-native
+112.10.322.554 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.243 (223/917) > 0.100
+112.10.322.556 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.243 (> 0.100 thold), f_keep = 0.143
+112.10.322.556 I srv  get_availabl: updating prompt cache
+112.10.322.648 I srv   prompt_save:  - saving prompt with length 1560, total state size = 219.394 MiB (draft: 0.000 MiB)
+112.10.322.695 W srv         alloc:  - making room for prompt cache entry, removing oldest entry (size = 196.751 MiB)
+112.10.323.307 W srv         alloc:  - making room for prompt cache entry, removing oldest entry (size = 237.536 MiB)
+112.11.293.212 I srv          load:  - looking for better prompt, base f_keep = 0.143, f_sim = 0.243
+112.11.293.216 I srv          load:    - prompt with length    1898, lcp =     223, f_keep = 0.117, f_sim = 0.243
+112.11.293.218 I srv          load:    - prompt with length    2211, lcp =     223, f_keep = 0.101, f_sim = 0.243
+112.11.293.219 I srv          load:    - prompt with length    1412, lcp =     223, f_keep = 0.158, f_sim = 0.243
+112.11.293.219 I srv          load:    - prompt with length    1628, lcp =     223, f_keep = 0.137, f_sim = 0.243
+112.11.293.221 I srv          load:    - prompt with length    1899, lcp =     223, f_keep = 0.117, f_sim = 0.243
+112.11.293.221 I srv          load:    - prompt with length    2110, lcp =     223, f_keep = 0.106, f_sim = 0.243
+112.11.293.222 I srv          load:    - prompt with length    1511, lcp =     223, f_keep = 0.148, f_sim = 0.243
+112.11.293.223 I srv          load:    - prompt with length    1622, lcp =     223, f_keep = 0.137, f_sim = 0.243
+112.11.293.224 I srv          load:    - prompt with length    1903, lcp =     223, f_keep = 0.117, f_sim = 0.243
+112.11.293.225 I srv          load:    - prompt with length    2059, lcp =     223, f_keep = 0.108, f_sim = 0.243
+112.11.293.225 I srv          load:    - prompt with length    1409, lcp =     223, f_keep = 0.158, f_sim = 0.243
+112.11.293.226 I srv          load:    - prompt with length    1622, lcp =     223, f_keep = 0.137, f_sim = 0.243
+112.11.293.227 I srv          load:    - prompt with length    1831, lcp =     223, f_keep = 0.122, f_sim = 0.243
+112.11.293.228 I srv          load:    - prompt with length    2120, lcp =     223, f_keep = 0.105, f_sim = 0.243
+112.11.293.230 I srv          load:    - prompt with length    1463, lcp =     223, f_keep = 0.152, f_sim = 0.243
+112.11.293.234 I srv          load:    - prompt with length    1561, lcp =     223, f_keep = 0.143, f_sim = 0.243
+112.11.293.235 I srv          load:    - prompt with length    1949, lcp =     223, f_keep = 0.114, f_sim = 0.243
+112.11.293.237 I srv          load:    - prompt with length    2058, lcp =     223, f_keep = 0.108, f_sim = 0.243
+112.11.293.238 I srv          load:    - prompt with length    1467, lcp =     223, f_keep = 0.152, f_sim = 0.243
+112.11.293.239 I srv          load:    - prompt with length    1630, lcp =     223, f_keep = 0.137, f_sim = 0.243
+112.11.293.240 I srv          load:    - prompt with length    1901, lcp =     223, f_keep = 0.117, f_sim = 0.243
+112.11.293.241 I srv          load:    - prompt with length    1993, lcp =     223, f_keep = 0.112, f_sim = 0.243
+112.11.293.241 I srv          load:    - prompt with length    1467, lcp =     223, f_keep = 0.152, f_sim = 0.243
+112.11.293.242 I srv          load:    - prompt with length    1627, lcp =     223, f_keep = 0.137, f_sim = 0.243
+112.11.293.243 I srv          load:    - prompt with length    1846, lcp =     223, f_keep = 0.121, f_sim = 0.243
+112.11.293.244 I srv          load:    - prompt with length    2126, lcp =     223, f_keep = 0.105, f_sim = 0.243
+112.11.293.245 I srv          load:    - prompt with length    1511, lcp =     223, f_keep = 0.148, f_sim = 0.243
+112.11.293.246 I srv          load:    - prompt with length    1568, lcp =     223, f_keep = 0.142, f_sim = 0.243
+112.11.293.246 I srv          load:    - prompt with length    1628, lcp =     223, f_keep = 0.137, f_sim = 0.243
+112.11.293.247 I srv          load:    - prompt with length    1899, lcp =     223, f_keep = 0.117, f_sim = 0.243
+112.11.293.248 I srv          load:    - prompt with length    2113, lcp =     223, f_keep = 0.106, f_sim = 0.243
+112.11.293.249 I srv          load:    - prompt with length    1560, lcp =     223, f_keep = 0.143, f_sim = 0.243
+112.11.293.251 I srv        update:  - cache state: 32 prompts, 7960.331 MiB (limits: 8192.000 MiB, 8192 tokens, 58249 est)
+112.11.293.252 I srv        update:    - prompt 0xc7ad73b70:    1898 tokens, checkpoints:  0,   266.929 MiB
+112.11.293.253 I srv        update:    - prompt 0xc78fd0e70:    2211 tokens, checkpoints:  0,   310.948 MiB
+112.11.293.254 I srv        update:    - prompt 0xc7ad738f0:    1412 tokens, checkpoints:  0,   198.580 MiB
+112.11.293.254 I srv        update:    - prompt 0xc78fd06f0:    1628 tokens, checkpoints:  0,   228.957 MiB
+112.11.293.255 I srv        update:    - prompt 0xc7ad73170:    1899 tokens, checkpoints:  0,   267.069 MiB
+112.11.293.255 I srv        update:    - prompt 0xc78fd37b0:    2110 tokens, checkpoints:  0,   296.744 MiB
+112.11.293.256 I srv        update:    - prompt 0xc7ad73710:    1511 tokens, checkpoints:  0,   212.503 MiB
+112.11.293.256 I srv        update:    - prompt 0xc78fd32b0:    1622 tokens, checkpoints:  0,   228.113 MiB
+112.11.293.257 I srv        update:    - prompt 0xc7ad73350:    1903 tokens, checkpoints:  0,   267.632 MiB
+112.11.293.257 I srv        update:    - prompt 0xc78fd0650:    2059 tokens, checkpoints:  0,   289.571 MiB
+112.11.293.258 I srv        update:    - prompt 0xc7ad73c10:    1409 tokens, checkpoints:  0,   198.158 MiB
+112.11.293.258 I srv        update:    - prompt 0xc78fd2bd0:    1622 tokens, checkpoints:  0,   228.113 MiB
+112.11.293.259 I srv        update:    - prompt 0xc7ad732b0:    1831 tokens, checkpoints:  0,   257.506 MiB
+112.11.293.259 I srv        update:    - prompt 0xc78fd2770:    2120 tokens, checkpoints:  0,   298.150 MiB
+112.11.293.260 I srv        update:    - prompt 0xc7ad726d0:    1463 tokens, checkpoints:  0,   205.752 MiB
+112.11.293.260 I srv        update:    - prompt 0xc78fd3a30:    1561 tokens, checkpoints:  0,   219.534 MiB
+112.11.293.261 I srv        update:    - prompt 0xc7ad73850:    1949 tokens, checkpoints:  0,   274.101 MiB
+112.11.293.261 I srv        update:    - prompt 0xc78fd12d0:    2058 tokens, checkpoints:  0,   289.431 MiB
+112.11.293.262 I srv        update:    - prompt 0xc7ad72c70:    1467 tokens, checkpoints:  0,   206.315 MiB
+112.11.293.262 I srv        update:    - prompt 0xc78fd0290:    1630 tokens, checkpoints:  0,   229.238 MiB
+112.11.293.263 I srv        update:    - prompt 0xc7ad72950:    1901 tokens, checkpoints:  0,   267.351 MiB
+112.11.293.263 I srv        update:    - prompt 0xc78fd2270:    1993 tokens, checkpoints:  0,   280.289 MiB
+112.11.293.264 I srv        update:    - prompt 0xc7ad73a30:    1467 tokens, checkpoints:  0,   206.315 MiB
+112.11.293.264 I srv        update:    - prompt 0xc78fd3990:    1627 tokens, checkpoints:  0,   228.816 MiB
+112.11.293.265 I srv        update:    - prompt 0xc7ad73030:    1846 tokens, checkpoints:  0,   259.616 MiB
+112.11.293.265 I srv        update:    - prompt 0xc78fd3530:    2126 tokens, checkpoints:  0,   298.994 MiB
+112.11.293.265 I srv        update:    - prompt 0xc7ad72a90:    1511 tokens, checkpoints:  0,   212.503 MiB
+112.11.293.266 I srv        update:    - prompt 0xc78fd1b90:    1568 tokens, checkpoints:  0,   220.519 MiB
+112.11.293.267 I srv        update:    - prompt 0xc7ad72590:    1628 tokens, checkpoints:  0,   228.957 MiB
+112.11.293.267 I srv        update:    - prompt 0xc78fd0510:    1899 tokens, checkpoints:  0,   267.069 MiB
+112.11.293.269 I srv        update:    - prompt 0xc7ad728b0:    2113 tokens, checkpoints:  0,   297.166 MiB
+112.11.293.269 I srv        update:    - prompt 0xc78fd3170:    1560 tokens, checkpoints:  0,   219.394 MiB
+112.11.293.271 I srv  get_availabl: prompt cache update took 970.71 ms
+112.11.295.869 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+112.11.295.879 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+112.11.295.880 I slot launch_slot_: id  0 | task 43808 | processing task, is_child = 0
+112.11.295.887 I slot   operator(): id  0 | task 43808 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 917
+112.11.295.890 I slot   operator(): id  0 | task 43808 | cached n_tokens = 223, memory_seq_rm [223, end)
+112.11.296.311 I slot init_sampler: id  0 | task 43808 | init sampler, took 0.16 ms, tokens: text = 917, total = 917
+112.29.862.605 I slot print_timing: id  0 | task 43808 | n_gen =    100, tg =   9.36 t/s, tg_3s =   9.45 t/s
+112.32.910.217 I slot print_timing: id  0 | task 43808 | n_gen =    129, tg =   9.39 t/s, tg_3s =   9.52 t/s
+112.35.918.519 I slot print_timing: id  0 | task 43808 | n_gen =    158, tg =   9.44 t/s, tg_3s =   9.64 t/s
+112.38.963.198 I slot print_timing: id  0 | task 43808 | n_gen =    187, tg =   9.45 t/s, tg_3s =   9.52 t/s
+112.41.971.993 I slot print_timing: id  0 | task 43808 | n_gen =    215, tg =   9.43 t/s, tg_3s =   9.31 t/s
+112.44.982.047 I slot print_timing: id  0 | task 43808 | n_gen =    244, tg =   9.46 t/s, tg_3s =   9.63 t/s
+112.48.091.032 I slot print_timing: id  0 | task 43808 | n_gen =    265, tg =   9.16 t/s, tg_3s =   6.75 t/s
+112.51.155.273 I slot print_timing: id  0 | task 43808 | n_gen =    286, tg =   8.94 t/s, tg_3s =   6.85 t/s
+112.54.229.838 I slot print_timing: id  0 | task 43808 | n_gen =    307, tg =   8.76 t/s, tg_3s =   6.83 t/s
+112.57.278.148 I slot print_timing: id  0 | task 43808 | n_gen =    328, tg =   8.61 t/s, tg_3s =   6.89 t/s
+113.00.321.151 I slot print_timing: id  0 | task 43808 | n_gen =    349, tg =   8.48 t/s, tg_3s =   6.90 t/s
+113.03.344.204 I slot print_timing: id  0 | task 43808 | n_gen =    369, tg =   8.35 t/s, tg_3s =   6.62 t/s
+113.06.379.898 I slot print_timing: id  0 | task 43808 | n_gen =    389, tg =   8.24 t/s, tg_3s =   6.59 t/s
+113.09.405.297 I slot print_timing: id  0 | task 43808 | n_gen =    409, tg =   8.14 t/s, tg_3s =   6.61 t/s
+113.12.424.392 I slot print_timing: id  0 | task 43808 | n_gen =    429, tg =   8.05 t/s, tg_3s =   6.62 t/s
+113.15.575.714 I slot print_timing: id  0 | task 43808 | n_gen =    450, tg =   7.98 t/s, tg_3s =   6.66 t/s
+113.18.591.929 I slot print_timing: id  0 | task 43808 | n_gen =    470, tg =   7.91 t/s, tg_3s =   6.63 t/s
+113.21.671.028 I slot print_timing: id  0 | task 43808 | n_gen =    491, tg =   7.85 t/s, tg_3s =   6.82 t/s
+113.24.788.563 I slot print_timing: id  0 | task 43808 | n_gen =    512, tg =   7.80 t/s, tg_3s =   6.74 t/s
+113.27.902.273 I slot print_timing: id  0 | task 43808 | n_gen =    533, tg =   7.75 t/s, tg_3s =   6.74 t/s
+113.30.949.785 I slot print_timing: id  0 | task 43808 | n_gen =    553, tg =   7.70 t/s, tg_3s =   6.56 t/s
+113.33.960.230 I slot print_timing: id  0 | task 43808 | n_gen =    573, tg =   7.66 t/s, tg_3s =   6.64 t/s
+113.37.039.957 I slot print_timing: id  0 | task 43808 | n_gen =    594, tg =   7.63 t/s, tg_3s =   6.82 t/s
+113.40.062.145 I slot print_timing: id  0 | task 43808 | n_gen =    614, tg =   7.59 t/s, tg_3s =   6.62 t/s
+113.43.092.668 I slot print_timing: id  0 | task 43808 | n_gen =    634, tg =   7.55 t/s, tg_3s =   6.60 t/s
+113.46.111.959 I slot print_timing: id  0 | task 43808 | n_gen =    654, tg =   7.52 t/s, tg_3s =   6.62 t/s
+113.48.305.736 I slot print_timing: id  0 | task 43808 | prompt eval time =    7985.96 ms /   694 tokens (   11.51 ms per token,    86.90 tokens per second)
+113.48.305.749 I slot print_timing: id  0 | task 43808 |        eval time =   89023.83 ms /   670 tokens (  133.07 ms per token,     7.51 tokens per second)
+113.48.305.751 I slot print_timing: id  0 | task 43808 |       total time =   97009.79 ms /  1364 tokens
+113.48.305.753 I slot print_timing: id  0 | task 43808 |    graphs reused =      44119
+113.48.306.902 I slot      release: id  0 | task 43808 | stop processing: n_tokens = 1586, truncated = 0
+113.48.307.000 I srv  update_slots: all slots are idle
+113.48.348.648 I srv  server_strea: conv_id= (empty=1)
+113.48.356.911 I srv    operator(): chat format: peg-native
+113.48.357.315 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.221 (223/1009) > 0.100
+113.48.357.318 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.221 (> 0.100 thold), f_keep = 0.141
+113.48.357.318 I srv  get_availabl: updating prompt cache
+113.48.357.428 I srv   prompt_save:  - saving prompt with length 1586, total state size = 223.050 MiB (draft: 0.000 MiB)
+113.48.480.550 I srv          load:  - looking for better prompt, base f_keep = 0.141, f_sim = 0.221
+113.48.480.555 I srv          load:    - prompt with length    1898, lcp =     223, f_keep = 0.117, f_sim = 0.221
+113.48.480.556 I srv          load:    - prompt with length    2211, lcp =     223, f_keep = 0.101, f_sim = 0.221
+113.48.480.557 I srv          load:    - prompt with length    1412, lcp =     223, f_keep = 0.158, f_sim = 0.221
+113.48.480.558 I srv          load:    - prompt with length    1628, lcp =     223, f_keep = 0.137, f_sim = 0.221
+113.48.480.559 I srv          load:    - prompt with length    1899, lcp =     223, f_keep = 0.117, f_sim = 0.221
+113.48.480.560 I srv          load:    - prompt with length    2110, lcp =     223, f_keep = 0.106, f_sim = 0.221
+113.48.480.561 I srv          load:    - prompt with length    1511, lcp =     223, f_keep = 0.148, f_sim = 0.221
+113.48.480.562 I srv          load:    - prompt with length    1622, lcp =     223, f_keep = 0.137, f_sim = 0.221
+113.48.480.563 I srv          load:    - prompt with length    1903, lcp =     223, f_keep = 0.117, f_sim = 0.221
+113.48.480.564 I srv          load:    - prompt with length    2059, lcp =     223, f_keep = 0.108, f_sim = 0.221
+113.48.480.564 I srv          load:    - prompt with length    1409, lcp =     223, f_keep = 0.158, f_sim = 0.221
+113.48.480.568 I srv          load:    - prompt with length    1622, lcp =     223, f_keep = 0.137, f_sim = 0.221
+113.48.480.569 I srv          load:    - prompt with length    1831, lcp =     223, f_keep = 0.122, f_sim = 0.221
+113.48.480.570 I srv          load:    - prompt with length    2120, lcp =     223, f_keep = 0.105, f_sim = 0.221
+113.48.480.571 I srv          load:    - prompt with length    1463, lcp =     223, f_keep = 0.152, f_sim = 0.221
+113.48.480.581 I srv          load:    - prompt with length    1561, lcp =     223, f_keep = 0.143, f_sim = 0.221
+113.48.480.582 I srv          load:    - prompt with length    1949, lcp =     223, f_keep = 0.114, f_sim = 0.221
+113.48.480.582 I srv          load:    - prompt with length    2058, lcp =     223, f_keep = 0.108, f_sim = 0.221
+113.48.480.583 I srv          load:    - prompt with length    1467, lcp =     223, f_keep = 0.152, f_sim = 0.221
+113.48.480.584 I srv          load:    - prompt with length    1630, lcp =     223, f_keep = 0.137, f_sim = 0.221
+113.48.480.585 I srv          load:    - prompt with length    1901, lcp =     223, f_keep = 0.117, f_sim = 0.221
+113.48.480.586 I srv          load:    - prompt with length    1993, lcp =     223, f_keep = 0.112, f_sim = 0.221
+113.48.480.587 I srv          load:    - prompt with length    1467, lcp =     223, f_keep = 0.152, f_sim = 0.221
+113.48.480.587 I srv          load:    - prompt with length    1627, lcp =     223, f_keep = 0.137, f_sim = 0.221
+113.48.480.588 I srv          load:    - prompt with length    1846, lcp =     223, f_keep = 0.121, f_sim = 0.221
+113.48.480.589 I srv          load:    - prompt with length    2126, lcp =     223, f_keep = 0.105, f_sim = 0.221
+113.48.480.590 I srv          load:    - prompt with length    1511, lcp =     223, f_keep = 0.148, f_sim = 0.221
+113.48.480.591 I srv          load:    - prompt with length    1568, lcp =     223, f_keep = 0.142, f_sim = 0.221
+113.48.480.592 I srv          load:    - prompt with length    1628, lcp =     223, f_keep = 0.137, f_sim = 0.221
+113.48.480.593 I srv          load:    - prompt with length    1899, lcp =     223, f_keep = 0.117, f_sim = 0.221
+113.48.480.593 I srv          load:    - prompt with length    2113, lcp =     223, f_keep = 0.106, f_sim = 0.221
+113.48.480.594 I srv          load:    - prompt with length    1560, lcp =     223, f_keep = 0.143, f_sim = 0.221
+113.48.480.595 I srv          load:    - prompt with length    1586, lcp =     223, f_keep = 0.141, f_sim = 0.221
+113.48.480.598 I srv        update:  - cache state: 33 prompts, 8183.381 MiB (limits: 8192.000 MiB, 8192 tokens, 58249 est)
+113.48.480.599 I srv        update:    - prompt 0xc7ad73b70:    1898 tokens, checkpoints:  0,   266.929 MiB
+113.48.480.600 I srv        update:    - prompt 0xc78fd0e70:    2211 tokens, checkpoints:  0,   310.948 MiB
+113.48.480.600 I srv        update:    - prompt 0xc7ad738f0:    1412 tokens, checkpoints:  0,   198.580 MiB
+113.48.480.601 I srv        update:    - prompt 0xc78fd06f0:    1628 tokens, checkpoints:  0,   228.957 MiB
+113.48.480.601 I srv        update:    - prompt 0xc7ad73170:    1899 tokens, checkpoints:  0,   267.069 MiB
+113.48.480.602 I srv        update:    - prompt 0xc78fd37b0:    2110 tokens, checkpoints:  0,   296.744 MiB
+113.48.480.602 I srv        update:    - prompt 0xc7ad73710:    1511 tokens, checkpoints:  0,   212.503 MiB
+113.48.480.603 I srv        update:    - prompt 0xc78fd32b0:    1622 tokens, checkpoints:  0,   228.113 MiB
+113.48.480.603 I srv        update:    - prompt 0xc7ad73350:    1903 tokens, checkpoints:  0,   267.632 MiB
+113.48.480.604 I srv        update:    - prompt 0xc78fd0650:    2059 tokens, checkpoints:  0,   289.571 MiB
+113.48.480.604 I srv        update:    - prompt 0xc7ad73c10:    1409 tokens, checkpoints:  0,   198.158 MiB
+113.48.480.605 I srv        update:    - prompt 0xc78fd2bd0:    1622 tokens, checkpoints:  0,   228.113 MiB
+113.48.480.605 I srv        update:    - prompt 0xc7ad732b0:    1831 tokens, checkpoints:  0,   257.506 MiB
+113.48.480.606 I srv        update:    - prompt 0xc78fd2770:    2120 tokens, checkpoints:  0,   298.150 MiB
+113.48.480.606 I srv        update:    - prompt 0xc7ad726d0:    1463 tokens, checkpoints:  0,   205.752 MiB
+113.48.480.607 I srv        update:    - prompt 0xc78fd3a30:    1561 tokens, checkpoints:  0,   219.534 MiB
+113.48.480.607 I srv        update:    - prompt 0xc7ad73850:    1949 tokens, checkpoints:  0,   274.101 MiB
+113.48.480.608 I srv        update:    - prompt 0xc78fd12d0:    2058 tokens, checkpoints:  0,   289.431 MiB
+113.48.480.608 I srv        update:    - prompt 0xc7ad72c70:    1467 tokens, checkpoints:  0,   206.315 MiB
+113.48.480.609 I srv        update:    - prompt 0xc78fd0290:    1630 tokens, checkpoints:  0,   229.238 MiB
+113.48.480.609 I srv        update:    - prompt 0xc7ad72950:    1901 tokens, checkpoints:  0,   267.351 MiB
+113.48.480.610 I srv        update:    - prompt 0xc78fd2270:    1993 tokens, checkpoints:  0,   280.289 MiB
+113.48.480.610 I srv        update:    - prompt 0xc7ad73a30:    1467 tokens, checkpoints:  0,   206.315 MiB
+113.48.480.611 I srv        update:    - prompt 0xc78fd3990:    1627 tokens, checkpoints:  0,   228.816 MiB
+113.48.480.611 I srv        update:    - prompt 0xc7ad73030:    1846 tokens, checkpoints:  0,   259.616 MiB
+113.48.480.612 I srv        update:    - prompt 0xc78fd3530:    2126 tokens, checkpoints:  0,   298.994 MiB
+113.48.480.612 I srv        update:    - prompt 0xc7ad72a90:    1511 tokens, checkpoints:  0,   212.503 MiB
+113.48.480.613 I srv        update:    - prompt 0xc78fd1b90:    1568 tokens, checkpoints:  0,   220.519 MiB
+113.48.480.613 I srv        update:    - prompt 0xc7ad72590:    1628 tokens, checkpoints:  0,   228.957 MiB
+113.48.480.614 I srv        update:    - prompt 0xc78fd0510:    1899 tokens, checkpoints:  0,   267.069 MiB
+113.48.480.614 I srv        update:    - prompt 0xc7ad728b0:    2113 tokens, checkpoints:  0,   297.166 MiB
+113.48.480.615 I srv        update:    - prompt 0xc78fd3170:    1560 tokens, checkpoints:  0,   219.394 MiB
+113.48.480.615 I srv        update:    - prompt 0xc78fd3670:    1586 tokens, checkpoints:  0,   223.050 MiB
+113.48.480.617 I srv  get_availabl: prompt cache update took 123.30 ms
+113.48.481.185 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+113.48.481.196 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+113.48.481.203 I slot launch_slot_: id  0 | task 44479 | processing task, is_child = 0
+113.48.481.220 I slot   operator(): id  0 | task 44479 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 1009
+113.48.481.228 I slot   operator(): id  0 | task 44479 | cached n_tokens = 223, memory_seq_rm [223, end)
+113.48.481.745 I slot init_sampler: id  0 | task 44479 | init sampler, took 0.16 ms, tokens: text = 1009, total = 1009
+114.11.139.424 I slot print_timing: id  0 | task 44479 | n_gen =    100, tg =   7.43 t/s, tg_3s =   7.50 t/s
+114.14.204.062 I slot print_timing: id  0 | task 44479 | n_gen =    120, tg =   7.26 t/s, tg_3s =   6.53 t/s
+114.17.274.589 I slot print_timing: id  0 | task 44479 | n_gen =    139, tg =   7.09 t/s, tg_3s =   6.19 t/s
+114.20.427.474 I slot print_timing: id  0 | task 44479 | n_gen =    157, tg =   6.90 t/s, tg_3s =   5.71 t/s
+114.23.488.185 I slot print_timing: id  0 | task 44479 | n_gen =    176, tg =   6.81 t/s, tg_3s =   6.21 t/s
+114.26.515.793 I slot print_timing: id  0 | task 44479 | n_gen =    197, tg =   6.83 t/s, tg_3s =   6.94 t/s
+114.29.523.167 I slot print_timing: id  0 | task 44479 | n_gen =    220, tg =   6.91 t/s, tg_3s =   7.65 t/s
+114.32.575.608 I slot print_timing: id  0 | task 44479 | n_gen =    242, tg =   6.93 t/s, tg_3s =   7.21 t/s
+114.35.610.580 I slot print_timing: id  0 | task 44479 | n_gen =    265, tg =   6.98 t/s, tg_3s =   7.58 t/s
+114.38.651.710 I slot print_timing: id  0 | task 44479 | n_gen =    292, tg =   7.12 t/s, tg_3s =   8.88 t/s
+114.41.749.884 I slot print_timing: id  0 | task 44479 | n_gen =    316, tg =   7.17 t/s, tg_3s =   7.75 t/s
+114.44.780.182 I slot print_timing: id  0 | task 44479 | n_gen =    343, tg =   7.28 t/s, tg_3s =   8.91 t/s
+114.47.887.981 I slot print_timing: id  0 | task 44479 | n_gen =    370, tg =   7.37 t/s, tg_3s =   8.69 t/s
+114.50.961.781 I slot print_timing: id  0 | task 44479 | n_gen =    395, tg =   7.41 t/s, tg_3s =   8.13 t/s
+114.54.053.751 I slot print_timing: id  0 | task 44479 | n_gen =    419, tg =   7.43 t/s, tg_3s =   7.76 t/s
+114.57.089.180 I slot print_timing: id  0 | task 44479 | n_gen =    444, tg =   7.47 t/s, tg_3s =   8.24 t/s
+115.00.104.634 I slot print_timing: id  0 | task 44479 | n_gen =    467, tg =   7.48 t/s, tg_3s =   7.63 t/s
+115.03.124.888 I slot print_timing: id  0 | task 44479 | n_gen =    495, tg =   7.56 t/s, tg_3s =   9.27 t/s
+115.06.214.104 I slot print_timing: id  0 | task 44479 | n_gen =    523, tg =   7.63 t/s, tg_3s =   9.06 t/s
+115.09.261.266 I slot print_timing: id  0 | task 44479 | n_gen =    549, tg =   7.67 t/s, tg_3s =   8.53 t/s
+115.12.339.178 I slot print_timing: id  0 | task 44479 | n_gen =    577, tg =   7.73 t/s, tg_3s =   9.10 t/s
+115.15.372.078 I slot print_timing: id  0 | task 44479 | n_gen =    603, tg =   7.76 t/s, tg_3s =   8.57 t/s
+115.18.380.519 I slot print_timing: id  0 | task 44479 | n_gen =    630, tg =   7.81 t/s, tg_3s =   8.97 t/s
+115.21.493.198 I slot print_timing: id  0 | task 44479 | n_gen =    658, tg =   7.85 t/s, tg_3s =   9.00 t/s
+115.24.550.264 I slot print_timing: id  0 | task 44479 | n_gen =    681, tg =   7.84 t/s, tg_3s =   7.52 t/s
+115.27.584.224 I slot print_timing: id  0 | task 44479 | n_gen =    708, tg =   7.88 t/s, tg_3s =   8.90 t/s
+115.30.711.633 I slot print_timing: id  0 | task 44479 | n_gen =    732, tg =   7.87 t/s, tg_3s =   7.67 t/s
+115.33.785.152 I slot print_timing: id  0 | task 44479 | n_gen =    759, tg =   7.90 t/s, tg_3s =   8.78 t/s
+115.36.802.907 I slot print_timing: id  0 | task 44479 | n_gen =    786, tg =   7.93 t/s, tg_3s =   8.95 t/s
+115.39.818.917 I slot print_timing: id  0 | task 44479 | n_gen =    808, tg =   7.91 t/s, tg_3s =   7.29 t/s
+115.41.101.136 I slot print_timing: id  0 | task 44479 | prompt eval time =    9326.67 ms /   786 tokens (   11.87 ms per token,    84.27 tokens per second)
+115.41.101.149 I slot print_timing: id  0 | task 44479 |        eval time =  103293.19 ms /   820 tokens (  126.12 ms per token,     7.93 tokens per second)
+115.41.101.151 I slot print_timing: id  0 | task 44479 |       total time =  112619.86 ms /  1606 tokens
+115.41.101.153 I slot print_timing: id  0 | task 44479 |    graphs reused =      44933
+115.41.102.439 I slot      release: id  0 | task 44479 | stop processing: n_tokens = 1828, truncated = 0
+115.41.102.616 I srv  update_slots: all slots are idle
+115.41.150.885 I srv  server_strea: conv_id= (empty=1)
+115.41.157.124 I srv    operator(): chat format: peg-native
+115.41.157.555 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.319 (359/1125) > 0.100
+115.41.157.558 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.319 (> 0.100 thold), f_keep = 0.196
+115.41.157.558 I srv  get_availabl: updating prompt cache
+115.41.157.691 I srv   prompt_save:  - saving prompt with length 1828, total state size = 257.084 MiB (draft: 0.000 MiB)
+115.41.157.753 W srv         alloc:  - making room for prompt cache entry, removing oldest entry (size = 266.929 MiB)
+115.42.319.630 I srv          load:  - looking for better prompt, base f_keep = 0.196, f_sim = 0.319
+115.42.319.636 I srv          load:    - prompt with length    2211, lcp =     223, f_keep = 0.101, f_sim = 0.198
+115.42.319.637 I srv          load:    - prompt with length    1412, lcp =     223, f_keep = 0.158, f_sim = 0.198
+115.42.319.638 I srv          load:    - prompt with length    1628, lcp =     223, f_keep = 0.137, f_sim = 0.198
+115.42.319.639 I srv          load:    - prompt with length    1899, lcp =     223, f_keep = 0.117, f_sim = 0.198
+115.42.319.640 I srv          load:    - prompt with length    2110, lcp =     223, f_keep = 0.106, f_sim = 0.198
+115.42.319.641 I srv          load:    - prompt with length    1511, lcp =     223, f_keep = 0.148, f_sim = 0.198
+115.42.319.642 I srv          load:    - prompt with length    1622, lcp =     223, f_keep = 0.137, f_sim = 0.198
+115.42.319.642 I srv          load:    - prompt with length    1903, lcp =     223, f_keep = 0.117, f_sim = 0.198
+115.42.319.643 I srv          load:    - prompt with length    2059, lcp =     223, f_keep = 0.108, f_sim = 0.198
+115.42.319.644 I srv          load:    - prompt with length    1409, lcp =     223, f_keep = 0.158, f_sim = 0.198
+115.42.319.645 I srv          load:    - prompt with length    1622, lcp =     223, f_keep = 0.137, f_sim = 0.198
+115.42.319.656 I srv          load:    - prompt with length    1831, lcp =     223, f_keep = 0.122, f_sim = 0.198
+115.42.319.660 I srv          load:    - prompt with length    2120, lcp =     223, f_keep = 0.105, f_sim = 0.198
+115.42.319.663 I srv          load:    - prompt with length    1463, lcp =     223, f_keep = 0.152, f_sim = 0.198
+115.42.319.664 I srv          load:    - prompt with length    1561, lcp =     223, f_keep = 0.143, f_sim = 0.198
+115.42.319.665 I srv          load:    - prompt with length    1949, lcp =     223, f_keep = 0.114, f_sim = 0.198
+115.42.319.665 I srv          load:    - prompt with length    2058, lcp =     223, f_keep = 0.108, f_sim = 0.198
+115.42.319.666 I srv          load:    - prompt with length    1467, lcp =     223, f_keep = 0.152, f_sim = 0.198
+115.42.319.667 I srv          load:    - prompt with length    1630, lcp =     223, f_keep = 0.137, f_sim = 0.198
+115.42.319.668 I srv          load:    - prompt with length    1901, lcp =     223, f_keep = 0.117, f_sim = 0.198
+115.42.319.669 I srv          load:    - prompt with length    1993, lcp =     223, f_keep = 0.112, f_sim = 0.198
+115.42.319.670 I srv          load:    - prompt with length    1467, lcp =     223, f_keep = 0.152, f_sim = 0.198
+115.42.319.671 I srv          load:    - prompt with length    1627, lcp =     223, f_keep = 0.137, f_sim = 0.198
+115.42.319.671 I srv          load:    - prompt with length    1846, lcp =     223, f_keep = 0.121, f_sim = 0.198
+115.42.319.672 I srv          load:    - prompt with length    2126, lcp =     223, f_keep = 0.105, f_sim = 0.198
+115.42.319.678 I srv          load:    - prompt with length    1511, lcp =     223, f_keep = 0.148, f_sim = 0.198
+115.42.319.678 I srv          load:    - prompt with length    1568, lcp =     223, f_keep = 0.142, f_sim = 0.198
+115.42.319.679 I srv          load:    - prompt with length    1628, lcp =     223, f_keep = 0.137, f_sim = 0.198
+115.42.319.680 I srv          load:    - prompt with length    1899, lcp =     223, f_keep = 0.117, f_sim = 0.198
+115.42.319.681 I srv          load:    - prompt with length    2113, lcp =     223, f_keep = 0.106, f_sim = 0.198
+115.42.319.682 I srv          load:    - prompt with length    1560, lcp =     223, f_keep = 0.143, f_sim = 0.198
+115.42.319.683 I srv          load:    - prompt with length    1586, lcp =     223, f_keep = 0.141, f_sim = 0.198
+115.42.319.684 I srv          load:    - prompt with length    1828, lcp =     359, f_keep = 0.196, f_sim = 0.319
+115.42.319.686 I srv        update:  - cache state: 33 prompts, 8173.537 MiB (limits: 8192.000 MiB, 8192 tokens, 58249 est)
+115.42.319.687 I srv        update:    - prompt 0xc78fd0e70:    2211 tokens, checkpoints:  0,   310.948 MiB
+115.42.319.688 I srv        update:    - prompt 0xc7ad738f0:    1412 tokens, checkpoints:  0,   198.580 MiB
+115.42.319.689 I srv        update:    - prompt 0xc78fd06f0:    1628 tokens, checkpoints:  0,   228.957 MiB
+115.42.319.689 I srv        update:    - prompt 0xc7ad73170:    1899 tokens, checkpoints:  0,   267.069 MiB
+115.42.319.690 I srv        update:    - prompt 0xc78fd37b0:    2110 tokens, checkpoints:  0,   296.744 MiB
+115.42.319.690 I srv        update:    - prompt 0xc7ad73710:    1511 tokens, checkpoints:  0,   212.503 MiB
+115.42.319.691 I srv        update:    - prompt 0xc78fd32b0:    1622 tokens, checkpoints:  0,   228.113 MiB
+115.42.319.691 I srv        update:    - prompt 0xc7ad73350:    1903 tokens, checkpoints:  0,   267.632 MiB
+115.42.319.692 I srv        update:    - prompt 0xc78fd0650:    2059 tokens, checkpoints:  0,   289.571 MiB
+115.42.319.692 I srv        update:    - prompt 0xc7ad73c10:    1409 tokens, checkpoints:  0,   198.158 MiB
+115.42.319.693 I srv        update:    - prompt 0xc78fd2bd0:    1622 tokens, checkpoints:  0,   228.113 MiB
+115.42.319.693 I srv        update:    - prompt 0xc7ad732b0:    1831 tokens, checkpoints:  0,   257.506 MiB
+115.42.319.694 I srv        update:    - prompt 0xc78fd2770:    2120 tokens, checkpoints:  0,   298.150 MiB
+115.42.319.694 I srv        update:    - prompt 0xc7ad726d0:    1463 tokens, checkpoints:  0,   205.752 MiB
+115.42.319.695 I srv        update:    - prompt 0xc78fd3a30:    1561 tokens, checkpoints:  0,   219.534 MiB
+115.42.319.695 I srv        update:    - prompt 0xc7ad73850:    1949 tokens, checkpoints:  0,   274.101 MiB
+115.42.319.696 I srv        update:    - prompt 0xc78fd12d0:    2058 tokens, checkpoints:  0,   289.431 MiB
+115.42.319.696 I srv        update:    - prompt 0xc7ad72c70:    1467 tokens, checkpoints:  0,   206.315 MiB
+115.42.319.697 I srv        update:    - prompt 0xc78fd0290:    1630 tokens, checkpoints:  0,   229.238 MiB
+115.42.319.697 I srv        update:    - prompt 0xc7ad72950:    1901 tokens, checkpoints:  0,   267.351 MiB
+115.42.319.698 I srv        update:    - prompt 0xc78fd2270:    1993 tokens, checkpoints:  0,   280.289 MiB
+115.42.319.698 I srv        update:    - prompt 0xc7ad73a30:    1467 tokens, checkpoints:  0,   206.315 MiB
+115.42.319.699 I srv        update:    - prompt 0xc78fd3990:    1627 tokens, checkpoints:  0,   228.816 MiB
+115.42.319.699 I srv        update:    - prompt 0xc7ad73030:    1846 tokens, checkpoints:  0,   259.616 MiB
+115.42.319.700 I srv        update:    - prompt 0xc78fd3530:    2126 tokens, checkpoints:  0,   298.994 MiB
+115.42.319.700 I srv        update:    - prompt 0xc7ad72a90:    1511 tokens, checkpoints:  0,   212.503 MiB
+115.42.319.701 I srv        update:    - prompt 0xc78fd1b90:    1568 tokens, checkpoints:  0,   220.519 MiB
+115.42.319.701 I srv        update:    - prompt 0xc7ad72590:    1628 tokens, checkpoints:  0,   228.957 MiB
+115.42.319.702 I srv        update:    - prompt 0xc78fd0510:    1899 tokens, checkpoints:  0,   267.069 MiB
+115.42.319.702 I srv        update:    - prompt 0xc7ad728b0:    2113 tokens, checkpoints:  0,   297.166 MiB
+115.42.319.703 I srv        update:    - prompt 0xc78fd3170:    1560 tokens, checkpoints:  0,   219.394 MiB
+115.42.319.703 I srv        update:    - prompt 0xc78fd3670:    1586 tokens, checkpoints:  0,   223.050 MiB
+115.42.319.704 I srv        update:    - prompt 0xc7ad73b70:    1828 tokens, checkpoints:  0,   257.084 MiB
+115.42.319.705 I srv  get_availabl: prompt cache update took 1162.15 ms
+115.42.320.150 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+115.42.320.165 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+115.42.320.167 I slot launch_slot_: id  0 | task 45300 | processing task, is_child = 0
+115.42.320.173 I slot   operator(): id  0 | task 45300 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 1125
+115.42.320.176 I slot   operator(): id  0 | task 45300 | cached n_tokens = 359, memory_seq_rm [359, end)
+115.42.320.743 I slot init_sampler: id  0 | task 45300 | init sampler, took 0.18 ms, tokens: text = 1125, total = 1125
+116.10.024.291 I slot print_timing: id  0 | task 45300 | n_gen =    100, tg =   6.40 t/s, tg_3s =   6.46 t/s
+116.13.127.681 I slot print_timing: id  0 | task 45300 | n_gen =    119, tg =   6.35 t/s, tg_3s =   6.12 t/s
+116.16.155.087 I slot print_timing: id  0 | task 45300 | n_gen =    137, tg =   6.29 t/s, tg_3s =   5.95 t/s
+116.19.280.707 I slot print_timing: id  0 | task 45300 | n_gen =    158, tg =   6.35 t/s, tg_3s =   6.72 t/s
+116.22.366.274 I slot print_timing: id  0 | task 45300 | n_gen =    179, tg =   6.40 t/s, tg_3s =   6.81 t/s
+116.25.450.743 I slot print_timing: id  0 | task 45300 | n_gen =    200, tg =   6.44 t/s, tg_3s =   6.81 t/s
+116.28.463.951 I slot print_timing: id  0 | task 45300 | n_gen =    220, tg =   6.46 t/s, tg_3s =   6.64 t/s
+116.31.513.654 I slot print_timing: id  0 | task 45300 | n_gen =    246, tg =   6.63 t/s, tg_3s =   8.53 t/s
+116.34.553.009 I slot print_timing: id  0 | task 45300 | n_gen =    270, tg =   6.72 t/s, tg_3s =   7.90 t/s
+116.37.625.231 I slot print_timing: id  0 | task 45300 | n_gen =    293, tg =   6.78 t/s, tg_3s =   7.49 t/s
+116.40.640.336 I slot print_timing: id  0 | task 45300 | n_gen =    312, tg =   6.75 t/s, tg_3s =   6.30 t/s
+116.43.683.842 I slot print_timing: id  0 | task 45300 | n_gen =    332, tg =   6.74 t/s, tg_3s =   6.57 t/s
+116.46.753.135 I slot print_timing: id  0 | task 45300 | n_gen =    352, tg =   6.72 t/s, tg_3s =   6.52 t/s
+116.49.781.663 I slot print_timing: id  0 | task 45300 | n_gen =    372, tg =   6.72 t/s, tg_3s =   6.60 t/s
+116.52.883.373 I slot print_timing: id  0 | task 45300 | n_gen =    391, tg =   6.69 t/s, tg_3s =   6.13 t/s
+116.56.015.762 I slot print_timing: id  0 | task 45300 | n_gen =    409, tg =   6.64 t/s, tg_3s =   5.75 t/s
+116.59.143.403 I slot print_timing: id  0 | task 45300 | n_gen =    429, tg =   6.63 t/s, tg_3s =   6.39 t/s
+117.02.192.645 I slot print_timing: id  0 | task 45300 | n_gen =    449, tg =   6.62 t/s, tg_3s =   6.56 t/s
+117.05.253.956 I slot print_timing: id  0 | task 45300 | n_gen =    465, tg =   6.56 t/s, tg_3s =   5.23 t/s
+117.08.419.299 I slot print_timing: id  0 | task 45300 | n_gen =    485, tg =   6.55 t/s, tg_3s =   6.32 t/s
+117.11.445.644 I slot print_timing: id  0 | task 45300 | n_gen =    505, tg =   6.55 t/s, tg_3s =   6.61 t/s
+117.14.477.986 I slot print_timing: id  0 | task 45300 | n_gen =    524, tg =   6.54 t/s, tg_3s =   6.27 t/s
+117.17.526.980 I slot print_timing: id  0 | task 45300 | n_gen =    542, tg =   6.52 t/s, tg_3s =   5.90 t/s
+117.20.631.681 I slot print_timing: id  0 | task 45300 | n_gen =    562, tg =   6.52 t/s, tg_3s =   6.44 t/s
+117.23.781.718 I slot print_timing: id  0 | task 45300 | n_gen =    582, tg =   6.51 t/s, tg_3s =   6.35 t/s
+117.26.879.299 I slot print_timing: id  0 | task 45300 | n_gen =    602, tg =   6.51 t/s, tg_3s =   6.46 t/s
+117.29.958.740 I slot print_timing: id  0 | task 45300 | n_gen =    622, tg =   6.51 t/s, tg_3s =   6.49 t/s
+117.33.007.496 I slot print_timing: id  0 | task 45300 | n_gen =    642, tg =   6.51 t/s, tg_3s =   6.56 t/s
+117.36.045.856 I slot print_timing: id  0 | task 45300 | n_gen =    662, tg =   6.51 t/s, tg_3s =   6.58 t/s
+117.39.095.238 I slot print_timing: id  0 | task 45300 | n_gen =    682, tg =   6.51 t/s, tg_3s =   6.56 t/s
+117.42.140.078 I slot print_timing: id  0 | task 45300 | n_gen =    702, tg =   6.52 t/s, tg_3s =   6.57 t/s
+117.45.159.602 I slot print_timing: id  0 | task 45300 | n_gen =    722, tg =   6.52 t/s, tg_3s =   6.62 t/s
+117.48.179.479 I slot print_timing: id  0 | task 45300 | n_gen =    742, tg =   6.52 t/s, tg_3s =   6.62 t/s
+117.51.299.886 I slot print_timing: id  0 | task 45300 | n_gen =    763, tg =   6.53 t/s, tg_3s =   6.73 t/s
+117.54.444.611 I slot print_timing: id  0 | task 45300 | n_gen =    783, tg =   6.52 t/s, tg_3s =   6.36 t/s
+117.57.563.157 I slot print_timing: id  0 | task 45300 | n_gen =    804, tg =   6.53 t/s, tg_3s =   6.73 t/s
+118.00.661.992 I slot print_timing: id  0 | task 45300 | n_gen =    830, tg =   6.57 t/s, tg_3s =   8.39 t/s
+118.03.747.212 I slot print_timing: id  0 | task 45300 | n_gen =    859, tg =   6.64 t/s, tg_3s =   9.40 t/s
+118.06.801.086 I slot print_timing: id  0 | task 45300 | n_gen =    886, tg =   6.69 t/s, tg_3s =   8.84 t/s
+118.09.887.214 I slot print_timing: id  0 | task 45300 | n_gen =    907, tg =   6.69 t/s, tg_3s =   6.80 t/s
+118.11.184.234 I srv  server_strea: conv_id= (empty=1)
+118.11.192.342 I srv    operator(): chat format: peg-native
+118.11.287.999 I slot get_availabl: id  0 | task 45300 |  - skipping, is_processing = 1
+118.11.870.004 W srv          stop: cancel task, id_task = 45300
+118.11.948.162 I slot      release: id  0 | task 45300 | stop processing: n_tokens = 2050, truncated = 0
+118.11.948.286 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.379 (359/946) > 0.100
+118.11.948.288 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.379 (> 0.100 thold), f_keep = 0.175
+118.11.948.289 I srv  get_availabl: updating prompt cache
+118.11.949.573 I srv   prompt_save:  - saving prompt with length 2050, total state size = 288.306 MiB (draft: 0.000 MiB)
+118.11.949.735 W srv         alloc:  - making room for prompt cache entry, removing oldest entry (size = 310.948 MiB)
+118.13.215.531 I srv          load:  - looking for better prompt, base f_keep = 0.175, f_sim = 0.379
+118.13.215.537 I srv          load:    - prompt with length    1412, lcp =     223, f_keep = 0.158, f_sim = 0.236
+118.13.215.538 I srv          load:    - prompt with length    1628, lcp =     223, f_keep = 0.137, f_sim = 0.236
+118.13.215.539 I srv          load:    - prompt with length    1899, lcp =     223, f_keep = 0.117, f_sim = 0.236
+118.13.215.540 I srv          load:    - prompt with length    2110, lcp =     223, f_keep = 0.106, f_sim = 0.236
+118.13.215.541 I srv          load:    - prompt with length    1511, lcp =     223, f_keep = 0.148, f_sim = 0.236
+118.13.215.542 I srv          load:    - prompt with length    1622, lcp =     223, f_keep = 0.137, f_sim = 0.236
+118.13.215.543 I srv          load:    - prompt with length    1903, lcp =     223, f_keep = 0.117, f_sim = 0.236
+118.13.215.543 I srv          load:    - prompt with length    2059, lcp =     223, f_keep = 0.108, f_sim = 0.236
+118.13.215.544 I srv          load:    - prompt with length    1409, lcp =     223, f_keep = 0.158, f_sim = 0.236
+118.13.215.545 I srv          load:    - prompt with length    1622, lcp =     223, f_keep = 0.137, f_sim = 0.236
+118.13.215.547 I srv          load:    - prompt with length    1831, lcp =     223, f_keep = 0.122, f_sim = 0.236
+118.13.215.549 I srv          load:    - prompt with length    2120, lcp =     223, f_keep = 0.105, f_sim = 0.236
+118.13.215.553 I srv          load:    - prompt with length    1463, lcp =     223, f_keep = 0.152, f_sim = 0.236
+118.13.215.553 I srv          load:    - prompt with length    1561, lcp =     223, f_keep = 0.143, f_sim = 0.236
+118.13.215.555 I srv          load:    - prompt with length    1949, lcp =     223, f_keep = 0.114, f_sim = 0.236
+118.13.215.556 I srv          load:    - prompt with length    2058, lcp =     223, f_keep = 0.108, f_sim = 0.236
+118.13.215.563 I srv          load:    - prompt with length    1467, lcp =     223, f_keep = 0.152, f_sim = 0.236
+118.13.215.564 I srv          load:    - prompt with length    1630, lcp =     223, f_keep = 0.137, f_sim = 0.236
+118.13.215.565 I srv          load:    - prompt with length    1901, lcp =     223, f_keep = 0.117, f_sim = 0.236
+118.13.215.566 I srv          load:    - prompt with length    1993, lcp =     223, f_keep = 0.112, f_sim = 0.236
+118.13.215.567 I srv          load:    - prompt with length    1467, lcp =     223, f_keep = 0.152, f_sim = 0.236
+118.13.215.568 I srv          load:    - prompt with length    1627, lcp =     223, f_keep = 0.137, f_sim = 0.236
+118.13.215.569 I srv          load:    - prompt with length    1846, lcp =     223, f_keep = 0.121, f_sim = 0.236
+118.13.215.570 I srv          load:    - prompt with length    2126, lcp =     223, f_keep = 0.105, f_sim = 0.236
+118.13.215.570 I srv          load:    - prompt with length    1511, lcp =     223, f_keep = 0.148, f_sim = 0.236
+118.13.215.571 I srv          load:    - prompt with length    1568, lcp =     223, f_keep = 0.142, f_sim = 0.236
+118.13.215.572 I srv          load:    - prompt with length    1628, lcp =     223, f_keep = 0.137, f_sim = 0.236
+118.13.215.573 I srv          load:    - prompt with length    1899, lcp =     223, f_keep = 0.117, f_sim = 0.236
+118.13.215.574 I srv          load:    - prompt with length    2113, lcp =     223, f_keep = 0.106, f_sim = 0.236
+118.13.215.574 I srv          load:    - prompt with length    1560, lcp =     223, f_keep = 0.143, f_sim = 0.236
+118.13.215.575 I srv          load:    - prompt with length    1586, lcp =     223, f_keep = 0.141, f_sim = 0.236
+118.13.215.576 I srv          load:    - prompt with length    1828, lcp =     359, f_keep = 0.196, f_sim = 0.379
+118.13.215.577 I srv          load:    - prompt with length    2050, lcp =     359, f_keep = 0.175, f_sim = 0.379
+118.13.215.579 I srv        update:  - cache state: 33 prompts, 8150.894 MiB (limits: 8192.000 MiB, 8192 tokens, 58249 est)
+118.13.215.580 I srv        update:    - prompt 0xc7ad738f0:    1412 tokens, checkpoints:  0,   198.580 MiB
+118.13.215.581 I srv        update:    - prompt 0xc78fd06f0:    1628 tokens, checkpoints:  0,   228.957 MiB
+118.13.215.582 I srv        update:    - prompt 0xc7ad73170:    1899 tokens, checkpoints:  0,   267.069 MiB
+118.13.215.582 I srv        update:    - prompt 0xc78fd37b0:    2110 tokens, checkpoints:  0,   296.744 MiB
+118.13.215.583 I srv        update:    - prompt 0xc7ad73710:    1511 tokens, checkpoints:  0,   212.503 MiB
+118.13.215.583 I srv        update:    - prompt 0xc78fd32b0:    1622 tokens, checkpoints:  0,   228.113 MiB
+118.13.215.584 I srv        update:    - prompt 0xc7ad73350:    1903 tokens, checkpoints:  0,   267.632 MiB
+118.13.215.584 I srv        update:    - prompt 0xc78fd0650:    2059 tokens, checkpoints:  0,   289.571 MiB
+118.13.215.585 I srv        update:    - prompt 0xc7ad73c10:    1409 tokens, checkpoints:  0,   198.158 MiB
+118.13.215.585 I srv        update:    - prompt 0xc78fd2bd0:    1622 tokens, checkpoints:  0,   228.113 MiB
+118.13.215.586 I srv        update:    - prompt 0xc7ad732b0:    1831 tokens, checkpoints:  0,   257.506 MiB
+118.13.215.586 I srv        update:    - prompt 0xc78fd2770:    2120 tokens, checkpoints:  0,   298.150 MiB
+118.13.215.587 I srv        update:    - prompt 0xc7ad726d0:    1463 tokens, checkpoints:  0,   205.752 MiB
+118.13.215.587 I srv        update:    - prompt 0xc78fd3a30:    1561 tokens, checkpoints:  0,   219.534 MiB
+118.13.215.588 I srv        update:    - prompt 0xc7ad73850:    1949 tokens, checkpoints:  0,   274.101 MiB
+118.13.215.588 I srv        update:    - prompt 0xc78fd12d0:    2058 tokens, checkpoints:  0,   289.431 MiB
+118.13.215.589 I srv        update:    - prompt 0xc7ad72c70:    1467 tokens, checkpoints:  0,   206.315 MiB
+118.13.215.589 I srv        update:    - prompt 0xc78fd0290:    1630 tokens, checkpoints:  0,   229.238 MiB
+118.13.215.590 I srv        update:    - prompt 0xc7ad72950:    1901 tokens, checkpoints:  0,   267.351 MiB
+118.13.215.590 I srv        update:    - prompt 0xc78fd2270:    1993 tokens, checkpoints:  0,   280.289 MiB
+118.13.215.591 I srv        update:    - prompt 0xc7ad73a30:    1467 tokens, checkpoints:  0,   206.315 MiB
+118.13.215.591 I srv        update:    - prompt 0xc78fd3990:    1627 tokens, checkpoints:  0,   228.816 MiB
+118.13.215.592 I srv        update:    - prompt 0xc7ad73030:    1846 tokens, checkpoints:  0,   259.616 MiB
+118.13.215.592 I srv        update:    - prompt 0xc78fd3530:    2126 tokens, checkpoints:  0,   298.994 MiB
+118.13.215.593 I srv        update:    - prompt 0xc7ad72a90:    1511 tokens, checkpoints:  0,   212.503 MiB
+118.13.215.593 I srv        update:    - prompt 0xc78fd1b90:    1568 tokens, checkpoints:  0,   220.519 MiB
+118.13.215.594 I srv        update:    - prompt 0xc7ad72590:    1628 tokens, checkpoints:  0,   228.957 MiB
+118.13.215.594 I srv        update:    - prompt 0xc78fd0510:    1899 tokens, checkpoints:  0,   267.069 MiB
+118.13.215.595 I srv        update:    - prompt 0xc7ad728b0:    2113 tokens, checkpoints:  0,   297.166 MiB
+118.13.215.595 I srv        update:    - prompt 0xc78fd3170:    1560 tokens, checkpoints:  0,   219.394 MiB
+118.13.215.596 I srv        update:    - prompt 0xc78fd3670:    1586 tokens, checkpoints:  0,   223.050 MiB
+118.13.215.596 I srv        update:    - prompt 0xc7ad73b70:    1828 tokens, checkpoints:  0,   257.084 MiB
+118.13.215.597 I srv        update:    - prompt 0xc78fd0e70:    2050 tokens, checkpoints:  0,   288.306 MiB
+118.13.215.598 I srv  get_availabl: prompt cache update took 1267.31 ms
+118.13.216.664 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+118.13.216.678 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+118.13.216.680 I slot launch_slot_: id  0 | task 46221 | processing task, is_child = 0
+118.13.216.687 I slot   operator(): id  0 | task 46221 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 946
+118.13.216.689 I slot   operator(): id  0 | task 46221 | cached n_tokens = 359, memory_seq_rm [359, end)
+118.13.217.242 I slot init_sampler: id  0 | task 46221 | init sampler, took 0.15 ms, tokens: text = 946, total = 946
+118.31.716.209 I slot print_timing: id  0 | task 46221 | n_gen =    100, tg =   9.05 t/s, tg_3s =   9.14 t/s
+118.34.717.636 I slot print_timing: id  0 | task 46221 | n_gen =    129, tg =   9.18 t/s, tg_3s =   9.66 t/s
+118.37.862.828 I slot print_timing: id  0 | task 46221 | n_gen =    151, tg =   8.78 t/s, tg_3s =   6.99 t/s
+118.40.895.286 I slot print_timing: id  0 | task 46221 | n_gen =    172, tg =   8.50 t/s, tg_3s =   6.93 t/s
+118.44.033.090 I slot print_timing: id  0 | task 46221 | n_gen =    194, tg =   8.30 t/s, tg_3s =   7.01 t/s
+118.47.073.555 I slot print_timing: id  0 | task 46221 | n_gen =    215, tg =   8.14 t/s, tg_3s =   6.91 t/s
+118.50.112.424 I slot print_timing: id  0 | task 46221 | n_gen =    236, tg =   8.01 t/s, tg_3s =   6.91 t/s
+118.53.121.652 I slot print_timing: id  0 | task 46221 | n_gen =    257, tg =   7.91 t/s, tg_3s =   6.98 t/s
+118.56.136.705 I slot print_timing: id  0 | task 46221 | n_gen =    278, tg =   7.83 t/s, tg_3s =   6.97 t/s
+118.59.183.478 I slot print_timing: id  0 | task 46221 | n_gen =    299, tg =   7.76 t/s, tg_3s =   6.89 t/s
+119.02.322.052 I slot print_timing: id  0 | task 46221 | n_gen =    321, tg =   7.70 t/s, tg_3s =   7.01 t/s
+119.05.363.954 I slot print_timing: id  0 | task 46221 | n_gen =    342, tg =   7.65 t/s, tg_3s =   6.90 t/s
+119.08.406.530 I slot print_timing: id  0 | task 46221 | n_gen =    366, tg =   7.66 t/s, tg_3s =   7.89 t/s
+119.11.531.775 I slot print_timing: id  0 | task 46221 | n_gen =    390, tg =   7.66 t/s, tg_3s =   7.68 t/s
+119.14.620.920 I slot print_timing: id  0 | task 46221 | n_gen =    419, tg =   7.76 t/s, tg_3s =   9.39 t/s
+119.17.665.447 I slot print_timing: id  0 | task 46221 | n_gen =    448, tg =   7.86 t/s, tg_3s =   9.53 t/s
+119.20.694.029 I slot print_timing: id  0 | task 46221 | n_gen =    475, tg =   7.91 t/s, tg_3s =   8.91 t/s
+119.23.715.042 I slot print_timing: id  0 | task 46221 | n_gen =    503, tg =   7.98 t/s, tg_3s =   9.27 t/s
+119.25.984.005 I slot print_timing: id  0 | task 46221 | prompt eval time =    7559.10 ms /   587 tokens (   12.88 ms per token,    77.65 tokens per second)
+119.25.984.013 I slot print_timing: id  0 | task 46221 |        eval time =   65208.16 ms /   524 tokens (  124.68 ms per token,     8.02 tokens per second)
+119.25.984.015 I slot print_timing: id  0 | task 46221 |       total time =   72767.26 ms /  1111 tokens
+119.25.984.017 I slot print_timing: id  0 | task 46221 |    graphs reused =      46373
+119.25.984.548 I slot      release: id  0 | task 46221 | stop processing: n_tokens = 1469, truncated = 0
+119.25.984.616 I srv  update_slots: all slots are idle
+119.26.023.490 I srv  server_strea: conv_id= (empty=1)
+119.26.026.342 I srv    operator(): chat format: peg-native
+119.26.026.767 I slot get_availabl: id  0 | task -1 |  - checking sim = 0.342 (359/1051) > 0.100
+119.26.026.770 I slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.342 (> 0.100 thold), f_keep = 0.244
+119.26.026.770 I srv  get_availabl: updating prompt cache
+119.26.026.872 I srv   prompt_save:  - saving prompt with length 1469, total state size = 206.596 MiB (draft: 0.000 MiB)
+119.26.026.898 W srv         alloc:  - making room for prompt cache entry, removing oldest entry (size = 198.580 MiB)
+119.26.076.528 I srv          load:  - looking for better prompt, base f_keep = 0.244, f_sim = 0.342
+119.26.076.534 I srv          load:    - prompt with length    1628, lcp =     223, f_keep = 0.137, f_sim = 0.212
+119.26.076.535 I srv          load:    - prompt with length    1899, lcp =     223, f_keep = 0.117, f_sim = 0.212
+119.26.076.536 I srv          load:    - prompt with length    2110, lcp =     223, f_keep = 0.106, f_sim = 0.212
+119.26.076.537 I srv          load:    - prompt with length    1511, lcp =     223, f_keep = 0.148, f_sim = 0.212
+119.26.076.538 I srv          load:    - prompt with length    1622, lcp =     223, f_keep = 0.137, f_sim = 0.212
+119.26.076.539 I srv          load:    - prompt with length    1903, lcp =     223, f_keep = 0.117, f_sim = 0.212
+119.26.076.540 I srv          load:    - prompt with length    2059, lcp =     223, f_keep = 0.108, f_sim = 0.212
+119.26.076.541 I srv          load:    - prompt with length    1409, lcp =     223, f_keep = 0.158, f_sim = 0.212
+119.26.076.542 I srv          load:    - prompt with length    1622, lcp =     223, f_keep = 0.137, f_sim = 0.212
+119.26.076.542 I srv          load:    - prompt with length    1831, lcp =     223, f_keep = 0.122, f_sim = 0.212
+119.26.076.543 I srv          load:    - prompt with length    2120, lcp =     223, f_keep = 0.105, f_sim = 0.212
+119.26.076.544 I srv          load:    - prompt with length    1463, lcp =     223, f_keep = 0.152, f_sim = 0.212
+119.26.076.545 I srv          load:    - prompt with length    1561, lcp =     223, f_keep = 0.143, f_sim = 0.212
+119.26.076.546 I srv          load:    - prompt with length    1949, lcp =     223, f_keep = 0.114, f_sim = 0.212
+119.26.076.547 I srv          load:    - prompt with length    2058, lcp =     223, f_keep = 0.108, f_sim = 0.212
+119.26.076.549 I srv          load:    - prompt with length    1467, lcp =     223, f_keep = 0.152, f_sim = 0.212
+119.26.076.550 I srv          load:    - prompt with length    1630, lcp =     223, f_keep = 0.137, f_sim = 0.212
+119.26.076.551 I srv          load:    - prompt with length    1901, lcp =     223, f_keep = 0.117, f_sim = 0.212
+119.26.076.552 I srv          load:    - prompt with length    1993, lcp =     223, f_keep = 0.112, f_sim = 0.212
+119.26.076.553 I srv          load:    - prompt with length    1467, lcp =     223, f_keep = 0.152, f_sim = 0.212
+119.26.076.554 I srv          load:    - prompt with length    1627, lcp =     223, f_keep = 0.137, f_sim = 0.212
+119.26.076.554 I srv          load:    - prompt with length    1846, lcp =     223, f_keep = 0.121, f_sim = 0.212
+119.26.076.555 I srv          load:    - prompt with length    2126, lcp =     223, f_keep = 0.105, f_sim = 0.212
+119.26.076.556 I srv          load:    - prompt with length    1511, lcp =     223, f_keep = 0.148, f_sim = 0.212
+119.26.076.557 I srv          load:    - prompt with length    1568, lcp =     223, f_keep = 0.142, f_sim = 0.212
+119.26.076.558 I srv          load:    - prompt with length    1628, lcp =     223, f_keep = 0.137, f_sim = 0.212
+119.26.076.559 I srv          load:    - prompt with length    1899, lcp =     223, f_keep = 0.117, f_sim = 0.212
+119.26.076.560 I srv          load:    - prompt with length    2113, lcp =     223, f_keep = 0.106, f_sim = 0.212
+119.26.076.561 I srv          load:    - prompt with length    1560, lcp =     223, f_keep = 0.143, f_sim = 0.212
+119.26.076.562 I srv          load:    - prompt with length    1586, lcp =     223, f_keep = 0.141, f_sim = 0.212
+119.26.076.562 I srv          load:    - prompt with length    1828, lcp =     359, f_keep = 0.196, f_sim = 0.342
+119.26.076.563 I srv          load:    - prompt with length    2050, lcp =     359, f_keep = 0.175, f_sim = 0.342
+119.26.076.564 I srv          load:    - prompt with length    1469, lcp =     359, f_keep = 0.244, f_sim = 0.342
+119.26.076.567 I srv        update:  - cache state: 33 prompts, 8158.911 MiB (limits: 8192.000 MiB, 8192 tokens, 58249 est)
+119.26.076.568 I srv        update:    - prompt 0xc78fd06f0:    1628 tokens, checkpoints:  0,   228.957 MiB
+119.26.076.569 I srv        update:    - prompt 0xc7ad73170:    1899 tokens, checkpoints:  0,   267.069 MiB
+119.26.076.569 I srv        update:    - prompt 0xc78fd37b0:    2110 tokens, checkpoints:  0,   296.744 MiB
+119.26.076.570 I srv        update:    - prompt 0xc7ad73710:    1511 tokens, checkpoints:  0,   212.503 MiB
+119.26.076.570 I srv        update:    - prompt 0xc78fd32b0:    1622 tokens, checkpoints:  0,   228.113 MiB
+119.26.076.571 I srv        update:    - prompt 0xc7ad73350:    1903 tokens, checkpoints:  0,   267.632 MiB
+119.26.076.571 I srv        update:    - prompt 0xc78fd0650:    2059 tokens, checkpoints:  0,   289.571 MiB
+119.26.076.572 I srv        update:    - prompt 0xc7ad73c10:    1409 tokens, checkpoints:  0,   198.158 MiB
+119.26.076.572 I srv        update:    - prompt 0xc78fd2bd0:    1622 tokens, checkpoints:  0,   228.113 MiB
+119.26.076.573 I srv        update:    - prompt 0xc7ad732b0:    1831 tokens, checkpoints:  0,   257.506 MiB
+119.26.076.573 I srv        update:    - prompt 0xc78fd2770:    2120 tokens, checkpoints:  0,   298.150 MiB
+119.26.076.574 I srv        update:    - prompt 0xc7ad726d0:    1463 tokens, checkpoints:  0,   205.752 MiB
+119.26.076.574 I srv        update:    - prompt 0xc78fd3a30:    1561 tokens, checkpoints:  0,   219.534 MiB
+119.26.076.575 I srv        update:    - prompt 0xc7ad73850:    1949 tokens, checkpoints:  0,   274.101 MiB
+119.26.076.575 I srv        update:    - prompt 0xc78fd12d0:    2058 tokens, checkpoints:  0,   289.431 MiB
+119.26.076.576 I srv        update:    - prompt 0xc7ad72c70:    1467 tokens, checkpoints:  0,   206.315 MiB
+119.26.076.588 I srv        update:    - prompt 0xc78fd0290:    1630 tokens, checkpoints:  0,   229.238 MiB
+119.26.076.589 I srv        update:    - prompt 0xc7ad72950:    1901 tokens, checkpoints:  0,   267.351 MiB
+119.26.076.589 I srv        update:    - prompt 0xc78fd2270:    1993 tokens, checkpoints:  0,   280.289 MiB
+119.26.076.590 I srv        update:    - prompt 0xc7ad73a30:    1467 tokens, checkpoints:  0,   206.315 MiB
+119.26.076.590 I srv        update:    - prompt 0xc78fd3990:    1627 tokens, checkpoints:  0,   228.816 MiB
+119.26.076.591 I srv        update:    - prompt 0xc7ad73030:    1846 tokens, checkpoints:  0,   259.616 MiB
+119.26.076.591 I srv        update:    - prompt 0xc78fd3530:    2126 tokens, checkpoints:  0,   298.994 MiB
+119.26.076.592 I srv        update:    - prompt 0xc7ad72a90:    1511 tokens, checkpoints:  0,   212.503 MiB
+119.26.076.592 I srv        update:    - prompt 0xc78fd1b90:    1568 tokens, checkpoints:  0,   220.519 MiB
+119.26.076.593 I srv        update:    - prompt 0xc7ad72590:    1628 tokens, checkpoints:  0,   228.957 MiB
+119.26.076.593 I srv        update:    - prompt 0xc78fd0510:    1899 tokens, checkpoints:  0,   267.069 MiB
+119.26.076.594 I srv        update:    - prompt 0xc7ad728b0:    2113 tokens, checkpoints:  0,   297.166 MiB
+119.26.076.594 I srv        update:    - prompt 0xc78fd3170:    1560 tokens, checkpoints:  0,   219.394 MiB
+119.26.076.595 I srv        update:    - prompt 0xc78fd3670:    1586 tokens, checkpoints:  0,   223.050 MiB
+119.26.076.595 I srv        update:    - prompt 0xc7ad73b70:    1828 tokens, checkpoints:  0,   257.084 MiB
+119.26.076.596 I srv        update:    - prompt 0xc78fd0e70:    2050 tokens, checkpoints:  0,   288.306 MiB
+119.26.076.596 I srv        update:    - prompt 0xc7ad738f0:    1469 tokens, checkpoints:  0,   206.596 MiB
+119.26.076.598 I srv  get_availabl: prompt cache update took 49.83 ms
+119.26.077.010 I slot launch_slot_: id  0 | task -1 | sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> min-p -> ?xtc -> temp-ext -> dist 
+119.26.077.018 I slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 40, top_p = 0.950, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+119.26.077.019 I slot launch_slot_: id  0 | task 46753 | processing task, is_child = 0
+119.26.077.026 I slot   operator(): id  0 | task 46753 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 1051
+119.26.077.030 I slot   operator(): id  0 | task 46753 | cached n_tokens = 359, memory_seq_rm [359, end)
+119.26.077.390 I slot init_sampler: id  0 | task 46753 | init sampler, took 0.17 ms, tokens: text = 1051, total = 1051
+119.45.680.229 I slot print_timing: id  0 | task 46753 | n_gen =    100, tg =   8.64 t/s, tg_3s =   8.73 t/s
+119.48.740.346 I slot print_timing: id  0 | task 46753 | n_gen =    127, tg =   8.68 t/s, tg_3s =   8.82 t/s

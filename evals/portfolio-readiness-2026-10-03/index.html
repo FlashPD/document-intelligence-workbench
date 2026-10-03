@@ -1,0 +1,229 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Document Intelligence Workbench — release evidence</title>
+<style>body{font:16px/1.6 system-ui,sans-serif;background:#f4f7fa;color:#192b3c;max-width:1000px;margin:auto;padding:32px}h1{line-height:1.15}article{background:white;border:1px solid #d7e0e8;border-left:6px solid #267449;border-radius:8px;padding:20px;margin:20px 0}article.pending{border-left-color:#b07812}article.invalid{border-left-color:#b33333}h2{text-transform:capitalize;margin:0}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace}.status{font-weight:700}a{color:#245b88}@media(max-width:650px){body{padding:16px}}</style>
+<p>Local Document Intelligence &amp; Review Workbench · Experimental</p><h1>Portfolio release evidence</h1>
+<p class="status">pending</p><p>Snapshot: 2026-10-03T19:47:57.220211+00:00</p>
+<p>Portfolio evidence checklist, not exhaustive architecture acceptance, a signed attestation, a production certification, or authorization to tag/publish. Partial inference is never scored. No downloads, inference, parser jobs, or automated human review are started.</p><p><a href="report.json">Evidence and hashes</a> · <a href="tests.log">Fresh contract test log</a></p>
+<article class="passed"><h2>deterministic contracts</h2><p class="status">passed</p><pre>{
+  &quot;tests&quot;: 246,
+  &quot;returncode&quot;: 0,
+  &quot;seconds&quot;: 31.723,
+  &quot;note&quot;: &quot;Fresh deterministic contracts; skipped or empty suites cannot pass. No Docker or inference.&quot;
+}</pre></article><article class="passed"><h2>invoice corpus</h2><p class="status">passed</p><pre>{
+  &quot;dataset_id&quot;: &quot;self-authored-invoices-v1&quot;,
+  &quot;manifest_sha256&quot;: &quot;a39a99cf5543888ebd7b9af5a42a18ac82e4ff6baf2534b8cd6d16ca9c76f61c&quot;,
+  &quot;documents&quot;: 540,
+  &quot;split_counts&quot;: {
+    &quot;development&quot;: 180,
+    &quot;calibration&quot;: 180,
+    &quot;test&quot;: 180
+  },
+  &quot;families&quot;: 18,
+  &quot;multi_page_documents&quot;: 90,
+  &quot;degraded_documents&quot;: 90,
+  &quot;intentional_total_conflicts&quot;: 72,
+  &quot;ambiguous_date_cases&quot;: 42
+}</pre></article><article class="passed"><h2>invoice baseline</h2><p class="status">passed</p><pre>{
+  &quot;summary&quot;: {
+    &quot;scoring_version&quot;: &quot;invoice-release-scoring-v1&quot;,
+    &quot;documents_scheduled&quot;: 180,
+    &quot;documents_processed&quot;: 180,
+    &quot;all_required_exact&quot;: {
+      &quot;correct&quot;: 163,
+      &quot;eligible&quot;: 166
+    },
+    &quot;header_field_exclusions&quot;: {
+      &quot;supplier_name&quot;: 0,
+      &quot;invoice_number&quot;: 0,
+      &quot;issue_date&quot;: 14,
+      &quot;due_date&quot;: 0,
+      &quot;currency&quot;: 0,
+      &quot;subtotal&quot;: 0,
+      &quot;tax&quot;: 0,
+      &quot;discount&quot;: 0,
+      &quot;shipping&quot;: 0,
+      &quot;total&quot;: 0
+    },
+    &quot;header_fields&quot;: {
+      &quot;supplier_name&quot;: {
+        &quot;tp&quot;: 180,
+        &quot;fp&quot;: 0,
+        &quot;fn&quot;: 0,
+        &quot;precision&quot;: 1.0,
+        &quot;recall&quot;: 1.0,
+        &quot;f1&quot;: 1.0
+      },
+      &quot;invoice_number&quot;: {
+        &quot;tp&quot;: 177,
+        &quot;fp&quot;: 3,
+        &quot;fn&quot;: 3,
+        &quot;precision&quot;: 0.9833,
+        &quot;recall&quot;: 0.9833,
+        &quot;f1&quot;: 0.9833
+      },
+      &quot;issue_date&quot;: {
+        &quot;tp&quot;: 166,
+        &quot;fp&quot;: 0,
+        &quot;fn&quot;: 0,
+        &quot;precision&quot;: 1.0,
+        &quot;recall&quot;: 1.0,
+        &quot;f1&quot;: 1.0
+      },
+      &quot;due_date&quot;: {
+        &quot;tp&quot;: 156,
+        &quot;fp&quot;: 0,
+        &quot;fn&quot;: 0,
+        &quot;precision&quot;: 1.0,
+        &quot;recall&quot;: 1.0,
+        &quot;f1&quot;: 1.0
+      },
+      &quot;currency&quot;: {
+        &quot;tp&quot;: 180,
+        &quot;fp&quot;: 0,
+        &quot;fn&quot;: 0,
+        &quot;precision&quot;: 1.0,
+        &quot;recall&quot;: 1.0,
+        &quot;f1&quot;: 1.0
+      },
+      &quot;subtotal&quot;: {
+        &quot;tp&quot;: 179,
+        &quot;fp&quot;: 0,
+        &quot;fn&quot;: 1,
+        &quot;precision&quot;: 1.0,
+        &quot;recall&quot;: 0.9944,
+        &quot;f1&quot;: 0.9972
+      },
+      &quot;tax&quot;: {
+        &quot;tp&quot;: 162,
+        &quot;fp&quot;: 0,
+        &quot;fn&quot;: 0,
+        &quot;precision&quot;: 1.0,
+        &quot;recall&quot;: 1.0,
+        &quot;f1&quot;: 1.0
+      },
+      &quot;discount&quot;: {
+        &quot;tp&quot;: 138,
+        &quot;fp&quot;: 0,
+        &quot;fn&quot;: 0,
+        &quot;precision&quot;: 1.0,
+        &quot;recall&quot;: 1.0,
+        &quot;f1&quot;: 1.0
+      },
+      &quot;shipping&quot;: {
+        &quot;tp&quot;: 156,
+        &quot;fp&quot;: 0,
+        &quot;fn&quot;: 0,
+        &quot;precision&quot;: 1.0,
+        &quot;recall&quot;: 1.0,
+        &quot;f1&quot;: 1.0
+      },
+      &quot;total&quot;: {
+        &quot;tp&quot;: 180,
+        &quot;fp&quot;: 0,
+        &quot;fn&quot;: 0,
+        &quot;precision&quot;: 1.0,
+        &quot;recall&quot;: 1.0,
+        &quot;f1&quot;: 1.0
+      }
+    },
+    &quot;header_macro_f1&quot;: 0.9981,
+    &quot;row_detection&quot;: {
+      &quot;tp&quot;: 517,
+      &quot;fp&quot;: 1,
+      &quot;fn&quot;: 5,
+      &quot;precision&quot;: 0.9981,
+      &quot;recall&quot;: 0.9904,
+      &quot;f1&quot;: 0.9942
+    },
+    &quot;row_exact&quot;: {
+      &quot;tp&quot;: 490,
+      &quot;fp&quot;: 28,
+      &quot;fn&quot;: 32,
+      &quot;precision&quot;: 0.9459,
+      &quot;recall&quot;: 0.9387,
+      &quot;f1&quot;: 0.9423
+    },
+    &quot;row_fields&quot;: {
+      &quot;description&quot;: {
+        &quot;tp&quot;: 494,
+        &quot;fp&quot;: 24,
+        &quot;fn&quot;: 28,
+        &quot;precision&quot;: 0.9537,
+        &quot;recall&quot;: 0.9464,
+        &quot;f1&quot;: 0.95
+      },
+      &quot;quantity&quot;: {
+        &quot;tp&quot;: 516,
+        &quot;fp&quot;: 2,
+        &quot;fn&quot;: 6,
+        &quot;precision&quot;: 0.9961,
+        &quot;recall&quot;: 0.9885,
+        &quot;f1&quot;: 0.9923
+      },
+      &quot;unit_price&quot;: {
+        &quot;tp&quot;: 515,
+        &quot;fp&quot;: 3,
+        &quot;fn&quot;: 7,
+        &quot;precision&quot;: 0.9942,
+        &quot;recall&quot;: 0.9866,
+        &quot;f1&quot;: 0.9904
+      },
+      &quot;line_total&quot;: {
+        &quot;tp&quot;: 516,
+        &quot;fp&quot;: 2,
+        &quot;fn&quot;: 6,
+        &quot;precision&quot;: 0.9961,
+        &quot;recall&quot;: 0.9885,
+        &quot;f1&quot;: 0.9923
+      },
+      &quot;tax&quot;: {
+        &quot;tp&quot;: 0,
+        &quot;fp&quot;: 0,
+        &quot;fn&quot;: 0,
+        &quot;precision&quot;: null,
+        &quot;recall&quot;: null,
+        &quot;f1&quot;: null
+      }
+    },
+    &quot;failures_by_type&quot;: {}
+  },
+  &quot;comparison_status&quot;: null,
+  &quot;note&quot;: &quot;Synthetic preview/shared-OCR evidence. A model regression is publishable evidence, not default promotion.&quot;
+}</pre></article><article class="pending"><h2>invoice model comparison</h2><p class="status">pending</p><pre>{
+  &quot;note&quot;: &quot;Required evidence has not been supplied or completed.&quot;
+}</pre></article><article class="pending"><h2>receipt model comparison</h2><p class="status">pending</p><pre>{
+  &quot;note&quot;: &quot;Required evidence has not been supplied or completed.&quot;
+}</pre></article><article class="passed"><h2>parser reliability</h2><p class="status">passed</p><pre>{
+  &quot;recorded_run&quot;: &quot;verified&quot;,
+  &quot;source_drift&quot;: [],
+  &quot;unrecorded_sources&quot;: [],
+  &quot;note&quot;: &quot;Historical evidence remains historical; rerun when source differs. Local hashes are not signed attestation.&quot;,
+  &quot;checks&quot;: 16,
+  &quot;parser_image_id&quot;: &quot;sha256:b450d6df57d4a3aeb93181adaee63df2834536cdddf3ca3597fb4d6471099f52&quot;,
+  &quot;scope&quot;: &quot;Self-authored fixtures and runtime probes; OCR/rules only. Includes refused-loopback-model retry and abrupt host worker exit after a parser checkpoint, with rules extraction on resume and a shortened real lease; also portable backup/restore of a reviewed two-page PDF and an interrupted checkpoint. Includes injected parser timeout and cgroup OOM probes with cleanup and real-parser retries; deadlines are shortened and the OOM memory/swap limit is reduced to 64 MiB/0. No held-out quality, real model inference, genuine-scan, natural invoice OOM, machine crash, or arbitrary-stage interruption claim.&quot;
+}</pre></article><article class="pending"><h2>real model workflow</h2><p class="status">pending</p><pre>{
+  &quot;fixtures&quot;: 2,
+  &quot;model_sha256&quot;: &quot;3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597&quot;,
+  &quot;note&quot;: &quot;Two real-model HTTP fixture workflows; rerun changed sources before claiming current-build verification.&quot;,
+  &quot;recorded_run&quot;: &quot;verified&quot;,
+  &quot;source_drift&quot;: [
+    &quot;src/docwork/web.py&quot;,
+    &quot;src/docwork/worker.py&quot;,
+    &quot;ui/app.js&quot;,
+    &quot;ui/index.html&quot;
+  ],
+  &quot;unrecorded_sources&quot;: []
+}</pre></article><article class="passed"><h2>browser workflow</h2><p class="status">passed</p><pre>{
+  &quot;recorded_run&quot;: &quot;verified&quot;,
+  &quot;source_drift&quot;: [],
+  &quot;unrecorded_sources&quot;: [],
+  &quot;note&quot;: &quot;Automated disposable-fixture UI check; no human timing or complete visual acceptance claim.&quot;,
+  &quot;checks&quot;: 10
+}</pre></article><article class="passed"><h2>portfolio documentation</h2><p class="status">passed</p><pre>{
+  &quot;missing&quot;: [],
+  &quot;note&quot;: &quot;Document presence and hashes; editorial claims still need review.&quot;
+}</pre></article><article class="pending"><h2>author review pilot</h2><p class="status">pending</p><pre>{
+  &quot;note&quot;: &quot;Required evidence has not been supplied or completed.&quot;
+}</pre></article><article class="pending"><h2>demo recording</h2><p class="status">pending</p><pre>{
+  &quot;note&quot;: &quot;Required evidence has not been supplied or completed.&quot;
+}</pre></article></html>
