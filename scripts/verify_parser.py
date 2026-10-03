@@ -62,7 +62,7 @@ def main() -> int:
         parser.error("Output already exists; choose a fresh report path")
     root = Path(__file__).resolve().parents[1]
     paths = [*sorted((root / "src/docwork").glob("*.py")),
-             root / "tests/container_parser.py", Path(__file__).resolve(), root / "sandbox/Dockerfile",
+             *sorted((root / "tests").glob("container_*.py")), Path(__file__).resolve(), root / "sandbox/Dockerfile",
              root / "samples/clean.png", root / "samples/conflicting-total.png"]
     hashes = {str(path.relative_to(root)): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths}
     report = {"report_version": "parser-verification-v1", "status": "failed",
@@ -74,7 +74,9 @@ def main() -> int:
                        "Includes refused-loopback-model retry and abrupt host worker exit after a parser checkpoint, "
                        "with rules extraction on resume and a shortened real lease; "
                        "also portable backup/restore of a reviewed two-page PDF and an interrupted checkpoint. "
-                       "No held-out quality, real model inference, genuine-scan, OOM, timeout, machine crash, "
+                       "Includes injected parser timeout and cgroup OOM probes with cleanup and real-parser retries; "
+                       "deadlines are shortened and the OOM memory/swap limit is reduced to 64 MiB/0. "
+                       "No held-out quality, real model inference, genuine-scan, natural invoice OOM, machine crash, "
                        "or arbitrary-stage interruption claim."}
     try:
         report["docker_version"] = json.loads(subprocess.check_output(

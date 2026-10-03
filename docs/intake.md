@@ -6,6 +6,8 @@ The database and object store are local. Submission metadata and the queued job 
 
 The `docwork-parser:v3` image decodes and re-encodes each page, applies image EXIF rotation, runs English Tesseract with automatic orientation detection (PSM 1, falling back to PSM 3 if orientation detection fails), and emits numbered PNGs with canonical OCR spans. OCR boxes remain on the displayed raster, which may still appear sideways even when text is recognized correctly. PDFs are limited to ten pages; the container has a 600-second document timeout. The worker starts it without network, with a read-only root, no capabilities, an unprivileged user, bounded CPU/memory/PIDs, a read-only original mount, and a scratch output mount. The host checks exact output filenames, regular files, sizes, checksums, page dimensions, page numbers, and span geometry before extraction. A failed parser job can be retried without inheriting review decisions. Docker and a locally built image are required. The worker never implicitly pulls a missing image. The [live verification](parser-verification.md) now exercises PNG/PDF/JPEG inputs, rejection, retry, review/export, and the runtime restrictions on this host.
 
+The [resource-failure runbook](parser-resources.md) records real deadline/OOM probes and successful retries. `PARSER_TIMEOUT` confirms timeout removal; `PARSER_KILLED` identifies exit 137 without assuming OOM. `PARSER_CLEANUP_FAILED` means removal could not be confirmed: restore Docker connectivity and inspect the exact job container before retrying. Failures do not publish a candidate or approval.
+
 ## Try the upload-to-review CLI
 
 With Docker Desktop running, build the parser image once:

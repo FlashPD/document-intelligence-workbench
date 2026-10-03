@@ -106,6 +106,65 @@ class WorkerTests(unittest.TestCase):
         self.assertEqual(self.store.export(document_id, "json")["format"], "json")
         self.assertIsNone(process_one(self.store, "worker", runner=runner))
 
+    def test_timeout_removes_only_the_claimed_container(self):
+        claim = JobClaim("job-1", "document-1", 3, "worker", 0)
+        with patch("docwork.worker.shutil.which", return_value="docker"), \
+                patch("docwork.worker.subprocess.run", side_effect=[
+                    subprocess.TimeoutExpired("docker", 600),
+                    subprocess.CompletedProcess([], 0, b"removed", b""),
+                ]) as run:
+            with self.assertRaises(ParserFailure) as failure:
+                _docker_run(Path("source"), "image/png", Path("output"), claim, image="image")
+        self.assertEqual(failure.exception.code, "PARSER_TIMEOUT")
+        self.assertEqual(run.call_args_list[1].args[0], ["docker", "rm", "-f", "docwork-job-1-3"])
+        self.assertEqual(run.call_args_list[1].kwargs["timeout"], 10)
+
+    def test_timeout_reports_unconfirmed_cleanup(self):
+        claim = JobClaim("job", "document", 1, "worker", 0)
+        for cleanup in (subprocess.TimeoutExpired("docker rm", 10),
+                        OSError("daemon stopped"),
+                        subprocess.CompletedProcess([], 1, b"", b"Cannot connect to the Docker daemon")):
+            with self.subTest(cleanup=type(cleanup).__name__), \
+                    patch("docwork.worker.shutil.which", return_value="docker"), \
+                    patch("docwork.worker.subprocess.run", side_effect=[subprocess.TimeoutExpired("docker", 600), cleanup]):
+                with self.assertRaises(ParserFailure) as failure:
+                    _docker_run(Path("source"), "image/png", Path("output"), claim, image="image")
+                self.assertEqual(failure.exception.code, "PARSER_CLEANUP_FAILED")
+
+    def test_timeout_accepts_already_auto_removed_container(self):
+        claim = JobClaim("job", "document", 1, "worker", 0)
+        with patch("docwork.worker.shutil.which", return_value="docker"), \
+                patch("docwork.worker.subprocess.run", side_effect=[
+                    subprocess.TimeoutExpired("docker", 600),
+                    subprocess.CompletedProcess([], 1, b"", b"Error response from daemon: No such container: docwork-job-1-1"),
+                ]):
+            with self.assertRaises(ParserFailure) as failure:
+                _docker_run(Path("source"), "image/png", Path("output"), claim, image="image")
+        self.assertEqual(failure.exception.code, "PARSER_TIMEOUT")
+
+    def test_sigkill_is_distinct_from_generic_failure_without_claiming_oom(self):
+        claim = JobClaim("job", "document", 1, "worker", 0)
+        for exit_code, expected in ((137, "PARSER_KILLED"), (1, "PARSER_FAILED")):
+            with self.subTest(exit_code=exit_code), \
+                    patch("docwork.worker.shutil.which", return_value="docker"), \
+                    patch("docwork.worker.subprocess.run", return_value=subprocess.CompletedProcess([], exit_code, b"", b"")):
+                with self.assertRaises(ParserFailure) as failure:
+                    _docker_run(Path("source"), "image/png", Path("output"), claim, image="image")
+                self.assertEqual(failure.exception.code, expected)
+
+    def test_cleanup_failure_is_retryable_without_publishing_candidate(self):
+        document_id = self.submit()
+        with patch("docwork.worker._docker_run", side_effect=ParserFailure("PARSER_CLEANUP_FAILED")), \
+                patch("docwork.worker._docker_image_id", return_value="sha256:" + "a" * 64):
+            process_one(self.store, "worker")
+        self.assertEqual(self.store.status(document_id)["job"]["error_code"], "PARSER_CLEANUP_FAILED")
+        self.assertEqual(self.store.status(document_id)["current_revision"], 0)
+        self.assertEqual(list((self.store.object_root / "quarantine").iterdir()), [])
+        self.store.retry(document_id)
+        process_one(self.store, "worker", runner=lambda source, mime, output, claim, image: parser_result(output, source))
+        self.assertEqual(self.store.status(document_id)["status"], "REVIEW_READY")
+        self.assertEqual(self.store.status(document_id)["job"]["attempts"], 2)
+
     def test_bad_parser_result_is_failed_and_retryable(self):
         document_id = self.submit()
 

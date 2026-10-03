@@ -150,7 +150,13 @@ def _docker_run(source: Path, media_type: str, output: Path, claim: JobClaim,
     except OSError as exc:
         raise ParserFailure("PARSER_UNAVAILABLE") from exc
     except subprocess.TimeoutExpired as exc:
-        subprocess.run(["docker", "rm", "-f", container_name], capture_output=True, timeout=10, check=False)
+        try:
+            removed = subprocess.run(["docker", "rm", "-f", container_name],
+                                     capture_output=True, timeout=10, check=False)
+        except (OSError, subprocess.TimeoutExpired) as cleanup_error:
+            raise ParserFailure("PARSER_CLEANUP_FAILED") from cleanup_error
+        if removed.returncode and "No such container" not in removed.stderr.decode("utf-8", errors="replace"):
+            raise ParserFailure("PARSER_CLEANUP_FAILED") from exc
         raise ParserFailure("PARSER_TIMEOUT") from exc
     if completed.returncode:
         error = completed.stderr.decode("utf-8", errors="replace").strip()
@@ -158,6 +164,10 @@ def _docker_run(source: Path, media_type: str, output: Path, claim: JobClaim,
             code = "PARSER_UNAVAILABLE"
         elif "Unable to find image" in error or "No such image" in error:
             code = "PARSER_IMAGE_MISSING"
+        elif completed.returncode == 137:
+            # SIGKILL can be an OOM kill or an external stop. With --rm the
+            # container state is gone; never infer OOM from this exit alone.
+            code = "PARSER_KILLED"
         else:
             code = error if error in KNOWN_REJECTIONS else "PARSER_FAILED"
         raise ParserFailure(code)
