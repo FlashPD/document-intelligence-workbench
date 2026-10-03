@@ -17,6 +17,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from .corpus import verify_synthetic_corpus
+from .evaluation_sessions import audit_sessions
 from .heldout import verify_heldout
 from .invoice_model_run import verify_invoice_model
 from .model_runtime import file_hash
@@ -216,6 +217,7 @@ def audit_release(root: Path, output: Path, *, parser_report: str | None = None,
         if report["split"] != "test" or result["documents"] != 180 or report["summary"]["documents_scheduled"] != 180:
             raise ValueError("Portfolio invoice evidence requires all 180 test invoices")
         return {"status": "passed", "summary": report["summary"],
+                "model_sessions": audit_sessions(directory) if model else None,
                 "comparison_status": report["comparison"]["status"] if model else None,
                 "note": "Synthetic preview/shared-OCR evidence. A model regression is publishable evidence, not default promotion."}
 
@@ -230,6 +232,7 @@ def audit_release(root: Path, output: Path, *, parser_report: str | None = None,
         if report["split"] != "test" or report["documents"] != 100:
             raise ValueError("Portfolio receipt evidence requires all 100 official test receipts")
         return {"status": "passed", "documents": 100, "baseline": report["baseline"], "model": report["model"],
+                "model_sessions": audit_sessions(paths["receipts"] / "test-model"),
                 "note": "Separate descriptive receipt comparison; no invoice-quality or pretraining independence claim."}
 
     check("receipt_model_comparison", paths["receipts"] / "comparison.json",

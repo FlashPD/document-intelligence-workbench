@@ -64,3 +64,10 @@ class ReleaseReportTests(unittest.TestCase):
         self.assertIn("Nearest-rank percentiles", rendered)
         self.assertIn("&lt;script&gt;", rendered)
         self.assertNotIn("<script>", rendered)
+        systems["model_sessions"] = {"recorded_runtime_sessions": ["0002"],
+                                     "interrupted_sessions": [{"session": "0001"}],
+                                     "memory_coverage": "Interrupted session RSS unavailable"}
+        rendered = MODULE.render(invoice, receipt, {"Fixture model": systems})
+        self.assertIn("Interrupted sessions", rendered)
+        self.assertIn("Interrupted session RSS unavailable", rendered)
+        self.assertIn("a whole-run peak when session metadata is missing", rendered)

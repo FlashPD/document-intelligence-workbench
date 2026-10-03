@@ -10,7 +10,7 @@ The [October 3 report](../evals/parser-queue-2026-10-03/report.json) measures a 
 | Worker processing P50 / P95 | 1.794 / 3.412 seconds |
 | Final job wait after batch submission | 38.215 seconds |
 
-These are serial queue observations, not controlled warm/cold latency or concurrent capacity. The frozen invoice model evaluation was running on the same host; its workload was declared before this run. No model inference was performed by the benchmark. A review-ready outcome means a candidate exists, not that its fields or rows are correct. Validation warnings remain in the saved predictions, and every export still requires human approval.
+These are serial queue observations, not controlled warm/cold latency or concurrent capacity. The run declared a concurrent frozen invoice model workload, but did not inspect its process state. A later October 3 inspection at 3:51 PM America/Chicago found no project model runner or coordinator; the model log's last write preceded this benchmark. Those facts do not establish the precise termination time or actual overlap. The archived declaration is retained as an unverified assumption; these timings cannot support a claim of performance under model load. No model inference was performed by the benchmark. A review-ready outcome means a candidate exists, not that its fields or rows are correct. Validation warnings remain in the saved predictions, and every export still requires human approval. See [evaluation recovery](evaluation-recovery.md).
 
 ## Protocol and timing boundaries
 

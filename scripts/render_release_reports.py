@@ -9,6 +9,7 @@ import math
 from pathlib import Path
 
 from docwork.invoice_model_run import verify_invoice_model
+from docwork.evaluation_sessions import audit_sessions
 from docwork.model_runtime import file_hash
 from docwork.receipt_comparison import verify_receipt_comparison
 
@@ -36,6 +37,7 @@ def supplementary_evidence(directory: Path, stage: str) -> dict:
     if not seconds:
         raise ValueError("Timing cannot describe an empty run")
     sessions = [json.loads(path.read_text()) for path in sorted((directory / "sessions").glob("*/runtime.json"))]
+    lifecycle = audit_sessions(directory) if (directory / "sessions").exists() else None
     peaks = [s["peak_sampled_rss_bytes"] for s in sessions if s.get("peak_sampled_rss_bytes") is not None]
     cases = []
     for doc in documents:
@@ -50,6 +52,7 @@ def supplementary_evidence(directory: Path, stage: str) -> dict:
             "p50_seconds": seconds[math.ceil(.5 * len(seconds)) - 1],
             "p95_seconds": seconds[math.ceil(.95 * len(seconds)) - 1],
             "peak_sampled_server_rss_bytes": max(peaks) if peaks else None,
+            "model_sessions": lifecycle,
             "representative_cases": cases[:3],
             "case_selection": "Processing failures first, then largest exact-row FP+FN, header FP+FN, and ID; at most three. "
                               "Examples do not replace all-document denominators; no causal explanation inferred.",
@@ -91,9 +94,13 @@ def render(invoice: dict, receipts: dict, systems: dict | None = None) -> str:
         case_rows = [(name, case["id"], case["failure_type"] or "Header/row disagreement", case["header_fp_plus_fn"],
                       case["row_fp_plus_fn"], f"{case['exact_rows']}/{case['gold_rows']}")
                      for name, data in systems.items() for case in data["representative_cases"]]
+        lifecycle_rows = [(name, len(data["model_sessions"]["recorded_runtime_sessions"]),
+                           len(data["model_sessions"]["interrupted_sessions"]), data["model_sessions"]["memory_coverage"])
+                          for name, data in systems.items() if data.get("model_sessions")]
         supplement = f"""<section><h2>Measured stage timings</h2>
 {table(timing_rows, ('Variant','Stage','Calls','Total seconds','P50 seconds','P95 seconds','Sampled server RSS GiB'))}
-<p>Nearest-rank percentiles include every scheduled call, including failures. OCR times describe verified corpus previews for invoices and prepared PNGs for receipts. Model times describe inference on those saved OCR inputs. Machine load was uncontrolled; no warm/cold, concurrency, or end-to-end latency claim. RSS is the largest sampled process value across owned sessions, not GPU allocation or total application memory.</p></section>
+<p>Nearest-rank percentiles include every scheduled call, including failures. OCR times describe verified corpus previews for invoices and prepared PNGs for receipts. Model times describe inference on those saved OCR inputs. Machine load was uncontrolled; no warm/cold, concurrency, or end-to-end latency claim. RSS is the largest available sampled process value across recorded runtime sessions, not GPU allocation, total application memory, or a whole-run peak when session metadata is missing.</p>
+{table(lifecycle_rows, ('Variant','Runtime sessions recorded','Interrupted sessions','Memory coverage')) if lifecycle_rows else ''}</section>
 <section><h2>Representative failures and disagreements</h2>
 {table(case_rows, ('Variant','Document','Outcome','Header FP + FN','Exact-row FP + FN','Exact / gold rows'))}
 <p>Up to three examples per variant: processing failures first, then largest exact-row FP + FN, header FP + FN, and document ID. Wrong nonempty headers contribute both FP and FN. Selection is mechanical and does not replace complete denominators or explain the cause of an error. Inspect the hash-bound saved predictions to investigate each example.</p></section>"""

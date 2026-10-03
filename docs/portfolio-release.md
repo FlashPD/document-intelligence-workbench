@@ -85,7 +85,7 @@ PYTHONPATH=src python3.12 -m docwork.cli release-check \
   --demo-recording evals/review-browser-2026-10-03-v2/demo.webm
 ```
 
-Run the audit only after supplied evidence writers stop. It checks input stability around verification and marks changed evidence invalid. Source drift in historical parser/model/browser reports remains visible; it does not rewrite original reports or rerun costly inference. Existing pending progress can be inspected with `python3.12 scripts/evaluation_status.py`. The serialized coordinator and final comparison export are described in [release evaluation](release-evaluation.md).
+Run the audit only after supplied evidence writers stop. It checks input stability around verification and marks changed evidence invalid. Source drift in historical parser/model/browser reports remains visible; it does not rewrite original reports or rerun costly inference. Existing pending progress can be inspected with `python3.12 scripts/evaluation_status.py`; that command verifies completion hashes and shows ledger update time without inferring process liveness from missing metadata. The serialized coordinator and final comparison export are described in [release evaluation](release-evaluation.md), with [interrupted-session recovery](evaluation-recovery.md) and explicit lifecycle/memory limitations.
 
 The parser default points to the [browser-release parser report](../evals/review-release-parser-2026-10-03/report.json). The earlier [first verification attempt](../evals/portfolio-parser-2026-10-03/report.json) retained its failed stale-image check; the image was rebuilt before repeating verification. This preserves the failed attempt rather than rewriting it into a passing result.
 
@@ -99,7 +99,7 @@ PYTHONPATH=src python3.12 -m docwork.cli release-check \
   --demo-recording evals/review-browser-2026-10-03-v2/demo.webm
 ```
 
-The [20-document parser queue](parser-queue.md) separately measures real serial processing of development PNG/PDF originals with declared concurrent model load. It is supplemental performance evidence, not an additional passing gate in `release-check`. The full invoice/receipt comparisons, current real-model workflow rerun, and human pilot are still required. A fresh six-case pilot was prepared at `artifacts/review-pilot-author-2026-10-03-v4`; its outcomes remain pending until the author reviews it and its server stops. Supply that directory to the final audit only after completion and shutdown.
+The [20-document parser queue](parser-queue.md) separately measures real serial processing of development PNG/PDF originals. Its concurrent-model declaration was unverified and is qualified in the run guide; it cannot establish processing under model load. It is supplemental performance evidence, not an additional passing gate in `release-check`. The full invoice/receipt comparisons, current real-model workflow rerun, and human pilot are still required. A fresh six-case pilot was prepared at `artifacts/review-pilot-author-2026-10-03-v4`; its outcomes remain pending until the author reviews it and its server stops. Supply that directory to the final audit only after completion and shutdown.
 
 ## Three minute presentation script
 

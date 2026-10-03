@@ -1,7 +1,7 @@
 PYTHON ?= python3.12
 PYTHONPATH := src
 
-.PHONY: doctor test release-check review-browser-verify smoke-ocr demo-baseline demo-replay eval-development eval-repeatability eval-verify-corpus models-fetch models-verify parser-build parser-smoke parser-verify model-workflow-verify dev dev-model
+.PHONY: doctor test release-check evaluation-status review-browser-verify smoke-ocr demo-baseline demo-replay eval-development eval-repeatability eval-verify-corpus models-fetch models-verify parser-build parser-smoke parser-verify model-workflow-verify dev dev-model
 
 doctor:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli doctor
@@ -11,6 +11,9 @@ test:
 
 release-check:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli release-check --output-dir $(or $(OUTPUT),artifacts/portfolio-readiness-fresh)
+
+evaluation-status:
+	$(PYTHON) scripts/evaluation_status.py $(if $(INSPECT_RUNNER),--inspect-runner)
 
 review-browser-verify:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/verify_review_browser.py --output-dir $(or $(OUTPUT),artifacts/review-browser-fresh)

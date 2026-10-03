@@ -135,6 +135,8 @@ class ReleaseReadinessTests(unittest.TestCase):
         summary = {"documents_scheduled": 180}
         self.write(baseline + "/report.json", {"split": "test", "summary": summary})
         self.write(model + "/report.json", {"split": "test", "summary": summary, "comparison": {"status": "regression"}})
+        self.write(model + "/sessions/0001/server.log", "fixture runtime", raw=True)
+        self.write(model + "/sessions/0001/runtime.json", {"shutdown_complete": True})
         self.write(DEFAULTS["manifest"], {})
         with patch("docwork.release_readiness.verify_heldout", return_value={"documents": 180}), \
                 patch("docwork.release_readiness.verify_invoice_model", return_value={"documents": 180}), \
@@ -157,6 +159,19 @@ class ReleaseReadinessTests(unittest.TestCase):
             self.audit()
         with self.assertRaisesRegex(ValueError, "outside its input"):
             audit_release(self.root, self.root / "src/audit")
+
+    def test_completed_quality_report_cannot_hide_unrecorded_session_lifecycle(self):
+        model = DEFAULTS["invoice_model"]
+        self.write(DEFAULTS["manifest"], {})
+        self.write(DEFAULTS["baseline"] + "/input.json", {})
+        self.write(model + "/report.json", {"split": "test", "summary": {"documents_scheduled": 180},
+                                            "comparison": {"status": "regression"}})
+        self.write(model + "/sessions/0001/server.log", "Abrupt fixture", raw=True)
+        with patch("docwork.release_readiness.verify_invoice_model", return_value={"documents": 180}):
+            report = self.audit()
+        result = next(c for c in report["checks"] if c["id"] == "invoice_model_comparison")
+        self.assertEqual(result["status"], "invalid")
+        self.assertIn("no runtime metadata", result["note"])
 
     def test_browser_evidence_cannot_be_relabeled_as_human_time_or_lose_screenshot(self):
         source = ROOT / "evals/review-pilot-browser-2026-10-03-v3"
@@ -204,6 +219,9 @@ class ReleaseReadinessTests(unittest.TestCase):
                                                        "comparison": {"status": "regression"}})
         self.write(DEFAULTS["receipt_manifest"], {})
         self.write(DEFAULTS["receipts"] + "/comparison.json", {})
+        for directory in (DEFAULTS["invoice_model"], DEFAULTS["receipts"] + "/test-model"):
+            self.write(directory + "/sessions/0001/server.log", "fixture runtime", raw=True)
+            self.write(directory + "/sessions/0001/runtime.json", {"shutdown_complete": True})
         self.write(DEFAULTS["parser"], self.parser_report())
         self.write(DEFAULTS["workflow"] + "/report.json", {"source_sha256": {}})
         self.write(DEFAULTS["browser"] + "/report.json", {})

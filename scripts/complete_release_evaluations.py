@@ -14,30 +14,42 @@ import time
 from pathlib import Path
 
 from docwork.invoice_model_run import verify_invoice_model
+from docwork.evaluation_sessions import audit_sessions, latest_session_stopped
 from docwork.receipt_comparison import compare_receipts, verify_receipt_comparison
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--invoice-run", type=Path, required=True)
-    parser.add_argument("--wait-for-invoice", action="store_true", help="Wait for an already running owned invoice model session")
+    invoice_action = parser.add_mutually_exclusive_group()
+    invoice_action.add_argument("--wait-for-invoice", action="store_true", help="Wait for an already running owned invoice model session")
+    invoice_action.add_argument("--resume-invoice", action="store_true", help="Own the frozen invoice resume before serialized receipt stages; stop other model workloads first")
     parser.add_argument("--receipt-root", type=Path, required=True)
     parser.add_argument("--html-output", type=Path, help="Export an audited standalone comparison after both experiments finish")
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
     manifest = root / "artifacts/cord-v2/prepared-v1/manifest.json"
     baseline = root / "evals/invoice-heldout-2026-10-03/ocr-rules-v0.3-psm1"
+    if args.resume_invoice and not (args.invoice_run / "report.json").exists():
+        result = subprocess.run([sys.executable, "-m", "docwork.cli", "eval-invoice-model",
+                                 "--output-dir", str(args.invoice_run), "--resume"], cwd=root, check=False)
+        if result.returncode not in (0, 1, 2) or not (args.invoice_run / "report.json").is_file():
+            raise RuntimeError("Owned invoice resume stopped without a report; completed predictions remain intact")
     if args.wait_for_invoice:
         stopped_at = None
         while not (args.invoice_run / "report.json").exists():
-            sessions = list((args.invoice_run / "sessions").iterdir())
-            if sessions and all((session / "runtime.json").exists() for session in sessions):
+            # Earlier abrupt sessions can lack runtime metadata forever. The
+            # latest owned session determines whether this attempt stopped.
+            if latest_session_stopped(args.invoice_run):
                 stopped_at = stopped_at or time.monotonic()
                 if time.monotonic() - stopped_at > 180:
                     raise RuntimeError("Invoice inference stopped without a report; resume that frozen run first")
+            else:
+                stopped_at = None
             print("Waiting for the frozen invoice model run before starting receipt inference", flush=True)
             time.sleep(30)
     verify_invoice_model(root / "datasets/invoices-v1/manifest.json", baseline, args.invoice_run)
+    audit_sessions(args.invoice_run)
     args.receipt_root.mkdir(parents=True, exist_ok=True)
 
     def run(arguments: list[str], report: Path):
