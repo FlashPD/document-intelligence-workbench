@@ -1,6 +1,6 @@
 "use strict";
 
-const state = { documents: [], selectedId: null, detail: null, selectedPath: "fields.invoice_number", pageNumber: 1, history: [] };
+const state = { documents: [], selectedId: null, detail: null, selectedPath: "fields.invoice_number", pageNumber: 1, history: [], rotations: new Map(), pageImages: new Map(), renderToken: 0 };
 const $ = (id) => document.getElementById(id);
 
 function node(tag, className, content) {
@@ -65,6 +65,9 @@ async function selectDocument(id) {
   state.detail = null;
   state.selectedPath = "fields.invoice_number";
   state.pageNumber = 1;
+  state.rotations.clear();
+  state.pageImages.clear();
+  state.renderToken++;
   $("downloads").replaceChildren();
   await refreshQueue();
   await refreshDocument();
@@ -152,10 +155,70 @@ function setPage(number) {
   $("page-select").value = String(number);
   $("page-previous").disabled = number === 1;
   $("page-next").disabled = number === pages.length;
-  $("page-frame").style.aspectRatio = `${page.width_px} / ${page.height_px}`;
-  $("page-image").src = `/api/documents/${state.detail.document_id}/pages/${number}`;
-  $("page-image").alt = `Invoice page ${number} of ${pages.length}`;
-  renderHighlights();
+  const rotation = state.rotations.get(number) || 0;
+  const sideways = rotation === 90 || rotation === 270;
+  $("page-frame").style.aspectRatio = sideways
+    ? `${page.height_px} / ${page.width_px}` : `${page.width_px} / ${page.height_px}`;
+  $("rotation-label").textContent = `${rotation}°`;
+  $("highlights").replaceChildren();
+  $("evidence-note").textContent = "Loading source page…";
+  drawPage(page, rotation);
+}
+
+async function drawPage(page, rotation) {
+  const token = ++state.renderToken;
+  const canvas = $("page-canvas");
+  canvas.hidden = true;
+  let image = state.pageImages.get(page.number);
+  if (!image) {
+    image = new Image();
+    image.src = `/api/documents/${state.detail.document_id}/pages/${page.number}`;
+    state.pageImages.set(page.number, image);
+  }
+  try {
+    await image.decode();
+    if (token !== state.renderToken) return;
+    if (image.naturalWidth !== page.width_px || image.naturalHeight !== page.height_px)
+      throw new Error("Page image dimensions do not match its evidence coordinates.");
+    const width = page.width_px;
+    const height = page.height_px;
+    const sideways = rotation === 90 || rotation === 270;
+    const viewWidth = sideways ? height : width;
+    const viewHeight = sideways ? width : height;
+    const scale = Math.min(1, 8192 / Math.max(width, height), Math.sqrt(8_000_000 / (width * height)));
+    canvas.width = Math.max(1, Math.round(viewWidth * scale));
+    canvas.height = Math.max(1, Math.round(viewHeight * scale));
+    canvas.setAttribute("aria-label", `Invoice page ${page.number} of ${state.detail.pages.length}, rotated ${rotation} degrees clockwise`);
+    const context = canvas.getContext("2d");
+    if (!context) throw new Error("Page preview is unavailable in this browser.");
+    context.setTransform(scale, 0, 0, scale, 0, 0);
+    if (rotation === 90) { context.translate(height, 0); context.rotate(Math.PI / 2); }
+    else if (rotation === 180) { context.translate(width, height); context.rotate(Math.PI); }
+    else if (rotation === 270) { context.translate(0, width); context.rotate(-Math.PI / 2); }
+    context.drawImage(image, 0, 0);
+    canvas.hidden = false;
+    renderHighlights();
+  } catch (error) {
+    if (token === state.renderToken) {
+      state.pageImages.delete(page.number);
+      $("evidence-note").textContent = "Page preview unavailable";
+      notice(error.message || "Page preview failed to load.", true);
+    }
+  }
+}
+
+function rotatedBox(box, rotation) {
+  if (rotation === 90) return { left: 1 - box.bottom, top: box.left, right: 1 - box.top, bottom: box.right };
+  if (rotation === 180) return { left: 1 - box.right, top: 1 - box.bottom, right: 1 - box.left, bottom: 1 - box.top };
+  if (rotation === 270) return { left: box.top, top: 1 - box.right, right: box.bottom, bottom: 1 - box.left };
+  return box;
+}
+
+function rotatePage(step) {
+  if (!state.detail) return;
+  const number = state.pageNumber;
+  state.rotations.set(number, ((state.rotations.get(number) || 0) + step + 360) % 360);
+  setPage(number);
 }
 
 function renderHighlights() {
@@ -164,16 +227,18 @@ function renderHighlights() {
   const field = fieldAt(state.selectedPath);
   if (!field) return;
   const spans = new Map(state.detail.pages[state.pageNumber - 1].spans.map((span) => [span.id, span]));
+  const rotation = state.rotations.get(state.pageNumber) || 0;
   let count = 0;
   for (const id of field.evidence_ids) {
     const span = spans.get(id);
     if (!span?.box) continue;
-    const box = node("div", "highlight");
-    box.style.left = `${span.box.left * 100}%`;
-    box.style.top = `${span.box.top * 100}%`;
-    box.style.width = `${(span.box.right - span.box.left) * 100}%`;
-    box.style.height = `${(span.box.bottom - span.box.top) * 100}%`;
-    target.append(box);
+    const bounds = rotatedBox(span.box, rotation);
+    const highlight = node("div", "highlight");
+    highlight.style.left = `${bounds.left * 100}%`;
+    highlight.style.top = `${bounds.top * 100}%`;
+    highlight.style.width = `${(bounds.right - bounds.left) * 100}%`;
+    highlight.style.height = `${(bounds.bottom - bounds.top) * 100}%`;
+    target.append(highlight);
     count++;
   }
   $("evidence-note").textContent = count ? `${count} cited OCR line${count === 1 ? "" : "s"} on this page` : "No cited line on this page";
@@ -327,6 +392,8 @@ $("export-csv").addEventListener("click", () => action(() => exportRecord("csv")
 $("page-select").addEventListener("change", () => setPage(Number($("page-select").value)));
 $("page-previous").addEventListener("click", () => setPage(state.pageNumber - 1));
 $("page-next").addEventListener("click", () => setPage(state.pageNumber + 1));
+$("rotate-left").addEventListener("click", () => rotatePage(-90));
+$("rotate-right").addEventListener("click", () => rotatePage(90));
 document.addEventListener("keydown", (event) => {
   if (event.target instanceof HTMLInputElement) return;
   if (event.key === "ArrowDown" || event.key === "ArrowUp") {
