@@ -71,7 +71,10 @@ def main() -> int:
                        "python": platform.python_version()},
               "parser_image": PARSER_IMAGE, "source_sha256": hashes, "checks": [],
               "scope": "Self-authored fixtures and runtime probes; OCR/rules only. "
-                       "No held-out quality, model, genuine-scan, OOM, timeout, or crash-recovery claim."}
+                       "Includes refused-loopback-model retry and abrupt host worker exit after a parser checkpoint, "
+                       "with rules extraction on resume and a shortened real lease. "
+                       "No held-out quality, real model inference, genuine-scan, OOM, timeout, machine crash, "
+                       "or arbitrary-stage interruption claim."}
     try:
         report["docker_version"] = json.loads(subprocess.check_output(
             ["docker", "version", "--format", "{{json .}}"], text=True, timeout=15))

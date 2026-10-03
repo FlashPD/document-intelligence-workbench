@@ -25,6 +25,7 @@ PARSER_IMAGE = "docwork-parser:v3"
 PARSER_TIMEOUT = 600
 WORKER_LEASE_SECONDS = 120
 HEARTBEAT_SECONDS = 30
+CHECKPOINT_VERSION = "parser-checkpoint-v1"
 KNOWN_REJECTIONS = frozenset({
     "PDF_INFO_FAILED", "PDF_ENCRYPTED", "PDF_PAGE_COUNT_UNKNOWN", "PDF_PAGE_LIMIT",
     "PDF_RENDER_FAILED", "IMAGE_PIXEL_LIMIT",
@@ -37,6 +38,38 @@ class ParserFailure(Exception):
     def __init__(self, code: str):
         self.code = code
         super().__init__(code)
+
+
+def _docker_image_id(image: str) -> str:
+    """Resolve a local tag once; run by immutable ID to avoid a tag-change race."""
+    if shutil.which("docker") is None:
+        raise ParserFailure("PARSER_UNAVAILABLE")
+    try:
+        completed = subprocess.run(["docker", "image", "inspect", image, "--format", "{{.Id}}"],
+                                   capture_output=True, timeout=15, check=False)
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise ParserFailure("PARSER_UNAVAILABLE") from exc
+    identity = completed.stdout.decode("utf-8", errors="replace").strip()
+    if completed.returncode:
+        error = completed.stderr.decode("utf-8", errors="replace")
+        code = "PARSER_IMAGE_MISSING" if "No such image" in error or "No such object" in error else "PARSER_UNAVAILABLE"
+        raise ParserFailure(code)
+    if not re.fullmatch(r"sha256:[0-9a-f]{64}", identity):
+        raise ParserFailure("PARSER_IDENTITY_INVALID")
+    return identity
+
+
+def parser_cache_key(source_sha256: str, media_type: str, parser_identity: str) -> str:
+    # The image binds renderer, OCR code/assets and fixed configuration. Host
+    # source hashes also invalidate results when import/contract checks change.
+    root = Path(__file__).parent
+    sources = {name: hashlib.sha256((root / name).read_bytes()).hexdigest() for name in (
+        "worker.py", "intake.py", "parser_protocol.py", "contracts.py", "review.py", "ocr.py", "geometry.py",
+    )}
+    payload = {"version": CHECKPOINT_VERSION, "source_sha256": source_sha256,
+               "media_type": media_type, "parser_identity": parser_identity,
+               "parser_version": PARSER_VERSION, "host_sources": sources}
+    return hashlib.sha256(json.dumps(payload, sort_keys=True).encode("utf-8")).hexdigest()
 
 
 def _regular_file(path: Path, maximum: int) -> bytes:
@@ -161,12 +194,15 @@ def _keep_lease(store: IntakeStore, claim: JobClaim, *,
 
 def process_one(store: IntakeStore, worker_id: str, *, image: str = PARSER_IMAGE,
                 runner=None, extractor: str = "ocr_rules",
-                model_config: LocalModelConfig | None = None, model_request=None) -> str | None:
+                model_config: LocalModelConfig | None = None, model_request=None,
+                parser_identity: str | None = None, reparse: bool = False) -> str | None:
     """Claim and process one job; return the document ID or None if idle."""
     if extractor not in ("ocr_rules", "span_llm"):
         raise ValueError("Extractor must be ocr_rules or span_llm")
     if extractor == "span_llm" and model_config is None:
         raise ValueError("span_llm requires a local model configuration")
+    if parser_identity is not None and (runner is None or not re.fullmatch(r"sha256:[0-9a-f]{64}", parser_identity)):
+        raise ValueError("An injected parser identity requires a runner and an immutable SHA-256 ID")
     claim = store.claim(worker_id, lease_seconds=WORKER_LEASE_SECONDS)
     if claim is None:
         return None
@@ -177,21 +213,47 @@ def process_one(store: IntakeStore, worker_id: str, *, image: str = PARSER_IMAGE
             store.fail(claim, "SOURCE_INTEGRITY_FAILED")
             return claim.document_id
         status = store.status(claim.document_id)
-        with tempfile.TemporaryDirectory(prefix="parse-", dir=store.object_root / "quarantine") as scratch:
-            output = Path(scratch)
-            # The unprivileged container user must be able to write its only output mount.
-            output.chmod(0o777)
-            with _keep_lease(store, claim):
-                (runner or _docker_run)(source, status["media_type"], output, claim, image=image)
-                pages, page_bytes = validate_output(output, status["source_sha256"])
-                if extractor == "span_llm":
-                    if model_request is None:
-                        result = extract_pages(pages, model_config)
-                    else:
-                        result = extract_pages(pages, model_config, model_request)
+        with _keep_lease(store, claim, lease_seconds=WORKER_LEASE_SECONDS,
+                         interval_seconds=HEARTBEAT_SECONDS):
+            with tempfile.TemporaryDirectory(prefix="parse-", dir=store.object_root / "quarantine") as scratch:
+                output = Path(scratch)
+                # The unprivileged container user must be able to write its only output mount.
+                output.chmod(0o777)
+                identity = parser_identity if runner is not None else _docker_image_id(image)
+                cache_key = parser_cache_key(status["source_sha256"], status["media_type"], identity) if identity else None
+                # Arbitrary injected runners have no trustworthy identity and
+                # therefore do not checkpoint unless their caller supplies one.
+                checkpoint = None
+                if cache_key and not reparse:
+                    try:
+                        checkpoint = store.load_parser_checkpoint(claim, cache_key)
+                        if checkpoint:
+                            encoded, images = checkpoint
+                            (output / "result.json").write_bytes(encoded)
+                            for number, data in enumerate(images, start=1):
+                                (output / f"page-{number:04d}.png").write_bytes(data)
+                            pages, page_bytes = validate_output(output, status["source_sha256"])
+                    except (OSError, ValueError, ParserFailure) as exc:
+                        raise ParserFailure("PARSER_CHECKPOINT_INVALID") from exc
+                if checkpoint:
+                    store.record_parser_reuse(claim, cache_key)
                 else:
-                    result = None
-                    record = extract_invoice_pages(pages)
+                    (runner or _docker_run)(source, status["media_type"], output, claim,
+                                           image=identity if runner is None else image)
+                    pages, page_bytes = validate_output(output, status["source_sha256"])
+                    if cache_key:
+                        store.save_parser_checkpoint(claim, cache_key, identity,
+                                                     (output / "result.json").read_bytes(), page_bytes)
+            # Only imported, checked bytes survive into extraction. A model
+            # outage or abrupt exit cannot strand the parser's scratch output.
+            if extractor == "span_llm":
+                if model_request is None:
+                    result = extract_pages(pages, model_config)
+                else:
+                    result = extract_pages(pages, model_config, model_request)
+            else:
+                result = None
+                record = extract_invoice_pages(pages)
             if result is not None:
                 store.complete(claim, pages, result.record, page_bytes, profile=extractor,
                                model_id=model_config.model_id, prompt_sha256=PROMPT_SHA256,

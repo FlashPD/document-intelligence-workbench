@@ -22,6 +22,7 @@ from typing import BinaryIO, Iterable
 
 from .contracts import DocumentPage, InvoiceRecord, ValidationIssue
 from .ocr import MAX_FILE_BYTES, MAX_PIXELS, PNG_SIGNATURE
+from .parser_protocol import MAX_PAGE_BYTES, MAX_PAGES, MAX_RESULT_BYTES
 from .review import ReviewConflict, ReviewStore, _atomic_write, _now
 from .review_priority import score_review_priority
 
@@ -128,6 +129,18 @@ class IntakeStore(ReviewStore):
                     PRIMARY KEY (document_id, page_number),
                     FOREIGN KEY (document_id) REFERENCES documents(id)
                 );
+                CREATE TABLE IF NOT EXISTS parser_checkpoints (
+                    document_id TEXT PRIMARY KEY, cache_key TEXT NOT NULL,
+                    parser_identity TEXT NOT NULL, result_json TEXT NOT NULL,
+                    result_sha256 TEXT NOT NULL, created_at TEXT NOT NULL,
+                    FOREIGN KEY (document_id) REFERENCES documents(id)
+                );
+                CREATE TABLE IF NOT EXISTS parser_checkpoint_pages (
+                    document_id TEXT NOT NULL, page_number INTEGER NOT NULL,
+                    image_sha256 TEXT NOT NULL, image_relpath TEXT NOT NULL,
+                    PRIMARY KEY (document_id, page_number),
+                    FOREIGN KEY (document_id) REFERENCES parser_checkpoints(document_id)
+                );
             """)
 
     def submit(self, stream: BinaryIO, filename: str, declared_mime: str) -> str:
@@ -198,6 +211,8 @@ class IntakeStore(ReviewStore):
             page_count = db.execute("SELECT COUNT(*) FROM document_pages WHERE document_id=?", (document_id,)).fetchone()[0]
             approved = db.execute("SELECT 1 FROM approvals WHERE document_id=? AND revision=?",
                                   (document_id, doc["current_revision"])).fetchone()
+            checkpoint = db.execute("SELECT cache_key,parser_identity,created_at FROM parser_checkpoints WHERE document_id=?",
+                                    (document_id,)).fetchone()
             return {
                 "document_id": document_id, "source_name": doc["source_name"],
                 "source_sha256": doc["source_sha256"], "media_type": doc["media_type"],
@@ -205,6 +220,7 @@ class IntakeStore(ReviewStore):
                 "page_image_sha256": doc["page_image_sha256"],
                 "page_count": page_count or (1 if doc["current_revision"] else 0),
                 "current_revision": doc["current_revision"], "job": dict(job) if job else None,
+                "parser_checkpoint": dict(checkpoint) if checkpoint else None,
             }
 
     def list_documents(self) -> list[dict]:
@@ -306,6 +322,8 @@ class IntakeStore(ReviewStore):
                     add(row["page_image_relpath"], row["page_image_sha256"])
             for row in db.execute("SELECT image_relpath,image_sha256 FROM document_pages"):
                 add(row["image_relpath"], row["image_sha256"])
+            for row in db.execute("SELECT image_relpath,image_sha256 FROM parser_checkpoint_pages"):
+                add(row["image_relpath"], row["image_sha256"])
 
             for relative, (digest, size) in sorted(references.items()):
                 path = self.object_root / relative
@@ -392,6 +410,71 @@ class IntakeStore(ReviewStore):
             until = time.time() + lease_seconds
             db.execute("UPDATE jobs SET lease_until=? WHERE id=?", (until, claim.job_id))
         return JobClaim(claim.job_id, claim.document_id, claim.fence, claim.worker_id, until)
+
+    def save_parser_checkpoint(self, claim: JobClaim, cache_key: str, parser_identity: str,
+                               result: bytes, images: Sequence[bytes]) -> None:
+        """Commit supervisor-validated OCR and render references before extraction."""
+        if not 0 < len(result) <= MAX_RESULT_BYTES or not 1 <= len(images) <= MAX_PAGES:
+            raise ValueError("Invalid parser checkpoint size")
+        if any(not 0 < len(image) <= MAX_PAGE_BYTES for image in images):
+            raise ValueError("Invalid parser checkpoint render size")
+        encoded = result.decode("utf-8")
+        with self._connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            self._verify_claim(db, claim)
+            self._current(db, claim.document_id, 0)
+            db.execute("DELETE FROM parser_checkpoint_pages WHERE document_id=?", (claim.document_id,))
+            db.execute("INSERT OR REPLACE INTO parser_checkpoints VALUES (?,?,?,?,?,?)",
+                       (claim.document_id, cache_key, parser_identity, encoded,
+                        hashlib.sha256(result).hexdigest(), _now()))
+            for number, image in enumerate(images, start=1):
+                digest = hashlib.sha256(image).hexdigest()
+                relative = Path("renders") / digest[:2] / f"{digest}.png"
+                _atomic_write(self.object_root / relative, image)
+                db.execute("INSERT INTO parser_checkpoint_pages VALUES (?,?,?,?)",
+                           (claim.document_id, number, digest, str(relative)))
+            self._verify_claim(db, claim)
+            self._event(db, claim.document_id, 0, "parser_checkpoint_saved", claim.worker_id, cache_key)
+
+    def load_parser_checkpoint(self, claim: JobClaim, cache_key: str) -> tuple[bytes, tuple[bytes, ...]] | None:
+        """Read a matching checkpoint under the fence and check all artifact bytes."""
+        with self._connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            self._verify_claim(db, claim)
+            checkpoint = db.execute("SELECT * FROM parser_checkpoints WHERE document_id=? AND cache_key=?",
+                                    (claim.document_id, cache_key)).fetchone()
+            if checkpoint is None:
+                return None
+            result = checkpoint["result_json"].encode("utf-8")
+            if (not 0 < len(result) <= MAX_RESULT_BYTES or
+                    hashlib.sha256(result).hexdigest() != checkpoint["result_sha256"]):
+                raise ValueError("Parser checkpoint manifest failed integrity verification")
+            rows = db.execute("SELECT * FROM parser_checkpoint_pages WHERE document_id=? ORDER BY page_number",
+                              (claim.document_id,)).fetchall()
+            if not 1 <= len(rows) <= MAX_PAGES or [row["page_number"] for row in rows] != list(range(1, len(rows) + 1)):
+                raise ValueError("Parser checkpoint page sequence is invalid")
+            images = []
+            for row in rows:
+                digest = row["image_sha256"]
+                if not re.fullmatch(r"[0-9a-f]{64}", digest):
+                    raise ValueError("Parser checkpoint render hash is invalid")
+                relative = Path("renders") / digest[:2] / f"{digest}.png"
+                path = self.object_root / relative
+                if (row["image_relpath"] != str(relative) or path.is_symlink() or
+                        path.parent.is_symlink() or (self.object_root / "renders").is_symlink() or
+                        not path.is_file() or not 0 < path.stat().st_size <= MAX_PAGE_BYTES):
+                    raise ValueError("Parser checkpoint render reference is invalid")
+                image = path.read_bytes()
+                if hashlib.sha256(image).hexdigest() != digest:
+                    raise ValueError("Parser checkpoint render failed integrity verification")
+                images.append(image)
+            return result, tuple(images)
+
+    def record_parser_reuse(self, claim: JobClaim, cache_key: str) -> None:
+        with self._connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            self._verify_claim(db, claim)
+            self._event(db, claim.document_id, 0, "parser_checkpoint_reused", claim.worker_id, cache_key)
 
     def complete(self, claim: JobClaim, page: DocumentPage | Sequence[DocumentPage], record: InvoiceRecord,
                  page_image: bytes | Sequence[bytes] | None = None, *,

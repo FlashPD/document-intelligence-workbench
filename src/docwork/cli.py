@@ -228,6 +228,7 @@ def main(argv: list[str] | None = None) -> int:
     intake_process = intake_actions.add_parser("process-one", help="Run one job in the isolated parser container")
     intake_process.add_argument("--worker-id", default="local-worker")
     intake_process.add_argument("--image", default="docwork-parser:v3")
+    intake_process.add_argument("--reparse", action="store_true", help="Bypass saved parsing results and refresh the checkpoint")
     intake_process.add_argument("--extractor", choices=("ocr_rules", "span_llm"), default="ocr_rules")
     intake_process.add_argument("--model-endpoint", help="Loopback HTTP URL of a local chat completion server")
     intake_process.add_argument("--model-id", help="Model ID served by the local endpoint")
@@ -360,7 +361,7 @@ def main(argv: list[str] | None = None) -> int:
                 model_config = (LocalModelConfig(args.model_endpoint or "", args.model_id or "")
                                 if args.extractor == "span_llm" else None)
                 document_id = process_one(store, args.worker_id, image=args.image,
-                                          extractor=args.extractor, model_config=model_config)
+                                          extractor=args.extractor, model_config=model_config, reparse=args.reparse)
                 data = store.status(document_id) if document_id else {"status": "IDLE"}
             elif args.action == "page":
                 data = {"document_id": args.document_id, "page_number": args.number,

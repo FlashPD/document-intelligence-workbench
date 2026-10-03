@@ -10,6 +10,8 @@ The fixture OCR command remains restricted to trusted repository samples. Upload
 
 `docwork intake reconcile` audits stored originals and page renders, and can prune aged unreferenced files after checking referenced artifacts. See [the intake guide](docs/intake.md#audit-stored-artifacts).
 
+[Parser checkpoints and recovery](docs/parser-recovery.md) now preserve verified OCR before extraction. Model retries and a reclaimed worker can resume without repeating parsing; the cache binds to original bytes, the immutable local image ID, and host contract hashes. The [final live recovery report](evals/parser-recovery-2026-10-03-final/report.json) passes all 12 Docker checks, including an actual host worker exit after checkpointing and a refused loopback model connection followed by an explicit rules retry. No parser rerun occurs in either recovery case. The deterministic suite passes 148 tests. These checks do not establish machine-crash durability, every interruption point, or real model inference through uploads.
+
 The [frozen invoice scoring contract](docs/release-evaluation.md) adds order-independent duplicate-row matching, split checks, and hash-linked reports for the larger corpus. It has not produced held-out quality results yet.
 
 The [self-authored invoice corpus](docs/invoice-corpus.md) now has 540 hash-verified documents across 18 isolated layout families and three 180-document splits, including multi-page PDFs and degraded derivatives. Run `PYTHONPATH=src python3.12 -m docwork.cli eval-verify-corpus` to check its assets and labels. The test split has not been scored.

@@ -1,5 +1,7 @@
 # Live parser verification — October 3, 2026
 
+The later [checkpoint recovery run](parser-recovery.md) extends this suite to 12 passing checks with abrupt host worker exit and model transport failure evidence. The original ten-check results below remain historical.
+
 The real Docker upload-to-review boundary now passes ten integration checks on this Mac. The [recorded evidence](../evals/parser-verification-2026-10-03/report.json) identifies the image, host architecture, Docker versions, source and fixture hashes, each check's outcome and duration, runtime restrictions, package versions, and OCR asset hashes. This closes the earlier missing-container-execution milestone. It uses fictional fixtures and `ocr_rules`; it does not establish arbitrary-invoice quality or complete the architecture plan's release criteria.
 
 | Check | Observed result |
@@ -41,4 +43,4 @@ Alongside this run, `make test` passed 120 deterministic checks and `make smoke-
 
 ## Remaining release work
 
-Genuine scans, encrypted-PDF rejection, deliberate parser timeout/OOM, interruption during processing/export, Linux bind-mount permissions, a real model through the container/browser path, and a recorded browser demo still need live evidence. The calibration row-recall gap needs development work before freezing release settings. The held-out invoice split and CORD receipt evaluation remain unscored, and no human review-time pilot has been run. The first release's claims must stay within the workflow, data, and hardware actually measured.
+Genuine scans, encrypted-PDF rejection, deliberate parser timeout/OOM, interruption during parsing/export, Linux bind-mount permissions, a real model through the container/browser path, and a recorded browser demo still need live evidence. A host worker exit after a verified parse now has [checkpoint recovery evidence](parser-recovery.md); this is a narrower claim than recovery at every stage or after machine power loss. The calibration row-recall gap needs development work before freezing release settings. The held-out invoice split and CORD receipt evaluation remain unscored, and no human review-time pilot has been run. The first release's claims must stay within the workflow, data, and hardware actually measured.

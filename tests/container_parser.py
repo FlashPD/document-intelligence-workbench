@@ -6,12 +6,17 @@ import io
 import hashlib
 import json
 import subprocess
+import socket
+import sys
 import tempfile
+import time
 import unittest
 import uuid
 from pathlib import Path
+from unittest.mock import patch
 
 from docwork.intake import IntakeStore, JobClaim
+from docwork.local_model import LocalModelConfig
 from docwork.review import ReviewBlocked, ReviewConflict
 from docwork.worker import PARSER_IMAGE, parser_command, process_one
 
@@ -213,6 +218,82 @@ with Image.open('/input/original') as source:
                              approval_hash=approval["approval_hash"],
                              export_sha256=[file["sha256"] for manifest in manifests.values() for file in manifest["files"]],
                              historical_export_preserved=True)
+
+    def test_model_outage_retry_reuses_real_two_page_parser_output(self):
+        document_id = self.store.submit(io.BytesIO(two_page_pdf()), "two-page.pdf", "application/pdf")
+        # A bound socket without listen deterministically refuses connections;
+        # this exercises the real HTTP adapter without a model or external API.
+        with socket.socket() as endpoint:
+            endpoint.bind(("127.0.0.1", 0))
+            config = LocalModelConfig(f"http://127.0.0.1:{endpoint.getsockname()[1]}", "offline-probe")
+            process_one(self.store, "outage-worker", extractor="span_llm", model_config=config)
+        self.assert_failed(document_id, "MODEL_UNAVAILABLE")
+        checkpoint = self.store.status(document_id)["parser_checkpoint"]
+        self.assertIsNotNone(checkpoint)
+        self.assertEqual(self.store.reconcile(prune=True, min_age_seconds=0)["removed"], [])
+        reopened = IntakeStore(self.store.database, self.store.object_root)
+        reopened.retry(document_id)
+        # An explicit profile change to rules is allowed. Only parsing is reused;
+        # no model-generated record or prior review decision exists.
+        with patch("docwork.worker._docker_run", side_effect=AssertionError("Parser must not rerun")):
+            process_one(reopened, "resumed-worker")
+        detail = reopened.get(document_id)
+        self.assertEqual(len(detail["pages"]), 2)
+        self.assertEqual(detail["record"]["line_items"][0]["line_total"]["evidence_ids"], ["p2-l0002"])
+        self.assertIsNone(detail["approval"])
+        reopened.approve(document_id, 1, "smoke-reviewer")
+        reopened.export(document_id, "json")
+        kinds = [event["kind"] for event in reopened.history(document_id)]
+        self.assertEqual(kinds.count("parser_checkpoint_saved"), 1)
+        self.assertEqual(kinds.count("parser_checkpoint_reused"), 1)
+        self.evidence.update(parser_checkpoint=checkpoint, reused_pages=2, parser_rerun=False,
+                             model_outage="Real HTTP connection refused on bound non-listening loopback socket",
+                             resumed_extractor="ocr_rules", approved_revision=1)
+
+    def test_abrupt_worker_exit_resumes_committed_parser_checkpoint(self):
+        sample = Path(__file__).resolve().parents[1] / "samples" / "clean.png"
+        document_id = self.store.submit(io.BytesIO(sample.read_bytes()), sample.name, "image/png")
+        code = """
+import os, sys
+from pathlib import Path
+from docwork.intake import IntakeStore
+from docwork.local_model import LocalModelConfig
+import docwork.worker as worker
+worker.WORKER_LEASE_SECONDS = 2
+worker.HEARTBEAT_SECONDS = .25
+def terminate_after_checkpoint(config, payload):
+    os._exit(73)
+store = IntakeStore(Path(sys.argv[1]), Path(sys.argv[2]))
+worker.process_one(store, 'exit-probe', extractor='span_llm',
+    model_config=LocalModelConfig('http://127.0.0.1:8080', 'exit-probe'),
+    model_request=terminate_after_checkpoint)
+"""
+        result = subprocess.run([sys.executable, "-c", code, str(self.store.database), str(self.store.object_root)],
+                                capture_output=True, text=True, timeout=90, check=False)
+        self.assertEqual(result.returncode, 73, result.stderr)
+        before = self.store.status(document_id)
+        self.assertEqual(before["job"]["status"], "PROCESSING")
+        self.assertIsNotNone(before["parser_checkpoint"])
+        self.assertEqual(before["current_revision"], 0)
+        self.assertEqual(list((self.store.object_root / "quarantine").iterdir()), [])
+        deadline = time.monotonic() + 5
+        resumed = None
+        with patch("docwork.worker._docker_run", side_effect=AssertionError("Parser must not rerun")):
+            while time.monotonic() < deadline and resumed is None:
+                resumed = process_one(self.store, "recovery-probe")
+                if resumed is None:
+                    time.sleep(.1)
+        self.assertEqual(resumed, document_id)
+        after = self.store.status(document_id)
+        self.assertEqual(after["job"]["attempts"], 2)
+        self.assertGreater(after["job"]["fence"], before["job"]["fence"])
+        self.assertEqual(after["status"], "REVIEW_READY")
+        self.assertEqual(self.store.get(document_id)["record"]["fields"]["invoice_number"]["value"], "AST-1001")
+        self.evidence.update(process_exit_code=73, lease_seconds=2,
+                             fence_before=before["job"]["fence"], fence_after=after["job"]["fence"],
+                             parser_checkpoint=after["parser_checkpoint"], parser_rerun=False,
+                             orphaned_scratch_directories=len(list((self.store.object_root / "quarantine").iterdir())),
+                             model_request="Exit callback; no model inference")
 
     def test_container_runtime_restrictions(self):
         code = """
