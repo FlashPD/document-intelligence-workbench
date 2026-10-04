@@ -1,0 +1,290 @@
+{
+  "version": "memory-sampling-coverage-v1",
+  "launches": {
+    "rules": [
+      {
+        "launch": "cold-0",
+        "sampler_errors": {
+          "host": 0,
+          "container": 0
+        },
+        "physical_footprint_status": "available",
+        "process_read_errors": 0,
+        "guest_sampling_errors": 0,
+        "guest_clean_shutdown": true,
+        "host_free_percentage_min": 62,
+        "host_free_plus_speculative_min_bytes": 159367168,
+        "parser_observations_with_active_worker": 0,
+        "host": {
+          "observations": 7,
+          "first_elapsed_seconds": 0.101,
+          "last_elapsed_seconds": 1.935,
+          "mean_gap_seconds": 0.305667,
+          "max_gap_seconds": 0.314
+        },
+        "container": {
+          "observations": 2,
+          "first_elapsed_seconds": 0.093,
+          "last_elapsed_seconds": 2.138,
+          "mean_gap_seconds": 2.045,
+          "max_gap_seconds": 2.045
+        },
+        "guest": {
+          "observations": 3,
+          "first_elapsed_seconds": 1.504242,
+          "last_elapsed_seconds": 2.011712,
+          "mean_gap_seconds": 0.253735,
+          "max_gap_seconds": 0.255583
+        }
+      },
+      {
+        "launch": "cold-1",
+        "sampler_errors": {
+          "host": 0,
+          "container": 0
+        },
+        "physical_footprint_status": "available",
+        "process_read_errors": 0,
+        "guest_sampling_errors": 0,
+        "guest_clean_shutdown": true,
+        "host_free_percentage_min": 62,
+        "host_free_plus_speculative_min_bytes": 164577280,
+        "parser_observations_with_active_worker": 0,
+        "host": {
+          "observations": 6,
+          "first_elapsed_seconds": 0.099,
+          "last_elapsed_seconds": 1.653,
+          "mean_gap_seconds": 0.3108,
+          "max_gap_seconds": 0.317
+        },
+        "container": {
+          "observations": 2,
+          "first_elapsed_seconds": 0.09,
+          "last_elapsed_seconds": 3.164,
+          "mean_gap_seconds": 3.074,
+          "max_gap_seconds": 3.074
+        },
+        "guest": {
+          "observations": 7,
+          "first_elapsed_seconds": 1.506326,
+          "last_elapsed_seconds": 3.035002,
+          "mean_gap_seconds": 0.254779,
+          "max_gap_seconds": 0.256948
+        }
+      },
+      {
+        "launch": "cold-2",
+        "sampler_errors": {
+          "host": 0,
+          "container": 0
+        },
+        "physical_footprint_status": "available",
+        "process_read_errors": 1,
+        "guest_sampling_errors": 0,
+        "guest_clean_shutdown": true,
+        "host_free_percentage_min": 62,
+        "host_free_plus_speculative_min_bytes": 138379264,
+        "parser_observations_with_active_worker": 0,
+        "host": {
+          "observations": 7,
+          "first_elapsed_seconds": 0.098,
+          "last_elapsed_seconds": 1.941,
+          "mean_gap_seconds": 0.307167,
+          "max_gap_seconds": 0.312
+        },
+        "container": {
+          "observations": 2,
+          "first_elapsed_seconds": 0.08,
+          "last_elapsed_seconds": 3.13,
+          "mean_gap_seconds": 3.05,
+          "max_gap_seconds": 3.05
+        },
+        "guest": {
+          "observations": 8,
+          "first_elapsed_seconds": 1.396006,
+          "last_elapsed_seconds": 3.180563,
+          "mean_gap_seconds": 0.254937,
+          "max_gap_seconds": 0.257902
+        }
+      },
+      {
+        "launch": "warm",
+        "sampler_errors": {
+          "host": 0,
+          "container": 0
+        },
+        "physical_footprint_status": "available",
+        "process_read_errors": 6,
+        "guest_sampling_errors": 0,
+        "guest_clean_shutdown": true,
+        "host_free_percentage_min": 59,
+        "host_free_plus_speculative_min_bytes": 70189056,
+        "parser_observations_with_active_worker": 11,
+        "host": {
+          "observations": 198,
+          "first_elapsed_seconds": 0.16,
+          "last_elapsed_seconds": 61.207,
+          "mean_gap_seconds": 0.309883,
+          "max_gap_seconds": 0.5
+        },
+        "container": {
+          "observations": 22,
+          "first_elapsed_seconds": 0.13,
+          "last_elapsed_seconds": 61.642,
+          "mean_gap_seconds": 2.929143,
+          "max_gap_seconds": 4.046
+        },
+        "guest": {
+          "observations": 237,
+          "first_elapsed_seconds": 1.915791,
+          "last_elapsed_seconds": 61.649204,
+          "mean_gap_seconds": 0.253108,
+          "max_gap_seconds": 0.265562
+        }
+      }
+    ],
+    "model": [
+      {
+        "launch": "cold-0",
+        "sampler_errors": {
+          "host": 0,
+          "container": 0
+        },
+        "physical_footprint_status": "available",
+        "process_read_errors": 7,
+        "guest_sampling_errors": 0,
+        "guest_clean_shutdown": true,
+        "host_free_percentage_min": 25,
+        "host_free_plus_speculative_min_bytes": 60899328,
+        "parser_observations_with_active_worker": 0,
+        "host": {
+          "observations": 294,
+          "first_elapsed_seconds": 0.098,
+          "last_elapsed_seconds": 109.898,
+          "mean_gap_seconds": 0.374744,
+          "max_gap_seconds": 0.995
+        },
+        "container": {
+          "observations": 49,
+          "first_elapsed_seconds": 0.096,
+          "last_elapsed_seconds": 109.896,
+          "mean_gap_seconds": 2.2875,
+          "max_gap_seconds": 3.144
+        },
+        "guest": {
+          "observations": 422,
+          "first_elapsed_seconds": 1.886363,
+          "last_elapsed_seconds": 109.893484,
+          "mean_gap_seconds": 0.256549,
+          "max_gap_seconds": 0.819798
+        }
+      },
+      {
+        "launch": "cold-1",
+        "sampler_errors": {
+          "host": 0,
+          "container": 0
+        },
+        "physical_footprint_status": "available",
+        "process_read_errors": 6,
+        "guest_sampling_errors": 0,
+        "guest_clean_shutdown": true,
+        "host_free_percentage_min": 27,
+        "host_free_plus_speculative_min_bytes": 66125824,
+        "parser_observations_with_active_worker": 1,
+        "host": {
+          "observations": 323,
+          "first_elapsed_seconds": 0.143,
+          "last_elapsed_seconds": 114.352,
+          "mean_gap_seconds": 0.354686,
+          "max_gap_seconds": 1.357
+        },
+        "container": {
+          "observations": 50,
+          "first_elapsed_seconds": 0.128,
+          "last_elapsed_seconds": 113.65,
+          "mean_gap_seconds": 2.316776,
+          "max_gap_seconds": 3.078
+        },
+        "guest": {
+          "observations": 438,
+          "first_elapsed_seconds": 2.599422,
+          "last_elapsed_seconds": 114.318481,
+          "mean_gap_seconds": 0.25565,
+          "max_gap_seconds": 0.892504
+        }
+      },
+      {
+        "launch": "cold-2",
+        "sampler_errors": {
+          "host": 0,
+          "container": 0
+        },
+        "physical_footprint_status": "available",
+        "process_read_errors": 3,
+        "guest_sampling_errors": 0,
+        "guest_clean_shutdown": true,
+        "host_free_percentage_min": 26,
+        "host_free_plus_speculative_min_bytes": 34963456,
+        "parser_observations_with_active_worker": 0,
+        "host": {
+          "observations": 311,
+          "first_elapsed_seconds": 0.107,
+          "last_elapsed_seconds": 101.455,
+          "mean_gap_seconds": 0.326929,
+          "max_gap_seconds": 0.82
+        },
+        "container": {
+          "observations": 46,
+          "first_elapsed_seconds": 0.09,
+          "last_elapsed_seconds": 103.253,
+          "mean_gap_seconds": 2.292511,
+          "max_gap_seconds": 3.175
+        },
+        "guest": {
+          "observations": 398,
+          "first_elapsed_seconds": 1.998185,
+          "last_elapsed_seconds": 103.183962,
+          "mean_gap_seconds": 0.254876,
+          "max_gap_seconds": 0.506893
+        }
+      },
+      {
+        "launch": "warm",
+        "sampler_errors": {
+          "host": 0,
+          "container": 0
+        },
+        "physical_footprint_status": "available",
+        "process_read_errors": 35,
+        "guest_sampling_errors": 0,
+        "guest_clean_shutdown": true,
+        "host_free_percentage_min": 24,
+        "host_free_plus_speculative_min_bytes": 54607872,
+        "parser_observations_with_active_worker": 5,
+        "host": {
+          "observations": 2798,
+          "first_elapsed_seconds": 0.102,
+          "last_elapsed_seconds": 910.719,
+          "mean_gap_seconds": 0.325569,
+          "max_gap_seconds": 1.716
+        },
+        "container": {
+          "observations": 396,
+          "first_elapsed_seconds": 0.098,
+          "last_elapsed_seconds": 911.228,
+          "mean_gap_seconds": 2.306658,
+          "max_gap_seconds": 3.944
+        },
+        "guest": {
+          "observations": 3554,
+          "first_elapsed_seconds": 2.027183,
+          "last_elapsed_seconds": 911.209007,
+          "mean_gap_seconds": 0.255891,
+          "max_gap_seconds": 1.530454
+        }
+      }
+    ]
+  },
+  "scope": "Derived observation windows/gaps, not proof of continuous peak coverage. Host pressure is query-only; free/speculative pages are not available RAM."
+}

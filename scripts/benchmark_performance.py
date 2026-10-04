@@ -22,6 +22,7 @@ from docwork.operations import seconds, snapshot
 from docwork.performance import VERSION, freeze, read_protocol, source_hashes, summarize, write
 from docwork.web import ReviewServer
 from docwork.worker import PARSER_IMAGE, _docker_image_id
+from memory_accounting import METHOD, DarwinFootprint, GuestObserver, physical_sample, summarize_memory
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -31,16 +32,26 @@ def command(args, timeout=3):
 
 
 class MemorySampler:
-    def __init__(self, application_pid):
+    def __init__(self, application_pid, parser_image):
         self.pid, self.stop = application_pid, threading.Event()
         self.host, self.containers = [], []
         self.errors = {"host": 0, "container": 0}
         self.started = time.monotonic()
         self.wall_started = time.time()
+        self.guest = GuestObserver(parser_image, self.started)
+        self.footprint = None
+        self.footprint_status = "unavailable_on_platform"
+        if platform.system() == "Darwin":
+            try:
+                self.footprint = DarwinFootprint()
+                self.footprint_status = "available"
+            except (OSError, AttributeError):
+                self.footprint_status = "initialization_failed"
         self.threads = [threading.Thread(target=self.sample_host, daemon=True),
                         threading.Thread(target=self.sample_container, daemon=True)]
 
     def start(self):
+        self.guest.start()
         for thread in self.threads:
             thread.start()
 
@@ -73,6 +84,8 @@ class MemorySampler:
                     # Query-only mode: never induce pressure or allocate memory.
                     pressure = command(["memory_pressure", "-Q"])
                     sample["host_free_percentage"] = int(re.search(r"free percentage:\s+(\d+)%", pressure)[1])
+                if self.footprint is not None:
+                    sample["physical_footprint"] = physical_sample(rows, descendants, self.footprint)
                 self.host.append(sample)
             except (OSError, ValueError, TypeError, subprocess.SubprocessError):
                 self.errors["host"] += 1
@@ -85,7 +98,7 @@ class MemorySampler:
                 values = []
                 for line in raw.splitlines():
                     row = json.loads(line)
-                    if row["Name"].startswith("docwork-"):
+                    if re.fullmatch(r"docwork-[0-9a-f]{16}-[0-9]+", row["Name"]):
                         value = row["MemUsage"].split(" / ")[0]
                         match = re.fullmatch(r"([0-9.]+)(B|KiB|MiB|GiB|kB|MB|GB)", value)
                         multiplier = {"B": 1, "KiB": 1024, "MiB": 1024**2, "GiB": 1024**3,
@@ -101,7 +114,8 @@ class MemorySampler:
         self.stop.set()
         for thread in self.threads:
             thread.join(timeout=7)
-        result = {"host_samples": self.host, "container_samples": self.containers, "sampling_errors": self.errors}
+        result = {"host_samples": self.host, "container_samples": self.containers, "sampling_errors": self.errors,
+                  "physical_footprint_status": self.footprint_status, "guest_vm": self.guest.close()}
         result["sampled_component_peaks_bytes"] = {name: max((row[name] for row in self.host), default=None)
             for name in ("application_rss_bytes", "model_rss_bytes", "docker_backend_rss_bytes")}
         result["sampled_component_peaks_bytes"]["parser_working_set_bytes"] = max(
@@ -129,12 +143,12 @@ class Client:
 
 @contextmanager
 def launch(protocol_dir, workbench, variant, memory_reports):
+    parser_image = read_protocol(ROOT, protocol_dir)["parser_image"]
     started = time.monotonic()
     process = subprocess.Popen([sys.executable, str(Path(__file__).resolve()), "child", str(protocol_dir),
         "--workbench", str(workbench), "--variant", variant], stdout=subprocess.PIPE,
         stderr=subprocess.DEVNULL, text=True, env={**os.environ, "PYTHONPATH": str(ROOT / "src")}, cwd=ROOT)
-    sampler = MemorySampler(process.pid)
-    sampler.start()
+    sampler = MemorySampler(process.pid, parser_image)
     ready, handshake = threading.Event(), []
 
     def receive():
@@ -147,8 +161,9 @@ def launch(protocol_dir, workbench, variant, memory_reports):
         ready.set()
 
     reader = threading.Thread(target=receive, daemon=True)
-    reader.start()
     try:
+        sampler.start()
+        reader.start()
         if not ready.wait(180) or not handshake:
             raise RuntimeError("STARTUP_FAILED")
         client = Client(handshake[0]["port"], handshake[0]["token"])
@@ -172,7 +187,8 @@ def launch(protocol_dir, workbench, variant, memory_reports):
             memory["model_runtime"] = json.loads((workbench / "runtime.json").read_text())
         memory_reports.append(memory)
         process.stdout.close()
-        reader.join(timeout=1)
+        if reader.ident is not None:
+            reader.join(timeout=1)
 
 
 def submit(client, task, variant):
@@ -273,11 +289,14 @@ def run(protocol_dir, output, variant):
         if _docker_image_id(PARSER_IMAGE) != protocol["parser_image"]:
             raise ValueError("Parser changed during measurement")
         report["summary"] = summarize(protocol, variant, measurements)
+        report["memory_accounting"] = summarize_memory(memories)
         if any(not memory["clean_shutdown"] or (variant == "span_llm" and not memory.get("model_runtime", {}).get("shutdown_complete")) or
                any(sample["competing_model_processes"] or abs(sample["wall_elapsed_seconds"] - sample["elapsed_seconds"]) > 5
                    for sample in memory["host_samples"])
                for memory in memories):
             raise ValueError("Unclean shutdown or competing inference invalidates controlled measurement")
+        if any(not memory["guest_vm"]["clean_shutdown"] for memory in memories):
+            raise ValueError("Owned guest memory observer cleanup was not confirmed")
         report["status"] = "complete"
     except Exception as exc:
         report["failure_type"] = type(exc).__name__
@@ -320,6 +339,11 @@ def verify(protocol_dir, directory):
         raise ValueError("Raw performance measurements changed")
     if len(report["memory"]) != 4 or len(report["readiness"]) != 4:
         raise ValueError("Missing launch evidence")
+    if protocol["memory_method"].get("version") == METHOD:
+        if report.get("memory_accounting") != summarize_memory(report["memory"]):
+            raise ValueError("Memory accounting changed")
+        if any(not memory.get("guest_vm", {}).get("clean_shutdown") for memory in report["memory"]):
+            raise ValueError("Missing guest observer cleanup evidence")
     for memory in report["memory"]:
         if not memory["clean_shutdown"] or (report["variant"] == "span_llm" and
                 not memory.get("model_runtime", {}).get("shutdown_complete")):

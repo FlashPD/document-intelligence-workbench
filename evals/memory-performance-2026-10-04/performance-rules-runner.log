@@ -1,0 +1,168 @@
+ocr_rules: cold launch 1/3
+ocr_rules: cold launch 2/3
+ocr_rules: cold launch 3/3
+ocr_rules: warmup
+ocr_rules: warm-0
+ocr_rules: warm-1
+ocr_rules: warm-2
+ocr_rules: warm-3
+ocr_rules: warm-4
+ocr_rules: warm-5
+ocr_rules: warm-6
+ocr_rules: warm-7
+ocr_rules: warm-8
+ocr_rules: warm-9
+ocr_rules: queue 1/20
+ocr_rules: queue 2/20
+ocr_rules: queue 3/20
+ocr_rules: queue 4/20
+ocr_rules: queue 5/20
+ocr_rules: queue 6/20
+ocr_rules: queue 7/20
+ocr_rules: queue 8/20
+ocr_rules: queue 9/20
+ocr_rules: queue 10/20
+ocr_rules: queue 11/20
+ocr_rules: queue 12/20
+ocr_rules: queue 13/20
+ocr_rules: queue 14/20
+ocr_rules: queue 15/20
+ocr_rules: queue 16/20
+ocr_rules: queue 17/20
+ocr_rules: queue 18/20
+ocr_rules: queue 19/20
+ocr_rules: queue 20/20
+{
+  "status": "complete",
+  "summary": {
+    "groups": {
+      "cold": {
+        "scheduled": 3,
+        "ready": 3,
+        "failed": 0,
+        "upload_to_terminal": {
+          "count": 3,
+          "sum_seconds": 5.030029,
+          "p50_seconds": 1.688537,
+          "p95_seconds": 1.699815
+        },
+        "startup": {
+          "count": 3,
+          "sum_seconds": 0.587155,
+          "p50_seconds": 0.19694,
+          "p95_seconds": 0.20495
+        },
+        "cold_workflow": {
+          "count": 3,
+          "sum_seconds": 5.726524,
+          "p50_seconds": 1.920683,
+          "p95_seconds": 1.93424
+        },
+        "stages": {
+          "parsing": {
+            "count": 3,
+            "sum_seconds": 4.924201,
+            "p50_seconds": 1.643791,
+            "p95_seconds": 1.661826
+          },
+          "extracting": {
+            "count": 3,
+            "sum_seconds": 0.005256,
+            "p50_seconds": 0.001796,
+            "p95_seconds": 0.001796
+          },
+          "checking": {
+            "count": 3,
+            "sum_seconds": 0.013788,
+            "p50_seconds": 0.004403,
+            "p95_seconds": 0.005029
+          }
+        }
+      },
+      "warm": {
+        "scheduled": 10,
+        "ready": 10,
+        "failed": 0,
+        "upload_to_terminal": {
+          "count": 10,
+          "sum_seconds": 16.730245,
+          "p50_seconds": 1.630049,
+          "p95_seconds": 1.867805
+        },
+        "startup": {
+          "count": 10,
+          "sum_seconds": 0,
+          "p50_seconds": 0,
+          "p95_seconds": 0
+        },
+        "cold_workflow": null,
+        "stages": {
+          "parsing": {
+            "count": 10,
+            "sum_seconds": 16.207125,
+            "p50_seconds": 1.576851,
+            "p95_seconds": 1.807099
+          },
+          "extracting": {
+            "count": 10,
+            "sum_seconds": 0.018821,
+            "p50_seconds": 0.001665,
+            "p95_seconds": 0.003014
+          },
+          "checking": {
+            "count": 10,
+            "sum_seconds": 0.047918,
+            "p50_seconds": 0.004173,
+            "p95_seconds": 0.00778
+          }
+        }
+      },
+      "queue": {
+        "scheduled": 20,
+        "ready": 20,
+        "failed": 0,
+        "upload_to_terminal": {
+          "count": 20,
+          "sum_seconds": 372.321024,
+          "p50_seconds": 16.588543,
+          "p95_seconds": 37.56822
+        },
+        "startup": {
+          "count": 20,
+          "sum_seconds": 0,
+          "p50_seconds": 0,
+          "p95_seconds": 0
+        },
+        "cold_workflow": null,
+        "stages": {
+          "parsing": {
+            "count": 20,
+            "sum_seconds": 41.596382,
+            "p50_seconds": 1.705153,
+            "p95_seconds": 3.706819
+          },
+          "extracting": {
+            "count": 20,
+            "sum_seconds": 0.034822,
+            "p50_seconds": 0.001653,
+            "p95_seconds": 0.002161
+          },
+          "checking": {
+            "count": 20,
+            "sum_seconds": 0.232779,
+            "p50_seconds": 0.00979,
+            "p95_seconds": 0.017671
+          }
+        },
+        "batch_start_to_drain_seconds": 42.108739,
+        "pages_ready": 24,
+        "pages_per_minute": 34.197,
+        "max_observed_active": 1
+      }
+    },
+    "rules_latency_gate": "pass",
+    "scheduled": 34,
+    "failures": 0,
+    "memory_acceptance": "pending: physical-footprint and guest-VM counters do not establish exclusive host VM residency or a whole-application union"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "version": "post-run-vm-diagnostic-v1",
+  "observed_at_utc": "2026-10-04T18:01:38.932519+00:00",
+  "virtualization_processes": [
+    {
+      "pid": 13227,
+      "start_abstime": 11590419914779,
+      "physical_footprint_bytes": 37784000,
+      "lifetime_max_physical_footprint_bytes": 38832576,
+      "resident_bytes": 37240832,
+      "wired_bytes": 311296
+    }
+  ],
+  "selected_settings": {
+    "MemoryMiB": 8092,
+    "UseVirtualizationFramework": true,
+    "UseVirtualizationFrameworkRosetta": true,
+    "UseVirtualizationFrameworkVirtioFS": true
+  },
+  "source_sha256": "578803f485fd7ea6aa1c7a9747572963c4fc3a8cb5ecd8c5c9e86ebe32b3caae",
+  "scope": "Separate read-only diagnostic after controlled timing; not workload peak evidence, exclusive VM residency, a simultaneous total, or proof of effective configured memory cap."
+}

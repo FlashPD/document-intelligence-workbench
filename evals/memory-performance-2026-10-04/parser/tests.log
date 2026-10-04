@@ -1,0 +1,22 @@
+test_abrupt_worker_exit_resumes_committed_parser_checkpoint (container_parser.ParserSmoke.test_abrupt_worker_exit_resumes_committed_parser_checkpoint) ... ok
+test_backup_restores_interrupted_real_parser_checkpoint (container_parser.ParserSmoke.test_backup_restores_interrupted_real_parser_checkpoint) ... ok
+test_backup_restores_real_pdf_review_and_immutable_exports (container_parser.ParserSmoke.test_backup_restores_real_pdf_review_and_immutable_exports) ... ok
+test_container_conflict_review_export_and_reopen (container_parser.ParserSmoke.test_container_conflict_review_export_and_reopen) ... ok
+test_container_duplicate_submissions_have_independent_approval (container_parser.ParserSmoke.test_container_duplicate_submissions_have_independent_approval) ... ok
+test_container_jpeg_exif_rotation (container_parser.ParserSmoke.test_container_jpeg_exif_rotation) ... ok
+test_container_missing_image_retry (container_parser.ParserSmoke.test_container_missing_image_retry) ... ok
+test_container_processes_committed_png (container_parser.ParserSmoke.test_container_processes_committed_png) ... ok
+test_container_processes_two_page_pdf (container_parser.ParserSmoke.test_container_processes_two_page_pdf) ... ok
+test_container_rejects_eleven_page_pdf (container_parser.ParserSmoke.test_container_rejects_eleven_page_pdf) ... ok
+test_container_rejects_malformed_pdf (container_parser.ParserSmoke.test_container_rejects_malformed_pdf) ... ok
+test_container_rejects_truncated_png (container_parser.ParserSmoke.test_container_rejects_truncated_png) ... ok
+test_container_runtime_restrictions (container_parser.ParserSmoke.test_container_runtime_restrictions) ... ok
+test_model_outage_retry_reuses_real_two_page_parser_output (container_parser.ParserSmoke.test_model_outage_retry_reuses_real_two_page_parser_output) ... ok
+test_cgroup_oom_is_recorded_then_real_parser_retry_succeeds (container_resources.ParserResourceChecks.test_cgroup_oom_is_recorded_then_real_parser_retry_succeeds) ... ok
+test_timeout_kills_container_then_real_parser_retry_succeeds (container_resources.ParserResourceChecks.test_timeout_kills_container_then_real_parser_retry_succeeds) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 44.854s
+
+OK
+{"status": "passed", "checks": 16, "report": "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/artifacts/memory-method-parser-2026-10-04-001/report.json"}

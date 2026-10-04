@@ -1,0 +1,149 @@
+{
+  "version": "memory-accounting-preflight-v1",
+  "status": "passed",
+  "abi_expected": [
+    296,
+    72,
+    240
+  ],
+  "abi_observed": [
+    296,
+    72,
+    240
+  ],
+  "process_before": {
+    "pid": 13392,
+    "start_abstime": 11596263910500,
+    "physical_footprint_bytes": 11715840,
+    "lifetime_max_physical_footprint_bytes": 11879680,
+    "resident_bytes": 21331968,
+    "wired_bytes": 0
+  },
+  "process_touched_64_mib": {
+    "pid": 13392,
+    "start_abstime": 11596263910500,
+    "physical_footprint_bytes": 78890368,
+    "lifetime_max_physical_footprint_bytes": 78890368,
+    "resident_bytes": 88473600,
+    "wired_bytes": 0
+  },
+  "process_released": {
+    "pid": 13392,
+    "start_abstime": 11596263910500,
+    "physical_footprint_bytes": 78890368,
+    "lifetime_max_physical_footprint_bytes": 78890368,
+    "resident_bytes": 88473600,
+    "wired_bytes": 0
+  },
+  "parser_image": "sha256:5dc04998631038c528372ac1fe747e52a6227d4aca01225bc354a49fb1a8eb43",
+  "guest_vm": {
+    "samples": [
+      {
+        "received_elapsed_seconds": 1.893043,
+        "guest_uptime_seconds": 247.18,
+        "meminfo_bytes": {
+          "MemTotal": 8215117824,
+          "MemFree": 7455313920,
+          "MemAvailable": 7662952448,
+          "Buffers": 22949888,
+          "Cached": 329732096,
+          "SwapTotal": 1073737728,
+          "SwapFree": 1073737728,
+          "Shmem": 520192,
+          "Slab": 44875776,
+          "SReclaimable": 11026432,
+          "KernelStack": 3997696,
+          "PageTables": 2486272
+        },
+        "observer_memory_current_bytes": 10678272,
+        "observer_memory_peak_bytes": 10821632
+      },
+      {
+        "received_elapsed_seconds": 2.145973,
+        "guest_uptime_seconds": 247.43,
+        "meminfo_bytes": {
+          "MemTotal": 8215117824,
+          "MemFree": 7455313920,
+          "MemAvailable": 7662952448,
+          "Buffers": 22949888,
+          "Cached": 329736192,
+          "SwapTotal": 1073737728,
+          "SwapFree": 1073737728,
+          "Shmem": 520192,
+          "Slab": 44875776,
+          "SReclaimable": 11026432,
+          "KernelStack": 3997696,
+          "PageTables": 2486272
+        },
+        "observer_memory_current_bytes": 10678272,
+        "observer_memory_peak_bytes": 10821632
+      },
+      {
+        "received_elapsed_seconds": 2.406127,
+        "guest_uptime_seconds": 247.69,
+        "meminfo_bytes": {
+          "MemTotal": 8215117824,
+          "MemFree": 7455313920,
+          "MemAvailable": 7662952448,
+          "Buffers": 22949888,
+          "Cached": 329736192,
+          "SwapTotal": 1073737728,
+          "SwapFree": 1073737728,
+          "Shmem": 520192,
+          "Slab": 44875776,
+          "SReclaimable": 11026432,
+          "KernelStack": 3997696,
+          "PageTables": 2486272
+        },
+        "observer_memory_current_bytes": 10678272,
+        "observer_memory_peak_bytes": 10821632
+      },
+      {
+        "received_elapsed_seconds": 2.658859,
+        "guest_uptime_seconds": 247.94,
+        "meminfo_bytes": {
+          "MemTotal": 8215117824,
+          "MemFree": 7455313920,
+          "MemAvailable": 7662952448,
+          "Buffers": 22949888,
+          "Cached": 329736192,
+          "SwapTotal": 1073737728,
+          "SwapFree": 1073737728,
+          "Shmem": 520192,
+          "Slab": 44875776,
+          "SReclaimable": 11026432,
+          "KernelStack": 3997696,
+          "PageTables": 2486272
+        },
+        "observer_memory_current_bytes": 10678272,
+        "observer_memory_peak_bytes": 10821632
+      },
+      {
+        "received_elapsed_seconds": 2.91742,
+        "guest_uptime_seconds": 248.2,
+        "meminfo_bytes": {
+          "MemTotal": 8215117824,
+          "MemFree": 7455313920,
+          "MemAvailable": 7662952448,
+          "Buffers": 22949888,
+          "Cached": 329736192,
+          "SwapTotal": 1073737728,
+          "SwapFree": 1073737728,
+          "Shmem": 520192,
+          "Slab": 44875776,
+          "SReclaimable": 11026432,
+          "KernelStack": 3997696,
+          "PageTables": 2486272
+        },
+        "observer_memory_current_bytes": 10678272,
+        "observer_memory_peak_bytes": 10821632
+      }
+    ],
+    "sampling_errors": 0,
+    "clean_shutdown": true,
+    "cleanup_failure": null,
+    "scope": "Whole Linux VM meminfo, including daemon/kernel/cache and a bounded measurement observer; parser working sets are nested. Guest occupancy is not host VM residency or app-exclusive use."
+  },
+  "source_sha256": "d3455821eb0d0f8f2fedb9bb248dacb1e2b12fd3f536e9de82cd8aef7791f487",
+  "scope": "Disposable allocation demonstrates charged-memory and lifetime high-water counters; guest read-only observer and owned cleanup. Not production latency, model GPU memory, exclusive host VM residency or whole-app peak evidence."
+}

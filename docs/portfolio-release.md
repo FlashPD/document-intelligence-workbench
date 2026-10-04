@@ -83,7 +83,7 @@ make parser-verify OUTPUT=artifacts/parser-checkout-fresh.json
 make dev
 ```
 
-Building the image needs registry/package network access the first time. Subsequent parser jobs run the locally built immutable image with no network. The Dockerfile pins Python and Pillow versions but its base tag and apt packages are not fully content-pinned build inputs; the saved image ID establishes what actually ran, not a reproducible future package resolution.
+Building the image needs registry/package network access during explicit setup. Subsequent parser jobs run the locally built immutable image with no network. The published experimental tag used a base tag and unpinned apt resolution; its saved image ID identifies that historical runtime. Current development pins the base digest, signed Debian snapshots, package/language versions and wheel hashes through the [parser build lock](parser-build.md). Its two uncached dependency rebuilds do not establish bit-identical OCI images or an air-gapped fresh build.
 
 For the pinned Apple Silicon model, use the [model setup guide](intake.md#pinned-local-model-evaluation). `make models-fetch` is an explicit roughly 2.5 GB weights download plus runtime assets. After setup:
 

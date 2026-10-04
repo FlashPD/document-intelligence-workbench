@@ -1,0 +1,92 @@
+{
+  "status": "verified",
+  "summary": {
+    "groups": {
+      "cold": {
+        "scheduled": 3,
+        "ready": 3,
+        "failed": 0,
+        "upload_to_terminal": {
+          "count": 3,
+          "sum_seconds": 300.762248,
+          "p50_seconds": 101.42508,
+          "p95_seconds": 105.081661
+        },
+        "startup": {
+          "count": 3,
+          "sum_seconds": 24.302644,
+          "p50_seconds": 8.209564,
+          "p95_seconds": 9.060215
+        },
+        "cold_workflow": {
+          "count": 3,
+          "sum_seconds": 325.24264,
+          "p50_seconds": 109.692344,
+          "p95_seconds": 114.210096
+        },
+        "stages": {
+          "parsing": {
+            "count": 3,
+            "sum_seconds": 6.185788,
+            "p50_seconds": 1.820938,
+            "p95_seconds": 2.611337
+          },
+          "extracting": {
+            "count": 3,
+            "sum_seconds": 294.382604,
+            "p50_seconds": 99.521815,
+            "p95_seconds": 102.434147
+          },
+          "checking": {
+            "count": 3,
+            "sum_seconds": 0.027621,
+            "p50_seconds": 0.006786,
+            "p95_seconds": 0.01531
+          }
+        }
+      },
+      "warm": {
+        "scheduled": 10,
+        "ready": 10,
+        "failed": 0,
+        "upload_to_terminal": {
+          "count": 10,
+          "sum_seconds": 808.179507,
+          "p50_seconds": 81.735111,
+          "p95_seconds": 93.472911
+        },
+        "startup": {
+          "count": 10,
+          "sum_seconds": 0,
+          "p50_seconds": 0,
+          "p95_seconds": 0
+        },
+        "cold_workflow": null,
+        "stages": {
+          "parsing": {
+            "count": 10,
+            "sum_seconds": 18.952667,
+            "p50_seconds": 1.849058,
+            "p95_seconds": 2.26746
+          },
+          "extracting": {
+            "count": 10,
+            "sum_seconds": 788.55915,
+            "p50_seconds": 79.805538,
+            "p95_seconds": 91.101507
+          },
+          "checking": {
+            "count": 10,
+            "sum_seconds": 0.115769,
+            "p50_seconds": 0.00798,
+            "p95_seconds": 0.033724
+          }
+        }
+      }
+    },
+    "rules_latency_gate": "not_applicable",
+    "scheduled": 14,
+    "failures": 0,
+    "memory_acceptance": "pending: physical-footprint and guest-VM counters do not establish exclusive host VM residency or a whole-application union"
+  }
+}

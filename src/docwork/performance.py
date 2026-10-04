@@ -22,7 +22,8 @@ def write(path, value):
 
 def source_hashes(root):
     paths = sorted([*root.glob("src/docwork/*.py"), *root.glob("ui/*"),
-                    root / "scripts/benchmark_performance.py", root / "sandbox/Dockerfile"])
+                    root / "scripts/benchmark_performance.py", root / "scripts/memory_accounting.py",
+                    root / ".dockerignore", *(path for path in (root / "sandbox").glob("*") if path.is_file())])
     return {str(path.relative_to(root)): file_hash(path) for path in paths if path.is_file()}
 
 
@@ -57,14 +58,25 @@ def freeze(root, output, *, parser_image, host_workloads):
         "resources": {"parser_memory_bytes": 1024**3, "parser_cpus": 2, "parser_pids": 64,
                       "parser_deadline_seconds": 600, "artifact_growth_bytes": 20 * 1024**3,
                       "disk_reserve_bytes": 256 * 1024**2},
-        "memory_method": {"host_sample_interval_seconds": .25, "container_sample_interval_seconds": 1,
+        "memory_method": {"version": "component-memory-v2",
+            "host_sample_interval_seconds": .25, "container_sample_interval_seconds": 1,
             "components": "Application process-tree RSS excluding llama; llama RSS separately; Docker backend RSS "
                           "includes VM/support overhead. Container working set nested inside Docker, never summed with VM RSS.",
             "limits": "Sampled lower bounds, not exact peaks. Process RSS may share pages and does not measure Metal "
                       "allocations or unified-memory ownership. Docker backend RSS is not an exclusive VM allocation. "
                       "No aggregate whole-application peak or GPU-memory claim. Missing samples remain explicit.",
             "host_headroom": "vm_stat free plus speculative pages only; not total reclaimable/available RAM. "
-                             "Host load and memory_pressure free percentage sampled; not dedicated idle hardware."}}
+                             "Host load and memory_pressure free percentage sampled; not dedicated idle hardware.",
+            "darwin_footprint": "libproc RUSAGE_INFO_V4: per-process physical footprint, lifetime high-water, "
+                                "resident and wired bytes, identified by PID and process start time. Includes "
+                                "OS-charged compressed/IOKit memory; not every clean mapped page or exclusive GPU allocation.",
+            "guest_vm": "A separately owned unprivileged network-denied read-only observer uses the immutable parser "
+                        "image, samples /proc/meminfo every .25 s, and records its own cgroup current/peak memory. "
+                        "Limited to 32 MiB, no swap, 0.1 CPU and 16 PIDs. Guest usage includes daemon/kernel/cache; "
+                        "it is not host VM residency. Parser working sets are nested and observer is excluded from parser stats.",
+            "aggregation": "Never add guest memory to host/model/backend footprints or parser working sets. "
+                           "Single-process lifetime high-water values may predate this workload, especially Docker; "
+                           "they are not simultaneous totals. Application-exclusive host/VM union remains pending."}}
     output.mkdir(parents=True)
     write(output / "protocol.json", protocol)
     return protocol
@@ -142,4 +154,7 @@ def summarize(protocol, variant, measurements):
             warm["upload_to_terminal"]["p95_seconds"] <= protocol["rules_warm_p95_budget_seconds"] else "fail")
             if variant == "ocr_rules" else "not_applicable",
             "scheduled": len(measurements), "failures": sum(bool(row["error_code"]) for row in measurements),
-            "memory_acceptance": "pending: sampled component RSS cannot establish whole-application unified-memory peak"}
+            "memory_acceptance": ("pending: physical-footprint and guest-VM counters do not establish exclusive "
+                                  "host VM residency or a whole-application union"
+                                  if protocol.get("memory_method", {}).get("version") == "component-memory-v2"
+                                  else "pending: sampled component RSS cannot establish whole-application unified-memory peak")}

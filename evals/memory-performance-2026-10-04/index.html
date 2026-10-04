@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Document workbench: footprint and performance evidence</title>
+<style>body{font:17px/1.6 system-ui,sans-serif;background:#f6f4ee;color:#202b31;max-width:1000px;margin:4rem auto;padding:0 1.5rem}h1{line-height:1.2}.status{color:#8b3c13;font-weight:700}.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem}.metrics div{background:white;border:1px solid #ccd4d5;padding:1.2rem}strong,span{display:block}strong{font-size:1.8rem}a{color:#145d72}code{overflow-wrap:anywhere}</style>
+<h1>Charged memory and controlled upload timing</h1><p>October 4, 2026 · Apple Silicon local workbench</p>
+<p class="status">Full v1 pending: these results close the pinned-model timing gap, while total-memory and genuine-scan acceptance remain open.</p>
+<div class="metrics"><div><strong>1.868 s</strong><span>Rules warm P95</span></div><div><strong>93.473 s</strong><span>Model warm P95</span></div><div><strong>34 / 34</strong><span>Rules ready</span></div><div><strong>14 / 14</strong><span>Model ready</span></div></div>
+<p>Three cold launches, one separate warmup and ten fresh warm uploads per profile. The rules queue processes 24 pages in 42.109 seconds. All scheduled uploads reach review-ready without retries or checkpoint reuse.</p>
+<p>Native process footprint/high-water and whole-guest Linux counters are retained separately. Host VM residency and driver ownership remain unestablished; nested guest, parser and host measurements are never summed into a whole-application peak.</p>
+<p><a href="README.md">Complete methods, results and limitations</a> · <a href="performance-freeze/protocol.json">Frozen protocol</a> · <a href="sampling-coverage.json">Sampling coverage</a></p>
+<p><a href="performance-rules/report.json">Rules report</a> · <a href="performance-model/report.json">Model report</a> · <a href="parser/report.json">Sixteen live parser checks</a> · <a href="preflight/report.json">Native ABI preflight</a></p>
+<p>Known fictional originals measure workflow timing. They do not establish real-vendor accuracy, semantic evidence correctness, human effort or time saved. This page records local observations with exact source/image identities; it is not a published release.</p>
+<p><code>sha256:09c23c3cf290412c5ae523c636c098d7f11c6a17a6a6ca6261e27419bfb6485c</code></p></html>
