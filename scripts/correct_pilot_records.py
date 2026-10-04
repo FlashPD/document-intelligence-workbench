@@ -33,7 +33,8 @@ CORRECTIONS = (
 )
 SOURCES = ("scripts/correct_pilot_records.py", "scripts/archive_review_pilot.py",
            "src/docwork/review.py", "src/docwork/intake.py", "src/docwork/validation.py",
-           "src/docwork/release_scoring.py", "src/docwork/pilot_bundle.py")
+           "src/docwork/release_scoring.py", "src/docwork/pilot_bundle.py",
+           "src/docwork/storage_budget.py", "src/docwork/lifecycle.py", "src/docwork/contracts.py")
 
 
 def prepare(root: Path, session: Path) -> dict:

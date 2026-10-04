@@ -1,6 +1,6 @@
 # Processing and document lifecycle
 
-The live local workbench processes uploads automatically and serially. B02 adds durable processing profiles, per-file batch outcomes, cancellation, explicit reprocessing, tracked deletion and storage growth guards. These capabilities support the [v1 contract](v1-release-contract.md); reviewer identity, new scan studies and final release acceptance remain separate [backlog](backlog.md) work.
+The live local workbench processes uploads automatically and serially. B02 adds durable processing profiles, per-file batch outcomes, cancellation, explicit reprocessing, tracked deletion and storage growth guards. These capabilities support the [v1 contract](v1-release-contract.md); [reviewer authority](access.md) is covered by B03; new scan studies and final acceptance remain [backlog](backlog.md) work.
 
 ## Start and submit
 

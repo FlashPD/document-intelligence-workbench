@@ -96,7 +96,7 @@ def main():
             (output / "review-ready.png").write_bytes(base64.b64decode(client.call("Page.captureScreenshot")["data"]))
             detail = api("GET", f"/api/documents/{doc}")
             assert detail["revision"] == 1 and detail["extraction"]["profile"] == "ocr_rules"
-            api("POST", f"/api/documents/{doc}/approve", {"revision": 1, "actor": "scripted-lifecycle-verification"})
+            api("POST", f"/api/documents/{doc}/approve", {"revision": 1})
             manifest = api("POST", f"/api/documents/{doc}/export", {"format": "json"})
             exported = api("GET", manifest["files"][0]["url"], raw=True)
             # The real browser queues a fresh parse and polls until it can review.

@@ -57,10 +57,8 @@ async function initializePilot() {
   $("empty").querySelector("h2").textContent = "Begin the timed pilot";
   $("empty").querySelector("p").textContent = "Start the next invoice to open its source and suggestions. Review every field and row, then approve and export JSON.";
   document.querySelector(".mode").textContent = "Author pilot · recorded OCR rules";
-  if ($("actor").value === "demo-reviewer") $("actor").value = "project-author";
   const trial = openPilotTrial();
   if (trial) {
-    $("actor").value = trial.actor;
     if (trial.status === "RUNNING") await pilotEvent("pause");
     await selectDocument(trial.document_id);
   }
@@ -70,7 +68,7 @@ async function initializePilot() {
 $("pilot-start").addEventListener("click", () => action(async () => {
   $("pilot-start").disabled = true;
   try {
-    pilotData = await post("/api/pilot/start", { document_id: pilotData.next_document.document_id, actor: actor() });
+    pilotData = await post("/api/pilot/start", { document_id: pilotData.next_document.document_id });
     renderPilot();
     await selectDocument(openPilotTrial().document_id);
     notice("Timing started. Review all headers and every line item against the source.");

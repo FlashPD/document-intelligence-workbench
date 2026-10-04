@@ -141,7 +141,7 @@ def main() -> int:
                 client.call("Page.enable")
                 client.call("Page.navigate", {"url": f"{server.origin}/?token={server.token}"})
                 client.wait("typeof pilotData !== 'undefined' && pilotData !== null && !$('pilot-panel').hidden")
-                client.evaluate("$('actor').value = 'automated-browser-check'")
+                assert client.evaluate("$('actor').readOnly && $('actor').value.startsWith('local:')")
                 assert client.evaluate("$('queue').closest('.panel').hidden && $('seed-clean').closest('.actions').hidden")
                 assert client.evaluate("fetch('/api/documents/' + pilotData.next_document.document_id).then(response => response.status)") == 422
                 client.evaluate("$('pilot-start').click()")
@@ -169,7 +169,8 @@ def main() -> int:
                           "checks": ["declared pilot mode", "no source before start", "source canvas and field highlight",
                                      "hidden empty workspace", "pause hides review", "reviewer label locked",
                                      "resume", "approval", "JSON export", "completion"],
-                          "source_sha256": protocol["source_sha256"],
+                          "source_sha256": {**protocol["source_sha256"],
+                                            "src/docwork/access.py": hashlib.sha256((root / "src/docwork/access.py").read_bytes()).hexdigest()},
                           "verification_script_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                           "screenshot_sha256": hashlib.sha256((output / "review.png").read_bytes()).hexdigest(),
                           "scope": "Automated Chrome UI check on one disposable development fixture. "

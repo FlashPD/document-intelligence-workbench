@@ -8,7 +8,7 @@ Start with the [portfolio overview](docs/portfolio-candidate.md), [standalone co
 
 **Continuing development:** read the [full release backlog](docs/backlog.md) for completed work and the next task, the [v1 release contract](docs/v1-release-contract.md) for acceptance gates, and [ADR 0001](docs/adr/0001-local-v1-scope.md) for scope decisions. The current portfolio audit covers only part of full v1 acceptance.
 
-Live development now includes automatic serial processing, bounded batches, cancellation, versioned reprocessing, tracked local deletion and persisted storage guards. See the [lifecycle runbook](docs/lifecycle.md). Build the parser with `make parser-build`, then use `make dev`; select the extractor before uploading.
+Live development now includes automatic serial processing, bounded batches, cancellation, versioned reprocessing, tracked local deletion and persisted storage guards. Review actions use a [server-established local identity](docs/access.md) with separate processing permissions. See the [lifecycle runbook](docs/lifecycle.md). Build the parser with `make parser-build`, then use `make dev`; select the extractor before uploading.
 
 ![Review workspace with source evidence and a versioned correction](evals/portfolio-candidate-browser-2026-10-03/frames/01.png)
 
@@ -25,7 +25,7 @@ The implementation emphasizes the boundaries around AI output:
 - **Isolation and recovery:** bounded network-denied parsing, renewable leases and fencing, verified OCR checkpoints, explicit retries, and portable restoration.
 - **Measurement:** split-isolated corpora, frozen settings, all-document failure accounting, duplicate-aware row matching, paired uncertainty, and explicit rejection of a regressing extraction experiment.
 
-The current stack is Python 3.12 standard-library HTTP/SQLite, HTML/CSS/JavaScript, Docker, Poppler/Tesseract, and optional native llama.cpp. It is a loopback single-user prototype with audit labels, not an authenticated multi-user application. Model assets and public receipt data are downloaded only through explicit setup commands. See [trust boundaries and limits](docs/system-card.md).
+The current stack is Python 3.12 standard-library HTTP/SQLite, HTML/CSS/JavaScript, Docker, Poppler/Tesseract, and optional native llama.cpp. Loopback sessions bind browser review to the server's OS account; direct CLI labels remain a trusted-operator boundary. Model assets and public receipt data are downloaded only through explicit setup commands. See [trust boundaries and limits](docs/system-card.md).
 
 ## Measured evidence
 
@@ -98,6 +98,7 @@ The offline demo and invoice/model-workflow/author-pilot audits need no CORD dow
 |---|---|
 | Intake, quotas, reconciliation, backups | [Local intake](docs/intake.md) |
 | Revisions, issue decisions, priority, approvals, exports | [Review workflow](docs/review.md) |
+| Server reviewer identity, processing permissions, trusted CLI | [Local access](docs/access.md) |
 | Evidence overlays, rotations, session boundary | [Browser prototype](docs/browser.md) |
 | Parser checkpoints and host worker recovery | [Parser recovery](docs/parser-recovery.md) |
 | Container policy and real runtime checks | [Parser verification](docs/parser-verification.md), [resource drills](docs/parser-resources.md) |

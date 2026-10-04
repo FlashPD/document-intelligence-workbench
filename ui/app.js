@@ -29,11 +29,6 @@ function post(path, value) {
   return request(path, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(value) });
 }
 
-function actor() {
-  const value = $("actor").value.trim();
-  if (!value) throw new Error("Enter a reviewer audit label first.");
-  return value;
-}
 
 async function action(task, message) {
   try {
@@ -289,7 +284,7 @@ function renderIssues() {
       button.addEventListener("click", () => action(async () => {
         await post(`/api/documents/${state.selectedId}/acknowledge`, {
           revision: state.detail.revision, code: issue.code, path: issue.path,
-          reason: input.value, actor: actor(),
+          reason: input.value,
         });
         await refreshDocument();
       }, "Issue decision recorded."));
@@ -405,6 +400,7 @@ async function pollProcessing() {
       $("deletions").append(node("p", "muted", `Deletion ${deletion.document_id.slice(0, 8)}: ${deletion.status}${deletion.error_code ? ` (${deletion.error_code})` : ""}`));
     }
     const runtime = await request("/api/runtime");
+  $("actor").value = runtime.principal.actor;
     if (runtime.worker?.last_error) notice(`Processing needs attention: ${runtime.worker.last_error}`, true);
   } catch (error) {
     notice(error.message, true);
@@ -416,7 +412,7 @@ async function pollProcessing() {
 async function saveCorrection(value) {
   if (!state.detail) return;
   await post(`/api/documents/${state.selectedId}/edit`, {
-    revision: state.detail.revision, path: state.selectedPath, value, actor: actor(),
+    revision: state.detail.revision, path: state.selectedPath, value,
   });
   await refreshQueue();
   await refreshDocument();
@@ -486,7 +482,7 @@ $("process-button").addEventListener("click", () => action(async () => {
 $("save-edit").addEventListener("click", () => action(() => saveCorrection($("edit-value").value)));
 $("mark-missing").addEventListener("click", () => action(() => saveCorrection(null)));
 $("approve-button").addEventListener("click", () => action(async () => {
-  await post(`/api/documents/${state.selectedId}/approve`, { revision: state.detail.revision, actor: actor() });
+  await post(`/api/documents/${state.selectedId}/approve`, { revision: state.detail.revision });
   await refreshDocument();
   notice("Current revision approved.");
 }));
@@ -518,6 +514,7 @@ document.addEventListener("keydown", (event) => {
 
 action(async () => {
   const runtime = await request("/api/runtime");
+  $("actor").value = runtime.principal.actor;
   state.reviewPilot = Boolean(runtime.review_pilot);
   state.background = Boolean(runtime.background_processing);
   state.replay = Boolean(runtime.demo_replay);

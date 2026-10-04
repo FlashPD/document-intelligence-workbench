@@ -42,6 +42,10 @@ The current stack uses Python 3.12 standard-library HTTP and SQLite, a no-build 
 
 The deterministic default is `ocr_rules` v0.3. `spatial_rules` remains opt-in after a calibration regression. The optional model profile pins Qwen3-4B-Instruct-2507 Q4_K_M and llama.cpp; exact identities and settings live in [the configuration](../config/model-mac-instruct.json). Models cannot approve records or export them. [The comparison policy](release-evaluation.md) keeps test results separate from tuning and default promotion.
 
+## Current working-source reviewer authority
+
+B03 adds [local reviewer capabilities](access.md) to the working source. Browser review actors come from the server OS account; forged actor requests and processing/model credentials cannot authorize review. Page/export reads require reviewer permission. The browser displays the established identity read-only. CLI labels remain trusted-operator audit labels, and historical approvals/results are unchanged. These local capabilities do not establish multi-user isolation or independently identify a person. The table above describes the published experimental boundary; final-v1 acceptance remains pending.
+
 ## Provenance and recovery
 
 Each observed field refers to canonical OCR span IDs. The server validates reference existence and value alignment; selecting a field navigates to its page and highlights its line region. Corrections retain the original suggestion and evidence while marking reviewer origin. Missing or unsupported evidence remains a review concern. Arithmetic uses decimal values and preserves printed totals when they disagree with computed values. Missing components leave the check incomplete.

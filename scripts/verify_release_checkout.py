@@ -158,7 +158,7 @@ def verify(root: Path, output: Path, workflow: str = DEFAULT_WORKFLOW, *, ref: s
         ("invoice_model", ["-m", "docwork.cli", "eval-verify-invoice-model", "evals/invoice-model-heldout-2026-10-03"]),
         ("model_workflow", ["-m", "docwork.cli", "eval-verify-model-workflow", workflow]),
         ("author_pilot", ["scripts/archive_review_pilot.py", "verify", "evals/author-review-pilot-2026-10-03", "--require-complete"]),
-        ("post_pilot_corrections", ["scripts/correct_pilot_records.py", "verify", "evals/post-pilot-corrections-2026-10-03.json"]),
+        ("post_pilot_corrections", ["scripts/correct_pilot_records.py", "verify", "evals/post-pilot-corrections-2026-10-04.json"]),
         ("offline_replay", ["-m", "docwork.cli", "demo-replay", "--prepare-only", "--output-dir", "artifacts/checkout-replay"]),
     ]
     try:

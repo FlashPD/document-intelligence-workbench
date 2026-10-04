@@ -1,8 +1,8 @@
 """Loopback-only browser review prototype using the existing durable stores.
 
 This zero-dependency interface is for local demonstrations. A random session
-token and same-origin mutation checks protect against casual cross-site access;
-actor names remain unauthenticated audit labels.
+token and same-origin mutation checks protect against casual cross-site access.
+Reviewer identity comes from the server's OS account, never document/client text.
 """
 
 from __future__ import annotations
@@ -18,6 +18,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlsplit
 
 from .baseline import extract_invoice
+from .access import AccessDenied, LocalAccess
 from .intake import IntakeStore, processing_profile
 from .local_model import LocalModelConfig
 from .ocr import MAX_FILE_BYTES, tesseract_page
@@ -46,7 +47,8 @@ class ReviewServer(ThreadingHTTPServer):
         if address[0] not in ("127.0.0.1", "::1"):
             raise ValueError("Review server must bind to loopback")
         self.store = store
-        self.token = token or secrets.token_urlsafe(32)
+        self.access = LocalAccess(token)
+        self.token = self.access.reviewer_token
         self.model_config = model_config
         self.model_profile = model_profile
         self.review_pilot = review_pilot
@@ -96,14 +98,21 @@ class ReviewHandler(BaseHTTPRequestHandler):
     def _json(self, status: int, value: object) -> None:
         self._send(status, json.dumps(value, ensure_ascii=False).encode("utf-8"), "application/json; charset=utf-8")
 
-    def _authorized(self) -> bool:
+    def _principal(self):
         cookie = SimpleCookie()
         try:
             cookie.load(self.headers.get("Cookie", ""))
         except Exception:
-            return False
+            return None
         session = cookie.get("docwork_session")
-        return session is not None and secrets.compare_digest(session.value, self.server.token)
+        return self.server.access.authenticate(session.value if session else None,
+                                               self.headers.get("Authorization"))
+
+    def _authorized(self) -> bool:
+        return self._principal() is not None
+
+    def _review_actor(self, data: dict) -> str:
+        return self.server.access.review_actor(self._principal(), data)
 
     def _read_body(self, maximum: int) -> bytes:
         raw = self.headers.get("Content-Length")
@@ -140,7 +149,9 @@ class ReviewHandler(BaseHTTPRequestHandler):
         return parts[3], parts[4] if len(parts) == 5 else ""
 
     def _handle_error(self, exc: Exception) -> None:
-        if isinstance(exc, StorageLimitExceeded):
+        if isinstance(exc, AccessDenied):
+            status = HTTPStatus.FORBIDDEN
+        elif isinstance(exc, StorageLimitExceeded):
             status = HTTPStatus.INSUFFICIENT_STORAGE
         elif isinstance(exc, KeyError):
             status = HTTPStatus.NOT_FOUND
@@ -157,9 +168,9 @@ class ReviewHandler(BaseHTTPRequestHandler):
 
     def do_GET(self) -> None:
         url = urlsplit(self.path)
-        if url.path == "/" and not self._authorized():
+        if url.path == "/" and not self._authorized() and self.headers.get("Authorization") is None:
             candidate = parse_qs(url.query).get("token", [""])[0]
-            if candidate and secrets.compare_digest(candidate, self.server.token):
+            if candidate and secrets.compare_digest(candidate.encode(), self.server.token.encode()):
                 self.send_response(HTTPStatus.SEE_OTHER)
                 self.send_header("Location", "/")
                 self.send_header("Set-Cookie", f"docwork_session={self.server.token}; HttpOnly; SameSite=Strict; Path=/")
@@ -170,6 +181,7 @@ class ReviewHandler(BaseHTTPRequestHandler):
             self._json(HTTPStatus.UNAUTHORIZED, {"error": "Open the session URL printed by docwork serve"})
             return
         try:
+            self.server.access.require_route(self._principal(), "GET", url.path)
             if url.path in STATIC:
                 filename, media = STATIC[url.path]
                 content = (self.server.repo_root / "ui" / filename).read_bytes()
@@ -178,7 +190,8 @@ class ReviewHandler(BaseHTTPRequestHandler):
                 self._json(HTTPStatus.OK, self.server.store.list_documents())
             elif url.path == "/api/runtime":
                 config = self.server.model_config
-                self._json(HTTPStatus.OK, {"managed_model": config is not None,
+                self._json(HTTPStatus.OK, {"principal": self._principal().as_dict(),
+                                          "managed_model": config is not None,
                                           "model_id": config.model_id if config else None,
                                           "profile": self.server.model_profile,
                                           "demo_replay": getattr(self.server, "demo_replay", None),
@@ -223,7 +236,7 @@ class ReviewHandler(BaseHTTPRequestHandler):
                     self._json(HTTPStatus.NOT_FOUND, {"error": "Unknown route"})
             else:
                 self._json(HTTPStatus.NOT_FOUND, {"error": "Unknown route"})
-        except (KeyError, ValueError, OSError, ReviewConflict, ReviewBlocked) as exc:
+        except (AccessDenied, KeyError, ValueError, OSError, ReviewConflict, ReviewBlocked) as exc:
             self._handle_error(exc)
 
     def _page(self, doc_id: str, number: int, *, revision: int | None = None) -> None:
@@ -267,6 +280,7 @@ class ReviewHandler(BaseHTTPRequestHandler):
             return
         path = urlsplit(self.path).path
         try:
+            self.server.access.require_route(self._principal(), "POST", path)
             pilot = getattr(self.server, "review_pilot", None)
             live_action = path in ("/api/upload", "/api/process-one", "/api/demo/seed", "/api/batches") or path.rsplit("/", 1)[-1] in ("cancel", "reprocess", "delete")
             if getattr(self.server, "demo_replay", None) is not None and live_action:
@@ -274,9 +288,14 @@ class ReviewHandler(BaseHTTPRequestHandler):
             elif path == "/api/pilot/start" and pilot is not None:
                 data = self._input()
                 self._json(HTTPStatus.CREATED, pilot.start(self._required(data, "document_id", str),
-                                                          self._required(data, "actor", str)))
+                                                          self._review_actor(data)))
             elif path == "/api/pilot/event" and pilot is not None:
                 data = self._input()
+                actor = self._review_actor(data)
+                trial = pilot.view().get("trials", [])
+                active = next((item for item in trial if item["id"] == data.get("trial_id")), None)
+                if active is not None and active["actor"] != actor:
+                    raise AccessDenied("Pilot trial belongs to a different reviewer")
                 self._json(HTTPStatus.OK, pilot.event(self._required(data, "trial_id", str),
                                                     self._required(data, "kind", str),
                                                     self._required(data, "event_id", str)))
@@ -340,12 +359,12 @@ class ReviewHandler(BaseHTTPRequestHandler):
             elif route := self._document_route(path):
                 doc_id, action = route
                 data = self._input()
+                actor = self._review_actor(data)
                 if pilot is not None:
-                    pilot.guard(doc_id, data.get("actor"))
+                    pilot.guard(doc_id, actor)
                 if action == "edit":
                     revision = self._required(data, "revision", int)
                     field_path = self._required(data, "path", str)
-                    actor = self._required(data, "actor", str)
                     refs = data.get("evidence_ids")
                     if refs is not None and (not isinstance(refs, list) or not all(isinstance(value, str) for value in refs)):
                         raise ValueError("evidence_ids must be a string list")
@@ -359,12 +378,12 @@ class ReviewHandler(BaseHTTPRequestHandler):
                     self.server.store.acknowledge(
                         doc_id, self._required(data, "revision", int), self._required(data, "code", str),
                         self._required(data, "path", str), self._required(data, "reason", str),
-                        self._required(data, "actor", str),
+                        actor,
                     )
                     self._json(HTTPStatus.OK, self.server.store.get(doc_id))
                 elif action == "approve":
                     approval = self.server.store.approve(doc_id, self._required(data, "revision", int),
-                                                         self._required(data, "actor", str))
+                                                         actor)
                     self._json(HTTPStatus.OK, approval)
                 elif action == "export":
                     manifest = self.server.store.export(doc_id, self._required(data, "format", str))
@@ -393,7 +412,7 @@ class ReviewHandler(BaseHTTPRequestHandler):
                     self._json(HTTPStatus.NOT_FOUND, {"error": "Unknown route"})
             else:
                 self._json(HTTPStatus.NOT_FOUND, {"error": "Unknown route"})
-        except (KeyError, ValueError, OSError, ReviewConflict, ReviewBlocked) as exc:
+        except (AccessDenied, KeyError, ValueError, OSError, ReviewConflict, ReviewBlocked) as exc:
             self._handle_error(exc)
 
 

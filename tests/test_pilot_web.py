@@ -6,6 +6,7 @@ import uuid
 
 from docwork.review_pilot import PILOT_VERSION, ReviewPilot
 import test_web
+from docwork.access import Principal
 
 
 class PilotWebTests(unittest.TestCase):
@@ -13,6 +14,7 @@ class PilotWebTests(unittest.TestCase):
         self.helper = test_web.WebTests()
         self.helper.setUp()
         self.addCleanup(self.helper.doCleanups)
+        self.helper.server.access.reviewer = Principal("author", "reviewer")
         self.helper.cookie = "docwork_session=test-token"
         self.store = self.helper.store
         page, record = test_web.candidate()

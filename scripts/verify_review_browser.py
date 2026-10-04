@@ -166,7 +166,9 @@ def main():
         parser.error("Use a new output directory and an installed Chrome executable")
     root = Path(__file__).resolve().parents[1]
     cases = tuple(case[0] for case in REPLAY_CASES) if args.demo_replay else CASES
-    source_names = (*SOURCES, "scripts/verify_pilot_browser.py", "scripts/verify_review_browser.py", "src/docwork/geometry.py")
+    source_names = (*SOURCES, "scripts/verify_pilot_browser.py", "scripts/verify_review_browser.py",
+                    "src/docwork/geometry.py", "src/docwork/access.py", "src/docwork/supervisor.py",
+                    "src/docwork/lifecycle.py", "src/docwork/request_control.py", "src/docwork/storage_budget.py")
     if args.demo_replay:
         source_names += ("src/docwork/demo_replay.py", "src/docwork/cli.py", "Makefile")
     snapshot = {name: (root / name).read_text() for name in source_names}
@@ -201,7 +203,7 @@ def main():
                 client.call("Page.enable")
                 client.call("Page.navigate", {"url": f"{server.origin}/?token={server.token}"})
                 client.wait("typeof state !== 'undefined' && state.detail !== null && !$('page-canvas').hidden")
-                client.evaluate("$('actor').value='scripted-fictional-demo'")
+                assert client.evaluate("$('actor').readOnly && $('actor').value.startsWith('local:')")
                 if replay:
                     assert client.evaluate("!$('replay-panel').hidden && $('intake-panel').hidden && document.querySelector('.mode').textContent.includes('replay')")
                     assert client.evaluate("$('replay-cases').children.length===4")
@@ -250,7 +252,7 @@ def main():
                 client.wait("$('notice').classList.contains('error')")
                 assert store.get(ids[cases[0]])["approval"] is None
                 checked.append("unapproved export blocked")
-                response = client.evaluate(f"post('/api/documents/{ids[cases[0]]}/edit',{{revision:1,path:'fields.total',value:'0',actor:'scripted-fictional-demo'}}).then(()=>false,error=>error.message)")
+                response = client.evaluate(f"post('/api/documents/{ids[cases[0]]}/edit',{{revision:1,path:'fields.total',value:'0'}}).then(()=>false,error=>error.message)")
                 assert response and store.get(ids[cases[0]])["revision"] == 2
                 checked.append("stale revision rejected")
                 client.evaluate(f"$('edit-value').value={json.dumps(original)}")

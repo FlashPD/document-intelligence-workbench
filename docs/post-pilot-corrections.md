@@ -29,11 +29,13 @@ PYTHONPATH=src python3.12 scripts/correct_pilot_records.py prepare \
   --report artifacts/post-pilot-corrections-report.json
 ```
 
-Verify the retained correction evidence offline:
+The [October 4 refresh](../evals/post-pilot-corrections-2026-10-04.json) reproduces these same unapproved corrections against the lifecycle implementation and expanded dependency inventory. The original October 3 report remains historical; its exact-source verifier rejects later implementation drift. CI now uses the refreshed report. No extractor prediction or original human result is replaced.
+
+Verify the current retained correction evidence offline:
 
 ```sh
 PYTHONPATH=src python3.12 scripts/correct_pilot_records.py verify \
-  evals/post-pilot-corrections-2026-10-03.json
+  evals/post-pilot-corrections-2026-10-04.json
 ```
 
 Verification restores the original archive into a temporary directory, reproduces the new revisions and draft scores, checks that export is blocked, and reproduces the original pilot report. It never approves drafts or runs a new human trial. Corrections do not change OCR rules, prompts or frozen evaluation predictions.

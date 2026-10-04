@@ -1,0 +1,823 @@
+{
+  "report_version": "post-pilot-corrections-v1",
+  "status": "drafts_require_human_approval",
+  "actor": "codex_post_pilot_audit",
+  "archive": "evals/author-review-pilot-2026-10-03",
+  "archive_manifest_sha256": "c2f06d0f1b5a293fddd8cbcd3dfe844633cc516e029144fd42e6b243e544a988",
+  "original_report_sha256": "5af3e8470fc17ebf9bc83b78c234174e41a0439cdf4780e1344940b9082cdcc8",
+  "source_sha256": {
+    "scripts/correct_pilot_records.py": "32253799f21c7a066170cf1ba051c70630708ccda826e640b971575f233be9b8",
+    "scripts/archive_review_pilot.py": "a4beec6785b37b2a1a3d029b3e6b7c59e84e9e63f1a309643c9e9a68417a4f29",
+    "src/docwork/review.py": "0754519dfc4f7f70212a402b34039ef6002b0495dde9dd6607348f371c7d6830",
+    "src/docwork/intake.py": "1de49a01d4b5f3ba343673ee523dddc7b295eae180a593315efd778b73cdaf55",
+    "src/docwork/validation.py": "d3729d8341e8886bcdcfe73e093439a2494ce275b9b85966ebdedab4928f7e58",
+    "src/docwork/release_scoring.py": "ab4d9958e4afa7db9c0d88d3168c762def7dfa96387697bedaab3894a5c7be44",
+    "src/docwork/pilot_bundle.py": "431952a5824ec4d75644dc5423b6ed04e7593d281e493fcedb531f603e2940e8",
+    "src/docwork/storage_budget.py": "f241716769cfb7685d5a03f05d502154936b7069baf41a2716aa91794b99dfb8",
+    "src/docwork/lifecycle.py": "5765b8d014cf50a244ad047c738a9020b77c8d738283cbdee28ffad103bb6a27",
+    "src/docwork/contracts.py": "ce29932f2668f181612c80e445ee64f8891b7ff51d3a5c8ecd675bcd19637ccf"
+  },
+  "corrections": [
+    {
+      "corpus_id": "inv-f03-27",
+      "document_id": "0101089da7a948459a08ec7ed1170f92",
+      "path": "line_items.row-004.description",
+      "before": "Illustration set 3}",
+      "after": "Illustration set",
+      "source": "datasets/invoices-v1/assets/inv-f03-27.png",
+      "source_sha256": "c315391bbcdad3e7e7638fd91ccbf021eed83020098809ee8020487b84570947",
+      "previous_revision": 5,
+      "revision": 6,
+      "previous_record_hash": "a0043873ec002ad0ece8e9ec71141766f9349e0f9414acc6dc5a82ec53497fc0",
+      "record_hash": "0362768936aa73700503be0ba80d3b22490b3ed1fc8e930ac9eaf28613978726",
+      "status": "draft_requires_human_approval",
+      "approval": null,
+      "record": {
+        "fields": {
+          "currency": {
+            "evidence_ids": [
+              "p1-l0006"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Currency: USD",
+            "value": "USD"
+          },
+          "discount": {
+            "evidence_ids": [
+              "p1-l0014"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Discount: 0.00",
+            "value": "0.00"
+          },
+          "due_date": {
+            "evidence_ids": [
+              "p1-l0005"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Due date: 2026-02-27",
+            "value": "2026-02-27"
+          },
+          "invoice_number": {
+            "evidence_ids": [
+              "p1-l0003"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Invoice No.: F03-002",
+            "value": "F03-002"
+          },
+          "issue_date": {
+            "evidence_ids": [
+              "p1-l0004"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Date: 2026-01-28",
+            "value": "2026-01-28"
+          },
+          "shipping": {
+            "evidence_ids": [
+              "p1-l0015"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Shipping: 2.00",
+            "value": "2.00"
+          },
+          "subtotal": {
+            "evidence_ids": [
+              "p1-l0012"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Subtotal: 558.00",
+            "value": "558.00"
+          },
+          "supplier_name": {
+            "evidence_ids": [
+              "p1-l0001"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Cobalt Paper Co",
+            "value": "Cobalt Paper Co"
+          },
+          "tax": {
+            "evidence_ids": [
+              "p1-l0013"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Tax: 7.00",
+            "value": "7.00"
+          },
+          "total": {
+            "evidence_ids": [
+              "p1-l0016"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Total: 567.00",
+            "value": "567.00"
+          }
+        },
+        "line_items": [
+          {
+            "description": {
+              "evidence_ids": [
+                "p1-l0008"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Prototype analysis 4 48.00 192.00",
+              "value": "Prototype analysis"
+            },
+            "line_total": {
+              "evidence_ids": [
+                "p1-l0008"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Prototype analysis 4 48.00 192.00",
+              "value": "192.00"
+            },
+            "quantity": {
+              "evidence_ids": [
+                "p1-l0008"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Prototype analysis 4 48.00 192.00",
+              "value": "4"
+            },
+            "row_id": "row-001",
+            "tax": {
+              "evidence_ids": [],
+              "missing_reason": "not_explicit_on_row",
+              "origin": "observed",
+              "raw": null,
+              "value": null
+            },
+            "unit_price": {
+              "evidence_ids": [
+                "p1-l0008"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Prototype analysis 4 48.00 192.00",
+              "value": "48.00"
+            }
+          },
+          {
+            "description": {
+              "evidence_ids": [
+                "p1-l0009"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Technical editing 1 90.00 90.00",
+              "value": "Technical editing"
+            },
+            "line_total": {
+              "evidence_ids": [
+                "p1-l0009"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Technical editing 1 90.00 90.00",
+              "value": "90.00"
+            },
+            "quantity": {
+              "evidence_ids": [
+                "p1-l0009"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Technical editing 1 90.00 90.00",
+              "value": "1"
+            },
+            "row_id": "row-002",
+            "tax": {
+              "evidence_ids": [],
+              "missing_reason": "not_explicit_on_row",
+              "origin": "observed",
+              "raw": null,
+              "value": null
+            },
+            "unit_price": {
+              "evidence_ids": [
+                "p1-l0009"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Technical editing 1 90.00 90.00",
+              "value": "90.00"
+            }
+          },
+          {
+            "description": {
+              "evidence_ids": [
+                "p1-l0010"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Field interview 1 69.00 69.00",
+              "value": "Field interview"
+            },
+            "line_total": {
+              "evidence_ids": [
+                "p1-l0010"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Field interview 1 69.00 69.00",
+              "value": "69.00"
+            },
+            "quantity": {
+              "evidence_ids": [
+                "p1-l0010"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Field interview 1 69.00 69.00",
+              "value": "1"
+            },
+            "row_id": "row-003",
+            "tax": {
+              "evidence_ids": [],
+              "missing_reason": "not_explicit_on_row",
+              "origin": "observed",
+              "raw": null,
+              "value": null
+            },
+            "unit_price": {
+              "evidence_ids": [
+                "p1-l0010"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Field interview 1 69.00 69.00",
+              "value": "69.00"
+            }
+          },
+          {
+            "description": {
+              "evidence_ids": [
+                "p1-l0011"
+              ],
+              "missing_reason": null,
+              "origin": "reviewer",
+              "raw": "Illustration set 3} 69.00 207.00",
+              "value": "Illustration set"
+            },
+            "line_total": {
+              "evidence_ids": [],
+              "missing_reason": null,
+              "origin": "reviewer",
+              "raw": null,
+              "value": "207.00"
+            },
+            "quantity": {
+              "evidence_ids": [
+                "p1-l0011"
+              ],
+              "missing_reason": null,
+              "origin": "reviewer",
+              "raw": "Illustration set 3} 69.00 207.00",
+              "value": "3"
+            },
+            "row_id": "row-004",
+            "tax": {
+              "evidence_ids": [],
+              "missing_reason": "not_explicit_on_row",
+              "origin": "observed",
+              "raw": null,
+              "value": null
+            },
+            "unit_price": {
+              "evidence_ids": [
+                "p1-l0011"
+              ],
+              "missing_reason": null,
+              "origin": "reviewer",
+              "raw": "Illustration set 3} 69.00 207.00",
+              "value": "69.00"
+            }
+          }
+        ],
+        "schema_version": "invoice-v1-spike"
+      }
+    },
+    {
+      "corpus_id": "inv-f06-04",
+      "document_id": "0fb26990c0e64e6c94318285688677ee",
+      "path": "fields.invoice_number",
+      "before": "FO06-004",
+      "after": "F06-004",
+      "source": "datasets/invoices-v1/assets/inv-f06-04-page-1.png",
+      "source_sha256": "c6b1b4b852bbdbc43a9a1a196f430d9f6ed6a735841901cbd1b40b18dd69e2cb",
+      "previous_revision": 1,
+      "revision": 2,
+      "previous_record_hash": "def13e7cc697f468c89484a6976eff3805388d6cd4baa5a6a82de2eed5cbf086",
+      "record_hash": "d5a02f669575a453e6c0833d42e626783735aabba17d17ccb4ec1b92954e7002",
+      "status": "draft_requires_human_approval",
+      "approval": null,
+      "record": {
+        "fields": {
+          "currency": {
+            "evidence_ids": [
+              "p1-l0007"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Currency: USD",
+            "value": "USD"
+          },
+          "discount": {
+            "evidence_ids": [
+              "p2-l0010"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Discount: 0.00",
+            "value": "0.00"
+          },
+          "due_date": {
+            "evidence_ids": [
+              "p1-l0006"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Due date: 2026-04-09",
+            "value": "2026-04-09"
+          },
+          "invoice_number": {
+            "evidence_ids": [
+              "p1-l0004"
+            ],
+            "missing_reason": null,
+            "origin": "reviewer",
+            "raw": "Invoice No.: FO06-004",
+            "value": "F06-004"
+          },
+          "issue_date": {
+            "evidence_ids": [
+              "p1-l0005"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Date: 2026-03-10",
+            "value": "2026-03-10"
+          },
+          "shipping": {
+            "evidence_ids": [
+              "p2-l0011"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Shipping: 0.00",
+            "value": "0.00"
+          },
+          "subtotal": {
+            "evidence_ids": [
+              "p2-l0008"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Subtotal: 1227.00",
+            "value": "1227.00"
+          },
+          "supplier_name": {
+            "evidence_ids": [
+              "p1-l0002"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Northline Atelier",
+            "value": "Northline Atelier"
+          },
+          "tax": {
+            "evidence_ids": [
+              "p2-l0009"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Tax: 5.00",
+            "value": "5.00"
+          },
+          "total": {
+            "evidence_ids": [
+              "p2-l0012"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Total: 1232.00",
+            "value": "1232.00"
+          }
+        },
+        "line_items": [
+          {
+            "description": {
+              "evidence_ids": [
+                "p1-l0009"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Extended technical documentation review 1 65.00 65.00",
+              "value": "Extended technical documentation review"
+            },
+            "line_total": {
+              "evidence_ids": [
+                "p1-l0009"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Extended technical documentation review 1 65.00 65.00",
+              "value": "65.00"
+            },
+            "quantity": {
+              "evidence_ids": [
+                "p1-l0009"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Extended technical documentation review 1 65.00 65.00",
+              "value": "1"
+            },
+            "row_id": "row-001",
+            "tax": {
+              "evidence_ids": [],
+              "missing_reason": "not_explicit_on_row",
+              "origin": "observed",
+              "raw": null,
+              "value": null
+            },
+            "unit_price": {
+              "evidence_ids": [
+                "p1-l0009"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Extended technical documentation review 1 65.00 65.00",
+              "value": "65.00"
+            }
+          },
+          {
+            "description": {
+              "evidence_ids": [
+                "p1-l0010"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Illustration set 3 107.00 321.00",
+              "value": "Illustration set"
+            },
+            "line_total": {
+              "evidence_ids": [
+                "p1-l0010"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Illustration set 3 107.00 321.00",
+              "value": "321.00"
+            },
+            "quantity": {
+              "evidence_ids": [
+                "p1-l0010"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Illustration set 3 107.00 321.00",
+              "value": "3"
+            },
+            "row_id": "row-002",
+            "tax": {
+              "evidence_ids": [],
+              "missing_reason": "not_explicit_on_row",
+              "origin": "observed",
+              "raw": null,
+              "value": null
+            },
+            "unit_price": {
+              "evidence_ids": [
+                "p1-l0010"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Illustration set 3 107.00 321.00",
+              "value": "107.00"
+            }
+          },
+          {
+            "description": {
+              "evidence_ids": [
+                "p1-l0011"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Paper mockup 4 72.00 288.00",
+              "value": "Paper mockup"
+            },
+            "line_total": {
+              "evidence_ids": [
+                "p1-l0011"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Paper mockup 4 72.00 288.00",
+              "value": "288.00"
+            },
+            "quantity": {
+              "evidence_ids": [
+                "p1-l0011"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Paper mockup 4 72.00 288.00",
+              "value": "4"
+            },
+            "row_id": "row-003",
+            "tax": {
+              "evidence_ids": [],
+              "missing_reason": "not_explicit_on_row",
+              "origin": "observed",
+              "raw": null,
+              "value": null
+            },
+            "unit_price": {
+              "evidence_ids": [
+                "p1-l0011"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Paper mockup 4 72.00 288.00",
+              "value": "72.00"
+            }
+          },
+          {
+            "description": {
+              "evidence_ids": [
+                "p2-l0006"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Data cleanup 4 58.00 232.00",
+              "value": "Data cleanup"
+            },
+            "line_total": {
+              "evidence_ids": [
+                "p2-l0006"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Data cleanup 4 58.00 232.00",
+              "value": "232.00"
+            },
+            "quantity": {
+              "evidence_ids": [
+                "p2-l0006"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Data cleanup 4 58.00 232.00",
+              "value": "4"
+            },
+            "row_id": "row-004",
+            "tax": {
+              "evidence_ids": [],
+              "missing_reason": "not_explicit_on_row",
+              "origin": "observed",
+              "raw": null,
+              "value": null
+            },
+            "unit_price": {
+              "evidence_ids": [
+                "p2-l0006"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Data cleanup 4 58.00 232.00",
+              "value": "58.00"
+            }
+          },
+          {
+            "description": {
+              "evidence_ids": [
+                "p2-l0007"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Technical editing 3 107.00 321.00",
+              "value": "Technical editing"
+            },
+            "line_total": {
+              "evidence_ids": [
+                "p2-l0007"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Technical editing 3 107.00 321.00",
+              "value": "321.00"
+            },
+            "quantity": {
+              "evidence_ids": [
+                "p2-l0007"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Technical editing 3 107.00 321.00",
+              "value": "3"
+            },
+            "row_id": "row-005",
+            "tax": {
+              "evidence_ids": [],
+              "missing_reason": "not_explicit_on_row",
+              "origin": "observed",
+              "raw": null,
+              "value": null
+            },
+            "unit_price": {
+              "evidence_ids": [
+                "p2-l0007"
+              ],
+              "missing_reason": null,
+              "origin": "observed",
+              "raw": "Technical editing 3 107.00 321.00",
+              "value": "107.00"
+            }
+          }
+        ],
+        "schema_version": "invoice-v1-spike"
+      }
+    }
+  ],
+  "draft_quality": {
+    "scoring_version": "invoice-release-scoring-v1",
+    "documents_scheduled": 6,
+    "documents_processed": 6,
+    "all_required_exact": {
+      "correct": 6,
+      "eligible": 6
+    },
+    "header_field_exclusions": {
+      "supplier_name": 0,
+      "invoice_number": 0,
+      "issue_date": 0,
+      "due_date": 0,
+      "currency": 0,
+      "subtotal": 0,
+      "tax": 0,
+      "discount": 0,
+      "shipping": 0,
+      "total": 0
+    },
+    "header_fields": {
+      "supplier_name": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "invoice_number": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "issue_date": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "due_date": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "currency": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "subtotal": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "tax": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "discount": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "shipping": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "total": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "header_macro_f1": 1.0,
+    "row_detection": {
+      "tp": 20,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "row_exact": {
+      "tp": 20,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "row_fields": {
+      "description": {
+        "tp": 20,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "quantity": {
+        "tp": 20,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "unit_price": {
+        "tp": 20,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "line_total": {
+        "tp": 20,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "tax": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "failures_by_type": {}
+  },
+  "original_pilot_unchanged": true,
+  "scope": "Two source-inspected corrections by Codex on declared development cases. Draft quality is a post-pilot audit using known labels, not human review quality, held-out extraction quality or productivity. Original study timings, scores, suggestions, approvals and exports remain unchanged. Corrected revisions are unapproved; inspect and approve them in the normal workbench before export."
+}

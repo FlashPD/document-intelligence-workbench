@@ -28,6 +28,7 @@ FIXTURES = {
     "conflicting-total.png": "13f2eef374c009a698a31e17639417d0b970df0feca6329e1053a59e8be331d3",
 }
 SOURCES = ("worker.py", "intake.py", "review.py", "local_model.py", "model_runtime.py", "web.py",
+           "access.py", "supervisor.py", "lifecycle.py", "request_control.py", "storage_budget.py",
            "contracts.py", "validation.py", "ocr.py", "geometry.py", "baseline.py",
            "review_priority.py", "parser_protocol.py", "parser_entry.py")
 
@@ -107,19 +108,18 @@ def verify_document(client, store, root, output, name):
         path.write_bytes(raster)
     client.json("POST", f"/api/documents/{doc_id}/export", {"format": "json"}, expected=409)
     revision = 1
-    actor = "fictional-fixture-verification"
     if name == "conflicting-total.png":
         check(detail["record"]["fields"]["total"]["value"] == "275.00", "Observed conflict was overwritten")
         check("TOTAL_MISMATCH" in {issue["code"] for issue in detail["issues"]}, "Total conflict was not flagged")
-        client.json("POST", f"/api/documents/{doc_id}/approve", {"revision": 1, "actor": actor}, expected=422)
+        client.json("POST", f"/api/documents/{doc_id}/approve", {"revision": 1}, expected=422)
         revised = client.json("POST", f"/api/documents/{doc_id}/edit", {
-            "revision": 1, "path": "fields.total", "value": "270.00", "actor": actor})
+            "revision": 1, "path": "fields.total", "value": "270.00"})
         revision = revised["revision"]
         check(revision == 2 and revised["approval"] is None, "Correction did not create an unapproved revision")
         original = store.get(doc_id, 1)
         check(original["record"]["fields"]["total"]["value"] == "275.00", "Correction erased the original suggestion")
         write_json(output / "reviews" / f"{source.stem}.json", revised)
-    approval = client.json("POST", f"/api/documents/{doc_id}/approve", {"revision": revision, "actor": actor})
+    approval = client.json("POST", f"/api/documents/{doc_id}/approve", {"revision": revision})
     export_hashes = {}
     for format in ("json", "csv"):
         manifest = client.json("POST", f"/api/documents/{doc_id}/export", {"format": format})
@@ -133,7 +133,7 @@ def verify_document(client, store, root, output, name):
             target.write_bytes(content)
             export_hashes[str(target.relative_to(output))] = digest
     client.json("POST", f"/api/documents/{doc_id}/edit", {
-        "revision": revision - 1, "path": "fields.total", "value": "999.00", "actor": actor}, expected=409)
+        "revision": revision - 1, "path": "fields.total", "value": "999.00"}, expected=409)
     reopened = IntakeStore(store.database, store.object_root)
     check(reopened.get(doc_id)["approval"]["approval_hash"] == approval["approval_hash"], "Reopen lost approval")
     for format in ("json", "csv"):

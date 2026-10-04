@@ -66,7 +66,7 @@ PYTHONPATH=src python3.12 scripts/review_pilot.py serve \
   artifacts/review-pilot-author-001
 ```
 
-Open the one-time loopback URL printed by `serve`. Enter your reviewer audit label, then click **Start next invoice**. Future sources and suggestions cannot be opened before their trial starts. Review every header and every row against the page; click fields to inspect their source. Rotate sideways pages and check both pages of the last invoice. Correct extraction errors from the source. If the document itself contains an arithmetic conflict, retain the printed amount and acknowledge the issue with a reason. Approval follows the normal validation policy.
+Open the loopback session URL printed by `serve`. Check the server-established **Signed in as** identity, then click **Start next invoice**. Future sources and suggestions cannot be opened before their trial starts. Review every header and every row against the page; click fields to inspect their source. Rotate sideways pages and check both pages of the last invoice. Correct extraction errors from the source. If the document itself contains an arithmetic conflict, retain the printed amount and acknowledge the issue with a reason. Approval follows the normal validation policy.
 
 Click **Approve revision**, create **Export JSON**, then click **Finish trial**. A missing approval, changed revision, missing export, or corrupted export prevents completion. Start the next invoice when ready. If you cannot finish a case, click **Unable to finish**; it remains incomplete and cannot be repeated within this session.
 
@@ -87,7 +87,7 @@ The server records monotonic offsets at receipt of start, interaction, pause, re
 
 For a running interval, count up to 60 seconds since the previous event as active and classify excess as idle. Paused intervals count separately. Active + idle + paused equals the recorded elapsed interval. Reading without an interaction beyond the cutoff can be undercounted; server receipt times include network delay. Raw events allow that assumption to be inspected. Event retransmissions do not count twice, and failed disk writes retain the last committed state.
 
-Reviewer labels are unauthenticated audit labels. This is a small author study on synthetic development invoices with prior familiarity. Local hash checks are integrity checks, not signed proof of human participation. No human result or percentage improvement is asserted by automated tests.
+The archived October 3 reviewer labels are unauthenticated audit labels. Current browser sessions bind new trial actors to the [server-established local reviewer](access.md); this does not authenticate the historical study or independently prove human participation. This is a small author study on synthetic development invoices with prior familiarity. Local hash checks are integrity checks, not signed proof of human participation. No human result or percentage improvement is asserted by automated tests.
 
 ## Verify the interface
 

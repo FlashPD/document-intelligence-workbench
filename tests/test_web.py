@@ -14,6 +14,7 @@ from docwork.baseline import extract_invoice, extract_invoice_pages
 from docwork.contracts import Box, DocumentPage, TextSpan
 from docwork.intake import IntakeStore
 from docwork.web import ReviewHandler
+from docwork.access import LocalAccess, Principal
 from docwork.local_model import LocalModelConfig
 
 SAMPLE = (Path(__file__).resolve().parents[1] / "samples" / "clean.png").read_bytes()
@@ -83,6 +84,8 @@ class WebTests(unittest.TestCase):
             repo_root=Path(__file__).resolve().parents[1],
             model_config=None, model_profile=None,
         )
+        self.server.access = LocalAccess("test-token")
+        self.server.access.reviewer = Principal("reviewer", "reviewer")
         self.cookie = ""
 
     def call(self, method, path, body=None, *, headers=None):
@@ -144,6 +147,71 @@ class WebTests(unittest.TestCase):
         status, retried, _ = self.call("POST", f"/api/documents/{submitted['document_id']}/retry", {})
         self.assertEqual(status, 200)
         self.assertEqual(retried["job"]["status"], "QUEUED")
+
+    def test_forged_review_actor_never_mutates_a_revision(self):
+        page, record = candidate()
+        doc = self.store.ingest(hashlib.sha256(SAMPLE).hexdigest(), "clean.png", page, record)
+        self.login()
+        history = self.store.history(doc)
+        for actor in ("extractor", "service:processor", "someone-else", None, {"role": "reviewer"}):
+            for action, data in (
+                ("edit", {"revision": 1, "path": "fields.total", "value": "270.00"}),
+                ("acknowledge", {"revision": 1, "code": "TOTAL_MISMATCH", "path": "fields.total", "reason": "checked"}),
+                ("approve", {"revision": 1}),
+            ):
+                with self.subTest(actor=actor, action=action):
+                    self.assertEqual(self.call("POST", f"/api/documents/{doc}/{action}", {**data, "actor": actor})[0], 403)
+        self.assertEqual(self.store.history(doc), history)
+        self.assertEqual(self.store.get(doc)["revision"], 1)
+        self.assertEqual(self.call("POST", f"/api/documents/{doc}/edit", {
+            "revision": 1, "path": "fields.total", "value": "270.00"})[0], 200)
+        approval = self.call("POST", f"/api/documents/{doc}/approve", {"revision": 2})[1]
+        self.assertEqual(approval["actor"], "reviewer")
+        self.assertTrue(all(event["actor"] == "reviewer" for event in self.store.history(doc)[1:]))
+
+    def test_processing_capability_is_limited_to_intake_and_execution(self):
+        page, record = candidate()
+        doc = self.store.ingest(hashlib.sha256(SAMPLE).hexdigest(), "clean.png", page, record)
+        self.store.edit(doc, 1, "fields.total", "270.00", "reviewer")
+        self.store.approve(doc, 2, "reviewer")
+        self.login()
+        manifest = self.call("POST", f"/api/documents/{doc}/export", {"format": "json"})[1]
+        history = self.store.history(doc)
+        headers = {"Authorization": f"Bearer {self.server.access.processing_token}"}
+        for route in ("/", "/api/runtime", "/api/documents", f"/api/documents/{doc}",
+                      f"/api/documents/{doc}/page", f"/api/documents/{doc}/pages/1",
+                      f"/api/documents/{doc}/history", manifest["files"][0]["url"]):
+            with self.subTest(route=route):
+                self.assertEqual(self.call("GET", route, headers=headers)[0], 403)
+        for action in ("edit", "acknowledge", "approve", "export", "delete", "cancel", "reprocess", "retry"):
+            self.assertEqual(self.call("POST", f"/api/documents/{doc}/{action}",
+                                       {"actor": "reviewer"}, headers=headers)[0], 403)
+        self.assertEqual(self.call("POST", "/api/pilot/start", {}, headers=headers)[0], 403)
+        self.assertEqual(self.call("POST", "/api/batches", {"count": 1}, headers=headers)[0], 201)
+        self.assertEqual(self.call("POST", "/api/upload", SAMPLE, headers={**headers,
+            "Content-Type": "image/png", "X-File-Name": "worker.png"})[0], 201)
+        with patch("docwork.web.process_one", return_value=None):
+            self.assertEqual(self.call("POST", "/api/process-one", {}, headers=headers)[0], 200)
+        self.assertEqual(self.call("POST", "/api/batches", {"count": 1}, headers={**headers,
+            "Origin": "https://example.invalid"})[0], 403)
+        self.assertEqual(self.store.history(doc), history)
+
+    def test_untrusted_credentials_cannot_read_artifacts_or_approve(self):
+        page, record = candidate()
+        doc = self.store.ingest(hashlib.sha256(SAMPLE).hexdigest(), "clean.png", page, record)
+        self.store.edit(doc, 1, "fields.total", "270.00", "reviewer")
+        self.store.approve(doc, 2, "reviewer")
+        self.login()
+        url = self.call("POST", f"/api/documents/{doc}/export", {"format": "json"})[1]["files"][0]["url"]
+        self.cookie = ""
+        for route in (f"/api/documents/{doc}/pages/1", url):
+            self.assertEqual(self.call("GET", route)[0], 401)
+        for credential in ("Bearer model-runtime-key", "Bearer extractor", "Bearer é"):
+            self.assertEqual(self.call("POST", f"/api/documents/{doc}/approve", {"revision": 2},
+                                       headers={"Authorization": credential})[0], 401)
+        self.assertEqual(self.call("GET", "/?token=é")[0], 401)
+        self.login()
+        self.assertEqual(self.call("GET", url, headers={"Authorization": "Bearer model-runtime-key"})[0], 401)
 
     def test_review_decisions_approval_and_download(self):
         page, record = candidate()
@@ -221,7 +289,7 @@ class WebTests(unittest.TestCase):
         self.login()
         status, runtime, _ = self.call("GET", "/api/runtime")
         self.assertEqual(status, 200)
-        self.assertEqual(runtime, {"managed_model": True, "model_id": "pinned-model", "profile": "pinned-profile", "demo_replay": None, "review_pilot": False, "background_processing": False, "worker": None})
+        self.assertEqual(runtime, {"principal": {"actor": "reviewer", "role": "reviewer"}, "managed_model": True, "model_id": "pinned-model", "profile": "pinned-profile", "demo_replay": None, "review_pilot": False, "background_processing": False, "worker": None})
         self.assertNotIn("private-key", json.dumps(runtime))
         with patch("docwork.web.process_one", return_value=None) as process:
             self.assertEqual(self.call("POST", "/api/process-one", {"extractor": "span_llm"})[0], 200)
@@ -265,9 +333,9 @@ class WebTests(unittest.TestCase):
         original = self.call("GET", route)[1]["record"]["fields"]["invoice_number"]["value"]
         self.assertEqual(self.call("POST", route + "/edit", {
             "revision": 1, "path": "fields.invoice_number", "value": original,
-            "actor": "replay-test"})[1]["revision"], 2)
-        self.assertEqual(self.call("POST", route + "/approve", {"revision": 1, "actor": "replay-test"})[0], 409)
-        self.assertEqual(self.call("POST", route + "/approve", {"revision": 2, "actor": "replay-test"})[0], 200)
+            "actor": "reviewer"})[1]["revision"], 2)
+        self.assertEqual(self.call("POST", route + "/approve", {"revision": 1, "actor": "reviewer"})[0], 409)
+        self.assertEqual(self.call("POST", route + "/approve", {"revision": 2, "actor": "reviewer"})[0], 200)
         manifest = self.call("POST", route + "/export", {"format": "json"})[1]
         exported = self.call("GET", manifest["files"][0]["url"])[1]
         self.assertEqual(exported["extraction"]["profile"], "replay_ocr_rules")
