@@ -1,0 +1,94 @@
+{
+  "version": "production-invoice-study-v1",
+  "protocol_sha256": "ebfe3e3b4d9049e27635301648b1cd36444c16b9765a0da7b4f31a31a3b28d9b",
+  "variant": "span_llm",
+  "status": "complete",
+  "documents": [
+    {
+      "id": "inv-f02-02",
+      "failure_type": null,
+      "document_id": "a13de0ad0777465eb7cc151a0702dd49",
+      "prediction": "predictions/inv-f02-02.json",
+      "parser_image": "sha256:ed27f389dffa98a267df581c6fce346c4690f111ef9293fa62ad3eecbd44f88b",
+      "page_sha256": {
+        "1": "3c3b38bb63d856d12d8f9ec1e2abbc0e3794a256453623c54ec31e2994fed5ff"
+      },
+      "upload_to_terminal_seconds": 120.415
+    },
+    {
+      "id": "inv-f01-12",
+      "failure_type": "MODEL_UNAVAILABLE",
+      "document_id": "08975c3b6d6547909ca8a2e513ec2579",
+      "upload_to_terminal_seconds": 152.152
+    },
+    {
+      "id": "inv-f03-27",
+      "failure_type": "MODEL_UNAVAILABLE",
+      "document_id": "bfacfc37d5904c33adf6c73b327b2164",
+      "upload_to_terminal_seconds": 152.569
+    },
+    {
+      "id": "inv-f05-30",
+      "failure_type": null,
+      "document_id": "46ad7cb244974350a2e6bf59360623b0",
+      "prediction": "predictions/inv-f05-30.json",
+      "parser_image": "sha256:ed27f389dffa98a267df581c6fce346c4690f111ef9293fa62ad3eecbd44f88b",
+      "page_sha256": {
+        "1": "d25634b33ec71a2d70a5816e3910398c442f757808634c176517669f551ec46f"
+      },
+      "upload_to_terminal_seconds": 71.559
+    },
+    {
+      "id": "inv-f06-04",
+      "failure_type": null,
+      "document_id": "129423ffa74047c2937d9223d5d72beb",
+      "prediction": "predictions/inv-f06-04.json",
+      "parser_image": "sha256:ed27f389dffa98a267df581c6fce346c4690f111ef9293fa62ad3eecbd44f88b",
+      "page_sha256": {
+        "1": "7a42823800f3c1eb59bfb0159d5e8a79335bc6dd5d9b7919b675dc2df34b29cb",
+        "2": "acecd4d3f3ea420a4dd47ce087051277d2ede2b1a63dddf9a9714350c8d31b2c"
+      },
+      "upload_to_terminal_seconds": 204.909
+    }
+  ],
+  "parser_image": "sha256:ed27f389dffa98a267df581c6fce346c4690f111ef9293fa62ad3eecbd44f88b",
+  "model_runtime": {
+    "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+    "runtime_archive_sha256": "791eb0200a7c846ca925b6274fc21f0f21f537fda2924cc5a47402655816f56e",
+    "runtime_executable_sha256": "41df13c126456f8e5fab2057c86a790067a85ea1dfd8fbc0071cc45fbba56262",
+    "runtime_release": "b11149",
+    "runtime_commit": "d2e54583c7452353eb35d40431281f6ee984332f",
+    "inference": {
+      "model_id": "docwork-qwen3-4b-instruct",
+      "context_tokens": 8192,
+      "parallel": 1,
+      "gpu_layers": "all",
+      "seed": 42,
+      "temperature": 0,
+      "max_output_tokens": 2048,
+      "timeout_seconds": 150
+    },
+    "peak_sampled_rss_bytes": 4133896192,
+    "rss_sample_count": 697,
+    "rss_interval_seconds": 1,
+    "memory_note": "Sampled server process RSS only; not peak GPU allocation or total application memory.",
+    "shutdown_complete": true,
+    "startup_seconds": 5.614,
+    "server_lifetime_seconds": 707.934
+  },
+  "host": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.12.12"
+  },
+  "scope": "Fresh uploads to a supervised serial workbench. Suggestions remain immutable and unapproved. Timing is diagnostic, not controlled performance acceptance; no human review or automatic semantic assessment.",
+  "artifacts": {
+    "model-server.log": "781883374ca4cb94a34c0351679f3ea864fe79b93b4cb58b237cffdf62dfd202",
+    "pages/inv-f02-02-1.png": "3c3b38bb63d856d12d8f9ec1e2abbc0e3794a256453623c54ec31e2994fed5ff",
+    "pages/inv-f05-30-1.png": "d25634b33ec71a2d70a5816e3910398c442f757808634c176517669f551ec46f",
+    "pages/inv-f06-04-1.png": "7a42823800f3c1eb59bfb0159d5e8a79335bc6dd5d9b7919b675dc2df34b29cb",
+    "pages/inv-f06-04-2.png": "acecd4d3f3ea420a4dd47ce087051277d2ede2b1a63dddf9a9714350c8d31b2c",
+    "predictions/inv-f02-02.json": "d2ce7757ced2da86fee4c074ef26edd4f1405639cc80f47f359ecb0f973b3b07",
+    "predictions/inv-f05-30.json": "f21f3cefee1d93fa3ab56b83750f83078221499e0677b5affd46bcfdcee8576f",
+    "predictions/inv-f06-04.json": "3b8c311aeda48facb3901be0c3ddbe9abbc282cecbc4046644052e7f24902a44"
+  }
+}

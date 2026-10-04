@@ -104,6 +104,7 @@ The offline demo and invoice/model-workflow/author-pilot audits need no CORD dow
 | Container policy and real runtime checks | [Parser verification](docs/parser-verification.md), [resource drills](docs/parser-resources.md) |
 | Corpus, development, calibration, held-out baseline | [Invoice corpus](docs/invoice-corpus.md), [development](docs/invoice-development-run.md), [calibration](docs/invoice-calibration-run.md), [test](docs/invoice-heldout-run.md) |
 | Frozen scoring, invoice/model and CORD comparisons | [Release evaluation](docs/release-evaluation.md) |
+| Production input protocol, separate approved quality, semantic audit | [Production study](docs/production-study.md) |
 | Pinned-model feasibility and initial spike | [Development baseline](docs/development-baseline.md), [Phase 0 history](docs/phase0.md) |
 | Real model through uploaded documents | [Model workflow](docs/real-model-upload.md) |
 | Assisted author study and limitations | [Review pilot](docs/review-pilot.md) |

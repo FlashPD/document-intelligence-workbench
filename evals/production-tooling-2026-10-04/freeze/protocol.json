@@ -1,0 +1,151 @@
+{
+  "version": "production-invoice-study-v1",
+  "study_id": "known-development-production-tooling",
+  "mode": "diagnostic",
+  "parser_image": "sha256:ed27f389dffa98a267df581c6fce346c4690f111ef9293fa62ad3eecbd44f88b",
+  "documents": [
+    {
+      "id": "inv-f02-02",
+      "sha256": "bdd8ee263d7877fade240cd1622c101e7a680b0d0e924494003e0a5c64a96165",
+      "family_group": "family-02",
+      "capture_kind": "synthetic",
+      "page_count": 1,
+      "treatments": [
+        "clean"
+      ],
+      "permission": {
+        "basis": "self_authored",
+        "reference": "Project fictional invoice corpus; generator labels",
+        "redistribution": true
+      },
+      "annotation": {
+        "author": "project invoice generator",
+        "method": "generator",
+        "source_sha256": "bdd8ee263d7877fade240cd1622c101e7a680b0d0e924494003e0a5c64a96165",
+        "before_predictions": true
+      },
+      "asset": "inputs/inv-f02-02.png"
+    },
+    {
+      "id": "inv-f01-12",
+      "sha256": "7aaf3afac62e4850b2c0f66079735a64641dbb2bfc3479f994d74ca6fefcedbc",
+      "family_group": "family-01",
+      "capture_kind": "synthetic",
+      "page_count": 1,
+      "treatments": [
+        "clean"
+      ],
+      "permission": {
+        "basis": "self_authored",
+        "reference": "Project fictional invoice corpus; generator labels",
+        "redistribution": true
+      },
+      "annotation": {
+        "author": "project invoice generator",
+        "method": "generator",
+        "source_sha256": "7aaf3afac62e4850b2c0f66079735a64641dbb2bfc3479f994d74ca6fefcedbc",
+        "before_predictions": true
+      },
+      "asset": "inputs/inv-f01-12.png"
+    },
+    {
+      "id": "inv-f03-27",
+      "sha256": "c315391bbcdad3e7e7638fd91ccbf021eed83020098809ee8020487b84570947",
+      "family_group": "family-03",
+      "capture_kind": "synthetic",
+      "page_count": 1,
+      "treatments": [
+        "degraded"
+      ],
+      "permission": {
+        "basis": "self_authored",
+        "reference": "Project fictional invoice corpus; generator labels",
+        "redistribution": true
+      },
+      "annotation": {
+        "author": "project invoice generator",
+        "method": "generator",
+        "source_sha256": "c315391bbcdad3e7e7638fd91ccbf021eed83020098809ee8020487b84570947",
+        "before_predictions": true
+      },
+      "asset": "inputs/inv-f03-27.png"
+    },
+    {
+      "id": "inv-f05-30",
+      "sha256": "9cf5df21ea9bf3628a245a62eea8abaea95ee37ba08401580f6ca1e623d1b912",
+      "family_group": "family-05",
+      "capture_kind": "synthetic",
+      "page_count": 1,
+      "treatments": [
+        "degraded",
+        "rotated"
+      ],
+      "permission": {
+        "basis": "self_authored",
+        "reference": "Project fictional invoice corpus; generator labels",
+        "redistribution": true
+      },
+      "annotation": {
+        "author": "project invoice generator",
+        "method": "generator",
+        "source_sha256": "9cf5df21ea9bf3628a245a62eea8abaea95ee37ba08401580f6ca1e623d1b912",
+        "before_predictions": true
+      },
+      "asset": "inputs/inv-f05-30.png"
+    },
+    {
+      "id": "inv-f06-04",
+      "sha256": "c5b2d285935cc9f80519e7470f5d9cd8ec1afda9c12aae4eb177aa9fb03b3758",
+      "family_group": "family-06",
+      "capture_kind": "synthetic",
+      "page_count": 2,
+      "treatments": [
+        "clean",
+        "multi_page"
+      ],
+      "permission": {
+        "basis": "self_authored",
+        "reference": "Project fictional invoice corpus; generator labels",
+        "redistribution": true
+      },
+      "annotation": {
+        "author": "project invoice generator",
+        "method": "generator",
+        "source_sha256": "c5b2d285935cc9f80519e7470f5d9cd8ec1afda9c12aae4eb177aa9fb03b3758",
+        "before_predictions": true
+      },
+      "asset": "inputs/inv-f06-04.pdf"
+    }
+  ],
+  "variants": [
+    "ocr_rules",
+    "span_llm"
+  ],
+  "document_deadline_seconds": 1800,
+  "audit": {
+    "headers": [
+      "supplier_name",
+      "invoice_number",
+      "issue_date",
+      "currency",
+      "total"
+    ],
+    "row_fields": [
+      "description",
+      "line_total"
+    ],
+    "rows": "first_and_last_gold_row_using_frozen_matcher",
+    "all_failures_included": true
+  },
+  "acceptance": "Complete schedule, preserve original suggestions and failures, assess every audit target. Diagnostic quality is reported without default promotion or a generalization claim.",
+  "artifacts": {
+    "inputs/inv-f01-12.png": "7aaf3afac62e4850b2c0f66079735a64641dbb2bfc3479f994d74ca6fefcedbc",
+    "inputs/inv-f02-02.png": "bdd8ee263d7877fade240cd1622c101e7a680b0d0e924494003e0a5c64a96165",
+    "inputs/inv-f03-27.png": "c315391bbcdad3e7e7638fd91ccbf021eed83020098809ee8020487b84570947",
+    "inputs/inv-f05-30.png": "9cf5df21ea9bf3628a245a62eea8abaea95ee37ba08401580f6ca1e623d1b912",
+    "inputs/inv-f06-04.pdf": "c5b2d285935cc9f80519e7470f5d9cd8ec1afda9c12aae4eb177aa9fb03b3758",
+    "labels.json": "595cbb2a29f33d4171b3d2662bb6a62cd6929e2e503587ad96f4860d49c49983",
+    "profile.json": "c453814de617120eea0f5b8d90f0a5dbfa7bfda214071b8dc03610aa03d555f7",
+    "source_snapshot.json": "9912204b48327dd7cffc007f7ab04a054d0ad6dd9bbf357dfcc04b539336a73b"
+  }
+}

@@ -1,0 +1,1081 @@
+{
+  "version": "production-invoice-study-v1",
+  "protocol_sha256": "ebfe3e3b4d9049e27635301648b1cd36444c16b9765a0da7b4f31a31a3b28d9b",
+  "run_sha256": "92af1911bace71649d5054d58dfbfc14957f628c0cf0a0d88c913e552e8be75d",
+  "variant": "span_llm",
+  "auditor": "",
+  "method": "manual_source_and_render_inspection",
+  "items": [
+    {
+      "id": "inv-f02-02:fields.supplier_name",
+      "document_id": "inv-f02-02",
+      "path": "fields.supplier_name",
+      "gold_value": "Juniper Labs",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "Juniper Labs",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0002",
+          "span": {
+            "id": "p1-l0002",
+            "page": 1,
+            "text": "Juniper Labs",
+            "box": {
+              "left": 0.055,
+              "top": 0.026875,
+              "right": 0.25916666666666666,
+              "bottom": 0.051875
+            },
+            "method": "tesseract-eng",
+            "confidence": 95.96
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f02-02:fields.invoice_number",
+      "document_id": "inv-f02-02",
+      "path": "fields.invoice_number",
+      "gold_value": "F02-002",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "F02-002",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0004",
+          "span": {
+            "id": "p1-l0004",
+            "page": 1,
+            "text": "Invoice No.: F02-002",
+            "box": {
+              "left": 0.585,
+              "top": 0.1625,
+              "right": 0.78,
+              "bottom": 0.174375
+            },
+            "method": "tesseract-eng",
+            "confidence": 85.14
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f02-02:fields.issue_date",
+      "document_id": "inv-f02-02",
+      "path": "fields.issue_date",
+      "gold_value": "2026-01-15",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "2026-01-15",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0005",
+          "span": {
+            "id": "p1-l0005",
+            "page": 1,
+            "text": "Date: 2026-01-15",
+            "box": {
+              "left": 0.585,
+              "top": 0.199375,
+              "right": 0.7483333333333333,
+              "bottom": 0.21125
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.38
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f02-02:fields.currency",
+      "document_id": "inv-f02-02",
+      "path": "fields.currency",
+      "gold_value": "USD",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "USD",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0007",
+          "span": {
+            "id": "p1-l0007",
+            "page": 1,
+            "text": "Currency: USD",
+            "box": {
+              "left": 0.5841666666666666,
+              "top": 0.273125,
+              "right": 0.7275,
+              "bottom": 0.288125
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.26
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f02-02:fields.total",
+      "document_id": "inv-f02-02",
+      "path": "fields.total",
+      "gold_value": "686.00",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "686.00",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0016",
+          "span": {
+            "id": "p1-l0016",
+            "page": 1,
+            "text": "Total: 686.00",
+            "box": {
+              "left": 0.5833333333333334,
+              "top": 0.895625,
+              "right": 0.7058333333333333,
+              "bottom": 0.9075
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.16
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f02-02:gold_rows.0.description",
+      "document_id": "inv-f02-02",
+      "path": "gold_rows.0.description",
+      "gold_value": "Usability session",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "Usability session",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0009",
+          "span": {
+            "id": "p1-l0009",
+            "page": 1,
+            "text": "Usability session 4 68.00 272.00",
+            "box": {
+              "left": 0.06833333333333333,
+              "top": 0.435625,
+              "right": 0.8966666666666666,
+              "bottom": 0.450625
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.47
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f02-02:gold_rows.0.line_total",
+      "document_id": "inv-f02-02",
+      "path": "gold_rows.0.line_total",
+      "gold_value": "272.00",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "272.00",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0009",
+          "span": {
+            "id": "p1-l0009",
+            "page": 1,
+            "text": "Usability session 4 68.00 272.00",
+            "box": {
+              "left": 0.06833333333333333,
+              "top": 0.435625,
+              "right": 0.8966666666666666,
+              "bottom": 0.450625
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.47
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f02-02:gold_rows.2.description",
+      "document_id": "inv-f02-02",
+      "path": "gold_rows.2.description",
+      "gold_value": "Layout study",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "Layout study",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0011",
+          "span": {
+            "id": "p1-l0011",
+            "page": 1,
+            "text": "Layout study 4 61.00 244.00",
+            "box": {
+              "left": 0.06833333333333333,
+              "top": 0.536875,
+              "right": 0.8966666666666666,
+              "bottom": 0.551875
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.46
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f02-02:gold_rows.2.line_total",
+      "document_id": "inv-f02-02",
+      "path": "gold_rows.2.line_total",
+      "gold_value": "244.00",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "244.00",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0011",
+          "span": {
+            "id": "p1-l0011",
+            "page": 1,
+            "text": "Layout study 4 61.00 244.00",
+            "box": {
+              "left": 0.06833333333333333,
+              "top": 0.536875,
+              "right": 0.8966666666666666,
+              "bottom": 0.551875
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.46
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f01-12:fields.supplier_name",
+      "document_id": "inv-f01-12",
+      "path": "fields.supplier_name",
+      "gold_value": "Aster Studio LLC",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f01-12:fields.invoice_number",
+      "document_id": "inv-f01-12",
+      "path": "fields.invoice_number",
+      "gold_value": "F01-012",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f01-12:fields.issue_date",
+      "document_id": "inv-f01-12",
+      "path": "fields.issue_date",
+      "gold_value": "2026-01-12",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f01-12:fields.currency",
+      "document_id": "inv-f01-12",
+      "path": "fields.currency",
+      "gold_value": "USD",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f01-12:fields.total",
+      "document_id": "inv-f01-12",
+      "path": "fields.total",
+      "gold_value": "427.00",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f01-12:gold_rows.0.description",
+      "document_id": "inv-f01-12",
+      "path": "gold_rows.0.description",
+      "gold_value": "Layout study",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f01-12:gold_rows.0.line_total",
+      "document_id": "inv-f01-12",
+      "path": "gold_rows.0.line_total",
+      "gold_value": "190.00",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f01-12:gold_rows.3.description",
+      "document_id": "inv-f01-12",
+      "path": "gold_rows.3.description",
+      "gold_value": "Illustration set",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f01-12:gold_rows.3.line_total",
+      "document_id": "inv-f01-12",
+      "path": "gold_rows.3.line_total",
+      "gold_value": "96.00",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f03-27:fields.supplier_name",
+      "document_id": "inv-f03-27",
+      "path": "fields.supplier_name",
+      "gold_value": "Cobalt Paper Co",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f03-27:fields.invoice_number",
+      "document_id": "inv-f03-27",
+      "path": "fields.invoice_number",
+      "gold_value": "F03-002",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f03-27:fields.issue_date",
+      "document_id": "inv-f03-27",
+      "path": "fields.issue_date",
+      "gold_value": "2026-01-28",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f03-27:fields.currency",
+      "document_id": "inv-f03-27",
+      "path": "fields.currency",
+      "gold_value": "USD",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f03-27:fields.total",
+      "document_id": "inv-f03-27",
+      "path": "fields.total",
+      "gold_value": "567.00",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f03-27:gold_rows.0.description",
+      "document_id": "inv-f03-27",
+      "path": "gold_rows.0.description",
+      "gold_value": "Prototype analysis",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f03-27:gold_rows.0.line_total",
+      "document_id": "inv-f03-27",
+      "path": "gold_rows.0.line_total",
+      "gold_value": "192.00",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f03-27:gold_rows.3.description",
+      "document_id": "inv-f03-27",
+      "path": "gold_rows.3.description",
+      "gold_value": "Illustration set",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f03-27:gold_rows.3.line_total",
+      "document_id": "inv-f03-27",
+      "path": "gold_rows.3.line_total",
+      "gold_value": "207.00",
+      "excluded_from_value_scoring": null,
+      "predicted_value": null,
+      "candidate_missing": true,
+      "extraction_failed": true,
+      "citations": [],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f05-30:fields.supplier_name",
+      "document_id": "inv-f05-30",
+      "path": "fields.supplier_name",
+      "gold_value": "Fable Transit Design",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "Fable Transit Design",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0002",
+          "span": {
+            "id": "p1-l0002",
+            "page": 1,
+            "text": "Fable Transit Design",
+            "box": {
+              "left": 0.026875,
+              "top": 0.6158333333333333,
+              "right": 0.051875,
+              "bottom": 0.9433333333333334
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.33
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f05-30:fields.invoice_number",
+      "document_id": "inv-f05-30",
+      "path": "fields.invoice_number",
+      "gold_value": "F05-005",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "F05-005",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0004",
+          "span": {
+            "id": "p1-l0004",
+            "page": 1,
+            "text": "Invoice No.: F05-005",
+            "box": {
+              "left": 0.16875,
+              "top": 0.41083333333333333,
+              "right": 0.180625,
+              "bottom": 0.6066666666666667
+            },
+            "method": "tesseract-eng",
+            "confidence": 89.04
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f05-30:fields.issue_date",
+      "document_id": "inv-f05-30",
+      "path": "fields.issue_date",
+      "gold_value": "2026-02-26",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "2026-02-26",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0005",
+          "span": {
+            "id": "p1-l0005",
+            "page": 1,
+            "text": "Date: 2026-02-26",
+            "box": {
+              "left": 0.205625,
+              "top": 0.44416666666666665,
+              "right": 0.2175,
+              "bottom": 0.6066666666666667
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.62
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f05-30:fields.currency",
+      "document_id": "inv-f05-30",
+      "path": "fields.currency",
+      "gold_value": "USD",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "USD",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0007",
+          "span": {
+            "id": "p1-l0007",
+            "page": 1,
+            "text": "Currency: USD",
+            "box": {
+              "left": 0.279375,
+              "top": 0.46416666666666667,
+              "right": 0.294375,
+              "bottom": 0.6075
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.26
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f05-30:fields.total",
+      "document_id": "inv-f05-30",
+      "path": "fields.total",
+      "gold_value": "201.00",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "201.00",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0013",
+          "span": {
+            "id": "p1-l0013",
+            "page": 1,
+            "text": "Total: 201.00",
+            "box": {
+              "left": 0.908125,
+              "top": 0.2941666666666667,
+              "right": 0.92,
+              "bottom": 0.4166666666666667
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.37
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f05-30:gold_rows.0.description",
+      "document_id": "inv-f05-30",
+      "path": "gold_rows.0.description",
+      "gold_value": "Research workshop",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "Research workshop",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0009",
+          "span": {
+            "id": "p1-l0009",
+            "page": 1,
+            "text": "Research workshop 3 64.00 192.00",
+            "box": {
+              "left": 0.454375,
+              "top": 0.10333333333333333,
+              "right": 0.469375,
+              "bottom": 0.9316666666666666
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.46
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f05-30:gold_rows.0.line_total",
+      "document_id": "inv-f05-30",
+      "path": "gold_rows.0.line_total",
+      "gold_value": "192.00",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "192.00",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0009",
+          "span": {
+            "id": "p1-l0009",
+            "page": 1,
+            "text": "Research workshop 3 64.00 192.00",
+            "box": {
+              "left": 0.454375,
+              "top": 0.10333333333333333,
+              "right": 0.469375,
+              "bottom": 0.9316666666666666
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.46
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f06-04:fields.supplier_name",
+      "document_id": "inv-f06-04",
+      "path": "fields.supplier_name",
+      "gold_value": "Northline Atelier",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "Northline Atelier",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0002",
+          "span": {
+            "id": "p1-l0002",
+            "page": 1,
+            "text": "Northline Atelier",
+            "box": {
+              "left": 0.056666666666666664,
+              "top": 0.0265,
+              "right": 0.312,
+              "bottom": 0.0465
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.45
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f06-04:fields.invoice_number",
+      "document_id": "inv-f06-04",
+      "path": "fields.invoice_number",
+      "gold_value": "F06-004",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "F06-004",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0004",
+          "span": {
+            "id": "p1-l0004",
+            "page": 1,
+            "text": "Invoice No.: F06-004",
+            "box": {
+              "left": 0.5773333333333334,
+              "top": 0.1655,
+              "right": 0.7726666666666666,
+              "bottom": 0.1775
+            },
+            "method": "tesseract-eng",
+            "confidence": 71.51
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f06-04:fields.issue_date",
+      "document_id": "inv-f06-04",
+      "path": "fields.issue_date",
+      "gold_value": "2026-03-10",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "2026-03-10",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0005",
+          "span": {
+            "id": "p1-l0005",
+            "page": 1,
+            "text": "Date: 2026-03-10",
+            "box": {
+              "left": 0.5766666666666667,
+              "top": 0.2025,
+              "right": 0.74,
+              "bottom": 0.2145
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.49
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f06-04:fields.currency",
+      "document_id": "inv-f06-04",
+      "path": "fields.currency",
+      "gold_value": "USD",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "USD",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0007",
+          "span": {
+            "id": "p1-l0007",
+            "page": 1,
+            "text": "Currency: USD",
+            "box": {
+              "left": 0.576,
+              "top": 0.276,
+              "right": 0.7193333333333334,
+              "bottom": 0.2915
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.21
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f06-04:fields.total",
+      "document_id": "inv-f06-04",
+      "path": "fields.total",
+      "gold_value": "1232.00",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "1232.00",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p2-l0012",
+          "span": {
+            "id": "p2-l0012",
+            "page": 2,
+            "text": "Total: 1232.00",
+            "box": {
+              "left": 0.06666666666666667,
+              "top": 0.9085,
+              "right": 0.20133333333333334,
+              "bottom": 0.9205
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.19
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f06-04:gold_rows.0.description",
+      "document_id": "inv-f06-04",
+      "path": "gold_rows.0.description",
+      "gold_value": "Extended technical documentation review",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "Extended technical documentation review",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0009",
+          "span": {
+            "id": "p1-l0009",
+            "page": 1,
+            "text": "Extended technical documentation review 1 65.00 65.00",
+            "box": {
+              "left": 0.068,
+              "top": 0.4545,
+              "right": 0.886,
+              "bottom": 0.4665
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.67
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f06-04:gold_rows.0.line_total",
+      "document_id": "inv-f06-04",
+      "path": "gold_rows.0.line_total",
+      "gold_value": "65.00",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "65.00",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p1-l0009",
+          "span": {
+            "id": "p1-l0009",
+            "page": 1,
+            "text": "Extended technical documentation review 1 65.00 65.00",
+            "box": {
+              "left": 0.068,
+              "top": 0.4545,
+              "right": 0.886,
+              "bottom": 0.4665
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.67
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f06-04:gold_rows.4.description",
+      "document_id": "inv-f06-04",
+      "path": "gold_rows.4.description",
+      "gold_value": "Technical editing",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "Technical editing",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p2-l0007",
+          "span": {
+            "id": "p2-l0007",
+            "page": 2,
+            "text": "Technical editing 3 107.00 321.00",
+            "box": {
+              "left": 0.06666666666666667,
+              "top": 0.424,
+              "right": 0.8973333333333333,
+              "bottom": 0.439
+            },
+            "method": "tesseract-eng",
+            "confidence": 95.3
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    },
+    {
+      "id": "inv-f06-04:gold_rows.4.line_total",
+      "document_id": "inv-f06-04",
+      "path": "gold_rows.4.line_total",
+      "gold_value": "321.00",
+      "excluded_from_value_scoring": null,
+      "predicted_value": "321.00",
+      "candidate_missing": false,
+      "extraction_failed": false,
+      "citations": [
+        {
+          "id": "p2-l0007",
+          "span": {
+            "id": "p2-l0007",
+            "page": 2,
+            "text": "Technical editing 3 107.00 321.00",
+            "box": {
+              "left": 0.06666666666666667,
+              "top": 0.424,
+              "right": 0.8973333333333333,
+              "bottom": 0.439
+            },
+            "method": "tesseract-eng",
+            "confidence": 95.3
+          }
+        }
+      ],
+      "semantic_status": null,
+      "geometry_status": null,
+      "inspected_pages": [],
+      "rationale": ""
+    }
+  ],
+  "scope": "Every critical header and first/last gold-row description/amount. Matching chooses audit targets; it does not establish semantic support. Failure and absent-candidate targets remain in the denominator. Extra predicted rows are counted by extraction scoring, outside this declared semantic sample."
+}

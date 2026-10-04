@@ -1,0 +1,904 @@
+{
+  "document_id": "129423ffa74047c2937d9223d5d72beb",
+  "source_sha256": "c5b2d285935cc9f80519e7470f5d9cd8ec1afda9c12aae4eb177aa9fb03b3758",
+  "source_name": "inv-f06-04.pdf",
+  "page": {
+    "number": 1,
+    "width_px": 1500,
+    "height_px": 2000,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "nn OOO——————EeEeeeeeeeeeerree",
+        "box": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 1.0,
+          "bottom": 0.016
+        },
+        "method": "tesseract-eng",
+        "confidence": 4.07
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Northline Atelier",
+        "box": {
+          "left": 0.056666666666666664,
+          "top": 0.0265,
+          "right": 0.312,
+          "bottom": 0.0465
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.45
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "INVOICE",
+        "box": {
+          "left": 0.67,
+          "top": 0.064,
+          "right": 0.8126666666666666,
+          "bottom": 0.084
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.22
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Invoice No.: F06-004",
+        "box": {
+          "left": 0.5773333333333334,
+          "top": 0.1655,
+          "right": 0.7726666666666666,
+          "bottom": 0.1775
+        },
+        "method": "tesseract-eng",
+        "confidence": 71.51
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Date: 2026-03-10",
+        "box": {
+          "left": 0.5766666666666667,
+          "top": 0.2025,
+          "right": 0.74,
+          "bottom": 0.2145
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.49
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Due date: 2026-04-09",
+        "box": {
+          "left": 0.5766666666666667,
+          "top": 0.2395,
+          "right": 0.7806666666666666,
+          "bottom": 0.2515
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.16
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Currency: USD",
+        "box": {
+          "left": 0.576,
+          "top": 0.276,
+          "right": 0.7193333333333334,
+          "bottom": 0.2915
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.21
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Description Qty Unit price Amount",
+        "box": {
+          "left": 0.068,
+          "top": 0.4075,
+          "right": 0.9073333333333333,
+          "bottom": 0.427
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.49
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "Extended technical documentation review 1 65.00 65.00",
+        "box": {
+          "left": 0.068,
+          "top": 0.4545,
+          "right": 0.886,
+          "bottom": 0.4665
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.67
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "Illustration set 3 107.00 321.00",
+        "box": {
+          "left": 0.06866666666666667,
+          "top": 0.505,
+          "right": 0.8973333333333333,
+          "bottom": 0.517
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.67
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "Paper mockup 4 72.00 288.00",
+        "box": {
+          "left": 0.068,
+          "top": 0.5555,
+          "right": 0.8973333333333333,
+          "bottom": 0.571
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.55
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "Page 1",
+        "box": {
+          "left": 0.8106666666666666,
+          "top": 0.963,
+          "right": 0.872,
+          "bottom": 0.978
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.77
+      }
+    ]
+  },
+  "pages": [
+    {
+      "number": 1,
+      "width_px": 1500,
+      "height_px": 2000,
+      "spans": [
+        {
+          "id": "p1-l0001",
+          "page": 1,
+          "text": "nn OOO——————EeEeeeeeeeeeerree",
+          "box": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 1.0,
+            "bottom": 0.016
+          },
+          "method": "tesseract-eng",
+          "confidence": 4.07
+        },
+        {
+          "id": "p1-l0002",
+          "page": 1,
+          "text": "Northline Atelier",
+          "box": {
+            "left": 0.056666666666666664,
+            "top": 0.0265,
+            "right": 0.312,
+            "bottom": 0.0465
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.45
+        },
+        {
+          "id": "p1-l0003",
+          "page": 1,
+          "text": "INVOICE",
+          "box": {
+            "left": 0.67,
+            "top": 0.064,
+            "right": 0.8126666666666666,
+            "bottom": 0.084
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.22
+        },
+        {
+          "id": "p1-l0004",
+          "page": 1,
+          "text": "Invoice No.: F06-004",
+          "box": {
+            "left": 0.5773333333333334,
+            "top": 0.1655,
+            "right": 0.7726666666666666,
+            "bottom": 0.1775
+          },
+          "method": "tesseract-eng",
+          "confidence": 71.51
+        },
+        {
+          "id": "p1-l0005",
+          "page": 1,
+          "text": "Date: 2026-03-10",
+          "box": {
+            "left": 0.5766666666666667,
+            "top": 0.2025,
+            "right": 0.74,
+            "bottom": 0.2145
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.49
+        },
+        {
+          "id": "p1-l0006",
+          "page": 1,
+          "text": "Due date: 2026-04-09",
+          "box": {
+            "left": 0.5766666666666667,
+            "top": 0.2395,
+            "right": 0.7806666666666666,
+            "bottom": 0.2515
+          },
+          "method": "tesseract-eng",
+          "confidence": 94.16
+        },
+        {
+          "id": "p1-l0007",
+          "page": 1,
+          "text": "Currency: USD",
+          "box": {
+            "left": 0.576,
+            "top": 0.276,
+            "right": 0.7193333333333334,
+            "bottom": 0.2915
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.21
+        },
+        {
+          "id": "p1-l0008",
+          "page": 1,
+          "text": "Description Qty Unit price Amount",
+          "box": {
+            "left": 0.068,
+            "top": 0.4075,
+            "right": 0.9073333333333333,
+            "bottom": 0.427
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.49
+        },
+        {
+          "id": "p1-l0009",
+          "page": 1,
+          "text": "Extended technical documentation review 1 65.00 65.00",
+          "box": {
+            "left": 0.068,
+            "top": 0.4545,
+            "right": 0.886,
+            "bottom": 0.4665
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.67
+        },
+        {
+          "id": "p1-l0010",
+          "page": 1,
+          "text": "Illustration set 3 107.00 321.00",
+          "box": {
+            "left": 0.06866666666666667,
+            "top": 0.505,
+            "right": 0.8973333333333333,
+            "bottom": 0.517
+          },
+          "method": "tesseract-eng",
+          "confidence": 94.67
+        },
+        {
+          "id": "p1-l0011",
+          "page": 1,
+          "text": "Paper mockup 4 72.00 288.00",
+          "box": {
+            "left": 0.068,
+            "top": 0.5555,
+            "right": 0.8973333333333333,
+            "bottom": 0.571
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.55
+        },
+        {
+          "id": "p1-l0012",
+          "page": 1,
+          "text": "Page 1",
+          "box": {
+            "left": 0.8106666666666666,
+            "top": 0.963,
+            "right": 0.872,
+            "bottom": 0.978
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.77
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "width_px": 1500,
+      "height_px": 2000,
+      "spans": [
+        {
+          "id": "p2-l0001",
+          "page": 2,
+          "text": "nn OOO——————EeEeeeeeeeeeerree",
+          "box": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 1.0,
+            "bottom": 0.016
+          },
+          "method": "tesseract-eng",
+          "confidence": 4.07
+        },
+        {
+          "id": "p2-l0002",
+          "page": 2,
+          "text": "Northline Atelier",
+          "box": {
+            "left": 0.056666666666666664,
+            "top": 0.0265,
+            "right": 0.312,
+            "bottom": 0.0465
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.45
+        },
+        {
+          "id": "p2-l0003",
+          "page": 2,
+          "text": "INVOICE CONTINUED",
+          "box": {
+            "left": 0.5833333333333334,
+            "top": 0.064,
+            "right": 0.9486666666666667,
+            "bottom": 0.084
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.99
+        },
+        {
+          "id": "p2-l0004",
+          "page": 2,
+          "text": "Invoice No.: F06-004",
+          "box": {
+            "left": 0.056,
+            "top": 0.172,
+            "right": 0.25133333333333335,
+            "bottom": 0.184
+          },
+          "method": "tesseract-eng",
+          "confidence": 76.48
+        },
+        {
+          "id": "p2-l0005",
+          "page": 2,
+          "text": "Description Qty Unit price Amount",
+          "box": {
+            "left": 0.068,
+            "top": 0.326,
+            "right": 0.9073333333333333,
+            "bottom": 0.3465
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.47
+        },
+        {
+          "id": "p2-l0006",
+          "page": 2,
+          "text": "Data cleanup 4 58.00 232.00",
+          "box": {
+            "left": 0.068,
+            "top": 0.373,
+            "right": 0.8973333333333333,
+            "bottom": 0.3885
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.34
+        },
+        {
+          "id": "p2-l0007",
+          "page": 2,
+          "text": "Technical editing 3 107.00 321.00",
+          "box": {
+            "left": 0.06666666666666667,
+            "top": 0.424,
+            "right": 0.8973333333333333,
+            "bottom": 0.439
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.3
+        },
+        {
+          "id": "p2-l0008",
+          "page": 2,
+          "text": "Subtotal: 1227.00",
+          "box": {
+            "left": 0.06733333333333333,
+            "top": 0.766,
+            "right": 0.23133333333333334,
+            "bottom": 0.778
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.24
+        },
+        {
+          "id": "p2-l0009",
+          "page": 2,
+          "text": "Tax: 5.00",
+          "box": {
+            "left": 0.06666666666666667,
+            "top": 0.8015,
+            "right": 0.15466666666666667,
+            "bottom": 0.8135
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.59
+        },
+        {
+          "id": "p2-l0010",
+          "page": 2,
+          "text": "Discount: 0.00",
+          "box": {
+            "left": 0.068,
+            "top": 0.837,
+            "right": 0.202,
+            "bottom": 0.849
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.02
+        },
+        {
+          "id": "p2-l0011",
+          "page": 2,
+          "text": "Shipping: 0.00",
+          "box": {
+            "left": 0.06733333333333333,
+            "top": 0.873,
+            "right": 0.20133333333333334,
+            "bottom": 0.888
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.42
+        },
+        {
+          "id": "p2-l0012",
+          "page": 2,
+          "text": "Total: 1232.00",
+          "box": {
+            "left": 0.06666666666666667,
+            "top": 0.9085,
+            "right": 0.20133333333333334,
+            "bottom": 0.9205
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.19
+        },
+        {
+          "id": "p2-l0013",
+          "page": 2,
+          "text": "Page 2",
+          "box": {
+            "left": 0.8106666666666666,
+            "top": 0.963,
+            "right": 0.8746666666666667,
+            "bottom": 0.978
+          },
+          "method": "tesseract-eng",
+          "confidence": 94.85
+        }
+      ]
+    }
+  ],
+  "extraction": {
+    "attempt_id": "baaa4c6091a34fd4bf319415e58148cd:1",
+    "created_at": "2026-10-04T13:54:20.223451+00:00",
+    "input_sha256": "8aba95a8e66d22228264d14a82ba53f3f44d0fcb039cc729608551997c912a97",
+    "model_id": "docwork-qwen3-4b-instruct",
+    "parser_version": "container-tesseract-v3",
+    "profile": "span_llm",
+    "prompt_sha256": "e95fc231df9974a2fbfec84e9f36171bb9b15e8ce7b39005b8827e5ed4395e25"
+  },
+  "revision": 1,
+  "current_revision": 1,
+  "record": {
+    "fields": {
+      "currency": {
+        "evidence_ids": [
+          "p1-l0007"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Currency: USD",
+        "value": "USD"
+      },
+      "discount": {
+        "evidence_ids": [
+          "p2-l0010"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Discount: 0.00",
+        "value": "0.00"
+      },
+      "due_date": {
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Due date: 2026-04-09",
+        "value": "2026-04-09"
+      },
+      "invoice_number": {
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Invoice No.: F06-004",
+        "value": "F06-004"
+      },
+      "issue_date": {
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Date: 2026-03-10",
+        "value": "2026-03-10"
+      },
+      "shipping": {
+        "evidence_ids": [
+          "p2-l0011"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Shipping: 0.00",
+        "value": "0.00"
+      },
+      "subtotal": {
+        "evidence_ids": [
+          "p1-l0009",
+          "p1-l0010",
+          "p1-l0011"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Extended technical documentation review 1 65.00 65.00 | Illustration set 3 107.00 321.00 | Paper mockup 4 72.00 288.00",
+        "value": "674.00"
+      },
+      "supplier_name": {
+        "evidence_ids": [
+          "p1-l0002"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Northline Atelier",
+        "value": "Northline Atelier"
+      },
+      "tax": {
+        "evidence_ids": [
+          "p2-l0009"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Tax: 5.00",
+        "value": "5.00"
+      },
+      "total": {
+        "evidence_ids": [
+          "p2-l0012"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Total: 1232.00",
+        "value": "1232.00"
+      }
+    },
+    "line_items": [
+      {
+        "description": {
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Extended technical documentation review 1 65.00 65.00",
+          "value": "Extended technical documentation review"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Extended technical documentation review 1 65.00 65.00",
+          "value": "65.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Extended technical documentation review 1 65.00 65.00",
+          "value": "1"
+        },
+        "row_id": "row-001",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_observed",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Extended technical documentation review 1 65.00 65.00",
+          "value": "65.00"
+        }
+      },
+      {
+        "description": {
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Illustration set 3 107.00 321.00",
+          "value": "Illustration set"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Illustration set 3 107.00 321.00",
+          "value": "321.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Illustration set 3 107.00 321.00",
+          "value": "3"
+        },
+        "row_id": "row-002",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_observed",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Illustration set 3 107.00 321.00",
+          "value": "107.00"
+        }
+      },
+      {
+        "description": {
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Paper mockup 4 72.00 288.00",
+          "value": "Paper mockup"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Paper mockup 4 72.00 288.00",
+          "value": "288.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Paper mockup 4 72.00 288.00",
+          "value": "4"
+        },
+        "row_id": "row-003",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_observed",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Paper mockup 4 72.00 288.00",
+          "value": "72.00"
+        }
+      },
+      {
+        "description": {
+          "evidence_ids": [
+            "p2-l0006"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Data cleanup 4 58.00 232.00",
+          "value": "Data cleanup"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p2-l0006"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Data cleanup 4 58.00 232.00",
+          "value": "232.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p2-l0006"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Data cleanup 4 58.00 232.00",
+          "value": "4"
+        },
+        "row_id": "row-004",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_observed",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p2-l0006"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Data cleanup 4 58.00 232.00",
+          "value": "58.00"
+        }
+      },
+      {
+        "description": {
+          "evidence_ids": [
+            "p2-l0007"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Technical editing 3 107.00 321.00",
+          "value": "Technical editing"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p2-l0007"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Technical editing 3 107.00 321.00",
+          "value": "321.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p2-l0007"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Technical editing 3 107.00 321.00",
+          "value": "3"
+        },
+        "row_id": "row-005",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_observed",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p2-l0007"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Technical editing 3 107.00 321.00",
+          "value": "107.00"
+        }
+      }
+    ],
+    "schema_version": "invoice-v1-spike"
+  },
+  "record_hash": "124e115b020b4feff20a9e10bc00bcaf81640a8f5e502412191781b2844bda05",
+  "issues": [
+    {
+      "blocking": true,
+      "code": "EVIDENCE_MISMATCH",
+      "detail": "Value does not occur in cited spans",
+      "path": "fields.subtotal"
+    },
+    {
+      "blocking": true,
+      "code": "SUBTOTAL_MISMATCH",
+      "detail": "Observed subtotal differs from sum of observed rows",
+      "path": "fields.subtotal"
+    },
+    {
+      "blocking": true,
+      "code": "TOTAL_MISMATCH",
+      "detail": "Observed total differs from computed 679.00",
+      "path": "fields.total"
+    },
+    {
+      "blocking": true,
+      "code": "MODEL_HEADER_CONFLICT",
+      "detail": "Model extracted different values on separate pages",
+      "path": "fields.subtotal"
+    }
+  ],
+  "review_priority": {
+    "version": "review-priority-v1",
+    "points": 21,
+    "signals": [
+      {
+        "code": "EVIDENCE_MISMATCH",
+        "count": 1,
+        "points": 6
+      },
+      {
+        "code": "MODEL_HEADER_CONFLICT",
+        "count": 1,
+        "points": 5
+      },
+      {
+        "code": "SUBTOTAL_MISMATCH",
+        "count": 1,
+        "points": 5
+      },
+      {
+        "code": "TOTAL_MISMATCH",
+        "count": 1,
+        "points": 5
+      }
+    ]
+  },
+  "decisions": [],
+  "approval": null
+}

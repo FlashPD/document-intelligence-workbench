@@ -1,0 +1,87 @@
+{
+  "report_version": "portfolio-demo-replay-browser-v1",
+  "status": "passed",
+  "checks": [
+    "offline replay entrypoint and controls",
+    "recorded provenance",
+    "keyboard field navigation",
+    "native action buttons",
+    "correction creates revision",
+    "source stays visible during correction",
+    "unapproved export blocked",
+    "stale revision rejected",
+    "approval bound to revision",
+    "JSON and CSV downloads",
+    "rotated page pixels and highlights",
+    "missing evidence visible",
+    "native page selector",
+    "field jumps to source page",
+    "page-specific rotation",
+    "responsive layout"
+  ],
+  "human_timing_measurement": false,
+  "browser": "Chrome/154.0.8037.93",
+  "cases": [
+    "inv-f02-02",
+    "inv-f01-12",
+    "inv-f03-27",
+    "inv-f06-04"
+  ],
+  "frames": [
+    {
+      "path": "frames/01.png",
+      "caption": "A keyboard correction creates revision 2 and preserves the original suggestion."
+    },
+    {
+      "path": "frames/02.png",
+      "caption": "Only the approved revision can produce verified JSON and CSV downloads."
+    },
+    {
+      "path": "frames/03.png",
+      "caption": "Printed total conflict: the reviewer records a reason; source values stay unchanged."
+    },
+    {
+      "path": "frames/04.png",
+      "caption": "Review rotation: the page and cited line highlights rotate together."
+    },
+    {
+      "path": "frames/05.png",
+      "caption": "A cited row jumps to page 2; each page retains its own review rotation."
+    }
+  ],
+  "recording": null,
+  "page_selector_method": "Trusted CDP arrow/Enter events must remain uncanceled and preserve field selection/focus. Page choice uses a separate DOM change; OS popup-menu navigation is not verified.",
+  "source_sha256": {
+    "src/docwork/review_pilot.py": "cf4989b1d8f889b0be9b259c2998249ebdea7d7e315e9c6b99ffaf01af17ed2f",
+    "src/docwork/pilot_bundle.py": "431952a5824ec4d75644dc5423b6ed04e7593d281e493fcedb531f603e2940e8",
+    "src/docwork/review.py": "0754519dfc4f7f70212a402b34039ef6002b0495dde9dd6607348f371c7d6830",
+    "src/docwork/intake.py": "1de49a01d4b5f3ba343673ee523dddc7b295eae180a593315efd778b73cdaf55",
+    "src/docwork/web.py": "c878a0d41ed4dfbe1868d8971801ced353db572d608ae1f1ae18c4d88b238e65",
+    "scripts/review_pilot.py": "848ac50be241c3a7800551566c4f97e041a760ce294476b012be555037ee1e6b",
+    "ui/app.js": "39bc05f15d911c6c8529a01073a2dfc1bf4ea2673c0add47df4f2c4e77e2e978",
+    "ui/pilot.js": "fd9ce7c21d3355d67415755f5f47d31cdc499c07a64f14f03103ff8f7389eb74",
+    "ui/index.html": "c9e4db6d88a9db3b55fad492faa2b928310c83a18b0fc82a2afd502afce272dc",
+    "ui/style.css": "a390fa1f09e64678b2b5d2acfeeb357a2d23a8751941dadd79bb8545ccec4f84",
+    "scripts/verify_pilot_browser.py": "671bf5fb01f94cc5cf23a9d10fc41f06853fa2cffcac19ffb6331f466eb2c345",
+    "scripts/verify_review_browser.py": "e39742a22a4c9cccc54f220e386d63a9893aad3533cac7d8f68591fe8903b3d1",
+    "src/docwork/geometry.py": "0f8cd59f8c205cb0b076fd21511be99aff13077453aa15631120b4ad08cf0275",
+    "src/docwork/access.py": "327a843aa41de5eeec1710025fa2d855f132544e2b45b10fb91f9e235f66542d",
+    "src/docwork/supervisor.py": "498df1aacf9933bda38560d8194fed4a378d923a1fe18a20e6f26369a059fe3d",
+    "src/docwork/lifecycle.py": "5765b8d014cf50a244ad047c738a9020b77c8d738283cbdee28ffad103bb6a27",
+    "src/docwork/request_control.py": "136f79bd443c17a20be49def3536e50b9685fa36a1ff947463f62d33aa470af4",
+    "src/docwork/storage_budget.py": "f241716769cfb7685d5a03f05d502154936b7069baf41a2716aa91794b99dfb8",
+    "src/docwork/demo_replay.py": "14a096ea3ef62f18ead2cc3f633e868e10622c911a46934f22b491f8294122d3",
+    "src/docwork/cli.py": "cb9891d86cc3eb73da3764791d0118e3cc504141fdbe89337020582c0d9ea92d",
+    "Makefile": "14274a0e3c278a93642814ab2f41192d9899a6f6f16d396fbf6ed518aaf1ca11"
+  },
+  "artifacts": {
+    "frames/01.png": "b7251f806e1186ebf42b9d22e4eff22f618f371dce43df2c9e5008f1ef57a2ff",
+    "frames/02.png": "b970ada354a57cb7e6d1fc9768582ac41fc286b0698bbde2cc355eb50319f350",
+    "frames/03.png": "d2535f278bd1fad8dabf2ff2d6858beb92e138520dbf3553ad5453fe64752797",
+    "frames/04.png": "8fadbd769496231f041f3a7ecea9dddc3c06fc39b99b5306dadb1bd8fb88bb4d",
+    "frames/05.png": "2431bb85c3a452cd60ffca5b9c563f28b6874874273aaea9b72549c81eac6ab3",
+    "index.html": "b7bfeef4cf164414c7a0de02861cdc38f0e17721f04420c7e04368933b62c3a3",
+    "source_snapshot.json": "a0f568dd6eb14abeb8750ccad8d739a44dd35413ce750ec7ed325471fba97212"
+  },
+  "scope": "Automated browser verification on four fictional development cases, replaying verified OCR/rules suggestions. Temporary database, exports, and Chrome profile removed. No human review outcomes, live parsing, model inference, genuine scans, or productivity measurement."
+}

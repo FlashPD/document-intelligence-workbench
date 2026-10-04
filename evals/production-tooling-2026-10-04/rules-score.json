@@ -1,0 +1,702 @@
+{
+  "version": "production-invoice-study-v1",
+  "protocol_sha256": "ebfe3e3b4d9049e27635301648b1cd36444c16b9765a0da7b4f31a31a3b28d9b",
+  "run_sha256": "856160ba3fdac577e63a6b79b68ce27a147f544907a95d414f364dc758638670",
+  "mode": "diagnostic",
+  "variant": "ocr_rules",
+  "original_suggestions": {
+    "scoring_version": "invoice-release-scoring-v1",
+    "documents_scheduled": 5,
+    "documents_processed": 5,
+    "all_required_exact": {
+      "correct": 5,
+      "eligible": 5
+    },
+    "header_field_exclusions": {
+      "supplier_name": 0,
+      "invoice_number": 0,
+      "issue_date": 0,
+      "due_date": 0,
+      "currency": 0,
+      "subtotal": 0,
+      "tax": 0,
+      "discount": 0,
+      "shipping": 0,
+      "total": 0
+    },
+    "header_fields": {
+      "supplier_name": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "invoice_number": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "issue_date": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "due_date": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "currency": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "subtotal": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "tax": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "discount": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "shipping": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "total": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "header_macro_f1": 1.0,
+    "row_detection": {
+      "tp": 16,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.9412,
+      "recall": 0.9412,
+      "f1": 0.9412
+    },
+    "row_exact": {
+      "tp": 16,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.9412,
+      "recall": 0.9412,
+      "f1": 0.9412
+    },
+    "row_fields": {
+      "description": {
+        "tp": 16,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.9412,
+        "recall": 0.9412,
+        "f1": 0.9412
+      },
+      "quantity": {
+        "tp": 16,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.9412,
+        "recall": 0.9412,
+        "f1": 0.9412
+      },
+      "unit_price": {
+        "tp": 16,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.9412,
+        "recall": 0.9412,
+        "f1": 0.9412
+      },
+      "line_total": {
+        "tp": 16,
+        "fp": 0,
+        "fn": 1,
+        "precision": 1.0,
+        "recall": 0.9412,
+        "f1": 0.9697
+      },
+      "tax": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "failures_by_type": {}
+  },
+  "documents": [
+    {
+      "id": "inv-f02-02",
+      "family_group": "family-02",
+      "processed": true,
+      "header": {
+        "supplier_name": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "invoice_number": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "issue_date": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "due_date": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "currency": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "subtotal": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "tax": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "discount": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "shipping": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "excluded_header_fields": {},
+      "required_all_exact": true,
+      "gold_rows": 3,
+      "predicted_rows": 3,
+      "matched_rows": 3,
+      "exact_rows": 3,
+      "row_matches": [
+        {
+          "gold_index": 0,
+          "predicted_index": 0
+        },
+        {
+          "gold_index": 1,
+          "predicted_index": 1
+        },
+        {
+          "gold_index": 2,
+          "predicted_index": 2
+        }
+      ],
+      "row_cells": {
+        "description": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "quantity": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "failure_type": null
+    },
+    {
+      "id": "inv-f01-12",
+      "family_group": "family-01",
+      "processed": true,
+      "header": {
+        "supplier_name": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "invoice_number": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "issue_date": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "due_date": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "currency": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "subtotal": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "tax": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "discount": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "shipping": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "excluded_header_fields": {},
+      "required_all_exact": true,
+      "gold_rows": 4,
+      "predicted_rows": 4,
+      "matched_rows": 4,
+      "exact_rows": 4,
+      "row_matches": [
+        {
+          "gold_index": 0,
+          "predicted_index": 0
+        },
+        {
+          "gold_index": 1,
+          "predicted_index": 1
+        },
+        {
+          "gold_index": 2,
+          "predicted_index": 2
+        },
+        {
+          "gold_index": 3,
+          "predicted_index": 3
+        }
+      ],
+      "row_cells": {
+        "description": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0
+        },
+        "quantity": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "failure_type": null
+    },
+    {
+      "id": "inv-f03-27",
+      "family_group": "family-03",
+      "processed": true,
+      "header": {
+        "supplier_name": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "invoice_number": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "issue_date": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "due_date": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "currency": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "subtotal": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "tax": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "discount": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "shipping": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "excluded_header_fields": {},
+      "required_all_exact": true,
+      "gold_rows": 4,
+      "predicted_rows": 4,
+      "matched_rows": 3,
+      "exact_rows": 3,
+      "row_matches": [
+        {
+          "gold_index": 0,
+          "predicted_index": 0
+        },
+        {
+          "gold_index": 1,
+          "predicted_index": 1
+        },
+        {
+          "gold_index": 2,
+          "predicted_index": 2
+        }
+      ],
+      "row_cells": {
+        "description": {
+          "tp": 3,
+          "fp": 1,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 3,
+          "fp": 1,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 3,
+          "fp": 1,
+          "fn": 1
+        },
+        "line_total": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "failure_type": null
+    },
+    {
+      "id": "inv-f05-30",
+      "family_group": "family-05",
+      "processed": true,
+      "header": {
+        "supplier_name": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "invoice_number": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "issue_date": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "due_date": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "currency": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "subtotal": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "tax": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "discount": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "shipping": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "excluded_header_fields": {},
+      "required_all_exact": true,
+      "gold_rows": 1,
+      "predicted_rows": 1,
+      "matched_rows": 1,
+      "exact_rows": 1,
+      "row_matches": [
+        {
+          "gold_index": 0,
+          "predicted_index": 0
+        }
+      ],
+      "row_cells": {
+        "description": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "quantity": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "failure_type": null
+    },
+    {
+      "id": "inv-f06-04",
+      "family_group": "family-06",
+      "processed": true,
+      "header": {
+        "supplier_name": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "invoice_number": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "issue_date": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "due_date": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "currency": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "subtotal": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "tax": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "discount": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "shipping": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "excluded_header_fields": {},
+      "required_all_exact": true,
+      "gold_rows": 5,
+      "predicted_rows": 5,
+      "matched_rows": 5,
+      "exact_rows": 5,
+      "row_matches": [
+        {
+          "gold_index": 0,
+          "predicted_index": 0
+        },
+        {
+          "gold_index": 1,
+          "predicted_index": 1
+        },
+        {
+          "gold_index": 2,
+          "predicted_index": 2
+        },
+        {
+          "gold_index": 3,
+          "predicted_index": 3
+        },
+        {
+          "gold_index": 4,
+          "predicted_index": 4
+        }
+      ],
+      "row_cells": {
+        "description": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0
+        },
+        "quantity": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "failure_type": null
+    }
+  ],
+  "approved_results": "Not collected; original predictions are never replaced."
+}

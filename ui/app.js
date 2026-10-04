@@ -240,6 +240,11 @@ function renderHighlights() {
   target.replaceChildren();
   const field = fieldAt(state.selectedPath);
   if (!field) return;
+  $("evidence-limit").textContent = field.origin === "computed"
+    ? "Computed value. Check the source amounts used in the calculation."
+    : field.origin === "reviewer"
+    ? "Reviewer correction. Check that the cited source supports the corrected value."
+    : "Highlights mark cited OCR lines. Check that each line supports the selected field.";
   const spans = new Map(state.detail.pages[state.pageNumber - 1].spans.map((span) => [span.id, span]));
   const rotation = state.rotations.get(state.pageNumber) || 0;
   let count = 0;
@@ -255,7 +260,13 @@ function renderHighlights() {
     target.append(highlight);
     count++;
   }
-  $("evidence-note").textContent = count ? `${count} cited OCR line${count === 1 ? "" : "s"} on this page` : "No cited line on this page";
+  const allSpans = new Map(state.detail.pages.flatMap((page) => page.spans).map((span) => [span.id, span]));
+  const unknown = field.evidence_ids.some((id) => !allSpans.has(id));
+  const missingGeometry = field.evidence_ids.some((id) => spans.has(id) && !spans.get(id).box);
+  $("evidence-note").textContent = unknown ? "A cited source reference is unavailable"
+    : missingGeometry ? `${count} highlighted line${count === 1 ? "" : "s"} · some source geometry unavailable`
+    : count ? `${count} cited OCR line${count === 1 ? "" : "s"} on this page`
+    : field.evidence_ids.length ? "Cited source is on another page" : "No cited line on this page";
 }
 
 function renderIssues() {
