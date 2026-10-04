@@ -1,0 +1,23 @@
+name: contracts
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  deterministic-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify the committed tree without local runtime assets
+        run: make release-checkout REF=HEAD OUTPUT=artifacts/ci-checkout
+      - name: Retain checkout evidence and command logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: clean-checkout-evidence
+          path: artifacts/ci-checkout/
+          if-no-files-found: warn

@@ -1,0 +1,198 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "26818",
+        "raw": "26,818",
+        "evidence_ids": [
+          "p1-l0002"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": "2681",
+        "raw": "2,681",
+        "evidence_ids": [
+          "p1-l0003"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "29500",
+        "raw": "29,500",
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "1 CIRENG PANDAWA",
+          "raw": "1 CIRENG PANDAWA",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "26818",
+          "raw": "26,818",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "ccff186ccabcd127b9ce54bb470c8a060abaaaea6db0de0c8493bc05e80ceec4",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 38.327
+  },
+  "ocr_prediction_sha256": "19aaf1efc250e93fd1e68790a3bd8769c6075af6d450a59e29ce84b9ed71ac7c",
+  "page": {
+    "number": 1,
+    "width_px": 1108,
+    "height_px": 1478,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "1 CIRENG PANDAWA 26,818",
+        "box": {
+          "left": 0.26534296028880866,
+          "top": 0.4783491204330176,
+          "right": 0.8167870036101083,
+          "bottom": 0.5060893098782138
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.78
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Subtotal 26,818",
+        "box": {
+          "left": 0.45306859205776173,
+          "top": 0.5365358592692828,
+          "right": 0.8194945848375451,
+          "bottom": 0.5683355886332883
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.53
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Pb1 2,681",
+        "box": {
+          "left": 0.5144404332129964,
+          "top": 0.5696887686062246,
+          "right": 0.8185920577617328,
+          "bottom": 0.5947225981055481
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.24
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Total 29,500",
+        "box": {
+          "left": 0.47653429602888087,
+          "top": 0.6055480378890392,
+          "right": 0.8203971119133574,
+          "bottom": 0.6326116373477673
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.57
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "CASH 29,500",
+        "box": {
+          "left": 0.47021660649819497,
+          "top": 0.6359945872801083,
+          "right": 0.8212996389891697,
+          "bottom": 0.6623815967523681
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.69
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Total Item 1",
+        "box": {
+          "left": 0.4196750902527076,
+          "top": 0.6664411366711772,
+          "right": 0.8231046931407943,
+          "bottom": 0.6887686062246279
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.12
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Total Qty i",
+        "box": {
+          "left": 0.4368231046931408,
+          "top": 0.6975642760487145,
+          "right": 0.8249097472924187,
+          "bottom": 0.7246278755074425
+        },
+        "method": "tesseract-eng",
+        "confidence": 77.13
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 6,
+    "valid_reference_values": 6,
+    "aligned_values": 5,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

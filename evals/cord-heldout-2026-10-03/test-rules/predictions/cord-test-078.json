@@ -1,0 +1,241 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Lemon Tea (L) 25.",
+          "raw": "Lemon Tea (L) 25.",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "000",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Extra Jelly Lychee 5,",
+          "raw": "Extra Jelly Lychee 5,",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "000",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "5c3cce99134902f5a5c39900bc96856ca711d85debc1d1804095660e5c13581f",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 1.434,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 2304,
+    "height_px": 4096,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "iz",
+        "box": {
+          "left": 0.3151041666666667,
+          "top": 0.400146484375,
+          "right": 0.3502604166666667,
+          "bottom": 0.41259765625
+        },
+        "method": "tesseract-eng",
+        "confidence": 48.98
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "eka es of ws Sem tt es at i am a sa a Ow",
+        "box": {
+          "left": 0.2751736111111111,
+          "top": 0.44482421875,
+          "right": 0.7378472222222222,
+          "bottom": 0.4560546875
+        },
+        "method": "tesseract-eng",
+        "confidence": 37.11
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "1 Lemon Tea (L) 25. 000",
+        "box": {
+          "left": 0.2769097222222222,
+          "top": 0.457275390625,
+          "right": 0.7426215277777778,
+          "bottom": 0.4765625
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.03
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "1 Extra Jelly Lychee 5, 000",
+        "box": {
+          "left": 0.2777777777777778,
+          "top": 0.473876953125,
+          "right": 0.7430555555555556,
+          "bottom": 0.49267578125
+        },
+        "method": "tesseract-eng",
+        "confidence": 88.8
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "sec prt Sass st SP i mt 89 eam tt ae se ee ae we was",
+        "box": {
+          "left": 0.2756076388888889,
+          "top": 0.493896484375,
+          "right": 0.7391493055555556,
+          "bottom": 0.504150390625
+        },
+        "method": "tesseract-eng",
+        "confidence": 41.29
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "TOTAL",
+        "box": {
+          "left": 0.5099826388888888,
+          "top": 0.520263671875,
+          "right": 0.5668402777777778,
+          "bottom": 0.532958984375
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.55
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "CASH",
+        "box": {
+          "left": 0.2786458333333333,
+          "top": 0.556640625,
+          "right": 0.32421875,
+          "bottom": 0.570068359375
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.96
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "CHANGED",
+        "box": {
+          "left": 0.2786458333333333,
+          "top": 0.572265625,
+          "right": 0.359375,
+          "bottom": 0.58642578125
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.65
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 6,
+    "valid_reference_values": 6,
+    "aligned_values": 6,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

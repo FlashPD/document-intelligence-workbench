@@ -1,0 +1,205 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": "70%",
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "M-Caramel Black Tea",
+          "raw": "M-Caramel Black Tea",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1X",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "28000",
+          "raw": "28,000",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "e2dfa54e0af1fe1234e98d45026c7b7f82db7bb0299196b8f4fe4b29ee8b218b",
+  "run_sha256": "f17c96d49115a20156773ee318cdda06cca46e81ce22a024507de84a9bee2afb",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 33.692
+  },
+  "ocr_prediction_sha256": "2d408a73fcba6ddb09fd919e44f2d3b9a0115bd84bc78aa4712bfdcffa92e417",
+  "page": {
+    "number": 1,
+    "width_px": 2304,
+    "height_px": 4096,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "1X M-Caramel Black Tea @28,000",
+        "box": {
+          "left": 0.23828125,
+          "top": 0.436279296875,
+          "right": 0.6397569444444444,
+          "bottom": 0.453369140625
+        },
+        "method": "tesseract-eng",
+        "confidence": 76.72
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "70%",
+        "box": {
+          "left": 0.2604166666666667,
+          "top": 0.45947265625,
+          "right": 0.2960069444444444,
+          "bottom": 0.47216796875
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.24
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Less Ice",
+        "box": {
+          "left": 0.2595486111111111,
+          "top": 0.478271484375,
+          "right": 0.3606770833333333,
+          "bottom": 0.491455078125
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.21
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "PB1:",
+        "box": {
+          "left": 0.484375,
+          "top": 0.516357421875,
+          "right": 0.5338541666666666,
+          "bottom": 0.52978515625
+        },
+        "method": "tesseract-eng",
+        "confidence": 83.14
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Subtota]:",
+        "box": {
+          "left": 0.4149305555555556,
+          "top": 0.53564453125,
+          "right": 0.5329861111111112,
+          "bottom": 0.549560546875
+        },
+        "method": "tesseract-eng",
+        "confidence": 36.92
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Total:",
+        "box": {
+          "left": 0.4557291666666667,
+          "top": 0.5556640625,
+          "right": 0.5329861111111112,
+          "bottom": 0.56982421875
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.16
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Cash:",
+        "box": {
+          "left": 0.46875,
+          "top": 0.575927734375,
+          "right": 0.5321180555555556,
+          "bottom": 0.590087890625
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.59
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "CHANGE:",
+        "box": {
+          "left": 0.4401041666666667,
+          "top": 0.615966796875,
+          "right": 0.5321180555555556,
+          "bottom": 0.63134765625
+        },
+        "method": "tesseract-eng",
+        "confidence": 62.93
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 3,
+    "valid_reference_values": 3,
+    "aligned_values": 3,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,5 @@
+document_id,revision,row_id,description,description_origin,description_missing_reason,description_evidence_ids,quantity,quantity_origin,quantity_missing_reason,quantity_evidence_ids,unit_price,unit_price_origin,unit_price_missing_reason,unit_price_evidence_ids,line_total,line_total_origin,line_total_missing_reason,line_total_evidence_ids,tax,tax_origin,tax_missing_reason,tax_evidence_ids
+0101089da7a948459a08ec7ed1170f92,5,row-001,Prototype analysis,observed,,p1-l0008,4,observed,,p1-l0008,48.00,observed,,p1-l0008,192.00,observed,,p1-l0008,,observed,not_explicit_on_row,
+0101089da7a948459a08ec7ed1170f92,5,row-002,Technical editing,observed,,p1-l0009,1,observed,,p1-l0009,90.00,observed,,p1-l0009,90.00,observed,,p1-l0009,,observed,not_explicit_on_row,
+0101089da7a948459a08ec7ed1170f92,5,row-003,Field interview,observed,,p1-l0010,1,observed,,p1-l0010,69.00,observed,,p1-l0010,69.00,observed,,p1-l0010,,observed,not_explicit_on_row,
+0101089da7a948459a08ec7ed1170f92,5,row-004,Illustration set 3},observed,,p1-l0011,3,reviewer,,p1-l0011,69.00,reviewer,,p1-l0011,207.00,reviewer,,,,observed,not_explicit_on_row,

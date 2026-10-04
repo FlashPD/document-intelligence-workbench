@@ -1,0 +1,176 @@
+{
+  "invoice_report_sha256": "82efab50f65e7d98c549ba2accab18989d97e9f681d2866846e076655109dd2a",
+  "receipt_comparison_sha256": "29f2271accba3d72ef2116f0852eb0942163773ed30adb609da41aeabc2521af",
+  "systems": {
+    "Synthetic invoices \u00b7 OCR rules": {
+      "stage": "ocr",
+      "documents": 180,
+      "sum_seconds": 142.534,
+      "p50_seconds": 0.704,
+      "p95_seconds": 1.25,
+      "peak_sampled_server_rss_bytes": null,
+      "model_sessions": null,
+      "representative_cases": [
+        {
+          "id": "inv-f13-29",
+          "failure_type": null,
+          "header_fp_plus_fn": 2,
+          "row_fp_plus_fn": 4,
+          "exact_rows": 2,
+          "gold_rows": 4
+        },
+        {
+          "id": "inv-f16-29",
+          "failure_type": null,
+          "header_fp_plus_fn": 2,
+          "row_fp_plus_fn": 4,
+          "exact_rows": 1,
+          "gold_rows": 3
+        },
+        {
+          "id": "inv-f16-30",
+          "failure_type": null,
+          "header_fp_plus_fn": 1,
+          "row_fp_plus_fn": 4,
+          "exact_rows": 0,
+          "gold_rows": 4
+        }
+      ],
+      "case_selection": "Processing failures first, then largest exact-row FP+FN, header FP+FN, and ID; at most three. Examples do not replace all-document denominators; no causal explanation inferred.",
+      "timing_method": "Nearest-rank percentiles over every scheduled document stage, including failures and page/repair requests; saved OCR inference, uncontrolled machine load. Sampled RSS is process memory, not GPU or workbench peak."
+    },
+    "Synthetic invoices \u00b7 span model": {
+      "stage": "model",
+      "documents": 180,
+      "sum_seconds": 19375.842,
+      "p50_seconds": 102.645,
+      "p95_seconds": 162.536,
+      "peak_sampled_server_rss_bytes": 4692787200,
+      "model_sessions": {
+        "status": "recorded_with_interruptions",
+        "recorded_runtime_sessions": [
+          "0002",
+          "0003"
+        ],
+        "interrupted_sessions": [
+          {
+            "session": "0001",
+            "completed_predictions": 93,
+            "observation_sha256": "5707343f71dd2f98f022e0aff86252d014758d566c771f087adeac52b5457173",
+            "limitations": "Read-only process inspection found no project invoice runner, coordinator, or llama-server before resume. Exit cause, exact termination time, shutdown completion, and sampled RSS are unavailable. The last log timestamp is not a process-termination timestamp. This is a local observation, not signed lifecycle attestation. The interrupted uncommitted document is recomputed under the same frozen settings."
+          }
+        ],
+        "memory_coverage": "Recorded runtime sessions only; interrupted-session RSS and shutdown metadata are unavailable."
+      },
+      "representative_cases": [
+        {
+          "id": "inv-f13-04",
+          "failure_type": "ModelUnavailable",
+          "header_fp_plus_fn": 10,
+          "row_fp_plus_fn": 4,
+          "exact_rows": 0,
+          "gold_rows": 4
+        },
+        {
+          "id": "inv-f15-02",
+          "failure_type": "ModelUnavailable",
+          "header_fp_plus_fn": 10,
+          "row_fp_plus_fn": 4,
+          "exact_rows": 0,
+          "gold_rows": 4
+        },
+        {
+          "id": "inv-f15-14",
+          "failure_type": "ModelUnavailable",
+          "header_fp_plus_fn": 10,
+          "row_fp_plus_fn": 4,
+          "exact_rows": 0,
+          "gold_rows": 4
+        }
+      ],
+      "case_selection": "Processing failures first, then largest exact-row FP+FN, header FP+FN, and ID; at most three. Examples do not replace all-document denominators; no causal explanation inferred.",
+      "timing_method": "Nearest-rank percentiles over every scheduled document stage, including failures and page/repair requests; saved OCR inference, uncontrolled machine load. Sampled RSS is process memory, not GPU or workbench peak."
+    },
+    "CORD receipts \u00b7 OCR rules": {
+      "stage": "ocr",
+      "documents": 100,
+      "sum_seconds": 47.658,
+      "p50_seconds": 0.343,
+      "p95_seconds": 1.308,
+      "peak_sampled_server_rss_bytes": null,
+      "model_sessions": null,
+      "representative_cases": [
+        {
+          "id": "cord-test-070",
+          "failure_type": null,
+          "header_fp_plus_fn": 3,
+          "row_fp_plus_fn": 18,
+          "exact_rows": 0,
+          "gold_rows": 10
+        },
+        {
+          "id": "cord-test-085",
+          "failure_type": null,
+          "header_fp_plus_fn": 3,
+          "row_fp_plus_fn": 14,
+          "exact_rows": 5,
+          "gold_rows": 11
+        },
+        {
+          "id": "cord-test-074",
+          "failure_type": null,
+          "header_fp_plus_fn": 4,
+          "row_fp_plus_fn": 12,
+          "exact_rows": 0,
+          "gold_rows": 4
+        }
+      ],
+      "case_selection": "Processing failures first, then largest exact-row FP+FN, header FP+FN, and ID; at most three. Examples do not replace all-document denominators; no causal explanation inferred.",
+      "timing_method": "Nearest-rank percentiles over every scheduled document stage, including failures and page/repair requests; saved OCR inference, uncontrolled machine load. Sampled RSS is process memory, not GPU or workbench peak."
+    },
+    "CORD receipts \u00b7 span model": {
+      "stage": "model",
+      "documents": 100,
+      "sum_seconds": 4050.266,
+      "p50_seconds": 30.394,
+      "p95_seconds": 125.236,
+      "peak_sampled_server_rss_bytes": 7460208640,
+      "model_sessions": {
+        "status": "recorded",
+        "recorded_runtime_sessions": [
+          "0001"
+        ],
+        "interrupted_sessions": [],
+        "memory_coverage": "Recorded runtime sessions only; process RSS is sampled, not a GPU or workbench peak."
+      },
+      "representative_cases": [
+        {
+          "id": "cord-test-085",
+          "failure_type": "ModelUnavailable",
+          "header_fp_plus_fn": 3,
+          "row_fp_plus_fn": 11,
+          "exact_rows": 0,
+          "gold_rows": 11
+        },
+        {
+          "id": "cord-test-070",
+          "failure_type": "ModelUnavailable",
+          "header_fp_plus_fn": 4,
+          "row_fp_plus_fn": 10,
+          "exact_rows": 0,
+          "gold_rows": 10
+        },
+        {
+          "id": "cord-test-059",
+          "failure_type": "ModelContextOverflow",
+          "header_fp_plus_fn": 3,
+          "row_fp_plus_fn": 9,
+          "exact_rows": 0,
+          "gold_rows": 9
+        }
+      ],
+      "case_selection": "Processing failures first, then largest exact-row FP+FN, header FP+FN, and ID; at most three. Examples do not replace all-document denominators; no causal explanation inferred.",
+      "timing_method": "Nearest-rank percentiles over every scheduled document stage, including failures and page/repair requests; saved OCR inference, uncontrolled machine load. Sampled RSS is process memory, not GPU or workbench peak."
+    }
+  }
+}

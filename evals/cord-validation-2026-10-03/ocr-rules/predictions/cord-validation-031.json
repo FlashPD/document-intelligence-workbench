@@ -1,0 +1,90 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "24000",
+        "raw": "24,000",
+        "evidence_ids": [
+          "p1-l0001"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "efa973336c3ab756ba6a9d53865146198f764c2e5734e4e89b999c22ceae65e9",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.531,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "TOTAL 24,000",
+        "box": {
+          "left": 0.30671296296296297,
+          "top": 0.4645061728395062,
+          "right": 0.8391203703703703,
+          "bottom": 0.5771604938271605
+        },
+        "method": "tesseract-eng",
+        "confidence": 58.26
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "_ CHANGE 0",
+        "box": {
+          "left": 0.24768518518518517,
+          "top": 0.5532407407407407,
+          "right": 0.8379629629629629,
+          "bottom": 0.6658950617283951
+        },
+        "method": "tesseract-eng",
+        "confidence": 62.11
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 1,
+    "valid_reference_values": 1,
+    "aligned_values": 1,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

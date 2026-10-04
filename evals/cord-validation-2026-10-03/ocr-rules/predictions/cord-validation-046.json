@@ -1,0 +1,165 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "AL",
+          "raw": "AL",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "10",
+          "raw": "10",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "22000",
+          "raw": "22,000",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "e1f2edb4fb4bb59d720203a286dce1c24c5513db29fc2978819f41e35bdd147b",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.337,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 576,
+    "height_px": 864,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "* on \u2014\u2014\u2014\u2014\u2014eEE7_",
+        "box": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.9947916666666666,
+          "bottom": 0.12384259259259259
+        },
+        "method": "tesseract-eng",
+        "confidence": 21.35
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "MARBLE CASTELA oo",
+        "box": {
+          "left": 0.1840277777777778,
+          "top": 0.4166666666666667,
+          "right": 0.4739583333333333,
+          "bottom": 0.45717592592592593
+        },
+        "method": "tesseract-eng",
+        "confidence": 46.27
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "1 22,000 22,000",
+        "box": {
+          "left": 0.3298611111111111,
+          "top": 0.4664351851851852,
+          "right": 0.8194444444444444,
+          "bottom": 0.49537037037037035
+        },
+        "method": "tesseract-eng",
+        "confidence": 84.96
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "10 AL 22,000",
+        "box": {
+          "left": 0.3090277777777778,
+          "top": 0.5243055555555556,
+          "right": 0.8142361111111112,
+          "bottom": 0.5891203703703703
+        },
+        "method": "tesseract-eng",
+        "confidence": 78.16
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "3",
+        "box": {
+          "left": 0.4826388888888889,
+          "top": 0.90625,
+          "right": 0.4913194444444444,
+          "bottom": 0.9166666666666666
+        },
+        "method": "tesseract-eng",
+        "confidence": 30.28
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 3,
+    "valid_reference_values": 3,
+    "aligned_values": 3,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

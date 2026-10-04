@@ -1,0 +1,127 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "a288fbae889cb3459ca5c10a9e1cb1a97b5344e89d896c8328f886c57386c1db",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.663,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 432,
+    "height_px": 648,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "1 Viet Milk Coffee",
+        "box": {
+          "left": 0.24537037037037038,
+          "top": 0.46141975308641975,
+          "right": 0.5277777777777778,
+          "bottom": 0.48148148148148145
+        },
+        "method": "tesseract-eng",
+        "confidence": 89.48
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "+Hot",
+        "box": {
+          "left": 0.25925925925925924,
+          "top": 0.49074074074074076,
+          "right": 0.31712962962962965,
+          "bottom": 0.5092592592592593
+        },
+        "method": "tesseract-eng",
+        "confidence": 73.21
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "iH",
+        "box": {
+          "left": 0.27314814814814814,
+          "top": 0.5185185185185185,
+          "right": 0.28703703703703703,
+          "bottom": 0.5370370370370371
+        },
+        "method": "tesseract-eng",
+        "confidence": 8.79
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Subtotal",
+        "box": {
+          "left": 0.24074074074074073,
+          "top": 0.5740740740740741,
+          "right": 0.36342592592592593,
+          "bottom": 0.595679012345679
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.82
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "1",
+        "box": {
+          "left": 0.24074074074074073,
+          "top": 0.6018518518518519,
+          "right": 0.25462962962962965,
+          "bottom": 0.6203703703703703
+        },
+        "method": "tesseract-eng",
+        "confidence": 73.96
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

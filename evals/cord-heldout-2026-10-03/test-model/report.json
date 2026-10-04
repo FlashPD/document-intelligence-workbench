@@ -1,0 +1,5465 @@
+{
+  "report_version": "cord-receipt-evaluation-v1",
+  "created_at": "2026-10-04T02:40:03.578866+00:00",
+  "split": "test",
+  "variant": "span_llm",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "manifest_sha256": "8e55986acaf6eecde85ca2ff29ace8827167980ce82978129184738b451b8bfc",
+  "documents": [
+    {
+      "id": "cord-test-000",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "discount": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "3f11e7e62b5da993d4a3ac9474bede10108f14bba61152db19d5e42175de1219"
+    },
+    {
+      "id": "cord-test-001",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "quantity": 3,
+        "unit_price": 3
+      },
+      "gold_rows": 3,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "017e5756da5d63883c82f1e7585b89198cc260d7d6b861b1b3035b3e67f0e25f"
+    },
+    {
+      "id": "cord-test-002",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 3,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 3,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "cf155b260aa5703e06e14c3f3bc3586d6aa9cc3e77b1fef8ce5f339daa191c57"
+    },
+    {
+      "id": "cord-test-003",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 1,
+      "predicted_rows": 1,
+      "matched_rows": 1,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "0e0bfef5e4534a3716273173c698170eeb84faf308ef0280944c8abe14085fda"
+    },
+    {
+      "id": "cord-test-004",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "discount": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 3
+      },
+      "gold_rows": 3,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "799c9cf05601d0030dd333012b784fb5d385ac203f24068af0dd1b63035b064c"
+    },
+    {
+      "id": "cord-test-005",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "quantity": 1,
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 1,
+      "matched_rows": 1,
+      "exact_rows": 1,
+      "row_cells": {
+        "description": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "ede6c8d882e889d4bd5452814a555c0eda010a71bcceb123b3e2378c57b9fd94"
+    },
+    {
+      "id": "cord-test-006",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 3
+      },
+      "gold_rows": 3,
+      "predicted_rows": 3,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 3,
+          "fn": 3
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "d75754d4971ba91bf06f892478da74bdd0ee27a60f1e31d52e2486a4e89585ac"
+    },
+    {
+      "id": "cord-test-007",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "quantity": 1,
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "2e2ade32c8b46c511727627f8288e127f05f9244aa60bac5bf2f0ffa5fba47bc"
+    },
+    {
+      "id": "cord-test-008",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "3e005b4652650590646d3aa6e0ffbcb6a981892f55746546208bf7ecff5f2be9"
+    },
+    {
+      "id": "cord-test-009",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label",
+        "total": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "quantity": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "1fa1529d5c4fb7ba4e6ffd25df795b55c4db2629bbf9bdbc01f55869dc94151b"
+    },
+    {
+      "id": "cord-test-010",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "total": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "68c3d0670acf6b90594b480ed510605619312370336a277d2e4bf863bb81cf6f"
+    },
+    {
+      "id": "cord-test-011",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "06f5451f447bbfebc2453c7ce0ca5eed6bf76fe7dc0eb888a53ad3920cc96c13"
+    },
+    {
+      "id": "cord-test-012",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "line_total": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "7bcd377c123a88e17a067c2f893c4feb0a3976d4552878653b44672f05378101"
+    },
+    {
+      "id": "cord-test-013",
+      "processed": true,
+      "header": {
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "ambiguous_amount_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 2,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "f8206f56a512b82adb3b1e82bec69b85058809be11a81189dfe54cb82dc6b3b9"
+    },
+    {
+      "id": "cord-test-014",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "service": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 6
+      },
+      "gold_rows": 6,
+      "predicted_rows": 6,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 6,
+          "fn": 6
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "6a034843d01819004dfa3f8d77b75b46be1ac99182d4e9c9d44235b09b25acb9"
+    },
+    {
+      "id": "cord-test-015",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "15b4d1ce5f8b92b1e33b9d67d017de8a3b1d60afdb8ba16d2c51d07b66ee981b"
+    },
+    {
+      "id": "cord-test-016",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 5,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 5,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "b341f0ac319d1aa7524dbcbb891e7b3b03c0df5de4d51d0ac5f7cf5a336287bc"
+    },
+    {
+      "id": "cord-test-017",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "ambiguous_amount_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 6
+      },
+      "gold_rows": 6,
+      "predicted_rows": 10,
+      "matched_rows": 2,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 2,
+          "fp": 8,
+          "fn": 4
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "84bbd6e1bfcfc100d73990d935c0134757a8be42fffd782c5e238730c4d0e6a8"
+    },
+    {
+      "id": "cord-test-018",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "022f976d8c73450ef4aff84c7b1d5b87ab8218148988abdee514dd4530b514b8"
+    },
+    {
+      "id": "cord-test-019",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "49000a3c0df79cc740553f146730ea9c1c458a1f74561ed21dd8e9785555de67"
+    },
+    {
+      "id": "cord-test-020",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "service": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 5
+      },
+      "gold_rows": 5,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 5
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "9b38bd06e2fc5e0cf634a5b7093b0f701b602b31d9410f8dcaef9b93a684f7a5"
+    },
+    {
+      "id": "cord-test-021",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 2,
+      "predicted_rows": 4,
+      "matched_rows": 1,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 1,
+          "fp": 3,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "ec84c3da9a899a1322173d14eb5875122f93ba261148692a79c17b00fee7ce31"
+    },
+    {
+      "id": "cord-test-022",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 2,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "94d9c2cb9089fce9b2b308d4b1ed935b146697924b90e2738d1c25994baba810"
+    },
+    {
+      "id": "cord-test-023",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 2,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "0f8e715d8382dd4e5621f40f24849b0356ddd158cc62b735384838af2bd6a11b"
+    },
+    {
+      "id": "cord-test-024",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 3,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "4ce3422832277947a5f6a4ef735d27f735b89c8e37008776924412770cfd1cee"
+    },
+    {
+      "id": "cord-test-025",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 3
+      },
+      "gold_rows": 3,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "473f07129db1b73aeedea67e0a8727aa7a850da04f41d601e65b23de0483f995"
+    },
+    {
+      "id": "cord-test-026",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "line_total": 1
+      },
+      "gold_rows": 3,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "cf6bc279dd6caaccf40c07ea96f4c8a9a8c533b35d976af38dd420f2f05d6e00"
+    },
+    {
+      "id": "cord-test-027",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "quantity": 2,
+        "unit_price": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 2,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "e3a05c0a2a123f149dd9b8a089ff4ba4bfd64982c70376f85b4342aee254e5f6"
+    },
+    {
+      "id": "cord-test-028",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "discount": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "service": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {},
+      "row_exclusion_counts": {
+        "unit_price": 3
+      },
+      "gold_rows": 3,
+      "predicted_rows": 3,
+      "matched_rows": 3,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "f60f34557fad8e32fcd364cf298fa3d4f7a39d24e7959dc81ecf96d91759756c"
+    },
+    {
+      "id": "cord-test-029",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 6
+      },
+      "gold_rows": 6,
+      "predicted_rows": 8,
+      "matched_rows": 3,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 3,
+          "fp": 5,
+          "fn": 3
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "0d08dbb79ae4d1c37e545975ce1cca0f4a06c66385482d770aba6c8c80d13d03"
+    },
+    {
+      "id": "cord-test-030",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "quantity": 1,
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "2cdd5b78a58aaa9bda23fc8e7a75eb058c03bca4044dd0983eac9cdb7b7c39d0"
+    },
+    {
+      "id": "cord-test-031",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "service": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 1,
+      "matched_rows": 1,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "fc2f56b0d85d2900b5a12b18562319204d56ee4950d05a8130215833292c03a4"
+    },
+    {
+      "id": "cord-test-032",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "490b043cfcfbe3ee76374f8ffb36fedddbe4079c12965018b6aa0e83debd8336"
+    },
+    {
+      "id": "cord-test-033",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "service": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 3
+      },
+      "gold_rows": 3,
+      "predicted_rows": 3,
+      "matched_rows": 2,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 2,
+          "fp": 1,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "f3081326a0c77043de22b75ab87aa28b7cd15a752591efb91ec2ae8558d1cc8c"
+    },
+    {
+      "id": "cord-test-034",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "f4c0b4e57932190ae2b8977204c21b5df5abbdcad0159c3c7e82501c0f26965c"
+    },
+    {
+      "id": "cord-test-035",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 4
+      },
+      "gold_rows": 4,
+      "predicted_rows": 3,
+      "matched_rows": 3,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "fbdca4d7a03d2e94478c787c030994e93fcb599b90af1f12fd2a8126016c8de9"
+    },
+    {
+      "id": "cord-test-036",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "4eb5160f86c3b3e83e9760d598194a992eb72d3a68c331e0a1725d0e85d45cac"
+    },
+    {
+      "id": "cord-test-037",
+      "processed": true,
+      "header": {},
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label",
+        "total": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "d0971afe1d62a6dceffdef5f30baafecf253e9a76b4951a1d7a95fc4e5cbfd21"
+    },
+    {
+      "id": "cord-test-038",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "service": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 9
+      },
+      "gold_rows": 9,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "48c72b75baace98b187da3ce7810be33afe9b9748dd9578c3b4854b94d538a39"
+    },
+    {
+      "id": "cord-test-039",
+      "processed": true,
+      "header": {},
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label",
+        "total": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 3,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "7180a3dd2e9449c8af6920018f9799ec2ccc8475d1d63be353c06dae10864698"
+    },
+    {
+      "id": "cord-test-040",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 2,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "74b26fe9699e76a6c52b003f574ebd4f5bcf1ec024b19f28303a986e2833f2bf"
+    },
+    {
+      "id": "cord-test-041",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "ambiguous_amount_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "quantity": 10,
+        "unit_price": 10
+      },
+      "gold_rows": 10,
+      "predicted_rows": 8,
+      "matched_rows": 4,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 4,
+          "fp": 4,
+          "fn": 6
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 10
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "ab2fc38404d7be89a0ee2c1f29947d261a72a7c95e061d33b178002b957ddcc2"
+    },
+    {
+      "id": "cord-test-042",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "3c6d433893ef9a4c086b76e63f95c47989c7cee17a1f7d744a80a26976855220"
+    },
+    {
+      "id": "cord-test-043",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "6a86ddb8cf0652541e342c368dac3695bf73e436bf97d3d44b4f712173f9dfc0"
+    },
+    {
+      "id": "cord-test-044",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "cf5b6ae413faef422e4fd2c46430b5d6569614e8f637dbe9eecd641cb05392b4"
+    },
+    {
+      "id": "cord-test-045",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 4
+      },
+      "gold_rows": 4,
+      "predicted_rows": 4,
+      "matched_rows": 2,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 2,
+          "fp": 2,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "33a1be430eb9c53b06a59b7f5907660c4afecc0cdde1549c65d06c18b7378736"
+    },
+    {
+      "id": "cord-test-046",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 2,
+      "predicted_rows": 2,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "8e280d3e46b41ac7083fc3b71bb0ba99c570adab02baa4f70b4905e70f43a485"
+    },
+    {
+      "id": "cord-test-047",
+      "processed": true,
+      "header": {
+        "discount": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 3,
+      "predicted_rows": 3,
+      "matched_rows": 3,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 3,
+          "fn": 3
+        },
+        "quantity": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "163845744b103321176b659427d0b2814e40c9c52e977248254254cd363fd645"
+    },
+    {
+      "id": "cord-test-048",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 1,
+      "predicted_rows": 1,
+      "matched_rows": 1,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "9c47651c29db9e74a032ce7685218ad4b77718d9331228dd6ef9cf411c231832"
+    },
+    {
+      "id": "cord-test-049",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 2,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "b220abdff1deb4827ce46236679aa8c4542e5a10dd310d0f1f3836d6acf29e26"
+    },
+    {
+      "id": "cord-test-050",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "60955ac6f90a57e62f56c8efbb63d00d67caa59a7437cadd04f2638cc7c79f5f"
+    },
+    {
+      "id": "cord-test-051",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        },
+        "total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 4
+      },
+      "gold_rows": 4,
+      "predicted_rows": 2,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 4
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "afb9383b5557e2c6f55c340d6530147a1171bb2ada9519c98e3faa73813cc5c4"
+    },
+    {
+      "id": "cord-test-052",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 2,
+      "predicted_rows": 2,
+      "matched_rows": 1,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "65c5890afcee4136dfbfba12b0ac7e6c81f9ad1fe5a93c4ee3014671a07e47fd"
+    },
+    {
+      "id": "cord-test-053",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "service": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 3
+      },
+      "gold_rows": 3,
+      "predicted_rows": 4,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 4,
+          "fn": 3
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "2b78affaefbbe9fac40f8dd4b048b2b02ab38e6897f35e72e50254e1fe94ab8f"
+    },
+    {
+      "id": "cord-test-054",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "quantity": 1,
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 1,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "914e8d2a6d2e60d04f3c3f728ceb713c3bf6ededd93143573b07ead3f057a4e8"
+    },
+    {
+      "id": "cord-test-055",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 2,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "3191460ecf3dbcad3da47dfb093b3ac51ba4d0fe28037c964f5f406ed0564dee"
+    },
+    {
+      "id": "cord-test-056",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "quantity": 1,
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "83088be7aa2b9b8de642cc01936afba16ffa8213b0cb802c817694680e352e5e"
+    },
+    {
+      "id": "cord-test-057",
+      "processed": true,
+      "header": {},
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label",
+        "total": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "quantity": 2,
+        "unit_price": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 1,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "6d69bbfd139773b3c523effebd87321ec35005b95d360a5e8d57819228f2b5c8"
+    },
+    {
+      "id": "cord-test-058",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "afc3ef1ece2343a113c64d80393f00acd47d360a2d40de230b5598440b0d4299"
+    },
+    {
+      "id": "cord-test-059",
+      "processed": false,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 9
+      },
+      "gold_rows": 9,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 9
+        }
+      },
+      "failure_type": "ModelContextOverflow",
+      "prediction_sha256": "e2df849b0af5ccefefd597ecbaa3892df9296dd63e69530b27cd51bbd75a0c9c"
+    },
+    {
+      "id": "cord-test-060",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "ambiguous_amount_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 2,
+      "predicted_rows": 2,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "1ac030b123b474a44bfc0237099809894b69450c34383c45b3c12ff9963ce551"
+    },
+    {
+      "id": "cord-test-061",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 6,
+      "predicted_rows": 6,
+      "matched_rows": 1,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 1,
+          "fp": 5,
+          "fn": 5
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "7934a98e9b743e23b08b7acc707da80f1a73ea1df139ce2a2a9b0c75f8c4170c"
+    },
+    {
+      "id": "cord-test-062",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "5342e7078722b7712bd7a6428eae8173ac1556203463521bcfe1d9680fc80c1d"
+    },
+    {
+      "id": "cord-test-063",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 5,
+      "matched_rows": 2,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 2,
+          "fp": 3,
+          "fn": 0
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "ad5f758f71497e8fb9296732cbbc938eb91f7ab44d73b3de19108367e546e773"
+    },
+    {
+      "id": "cord-test-064",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "quantity": 1,
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "660dd4b5f4c0aaa3d4c488fdf2fd3a5aac17c3224cf1a669282d80e1c0b15f27"
+    },
+    {
+      "id": "cord-test-065",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "ambiguous_amount_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "6967a395f32f7385ad73c53b98f3679ab469ec342044006b8aa4fd45adbdafb9"
+    },
+    {
+      "id": "cord-test-066",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "quantity": 2,
+        "unit_price": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "d29bf9f938f6d3a6b201da8174385aeee58611200cc83e9f2802cb5777ab94cc"
+    },
+    {
+      "id": "cord-test-067",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "11038ac2b83206d8d678b03b0ff9d6515084a309c25e44dec74bfd5e44c3b8e9"
+    },
+    {
+      "id": "cord-test-068",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "quantity": 1,
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "3b2f8d43c519c93d15f4a5b1e1751ded691511199f5b99fa6b58b226530fbefa"
+    },
+    {
+      "id": "cord-test-069",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 3
+      },
+      "gold_rows": 3,
+      "predicted_rows": 3,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 3,
+          "fn": 3
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 3
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "8bffea9e71cd7cec927b0216e9b7576305465f6d34b5e9e0b7d9afa96b382165"
+    },
+    {
+      "id": "cord-test-070",
+      "processed": false,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "service": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 6,
+        "line_total": 2
+      },
+      "gold_rows": 10,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 10
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 10
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 8
+        }
+      },
+      "failure_type": "ModelUnavailable",
+      "prediction_sha256": "b5c58f606940202225e9e0b5b40fa6f6f201cfbaf70c959e8bbfb174394b30fc"
+    },
+    {
+      "id": "cord-test-071",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 1,
+      "predicted_rows": 2,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "e59f85f1e49ab3358c3d37909b0f25e90fa7da1fbbac89b528022b34d071124f"
+    },
+    {
+      "id": "cord-test-072",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "01a5ffef6127cc1f757551d5111d43bbea44c808b4c3975ff8ebb36224e7d25c"
+    },
+    {
+      "id": "cord-test-073",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 2,
+      "predicted_rows": 2,
+      "matched_rows": 1,
+      "exact_rows": 1,
+      "row_cells": {
+        "description": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 1
+        },
+        "line_total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "385b09c6fd9b67fb20b65d4c6b97ee3bc70ecc5e1a4b09538a9cbd9f5a3d3587"
+    },
+    {
+      "id": "cord-test-074",
+      "processed": false,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "service": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 4
+      },
+      "gold_rows": 4,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        }
+      },
+      "failure_type": "ModelUnavailable",
+      "prediction_sha256": "6de03ef986f1e0f52ea7c73adf6c4c9646d5730a04ce193b4361a22704a4a4e2"
+    },
+    {
+      "id": "cord-test-075",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 6
+      },
+      "gold_rows": 6,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 6
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "7e183063dc07fa47348be3ea6caff0dc28f6f15b73f4db1a06a92125a3424e45"
+    },
+    {
+      "id": "cord-test-076",
+      "processed": true,
+      "header": {},
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label",
+        "total": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "quantity": 3,
+        "unit_price": 3,
+        "line_total": 4
+      },
+      "gold_rows": 4,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "00aafd6fe89275b24a853d994b817368a4b2466b8fb58cfbb58b2516b14d56ed"
+    },
+    {
+      "id": "cord-test-077",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 1,
+      "predicted_rows": 1,
+      "matched_rows": 1,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "4fd36a5dac4bf76f65a83cad11ec0d25bd4fac3eafc8be81bfe48e55adfe888c"
+    },
+    {
+      "id": "cord-test-078",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 2,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "ec4fc4a75fa599c511a1d66f5ea4778eabf9e86f34716d15ca192bac8ace385f"
+    },
+    {
+      "id": "cord-test-079",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 2,
+      "predicted_rows": 2,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "9b7db1dec36e527534515ce8052e9c34fb94171484018146033e5c392c31f808"
+    },
+    {
+      "id": "cord-test-080",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 1,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "ee3c00cbe342e753ffb49d5dbe2f6b08610504d59adf45cb678e06374f9c2b3f"
+    },
+    {
+      "id": "cord-test-081",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 3,
+      "predicted_rows": 2,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 3
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "b01dd1366ae5e5526ab75142b88cce5b1064983e4b1ff31646c25b8c7921da51"
+    },
+    {
+      "id": "cord-test-082",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 3,
+      "predicted_rows": 3,
+      "matched_rows": 3,
+      "exact_rows": 1,
+      "row_cells": {
+        "description": {
+          "tp": 1,
+          "fp": 2,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "a568283d216e481a72359b70a9700da77d5ad3a5d637ea668584488317824ed4"
+    },
+    {
+      "id": "cord-test-083",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "815996328be85655a30a1d9d19189d606f577c5087e2e1f25dc0f1f5c04bdcce"
+    },
+    {
+      "id": "cord-test-084",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "tax": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 2,
+      "predicted_rows": 2,
+      "matched_rows": 2,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 1
+        },
+        "line_total": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "ba6f09a642f850dab8c95900c29f90eb7e343d627da363964d33a4a2b92e50a6"
+    },
+    {
+      "id": "cord-test-085",
+      "processed": false,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 11
+      },
+      "gold_rows": 11,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 11
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 11
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 11
+        }
+      },
+      "failure_type": "ModelUnavailable",
+      "prediction_sha256": "06bae57e00790b1ee7899e517c39cf2f65f5456a0e4170381e2c309eafeef35f"
+    },
+    {
+      "id": "cord-test-086",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 1,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "3f09931360a6fc970475dcaee9990a739fadcd105097bef34078ff1dce6cb186"
+    },
+    {
+      "id": "cord-test-087",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "49b5114b85728be4780db1d2237f00f5877d63cf869100c1dafeaa1f0b6053a6"
+    },
+    {
+      "id": "cord-test-088",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 2,
+      "predicted_rows": 2,
+      "matched_rows": 2,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "de0e3566429c86f83977934fc2c41f0b3b8f81e1040f161366f890b68c0b6af5"
+    },
+    {
+      "id": "cord-test-089",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "f3b5956d4e74dec2dcf3f6cd24fbc43e7216514f852843966c7a1db4e2e6afba"
+    },
+    {
+      "id": "cord-test-090",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 1,
+      "matched_rows": 1,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "f416d51db1c37d898fc4dc06039519bd7b79d008cc2d5dbaaf753a3816347ff3"
+    },
+    {
+      "id": "cord-test-091",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 2,
+      "matched_rows": 2,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "e5daecacf2a808139030ff9a93d3a2e4c28f1838d214e0beef3a2150965ab764"
+    },
+    {
+      "id": "cord-test-092",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 1,
+      "predicted_rows": 1,
+      "matched_rows": 1,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "0660776efb9fad3fe26acad5a1fed2998e05c513d785360293790f4c1d8518c4"
+    },
+    {
+      "id": "cord-test-093",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "eddf520e2ee2d533726d00592c7914eaa5e2a36904d62ed147597f5105340a68"
+    },
+    {
+      "id": "cord-test-094",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        },
+        "service": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "tax": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 4
+      },
+      "gold_rows": 4,
+      "predicted_rows": 4,
+      "matched_rows": 2,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 2,
+          "fp": 2,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "78e2ffa35e439d27ca772c4a08e2ace98ffe63fb8738726dd9fc0995d3d0655d"
+    },
+    {
+      "id": "cord-test-095",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 2,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "2710c0859ae814651564f3eb87ad65b0be8c39684bce9dcf04c19afdedb53427"
+    },
+    {
+      "id": "cord-test-096",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 1,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "b75807efa11844a4f65f949afed8e7d2a6a7bce47fc06534e2e2c154c6d7156f"
+    },
+    {
+      "id": "cord-test-097",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "quantity": 1,
+        "unit_price": 1
+      },
+      "gold_rows": 3,
+      "predicted_rows": 4,
+      "matched_rows": 3,
+      "exact_rows": 1,
+      "row_cells": {
+        "description": {
+          "tp": 2,
+          "fp": 2,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 1,
+          "fp": 2,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 1,
+          "fp": 2,
+          "fn": 1
+        },
+        "line_total": {
+          "tp": 3,
+          "fp": 1,
+          "fn": 0
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "b55747747d0cd16b4e4b8fc4c24f32b076f17d72c11ffd3d7d1410e1d6bad394"
+    },
+    {
+      "id": "cord-test-098",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "service": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 3
+      },
+      "gold_rows": 3,
+      "predicted_rows": 3,
+      "matched_rows": 1,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 1,
+          "fp": 2,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "9ee34c6ca7d31137feb936bd97c11de7495a3dbddfdecfc3c24b99849d59e8c3"
+    },
+    {
+      "id": "cord-test-099",
+      "processed": false,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "discount": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "service": "unreleased_or_absent_label",
+        "tax": "ambiguous_amount_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": "ModelUnavailable",
+      "prediction_sha256": "03c775dd91af6c5ba949aff80acaeaacbeb667106c78bef343e3aef54af81f05"
+    }
+  ],
+  "summary": {
+    "documents_scheduled": 100,
+    "documents_processed": 95,
+    "header_fields": {
+      "subtotal": {
+        "tp": 6,
+        "fp": 6,
+        "fn": 58,
+        "precision": 0.5,
+        "recall": 0.0938,
+        "f1": 0.1579
+      },
+      "discount": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 5,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "service": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 10,
+        "precision": 1.0,
+        "recall": 0.0909,
+        "f1": 0.1667
+      },
+      "tax": {
+        "tp": 2,
+        "fp": 2,
+        "fn": 38,
+        "precision": 0.5,
+        "recall": 0.05,
+        "f1": 0.0909
+      },
+      "total": {
+        "tp": 9,
+        "fp": 5,
+        "fn": 86,
+        "precision": 0.6429,
+        "recall": 0.0947,
+        "f1": 0.1651
+      }
+    },
+    "row_fields": {
+      "description": {
+        "tp": 41,
+        "fp": 100,
+        "fn": 210,
+        "precision": 0.2908,
+        "recall": 0.1633,
+        "f1": 0.2092
+      },
+      "quantity": {
+        "tp": 12,
+        "fp": 14,
+        "fn": 208,
+        "precision": 0.4615,
+        "recall": 0.0545,
+        "f1": 0.0976
+      },
+      "unit_price": {
+        "tp": 10,
+        "fp": 3,
+        "fn": 57,
+        "precision": 0.7692,
+        "recall": 0.1493,
+        "f1": 0.25
+      },
+      "line_total": {
+        "tp": 16,
+        "fp": 5,
+        "fn": 226,
+        "precision": 0.7619,
+        "recall": 0.0661,
+        "f1": 0.1217
+      }
+    },
+    "row_detection": {
+      "tp": 50,
+      "fp": 91,
+      "fn": 201,
+      "precision": 0.3546,
+      "recall": 0.1992,
+      "f1": 0.2551
+    },
+    "eligible_exact_rows": {
+      "tp": 4,
+      "fp": 137,
+      "fn": 247,
+      "precision": 0.0284,
+      "recall": 0.0159,
+      "f1": 0.0204
+    },
+    "header_exclusions": {
+      "service": 89,
+      "subtotal": 36,
+      "discount": 95,
+      "tax": 60,
+      "total": 5
+    },
+    "row_exclusions": {
+      "unit_price": 184,
+      "quantity": 31,
+      "line_total": 9
+    },
+    "failures_by_type": {
+      "ModelContextOverflow": 1,
+      "ModelUnavailable": 4
+    }
+  },
+  "scope": "Experimental English-OCR receipt adapters. Settings frozen using the official validation split; top-level purchased items and released labeled amounts only. No currency, vendor, invoice number, date, submenu, void-item, or payment-label scoring. No automatic approval or production receipt workflow claim.",
+  "artifacts": {
+    "completed.json": "0a9959d62e400faf98767370021a7c730f39b8c4734b766f941723bc8d46d681",
+    "freeze.json": "8f1e83722007cf5fe840ae32db75ba4c487a1f4bed9c6c6860e84d7fe6865069",
+    "predictions/cord-test-000.json": "3f11e7e62b5da993d4a3ac9474bede10108f14bba61152db19d5e42175de1219",
+    "predictions/cord-test-001.json": "017e5756da5d63883c82f1e7585b89198cc260d7d6b861b1b3035b3e67f0e25f",
+    "predictions/cord-test-002.json": "cf155b260aa5703e06e14c3f3bc3586d6aa9cc3e77b1fef8ce5f339daa191c57",
+    "predictions/cord-test-003.json": "0e0bfef5e4534a3716273173c698170eeb84faf308ef0280944c8abe14085fda",
+    "predictions/cord-test-004.json": "799c9cf05601d0030dd333012b784fb5d385ac203f24068af0dd1b63035b064c",
+    "predictions/cord-test-005.json": "ede6c8d882e889d4bd5452814a555c0eda010a71bcceb123b3e2378c57b9fd94",
+    "predictions/cord-test-006.json": "d75754d4971ba91bf06f892478da74bdd0ee27a60f1e31d52e2486a4e89585ac",
+    "predictions/cord-test-007.json": "2e2ade32c8b46c511727627f8288e127f05f9244aa60bac5bf2f0ffa5fba47bc",
+    "predictions/cord-test-008.json": "3e005b4652650590646d3aa6e0ffbcb6a981892f55746546208bf7ecff5f2be9",
+    "predictions/cord-test-009.json": "1fa1529d5c4fb7ba4e6ffd25df795b55c4db2629bbf9bdbc01f55869dc94151b",
+    "predictions/cord-test-010.json": "68c3d0670acf6b90594b480ed510605619312370336a277d2e4bf863bb81cf6f",
+    "predictions/cord-test-011.json": "06f5451f447bbfebc2453c7ce0ca5eed6bf76fe7dc0eb888a53ad3920cc96c13",
+    "predictions/cord-test-012.json": "7bcd377c123a88e17a067c2f893c4feb0a3976d4552878653b44672f05378101",
+    "predictions/cord-test-013.json": "f8206f56a512b82adb3b1e82bec69b85058809be11a81189dfe54cb82dc6b3b9",
+    "predictions/cord-test-014.json": "6a034843d01819004dfa3f8d77b75b46be1ac99182d4e9c9d44235b09b25acb9",
+    "predictions/cord-test-015.json": "15b4d1ce5f8b92b1e33b9d67d017de8a3b1d60afdb8ba16d2c51d07b66ee981b",
+    "predictions/cord-test-016.json": "b341f0ac319d1aa7524dbcbb891e7b3b03c0df5de4d51d0ac5f7cf5a336287bc",
+    "predictions/cord-test-017.json": "84bbd6e1bfcfc100d73990d935c0134757a8be42fffd782c5e238730c4d0e6a8",
+    "predictions/cord-test-018.json": "022f976d8c73450ef4aff84c7b1d5b87ab8218148988abdee514dd4530b514b8",
+    "predictions/cord-test-019.json": "49000a3c0df79cc740553f146730ea9c1c458a1f74561ed21dd8e9785555de67",
+    "predictions/cord-test-020.json": "9b38bd06e2fc5e0cf634a5b7093b0f701b602b31d9410f8dcaef9b93a684f7a5",
+    "predictions/cord-test-021.json": "ec84c3da9a899a1322173d14eb5875122f93ba261148692a79c17b00fee7ce31",
+    "predictions/cord-test-022.json": "94d9c2cb9089fce9b2b308d4b1ed935b146697924b90e2738d1c25994baba810",
+    "predictions/cord-test-023.json": "0f8e715d8382dd4e5621f40f24849b0356ddd158cc62b735384838af2bd6a11b",
+    "predictions/cord-test-024.json": "4ce3422832277947a5f6a4ef735d27f735b89c8e37008776924412770cfd1cee",
+    "predictions/cord-test-025.json": "473f07129db1b73aeedea67e0a8727aa7a850da04f41d601e65b23de0483f995",
+    "predictions/cord-test-026.json": "cf6bc279dd6caaccf40c07ea96f4c8a9a8c533b35d976af38dd420f2f05d6e00",
+    "predictions/cord-test-027.json": "e3a05c0a2a123f149dd9b8a089ff4ba4bfd64982c70376f85b4342aee254e5f6",
+    "predictions/cord-test-028.json": "f60f34557fad8e32fcd364cf298fa3d4f7a39d24e7959dc81ecf96d91759756c",
+    "predictions/cord-test-029.json": "0d08dbb79ae4d1c37e545975ce1cca0f4a06c66385482d770aba6c8c80d13d03",
+    "predictions/cord-test-030.json": "2cdd5b78a58aaa9bda23fc8e7a75eb058c03bca4044dd0983eac9cdb7b7c39d0",
+    "predictions/cord-test-031.json": "fc2f56b0d85d2900b5a12b18562319204d56ee4950d05a8130215833292c03a4",
+    "predictions/cord-test-032.json": "490b043cfcfbe3ee76374f8ffb36fedddbe4079c12965018b6aa0e83debd8336",
+    "predictions/cord-test-033.json": "f3081326a0c77043de22b75ab87aa28b7cd15a752591efb91ec2ae8558d1cc8c",
+    "predictions/cord-test-034.json": "f4c0b4e57932190ae2b8977204c21b5df5abbdcad0159c3c7e82501c0f26965c",
+    "predictions/cord-test-035.json": "fbdca4d7a03d2e94478c787c030994e93fcb599b90af1f12fd2a8126016c8de9",
+    "predictions/cord-test-036.json": "4eb5160f86c3b3e83e9760d598194a992eb72d3a68c331e0a1725d0e85d45cac",
+    "predictions/cord-test-037.json": "d0971afe1d62a6dceffdef5f30baafecf253e9a76b4951a1d7a95fc4e5cbfd21",
+    "predictions/cord-test-038.json": "48c72b75baace98b187da3ce7810be33afe9b9748dd9578c3b4854b94d538a39",
+    "predictions/cord-test-039.json": "7180a3dd2e9449c8af6920018f9799ec2ccc8475d1d63be353c06dae10864698",
+    "predictions/cord-test-040.json": "74b26fe9699e76a6c52b003f574ebd4f5bcf1ec024b19f28303a986e2833f2bf",
+    "predictions/cord-test-041.json": "ab2fc38404d7be89a0ee2c1f29947d261a72a7c95e061d33b178002b957ddcc2",
+    "predictions/cord-test-042.json": "3c6d433893ef9a4c086b76e63f95c47989c7cee17a1f7d744a80a26976855220",
+    "predictions/cord-test-043.json": "6a86ddb8cf0652541e342c368dac3695bf73e436bf97d3d44b4f712173f9dfc0",
+    "predictions/cord-test-044.json": "cf5b6ae413faef422e4fd2c46430b5d6569614e8f637dbe9eecd641cb05392b4",
+    "predictions/cord-test-045.json": "33a1be430eb9c53b06a59b7f5907660c4afecc0cdde1549c65d06c18b7378736",
+    "predictions/cord-test-046.json": "8e280d3e46b41ac7083fc3b71bb0ba99c570adab02baa4f70b4905e70f43a485",
+    "predictions/cord-test-047.json": "163845744b103321176b659427d0b2814e40c9c52e977248254254cd363fd645",
+    "predictions/cord-test-048.json": "9c47651c29db9e74a032ce7685218ad4b77718d9331228dd6ef9cf411c231832",
+    "predictions/cord-test-049.json": "b220abdff1deb4827ce46236679aa8c4542e5a10dd310d0f1f3836d6acf29e26",
+    "predictions/cord-test-050.json": "60955ac6f90a57e62f56c8efbb63d00d67caa59a7437cadd04f2638cc7c79f5f",
+    "predictions/cord-test-051.json": "afb9383b5557e2c6f55c340d6530147a1171bb2ada9519c98e3faa73813cc5c4",
+    "predictions/cord-test-052.json": "65c5890afcee4136dfbfba12b0ac7e6c81f9ad1fe5a93c4ee3014671a07e47fd",
+    "predictions/cord-test-053.json": "2b78affaefbbe9fac40f8dd4b048b2b02ab38e6897f35e72e50254e1fe94ab8f",
+    "predictions/cord-test-054.json": "914e8d2a6d2e60d04f3c3f728ceb713c3bf6ededd93143573b07ead3f057a4e8",
+    "predictions/cord-test-055.json": "3191460ecf3dbcad3da47dfb093b3ac51ba4d0fe28037c964f5f406ed0564dee",
+    "predictions/cord-test-056.json": "83088be7aa2b9b8de642cc01936afba16ffa8213b0cb802c817694680e352e5e",
+    "predictions/cord-test-057.json": "6d69bbfd139773b3c523effebd87321ec35005b95d360a5e8d57819228f2b5c8",
+    "predictions/cord-test-058.json": "afc3ef1ece2343a113c64d80393f00acd47d360a2d40de230b5598440b0d4299",
+    "predictions/cord-test-059.json": "e2df849b0af5ccefefd597ecbaa3892df9296dd63e69530b27cd51bbd75a0c9c",
+    "predictions/cord-test-060.json": "1ac030b123b474a44bfc0237099809894b69450c34383c45b3c12ff9963ce551",
+    "predictions/cord-test-061.json": "7934a98e9b743e23b08b7acc707da80f1a73ea1df139ce2a2a9b0c75f8c4170c",
+    "predictions/cord-test-062.json": "5342e7078722b7712bd7a6428eae8173ac1556203463521bcfe1d9680fc80c1d",
+    "predictions/cord-test-063.json": "ad5f758f71497e8fb9296732cbbc938eb91f7ab44d73b3de19108367e546e773",
+    "predictions/cord-test-064.json": "660dd4b5f4c0aaa3d4c488fdf2fd3a5aac17c3224cf1a669282d80e1c0b15f27",
+    "predictions/cord-test-065.json": "6967a395f32f7385ad73c53b98f3679ab469ec342044006b8aa4fd45adbdafb9",
+    "predictions/cord-test-066.json": "d29bf9f938f6d3a6b201da8174385aeee58611200cc83e9f2802cb5777ab94cc",
+    "predictions/cord-test-067.json": "11038ac2b83206d8d678b03b0ff9d6515084a309c25e44dec74bfd5e44c3b8e9",
+    "predictions/cord-test-068.json": "3b2f8d43c519c93d15f4a5b1e1751ded691511199f5b99fa6b58b226530fbefa",
+    "predictions/cord-test-069.json": "8bffea9e71cd7cec927b0216e9b7576305465f6d34b5e9e0b7d9afa96b382165",
+    "predictions/cord-test-070.json": "b5c58f606940202225e9e0b5b40fa6f6f201cfbaf70c959e8bbfb174394b30fc",
+    "predictions/cord-test-071.json": "e59f85f1e49ab3358c3d37909b0f25e90fa7da1fbbac89b528022b34d071124f",
+    "predictions/cord-test-072.json": "01a5ffef6127cc1f757551d5111d43bbea44c808b4c3975ff8ebb36224e7d25c",
+    "predictions/cord-test-073.json": "385b09c6fd9b67fb20b65d4c6b97ee3bc70ecc5e1a4b09538a9cbd9f5a3d3587",
+    "predictions/cord-test-074.json": "6de03ef986f1e0f52ea7c73adf6c4c9646d5730a04ce193b4361a22704a4a4e2",
+    "predictions/cord-test-075.json": "7e183063dc07fa47348be3ea6caff0dc28f6f15b73f4db1a06a92125a3424e45",
+    "predictions/cord-test-076.json": "00aafd6fe89275b24a853d994b817368a4b2466b8fb58cfbb58b2516b14d56ed",
+    "predictions/cord-test-077.json": "4fd36a5dac4bf76f65a83cad11ec0d25bd4fac3eafc8be81bfe48e55adfe888c",
+    "predictions/cord-test-078.json": "ec4fc4a75fa599c511a1d66f5ea4778eabf9e86f34716d15ca192bac8ace385f",
+    "predictions/cord-test-079.json": "9b7db1dec36e527534515ce8052e9c34fb94171484018146033e5c392c31f808",
+    "predictions/cord-test-080.json": "ee3c00cbe342e753ffb49d5dbe2f6b08610504d59adf45cb678e06374f9c2b3f",
+    "predictions/cord-test-081.json": "b01dd1366ae5e5526ab75142b88cce5b1064983e4b1ff31646c25b8c7921da51",
+    "predictions/cord-test-082.json": "a568283d216e481a72359b70a9700da77d5ad3a5d637ea668584488317824ed4",
+    "predictions/cord-test-083.json": "815996328be85655a30a1d9d19189d606f577c5087e2e1f25dc0f1f5c04bdcce",
+    "predictions/cord-test-084.json": "ba6f09a642f850dab8c95900c29f90eb7e343d627da363964d33a4a2b92e50a6",
+    "predictions/cord-test-085.json": "06bae57e00790b1ee7899e517c39cf2f65f5456a0e4170381e2c309eafeef35f",
+    "predictions/cord-test-086.json": "3f09931360a6fc970475dcaee9990a739fadcd105097bef34078ff1dce6cb186",
+    "predictions/cord-test-087.json": "49b5114b85728be4780db1d2237f00f5877d63cf869100c1dafeaa1f0b6053a6",
+    "predictions/cord-test-088.json": "de0e3566429c86f83977934fc2c41f0b3b8f81e1040f161366f890b68c0b6af5",
+    "predictions/cord-test-089.json": "f3b5956d4e74dec2dcf3f6cd24fbc43e7216514f852843966c7a1db4e2e6afba",
+    "predictions/cord-test-090.json": "f416d51db1c37d898fc4dc06039519bd7b79d008cc2d5dbaaf753a3816347ff3",
+    "predictions/cord-test-091.json": "e5daecacf2a808139030ff9a93d3a2e4c28f1838d214e0beef3a2150965ab764",
+    "predictions/cord-test-092.json": "0660776efb9fad3fe26acad5a1fed2998e05c513d785360293790f4c1d8518c4",
+    "predictions/cord-test-093.json": "eddf520e2ee2d533726d00592c7914eaa5e2a36904d62ed147597f5105340a68",
+    "predictions/cord-test-094.json": "78e2ffa35e439d27ca772c4a08e2ace98ffe63fb8738726dd9fc0995d3d0655d",
+    "predictions/cord-test-095.json": "2710c0859ae814651564f3eb87ad65b0be8c39684bce9dcf04c19afdedb53427",
+    "predictions/cord-test-096.json": "b75807efa11844a4f65f949afed8e7d2a6a7bce47fc06534e2e2c154c6d7156f",
+    "predictions/cord-test-097.json": "b55747747d0cd16b4e4b8fc4c24f32b076f17d72c11ffd3d7d1410e1d6bad394",
+    "predictions/cord-test-098.json": "9ee34c6ca7d31137feb936bd97c11de7495a3dbddfdecfc3c24b99849d59e8c3",
+    "predictions/cord-test-099.json": "03c775dd91af6c5ba949aff80acaeaacbeb667106c78bef343e3aef54af81f05",
+    "profile.json": "c453814de617120eea0f5b8d90f0a5dbfa7bfda214071b8dc03610aa03d555f7",
+    "run.json": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+    "sessions/0001/runtime.json": "ed996435ab4f38785eea243d0d2dab652d629133d0b8f66c3b71feef7b39b5da",
+    "sessions/0001/server.log": "14e03ffdd0f6e09564271c759ae7955a0befa327c84d4804af7fb6dc8f8743be",
+    "source_snapshot.json": "37f71e3fc1fa1fdbd32833ed15fb955b459521e45c0044f0ebbd311438f22ba4"
+  },
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 4050.266
+  },
+  "evidence": {
+    "observed_values": 251,
+    "valid_reference_values": 247,
+    "aligned_values": 234
+  },
+  "uncertainty": {
+    "draws": 1000,
+    "seed": 42,
+    "eligible_exact_row_f1_95_interval": [
+      0.0047,
+      0.0449
+    ],
+    "method": "Receipt bootstrap within the official split; no unseen-domain or vendor generalization claim."
+  }
+}

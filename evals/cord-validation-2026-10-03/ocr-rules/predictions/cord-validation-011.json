@@ -1,0 +1,259 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "_ Se\u2019 Ss9i Lada Hitam (J)",
+          "raw": "_ Se\u2019 Ss9i Lada Hitam (J)",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "91",
+          "raw": "91",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Nasi Putih",
+          "raw": "Nasi Putih",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "2",
+          "raw": "2",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "Kemba",
+          "raw": "Kemba",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "11",
+          "raw": "11",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "b6ed97de45b7f317bdc9fa6ff739d281cf4095761b145e07450bc06d627d59e2",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 1.156,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 907,
+    "height_px": 1280,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Se'I Sapi Sambal Matah ( R )",
+        "box": {
+          "left": 0.11576626240352811,
+          "top": 0.41328125,
+          "right": 0.5843439911797134,
+          "bottom": 0.43828125
+        },
+        "method": "tesseract-eng",
+        "confidence": 88.65
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "_ Se\u2019 Ss9i Lada Hitam (J) 91",
+        "box": {
+          "left": 0.08820286659316427,
+          "top": 0.44296875,
+          "right": 0.5832414553472988,
+          "bottom": 0.4734375
+        },
+        "method": "tesseract-eng",
+        "confidence": 60.41
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Nasi Putih 2",
+        "box": {
+          "left": 0.11576626240352811,
+          "top": 0.4734375,
+          "right": 0.35832414553472985,
+          "bottom": 0.49609375
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.3
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Milk Shake Coklat",
+        "box": {
+          "left": 0.11466372657111357,
+          "top": 0.5015625,
+          "right": 0.40573318632855565,
+          "bottom": 0.52734375
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.7
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Subtotal",
+        "box": {
+          "left": 0.11466372657111357,
+          "top": 0.56171875,
+          "right": 0.24917309812568908,
+          "bottom": 0.5875
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.65
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "PB 1 10%",
+        "box": {
+          "left": 0.11466372657111357,
+          "top": 0.59375,
+          "right": 0.27342888643880925,
+          "bottom": 0.6171875
+        },
+        "method": "tesseract-eng",
+        "confidence": 60.19
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Kemba 11",
+        "box": {
+          "left": 0.11356119073869901,
+          "top": 0.74296875,
+          "right": 0.2348401323042999,
+          "bottom": 0.77734375
+        },
+        "method": "tesseract-eng",
+        "confidence": 71.46
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 6,
+    "valid_reference_values": 6,
+    "aligned_values": 6,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,777 @@
+{
+  "report_version": "cord-receipt-evaluation-v1",
+  "created_at": "2026-10-04T02:31:54.119611+00:00",
+  "split": "validation",
+  "variant": "span_llm",
+  "run_sha256": "f17c96d49115a20156773ee318cdda06cca46e81ce22a024507de84a9bee2afb",
+  "manifest_sha256": "8e55986acaf6eecde85ca2ff29ace8827167980ce82978129184738b451b8bfc",
+  "documents": [
+    {
+      "id": "cord-validation-000",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 3
+      },
+      "gold_rows": 3,
+      "predicted_rows": 6,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 6,
+          "fn": 3
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "1c4a9511a91a773d733fe55e1309866cb27a02b24fbaf8ddc8790102d37c9a02"
+    },
+    {
+      "id": "cord-validation-001",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "e92bc69c37a49f7bf77b46cca438470c6b9493bd4ebb997d47fd782f5d33c6a8"
+    },
+    {
+      "id": "cord-validation-002",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "5b6fe511c4c2d936d80e26a75f369ed8c815ad4eb0788f44b793f2fbdce14d7c"
+    },
+    {
+      "id": "cord-validation-003",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 1,
+      "predicted_rows": 1,
+      "matched_rows": 1,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "quantity": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "unit_price": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "18b3bc8abb9e4f7ec82b8938e7707b113181bb88f5e3042057f318f93f69a1b0"
+    },
+    {
+      "id": "cord-validation-004",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "9cd5fd2247eb230dd76d76c69740f9c1f89cdf539585510083b23e7838d1b79d"
+    },
+    {
+      "id": "cord-validation-005",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "ec4e73a6ae0ecf35854399280acae8054e407d31ab609a942d2bf809d23b6bf1"
+    },
+    {
+      "id": "cord-validation-006",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 3
+      },
+      "gold_rows": 3,
+      "predicted_rows": 3,
+      "matched_rows": 3,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "d57e8b2fe2dfd051c2eaa857e9d275218f90a50f8096360126c8bad43be7283f"
+    },
+    {
+      "id": "cord-validation-007",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "discount": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "fc363f3b6103ae0e014c2b4b31802e1ff00ebb2a36b21044d284eff53008eb56"
+    },
+    {
+      "id": "cord-validation-008",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {},
+      "gold_rows": 2,
+      "predicted_rows": 3,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 3,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 3,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "b94234ed6a640321fbd16336a87697fb5d0a628cb8bb2edd1dfc033d740ab979"
+    },
+    {
+      "id": "cord-validation-009",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 1
+      },
+      "gold_rows": 1,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "e4019bd0b51f55fc21c7032b92e7530d7536e7f2399764088be3ad683ec84303"
+    },
+    {
+      "id": "cord-validation-010",
+      "processed": true,
+      "header": {
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "subtotal": "unreleased_or_absent_label",
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label",
+        "tax": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 2
+      },
+      "gold_rows": 2,
+      "predicted_rows": 0,
+      "matched_rows": 0,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "42146bc309c65fc50dd6845355797419ee023869c4a46f6e0499d9b2eb783752"
+    },
+    {
+      "id": "cord-validation-011",
+      "processed": true,
+      "header": {
+        "subtotal": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "tax": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        },
+        "total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1
+        }
+      },
+      "header_exclusions": {
+        "discount": "unreleased_or_absent_label",
+        "service": "unreleased_or_absent_label"
+      },
+      "row_exclusion_counts": {
+        "unit_price": 4
+      },
+      "gold_rows": 4,
+      "predicted_rows": 4,
+      "matched_rows": 2,
+      "exact_rows": 0,
+      "row_cells": {
+        "description": {
+          "tp": 2,
+          "fp": 2,
+          "fn": 2
+        },
+        "quantity": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        },
+        "unit_price": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0
+        },
+        "line_total": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 4
+        }
+      },
+      "failure_type": null,
+      "prediction_sha256": "c588d6ec97b915dc8eabdbf66fdec9645c5fed16e0375317823be18614391e79"
+    }
+  ],
+  "summary": {
+    "documents_scheduled": 12,
+    "documents_processed": 12,
+    "header_fields": {
+      "subtotal": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 7,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "discount": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "service": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      },
+      "tax": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 5,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "total": {
+        "tp": 0,
+        "fp": 2,
+        "fn": 12,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "row_fields": {
+      "description": {
+        "tp": 6,
+        "fp": 11,
+        "fn": 15,
+        "precision": 0.3529,
+        "recall": 0.2857,
+        "f1": 0.3158
+      },
+      "quantity": {
+        "tp": 1,
+        "fp": 3,
+        "fn": 20,
+        "precision": 0.25,
+        "recall": 0.0476,
+        "f1": 0.08
+      },
+      "unit_price": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 3,
+        "precision": 1.0,
+        "recall": 0.25,
+        "f1": 0.4
+      },
+      "line_total": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 21,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0
+      }
+    },
+    "row_detection": {
+      "tp": 6,
+      "fp": 11,
+      "fn": 15,
+      "precision": 0.3529,
+      "recall": 0.2857,
+      "f1": 0.3158
+    },
+    "eligible_exact_rows": {
+      "tp": 0,
+      "fp": 17,
+      "fn": 21,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "header_exclusions": {
+      "subtotal": 5,
+      "discount": 11,
+      "service": 12,
+      "tax": 7
+    },
+    "row_exclusions": {
+      "unit_price": 17
+    },
+    "failures_by_type": {}
+  },
+  "scope": "Official validation development diagnostic; not held-out quality.",
+  "artifacts": {
+    "completed.json": "432c4f5799ff3ec6d20626550adcab0867b225fe11730625b82780997a5c15e4",
+    "predictions/cord-validation-000.json": "1c4a9511a91a773d733fe55e1309866cb27a02b24fbaf8ddc8790102d37c9a02",
+    "predictions/cord-validation-001.json": "e92bc69c37a49f7bf77b46cca438470c6b9493bd4ebb997d47fd782f5d33c6a8",
+    "predictions/cord-validation-002.json": "5b6fe511c4c2d936d80e26a75f369ed8c815ad4eb0788f44b793f2fbdce14d7c",
+    "predictions/cord-validation-003.json": "18b3bc8abb9e4f7ec82b8938e7707b113181bb88f5e3042057f318f93f69a1b0",
+    "predictions/cord-validation-004.json": "9cd5fd2247eb230dd76d76c69740f9c1f89cdf539585510083b23e7838d1b79d",
+    "predictions/cord-validation-005.json": "ec4e73a6ae0ecf35854399280acae8054e407d31ab609a942d2bf809d23b6bf1",
+    "predictions/cord-validation-006.json": "d57e8b2fe2dfd051c2eaa857e9d275218f90a50f8096360126c8bad43be7283f",
+    "predictions/cord-validation-007.json": "fc363f3b6103ae0e014c2b4b31802e1ff00ebb2a36b21044d284eff53008eb56",
+    "predictions/cord-validation-008.json": "b94234ed6a640321fbd16336a87697fb5d0a628cb8bb2edd1dfc033d740ab979",
+    "predictions/cord-validation-009.json": "e4019bd0b51f55fc21c7032b92e7530d7536e7f2399764088be3ad683ec84303",
+    "predictions/cord-validation-010.json": "42146bc309c65fc50dd6845355797419ee023869c4a46f6e0499d9b2eb783752",
+    "predictions/cord-validation-011.json": "c588d6ec97b915dc8eabdbf66fdec9645c5fed16e0375317823be18614391e79",
+    "profile.json": "c453814de617120eea0f5b8d90f0a5dbfa7bfda214071b8dc03610aa03d555f7",
+    "run.json": "f17c96d49115a20156773ee318cdda06cca46e81ce22a024507de84a9bee2afb",
+    "sessions/0001/runtime.json": "f12943dab4d0e45452e4faa5a3244d4baf3dd2938d02098fe5be3001b548d07a",
+    "sessions/0001/server.log": "8268ebf49dffdeba9fd502fa8a9ceac1fb77b592722567147da7b5ca27147de9",
+    "source_snapshot.json": "37f71e3fc1fa1fdbd32833ed15fb955b459521e45c0044f0ebbd311438f22ba4"
+  },
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 427.362
+  },
+  "evidence": {
+    "observed_values": 29,
+    "valid_reference_values": 29,
+    "aligned_values": 29
+  },
+  "uncertainty": {
+    "draws": 1000,
+    "seed": 42,
+    "eligible_exact_row_f1_95_interval": [
+      0.0,
+      0.0
+    ],
+    "method": "Receipt bootstrap within the official split; no unseen-domain or vendor generalization claim."
+  }
+}

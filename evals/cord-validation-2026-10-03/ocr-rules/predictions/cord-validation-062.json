@@ -1,0 +1,396 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "56364",
+        "raw": "56364",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "ii ieese) Burger 36,",
+          "raw": "ii ieese) Burger 36,",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "2",
+          "raw": "2",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "364",
+          "raw": "364",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Milo 9,",
+          "raw": "Milo 9,",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "91",
+          "raw": "091",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "PBI ff 6,",
+          "raw": "PBI ff 6,",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "66",
+          "raw": "66",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "A tAt''s! Bay 62. G",
+          "raw": "A tAt''s! Bay 62. G",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "00",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-005",
+        "description": {
+          "value": "\u2018ASH",
+          "raw": "\u2018ASH",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "100000",
+          "raw": "100,000",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-006",
+        "description": {
+          "value": "me BY\"...",
+          "raw": "me BY\"...",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "38000",
+          "raw": "38.000",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "225878d8720ee666d97c9cefd624d98fcd7647b8fb9aa79aafe0c06c0754110a",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 1.315,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 1108,
+    "height_px": 1478,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "AIo \u2018OGG! HUE YH0G",
+        "box": {
+          "left": 0.19223826714801445,
+          "top": 0.40054127198917455,
+          "right": 0.37725631768953066,
+          "bottom": 0.4330175913396482
+        },
+        "method": "tesseract-eng",
+        "confidence": 13.13
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "1 FrenchiFr ies CAD aie",
+        "box": {
+          "left": 0.1371841155234657,
+          "top": 0.43098782138024355,
+          "right": 0.7120938628158845,
+          "bottom": 0.4675236806495264
+        },
+        "method": "tesseract-eng",
+        "confidence": 41.5
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "2 ii ieese) Burger 36, 364",
+        "box": {
+          "left": 0.13357400722021662,
+          "top": 0.4648173207036536,
+          "right": 0.7120938628158845,
+          "bottom": 0.5230040595399188
+        },
+        "method": "tesseract-eng",
+        "confidence": 69.47
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "1 Milo 9, 091",
+        "box": {
+          "left": 0.13447653429602888,
+          "top": 0.4851150202976996,
+          "right": 0.7093862815884476,
+          "bottom": 0.5223274695534507
+        },
+        "method": "tesseract-eng",
+        "confidence": 78.03
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "SUBTOTAL fi 56364",
+        "box": {
+          "left": 0.1615523465703971,
+          "top": 0.5209742895805142,
+          "right": 0.7129963898916968,
+          "bottom": 0.5554803788903924
+        },
+        "method": "tesseract-eng",
+        "confidence": 25.83
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "PBI ff 6, 66",
+        "box": {
+          "left": 0.15974729241877256,
+          "top": 0.5568335588633289,
+          "right": 0.7148014440433214,
+          "bottom": 0.5906630581867388
+        },
+        "method": "tesseract-eng",
+        "confidence": 64.1
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "A tAt''s! Bay 62. G00",
+        "box": {
+          "left": 0.15974729241877256,
+          "top": 0.587956698240866,
+          "right": 0.7148014440433214,
+          "bottom": 0.628552097428958
+        },
+        "method": "tesseract-eng",
+        "confidence": 46.79
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "\u2018ASH 100,000",
+        "box": {
+          "left": 0.15342960288808663,
+          "top": 0.6048714479025711,
+          "right": 0.7175090252707581,
+          "bottom": 0.6589986468200271
+        },
+        "method": "tesseract-eng",
+        "confidence": 62.71
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "me BY\"... 38.000",
+        "box": {
+          "left": 0.14981949458483754,
+          "top": 0.642083897158322,
+          "right": 0.7184115523465704,
+          "bottom": 0.6826792963464141
+        },
+        "method": "tesseract-eng",
+        "confidence": 44.5
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 15,
+    "valid_reference_values": 15,
+    "aligned_values": 15,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

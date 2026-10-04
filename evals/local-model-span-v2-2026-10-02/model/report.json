@@ -1,0 +1,635 @@
+{
+  "report_version": "development-evaluation-v1",
+  "scoring_version": "canonical-exact-source-order-v1",
+  "schema_version": "invoice-v1-spike",
+  "split": "development",
+  "evidence_kind": "fresh",
+  "created_at": "2026-10-02T22:14:08.280069+00:00",
+  "extractor": {
+    "variant": "span_llm",
+    "version": "span-invoice-v2",
+    "model_id": "docwork-qwen3-4b-instruct",
+    "prompt_sha256": "e95fc231df9974a2fbfec84e9f36171bb9b15e8ce7b39005b8827e5ed4395e25",
+    "timeout_seconds": 150,
+    "max_output_tokens": 2048,
+    "weights_identity": "hash-verified assets loaded by an owned, authenticated child process",
+    "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+    "runtime_archive_sha256": "791eb0200a7c846ca925b6274fc21f0f21f537fda2924cc5a47402655816f56e",
+    "profile_sha256": "c453814de617120eea0f5b8d90f0a5dbfa7bfda214071b8dc03610aa03d555f7",
+    "implementation_sha256": "2155a4e5d01b145162e7b3b2272217877807df37538873dea12d90cc9d2c43f0"
+  },
+  "environment": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64"
+  },
+  "mode": "fresh_development_span_llm",
+  "dataset_id": "self-authored-development-v0",
+  "manifest_sha256": "f49e349a900e3d09612d00179027d10730f91786a059707f77ebb57f9589e60d",
+  "runtime_versions": {
+    "python": "3.12.12",
+    "tesseract": "tesseract 5.4.1"
+  },
+  "summary": {
+    "documents_scheduled": 12,
+    "documents_processed": 12,
+    "header_exact": {
+      "correct": 108,
+      "eligible": 120
+    },
+    "required_header_exact": {
+      "correct": 54,
+      "eligible": 60
+    },
+    "all_required_correct": {
+      "documents": 10,
+      "eligible": 12
+    },
+    "line_total_exact_by_order": {
+      "correct": 17,
+      "eligible": 18
+    },
+    "row_count_exact": {
+      "documents": 11,
+      "eligible": 12
+    },
+    "header_evidence_iou_mean_all_slots": 0.4033,
+    "injected_total_conflicts_detected": {
+      "correct": 1,
+      "eligible": 1
+    },
+    "false_total_conflict_warnings": {
+      "count": 0,
+      "eligible": 11
+    },
+    "sum_ocr_seconds": 5.652,
+    "failures_by_type": {},
+    "sum_model_seconds": 1037.406
+  },
+  "documents": [
+    {
+      "id": "dev-01-01",
+      "family": "classic",
+      "family_group": "family-01",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.9918,
+        "invoice_number": 0.2803,
+        "issue_date": 0.6393,
+        "due_date": 0.5013,
+        "currency": 0.245,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 1,
+      "predicted_row_count": 1,
+      "row_amount_exact_by_order": [
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.443,
+      "model_seconds": 73.457
+    },
+    {
+      "id": "dev-01-02",
+      "family": "classic",
+      "family_group": "family-01",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.9918,
+        "invoice_number": 0.2922,
+        "issue_date": 0.6557,
+        "due_date": 0.5141,
+        "currency": 0.245,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 1,
+      "predicted_row_count": 1,
+      "row_amount_exact_by_order": [
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.43,
+      "model_seconds": 69.827
+    },
+    {
+      "id": "dev-02-01",
+      "family": "right_header",
+      "family_group": "family-02",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.3152,
+        "invoice_number": 0.2803,
+        "issue_date": 0.6557,
+        "due_date": 0.5141,
+        "currency": 0.245,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 2,
+      "predicted_row_count": 2,
+      "row_amount_exact_by_order": [
+        true,
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.45,
+      "model_seconds": 90.199
+    },
+    {
+      "id": "dev-02-02",
+      "family": "right_header",
+      "family_group": "family-02",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.3152,
+        "invoice_number": 0.2922,
+        "issue_date": 0.6557,
+        "due_date": 0.5141,
+        "currency": 0.245,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 2,
+      "predicted_row_count": 2,
+      "row_amount_exact_by_order": [
+        true,
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.474,
+      "model_seconds": 89.537
+    },
+    {
+      "id": "dev-03-01",
+      "family": "compact",
+      "family_group": "family-03",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.9874,
+        "invoice_number": 0.2803,
+        "issue_date": 0.659,
+        "due_date": 0.5167,
+        "currency": 0.245,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 1,
+      "predicted_row_count": 1,
+      "row_amount_exact_by_order": [
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.445,
+      "model_seconds": 71.331
+    },
+    {
+      "id": "dev-03-02",
+      "family": "compact",
+      "family_group": "family-03",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.9874,
+        "invoice_number": 0.2922,
+        "issue_date": 0.6557,
+        "due_date": 0.5141,
+        "currency": 0.245,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 1,
+      "predicted_row_count": 1,
+      "row_amount_exact_by_order": [
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.453,
+      "model_seconds": 71.882
+    },
+    {
+      "id": "dev-04-01",
+      "family": "two_column",
+      "family_group": "family-04",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.5205,
+        "invoice_number": 0.0993,
+        "issue_date": 0.6557,
+        "due_date": 0.5141,
+        "currency": 0.0658,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 2,
+      "predicted_row_count": 2,
+      "row_amount_exact_by_order": [
+        true,
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.498,
+      "model_seconds": 92.664
+    },
+    {
+      "id": "dev-04-02",
+      "family": "two_column",
+      "family_group": "family-04",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.5205,
+        "invoice_number": 0.0993,
+        "issue_date": 0.659,
+        "due_date": 0.5167,
+        "currency": 0.0658,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 2,
+      "predicted_row_count": 2,
+      "row_amount_exact_by_order": [
+        true,
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.496,
+      "model_seconds": 89.998
+    },
+    {
+      "id": "dev-05-01",
+      "family": "summary_first",
+      "family_group": "family-05",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.9831,
+        "invoice_number": 0.2803,
+        "issue_date": 0.659,
+        "due_date": 0.5167,
+        "currency": 0.245,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 2,
+      "predicted_row_count": 2,
+      "row_amount_exact_by_order": [
+        true,
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.49,
+      "model_seconds": 92.027
+    },
+    {
+      "id": "dev-05-02",
+      "family": "summary_first",
+      "family_group": "family-05",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.9831,
+        "invoice_number": 0.2922,
+        "issue_date": 0.6557,
+        "due_date": 0.5141,
+        "currency": 0.245,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 2,
+      "predicted_row_count": 2,
+      "row_amount_exact_by_order": [
+        true,
+        true
+      ],
+      "expected_issue_codes": [
+        "TOTAL_MISMATCH"
+      ],
+      "observed_issue_codes": [
+        "TOTAL_MISMATCH"
+      ],
+      "total_mismatch_detected": true,
+      "ocr_seconds": 0.496,
+      "model_seconds": 91.33
+    },
+    {
+      "id": "dev-06-01",
+      "family": "degraded_orientation",
+      "family_group": "family-06",
+      "treatment": "blur_low_contrast",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": false,
+        "due_date": false,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": false,
+      "header_evidence_iou": {
+        "supplier_name": 0.9874,
+        "invoice_number": 0.282,
+        "issue_date": 0.652,
+        "due_date": 0.51,
+        "currency": 0.2434,
+        "subtotal": 0.4154,
+        "tax": 0.5213,
+        "discount": 0.2996,
+        "shipping": 0.2354,
+        "total": 0.5172
+      },
+      "gold_row_count": 1,
+      "predicted_row_count": 1,
+      "row_amount_exact_by_order": [
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [
+        "AMBIGUOUS_DATE"
+      ],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.527,
+      "model_seconds": 74.023
+    },
+    {
+      "id": "dev-06-02",
+      "family": "degraded_orientation",
+      "family_group": "family-06",
+      "treatment": "crop_rotate_270_clockwise",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": false,
+        "invoice_number": false,
+        "issue_date": false,
+        "due_date": false,
+        "currency": false,
+        "subtotal": false,
+        "tax": false,
+        "discount": false,
+        "shipping": false,
+        "total": false
+      },
+      "required_all_exact": false,
+      "header_evidence_iou": {
+        "supplier_name": 0.0,
+        "invoice_number": 0.0,
+        "issue_date": 0.0,
+        "due_date": 0.0,
+        "currency": 0.0,
+        "subtotal": 0.0,
+        "tax": 0.0,
+        "discount": 0.0,
+        "shipping": 0.0,
+        "total": 0.0
+      },
+      "gold_row_count": 1,
+      "predicted_row_count": 6,
+      "row_amount_exact_by_order": [
+        false
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [
+        "INVALID_ROW_AMOUNT",
+        "REQUIRED_MISSING",
+        "TOTAL_NOT_CHECKED",
+        "UNSUPPORTED_CURRENCY"
+      ],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.45,
+      "model_seconds": 131.131
+    }
+  ],
+  "interpretation": "Self-authored development data used for tuning; not held-out evidence or real-invoice accuracy.",
+  "managed_runtime": {
+    "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+    "runtime_archive_sha256": "791eb0200a7c846ca925b6274fc21f0f21f537fda2924cc5a47402655816f56e",
+    "runtime_executable_sha256": "41df13c126456f8e5fab2057c86a790067a85ea1dfd8fbc0071cc45fbba56262",
+    "runtime_release": "b11149",
+    "runtime_commit": "d2e54583c7452353eb35d40431281f6ee984332f",
+    "inference": {
+      "model_id": "docwork-qwen3-4b-instruct",
+      "context_tokens": 8192,
+      "parallel": 1,
+      "gpu_layers": "all",
+      "seed": 42,
+      "temperature": 0,
+      "max_output_tokens": 2048,
+      "timeout_seconds": 150
+    },
+    "peak_sampled_rss_bytes": 5001379840,
+    "rss_sample_count": 1034,
+    "rss_interval_seconds": 1,
+    "memory_note": "Sampled server process RSS only; not peak GPU allocation or total application memory.",
+    "shutdown_complete": true,
+    "startup_seconds": 4.596,
+    "server_lifetime_seconds": 1047.965
+  },
+  "evaluation_wall_seconds": 1050.143,
+  "timing_protocol": "Serial documents after model readiness; no explicit warmup; first request is cold.",
+  "artifacts": {
+    "predictions/dev-01-01.json": "ea8b5174c59e5a5aceb4ff9592144630317e2ea57d929ea83341303521bde9ea",
+    "predictions/dev-01-02.json": "4acc7ca0da242be5e456353a70bb76de510a7e3e4da9e855c407079021f2a6a8",
+    "predictions/dev-02-01.json": "020463bd2b7f19487594d0c7b73a420841831494b80078ed496c9954f2f12e60",
+    "predictions/dev-02-02.json": "55af222f3778eb66620686259ba74b81d303012daded4d8a0532ebab82404165",
+    "predictions/dev-03-01.json": "6cacbeab131c2341ebcd4b870c091418587cb5f0080d763d4c8006c4cb66e863",
+    "predictions/dev-03-02.json": "613c56f78ce57ddc6ce9584aa819a752cb075dba0e804312c77a459cf1ecabbf",
+    "predictions/dev-04-01.json": "8acf6b6ad5bb7b9d31c6b75b601e238b7da976712643556ecbfdd46c7aa9a25e",
+    "predictions/dev-04-02.json": "b345c60752e357958cd46da674e9e91cc25c59bd8212c79e02dca6b98a3444fb",
+    "predictions/dev-05-01.json": "8a07da9b0946984dea8684ed2c3310a6dd7e7f95a6830febaae84d4fe19a9a58",
+    "predictions/dev-05-02.json": "718e1920b69881f68ae9c2972edb992fa04eab4efaef9330101587e3e9cdff2a",
+    "predictions/dev-06-01.json": "42ced8da6a383686581eab6e064aa14be7fd8f7d678e6a7af653e50e20535217",
+    "predictions/dev-06-02.json": "f6d064cacb0cfa1c21bf91a004ec6a2604a4cee23ee7c62923f344769bd28fc6",
+    "profile.json": "c453814de617120eea0f5b8d90f0a5dbfa7bfda214071b8dc03610aa03d555f7",
+    "server.log": "34078659fee0b243ea1df5f407bc038d41dcc8a8803f7aaafaa452338fcde402",
+    "source_snapshot.json": "a7a0d10e788d456c05b234ea2c91f2cf3326a2d02a0f4eba2beb8a28e2b41df9"
+  }
+}

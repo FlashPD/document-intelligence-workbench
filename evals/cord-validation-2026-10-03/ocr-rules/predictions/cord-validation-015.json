@@ -1,0 +1,75 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "20a241dd04301f4284696c507bc706df6fe4d2800750799d05076cfe0e162d8f",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 1.779,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 1108,
+    "height_px": 1478,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "8\n4\t1\t1\t1\t2\t0\t350\t240\t246\t21\t-1\t\n5\t1\t1\t1\t2\t1\t350\t240\t31\t16\t13.061934\t1\n5\t1\t1\t1\t2\t2\t417\t245\t56\t16\t1.219883\tfeng\n5\t1\t1\t1\t2\t3\t578\t247\t18\t10\t40.199501\twr\n4\t1\t1\t1\t3\t0\t350\t286\t217\t18\t-1\t\n5\t1\t1\t1\t3\t1\t350\t286\t28\t10\t44.677166\tue\n5\t1\t1\t1\t3\t2\t449\t287\t71\t17\t47.763199\thia\n5\t1\t1\t1\t3\t3\t559\t286\t8\t18\t29.022026\t\u00a9\n4\t1\t1\t1\t4\t0\t464\t314\t271\t41\t-1\t\n5\t1\t1\t1\t4\t1\t464\t314\t29\t41\t67.735771\tta\n5\t1\t1\t1\t4\t2\t562\t325\t40\t24\t53.757935\ton\n5\t1\t1\t1\t4\t3\t707\t324\t28\t19\t83.483986\t\u201d\n4\t1\t1\t1\t5\t0\t417\t361\t195\t25\t-1\t\n5\t1\t1\t1\t5\t1\t417\t365\t84\t21\t37.717079\thit\n5\t1\t1\t1\t5\t2\t556\t361\t56\t24\t15.239220\tFS\n4\t1\t1\t1\t6\t0\t441\t401\t126\t25\t-1\t\n5\t1\t1\t1\t6\t1\t437\t397\t59\t37\t0.000000\ttee\n5\t1\t1\t1\t6\t2\t526\t397\t44\t37\t21.875225\taa\n4\t1\t1\t1\t7\t0\t218\t463\t522\t52\t-1\t\n5\t1\t1\t1\t7\t1\t218\t463\t9\t52\t73.662216\t]\n5\t1\t1\t1\t7\t2\t268\t489\t6\t11\t29.888325\t>\n5\t1\t1\t1\t7\t3\t312\t489\t17\t16\t74.241142\t=\n5\t1\t1\t1\t7\t4\t375\t488\t45\t15\t54.663845\tone\n5\t1\t1\t1\t7\t5\t685\t486\t55\t18\t52.193314\tem\n4\t1\t1\t1\t8\t0\t218\t517\t530\t33\t-1\t\n5\t1\t1\t1\t8\t1\t218\t517\t134\t30\t12.303104\ttonne\n5\t1\t1\t1\t8\t2\t381\t524\t82\t26\t32.865875\ti\n5\t1\t1\t1\t8\t3\t653\t541\t2\t2\t5.446310\t2\n4\t1\t1\t1\t9\t0\t272\t562\t468\t30\t-1\t\n5\t1\t1\t1\t9\t1\t272\t563\t333\t29\t5.623569\ti\n4\t1\t1\t1\t10\t0\t429\t642\t162\t33\t-1\t\n5\t1\t1\t1\t10\t1\t429\t642\t73\t31\t0.000000\t-_\n4\t1\t1\t1\t11\t0\t262\t684\t138\t26\t-1\t\n5\t1\t1\t1\t11\t1\t262\t685\t61\t25\t92.605598\tArem\n5\t1\t1\t1\t11\t2\t339\t684\t61\t25\t93.069023\tArem\n4\t1\t1\t1\t12\t0\t263\t720\t484\t32\t-1\t\n5\t1\t1\t1\t12\t1\t263\t724\t25\t27\t64.593063\t2m\n5\t1\t1\t1\t12\t2\t336\t720\t109\t32\t9.691563\tfji2.000\n5\t1\t1\t1\t12\t3\t659\t720\t88\t25\t96.061440\t24.000\n4\t1\t1\t1\t13\t0\t264\t775\t226\t35\t-1\t\n5\t1\t1\t1\t13\t1\t264\t779\t122\t30\t93.148964\tPepenero\n5\t1\t1\t1\t13\t2\t402\t775\t88\t35\t96.609337\tPastel\n4\t1\t1\t1\t14\t0\t264\t813\t486\t32\t-1\t\n5\t1\t1\t1\t14\t1\t264\t818\t24\t26\t25.387787\t2m\n5\t1\t1\t1\t14\t2\t337\t816\t109\t29\t0.000000\t=\u00ab#5.000\n5\t1\t1\t1\t14\t3\t660\t813\t90\t25\t72.737808\t30.006\n4\t1\t1\t1\t15\t0\t264\t893\t489\t32\t-1\t\n5\t1\t1\t1\t15\t1\t264\t896\t119\t28\t95.715569\tSubtotal\n5\t1\t1\t1\t15\t2\t616\t894\t30\t31\t96.201767\tRp\n5\t1\t1\t1\t15\t3\t662\t893\t91\t26\t95.941238\t54.000\n4\t1\t1\t1\t16\t0\t264\t934\t490\t34\t-1\t\n5\t1\t1\t1\t16\t1\t264\t940\t43\t25\t96.661713\tTax\n5\t1\t1\t1\t16\t2\t330\t938\t98\t30\t96.314125\t(10.0%)\n5\t1\t1\t1\t16\t3\t632\t935\t30\t30\t96.195366\tRp\n5\t1\t1\t1\t16\t4\t679\t934\t75\t25\t95.587364\t5.400\n4\t1\t1\t1\t17\t0\t264\t1014\t493\t33\t-1\t\n5\t1\t1\t1\t17\t1\t264\t1018\t74\t29\t96.658813\tTotal\n5\t1\t1\t1\t17\t2\t619\t1015\t30\t31\t95.606766\tRp\n5\t1\t1\t1\t17\t3\t665\t1014\t92\t26\t95.276215\t59.400\n4\t1\t1\t1\t18\t0\t263\t1096\t495\t33\t-1\t\n5\t1\t1\t1\t18\t1\t263\t1101\t61\t28\t94.295876\tCash\n5\t1\t1\t1\t18\t2\t604\t1097\t30\t30\t86.135452\tRp\n5\t1\t1\t1\t18\t3\t654\t1096\t104\t27\t86.135452\t100.000\n4\t1\t1\t1\t19\t0\t263\t1137\t497\t36\t-1\t\n5\t1\t1\t1\t19\t1\t263\t1143\t93\t30\t96.650398\tChange\n5\t1\t1\t1\t19\t2\t620\t1137\t30\t32\t95.839249\tRp\n5\t1\t1\t1\t19\t3\t667\t1137\t93\t27\t96.112816\t40.600\n4\t1\t1\t1\t20\t0\t261\t1226\t337\t42\t-1\t\n5\t1\t1\t1\t20\t1\t261\t1226\t41\t42\t68.109993\tO\n5\t1\t1\t1\t20\t2\t327\t1226\t271\t36\t33.401535\twanes\n5\t1\t1\t1\t20\t3\t557\t1222\t42\t50\t28.710552\tww\n2\t1\t2\t0\t0\t0\t0\t61\t1108\t1417\t-1\t\n3\t1\t2\t1\t0\t0\t0\t61\t1108\t1417\t-1\t\n4\t1\t2\t1\t1\t0\t0\t61\t1108\t1417\t-1\t\n5\t1\t2\t1\t1\t1\t0\t61\t1108\t1417\t95.000000",
+        "box": {
+          "left": 0.6471119133574007,
+          "top": 0.13667117726657646,
+          "right": 0.6651624548736462,
+          "bottom": 0.14682002706359945
+        },
+        "method": "tesseract-eng",
+        "confidence": 52.44
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

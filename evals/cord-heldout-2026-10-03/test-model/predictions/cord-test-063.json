@@ -1,0 +1,376 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Kopi Susu Kampung.",
+          "raw": "Kopi Susu Kampung.",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Kopi Susu Kampung",
+          "raw": "Kopi Susu Kampung",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "Kopi Susu Kampung.",
+          "raw": "Kopi Susu Kampung.",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "Kopi Susu Kampung",
+          "raw": "Kopi Susu Kampung",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "x1",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-005",
+        "description": {
+          "value": "Kopi Susu Kampung",
+          "raw": "Kopi Susu Kampung",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "2",
+          "raw": "x2",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "dd39eb958a1042cd9fc81690c37c70d0cc3c913ab1fe59fd4b59cb93cd915f64",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 77.895
+  },
+  "ocr_prediction_sha256": "133178c8862c6f8a990d96797bea266ac842644906e62e8135aa7f6e8cb5c697",
+  "page": {
+    "number": 1,
+    "width_px": 776,
+    "height_px": 1280,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Kopi Susu Kampung.",
+        "box": {
+          "left": 0.019329896907216496,
+          "top": 0.63515625,
+          "right": 0.3634020618556701,
+          "bottom": 0.6609375
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.05
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Ice",
+        "box": {
+          "left": 0.059278350515463915,
+          "top": 0.66484375,
+          "right": 0.11211340206185567,
+          "bottom": 0.6859375
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.24
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Kopi Susu Kampung",
+        "box": {
+          "left": 0.05670103092783505,
+          "top": 0.6953125,
+          "right": 0.38788659793814434,
+          "bottom": 0.72109375
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.06
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Kopi Susu Kampung.",
+        "box": {
+          "left": 0.020618556701030927,
+          "top": 0.7234375,
+          "right": 0.3634020618556701,
+          "bottom": 0.75078125
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.74
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Ice",
+        "box": {
+          "left": 0.06056701030927835,
+          "top": 0.753125,
+          "right": 0.1134020618556701,
+          "bottom": 0.775
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.93
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "sueut! 4",
+        "box": {
+          "left": 0.45618556701030927,
+          "top": 0.30859375,
+          "right": 0.7847938144329897,
+          "bottom": 0.32578125
+        },
+        "method": "tesseract-eng",
+        "confidence": 9.91
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "x1",
+        "box": {
+          "left": 0.5902061855670103,
+          "top": 0.63671875,
+          "right": 0.6224226804123711,
+          "bottom": 0.65703125
+        },
+        "method": "tesseract-eng",
+        "confidence": 81.91
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Less Ice 0",
+        "box": {
+          "left": 0.452319587628866,
+          "top": 0.696875,
+          "right": 0.7023195876288659,
+          "bottom": 0.71796875
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.09
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "x2",
+        "box": {
+          "left": 0.5876288659793815,
+          "top": 0.72734375,
+          "right": 0.625,
+          "bottom": 0.746875
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.89
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "Cash",
+        "box": {
+          "left": 0.023195876288659795,
+          "top": 0.92890625,
+          "right": 0.09664948453608248,
+          "bottom": 0.95
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.95
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "Change",
+        "box": {
+          "left": 0.023195876288659795,
+          "top": 0.95859375,
+          "right": 0.13402061855670103,
+          "bottom": 0.98046875
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.53
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 7,
+    "valid_reference_values": 7,
+    "aligned_values": 7,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

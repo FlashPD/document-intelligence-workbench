@@ -1,0 +1,58 @@
+[
+  {
+    "revision": 0,
+    "kind": "received",
+    "actor": "intake",
+    "detail": "",
+    "created_at": "2026-10-04T03:52:33.221320+00:00"
+  },
+  {
+    "revision": 0,
+    "kind": "claimed",
+    "actor": "browser-worker",
+    "detail": "1",
+    "created_at": "2026-10-04T03:52:33.224227+00:00"
+  },
+  {
+    "revision": 0,
+    "kind": "parser_checkpoint_saved",
+    "actor": "browser-worker",
+    "detail": "cabbdea21198fd9611f1118ca130fa32f913b15dbd86d4bcacc0935627e9b201",
+    "created_at": "2026-10-04T03:52:34.803814+00:00"
+  },
+  {
+    "revision": 1,
+    "kind": "candidate_created",
+    "actor": "extractor",
+    "detail": "",
+    "created_at": "2026-10-04T03:53:30.770885+00:00"
+  },
+  {
+    "revision": 2,
+    "kind": "field_edited",
+    "actor": "fictional-fixture-verification",
+    "detail": "fields.total",
+    "created_at": "2026-10-04T03:53:30.797700+00:00"
+  },
+  {
+    "revision": 2,
+    "kind": "approved",
+    "actor": "fictional-fixture-verification",
+    "detail": "e4c6d56a26d03f63641f5cde4f72e63a3d23f11a460bc622e59fee373e71bdaa",
+    "created_at": "2026-10-04T03:53:30.804538+00:00"
+  },
+  {
+    "revision": 2,
+    "kind": "exported",
+    "actor": "fictional-fixture-verification",
+    "detail": "json",
+    "created_at": "2026-10-04T03:53:30.809126+00:00"
+  },
+  {
+    "revision": 2,
+    "kind": "exported",
+    "actor": "fictional-fixture-verification",
+    "detail": "csv",
+    "created_at": "2026-10-04T03:53:30.815017+00:00"
+  }
+]

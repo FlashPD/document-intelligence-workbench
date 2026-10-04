@@ -1,0 +1,213 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "0",
+        "raw": "00",
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "REGULAR i> 2 3500(.00 70900.",
+          "raw": "REGULAR i> 2 3500(.00 70900.",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "00",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "OFFLINE. PROMO 70000.",
+          "raw": "OFFLINE. PROMO 70000.",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "00",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "49bd31c796d32189864b3b40c841d4624bf034dbc267fd747eb4d5b4b5e369d7",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.595,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 576,
+    "height_px": 864,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "\u00b0",
+        "box": {
+          "left": 0.14930555555555555,
+          "top": 0.40046296296296297,
+          "right": 0.171875,
+          "bottom": 0.41087962962962965
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "REGULAR i> 2 3500(.00 70900. 00",
+        "box": {
+          "left": 0.09722222222222222,
+          "top": 0.41782407407407407,
+          "right": 0.8940972222222222,
+          "bottom": 0.4583333333333333
+        },
+        "method": "tesseract-eng",
+        "confidence": 60.01
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "a",
+        "box": {
+          "left": 0.17708333333333334,
+          "top": 0.4525462962962963,
+          "right": 0.2517361111111111,
+          "bottom": 0.4722222222222222
+        },
+        "method": "tesseract-eng",
+        "confidence": 52.45
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Total Due 70000, 00",
+        "box": {
+          "left": 0.421875,
+          "top": 0.48726851851851855,
+          "right": 0.8958333333333334,
+          "bottom": 0.5162037037037037
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.79
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "OFFLINE. PROMO 70000. 00",
+        "box": {
+          "left": 0.4201388888888889,
+          "top": 0.5208333333333334,
+          "right": 0.8975694444444444,
+          "bottom": 0.5486111111111112
+        },
+        "method": "tesseract-eng",
+        "confidence": 75.04
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Change 0.00",
+        "box": {
+          "left": 0.4166666666666667,
+          "top": 0.6168981481481481,
+          "right": 0.9027777777777778,
+          "bottom": 0.6481481481481481
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.76
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 5,
+    "valid_reference_values": 5,
+    "aligned_values": 5,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "SOFT MORNING ROLL",
+          "raw": "SOFT MORNING ROLL",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": "She",
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "EAL HONEY PANCAKE BREAD",
+          "raw": "EAL HONEY PANCAKE BREAD",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": "She",
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "ih eo",
+          "raw": "ih eo",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "4",
+          "raw": "4",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "c9a3e92bfd1cfd408bee1695517066e5cbd4bb100d43a10fd1cb4462c30e5fb1",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 57.431
+  },
+  "ocr_prediction_sha256": "a84b52a77a73391d374c9a260fbb9f8718a7192327b0c7669235305798db6569",
+  "page": {
+    "number": 1,
+    "width_px": 2304,
+    "height_px": 4096,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "1 [MD] SOFT MORNING ROLL 18, 000",
+        "box": {
+          "left": 0.2829861111111111,
+          "top": 0.41943359375,
+          "right": 0.7230902777777778,
+          "bottom": 0.44287109375
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.62
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "2 EAL HONEY PANCAKE BREAD 20,000",
+        "box": {
+          "left": 0.28125,
+          "top": 0.445556640625,
+          "right": 0.7239583333333334,
+          "bottom": 0.45947265625
+        },
+        "method": "tesseract-eng",
+        "confidence": 82.63
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "4 ih eo 36, ~",
+        "box": {
+          "left": 0.28125,
+          "top": 0.462890625,
+          "right": 0.7248263888888888,
+          "bottom": 0.489501953125
+        },
+        "method": "tesseract-eng",
+        "confidence": 40.83
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "f TOTAL \u00ab74, 000",
+        "box": {
+          "left": 0.15755208333333334,
+          "top": 0.486328125,
+          "right": 0.7261284722222222,
+          "bottom": 0.53955078125
+        },
+        "method": "tesseract-eng",
+        "confidence": 49.09
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "| MANGE 26,000",
+        "box": {
+          "left": 0.17491319444444445,
+          "top": 0.525634765625,
+          "right": 0.7261284722222222,
+          "bottom": 0.570556640625
+        },
+        "method": "tesseract-eng",
+        "confidence": 32.12
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "EA ee",
+        "box": {
+          "left": 0.3111979166666667,
+          "top": 0.6005859375,
+          "right": 0.5538194444444444,
+          "bottom": 0.60400390625
+        },
+        "method": "tesseract-eng",
+        "confidence": 27.31
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "\u2014_\u2014\u2014--",
+        "box": {
+          "left": 0.2569444444444444,
+          "top": 0.603515625,
+          "right": 0.2990451388888889,
+          "bottom": 0.60546875
+        },
+        "method": "tesseract-eng",
+        "confidence": 6.45
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Thar <",
+        "box": {
+          "left": 0.2569444444444444,
+          "top": 0.626953125,
+          "right": 0.3177083333333333,
+          "bottom": 0.638916015625
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.46
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 4,
+    "valid_reference_values": 4,
+    "aligned_values": 4,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,794 @@
+{
+  "report_version": "invoice-model-diagnostics-v1",
+  "manifest_sha256": "a39a99cf5543888ebd7b9af5a42a18ac82e4ff6baf2534b8cd6d16ca9c76f61c",
+  "invoice_report_sha256": "82efab50f65e7d98c549ba2accab18989d97e9f681d2866846e076655109dd2a",
+  "analysis_script_sha256": "4fc48f2861cdc372b72bfed422704123b2e2b34b161756c9050f67a5c3651215",
+  "scheduled": 180,
+  "processed": 176,
+  "failures": [
+    {
+      "id": "inv-f13-04",
+      "failure_type": "ModelUnavailable"
+    },
+    {
+      "id": "inv-f15-02",
+      "failure_type": "ModelUnavailable"
+    },
+    {
+      "id": "inv-f15-14",
+      "failure_type": "ModelUnavailable"
+    },
+    {
+      "id": "inv-f15-27",
+      "failure_type": "ModelUnavailable"
+    }
+  ],
+  "families": {
+    "family-13": {
+      "ocr_rules": {
+        "header_macro_f1": 0.9967,
+        "exact_row_f1": 0.9306,
+        "processed": 30
+      },
+      "span_llm": {
+        "header_macro_f1": 0.9783,
+        "exact_row_f1": 0.9,
+        "processed": 29
+      }
+    },
+    "family-14": {
+      "ocr_rules": {
+        "header_macro_f1": 1.0,
+        "exact_row_f1": 0.9459,
+        "processed": 30
+      },
+      "span_llm": {
+        "header_macro_f1": 1.0,
+        "exact_row_f1": 0.7297,
+        "processed": 30
+      }
+    },
+    "family-15": {
+      "ocr_rules": {
+        "header_macro_f1": 0.9967,
+        "exact_row_f1": 0.9474,
+        "processed": 30
+      },
+      "span_llm": {
+        "header_macro_f1": 0.9394,
+        "exact_row_f1": 0.7887,
+        "processed": 27
+      }
+    },
+    "family-16": {
+      "ocr_rules": {
+        "header_macro_f1": 0.995,
+        "exact_row_f1": 0.9079,
+        "processed": 30
+      },
+      "span_llm": {
+        "header_macro_f1": 0.9898,
+        "exact_row_f1": 0.6289,
+        "processed": 30
+      }
+    },
+    "family-17": {
+      "ocr_rules": {
+        "header_macro_f1": 1.0,
+        "exact_row_f1": 0.9306,
+        "processed": 30
+      },
+      "span_llm": {
+        "header_macro_f1": 1.0,
+        "exact_row_f1": 0.8844,
+        "processed": 30
+      }
+    },
+    "family-18": {
+      "ocr_rules": {
+        "header_macro_f1": 1.0,
+        "exact_row_f1": 0.9667,
+        "processed": 30
+      },
+      "span_llm": {
+        "header_macro_f1": 0.95,
+        "exact_row_f1": 0.8372,
+        "processed": 30
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "inv-f16-30",
+      "prediction_sha256": "71c49efbc07ac2eeb1e2fdf9e15f4764aa3a09f734c25bd23b7f5a79d9b72eb3",
+      "gold_rows": 4,
+      "predicted_rows": 4,
+      "exact_rows": 0,
+      "header_errors": {
+        "subtotal": {
+          "gold": "840.00",
+          "predicted": {
+            "value": "82.00",
+            "raw": "82.00",
+            "evidence_ids": [
+              "p1-l0018"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "score": {
+            "tp": 0,
+            "fp": 1,
+            "fn": 1
+          }
+        }
+      },
+      "gold_line_items": [
+        {
+          "description": "Research workshop",
+          "quantity": "2",
+          "unit_price": "82.00",
+          "line_total": "164.00",
+          "tax": null
+        },
+        {
+          "description": "Research workshop",
+          "quantity": "4",
+          "unit_price": "54.00",
+          "line_total": "216.00",
+          "tax": null
+        },
+        {
+          "description": "Illustration set",
+          "quantity": "4",
+          "unit_price": "61.00",
+          "line_total": "244.00",
+          "tax": null
+        },
+        {
+          "description": "Usability session",
+          "quantity": "4",
+          "unit_price": "54.00",
+          "line_total": "216.00",
+          "tax": null
+        }
+      ],
+      "predicted_line_items": [
+        {
+          "row_id": "row-001",
+          "description": {
+            "value": "Research workshop",
+            "raw": "Research workshop",
+            "evidence_ids": [
+              "p1-l0011"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "quantity": {
+            "value": "82.00",
+            "raw": "82.00",
+            "evidence_ids": [
+              "p1-l0018"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "unit_price": {
+            "value": "82.00",
+            "raw": "82.00",
+            "evidence_ids": [
+              "p1-l0018"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "line_total": {
+            "value": "164.00",
+            "raw": "164.00",
+            "evidence_ids": [
+              "p1-l0022"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "tax": {
+            "value": null,
+            "raw": null,
+            "evidence_ids": [],
+            "origin": "observed",
+            "missing_reason": "not_observed"
+          }
+        },
+        {
+          "row_id": "row-002",
+          "description": {
+            "value": "Research workshop",
+            "raw": "Research workshop",
+            "evidence_ids": [
+              "p1-l0012"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "quantity": {
+            "value": "54.00",
+            "raw": "54.00",
+            "evidence_ids": [
+              "p1-l0019"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "unit_price": {
+            "value": "54.00",
+            "raw": "54.00",
+            "evidence_ids": [
+              "p1-l0019"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "line_total": {
+            "value": "216.00",
+            "raw": "216.00",
+            "evidence_ids": [
+              "p1-l0023"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "tax": {
+            "value": null,
+            "raw": null,
+            "evidence_ids": [],
+            "origin": "observed",
+            "missing_reason": "not_observed"
+          }
+        },
+        {
+          "row_id": "row-003",
+          "description": {
+            "value": "Illustration set",
+            "raw": "Illustration set",
+            "evidence_ids": [
+              "p1-l0013"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "quantity": {
+            "value": "61.00",
+            "raw": "61.00",
+            "evidence_ids": [
+              "p1-l0020"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "unit_price": {
+            "value": "61.00",
+            "raw": "61.00",
+            "evidence_ids": [
+              "p1-l0020"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "line_total": {
+            "value": "244.00",
+            "raw": "244.00",
+            "evidence_ids": [
+              "p1-l0024"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "tax": {
+            "value": null,
+            "raw": null,
+            "evidence_ids": [],
+            "origin": "observed",
+            "missing_reason": "not_observed"
+          }
+        },
+        {
+          "row_id": "row-004",
+          "description": {
+            "value": "Usability session",
+            "raw": "Usability session",
+            "evidence_ids": [
+              "p1-l0014"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "quantity": {
+            "value": "54.00",
+            "raw": "54.00",
+            "evidence_ids": [
+              "p1-l0021"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "unit_price": {
+            "value": "54.00",
+            "raw": "54.00",
+            "evidence_ids": [
+              "p1-l0021"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "line_total": {
+            "value": "216.00",
+            "raw": "216.00",
+            "evidence_ids": [
+              "p1-l0025"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "tax": {
+            "value": null,
+            "raw": null,
+            "evidence_ids": [],
+            "origin": "observed",
+            "missing_reason": "not_observed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "inv-f14-23",
+      "prediction_sha256": "2d672156542ba6bcd600582bf77135d3d0d8e3176976ef8e6e8128f824daf43e",
+      "gold_rows": 4,
+      "predicted_rows": 4,
+      "exact_rows": 0,
+      "header_errors": {},
+      "gold_line_items": [
+        {
+          "description": "Illustration set",
+          "quantity": "1",
+          "unit_price": "108.00",
+          "line_total": "108.00",
+          "tax": null
+        },
+        {
+          "description": "Research workshop",
+          "quantity": "2",
+          "unit_price": "94.00",
+          "line_total": "188.00",
+          "tax": null
+        },
+        {
+          "description": "Field interview",
+          "quantity": "1",
+          "unit_price": "45.00",
+          "line_total": "45.00",
+          "tax": null
+        },
+        {
+          "description": "Research workshop",
+          "quantity": "3",
+          "unit_price": "101.00",
+          "line_total": "303.00",
+          "tax": null
+        }
+      ],
+      "predicted_line_items": [
+        {
+          "row_id": "row-001",
+          "description": {
+            "value": "Illustration set 1",
+            "raw": "Illustration set 1 108.00 108.00",
+            "evidence_ids": [
+              "p1-l0009"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "quantity": {
+            "value": "1",
+            "raw": "Illustration set 1 108.00 108.00",
+            "evidence_ids": [
+              "p1-l0009"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "unit_price": {
+            "value": "108.00",
+            "raw": "Illustration set 1 108.00 108.00",
+            "evidence_ids": [
+              "p1-l0009"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "line_total": {
+            "value": "108.00",
+            "raw": "Illustration set 1 108.00 108.00",
+            "evidence_ids": [
+              "p1-l0009"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "tax": {
+            "value": null,
+            "raw": null,
+            "evidence_ids": [],
+            "origin": "observed",
+            "missing_reason": "not_observed"
+          }
+        },
+        {
+          "row_id": "row-002",
+          "description": {
+            "value": "Research workshop 2",
+            "raw": "Research workshop 2 94.00 188.00",
+            "evidence_ids": [
+              "p1-l0010"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "quantity": {
+            "value": "2",
+            "raw": "Research workshop 2 94.00 188.00",
+            "evidence_ids": [
+              "p1-l0010"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "unit_price": {
+            "value": "94.00",
+            "raw": "Research workshop 2 94.00 188.00",
+            "evidence_ids": [
+              "p1-l0010"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "line_total": {
+            "value": "188.00",
+            "raw": "Research workshop 2 94.00 188.00",
+            "evidence_ids": [
+              "p1-l0010"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "tax": {
+            "value": null,
+            "raw": null,
+            "evidence_ids": [],
+            "origin": "observed",
+            "missing_reason": "not_observed"
+          }
+        },
+        {
+          "row_id": "row-003",
+          "description": {
+            "value": "Field interview 1",
+            "raw": "Field interview 1 45.00 45.00",
+            "evidence_ids": [
+              "p1-l0011"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "quantity": {
+            "value": "1",
+            "raw": "Field interview 1 45.00 45.00",
+            "evidence_ids": [
+              "p1-l0011"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "unit_price": {
+            "value": "45.00",
+            "raw": "Field interview 1 45.00 45.00",
+            "evidence_ids": [
+              "p1-l0011"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "line_total": {
+            "value": "45.00",
+            "raw": "Field interview 1 45.00 45.00",
+            "evidence_ids": [
+              "p1-l0011"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "tax": {
+            "value": null,
+            "raw": null,
+            "evidence_ids": [],
+            "origin": "observed",
+            "missing_reason": "not_observed"
+          }
+        },
+        {
+          "row_id": "row-004",
+          "description": {
+            "value": "Research workshop 3",
+            "raw": "Research workshop 3 101.00 303.00",
+            "evidence_ids": [
+              "p1-l0012"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "quantity": {
+            "value": "3",
+            "raw": "Research workshop 3 101.00 303.00",
+            "evidence_ids": [
+              "p1-l0012"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "unit_price": {
+            "value": "101.00",
+            "raw": "Research workshop 3 101.00 303.00",
+            "evidence_ids": [
+              "p1-l0012"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "line_total": {
+            "value": "303.00",
+            "raw": "Research workshop 3 101.00 303.00",
+            "evidence_ids": [
+              "p1-l0012"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "tax": {
+            "value": null,
+            "raw": null,
+            "evidence_ids": [],
+            "origin": "observed",
+            "missing_reason": "not_observed"
+          }
+        }
+      ]
+    },
+    {
+      "id": "inv-f16-01",
+      "prediction_sha256": "af67b38b8cd3eb515c5a3fa58782e127f453664b4031cb6b5ce041f78a11c013",
+      "gold_rows": 4,
+      "predicted_rows": 4,
+      "exact_rows": 0,
+      "header_errors": {},
+      "gold_line_items": [
+        {
+          "description": "Field interview",
+          "quantity": "4",
+          "unit_price": "47.00",
+          "line_total": "188.00",
+          "tax": null
+        },
+        {
+          "description": "Field interview",
+          "quantity": "3",
+          "unit_price": "54.00",
+          "line_total": "162.00",
+          "tax": null
+        },
+        {
+          "description": "Accessibility audit",
+          "quantity": "1",
+          "unit_price": "40.00",
+          "line_total": "40.00",
+          "tax": null
+        },
+        {
+          "description": "Archive preparation",
+          "quantity": "2",
+          "unit_price": "103.00",
+          "line_total": "206.00",
+          "tax": null
+        }
+      ],
+      "predicted_line_items": [
+        {
+          "row_id": "row-001",
+          "description": {
+            "value": "Field interview 4",
+            "raw": "Field interview 4 47.00 188.00",
+            "evidence_ids": [
+              "p1-l0008"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "quantity": {
+            "value": "4",
+            "raw": "Field interview 4 47.00 188.00",
+            "evidence_ids": [
+              "p1-l0008"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "unit_price": {
+            "value": "47.00",
+            "raw": "Field interview 4 47.00 188.00",
+            "evidence_ids": [
+              "p1-l0008"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "line_total": {
+            "value": "188.00",
+            "raw": "Field interview 4 47.00 188.00",
+            "evidence_ids": [
+              "p1-l0008"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "tax": {
+            "value": null,
+            "raw": null,
+            "evidence_ids": [],
+            "origin": "observed",
+            "missing_reason": "not_observed"
+          }
+        },
+        {
+          "row_id": "row-002",
+          "description": {
+            "value": "Field interview 3",
+            "raw": "Field interview 3 54.00 162.00",
+            "evidence_ids": [
+              "p1-l0009"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "quantity": {
+            "value": "54.00",
+            "raw": "Field interview 3 54.00 162.00",
+            "evidence_ids": [
+              "p1-l0009"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "unit_price": {
+            "value": "54.00",
+            "raw": "Field interview 3 54.00 162.00",
+            "evidence_ids": [
+              "p1-l0009"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "line_total": {
+            "value": "162.00",
+            "raw": "Field interview 3 54.00 162.00",
+            "evidence_ids": [
+              "p1-l0009"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "tax": {
+            "value": null,
+            "raw": null,
+            "evidence_ids": [],
+            "origin": "observed",
+            "missing_reason": "not_observed"
+          }
+        },
+        {
+          "row_id": "row-003",
+          "description": {
+            "value": "Accessibility audit 1",
+            "raw": "Accessibility audit 1 40.00 40.00",
+            "evidence_ids": [
+              "p1-l0010"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "quantity": {
+            "value": "1",
+            "raw": "Accessibility audit 1 40.00 40.00",
+            "evidence_ids": [
+              "p1-l0010"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "unit_price": {
+            "value": "40.00",
+            "raw": "Accessibility audit 1 40.00 40.00",
+            "evidence_ids": [
+              "p1-l0010"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "line_total": {
+            "value": "40.00",
+            "raw": "Accessibility audit 1 40.00 40.00",
+            "evidence_ids": [
+              "p1-l0010"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "tax": {
+            "value": null,
+            "raw": null,
+            "evidence_ids": [],
+            "origin": "observed",
+            "missing_reason": "not_observed"
+          }
+        },
+        {
+          "row_id": "row-004",
+          "description": {
+            "value": "Archive preparation 2",
+            "raw": "Archive preparation 2 103.00 206.00",
+            "evidence_ids": [
+              "p1-l0011"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "quantity": {
+            "value": "2",
+            "raw": "Archive preparation 2 103.00 206.00",
+            "evidence_ids": [
+              "p1-l0011"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "unit_price": {
+            "value": "103.00",
+            "raw": "Archive preparation 2 103.00 206.00",
+            "evidence_ids": [
+              "p1-l0011"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "line_total": {
+            "value": "206.00",
+            "raw": "Archive preparation 2 103.00 206.00",
+            "evidence_ids": [
+              "p1-l0011"
+            ],
+            "origin": "observed",
+            "missing_reason": null
+          },
+          "tax": {
+            "value": null,
+            "raw": null,
+            "evidence_ids": [],
+            "origin": "observed",
+            "missing_reason": "not_observed"
+          }
+        }
+      ]
+    }
+  ],
+  "selection": "All processing failures listed separately. Among processed predictions, three cases selected by largest exact-row FP+FN, then header FP+FN, then ID. No case selected for successful model output.",
+  "scope": "Offline descriptive inspection of unchanged frozen test predictions. Examples do not replace all-document metrics or identify error causes automatically. No test tuning, inference or model promotion."
+}

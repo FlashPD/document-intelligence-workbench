@@ -1,0 +1,288 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "123300",
+        "raw": "123,300",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "POTATO SAUSAGE BREAD",
+          "raw": "POTATO SAUSAGE BREAD",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": "19000",
+          "raw": "19,000",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "OREO GREEN TEA SPREAD",
+          "raw": "OREO GREEN TEA SPREAD",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": "2000",
+          "raw": "2,000",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "WHITE CHOCO BANANA SPREAD",
+          "raw": "WHITE CHOCO BANANA SPREAD",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": "32000",
+          "raw": "32,000",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "76a8ab6bc5d3baa31643474a851277fccacb13dd9a4915c5c0e82be4b63fecf6",
+  "run_sha256": "f17c96d49115a20156773ee318cdda06cca46e81ce22a024507de84a9bee2afb",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 63.71
+  },
+  "ocr_prediction_sha256": "d02bc6cd68ad0f482e818163dfc8f643c178aac4ab519d489f0ed38518792a85",
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "| POTATO SAUSAGE BREAD 19,000",
+        "box": {
+          "left": 0.1909722222222222,
+          "top": 0.46064814814814814,
+          "right": 0.8472222222222222,
+          "bottom": 0.4876543209876543
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.83
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "| OREO GREEN TEA SPREAD 2,000",
+        "box": {
+          "left": 0.1909722222222222,
+          "top": 0.49151234567901236,
+          "right": 0.8472222222222222,
+          "bottom": 0.5177469135802469
+        },
+        "method": "tesseract-eng",
+        "confidence": 81.53
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "1 WHITE CHOCO BANANA SPREAD 32,000",
+        "box": {
+          "left": 0.1909722222222222,
+          "top": 0.5208333333333334,
+          "right": 0.8460648148148148,
+          "bottom": 0.5486111111111112
+        },
+        "method": "tesseract-eng",
+        "confidence": 82.3
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "TOTAL 123,00",
+        "box": {
+          "left": 0.22453703703703703,
+          "top": 0.5825617283950617,
+          "right": 0.8414351851851852,
+          "bottom": 0.6319444444444444
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.09
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "CARD 123,300",
+        "box": {
+          "left": 0.22337962962962962,
+          "top": 0.6304012345679012,
+          "right": 0.8391203703703703,
+          "bottom": 0.6797839506172839
+        },
+        "method": "tesseract-eng",
+        "confidence": 63.63
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "dae a",
+        "box": {
+          "left": 0.22569444444444445,
+          "top": 0.7075617283950617,
+          "right": 0.3993055555555556,
+          "bottom": 0.7337962962962963
+        },
+        "method": "tesseract-eng",
+        "confidence": 22.46
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "\u2014",
+        "box": {
+          "left": 0.5243055555555556,
+          "top": 0.7577160493827161,
+          "right": 0.5868055555555556,
+          "bottom": 0.7608024691358025
+        },
+        "method": "tesseract-eng",
+        "confidence": 64.37
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Tae He ie",
+        "box": {
+          "left": 0.1550925925925926,
+          "top": 0.7947530864197531,
+          "right": 0.42592592592592593,
+          "bottom": 0.8271604938271605
+        },
+        "method": "tesseract-eng",
+        "confidence": 22.59
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "ie",
+        "box": {
+          "left": 0.14814814814814814,
+          "top": 0.8287037037037037,
+          "right": 0.2222222222222222,
+          "bottom": 0.8549382716049383
+        },
+        "method": "tesseract-eng",
+        "confidence": 30.35
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 7,
+    "valid_reference_values": 7,
+    "aligned_values": 7,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "e37ed26e77e90f45a0ad33dcb9844c61808ad75e1f4f161debaeb1c45822c3f8",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.208,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 432,
+    "height_px": 648,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "1 Viet Milk Coffee",
+        "box": {
+          "left": 0.1574074074074074,
+          "top": 0.5370370370370371,
+          "right": 0.4375,
+          "bottom": 0.5632716049382716
+        },
+        "method": "tesseract-eng",
+        "confidence": 89.94
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "+Ice",
+        "box": {
+          "left": 0.1712962962962963,
+          "top": 0.5725308641975309,
+          "right": 0.23148148148148148,
+          "bottom": 0.5910493827160493
+        },
+        "method": "tesseract-eng",
+        "confidence": 52.89
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

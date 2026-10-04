@@ -1,0 +1,252 @@
+{
+  "record": null,
+  "source_sha256": "6d7603d5045a6b875a17b1dcfa403625e7d53056d792980deecbc6a6aa7b3836",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 150.019
+  },
+  "ocr_prediction_sha256": "262854504fd8a5d40f74ab346aa9deb56daff3188147b9472d98c2a8c1fa2d0a",
+  "page": {
+    "number": 1,
+    "width_px": 1773,
+    "height_px": 2364,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "BOBO EEX xe xy",
+        "box": {
+          "left": 0.4038353073886069,
+          "top": 0.39805414551607443,
+          "right": 0.9001692047377327,
+          "bottom": 0.43781725888324874
+        },
+        "method": "tesseract-eng",
+        "confidence": 18.47
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "3 Nasi PUtih 30.000",
+        "box": {
+          "left": 0.3998871968415116,
+          "top": 0.4450084602368866,
+          "right": 0.8945290468133108,
+          "bottom": 0.48519458544839256
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.21
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "1 Nasi Tambah ?.000",
+        "box": {
+          "left": 0.4015792442188381,
+          "top": 0.4686971235194585,
+          "right": 0.8917089678510999,
+          "bottom": 0.5080372250423012
+        },
+        "method": "tesseract-eng",
+        "confidence": 76.78
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "2 Ayam Pop 40.000",
+        "box": {
+          "left": 0.3965031020868584,
+          "top": 0.4928087986463621,
+          "right": 0.8883248730964467,
+          "bottom": 0.5300338409475466
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.0
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "1 Samabal sp 11.000",
+        "box": {
+          "left": 0.398195149464185,
+          "top": 0.5156514382402707,
+          "right": 0.8855047941342358,
+          "bottom": 0.5524534686971235
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.8
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "1 Sambal Gabug ASin Cb",
+        "box": {
+          "left": 0.3965031020868584,
+          "top": 0.538917089678511,
+          "right": 0.8409475465313029,
+          "bottom": 0.5723350253807107
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.68
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "18.000",
+        "box": {
+          "left": 0.7653694303440496,
+          "top": 0.5748730964467005,
+          "right": 0.8781725888324873,
+          "bottom": 0.5960236886632826
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.96
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "1 Kerupuk KUah Se O00",
+        "box": {
+          "left": 0.3936830231246475,
+          "top": 0.5846023688663282,
+          "right": 0.8747884940778342,
+          "bottom": 0.622673434856176
+        },
+        "method": "tesseract-eng",
+        "confidence": 67.97
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "i lifer Rema Besa 28 200",
+        "box": {
+          "left": 0.39199097574732095,
+          "top": 0.6074450084602369,
+          "right": 0.8708403835307389,
+          "bottom": 0.6383248730964467
+        },
+        "method": "tesseract-eng",
+        "confidence": 59.02
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "1 Telur Dadar 10.000",
+        "box": {
+          "left": 0.39142695995487875,
+          "top": 0.628595600676819,
+          "right": 0.868020304568528,
+          "bottom": 0.6598984771573604
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.04
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "1 Teh Manis 9.000",
+        "box": {
+          "left": 0.38804286520022563,
+          "top": 0.6713197969543148,
+          "right": 0.8635081782289904,
+          "bottom": 0.7038917089678511
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.72
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "1S Batu 4 000",
+        "box": {
+          "left": 0.38635081782289904,
+          "top": 0.6928934010152284,
+          "right": 0.8606880992667795,
+          "bottom": 0.7351945854483926
+        },
+        "method": "tesseract-eng",
+        "confidence": 79.72
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "in otal 129.500",
+        "box": {
+          "left": 0.3795826283135928,
+          "top": 0.7208121827411168,
+          "right": 0.856175972927242,
+          "bottom": 0.7690355329949239
+        },
+        "method": "tesseract-eng",
+        "confidence": 45.61
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "Se Meest 1gy 1? 956",
+        "box": {
+          "left": 0.3778905809362662,
+          "top": 0.7390016920473773,
+          "right": 0.8527918781725888,
+          "bottom": 0.7901861252115059
+        },
+        "method": "tesseract-eng",
+        "confidence": 24.8
+      },
+      {
+        "id": "p1-l0015",
+        "page": 1,
+        "text": "14 Total 197. 450",
+        "box": {
+          "left": 0.3795826283135928,
+          "top": 0.7779187817258884,
+          "right": 0.8488437676254935,
+          "bottom": 0.8299492385786802
+        },
+        "method": "tesseract-eng",
+        "confidence": 73.12
+      },
+      {
+        "id": "p1-l0016",
+        "page": 1,
+        "text": "TtlL Makanan 159. S09",
+        "box": {
+          "left": 0.3750705019740553,
+          "top": 0.817258883248731,
+          "right": 0.8437676254935138,
+          "bottom": 0.8544839255499154
+        },
+        "method": "tesseract-eng",
+        "confidence": 53.4
+      },
+      {
+        "id": "p1-l0017",
+        "page": 1,
+        "text": "TEL Minuman 20.000",
+        "box": {
+          "left": 0.3733784545967287,
+          "top": 0.8371404399323181,
+          "right": 0.8409475465313029,
+          "bottom": 0.8752115059221658
+        },
+        "method": "tesseract-eng",
+        "confidence": 60.05
+      },
+      {
+        "id": "p1-l0018",
+        "page": 1,
+        "text": "Cash 197. 450",
+        "box": {
+          "left": 0.3694303440496334,
+          "top": 0.8862098138747885,
+          "right": 0.8341793570219966,
+          "bottom": 0.9344331641285956
+        },
+        "method": "tesseract-eng",
+        "confidence": 82.58
+      }
+    ]
+  },
+  "failure_type": "ModelUnavailable"
+}

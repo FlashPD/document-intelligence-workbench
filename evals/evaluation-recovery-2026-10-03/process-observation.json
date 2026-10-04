@@ -1,0 +1,26 @@
+{
+  "observed_at_utc": "2026-10-03T21:01:43.749335+00:00",
+  "coordinator_pid": 50833,
+  "owned_process_tree": [
+    {
+      "pid": 50833,
+      "parent_pid": 1,
+      "state": "Ss",
+      "executable": "Python"
+    },
+    {
+      "pid": 50848,
+      "parent_pid": 50833,
+      "state": "S",
+      "executable": "Python"
+    },
+    {
+      "pid": 50852,
+      "parent_pid": 50848,
+      "state": "S",
+      "executable": "llama-server"
+    }
+  ],
+  "pilot_authenticated_boundary_http_status": 401,
+  "note": "One live owned model server at this observation; future liveness is not guaranteed. PID/executable names only; model credentials and pilot session URL omitted."
+}

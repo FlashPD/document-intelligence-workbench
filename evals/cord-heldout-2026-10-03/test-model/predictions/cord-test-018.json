@@ -1,0 +1,102 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "88c35bbd2e2a634e89f2c5bfd30f7b530b1082c1f4e6e7cb3cb913f0b46c3868",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 15.073
+  },
+  "ocr_prediction_sha256": "ba2564d86250adea26702a1e832ddabdb0cd4999eb838ce7eea3d1616773ded0",
+  "page": {
+    "number": 1,
+    "width_px": 576,
+    "height_px": 864,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Tunai",
+        "box": {
+          "left": 0.04861111111111111,
+          "top": 0.5729166666666666,
+          "right": 0.13020833333333334,
+          "bottom": 0.5914351851851852
+        },
+        "method": "tesseract-eng",
+        "confidence": 80.41
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "156000",
+        "box": {
+          "left": 0.4461805555555556,
+          "top": 0.5856481481481481,
+          "right": 0.5659722222222222,
+          "bottom": 0.6053240740740741
+        },
+        "method": "tesseract-eng",
+        "confidence": 63.87
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "ymbalian R",
+        "box": {
+          "left": 0.0763888888888889,
+          "top": 0.6469907407407407,
+          "right": 0.5052083333333334,
+          "bottom": 0.6689814814814815
+        },
+        "method": "tesseract-eng",
+        "confidence": 44.18
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

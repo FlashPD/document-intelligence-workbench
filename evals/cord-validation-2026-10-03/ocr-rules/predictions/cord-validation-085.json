@@ -1,0 +1,114 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "9f63e5132da4941508f4b59f196f208d806a03840e1491089bd8c9e21eefb25d",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 2.243,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 2304,
+    "height_px": 4096,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "| Peanut & Cheese",
+        "box": {
+          "left": 0.19791666666666666,
+          "top": 0.4912109375,
+          "right": 0.4565972222222222,
+          "bottom": 0.517822265625
+        },
+        "method": "tesseract-eng",
+        "confidence": 64.04
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Poe CO See ems See Sent cme mE SEED GOED Ghee amet",
+        "box": {
+          "left": 0.546875,
+          "top": 0.525390625,
+          "right": 0.7322048611111112,
+          "bottom": 0.5322265625
+        },
+        "method": "tesseract-eng",
+        "confidence": 17.17
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "SubTotal:",
+        "box": {
+          "left": 0.4088541666666667,
+          "top": 0.54345703125,
+          "right": 0.5447048611111112,
+          "bottom": 0.55908203125
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.27
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "PRI:",
+        "box": {
+          "left": 0.4817708333333333,
+          "top": 0.56689453125,
+          "right": 0.5451388888888888,
+          "bottom": 0.5908203125
+        },
+        "method": "tesseract-eng",
+        "confidence": 22.63
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

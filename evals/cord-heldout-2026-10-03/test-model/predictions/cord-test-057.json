@@ -1,0 +1,179 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "LOE Du. 7 7 ICED. GT Case, see, 42,00",
+          "raw": "LOE Du. 7 7 ICED. GT Case, see, 42,00",
+          "evidence_ids": [
+            "p1-l0002",
+            "p1-l0003",
+            "p1-l0004",
+            "p1-l0005",
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "5247f1a4f69149e499d849654335da75cb4a534539cd375b8606f96d2c8a983d",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 34.208
+  },
+  "ocr_prediction_sha256": "52009a71daba1ec6bbab4ea886d9624ae65e115320604418543f9a4d777e4dc7",
+  "page": {
+    "number": 1,
+    "width_px": 576,
+    "height_px": 864,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "r",
+        "box": {
+          "left": 0.0,
+          "top": 0.6956018518518519,
+          "right": 0.2829861111111111,
+          "bottom": 0.9282407407407407
+        },
+        "method": "tesseract-eng",
+        "confidence": 32.66
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "LOE Du. 7 7",
+        "box": {
+          "left": 0.1076388888888889,
+          "top": 0.6574074074074074,
+          "right": 0.3211805555555556,
+          "bottom": 0.7037037037037037
+        },
+        "method": "tesseract-eng",
+        "confidence": 19.19
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "ICED. GT",
+        "box": {
+          "left": 0.1111111111111111,
+          "top": 0.6631944444444444,
+          "right": 0.3246527777777778,
+          "bottom": 0.7291666666666666
+        },
+        "method": "tesseract-eng",
+        "confidence": 75.65
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Case,",
+        "box": {
+          "left": 0.1076388888888889,
+          "top": 0.7337962962962963,
+          "right": 0.2604166666666667,
+          "bottom": 0.7939814814814815
+        },
+        "method": "tesseract-eng",
+        "confidence": 26.22
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "see,",
+        "box": {
+          "left": 0.6909722222222222,
+          "top": 0.7118055555555556,
+          "right": 0.8072916666666666,
+          "bottom": 0.7418981481481481
+        },
+        "method": "tesseract-eng",
+        "confidence": 24.06
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "42,00",
+        "box": {
+          "left": 0.5173611111111112,
+          "top": 0.7453703703703703,
+          "right": 0.8333333333333334,
+          "bottom": 0.7754629629629629
+        },
+        "method": "tesseract-eng",
+        "confidence": 52.32
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 1,
+    "valid_reference_values": 1,
+    "aligned_values": 1,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

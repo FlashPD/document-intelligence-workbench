@@ -1,0 +1,442 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "y PAIN AY CHOCOLATE ~~",
+          "raw": "y PAIN AY CHOCOLATE ~~",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "44000",
+          "raw": "44,000",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "CHOCO CUSTARD PASTRY",
+          "raw": "CHOCO CUSTARD PASTRY",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "12000",
+          "raw": "12,000",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "MILK PASTRY ROLL 9 ,",
+          "raw": "MILK PASTRY ROLL 9 ,",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "4",
+          "raw": "4",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "000",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "HEESE INSIDE BREAD",
+          "raw": "HEESE INSIDE BREAD",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "13500",
+          "raw": "13,500",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-005",
+        "description": {
+          "value": "Bs",
+          "raw": "Bs",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "15000",
+          "raw": "15,000",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-006",
+        "description": {
+          "value": "Eee",
+          "raw": "Eee",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "200",
+          "raw": "200",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-007",
+        "description": {
+          "value": "~TOTA 80 ,",
+          "raw": "~TOTA 80 ,",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "500",
+          "raw": "500",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "9556c172f4be7b787c51fad33740dea7034714455034567f4a33ea53bea05e99",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 1.478,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 1080,
+    "height_px": 1920,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "y PAIN AY CHOCOLATE ~~ 44,000",
+        "box": {
+          "left": 0.06666666666666667,
+          "top": 0.3921875,
+          "right": 0.7759259259259259,
+          "bottom": 0.45260416666666664
+        },
+        "method": "tesseract-eng",
+        "confidence": 36.31
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "1 CHOCO CUSTARD PASTRY 12,000",
+        "box": {
+          "left": 0.07037037037037037,
+          "top": 0.43645833333333334,
+          "right": 0.7796296296296297,
+          "bottom": 0.48125
+        },
+        "method": "tesseract-eng",
+        "confidence": 71.38
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "4 MILK PASTRY ROLL 9 ,000",
+        "box": {
+          "left": 0.0,
+          "top": 0.4625,
+          "right": 0.7824074074074074,
+          "bottom": 0.5098958333333333
+        },
+        "method": "tesseract-eng",
+        "confidence": 74.39
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "HEESE INSIDE BREAD 13,500",
+        "box": {
+          "left": 0.24722222222222223,
+          "top": 0.4895833333333333,
+          "right": 0.7842592592592592,
+          "bottom": 0.5338541666666666
+        },
+        "method": "tesseract-eng",
+        "confidence": 88.12
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Bs 15,000",
+        "box": {
+          "left": 0.3925925925925926,
+          "top": 0.515625,
+          "right": 0.7851851851851852,
+          "bottom": 0.5541666666666667
+        },
+        "method": "tesseract-eng",
+        "confidence": 58.78
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Eee 200",
+        "box": {
+          "left": 0.40185185185185185,
+          "top": 0.540625,
+          "right": 0.7842592592592592,
+          "bottom": 0.5864583333333333
+        },
+        "method": "tesseract-eng",
+        "confidence": 49.54
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "~TOTA 80 ,500",
+        "box": {
+          "left": 0.10833333333333334,
+          "top": 0.5854166666666667,
+          "right": 0.774074074074074,
+          "bottom": 0.6458333333333334
+        },
+        "method": "tesseract-eng",
+        "confidence": 60.21
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "CASH 100 ,000",
+        "box": {
+          "left": 0.14907407407407408,
+          "top": 0.6223958333333334,
+          "right": 0.7759259259259259,
+          "bottom": 0.6692708333333334
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.49
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "CHANGE 19,500",
+        "box": {
+          "left": 0.1527777777777778,
+          "top": 0.6473958333333333,
+          "right": 0.775,
+          "bottom": 0.7125
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.79
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "a",
+        "box": {
+          "left": 0.08981481481481482,
+          "top": 0.7390625,
+          "right": 0.5305555555555556,
+          "bottom": 0.7682291666666666
+        },
+        "method": "tesseract-eng",
+        "confidence": 42.56
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 16,
+    "valid_reference_values": 16,
+    "aligned_values": 16,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "THAI ICED TEA",
+          "raw": "THAI ICED TEA",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "THAT ICED TEA",
+          "raw": "THAT ICED TEA",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "37e9b779d3316249de7c622d77a46abf9ddc684f2cf55cd33bcecc311ee1cef7",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 45.574
+  },
+  "ocr_prediction_sha256": "d56bd30ef366cfcf1d6d90c7cdd881f5ec341c27819fbba805c68558694e0bd8",
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "1 620.000",
+        "box": {
+          "left": 0.17592592592592593,
+          "top": 0.49614197530864196,
+          "right": 0.3784722222222222,
+          "bottom": 0.5208333333333334
+        },
+        "method": "tesseract-eng",
+        "confidence": 57.54
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "THAI ICED TEA",
+        "box": {
+          "left": 0.1527777777777778,
+          "top": 0.5239197530864198,
+          "right": 0.3773148148148148,
+          "bottom": 0.5493827160493827
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.59
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "1 20.000",
+        "box": {
+          "left": 0.1701388888888889,
+          "top": 0.5532407407407407,
+          "right": 0.3761574074074074,
+          "bottom": 0.5794753086419753
+        },
+        "method": "tesseract-eng",
+        "confidence": 65.77
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "SUB-TOTAL",
+        "box": {
+          "left": 0.1388888888888889,
+          "top": 0.6180555555555556,
+          "right": 0.2986111111111111,
+          "bottom": 0.6412037037037037
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.09
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "CASH",
+        "box": {
+          "left": 0.1261574074074074,
+          "top": 0.7739197530864198,
+          "right": 0.2013888888888889,
+          "bottom": 0.7978395061728395
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.55
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "CHANGED",
+        "box": {
+          "left": 0.12731481481481483,
+          "top": 0.8070987654320988,
+          "right": 0.25925925925925924,
+          "bottom": 0.8317901234567902
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.69
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "THAT ICED TEA",
+        "box": {
+          "left": 0.15625,
+          "top": 0.4699074074074074,
+          "right": 0.37962962962962965,
+          "bottom": 0.49459876543209874
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.13
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "100.000",
+        "box": {
+          "left": 0.6134259259259259,
+          "top": 0.7631172839506173,
+          "right": 0.7395833333333334,
+          "bottom": 0.7878086419753086
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.43
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "60.000",
+        "box": {
+          "left": 0.6296296296296297,
+          "top": 0.7978395061728395,
+          "right": 0.7407407407407407,
+          "bottom": 0.8225308641975309
+        },
+        "method": "tesseract-eng",
+        "confidence": 82.1
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "ee",
+        "box": {
+          "left": 0.6550925925925926,
+          "top": 0.8780864197530864,
+          "right": 0.6886574074074074,
+          "bottom": 0.8865740740740741
+        },
+        "method": "tesseract-eng",
+        "confidence": 25.3
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 2,
+    "valid_reference_values": 2,
+    "aligned_values": 2,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "AYAM",
+          "raw": "AYAM",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "OTAK",
+          "raw": "OTAK",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "d7d49831952ad7b7b20b67fc306b73542ad8cf34c32f0e1e6cf99a0c81bc2cdd",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 40.423
+  },
+  "ocr_prediction_sha256": "94ab1ae9dc99f8d9d93cb382b5e11cc685b5c9be9f1f35297443ef2f613a388c",
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "AYAM 33,000",
+        "box": {
+          "left": 0.20949074074074073,
+          "top": 0.3263888888888889,
+          "right": 0.8414351851851852,
+          "bottom": 0.35725308641975306
+        },
+        "method": "tesseract-eng",
+        "confidence": 83.97
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "OTAK 23,000",
+        "box": {
+          "left": 0.25810185185185186,
+          "top": 0.3626543209876543,
+          "right": 0.8425925925925926,
+          "bottom": 0.3942901234567901
+        },
+        "method": "tesseract-eng",
+        "confidence": 83.83
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "TOTAL 56,000",
+        "box": {
+          "left": 0.25925925925925924,
+          "top": 0.4382716049382716,
+          "right": 0.8449074074074074,
+          "bottom": 0.4722222222222222
+        },
+        "method": "tesseract-eng",
+        "confidence": 81.54
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "5,600",
+        "box": {
+          "left": 0.7372685185185185,
+          "top": 0.47608024691358025,
+          "right": 0.8460648148148148,
+          "bottom": 0.5061728395061729
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.31
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "61,600",
+        "box": {
+          "left": 0.7152777777777778,
+          "top": 0.5138888888888888,
+          "right": 0.8460648148148148,
+          "bottom": 0.5447530864197531
+        },
+        "method": "tesseract-eng",
+        "confidence": 64.19
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "61,600",
+        "box": {
+          "left": 0.7152777777777778,
+          "top": 0.5524691358024691,
+          "right": 0.8460648148148148,
+          "bottom": 0.5825617283950617
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.88
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 2,
+    "valid_reference_values": 2,
+    "aligned_values": 2,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

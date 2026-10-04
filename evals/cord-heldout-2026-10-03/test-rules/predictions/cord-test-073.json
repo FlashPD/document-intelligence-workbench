@@ -1,0 +1,228 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Tendered:",
+          "raw": "Tendered:",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "25000",
+          "raw": "25.000",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "f7d3da827f59c0623be946b217e9f551c7fb792cabb11b06241595bfad37faf0",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.418,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "- 1001-Choco Bun",
+        "box": {
+          "left": 0.11226851851851852,
+          "top": 0.5115740740740741,
+          "right": 0.42592592592592593,
+          "bottom": 0.5432098765432098
+        },
+        "method": "tesseract-eng",
+        "confidence": 51.19
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "22.000 = x1 39 fon",
+        "box": {
+          "left": 0.35300925925925924,
+          "top": 0.5416666666666666,
+          "right": 0.8865740740740741,
+          "bottom": 0.5756172839506173
+        },
+        "method": "tesseract-eng",
+        "confidence": 59.28
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "4001-Flastic Bag Small",
+        "box": {
+          "left": 0.1527777777777778,
+          "top": 0.5787037037037037,
+          "right": 0.5752314814814815,
+          "bottom": 0.6049382716049383
+        },
+        "method": "tesseract-eng",
+        "confidence": 69.56
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Total Item:",
+        "box": {
+          "left": 0.15046296296296297,
+          "top": 0.6882716049382716,
+          "right": 0.3645833333333333,
+          "bottom": 0.7137345679012346
+        },
+        "method": "tesseract-eng",
+        "confidence": 74.42
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "\u00bb 22.000",
+        "box": {
+          "left": 0.6724537037037037,
+          "top": 0.7469135802469136,
+          "right": 0.8368055555555556,
+          "bottom": 0.7708333333333334
+        },
+        "method": "tesseract-eng",
+        "confidence": 85.1
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Total.",
+        "box": {
+          "left": 0.14930555555555555,
+          "top": 0.7615740740740741,
+          "right": 0.2638888888888889,
+          "bottom": 0.7885802469135802
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.19
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Cash",
+        "box": {
+          "left": 0.14583333333333334,
+          "top": 0.7986111111111112,
+          "right": 0.22800925925925927,
+          "bottom": 0.8240740740740741
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.08
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Tendered: 25.000",
+        "box": {
+          "left": 0.14699074074074073,
+          "top": 0.8171296296296297,
+          "right": 0.9120370370370371,
+          "bottom": 0.8595679012345679
+        },
+        "method": "tesseract-eng",
+        "confidence": 63.03
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "Change: 3.000",
+        "box": {
+          "left": 0.14351851851851852,
+          "top": 0.8503086419753086,
+          "right": 0.9074074074074074,
+          "bottom": 0.8950617283950617
+        },
+        "method": "tesseract-eng",
+        "confidence": 40.38
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "ww ereree:",
+        "box": {
+          "left": 0.36921296296296297,
+          "top": 0.9066358024691358,
+          "right": 0.6620370370370371,
+          "bottom": 0.9513888888888888
+        },
+        "method": "tesseract-eng",
+        "confidence": 19.64
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 2,
+    "valid_reference_values": 2,
+    "aligned_values": 2,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

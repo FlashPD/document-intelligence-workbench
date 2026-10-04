@@ -1,0 +1,166 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "BAKSO BNGKS",
+          "raw": "BAKSO BNGKS",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": "She has 1",
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": "15000",
+          "raw": "15,000",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "15000",
+          "raw": "15,000",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "GORENGAN",
+          "raw": "GORENGAN",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "8",
+          "raw": "8",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "6000",
+          "raw": "6,000",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "48000",
+          "raw": "48,000",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "39001a5a99707a64f2eb3bee5cb2104d0f39025f76e11b7932c1b8a43137f2e4",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 45.289
+  },
+  "ocr_prediction_sha256": "d0b466df2292b1f5c51ce4d0cb3d033248c5caf734b4806a814906e65ed9a817",
+  "page": {
+    "number": 1,
+    "width_px": 228,
+    "height_px": 336,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "1 BAKSO BNGKS - 15, 000",
+        "box": {
+          "left": 0.09210526315789473,
+          "top": 0.5029761904761905,
+          "right": 0.956140350877193,
+          "bottom": 0.5863095238095238
+        },
+        "method": "tesseract-eng",
+        "confidence": 70.67
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "8 GORENGAN +6, 000,",
+        "box": {
+          "left": 0.07894736842105263,
+          "top": 0.5535714285714286,
+          "right": 0.9780701754385965,
+          "bottom": 0.6369047619047619
+        },
+        "method": "tesseract-eng",
+        "confidence": 74.46
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 7,
+    "valid_reference_values": 7,
+    "aligned_values": 3,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

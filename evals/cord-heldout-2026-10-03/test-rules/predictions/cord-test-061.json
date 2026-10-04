@@ -1,0 +1,241 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "1K",
+          "raw": "1K",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "3500",
+          "raw": "3500",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "d353b8f5a91a1fb031bbde6b91b2143b7282067cd0f8569000b901de79487bf6",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.277,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 576,
+    "height_px": 864,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "1K 3500",
+        "box": {
+          "left": 0.2934027777777778,
+          "top": 0.33217592592592593,
+          "right": 0.5364583333333334,
+          "bottom": 0.3506944444444444
+        },
+        "method": "tesseract-eng",
+        "confidence": 89.74
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "TALAH UNG",
+        "box": {
+          "left": 0.2934027777777778,
+          "top": 0.35300925925925924,
+          "right": 0.4045138888888889,
+          "bottom": 0.3680555555555556
+        },
+        "method": "tesseract-eng",
+        "confidence": 49.73
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "DISC ITEM",
+        "box": {
+          "left": 0.2899305555555556,
+          "top": 0.3726851851851852,
+          "right": 0.3993055555555556,
+          "bottom": 0.38773148148148145
+        },
+        "method": "tesseract-eng",
+        "confidence": 35.59
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "AMOUNT",
+        "box": {
+          "left": 0.2881944444444444,
+          "top": 0.3923611111111111,
+          "right": 0.3576388888888889,
+          "bottom": 0.4074074074074074
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.0
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "LEHPER",
+        "box": {
+          "left": 0.28125,
+          "top": 0.5150462962962963,
+          "right": 0.3559027777777778,
+          "bottom": 0.5277777777777778
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.5
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "OISC ITEM",
+        "box": {
+          "left": 0.2795138888888889,
+          "top": 0.5358796296296297,
+          "right": 0.3958333333333333,
+          "bottom": 0.5486111111111112
+        },
+        "method": "tesseract-eng",
+        "confidence": 81.97
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "AMOUNT",
+        "box": {
+          "left": 0.2777777777777778,
+          "top": 0.5567129629629629,
+          "right": 0.3524305555555556,
+          "bottom": 0.5694444444444444
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.05
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "EDANG",
+        "box": {
+          "left": 0.3576388888888889,
+          "top": 0.5983796296296297,
+          "right": 0.4201388888888889,
+          "bottom": 0.6111111111111112
+        },
+        "method": "tesseract-eng",
+        "confidence": 82.37
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "PLASTIK KE",
+        "box": {
+          "left": 0.2708333333333333,
+          "top": 0.6423611111111112,
+          "right": 0.3993055555555556,
+          "bottom": 0.65625
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.87
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "1X",
+        "box": {
+          "left": 0.2725694444444444,
+          "top": 0.6655092592592593,
+          "right": 0.2916666666666667,
+          "bottom": 0.6793981481481481
+        },
+        "method": "tesseract-eng",
+        "confidence": 68.34
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "TEH KOTAK",
+        "box": {
+          "left": 0.2725694444444444,
+          "top": 0.6886574074074074,
+          "right": 0.3854166666666667,
+          "bottom": 0.7025462962962963
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.03
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 2,
+    "valid_reference_values": 2,
+    "aligned_values": 2,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

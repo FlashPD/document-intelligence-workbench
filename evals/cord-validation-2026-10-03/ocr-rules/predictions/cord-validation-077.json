@@ -1,0 +1,166 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "fba035a02e84e4127967a8a8448305c400308826be00e6896d2fded171333ca7",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.428,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "*/",
+        "box": {
+          "left": 0.1087962962962963,
+          "top": 0.5555555555555556,
+          "right": 0.13773148148148148,
+          "bottom": 0.5717592592592593
+        },
+        "method": "tesseract-eng",
+        "confidence": 20.81
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Bag",
+        "box": {
+          "left": 0.16087962962962962,
+          "top": 0.5817901234567902,
+          "right": 0.21180555555555555,
+          "bottom": 0.6026234567901234
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.44
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "PS Carrie",
+        "box": {
+          "left": 0.16087962962962962,
+          "top": 0.6095679012345679,
+          "right": 0.31828703703703703,
+          "bottom": 0.628858024691358
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.94
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Subtotal:",
+        "box": {
+          "left": 0.1076388888888889,
+          "top": 0.6674382716049383,
+          "right": 0.26157407407407407,
+          "bottom": 0.6890432098765432
+        },
+        "method": "tesseract-eng",
+        "confidence": 28.86
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Tota) Tax Included",
+        "box": {
+          "left": 0.1111111111111111,
+          "top": 0.6952160493827161,
+          "right": 0.42476851851851855,
+          "bottom": 0.7183641975308642
+        },
+        "method": "tesseract-eng",
+        "confidence": 82.11
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Total:",
+        "box": {
+          "left": 0.1099537037037037,
+          "top": 0.7546296296296297,
+          "right": 0.21064814814814814,
+          "bottom": 0.779320987654321
+        },
+        "method": "tesseract-eng",
+        "confidence": 83.19
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Customer Paid Cash",
+        "box": {
+          "left": 0.1087962962962963,
+          "top": 0.8117283950617284,
+          "right": 0.42824074074074076,
+          "bottom": 0.8371913580246914
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.39
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Customer Change:",
+        "box": {
+          "left": 0.1099537037037037,
+          "top": 0.8410493827160493,
+          "right": 0.3888888888888889,
+          "bottom": 0.8672839506172839
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.41
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

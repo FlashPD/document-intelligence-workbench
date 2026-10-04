@@ -1,0 +1,231 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "a8a87b4715d49f0bbf5d721d9d03ea5b0fb496da5600e6202a86ca267716662a",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 1.004,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "cea aly",
+        "box": {
+          "left": 0.35185185185185186,
+          "top": 0.11651234567901235,
+          "right": 0.4513888888888889,
+          "bottom": 0.1388888888888889
+        },
+        "method": "tesseract-eng",
+        "confidence": 27.95
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "ye oe a",
+        "box": {
+          "left": 0.40625,
+          "top": 0.13194444444444445,
+          "right": 0.5266203703703703,
+          "bottom": 0.14969135802469136
+        },
+        "method": "tesseract-eng",
+        "confidence": 44.04
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "taceeeere",
+        "box": {
+          "left": 0.34837962962962965,
+          "top": 0.15895061728395063,
+          "right": 0.5138888888888888,
+          "bottom": 0.17901234567901234
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "4 Emily $ shrimp scampi",
+        "box": {
+          "left": 0.15046296296296297,
+          "top": 0.42052469135802467,
+          "right": 0.5185185185185185,
+          "bottom": 0.4637345679012346
+        },
+        "method": "tesseract-eng",
+        "confidence": 76.2
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Fettucine",
+        "box": {
+          "left": 0.1736111111111111,
+          "top": 0.46064814814814814,
+          "right": 0.30439814814814814,
+          "bottom": 0.4799382716049383
+        },
+        "method": "tesseract-eng",
+        "confidence": 3.94
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "guB TOTAL a",
+        "box": {
+          "left": 0.1412037037037037,
+          "top": 0.49382716049382713,
+          "right": 0.3993055555555556,
+          "bottom": 0.5324074074074074
+        },
+        "method": "tesseract-eng",
+        "confidence": 69.08
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "DISCOUNT",
+        "box": {
+          "left": 0.1400462962962963,
+          "top": 0.5362654320987654,
+          "right": 0.2974537037037037,
+          "bottom": 0.5609567901234568
+        },
+        "method": "tesseract-eng",
+        "confidence": 4.32
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "SERVICE",
+        "box": {
+          "left": 0.1388888888888889,
+          "top": 0.5655864197530864,
+          "right": 0.27314814814814814,
+          "bottom": 0.5887345679012346
+        },
+        "method": "tesseract-eng",
+        "confidence": 81.63
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "OTHERS",
+        "box": {
+          "left": 0.13773148148148148,
+          "top": 0.5941358024691358,
+          "right": 0.26273148148148145,
+          "bottom": 0.6165123456790124
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.02
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "ROUNDING",
+        "box": {
+          "left": 0.13773148148148148,
+          "top": 0.6188271604938271,
+          "right": 0.30092592592592593,
+          "bottom": 0.6574074074074074
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.0
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "GRAND TOTAL",
+        "box": {
+          "left": 0.13425925925925927,
+          "top": 0.6890432098765432,
+          "right": 0.33912037037037035,
+          "bottom": 0.7121913580246914
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.1
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "TADA EGIFT",
+        "box": {
+          "left": 0.13310185185185186,
+          "top": 0.7299382716049383,
+          "right": 0.3020833333333333,
+          "bottom": 0.7507716049382716
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.96
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "CHANGES",
+        "box": {
+          "left": 0.13541666666666666,
+          "top": 0.7723765432098766,
+          "right": 0.2673611111111111,
+          "bottom": 0.7916666666666666
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.49
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

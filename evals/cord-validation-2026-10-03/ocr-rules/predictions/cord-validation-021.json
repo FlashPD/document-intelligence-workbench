@@ -1,0 +1,265 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Mango Lemon Tea Rp29 ,",
+          "raw": "Mango Lemon Tea Rp29 ,",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "90",
+          "raw": "090",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Sliders Set",
+          "raw": "Sliders Set",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "113636",
+          "raw": "Rp113,636",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "Chicken Vege Rice Bow] Rp86 ,",
+          "raw": "Chicken Vege Rice Bow] Rp86 ,",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "363",
+          "raw": "363",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "1 Discount BCA",
+          "raw": "1 Discount BCA",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "15",
+          "raw": "15",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "34",
+          "raw": "Rp34",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "363",
+          "raw": "363",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "07310d0365e5b86c720d2b2a37ea9ff1868366ca33ab7eb31bc54fe1a58ed09c",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 1.367,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "1 Mango Lemon Tea Rp29 ,090",
+        "box": {
+          "left": 0.18171296296296297,
+          "top": 0.533179012345679,
+          "right": 0.8541666666666666,
+          "bottom": 0.5609567901234568
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.6
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "1 Sliders Set Rp113,636",
+        "box": {
+          "left": 0.17824074074074073,
+          "top": 0.5632716049382716,
+          "right": 0.8564814814814815,
+          "bottom": 0.5910493827160493
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.51
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "1 Chicken Vege Rice Bow] Rp86 ,363",
+        "box": {
+          "left": 0.17476851851851852,
+          "top": 0.5941358024691358,
+          "right": 0.8599537037037037,
+          "bottom": 0.6219135802469136
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.2
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "1 Discount BCA 15% -Rp34 363",
+        "box": {
+          "left": 0.1712962962962963,
+          "top": 0.6265432098765432,
+          "right": 0.8622685185185185,
+          "bottom": 0.6535493827160493
+        },
+        "method": "tesseract-eng",
+        "confidence": 76.72
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 13,
+    "valid_reference_values": 13,
+    "aligned_values": 13,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "2423ea6be07e0d8a8c0d041c70f6880e68b424f5efb02b0568a517074af04db7",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.307,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "16,500",
+        "box": {
+          "left": 0.6759259259259259,
+          "top": 0.4089506172839506,
+          "right": 0.7627314814814815,
+          "bottom": 0.44907407407407407
+        },
+        "method": "tesseract-eng",
+        "confidence": 88.58
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "13,000",
+        "box": {
+          "left": 0.6747685185185185,
+          "top": 0.45447530864197533,
+          "right": 0.7627314814814815,
+          "bottom": 0.47453703703703703
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.45
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "16,000",
+        "box": {
+          "left": 0.6747685185185185,
+          "top": 0.4799382716049383,
+          "right": 0.7638888888888888,
+          "bottom": 0.5
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.96
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "45 900",
+        "box": {
+          "left": 0.5821759259259259,
+          "top": 0.5324074074074074,
+          "right": 0.7638888888888888,
+          "bottom": 0.5725308641975309
+        },
+        "method": "tesseract-eng",
+        "confidence": 63.44
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "50,000",
+        "box": {
+          "left": 0.6759259259259259,
+          "top": 0.5725308641975309,
+          "right": 0.7673611111111112,
+          "bottom": 0.5933641975308642
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.75
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "4,500",
+        "box": {
+          "left": 0.6145833333333334,
+          "top": 0.5995370370370371,
+          "right": 0.7673611111111112,
+          "bottom": 0.6404320987654321
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.64
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

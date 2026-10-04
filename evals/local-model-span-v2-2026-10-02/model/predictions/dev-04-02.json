@@ -1,0 +1,401 @@
+{
+  "python_version": "3.12.12",
+  "tesseract_version": "tesseract 5.4.1",
+  "page": {
+    "number": 1,
+    "width_px": 1500,
+    "height_px": 1900,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Maple Lantern Works INVOICE",
+        "box": {
+          "left": 0.06666666666666667,
+          "top": 0.053157894736842105,
+          "right": 0.8266666666666667,
+          "bottom": 0.08473684210526315
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.26
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Invoice Number F4-002 Currency USD",
+        "box": {
+          "left": 0.066,
+          "top": 0.15157894736842106,
+          "right": 0.724,
+          "bottom": 0.17105263157894737
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.91
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Date 2026-09-08",
+        "box": {
+          "left": 0.06533333333333333,
+          "top": 0.19105263157894736,
+          "right": 0.268,
+          "bottom": 0.2063157894736842
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.45
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Due Date 2026-10-08",
+        "box": {
+          "left": 0.06533333333333333,
+          "top": 0.2305263157894737,
+          "right": 0.324,
+          "bottom": 0.24578947368421053
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.48
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Description Qty Unit Price",
+        "box": {
+          "left": 0.06533333333333333,
+          "top": 0.37526315789473685,
+          "right": 0.7546666666666667,
+          "bottom": 0.3994736842105263
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.13
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Research workshop 3 110.00",
+        "box": {
+          "left": 0.06533333333333333,
+          "top": 0.4305263157894737,
+          "right": 0.7193333333333334,
+          "bottom": 0.45
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.69
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Archive prep 1 45.00",
+        "box": {
+          "left": 0.06333333333333334,
+          "top": 0.4831578947368421,
+          "right": 0.7046666666666667,
+          "bottom": 0.5026315789473684
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.03
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Line Total",
+        "box": {
+          "left": 0.8086666666666666,
+          "top": 0.3778947368421053,
+          "right": 0.9206666666666666,
+          "bottom": 0.3931578947368421
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.2
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "330.00",
+        "box": {
+          "left": 0.808,
+          "top": 0.4305263157894737,
+          "right": 0.886,
+          "bottom": 0.4457894736842105
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.91
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "45.00",
+        "box": {
+          "left": 0.8066666666666666,
+          "top": 0.4831578947368421,
+          "right": 0.8713333333333333,
+          "bottom": 0.49842105263157893
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.92
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "Subtotal: 375.00",
+        "box": {
+          "left": 0.548,
+          "top": 0.6252631578947369,
+          "right": 0.738,
+          "bottom": 0.6405263157894737
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.31
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "Tax: 13.00",
+        "box": {
+          "left": 0.5473333333333333,
+          "top": 0.6647368421052632,
+          "right": 0.67,
+          "bottom": 0.68
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.17
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "Discount: 5.00",
+        "box": {
+          "left": 0.5486666666666666,
+          "top": 0.7042105263157895,
+          "right": 0.7146666666666667,
+          "bottom": 0.7194736842105263
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.64
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "Shipping: 0.00",
+        "box": {
+          "left": 0.548,
+          "top": 0.7436842105263158,
+          "right": 0.7146666666666667,
+          "bottom": 0.7631578947368421
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.35
+      },
+      {
+        "id": "p1-l0015",
+        "page": 1,
+        "text": "Total: 383.00",
+        "box": {
+          "left": 0.5473333333333333,
+          "top": 0.783157894736842,
+          "right": 0.6993333333333334,
+          "bottom": 0.7984210526315789
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.41
+      }
+    ]
+  },
+  "record": {
+    "schema_version": "invoice-v1-spike",
+    "fields": {
+      "supplier_name": {
+        "value": "Maple Lantern Works",
+        "raw": "Maple Lantern Works INVOICE",
+        "evidence_ids": [
+          "p1-l0001"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "invoice_number": {
+        "value": "F4-002",
+        "raw": "Invoice Number F4-002 Currency USD",
+        "evidence_ids": [
+          "p1-l0002"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "issue_date": {
+        "value": "2026-09-08",
+        "raw": "Date 2026-09-08",
+        "evidence_ids": [
+          "p1-l0003"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "due_date": {
+        "value": "2026-10-08",
+        "raw": "Due Date 2026-10-08",
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "currency": {
+        "value": "USD",
+        "raw": "Invoice Number F4-002 Currency USD",
+        "evidence_ids": [
+          "p1-l0002"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "subtotal": {
+        "value": "375.00",
+        "raw": "Subtotal: 375.00",
+        "evidence_ids": [
+          "p1-l0011"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "tax": {
+        "value": "13.00",
+        "raw": "Tax: 13.00",
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": "5.00",
+        "raw": "Discount: 5.00",
+        "evidence_ids": [
+          "p1-l0013"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "shipping": {
+        "value": "0.00",
+        "raw": "Shipping: 0.00",
+        "evidence_ids": [
+          "p1-l0014"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": "383.00",
+        "raw": "Total: 383.00",
+        "evidence_ids": [
+          "p1-l0015"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Research workshop",
+          "raw": "Research workshop 3 110.00",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "3",
+          "raw": "Research workshop 3 110.00",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "110.00",
+          "raw": "Research workshop 3 110.00",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "330.00",
+          "raw": "330.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Archive prep",
+          "raw": "Archive prep 1 45.00",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "Archive prep 1 45.00",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "45.00",
+          "raw": "Archive prep 1 45.00",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "45.00",
+          "raw": "45.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed"
+        }
+      }
+    ]
+  },
+  "issues": [],
+  "runtime_seconds": {
+    "ocr": 0.496,
+    "model": 89.998
+  },
+  "source_sha256": "ff7c9c598fa074cd9fac8afb817cd5ee78b668d169b70db0b1f440db954e9c31"
+}

@@ -1,0 +1,380 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "0",
+        "raw": "000",
+        "evidence_ids": [
+          "p1-l0008"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "id tee dtere",
+          "raw": "id tee dtere",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "4",
+          "raw": "4",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "BANANA DONUT",
+          "raw": "BANANA DONUT",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "11000",
+          "raw": "11,000",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "CREAMCHEESE BREAD",
+          "raw": "CREAMCHEESE BREAD",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "13000",
+          "raw": "13,000",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "FRANKFRUT SAUSAGE ROLL",
+          "raw": "FRANKFRUT SAUSAGE ROLL",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "12000",
+          "raw": "12,000",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "453a4ad5aadf63b2a7efdfa0915d45fd72c426254ab8f7c84d5621d56445794c",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.55,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "id tee dtere 4",
+        "box": {
+          "left": 0.2604166666666667,
+          "top": 0.08950617283950617,
+          "right": 0.7071759259259259,
+          "bottom": 0.11882716049382716
+        },
+        "method": "tesseract-eng",
+        "confidence": 16.8
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "\u00e9 '",
+        "box": {
+          "left": 0.35532407407407407,
+          "top": 0.11651234567901235,
+          "right": 0.46412037037037035,
+          "bottom": 0.12654320987654322
+        },
+        "method": "tesseract-eng",
+        "confidence": 59.49
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "ae * ; * ied",
+        "box": {
+          "left": 0.16550925925925927,
+          "top": 0.2839506172839506,
+          "right": 0.6134259259259259,
+          "bottom": 0.3256172839506173
+        },
+        "method": "tesseract-eng",
+        "confidence": 52.09
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "\u201c2IWIST OMT =\u2014\u2014\u2014\u2014S~=\u00ab*M8O0O",
+        "box": {
+          "left": 0.1574074074074074,
+          "top": 0.3425925925925926,
+          "right": 0.8414351851851852,
+          "bottom": 0.40046296296296297
+        },
+        "method": "tesseract-eng",
+        "confidence": 24.27
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "1 BANANA DONUT 11,000",
+        "box": {
+          "left": 0.19560185185185186,
+          "top": 0.39274691358024694,
+          "right": 0.8402777777777778,
+          "bottom": 0.4174382716049383
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.43
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "1 CREAMCHEESE BREAD 13,000",
+        "box": {
+          "left": 0.19675925925925927,
+          "top": 0.4228395061728395,
+          "right": 0.8391203703703703,
+          "bottom": 0.44675925925925924
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.8
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "1 FRANKFRUT SAUSAGE ROLL 12,000",
+        "box": {
+          "left": 0.19791666666666666,
+          "top": 0.4529320987654321,
+          "right": 0.8402777777777778,
+          "bottom": 0.4737654320987654
+        },
+        "method": "tesseract-eng",
+        "confidence": 85.29
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "TOTAL 5\u00a2 ,000",
+        "box": {
+          "left": 0.22685185185185186,
+          "top": 0.5030864197530864,
+          "right": 0.8506944444444444,
+          "bottom": 0.5455246913580247
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.86
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "CASH",
+        "box": {
+          "left": 0.21180555555555555,
+          "top": 0.5486111111111112,
+          "right": 0.2847222222222222,
+          "bottom": 0.5686728395061729
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.46
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "104 ,000",
+        "box": {
+          "left": 0.7256944444444444,
+          "top": 0.5462962962962963,
+          "right": 0.8599537037037037,
+          "bottom": 0.5679012345679012
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.04
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "CHANGE 5( ,000",
+        "box": {
+          "left": 0.19907407407407407,
+          "top": 0.5756172839506173,
+          "right": 0.8645833333333334,
+          "bottom": 0.6450617283950617
+        },
+        "method": "tesseract-eng",
+        "confidence": 43.23
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "eee",
+        "box": {
+          "left": 0.2777777777777778,
+          "top": 0.6882716049382716,
+          "right": 0.46296296296296297,
+          "bottom": 0.7222222222222222
+        },
+        "method": "tesseract-eng",
+        "confidence": 28.27
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "\u00bb Maat Mm anes",
+        "box": {
+          "left": 0.2777777777777778,
+          "top": 0.7214506172839507,
+          "right": 0.6666666666666666,
+          "bottom": 0.7901234567901234
+        },
+        "method": "tesseract-eng",
+        "confidence": 35.52
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 12,
+    "valid_reference_values": 12,
+    "aligned_values": 12,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

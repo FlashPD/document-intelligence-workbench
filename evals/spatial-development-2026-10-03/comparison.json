@@ -1,0 +1,309 @@
+{
+  "comparison_version": "development-comparison-v1",
+  "status": "pass",
+  "dataset_id": "self-authored-development-v0",
+  "split": "development",
+  "manifest_sha256": "f49e349a900e3d09612d00179027d10730f91786a059707f77ebb57f9589e60d",
+  "reasons": [],
+  "policy": {
+    "max_absolute_regression": 0.02,
+    "gated_metrics": [
+      "required_header_exact",
+      "line_total_exact_by_order",
+      "row_count_exact"
+    ],
+    "declared_changes": [
+      "extractor"
+    ],
+    "decision": "point-estimate regression; confidence intervals are descriptive"
+  },
+  "interpretation": "Development diagnostics only; not held-out quality, release acceptance, or real-invoice accuracy.",
+  "actual_changes": [
+    "extractor"
+  ],
+  "metrics": {
+    "header_exact": {
+      "baseline": 0.9,
+      "candidate": 0.9,
+      "delta": 0.0,
+      "delta_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "required_header_exact": {
+      "baseline": 0.8666666666666667,
+      "candidate": 0.8666666666666667,
+      "delta": 0.0,
+      "delta_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "line_total_exact_by_order": {
+      "baseline": 0.9444444444444444,
+      "candidate": 0.9444444444444444,
+      "delta": 0.0,
+      "delta_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "row_count_exact": {
+      "baseline": 0.9166666666666666,
+      "candidate": 0.9166666666666666,
+      "delta": 0.0,
+      "delta_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "all_required_correct": {
+      "baseline": 0.6666666666666666,
+      "candidate": 0.6666666666666666,
+      "delta": 0.0,
+      "delta_ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    "header_evidence_iou_mean_all_slots": {
+      "baseline": 0.4199,
+      "candidate": 0.4199,
+      "delta": 0.0,
+      "delta_ci95": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "bootstrap": {
+    "unit": "layout_family",
+    "groups": 6,
+    "samples": 2000,
+    "seed": 1729,
+    "method": "paired percentile; related documents remain in the same family",
+    "limitation": "Six author-created families do not represent arbitrary unseen vendors."
+  },
+  "by_family": [
+    {
+      "family": "classic",
+      "documents": 2,
+      "baseline": {
+        "header_exact": 1.0,
+        "required_header_exact": 1.0,
+        "line_total_exact_by_order": 1.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 1.0,
+        "header_evidence_iou_mean_all_slots": 0.4665
+      },
+      "candidate": {
+        "header_exact": 1.0,
+        "required_header_exact": 1.0,
+        "line_total_exact_by_order": 1.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 1.0,
+        "header_evidence_iou_mean_all_slots": 0.4665
+      }
+    },
+    {
+      "family": "right_header",
+      "documents": 2,
+      "baseline": {
+        "header_exact": 1.0,
+        "required_header_exact": 1.0,
+        "line_total_exact_by_order": 1.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 1.0,
+        "header_evidence_iou_mean_all_slots": 0.4003
+      },
+      "candidate": {
+        "header_exact": 1.0,
+        "required_header_exact": 1.0,
+        "line_total_exact_by_order": 1.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 1.0,
+        "header_evidence_iou_mean_all_slots": 0.4003
+      }
+    },
+    {
+      "family": "compact",
+      "documents": 2,
+      "baseline": {
+        "header_exact": 1.0,
+        "required_header_exact": 1.0,
+        "line_total_exact_by_order": 1.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 1.0,
+        "header_evidence_iou_mean_all_slots": 0.4678
+      },
+      "candidate": {
+        "header_exact": 1.0,
+        "required_header_exact": 1.0,
+        "line_total_exact_by_order": 1.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 1.0,
+        "header_evidence_iou_mean_all_slots": 0.4678
+      }
+    },
+    {
+      "family": "two_column",
+      "documents": 2,
+      "baseline": {
+        "header_exact": 0.6,
+        "required_header_exact": 0.4,
+        "line_total_exact_by_order": 1.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 0.0,
+        "header_evidence_iou_mean_all_slots": 0.2507
+      },
+      "candidate": {
+        "header_exact": 0.6,
+        "required_header_exact": 0.4,
+        "line_total_exact_by_order": 1.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 0.0,
+        "header_evidence_iou_mean_all_slots": 0.2507
+      }
+    },
+    {
+      "family": "summary_first",
+      "documents": 2,
+      "baseline": {
+        "header_exact": 1.0,
+        "required_header_exact": 1.0,
+        "line_total_exact_by_order": 1.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 1.0,
+        "header_evidence_iou_mean_all_slots": 0.4674
+      },
+      "candidate": {
+        "header_exact": 1.0,
+        "required_header_exact": 1.0,
+        "line_total_exact_by_order": 1.0,
+        "row_count_exact": 1.0,
+        "all_required_correct": 1.0,
+        "header_evidence_iou_mean_all_slots": 0.4674
+      }
+    },
+    {
+      "family": "degraded_orientation",
+      "documents": 2,
+      "baseline": {
+        "header_exact": 0.8,
+        "required_header_exact": 0.8,
+        "line_total_exact_by_order": 0.5,
+        "row_count_exact": 0.5,
+        "all_required_correct": 0.0,
+        "header_evidence_iou_mean_all_slots": 0.4669
+      },
+      "candidate": {
+        "header_exact": 0.8,
+        "required_header_exact": 0.8,
+        "line_total_exact_by_order": 0.5,
+        "row_count_exact": 0.5,
+        "all_required_correct": 0.0,
+        "header_evidence_iou_mean_all_slots": 0.4669
+      }
+    }
+  ],
+  "summaries": {
+    "baseline": {
+      "documents_scheduled": 12,
+      "documents_processed": 12,
+      "header_exact": {
+        "correct": 108,
+        "eligible": 120
+      },
+      "required_header_exact": {
+        "correct": 52,
+        "eligible": 60
+      },
+      "all_required_correct": {
+        "documents": 8,
+        "eligible": 12
+      },
+      "line_total_exact_by_order": {
+        "correct": 17,
+        "eligible": 18
+      },
+      "row_count_exact": {
+        "documents": 11,
+        "eligible": 12
+      },
+      "header_evidence_iou_mean_all_slots": 0.4199,
+      "injected_total_conflicts_detected": {
+        "correct": 1,
+        "eligible": 1
+      },
+      "false_total_conflict_warnings": {
+        "count": 0,
+        "eligible": 11
+      },
+      "sum_ocr_seconds": 7.26,
+      "failures_by_type": {}
+    },
+    "candidate": {
+      "documents_scheduled": 12,
+      "documents_processed": 12,
+      "header_exact": {
+        "correct": 108,
+        "eligible": 120
+      },
+      "required_header_exact": {
+        "correct": 52,
+        "eligible": 60
+      },
+      "all_required_correct": {
+        "documents": 8,
+        "eligible": 12
+      },
+      "line_total_exact_by_order": {
+        "correct": 17,
+        "eligible": 18
+      },
+      "row_count_exact": {
+        "documents": 11,
+        "eligible": 12
+      },
+      "header_evidence_iou_mean_all_slots": 0.4199,
+      "injected_total_conflicts_detected": {
+        "correct": 1,
+        "eligible": 1
+      },
+      "false_total_conflict_warnings": {
+        "count": 0,
+        "eligible": 11
+      },
+      "sum_ocr_seconds": 8.254,
+      "failures_by_type": {}
+    }
+  },
+  "extractors": {
+    "baseline": {
+      "variant": "ocr_rules",
+      "version": "ocr-rules-v0.3",
+      "implementation_sha256": "fda483fa5f5acafdcd8373772b94f47fba37fa7bfa1c6a950a0859bc2e230db7"
+    },
+    "candidate": {
+      "variant": "ocr_rules",
+      "version": "ocr-rules-v0.4",
+      "implementation_sha256": "2300bf75b6ea35b4868705856b00bc2bee4ea68ad4208447ba289bb5570968c7"
+    }
+  },
+  "failures": {
+    "baseline": [],
+    "candidate": []
+  },
+  "timing_note": "Stage totals are recorded in the input summaries. No latency gate or speedup is claimed: hardware capacity, inference runtime, warmup, and failed-stage timing are not fully captured.",
+  "inputs": {
+    "baseline": {
+      "name": "baseline.json",
+      "sha256": "1f74a75d187760ef7a8c49e892f6f5d837230b823e02380d2c4455d28fd9679a"
+    },
+    "candidate": {
+      "name": "candidate.json",
+      "sha256": "6825ddaf012937025532e31d41d81f719d3ed9e8464028934aab1afe59557c61"
+    }
+  }
+}

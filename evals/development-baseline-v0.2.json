@@ -1,0 +1,547 @@
+{
+  "mode": "fresh_development_ocr_rules",
+  "baseline_version": "ocr-rules-v0.2",
+  "dataset_id": "self-authored-development-v0",
+  "manifest_sha256": "f49e349a900e3d09612d00179027d10730f91786a059707f77ebb57f9589e60d",
+  "runtime_versions": {
+    "python": "3.12.12",
+    "tesseract": "tesseract 5.4.1"
+  },
+  "summary": {
+    "documents_scheduled": 12,
+    "documents_processed": 12,
+    "header_exact": {
+      "correct": 100,
+      "eligible": 120
+    },
+    "required_header_exact": {
+      "correct": 48,
+      "eligible": 60
+    },
+    "all_required_correct": {
+      "documents": 8,
+      "eligible": 12
+    },
+    "line_total_exact_by_order": {
+      "correct": 17,
+      "eligible": 18
+    },
+    "row_count_exact": {
+      "documents": 11,
+      "eligible": 12
+    },
+    "header_evidence_iou_mean_all_slots": 0.381,
+    "injected_total_conflicts_detected": {
+      "correct": 1,
+      "eligible": 1
+    },
+    "false_total_conflict_warnings": {
+      "count": 0,
+      "eligible": 11
+    },
+    "sum_ocr_seconds": 5.345
+  },
+  "documents": [
+    {
+      "id": "dev-01-01",
+      "family": "classic",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.9918,
+        "invoice_number": 0.2803,
+        "issue_date": 0.6393,
+        "due_date": 0.5013,
+        "currency": 0.245,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 1,
+      "predicted_row_count": 1,
+      "row_amount_exact_by_order": [
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.426
+    },
+    {
+      "id": "dev-01-02",
+      "family": "classic",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.9918,
+        "invoice_number": 0.2922,
+        "issue_date": 0.6557,
+        "due_date": 0.5141,
+        "currency": 0.245,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 1,
+      "predicted_row_count": 1,
+      "row_amount_exact_by_order": [
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.427
+    },
+    {
+      "id": "dev-02-01",
+      "family": "right_header",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.3152,
+        "invoice_number": 0.2803,
+        "issue_date": 0.6557,
+        "due_date": 0.5141,
+        "currency": 0.245,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 2,
+      "predicted_row_count": 2,
+      "row_amount_exact_by_order": [
+        true,
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.446
+    },
+    {
+      "id": "dev-02-02",
+      "family": "right_header",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.3152,
+        "invoice_number": 0.2922,
+        "issue_date": 0.6557,
+        "due_date": 0.5141,
+        "currency": 0.245,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 2,
+      "predicted_row_count": 2,
+      "row_amount_exact_by_order": [
+        true,
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.445
+    },
+    {
+      "id": "dev-03-01",
+      "family": "compact",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.9874,
+        "invoice_number": 0.2803,
+        "issue_date": 0.659,
+        "due_date": 0.5167,
+        "currency": 0.245,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 1,
+      "predicted_row_count": 1,
+      "row_amount_exact_by_order": [
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.429
+    },
+    {
+      "id": "dev-03-02",
+      "family": "compact",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.9874,
+        "invoice_number": 0.2922,
+        "issue_date": 0.6557,
+        "due_date": 0.5141,
+        "currency": 0.245,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 1,
+      "predicted_row_count": 1,
+      "row_amount_exact_by_order": [
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.424
+    },
+    {
+      "id": "dev-04-01",
+      "family": "two_column",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": false,
+        "issue_date": false,
+        "due_date": false,
+        "currency": false,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": false,
+      "header_evidence_iou": {
+        "supplier_name": 0.5205,
+        "invoice_number": 0.0,
+        "issue_date": 0.0,
+        "due_date": 0.0,
+        "currency": 0.0,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 2,
+      "predicted_row_count": 2,
+      "row_amount_exact_by_order": [
+        true,
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [
+        "REQUIRED_MISSING"
+      ],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.47
+    },
+    {
+      "id": "dev-04-02",
+      "family": "two_column",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": false,
+        "issue_date": false,
+        "due_date": false,
+        "currency": false,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": false,
+      "header_evidence_iou": {
+        "supplier_name": 0.5205,
+        "invoice_number": 0.0,
+        "issue_date": 0.0,
+        "due_date": 0.0,
+        "currency": 0.0,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 2,
+      "predicted_row_count": 2,
+      "row_amount_exact_by_order": [
+        true,
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [
+        "REQUIRED_MISSING"
+      ],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.471
+    },
+    {
+      "id": "dev-05-01",
+      "family": "summary_first",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.9831,
+        "invoice_number": 0.2803,
+        "issue_date": 0.659,
+        "due_date": 0.5167,
+        "currency": 0.245,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 2,
+      "predicted_row_count": 2,
+      "row_amount_exact_by_order": [
+        true,
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.464
+    },
+    {
+      "id": "dev-05-02",
+      "family": "summary_first",
+      "treatment": "none",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": true,
+        "due_date": true,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": true,
+      "header_evidence_iou": {
+        "supplier_name": 0.9831,
+        "invoice_number": 0.2922,
+        "issue_date": 0.6557,
+        "due_date": 0.5141,
+        "currency": 0.245,
+        "subtotal": 0.4146,
+        "tax": 0.522,
+        "discount": 0.2988,
+        "shipping": 0.2337,
+        "total": 0.5178
+      },
+      "gold_row_count": 2,
+      "predicted_row_count": 2,
+      "row_amount_exact_by_order": [
+        true,
+        true
+      ],
+      "expected_issue_codes": [
+        "TOTAL_MISMATCH"
+      ],
+      "observed_issue_codes": [
+        "TOTAL_MISMATCH"
+      ],
+      "total_mismatch_detected": true,
+      "ocr_seconds": 0.465
+    },
+    {
+      "id": "dev-06-01",
+      "family": "degraded_orientation",
+      "treatment": "blur_low_contrast",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": true,
+        "invoice_number": true,
+        "issue_date": false,
+        "due_date": false,
+        "currency": true,
+        "subtotal": true,
+        "tax": true,
+        "discount": true,
+        "shipping": true,
+        "total": true
+      },
+      "required_all_exact": false,
+      "header_evidence_iou": {
+        "supplier_name": 0.9874,
+        "invoice_number": 0.282,
+        "issue_date": 0.652,
+        "due_date": 0.51,
+        "currency": 0.2434,
+        "subtotal": 0.4154,
+        "tax": 0.5213,
+        "discount": 0.2996,
+        "shipping": 0.2354,
+        "total": 0.5172
+      },
+      "gold_row_count": 1,
+      "predicted_row_count": 1,
+      "row_amount_exact_by_order": [
+        true
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [
+        "AMBIGUOUS_DATE"
+      ],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.445
+    },
+    {
+      "id": "dev-06-02",
+      "family": "degraded_orientation",
+      "treatment": "crop_rotate_270_clockwise",
+      "processed": true,
+      "header_exact": {
+        "supplier_name": false,
+        "invoice_number": false,
+        "issue_date": false,
+        "due_date": false,
+        "currency": false,
+        "subtotal": false,
+        "tax": false,
+        "discount": false,
+        "shipping": false,
+        "total": false
+      },
+      "required_all_exact": false,
+      "header_evidence_iou": {
+        "supplier_name": 0.0,
+        "invoice_number": 0.0,
+        "issue_date": 0.0,
+        "due_date": 0.0,
+        "currency": 0.0,
+        "subtotal": 0.0,
+        "tax": 0.0,
+        "discount": 0.0,
+        "shipping": 0.0,
+        "total": 0.0
+      },
+      "gold_row_count": 1,
+      "predicted_row_count": 0,
+      "row_amount_exact_by_order": [
+        false
+      ],
+      "expected_issue_codes": [],
+      "observed_issue_codes": [
+        "NO_LINE_ITEMS",
+        "REQUIRED_MISSING",
+        "TOTAL_NOT_CHECKED"
+      ],
+      "total_mismatch_detected": false,
+      "ocr_seconds": 0.433
+    }
+  ],
+  "interpretation": "Self-authored development data used for tuning; not held-out evidence or real-invoice accuracy."
+}

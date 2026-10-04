@@ -1,0 +1,334 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": "5",
+        "raw": "5",
+        "evidence_ids": [
+          "p1-l0014"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Ch Cesar Salad 43290 .",
+          "raw": "Ch Cesar Salad 43290 .",
+          "evidence_ids": [
+            "p1-l0006",
+            "p1-l0011"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "00",
+          "evidence_ids": [
+            "p1-l0006",
+            "p1-l0011"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Mineral Water 12987 .",
+          "raw": "Mineral Water 12987 .",
+          "evidence_ids": [
+            "p1-l0007",
+            "p1-l0012"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "0",
+          "evidence_ids": [
+            "p1-l0007",
+            "p1-l0012"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "994b983a7f51670ca67b35bbaf9a11c8852abf1711651448d4ce39f8f8119d6f",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.475,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 648,
+    "height_px": 1152,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Chicken Maryland",
+        "box": {
+          "left": 0.19444444444444445,
+          "top": 0.3967013888888889,
+          "right": 0.39969135802469136,
+          "bottom": 0.4105902777777778
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.41
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Cappucino (Hot/I",
+        "box": {
+          "left": 0.19598765432098766,
+          "top": 0.4149305555555556,
+          "right": 0.39814814814814814,
+          "bottom": 0.4288194444444444
+        },
+        "method": "tesseract-eng",
+        "confidence": 45.7
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Naga Lychee Ju",
+        "box": {
+          "left": 0.19907407407407407,
+          "top": 0.4331597222222222,
+          "right": 0.37191358024691357,
+          "bottom": 0.4479166666666667
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.16
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "t atte",
+        "box": {
+          "left": 0.19907407407407407,
+          "top": 0.453125,
+          "right": 0.3256172839506173,
+          "bottom": 0.4618055555555556
+        },
+        "method": "tesseract-eng",
+        "confidence": 69.31
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Hot Chocolate Marshmallo",
+        "box": {
+          "left": 0.19907407407407407,
+          "top": 0.4644097222222222,
+          "right": 0.5046296296296297,
+          "bottom": 0.4791666666666667
+        },
+        "method": "tesseract-eng",
+        "confidence": 85.57
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Ch Cesar Salad",
+        "box": {
+          "left": 0.19907407407407407,
+          "top": 0.4817708333333333,
+          "right": 0.44290123456790126,
+          "bottom": 0.4956597222222222
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.64
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Mineral Water",
+        "box": {
+          "left": 0.19753086419753085,
+          "top": 0.5008680555555556,
+          "right": 0.36419753086419754,
+          "bottom": 0.5138888888888888
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.72
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Mineral Water",
+        "box": {
+          "left": 0.19598765432098766,
+          "top": 0.5182291666666666,
+          "right": 0.36419753086419754,
+          "bottom": 0.53125
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.64
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "Lychee/Peach/Lemon/Mango",
+        "box": {
+          "left": 0.19598765432098766,
+          "top": 0.5338541666666666,
+          "right": 0.5092592592592593,
+          "bottom": 0.5512152777777778
+        },
+        "method": "tesseract-eng",
+        "confidence": 76.26
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "Chicken Maryland",
+        "box": {
+          "left": 0.19444444444444445,
+          "top": 0.5520833333333334,
+          "right": 0.4058641975308642,
+          "bottom": 0.5677083333333334
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.86
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "43290 .00",
+        "box": {
+          "left": 0.5987654320987654,
+          "top": 0.4774305555555556,
+          "right": 0.6975308641975309,
+          "bottom": 0.4895833333333333
+        },
+        "method": "tesseract-eng",
+        "confidence": 72.15
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "12987 .0",
+        "box": {
+          "left": 0.6018518518518519,
+          "top": 0.4939236111111111,
+          "right": 0.683641975308642,
+          "bottom": 0.5060763888888888
+        },
+        "method": "tesseract-eng",
+        "confidence": 68.56
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "Subtotal",
+        "box": {
+          "left": 0.19135802469135801,
+          "top": 0.5894097222222222,
+          "right": 0.29475308641975306,
+          "bottom": 0.6041666666666666
+        },
+        "method": "tesseract-eng",
+        "confidence": 81.86
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "Service Charge 5% +",
+        "box": {
+          "left": 0.19135802469135801,
+          "top": 0.6067708333333334,
+          "right": 0.44598765432098764,
+          "bottom": 0.6241319444444444
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.67
+      },
+      {
+        "id": "p1-l0015",
+        "page": 1,
+        "text": "366000.00",
+        "box": {
+          "left": 0.5987654320987654,
+          "top": 0.625,
+          "right": 0.7237654320987654,
+          "bottom": 0.6571180555555556
+        },
+        "method": "tesseract-eng",
+        "confidence": 63.36
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 5,
+    "valid_reference_values": 5,
+    "aligned_values": 5,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

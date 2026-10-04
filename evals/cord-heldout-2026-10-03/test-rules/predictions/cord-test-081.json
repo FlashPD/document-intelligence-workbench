@@ -1,0 +1,153 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "1a4f42860f78a058e3df460125ed3904e1e918ac5914414b7c19455b6e94d4fa",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.99,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 2304,
+    "height_px": 4096,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "7 re ae wiew oe oo a ee",
+        "box": {
+          "left": 0.2673611111111111,
+          "top": 0.480224609375,
+          "right": 0.8107638888888888,
+          "bottom": 0.492431640625
+        },
+        "method": "tesseract-eng",
+        "confidence": 29.24
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "wane ehpe some meee",
+        "box": {
+          "left": 0.1775173611111111,
+          "top": 0.48193359375,
+          "right": 0.24609375,
+          "bottom": 0.489501953125
+        },
+        "method": "tesseract-eng",
+        "confidence": 23.43
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "\u2014 ead {cuss soe NaS wale. GAD Welt cm pies fete CS ere Smee same Sonn aime: ena SES ees SD: SD",
+        "box": {
+          "left": 0.23958333333333334,
+          "top": 0.484375,
+          "right": 0.7044270833333334,
+          "bottom": 0.493408203125
+        },
+        "method": "tesseract-eng",
+        "confidence": 25.71
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Choco Mochi",
+        "box": {
+          "left": 0.3519965277777778,
+          "top": 0.50732421875,
+          "right": 0.5364583333333334,
+          "bottom": 0.522705078125
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.6
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "re ue 28.000",
+        "box": {
+          "left": 0.3181423611111111,
+          "top": 0.51318359375,
+          "right": 0.8155381944444444,
+          "bottom": 0.548095703125
+        },
+        "method": "tesseract-eng",
+        "confidence": 63.65
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "1001-Choce Bun",
+        "box": {
+          "left": 0.16276041666666666,
+          "top": 0.55615234375,
+          "right": 0.4001736111111111,
+          "bottom": 0.5732421875
+        },
+        "method": "tesseract-eng",
+        "confidence": 64.01
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "<n ae",
+        "box": {
+          "left": 0.2855902777777778,
+          "top": 0.56787109375,
+          "right": 0.3324652777777778,
+          "bottom": 0.575439453125
+        },
+        "method": "tesseract-eng",
+        "confidence": 34.29
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

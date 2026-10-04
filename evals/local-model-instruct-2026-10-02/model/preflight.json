@@ -1,0 +1,23 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.12",
+  "python_3_12_or_newer": true,
+  "hardware": {
+    "model_name": "MacBook Pro",
+    "model_identifier": "MacBookPro17,1",
+    "chip": "Apple M1",
+    "memory": "16 GB"
+  },
+  "free_disk_gib": 40.0,
+  "tesseract_available": true,
+  "tesseract_version": "tesseract 5.4.1",
+  "tesseract_languages": [
+    "eng",
+    "osd",
+    "snum"
+  ],
+  "docker_daemon_available": false,
+  "docker_server_version": null,
+  "local_model_status": "configured_per_processing_job; not_probed_by_doctor",
+  "phase_0_ready_for_fixture_baseline": true
+}

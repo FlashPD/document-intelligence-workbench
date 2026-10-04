@@ -1,0 +1,241 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "SAMGYOPSAL",
+          "raw": "SAMGYOPSAL",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "SUL LUNG TANG",
+          "raw": "SUL LUNG TANG",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "MAKOLI",
+          "raw": "MAKOLI",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "d94cc999dbef6b8384afd158cf4757b4df2bd8fadfc8ba4f077b618dc9c32dc0",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 52.06
+  },
+  "ocr_prediction_sha256": "85362fa5e7f080506b803e5d322fef754a6e696197405ea8d322948aac3e64b8",
+  "page": {
+    "number": 1,
+    "width_px": 1152,
+    "height_px": 1728,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "SAMGYOPSAL 2 194,000",
+        "box": {
+          "left": 0.1310763888888889,
+          "top": 0.40625,
+          "right": 0.7751736111111112,
+          "bottom": 0.4409722222222222
+        },
+        "method": "tesseract-eng",
+        "confidence": 69.01
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "SUL LUNG TANG 1 75,000",
+        "box": {
+          "left": 0.1293402777777778,
+          "top": 0.4513888888888889,
+          "right": 0.7690972222222222,
+          "bottom": 0.47337962962962965
+        },
+        "method": "tesseract-eng",
+        "confidence": 55.8
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "MAKOLI 1 400,000",
+        "box": {
+          "left": 0.13020833333333334,
+          "top": 0.47337962962962965,
+          "right": 0.7725694444444444,
+          "bottom": 0.5167824074074074
+        },
+        "method": "tesseract-eng",
+        "confidence": 85.21
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Service 18,450",
+        "box": {
+          "left": 0.1267361111111111,
+          "top": 0.5584490740740741,
+          "right": 0.7769097222222222,
+          "bottom": 0.5891203703703703
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.29
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "VAT 38,745",
+        "box": {
+          "left": 0.1267361111111111,
+          "top": 0.5862268518518519,
+          "right": 0.7786458333333334,
+          "bottom": 0.6116898148148148
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.07
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Discount 0",
+        "box": {
+          "left": 0.1267361111111111,
+          "top": 0.6186342592592593,
+          "right": 0.7803819444444444,
+          "bottom": 0.6446759259259259
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.05
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 3,
+    "valid_reference_values": 3,
+    "aligned_values": 3,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

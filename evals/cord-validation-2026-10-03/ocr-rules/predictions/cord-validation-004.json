@@ -1,0 +1,153 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "395a4aada020d241e38ab175c6b2c230897d0197b3e78a14a6de763ad192ea2a",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.944,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 576,
+    "height_px": 864,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "it :",
+        "box": {
+          "left": 0.34375,
+          "top": 0.36689814814814814,
+          "right": 0.4878472222222222,
+          "bottom": 0.3773148148148148
+        },
+        "method": "tesseract-eng",
+        "confidence": 28.85
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "+t : :",
+        "box": {
+          "left": 0.3715277777777778,
+          "top": 0.3587962962962963,
+          "right": 0.7291666666666666,
+          "bottom": 0.4085648148148148
+        },
+        "method": "tesseract-eng",
+        "confidence": 12.59
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "- > on",
+        "box": {
+          "left": 0.09027777777777778,
+          "top": 0.4270833333333333,
+          "right": 0.703125,
+          "bottom": 0.48148148148148145
+        },
+        "method": "tesseract-eng",
+        "confidence": 45.42
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Bes",
+        "box": {
+          "left": 0.08680555555555555,
+          "top": 0.4849537037037037,
+          "right": 0.1684027777777778,
+          "bottom": 0.5115740740740741
+        },
+        "method": "tesseract-eng",
+        "confidence": 22.4
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "~-",
+        "box": {
+          "left": 0.11284722222222222,
+          "top": 0.5185185185185185,
+          "right": 0.171875,
+          "bottom": 0.5347222222222222
+        },
+        "method": "tesseract-eng",
+        "confidence": 39.68
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "BBQ Chic!",
+        "box": {
+          "left": 0.1909722222222222,
+          "top": 0.5844907407407407,
+          "right": 0.3767361111111111,
+          "bottom": 0.6168981481481481
+        },
+        "method": "tesseract-eng",
+        "confidence": 73.39
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "7\u00b0 Sedang",
+        "box": {
+          "left": 0.0954861111111111,
+          "top": 0.6157407407407407,
+          "right": 0.3628472222222222,
+          "bottom": 0.6550925925925926
+        },
+        "method": "tesseract-eng",
+        "confidence": 49.11
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,346 @@
+{
+  "record": {
+    "schema_version": "invoice-v1-spike",
+    "fields": {
+      "supplier_name": {
+        "value": "Copper Finch Media",
+        "raw": "Copper Finch Media",
+        "evidence_ids": [
+          "p1-l0001"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "invoice_number": {
+        "value": "F07-016",
+        "raw": "Invoice No.: F07-016",
+        "evidence_ids": [
+          "p1-l0003"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "issue_date": {
+        "value": "2026-04-04",
+        "raw": "Date: 2026-04-04",
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "due_date": {
+        "value": "2026-05-04",
+        "raw": "Due date: 2026-05-04",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "currency": {
+        "value": "USD",
+        "raw": "Currency: USD",
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed"
+      },
+      "tax": {
+        "value": "6.00",
+        "raw": "Tax: 6.00",
+        "evidence_ids": [
+          "p1-l0010"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed"
+      },
+      "shipping": {
+        "value": "0.00",
+        "raw": "Shipping: 0.00",
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": "378.00",
+        "raw": "Total: 378.00",
+        "evidence_ids": [
+          "p1-l0013"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Field interview",
+          "raw": "Field interview 3 59.00 177.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "3",
+          "raw": "Field interview 3 59.00 177.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "59.00",
+          "raw": "Field interview 3 59.00 177.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "177.00",
+          "raw": "Field interview 3 59.00 177.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      }
+    ]
+  },
+  "issue_codes": [
+    "TOTAL_NOT_CHECKED"
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "width_px": 1500,
+      "height_px": 1100,
+      "spans": [
+        {
+          "id": "p1-l0001",
+          "page": 1,
+          "text": "Copper Finch Media",
+          "box": {
+            "left": 0.04466666666666667,
+            "top": 0.03909090909090909,
+            "right": 0.30133333333333334,
+            "bottom": 0.07545454545454545
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.21
+        },
+        {
+          "id": "p1-l0002",
+          "page": 1,
+          "text": "INVOICE",
+          "box": {
+            "left": 0.436,
+            "top": 0.09363636363636364,
+            "right": 0.55,
+            "bottom": 0.12181818181818181
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.17
+        },
+        {
+          "id": "p1-l0003",
+          "page": 1,
+          "text": "Invoice No.: F07-016",
+          "box": {
+            "left": 0.04466666666666667,
+            "top": 0.19090909090909092,
+            "right": 0.20066666666666666,
+            "bottom": 0.2081818181818182
+          },
+          "method": "tesseract-eng",
+          "confidence": 81.53
+        },
+        {
+          "id": "p1-l0004",
+          "page": 1,
+          "text": "Date: 2026-04-04",
+          "box": {
+            "left": 0.04466666666666667,
+            "top": 0.24454545454545454,
+            "right": 0.17466666666666666,
+            "bottom": 0.26181818181818184
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.34
+        },
+        {
+          "id": "p1-l0005",
+          "page": 1,
+          "text": "Due date: 2026-05-04",
+          "box": {
+            "left": 0.04466666666666667,
+            "top": 0.29818181818181816,
+            "right": 0.20733333333333334,
+            "bottom": 0.31545454545454543
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.6
+        },
+        {
+          "id": "p1-l0006",
+          "page": 1,
+          "text": "Currency: USD",
+          "box": {
+            "left": 0.044,
+            "top": 0.3518181818181818,
+            "right": 0.15866666666666668,
+            "bottom": 0.37363636363636366
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.17
+        },
+        {
+          "id": "p1-l0007",
+          "page": 1,
+          "text": "Description Qty Unit price Amount",
+          "box": {
+            "left": 0.048,
+            "top": 0.4509090909090909,
+            "right": 0.6986666666666667,
+            "bottom": 0.4809090909090909
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.49
+        },
+        {
+          "id": "p1-l0008",
+          "page": 1,
+          "text": "a ; Subtotal: 375.00",
+          "box": {
+            "left": 0.058666666666666666,
+            "top": 0.5,
+            "right": 0.8953333333333333,
+            "bottom": 0.5218181818181818
+          },
+          "method": "tesseract-eng",
+          "confidence": 49.41
+        },
+        {
+          "id": "p1-l0009",
+          "page": 1,
+          "text": "Field interview 3 59.00 177.00",
+          "box": {
+            "left": 0.048,
+            "top": 0.52,
+            "right": 0.6906666666666667,
+            "bottom": 0.5372727272727272
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.75
+        },
+        {
+          "id": "p1-l0010",
+          "page": 1,
+          "text": "Tax: 6.00",
+          "box": {
+            "left": 0.7733333333333333,
+            "top": 0.5518181818181818,
+            "right": 0.8433333333333334,
+            "bottom": 0.5690909090909091
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.91
+        },
+        {
+          "id": "p1-l0011",
+          "page": 1,
+          "text": "Design review 3 66.00 198.00 Discount: 3.00",
+          "box": {
+            "left": 0.048,
+            "top": 0.5936363636363636,
+            "right": 0.8813333333333333,
+            "bottom": 0.6209090909090909
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.51
+        },
+        {
+          "id": "p1-l0012",
+          "page": 1,
+          "text": "Shipping: 0.00",
+          "box": {
+            "left": 0.774,
+            "top": 0.6554545454545454,
+            "right": 0.8806666666666667,
+            "bottom": 0.6772727272727272
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.01
+        },
+        {
+          "id": "p1-l0013",
+          "page": 1,
+          "text": "Total: 378.00",
+          "box": {
+            "left": 0.7733333333333333,
+            "top": 0.7072727272727273,
+            "right": 0.8713333333333333,
+            "bottom": 0.7245454545454545
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.7
+        },
+        {
+          "id": "p1-l0014",
+          "page": 1,
+          "text": "Page 1",
+          "box": {
+            "left": 0.848,
+            "top": 0.9454545454545454,
+            "right": 0.8973333333333333,
+            "bottom": 0.9672727272727273
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.69
+        }
+      ]
+    }
+  ],
+  "source_sha256": "e8e3b50a8324dbbf507dde7a240615529bce798787558ae07340f9c9a756a290",
+  "run_version": "invoice-preview-ocr-rules-v4",
+  "baseline_version": "ocr-rules-v0.3",
+  "extractor": "ocr_rules",
+  "pipeline_sha256": "f72345e373ad3c7100e5892679ca255396943ae2b6703715efc940f9577dfaef",
+  "ocr_psm": 1,
+  "input_mode": "verified_corpus_png_previews",
+  "runtime_seconds": {
+    "ocr": 0.552,
+    "total": 0.553
+  }
+}

@@ -1,0 +1,446 @@
+{
+  "source_sha256": "4d31b34f4bd3632b81b210c4deffd789e83d1f104ee086c5aa9ec6c3a1d604c8",
+  "record": {
+    "schema_version": "invoice-v1-spike",
+    "fields": {
+      "supplier_name": {
+        "value": "Linden Field Studio",
+        "raw": "Linden Field Studio",
+        "evidence_ids": [
+          "p1-l0002"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "invoice_number": {
+        "value": "F15-025",
+        "raw": "Invoice No.: F15-025",
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "issue_date": {
+        "value": "2026-07-26",
+        "raw": "Date: 2026-07-26",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "due_date": {
+        "value": "2026-08-25",
+        "raw": "Due date: 2026-08-25",
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "currency": {
+        "value": "USD",
+        "raw": "Currency: USD",
+        "evidence_ids": [
+          "p1-l0007"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "subtotal": {
+        "value": "539.00",
+        "raw": "Subtotal: 539.00",
+        "evidence_ids": [
+          "p1-l0008"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "tax": {
+        "value": "9.00",
+        "raw": "Tax: 9.00",
+        "evidence_ids": [
+          "p1-l0009"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed"
+      },
+      "shipping": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed"
+      },
+      "total": {
+        "value": "548.00",
+        "raw": "Total: 548.00",
+        "evidence_ids": [
+          "p1-l0010"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Research workshop",
+          "raw": "Research workshop 2 102.00 204.00",
+          "evidence_ids": [
+            "p1-l0012"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "2",
+          "raw": "Research workshop 2 102.00 204.00",
+          "evidence_ids": [
+            "p1-l0012"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "102.00",
+          "raw": "Research workshop 2 102.00 204.00",
+          "evidence_ids": [
+            "p1-l0012"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "204.00",
+          "raw": "Research workshop 2 102.00 204.00",
+          "evidence_ids": [
+            "p1-l0012"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Research workshop",
+          "raw": "Research workshop 3 53.00 159.00",
+          "evidence_ids": [
+            "p1-l0013"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "3",
+          "raw": "Research workshop 3 53.00 159.00",
+          "evidence_ids": [
+            "p1-l0013"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "53.00",
+          "raw": "Research workshop 3 53.00 159.00",
+          "evidence_ids": [
+            "p1-l0013"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "159.00",
+          "raw": "Research workshop 3 53.00 159.00",
+          "evidence_ids": [
+            "p1-l0013"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed"
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "Paper mockup",
+          "raw": "Paper mockup 2 88.00 176.00",
+          "evidence_ids": [
+            "p1-l0014"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "2",
+          "raw": "Paper mockup 2 88.00 176.00",
+          "evidence_ids": [
+            "p1-l0014"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "88.00",
+          "raw": "Paper mockup 2 88.00 176.00",
+          "evidence_ids": [
+            "p1-l0014"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "176.00",
+          "raw": "Paper mockup 2 88.00 176.00",
+          "evidence_ids": [
+            "p1-l0014"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed"
+        }
+      }
+    ]
+  },
+  "freeze_sha256": "bd51713c2766a01da72d5e46f8265ee01179880c243991157d73c378c68405ae",
+  "ocr_prediction_sha256": "3d0c5f680dde565171ccf377d64324e22606301639c93b3e4d72f5f651d5d938",
+  "issue_codes": [
+    "TOTAL_NOT_CHECKED"
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "width_px": 1000,
+      "height_px": 1800,
+      "spans": [
+        {
+          "id": "p1-l0001",
+          "page": 1,
+          "text": "aaa,",
+          "box": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 1.0,
+            "bottom": 0.010555555555555556
+          },
+          "method": "tesseract-eng",
+          "confidence": 13.59
+        },
+        {
+          "id": "p1-l0002",
+          "page": 1,
+          "text": "Linden Field Studio",
+          "box": {
+            "left": 0.068,
+            "top": 0.02388888888888889,
+            "right": 0.387,
+            "bottom": 0.03888888888888889
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.95
+        },
+        {
+          "id": "p1-l0003",
+          "page": 1,
+          "text": "INVOICE",
+          "box": {
+            "left": 0.063,
+            "top": 0.05722222222222222,
+            "right": 0.214,
+            "bottom": 0.07222222222222222
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.2
+        },
+        {
+          "id": "p1-l0004",
+          "page": 1,
+          "text": "Invoice No.: F15-025",
+          "box": {
+            "left": 0.062,
+            "top": 0.16666666666666666,
+            "right": 0.281,
+            "bottom": 0.1761111111111111
+          },
+          "method": "tesseract-eng",
+          "confidence": 92.39
+        },
+        {
+          "id": "p1-l0005",
+          "page": 1,
+          "text": "Date: 2026-07-26",
+          "box": {
+            "left": 0.062,
+            "top": 0.19944444444444445,
+            "right": 0.243,
+            "bottom": 0.2088888888888889
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.84
+        },
+        {
+          "id": "p1-l0006",
+          "page": 1,
+          "text": "Due date: 2026-08-25",
+          "box": {
+            "left": 0.062,
+            "top": 0.23222222222222222,
+            "right": 0.29,
+            "bottom": 0.24166666666666667
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.5
+        },
+        {
+          "id": "p1-l0007",
+          "page": 1,
+          "text": "Currency: USD",
+          "box": {
+            "left": 0.061,
+            "top": 0.265,
+            "right": 0.219,
+            "bottom": 0.2772222222222222
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.07
+        },
+        {
+          "id": "p1-l0008",
+          "page": 1,
+          "text": "Subtotal: 539.00",
+          "box": {
+            "left": 0.531,
+            "top": 0.3194444444444444,
+            "right": 0.702,
+            "bottom": 0.3288888888888889
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.85
+        },
+        {
+          "id": "p1-l0009",
+          "page": 1,
+          "text": "Tax: 9.00",
+          "box": {
+            "left": 0.53,
+            "top": 0.3511111111111111,
+            "right": 0.629,
+            "bottom": 0.3605555555555556
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.94
+        },
+        {
+          "id": "p1-l0010",
+          "page": 1,
+          "text": "Total: 548.00",
+          "box": {
+            "left": 0.53,
+            "top": 0.4461111111111111,
+            "right": 0.668,
+            "bottom": 0.45555555555555555
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.89
+        },
+        {
+          "id": "p1-l0011",
+          "page": 1,
+          "text": "Description Qty Unit price Amount",
+          "box": {
+            "left": 0.057,
+            "top": 0.48944444444444446,
+            "right": 0.897,
+            "bottom": 0.5066666666666667
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.64
+        },
+        {
+          "id": "p1-l0012",
+          "page": 1,
+          "text": "Research workshop 2 102.00 204.00",
+          "box": {
+            "left": 0.057,
+            "top": 0.5316666666666666,
+            "right": 0.886,
+            "bottom": 0.5438888888888889
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.51
+        },
+        {
+          "id": "p1-l0013",
+          "page": 1,
+          "text": "Research workshop 3 53.00 159.00",
+          "box": {
+            "left": 0.057,
+            "top": 0.5766666666666667,
+            "right": 0.886,
+            "bottom": 0.5888888888888889
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.18
+        },
+        {
+          "id": "p1-l0014",
+          "page": 1,
+          "text": "Paper mockup 2 88.00 176.00",
+          "box": {
+            "left": 0.057,
+            "top": 0.6216666666666667,
+            "right": 0.886,
+            "bottom": 0.6338888888888888
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.37
+        },
+        {
+          "id": "p1-l0015",
+          "page": 1,
+          "text": "Page 1",
+          "box": {
+            "left": 0.772,
+            "top": 0.9666666666666667,
+            "right": 0.841,
+            "bottom": 0.9788888888888889
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.5
+        }
+      ]
+    }
+  ],
+  "runtime_seconds": {
+    "model": 116.184
+  }
+}

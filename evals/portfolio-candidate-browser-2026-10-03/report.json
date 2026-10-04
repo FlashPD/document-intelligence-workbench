@@ -1,0 +1,89 @@
+{
+  "report_version": "review-browser-workflow-v1",
+  "status": "passed",
+  "checks": [
+    "recorded provenance",
+    "keyboard field navigation",
+    "native action buttons",
+    "correction creates revision",
+    "source stays visible during correction",
+    "unapproved export blocked",
+    "stale revision rejected",
+    "approval bound to revision",
+    "JSON and CSV downloads",
+    "rotated page pixels and highlights",
+    "missing evidence visible",
+    "native page selector",
+    "field jumps to source page",
+    "page-specific rotation",
+    "responsive layout"
+  ],
+  "human_timing_measurement": false,
+  "browser": "Chrome/154.0.8037.93",
+  "cases": [
+    "inv-f02-02",
+    "inv-f01-12",
+    "inv-f05-30",
+    "inv-f06-04"
+  ],
+  "frames": [
+    {
+      "path": "frames/01.png",
+      "caption": "A keyboard correction creates revision 2 and preserves the original suggestion."
+    },
+    {
+      "path": "frames/02.png",
+      "caption": "Only the approved revision can produce verified JSON and CSV downloads."
+    },
+    {
+      "path": "frames/03.png",
+      "caption": "Printed total conflict: the reviewer records a reason; source values stay unchanged."
+    },
+    {
+      "path": "frames/04.png",
+      "caption": "Review rotation: the page and cited line highlights rotate together."
+    },
+    {
+      "path": "frames/05.png",
+      "caption": "A cited row jumps to page 2; each page retains its own review rotation."
+    }
+  ],
+  "recording": {
+    "mime": "video/webm;codecs=vp9",
+    "nominal_seconds": 15,
+    "playback": {
+      "width": 1440,
+      "height": 1190,
+      "ready": 4,
+      "current_time": 0.090298
+    },
+    "method": "Three-second captioned holds of real Chrome screenshots, assembled with canvas/MediaRecorder. No audio or elapsed processing/review claim."
+  },
+  "page_selector_method": "Trusted CDP arrow/Enter events must remain uncanceled and preserve field selection/focus. Page choice uses a separate DOM change; OS popup-menu navigation is not verified.",
+  "source_sha256": {
+    "src/docwork/review_pilot.py": "cf4989b1d8f889b0be9b259c2998249ebdea7d7e315e9c6b99ffaf01af17ed2f",
+    "src/docwork/pilot_bundle.py": "431952a5824ec4d75644dc5423b6ed04e7593d281e493fcedb531f603e2940e8",
+    "src/docwork/review.py": "dfd3bb2bc700b71e8592e5cb0923155e6caf4aaaafb78462fd7199cc8df9b317",
+    "src/docwork/intake.py": "46a4de19a2c9dd9071711ae60adc93973aeca892b35b5dce018323b4919d6789",
+    "src/docwork/web.py": "38224907ce81c690d2e2054751b1ebc83ac33b33fd32ebcddea907a292162d8f",
+    "scripts/review_pilot.py": "848ac50be241c3a7800551566c4f97e041a760ce294476b012be555037ee1e6b",
+    "ui/app.js": "30f82a0756ce8fd1a34182b409da67a6471558cee96d52cc07804d843fe1924c",
+    "ui/pilot.js": "ba5888d2932b971d95c91a69a3304202917305cb75c096ebd5d3df6c433d76c8",
+    "ui/index.html": "4bc6db3084dbda996013fe746bfc04ae092510e0d588ddb39e57c7ca9a8ed36b",
+    "ui/style.css": "a390fa1f09e64678b2b5d2acfeeb357a2d23a8751941dadd79bb8545ccec4f84",
+    "scripts/verify_pilot_browser.py": "ebe109540d94304dcb08329019277c2bb92606887a3e96c0cc055689e00e05e9",
+    "scripts/verify_review_browser.py": "9aa1b2bb17fc6eb7c0517ce301abb1b7d8934a6bc298ea3c7b7f708ed796b476",
+    "src/docwork/geometry.py": "0f8cd59f8c205cb0b076fd21511be99aff13077453aa15631120b4ad08cf0275"
+  },
+  "artifacts": {
+    "demo.webm": "ec69425311c5c6d235eb3d82ec6aeb6d9cbc34471ebac5362c7bb69f5b26c5c7",
+    "frames/01.png": "4ba1ffec73b7014a5ef5229ac5a499780df54b34415dc7e2e6a0c344f0e02b7c",
+    "frames/02.png": "aca2299580dc90752511d6067f16679a419cbd7118147c1c39d318911b71bf2f",
+    "frames/03.png": "7198e146c103c8b3e108cb9f6ee574f2bd7825050093f76232e02261d2a9bf08",
+    "frames/04.png": "ae85ace01ad8b012d09d4f19b93acc92f4f82ff78b18fe0b70001897375abd7a",
+    "frames/05.png": "b43ed0f878030f4d21748fa2e05986d4f7fcc13879af54e7ec009b9e40fe65f9",
+    "index.html": "841b67dcce48fccda4824cc5ae66ee8a7fc96137ec70f8a388c278975978f9a9",
+    "source_snapshot.json": "c0bcc56ae3f33f22dd11612860132eeb5c314b1ab1e2e404b54a88af0ed95c7f"
+  },
+  "scope": "Automated browser verification on four fictional development cases, replaying verified OCR/rules suggestions. Temporary database, exports, and Chrome profile removed. No human review outcomes, live parsing, model inference, genuine scans, or productivity measurement."
+}

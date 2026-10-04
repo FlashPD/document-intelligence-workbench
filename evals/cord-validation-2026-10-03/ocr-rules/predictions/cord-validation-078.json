@@ -1,0 +1,127 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "410912647d9e4d4c56bc7701e357632092cf96822fd7ff10ca15103b5254f7ff",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.56,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "MERE O Ree ee eee eEREE REE EE ATER EE SEER RE",
+        "box": {
+          "left": 0.17476851851851852,
+          "top": 0.4212962962962963,
+          "right": 0.8738425925925926,
+          "bottom": 0.4398148148148148
+        },
+        "method": "tesseract-eng",
+        "confidence": 7.11
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "( Water",
+        "box": {
+          "left": 0.37037037037037035,
+          "top": 0.5617283950617284,
+          "right": 0.49074074074074076,
+          "bottom": 0.5763888888888888
+        },
+        "method": "tesseract-eng",
+        "confidence": 83.16
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "I war Dingin",
+        "box": {
+          "left": 0.25462962962962965,
+          "top": 0.5810185185185185,
+          "right": 0.5543981481481481,
+          "bottom": 0.5979938271604939
+        },
+        "method": "tesseract-eng",
+        "confidence": 70.56
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Soto Betawi",
+        "box": {
+          "left": 0.24768518518518517,
+          "top": 0.6010802469135802,
+          "right": 0.4537037037037037,
+          "bottom": 0.6165123456790124
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.37
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "NF PUTIH",
+        "box": {
+          "left": 0.2465277777777778,
+          "top": 0.6203703703703703,
+          "right": 0.4386574074074074,
+          "bottom": 0.6358024691358025
+        },
+        "method": "tesseract-eng",
+        "confidence": 77.3
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

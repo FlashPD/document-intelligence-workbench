@@ -1,0 +1,492 @@
+{
+  "pilot_version": "assisted-author-pilot-v1",
+  "protocol_sha256": "d3718b3b73caac0393c8da2e544f8a64742fa511d2fad6abbd87396e0cf98b3f",
+  "trials": [
+    {
+      "id": "a5c5eb2578fd47e5a0265c1c278e3ee8",
+      "document_id": "b4669f822353427287215a6fe71a1660",
+      "actor": "project-author",
+      "status": "COMPLETE",
+      "started_at": "2026-10-04T04:16:07.397532+00:00",
+      "initial_record_hash": "860827eb9bf1f25952731ddb748345f70c88e25bf6af16d2f402655d61905e47",
+      "events": [
+        {
+          "id": "6477ced666a1491c8fecf31863e71fa3",
+          "kind": "start",
+          "offset_seconds": 0.0,
+          "recorded_at": "2026-10-04T04:16:07.397567+00:00"
+        },
+        {
+          "id": "402915359f684449bd5c2c0129b8522f",
+          "kind": "interaction",
+          "offset_seconds": 9.498477999994066,
+          "recorded_at": "2026-10-04T04:16:16.895891+00:00"
+        },
+        {
+          "id": "40df32b4056549a190f49bbfecb1d0bb",
+          "kind": "interaction",
+          "offset_seconds": 28.981013334007002,
+          "recorded_at": "2026-10-04T04:16:36.378076+00:00"
+        },
+        {
+          "id": "a7461b114a5241228f90f28aaf96b23a",
+          "kind": "interaction",
+          "offset_seconds": 38.84803358401405,
+          "recorded_at": "2026-10-04T04:16:46.244921+00:00"
+        },
+        {
+          "id": "e719b32f854642d18ccf79ccd628c405",
+          "kind": "interaction",
+          "offset_seconds": 45.213358042004984,
+          "recorded_at": "2026-10-04T04:16:52.610125+00:00"
+        },
+        {
+          "id": "2dc43cefeac94b53ab42d15aa64810ed",
+          "kind": "interaction",
+          "offset_seconds": 57.21479983400786,
+          "recorded_at": "2026-10-04T04:17:04.611350+00:00"
+        },
+        {
+          "id": "cb62445d91fb4a6a8c6a9a13d62eabb8",
+          "kind": "interaction",
+          "offset_seconds": 65.69418508402305,
+          "recorded_at": "2026-10-04T04:17:13.090582+00:00"
+        },
+        {
+          "id": "3bea8d4dc01e4648a727044bfbb5c3fc",
+          "kind": "interaction",
+          "offset_seconds": 78.64914395898813,
+          "recorded_at": "2026-10-04T04:17:26.045308+00:00"
+        },
+        {
+          "id": "c9cd99b86fd547fa8cf81047d1c28280",
+          "kind": "interaction",
+          "offset_seconds": 91.53192575002322,
+          "recorded_at": "2026-10-04T04:17:38.927862+00:00"
+        },
+        {
+          "id": "07a4b56beb3840d9b3cd994156aba520",
+          "kind": "pause",
+          "offset_seconds": 93.9326619170024,
+          "recorded_at": "2026-10-04T04:17:41.328558+00:00"
+        },
+        {
+          "id": "7e4baf08d3cb481186283130c05c49ce",
+          "kind": "resume",
+          "offset_seconds": 94.98257674998604,
+          "recorded_at": "2026-10-04T04:17:42.378450+00:00"
+        },
+        {
+          "id": "2a92a97ab59b4904b56163b398124858",
+          "kind": "interaction",
+          "offset_seconds": 126.9008740420104,
+          "recorded_at": "2026-10-04T04:18:14.296174+00:00"
+        },
+        {
+          "id": "cc8b1f4e77a4455fbe94790a2c668060",
+          "kind": "interaction",
+          "offset_seconds": 137.16663962497842,
+          "recorded_at": "2026-10-04T04:18:24.545469+00:00"
+        },
+        {
+          "id": "f2aa1e4716eb47b1ba643957d82171bc",
+          "kind": "finish",
+          "offset_seconds": 142.0423399169813,
+          "recorded_at": "2026-10-04T04:18:29.412228+00:00"
+        }
+      ],
+      "final": {
+        "revision": 1,
+        "record_hash": "860827eb9bf1f25952731ddb748345f70c88e25bf6af16d2f402655d61905e47",
+        "approval_hash": "0e2cdb89163dfd30e7d3b485c7b7782359fd6099033fac48dc9a5f1e5f9a2454",
+        "export_sha256": "22c22be7fd697cdd5a0d6a5c7ca36b076d47e884caf149575e38d0dcc79aac7a",
+        "corrections": 0,
+        "acknowledgments": 0
+      }
+    },
+    {
+      "id": "d7d421968c6040d8b50188c131fc3eb8",
+      "document_id": "7767b9d13c084765bf92563181bec394",
+      "actor": "project-author",
+      "status": "COMPLETE",
+      "started_at": "2026-10-04T04:18:33.518301+00:00",
+      "initial_record_hash": "68ef232cbe3ffbf9fa11b2b700010b2f2eb390ad2267e9bff79916ed98cf9d4a",
+      "events": [
+        {
+          "id": "8a9213352db34352a521893a51cf96bf",
+          "kind": "start",
+          "offset_seconds": 0.0,
+          "recorded_at": "2026-10-04T04:18:33.518332+00:00"
+        },
+        {
+          "id": "cdcd12bacc6a4b9f82cb9a773e43d5e4",
+          "kind": "interaction",
+          "offset_seconds": 15.91456266696332,
+          "recorded_at": "2026-10-04T04:18:49.420758+00:00"
+        },
+        {
+          "id": "3f891a9e5a304cd680c94b4a90177dfa",
+          "kind": "interaction",
+          "offset_seconds": 63.765650999965146,
+          "recorded_at": "2026-10-04T04:19:37.264254+00:00"
+        },
+        {
+          "id": "b1313209a0114cbbacecf33d1954ac93",
+          "kind": "interaction",
+          "offset_seconds": 66.68196408398217,
+          "recorded_at": "2026-10-04T04:19:40.180438+00:00"
+        },
+        {
+          "id": "4f8f6de22f5d45eca57abb1ccffd049a",
+          "kind": "interaction",
+          "offset_seconds": 72.13257541699568,
+          "recorded_at": "2026-10-04T04:19:45.630817+00:00"
+        },
+        {
+          "id": "eafdee50eb9c413abd4d9eef9e548bcf",
+          "kind": "interaction",
+          "offset_seconds": 85.14963037497364,
+          "recorded_at": "2026-10-04T04:19:58.647402+00:00"
+        },
+        {
+          "id": "ddce75cfe02642a2b3e0a44c553858ec",
+          "kind": "interaction",
+          "offset_seconds": 104.6017830419587,
+          "recorded_at": "2026-10-04T04:20:18.098955+00:00"
+        },
+        {
+          "id": "78c452df1116447a95fc89394915f190",
+          "kind": "interaction",
+          "offset_seconds": 107.16816908400506,
+          "recorded_at": "2026-10-04T04:20:20.665259+00:00"
+        },
+        {
+          "id": "f514d541f875401d96b0ec1718433d52",
+          "kind": "interaction",
+          "offset_seconds": 109.94829670898616,
+          "recorded_at": "2026-10-04T04:20:23.445304+00:00"
+        },
+        {
+          "id": "dcab4099a0764b30a60827949f45d352",
+          "kind": "interaction",
+          "offset_seconds": 112.45571608399041,
+          "recorded_at": "2026-10-04T04:20:25.952650+00:00"
+        },
+        {
+          "id": "2e3eee0748a5479686b4370aeb8416a5",
+          "kind": "interaction",
+          "offset_seconds": 115.22398458397947,
+          "recorded_at": "2026-10-04T04:20:28.720838+00:00"
+        },
+        {
+          "id": "5a822cb20a6c4be1b4c8c7667155177c",
+          "kind": "interaction",
+          "offset_seconds": 118.00535845896229,
+          "recorded_at": "2026-10-04T04:20:31.502131+00:00"
+        },
+        {
+          "id": "dc53210a099144a691e3d5e93eb0a8b2",
+          "kind": "interaction",
+          "offset_seconds": 123.23238641698845,
+          "recorded_at": "2026-10-04T04:20:36.729008+00:00"
+        },
+        {
+          "id": "0974b2b741994c64a685de4a043a54d9",
+          "kind": "interaction",
+          "offset_seconds": 126.09867658396251,
+          "recorded_at": "2026-10-04T04:20:39.595220+00:00"
+        },
+        {
+          "id": "8d5eddae42f3485ea130637ec68391d8",
+          "kind": "finish",
+          "offset_seconds": 130.70986724999966,
+          "recorded_at": "2026-10-04T04:20:44.206273+00:00"
+        }
+      ],
+      "final": {
+        "revision": 1,
+        "record_hash": "68ef232cbe3ffbf9fa11b2b700010b2f2eb390ad2267e9bff79916ed98cf9d4a",
+        "approval_hash": "c9b0bb975d3766560dd6fca8c18eec651eb6ef112514d706ea0cf5079cb03589",
+        "export_sha256": "cb6592affd20983af6a3f8bfc75cb52bcbaed33ead1e8d013aac44774beee08d",
+        "corrections": 0,
+        "acknowledgments": 1
+      }
+    },
+    {
+      "id": "620ea57fb16b4efdb21d7482ea5ddd82",
+      "document_id": "0101089da7a948459a08ec7ed1170f92",
+      "actor": "project-author",
+      "status": "COMPLETE",
+      "started_at": "2026-10-04T04:20:45.633805+00:00",
+      "initial_record_hash": "de0ec0a7368ef7a60ae444fd1aefb0f1e048c1ca2a19c6bfe67bdf755c4e2f21",
+      "events": [
+        {
+          "id": "6ae1bd9676444eb6b00917cd7fa3b33b",
+          "kind": "start",
+          "offset_seconds": 0.0,
+          "recorded_at": "2026-10-04T04:20:45.633845+00:00"
+        },
+        {
+          "id": "66c41a2fa1c740e28fa07c4953ede114",
+          "kind": "interaction",
+          "offset_seconds": 3.49993574997643,
+          "recorded_at": "2026-10-04T04:20:49.133694+00:00"
+        },
+        {
+          "id": "9ff1456913db418d802b6ddcdf40e81a",
+          "kind": "interaction",
+          "offset_seconds": 16.480078082997352,
+          "recorded_at": "2026-10-04T04:21:02.113469+00:00"
+        },
+        {
+          "id": "f766b238fbf0459e8c58b038965b1d01",
+          "kind": "interaction",
+          "offset_seconds": 27.662834082962945,
+          "recorded_at": "2026-10-04T04:21:13.295904+00:00"
+        },
+        {
+          "id": "2252357b8efe48cdb38671a05f223d49",
+          "kind": "interaction",
+          "offset_seconds": 31.837085041974206,
+          "recorded_at": "2026-10-04T04:21:17.470037+00:00"
+        },
+        {
+          "id": "3e630d37d9c0458e90d384f027ab2c2d",
+          "kind": "interaction",
+          "offset_seconds": 35.09761487500509,
+          "recorded_at": "2026-10-04T04:21:20.730474+00:00"
+        },
+        {
+          "id": "19e39e30eae3446198b8db36522a26a1",
+          "kind": "interaction",
+          "offset_seconds": 38.29297675000271,
+          "recorded_at": "2026-10-04T04:21:23.925744+00:00"
+        },
+        {
+          "id": "e91e0a64292d4f99a498e54462234bb1",
+          "kind": "interaction",
+          "offset_seconds": 40.964597832993604,
+          "recorded_at": "2026-10-04T04:21:26.597293+00:00"
+        },
+        {
+          "id": "d8b23697497e404692889fdeaeaed3b8",
+          "kind": "interaction",
+          "offset_seconds": 45.79557199997362,
+          "recorded_at": "2026-10-04T04:21:31.428126+00:00"
+        },
+        {
+          "id": "28f9a25d8e02484ababf581e9c6b859e",
+          "kind": "interaction",
+          "offset_seconds": 49.20584641699679,
+          "recorded_at": "2026-10-04T04:21:34.838304+00:00"
+        },
+        {
+          "id": "87122961d5d4484db6034703225eb7c6",
+          "kind": "interaction",
+          "offset_seconds": 52.180588291957974,
+          "recorded_at": "2026-10-04T04:21:37.812963+00:00"
+        },
+        {
+          "id": "71a4c3be3f6f487ea8a7e9ff73e5fa2b",
+          "kind": "interaction",
+          "offset_seconds": 54.68203370796982,
+          "recorded_at": "2026-10-04T04:21:40.314336+00:00"
+        },
+        {
+          "id": "90456d58fcf8492ab5a3f8cc8db819e1",
+          "kind": "interaction",
+          "offset_seconds": 61.49882095796056,
+          "recorded_at": "2026-10-04T04:21:47.130929+00:00"
+        },
+        {
+          "id": "ad40542ad8f844dd9268014e84962602",
+          "kind": "interaction",
+          "offset_seconds": 64.01386066700798,
+          "recorded_at": "2026-10-04T04:21:49.645903+00:00"
+        },
+        {
+          "id": "250efcab606846a9bc61d510f139bdeb",
+          "kind": "interaction",
+          "offset_seconds": 66.71358862495981,
+          "recorded_at": "2026-10-04T04:21:52.345550+00:00"
+        },
+        {
+          "id": "24df1b0b276b45ae9fe47b52f3cac55f",
+          "kind": "finish",
+          "offset_seconds": 71.85783945798175,
+          "recorded_at": "2026-10-04T04:21:57.489653+00:00"
+        }
+      ],
+      "final": {
+        "revision": 5,
+        "record_hash": "a0043873ec002ad0ece8e9ec71141766f9349e0f9414acc6dc5a82ec53497fc0",
+        "approval_hash": "68e1d5077c2dc59ae5ac5e981df6f7737355e37edf08f81a8c147dff08c890ea",
+        "export_sha256": "4130d93a08db5393a6fd53317f077ed894170de2805c2e96bca182ed4134409d",
+        "corrections": 4,
+        "acknowledgments": 0
+      }
+    },
+    {
+      "id": "3b7c5b6841a04fbca3b5509ccf3a3776",
+      "document_id": "42bde4f199aa46988a62fc1932c62cb5",
+      "actor": "project-author",
+      "status": "COMPLETE",
+      "started_at": "2026-10-04T04:21:58.615410+00:00",
+      "initial_record_hash": "fb86434839f5a2dcf315f2621520f8effb04e63b02a91d02a02c4045b2f42924",
+      "events": [
+        {
+          "id": "33c4a57a10a64e17bc97676aed4af3ca",
+          "kind": "start",
+          "offset_seconds": 0.0,
+          "recorded_at": "2026-10-04T04:21:58.615441+00:00"
+        },
+        {
+          "id": "33ff0a6b6dce4217bc2da54b30658bb8",
+          "kind": "interaction",
+          "offset_seconds": 5.4645877499715425,
+          "recorded_at": "2026-10-04T04:22:04.079893+00:00"
+        },
+        {
+          "id": "5a743b3002974afb8126cb0afded6e23",
+          "kind": "interaction",
+          "offset_seconds": 18.29628212499665,
+          "recorded_at": "2026-10-04T04:22:16.911218+00:00"
+        },
+        {
+          "id": "a416e7f5f5f54ea781b3af90d0c1101d",
+          "kind": "interaction",
+          "offset_seconds": 21.383879375003744,
+          "recorded_at": "2026-10-04T04:22:19.998726+00:00"
+        },
+        {
+          "id": "5ba9f65334d54e45b32b28b1cebe6e22",
+          "kind": "interaction",
+          "offset_seconds": 25.731714291963726,
+          "recorded_at": "2026-10-04T04:22:24.346443+00:00"
+        },
+        {
+          "id": "3bae0032555e4701bd916f0344b45211",
+          "kind": "interaction",
+          "offset_seconds": 49.48140737495851,
+          "recorded_at": "2026-10-04T04:22:48.095459+00:00"
+        },
+        {
+          "id": "5499dba85aea46ad988d57685c7dde53",
+          "kind": "finish",
+          "offset_seconds": 53.0600264169625,
+          "recorded_at": "2026-10-04T04:22:51.673974+00:00"
+        }
+      ],
+      "final": {
+        "revision": 2,
+        "record_hash": "b88b6f47945b93ad5d3a6622248b5144d8d93db4a0b197d050c54bb8948f3215",
+        "approval_hash": "5741930fd878c5262ea92bb1ec30db6c7bad84cfb2d5684a07e53a701eb8a71b",
+        "export_sha256": "acde76d7daf2a3f81fdb3cd77387f896407a83d6b2c6e118f987884fcb3fa277",
+        "corrections": 1,
+        "acknowledgments": 0
+      }
+    },
+    {
+      "id": "f331ae97f7334fe1ae798b92b6a30d8b",
+      "document_id": "dee2516db11641fbbc70d6888d5fdc56",
+      "actor": "project-author",
+      "status": "COMPLETE",
+      "started_at": "2026-10-04T04:22:52.582875+00:00",
+      "initial_record_hash": "6c393012a6bd99def3825f20cbd5c057fc2819d5607a6cb62a36b8e2b3bcf3fa",
+      "events": [
+        {
+          "id": "9da7c73360b145ca89bc84945c2e1ab6",
+          "kind": "start",
+          "offset_seconds": 0.0,
+          "recorded_at": "2026-10-04T04:22:52.582921+00:00"
+        },
+        {
+          "id": "3f426698e6ab4b279239bf1176bb6907",
+          "kind": "interaction",
+          "offset_seconds": 16.314901750010904,
+          "recorded_at": "2026-10-04T04:23:08.897380+00:00"
+        },
+        {
+          "id": "6369d6c46f034dad8e98c71634c216d7",
+          "kind": "interaction",
+          "offset_seconds": 39.480314292013645,
+          "recorded_at": "2026-10-04T04:23:32.062129+00:00"
+        },
+        {
+          "id": "f7c45d73e70048cdaeb00a188e9521da",
+          "kind": "interaction",
+          "offset_seconds": 44.414482666994445,
+          "recorded_at": "2026-10-04T04:23:36.996163+00:00"
+        },
+        {
+          "id": "17f3e2184ef4481eb4c19b4d26227a6a",
+          "kind": "interaction",
+          "offset_seconds": 48.71426066698041,
+          "recorded_at": "2026-10-04T04:23:41.295819+00:00"
+        },
+        {
+          "id": "c47925edccef4bf7b28ab7e22b99598e",
+          "kind": "finish",
+          "offset_seconds": 51.79113145801239,
+          "recorded_at": "2026-10-04T04:23:44.372597+00:00"
+        }
+      ],
+      "final": {
+        "revision": 1,
+        "record_hash": "6c393012a6bd99def3825f20cbd5c057fc2819d5607a6cb62a36b8e2b3bcf3fa",
+        "approval_hash": "88ab48897296501a1ac583ecc8f321e3d0433ba7335c1ef73cda8ef02e2c8695",
+        "export_sha256": "133860432c1e1eb3627d3b57b7e313e0670a29e8eabee224b5e2cd99b318814b",
+        "corrections": 0,
+        "acknowledgments": 0
+      }
+    },
+    {
+      "id": "88eccdb9b2d84618939e74fc547bda7f",
+      "document_id": "0fb26990c0e64e6c94318285688677ee",
+      "actor": "project-author",
+      "status": "COMPLETE",
+      "started_at": "2026-10-04T04:23:45.265686+00:00",
+      "initial_record_hash": "def13e7cc697f468c89484a6976eff3805388d6cd4baa5a6a82de2eed5cbf086",
+      "events": [
+        {
+          "id": "306ebbba102a40cc9d171d0a40de2094",
+          "kind": "start",
+          "offset_seconds": 0.0,
+          "recorded_at": "2026-10-04T04:23:45.265725+00:00"
+        },
+        {
+          "id": "bcbdca59ac2b44038999fee1598866e1",
+          "kind": "interaction",
+          "offset_seconds": 22.664056000008713,
+          "recorded_at": "2026-10-04T04:24:07.929155+00:00"
+        },
+        {
+          "id": "b05a50d6353e4b22a5d2236a87c964ab",
+          "kind": "interaction",
+          "offset_seconds": 32.464679459051695,
+          "recorded_at": "2026-10-04T04:24:17.729503+00:00"
+        },
+        {
+          "id": "d32417d7d66f40fe9afcb22d97977775",
+          "kind": "interaction",
+          "offset_seconds": 35.21396804205142,
+          "recorded_at": "2026-10-04T04:24:20.478712+00:00"
+        },
+        {
+          "id": "83089b8e998846aa8bbc293ca6481692",
+          "kind": "finish",
+          "offset_seconds": 38.607823250000365,
+          "recorded_at": "2026-10-04T04:24:23.872467+00:00"
+        }
+      ],
+      "final": {
+        "revision": 1,
+        "record_hash": "def13e7cc697f468c89484a6976eff3805388d6cd4baa5a6a82de2eed5cbf086",
+        "approval_hash": "25b1784b9f524c0ea0d907d4b9c2bee744e157356ce47c94e00f74d4adc5a89f",
+        "export_sha256": "6eb1ca677c6f719be61ce30f54d0fdddc6ab190cf65e958442dde8f6650ccf5a",
+        "corrections": 0,
+        "acknowledgments": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "50000",
+        "raw": "50.000",
+        "evidence_ids": [
+          "p1-l0002"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": "23000",
+        "raw": "23.000",
+        "evidence_ids": [
+          "p1-l0001"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "27000",
+        "raw": "27.000",
+        "evidence_ids": [
+          "p1-l0003"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "945e505a3416b7578abeed11ad6a112b6600b24816dfb75bddbc369000b1eef9",
+  "run_sha256": "f17c96d49115a20156773ee318cdda06cca46e81ce22a024507de84a9bee2afb",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 20.688
+  },
+  "ocr_prediction_sha256": "5eb2bbf5eac1285cb04e14a575ecce80f61ffe585f9d4c00978af82df32754fb",
+  "page": {
+    "number": 1,
+    "width_px": 1108,
+    "height_px": 1478,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "23.000",
+        "box": {
+          "left": 0.7328519855595668,
+          "top": 0.6786197564276049,
+          "right": 0.8122743682310469,
+          "bottom": 0.696211096075778
+        },
+        "method": "tesseract-eng",
+        "confidence": 58.21
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "50.000",
+        "box": {
+          "left": 0.7328519855595668,
+          "top": 0.7300405953991881,
+          "right": 0.8131768953068592,
+          "bottom": 0.7469553450608931
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.01
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Kembali 27,000",
+        "box": {
+          "left": 0.16787003610108303,
+          "top": 0.7550744248985115,
+          "right": 0.8131768953068592,
+          "bottom": 0.7774018944519621
+        },
+        "method": "tesseract-eng",
+        "confidence": 66.45
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 3,
+    "valid_reference_values": 3,
+    "aligned_values": 3,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

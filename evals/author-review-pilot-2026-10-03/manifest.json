@@ -1,0 +1,192 @@
+{
+  "archive_version": "author-pilot-archive-v1",
+  "source_report_sha256": "5af3e8470fc17ebf9bc83b78c234174e41a0439cdf4780e1344940b9082cdcc8",
+  "files": [
+    {
+      "path": "backup/database.sqlite",
+      "sha256": "50ab5b9e478986681704fb517b1a81585aa375427719803b4286c7f5c8cbbd8a",
+      "size_bytes": 208896
+    },
+    {
+      "path": "backup/exports/0101089da7a948459a08ec7ed1170f92/revision-5/header.csv",
+      "sha256": "9f9d4d5d371412512608861925755579ef5012336fac1bf7f76fd90e51316230",
+      "size_bytes": 1057
+    },
+    {
+      "path": "backup/exports/0101089da7a948459a08ec7ed1170f92/revision-5/invoice.json",
+      "sha256": "4130d93a08db5393a6fd53317f077ed894170de2805c2e96bca182ed4134409d",
+      "size_bytes": 19239
+    },
+    {
+      "path": "backup/exports/0101089da7a948459a08ec7ed1170f92/revision-5/line-items.csv",
+      "sha256": "d0e7f99edca18185d87a944b96a12b20c1f38a028244745c1218f39ba47a9430",
+      "size_bytes": 1119
+    },
+    {
+      "path": "backup/exports/0fb26990c0e64e6c94318285688677ee/revision-1/header.csv",
+      "sha256": "332fd44ad272195461ebd276d7dd5bc1d59e4ad1f783ec61e957118ee7724f3a",
+      "size_bytes": 1062
+    },
+    {
+      "path": "backup/exports/0fb26990c0e64e6c94318285688677ee/revision-1/invoice.json",
+      "sha256": "6eb1ca677c6f719be61ce30f54d0fdddc6ab190cf65e958442dde8f6650ccf5a",
+      "size_bytes": 21858
+    },
+    {
+      "path": "backup/exports/0fb26990c0e64e6c94318285688677ee/revision-1/line-items.csv",
+      "sha256": "7a6b63d7b165be9b1112e95f7cb73f9ec2c094a2c3a222b358a67543e1425a25",
+      "size_bytes": 1324
+    },
+    {
+      "path": "backup/exports/42bde4f199aa46988a62fc1932c62cb5/revision-2/header.csv",
+      "sha256": "c2608cce9aceb553e58b8170f2ccf7fb08ca464db540fd67f1f283b67199c189",
+      "size_bytes": 1061
+    },
+    {
+      "path": "backup/exports/42bde4f199aa46988a62fc1932c62cb5/revision-2/invoice.json",
+      "sha256": "acde76d7daf2a3f81fdb3cd77387f896407a83d6b2c6e118f987884fcb3fa277",
+      "size_bytes": 18669
+    },
+    {
+      "path": "backup/exports/42bde4f199aa46988a62fc1932c62cb5/revision-2/line-items.csv",
+      "sha256": "45251abf72cf3d6fd8bfa57cd03b0333afc807735e745e5e81244e815b28dbca",
+      "size_bytes": 960
+    },
+    {
+      "path": "backup/exports/7767b9d13c084765bf92563181bec394/revision-1/header.csv",
+      "sha256": "de1d2c6fcc1309881eaa77d7942e6d29fb8a06ccfa079750ede57a61e77bff61",
+      "size_bytes": 1058
+    },
+    {
+      "path": "backup/exports/7767b9d13c084765bf92563181bec394/revision-1/invoice.json",
+      "sha256": "cb6592affd20983af6a3f8bfc75cb52bcbaed33ead1e8d013aac44774beee08d",
+      "size_bytes": 20208
+    },
+    {
+      "path": "backup/exports/7767b9d13c084765bf92563181bec394/revision-1/line-items.csv",
+      "sha256": "bd4f505c68a30d946e30a65cb155f3d8032d8a389f4e1d8931dfaf5381946dd5",
+      "size_bytes": 1114
+    },
+    {
+      "path": "backup/exports/b4669f822353427287215a6fe71a1660/revision-1/header.csv",
+      "sha256": "54ca6fd3b0589d2717605828b920b4c67a7accad76d41e2060a496087559dfb4",
+      "size_bytes": 1054
+    },
+    {
+      "path": "backup/exports/b4669f822353427287215a6fe71a1660/revision-1/invoice.json",
+      "sha256": "22c22be7fd697cdd5a0d6a5c7ca36b076d47e884caf149575e38d0dcc79aac7a",
+      "size_bytes": 17904
+    },
+    {
+      "path": "backup/exports/b4669f822353427287215a6fe71a1660/revision-1/line-items.csv",
+      "sha256": "9551f1aa205fdf564db58036d58a023c39d51885c3a9e500474951ff7f399597",
+      "size_bytes": 937
+    },
+    {
+      "path": "backup/exports/dee2516db11641fbbc70d6888d5fdc56/revision-1/header.csv",
+      "sha256": "865f9eee85c9e8d4fc210ea40c450c8f22b9dc125b1d86aedd347177c35ea25a",
+      "size_bytes": 1062
+    },
+    {
+      "path": "backup/exports/dee2516db11641fbbc70d6888d5fdc56/revision-1/invoice.json",
+      "sha256": "133860432c1e1eb3627d3b57b7e313e0670a29e8eabee224b5e2cd99b318814b",
+      "size_bytes": 13728
+    },
+    {
+      "path": "backup/exports/dee2516db11641fbbc70d6888d5fdc56/revision-1/line-items.csv",
+      "sha256": "ca40f8c5da194e4aef71cdc39ce92160011f3d73f6ee8382e5e57e389669f4da",
+      "size_bytes": 576
+    },
+    {
+      "path": "backup/intake/objects/7a/7aaf3afac62e4850b2c0f66079735a64641dbb2bfc3479f994d74ca6fefcedbc",
+      "sha256": "7aaf3afac62e4850b2c0f66079735a64641dbb2bfc3479f994d74ca6fefcedbc",
+      "size_bytes": 70147
+    },
+    {
+      "path": "backup/intake/objects/9c/9cf5df21ea9bf3628a245a62eea8abaea95ee37ba08401580f6ca1e623d1b912",
+      "sha256": "9cf5df21ea9bf3628a245a62eea8abaea95ee37ba08401580f6ca1e623d1b912",
+      "size_bytes": 76354
+    },
+    {
+      "path": "backup/intake/objects/ae/ae17440eff6cb0fa8cc3a1a679a3c15d0b16466749d379d2e213ec5c443cadee",
+      "sha256": "ae17440eff6cb0fa8cc3a1a679a3c15d0b16466749d379d2e213ec5c443cadee",
+      "size_bytes": 82063
+    },
+    {
+      "path": "backup/intake/objects/bd/bdd8ee263d7877fade240cd1622c101e7a680b0d0e924494003e0a5c64a96165",
+      "sha256": "bdd8ee263d7877fade240cd1622c101e7a680b0d0e924494003e0a5c64a96165",
+      "size_bytes": 67806
+    },
+    {
+      "path": "backup/intake/objects/c3/c315391bbcdad3e7e7638fd91ccbf021eed83020098809ee8020487b84570947",
+      "sha256": "c315391bbcdad3e7e7638fd91ccbf021eed83020098809ee8020487b84570947",
+      "size_bytes": 69431
+    },
+    {
+      "path": "backup/intake/objects/c5/c5b2d285935cc9f80519e7470f5d9cd8ec1afda9c12aae4eb177aa9fb03b3758",
+      "sha256": "c5b2d285935cc9f80519e7470f5d9cd8ec1afda9c12aae4eb177aa9fb03b3758",
+      "size_bytes": 143174
+    },
+    {
+      "path": "backup/intake/renders/76/76fbdf4ea97a104eeb46660e279750fa8d0ed38f019cbd5abff7316a6dac3a44.png",
+      "sha256": "76fbdf4ea97a104eeb46660e279750fa8d0ed38f019cbd5abff7316a6dac3a44",
+      "size_bytes": 52016
+    },
+    {
+      "path": "backup/intake/renders/7a/7aaf3afac62e4850b2c0f66079735a64641dbb2bfc3479f994d74ca6fefcedbc.png",
+      "sha256": "7aaf3afac62e4850b2c0f66079735a64641dbb2bfc3479f994d74ca6fefcedbc",
+      "size_bytes": 70147
+    },
+    {
+      "path": "backup/intake/renders/9c/9cf5df21ea9bf3628a245a62eea8abaea95ee37ba08401580f6ca1e623d1b912.png",
+      "sha256": "9cf5df21ea9bf3628a245a62eea8abaea95ee37ba08401580f6ca1e623d1b912",
+      "size_bytes": 76354
+    },
+    {
+      "path": "backup/intake/renders/ae/ae17440eff6cb0fa8cc3a1a679a3c15d0b16466749d379d2e213ec5c443cadee.png",
+      "sha256": "ae17440eff6cb0fa8cc3a1a679a3c15d0b16466749d379d2e213ec5c443cadee",
+      "size_bytes": 82063
+    },
+    {
+      "path": "backup/intake/renders/bd/bdd8ee263d7877fade240cd1622c101e7a680b0d0e924494003e0a5c64a96165.png",
+      "sha256": "bdd8ee263d7877fade240cd1622c101e7a680b0d0e924494003e0a5c64a96165",
+      "size_bytes": 67806
+    },
+    {
+      "path": "backup/intake/renders/c3/c315391bbcdad3e7e7638fd91ccbf021eed83020098809ee8020487b84570947.png",
+      "sha256": "c315391bbcdad3e7e7638fd91ccbf021eed83020098809ee8020487b84570947",
+      "size_bytes": 69431
+    },
+    {
+      "path": "backup/intake/renders/c6/c6b1b4b852bbdbc43a9a1a196f430d9f6ed6a735841901cbd1b40b18dd69e2cb.png",
+      "sha256": "c6b1b4b852bbdbc43a9a1a196f430d9f6ed6a735841901cbd1b40b18dd69e2cb",
+      "size_bytes": 53736
+    },
+    {
+      "path": "backup/manifest.json",
+      "sha256": "3985436540b089a773377171ab886c3e4e3654d4b76a891b5441e5a91794d5ed",
+      "size_bytes": 7046
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "d3718b3b73caac0393c8da2e544f8a64742fa511d2fad6abbd87396e0cf98b3f",
+      "size_bytes": 4815
+    },
+    {
+      "path": "report.json",
+      "sha256": "5af3e8470fc17ebf9bc83b78c234174e41a0439cdf4780e1344940b9082cdcc8",
+      "size_bytes": 7646
+    },
+    {
+      "path": "source_snapshot.json",
+      "sha256": "d6f3d3ab3c80a6ffa7e9458651cc53b4d9a0efc88a49a8582686d2a869656f4f",
+      "size_bytes": 147963
+    },
+    {
+      "path": "timing.json",
+      "sha256": "7ef8c79be457dd1c3f754d20c1ad5c7e091f500608e703279dc64d514163ae80",
+      "size_bytes": 17866
+    }
+  ],
+  "scope": "Original author protocol, timing events and supplied report preserved byte-for-byte. SQLite is a portable backup with rebased export paths and compacted pages; original suggestions, revisions, approvals and export bytes are preserved. Local hashes are not signed proof of human participation."
+}

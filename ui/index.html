@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document Intelligence Workbench</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+  <script src="/pilot.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">LOCAL DOCUMENT INTELLIGENCE</div>
+      <h1>Review Workbench</h1>
+    </div>
+    <div class="topright">
+      <span class="mode">Prototype · OCR rules · human approval</span>
+      <label>Reviewer label <input id="actor" value="demo-reviewer" aria-label="Reviewer audit label"></label>
+    </div>
+  </header>
+  <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+  <main class="shell">
+    <aside class="sidebar">
+      <section id="replay-panel" class="panel" hidden>
+        <div class="eyebrow">PORTFOLIO DEMO · RECORDED OCR</div>
+        <h2>Try the review workflow</h2>
+        <p class="muted">Fictional invoices with saved extraction results. This session runs without OCR, Docker, or a model.</p>
+        <div id="replay-cases" class="queue"></div>
+        <p class="hint">Select a field to inspect its source. Correct an extraction error or explain a printed conflict, then approve and download JSON/CSV. Start a new demo for fresh candidates; this session's reviews and exports stay on disk.</p>
+      </section>
+      <section id="pilot-panel" class="panel" hidden>
+        <div class="eyebrow">AUTHOR PILOT · RECORDED OCR RULES</div>
+        <h2>Timed assisted review</h2>
+        <p class="muted">Compare every header and row with the source. Correct suggestions or explain printed conflicts, then approve and export JSON. This pilot measures assisted review only.</p>
+        <p id="pilot-progress" role="status" aria-live="polite"></p>
+        <p id="pilot-timing" class="muted"></p>
+        <div class="button-row">
+          <button id="pilot-start" type="button">Start next invoice</button>
+          <button id="pilot-pause" type="button" hidden>Pause</button>
+          <button id="pilot-resume" type="button" hidden>Resume</button>
+          <button id="pilot-finish" type="button" hidden>Finish trial</button>
+          <button id="pilot-abandon" type="button" hidden>Unable to finish</button>
+        </div>
+        <p class="hint">Pause before stepping away. Switching tabs pauses the trial. After 60 seconds without an interaction, excess time is excluded as idle; use the page or field controls while reviewing. Interrupted trials remain incomplete.</p>
+      </section>
+      <section class="panel">
+        <div class="section-head"><h2>Documents</h2><span id="queue-count"></span></div>
+        <div id="queue" class="queue"></div>
+      </section>
+      <section id="intake-panel" class="panel actions">
+        <h2>Add a document</h2>
+        <p class="muted">Uploaded files need the Docker parser. Trusted samples run fresh local OCR for the demo.</p>
+        <div class="button-row">
+          <button id="seed-clean" type="button">Clean sample</button>
+          <button id="seed-conflict" type="button">Conflicting total</button>
+        </div>
+        <label class="file-label">PDF, PNG, or JPEG <input id="upload" type="file" accept=".pdf,.png,.jpg,.jpeg"></label>
+        <label class="file-label" for="extractor">Extractor</label>
+        <select id="extractor"><option value="ocr_rules">OCR rules</option><option value="span_llm">Local span model (experimental)</option></select>
+        <p id="managed-model" hidden></p>
+        <div id="model-settings" hidden>
+          <label class="file-label" for="model-endpoint">Local model endpoint</label>
+          <input id="model-endpoint" type="url" value="http://127.0.0.1:8080" autocomplete="off">
+          <label class="file-label" for="model-id">Model ID</label>
+          <input id="model-id" type="text" placeholder="Model served locally" autocomplete="off">
+        </div>
+        <div class="button-row"><button id="upload-button" type="button">Upload</button><button id="process-button" type="button">Process next job</button></div>
+      </section>
+    </aside>
+    <section class="workspace">
+      <div id="empty" class="empty panel">
+        <div class="empty-mark">◎</div>
+        <h2>Start with a sample</h2>
+        <p>Choose a trusted sample to see fields, source spans, validation issues, revisions, and approved exports.</p>
+      </div>
+      <div id="document" hidden>
+        <div class="document-head panel">
+          <div><div class="eyebrow" id="doc-kind"></div><h2 id="doc-title"></h2><span id="doc-meta" class="muted"></span></div>
+          <div class="document-head-actions"><span id="doc-status" class="status"></span><button id="approve-button" class="primary" type="button">Approve revision</button></div>
+        </div>
+        <div id="pending" class="panel pending" hidden></div>
+        <div id="review-grid" class="review-grid">
+          <section class="panel page-panel">
+            <div class="section-head"><h2>Source page</h2><span id="evidence-note" class="muted"></span></div>
+            <div class="page-controls"><button id="page-previous" type="button" aria-label="Previous page">←</button><label for="page-select">Page</label><select id="page-select" aria-label="Source page"></select><button id="page-next" type="button" aria-label="Next page">→</button><button id="rotate-left" type="button" aria-label="Rotate page left">↶</button><button id="rotate-right" type="button" aria-label="Rotate page right">↷</button><span id="rotation-label" aria-live="polite">0°</span></div>
+            <div id="page-frame" class="page-frame"><canvas id="page-canvas" role="img" aria-label="Scanned invoice page"></canvas><div id="highlights" class="highlights" aria-hidden="true"></div></div>
+            <p class="hint">Select a field to highlight its cited OCR line. A line box is approximate evidence for the value. On field buttons, use ↑/↓ to move and Enter to focus the correction.</p>
+          </section>
+          <div class="review-side">
+            <section class="panel">
+              <div class="section-head"><h2>Header fields</h2><span id="revision-label"></span></div>
+              <div id="fields" class="fields"></div>
+            </section>
+            <section class="panel"><h2>Line items</h2><div id="line-items" class="fields"></div></section>
+            <section class="panel editor-panel">
+              <h2>Correct selected field</h2>
+              <p id="selection-label" class="muted">Select a field above.</p>
+              <label>Corrected value <input id="edit-value" type="text" autocomplete="off"></label>
+              <div class="button-row"><button id="save-edit" type="button">Save correction</button><button id="mark-missing" type="button">Mark missing</button></div>
+              <p class="hint">Corrections create a new revision and preserve the original suggestion.</p>
+            </section>
+          </div>
+        </div>
+        <div id="review-bottom" class="bottom-grid">
+          <section class="panel"><div class="section-head"><h2>Validation issues</h2><span id="issue-count"></span></div><div id="issues"></div></section>
+          <section class="panel"><h2>History and exports</h2><div id="history"></div><div class="export-actions"><button id="export-json" type="button">Export JSON</button><button id="export-csv" type="button">Export CSV</button></div><div id="downloads"></div></section>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

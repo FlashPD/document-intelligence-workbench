@@ -1,0 +1,306 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "REDBEAN BRED",
+          "raw": "REDBEAN BRED",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "9000",
+          "raw": "9,000",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "FRANKFRUT SHUSA3E ROLL",
+          "raw": "FRANKFRUT SHUSA3E ROLL",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "12000",
+          "raw": "12,000",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "18079de945731e7aa56626a7b1e229655ff532af0f58bcce9016d45563870984",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 5.249,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 2304,
+    "height_px": 4096,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "=",
+        "box": {
+          "left": 0.17100694444444445,
+          "top": 0.3271484375,
+          "right": 0.23914930555555555,
+          "bottom": 0.329833984375
+        },
+        "method": "tesseract-eng",
+        "confidence": 44.2
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "\u2014 ee ee ee oe ee ee ee",
+        "box": {
+          "left": 0.2456597222222222,
+          "top": 0.31982421875,
+          "right": 0.7808159722222222,
+          "bottom": 0.332275390625
+        },
+        "method": "tesseract-eng",
+        "confidence": 40.63
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "-\u2014\u2014 oo \u00a9 as .nnmnuan awa ==",
+        "box": {
+          "left": 0.390625,
+          "top": 0.3232421875,
+          "right": 0.7018229166666666,
+          "bottom": 0.332763671875
+        },
+        "method": "tesseract-eng",
+        "confidence": 16.52
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "= '@ t@ \u2014- .",
+        "box": {
+          "left": 0.004340277777777778,
+          "top": 0.368408203125,
+          "right": 0.6731770833333334,
+          "bottom": 0.3828125
+        },
+        "method": "tesseract-eng",
+        "confidence": 42.54
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "\u2014\u2014 a se a cm \u2014_",
+        "box": {
+          "left": 0.17274305555555555,
+          "top": 0.396484375,
+          "right": 0.3181423611111111,
+          "bottom": 0.403564453125
+        },
+        "method": "tesseract-eng",
+        "confidence": 19.96
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "\u2014 _\u2014 oe ee",
+        "box": {
+          "left": 0.2842881944444444,
+          "top": 0.39599609375,
+          "right": 0.3723958333333333,
+          "bottom": 0.4033203125
+        },
+        "method": "tesseract-eng",
+        "confidence": 47.52
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "OK met art ee er ee cee ees oe ee ee ee ee ee",
+        "box": {
+          "left": 0.17274305555555555,
+          "top": 0.395263671875,
+          "right": 0.6866319444444444,
+          "bottom": 0.40673828125
+        },
+        "method": "tesseract-eng",
+        "confidence": 32.43
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "OS SE SS aes ES SE SS SS RD MOT SD ONS ONES LET SET SNS SNS SEN ES",
+        "box": {
+          "left": 0.3394097222222222,
+          "top": 0.399658203125,
+          "right": 0.7061631944444444,
+          "bottom": 0.408203125
+        },
+        "method": "tesseract-eng",
+        "confidence": 21.88
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "1 REDBEAN BRED 9,000",
+        "box": {
+          "left": 0.2131076388888889,
+          "top": 0.412109375,
+          "right": 0.8467881944444444,
+          "bottom": 0.44189453125
+        },
+        "method": "tesseract-eng",
+        "confidence": 66.02
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "1 FRANKFRUT SHUSA3E ROLL 12,000",
+        "box": {
+          "left": 0.2109375,
+          "top": 0.436279296875,
+          "right": 0.8485243055555556,
+          "bottom": 0.46923828125
+        },
+        "method": "tesseract-eng",
+        "confidence": 61.9
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "\u2014\u2014 a",
+        "box": {
+          "left": 0.7300347222222222,
+          "top": 0.467041015625,
+          "right": 0.84765625,
+          "bottom": 0.473876953125
+        },
+        "method": "tesseract-eng",
+        "confidence": 12.33
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "ae es res oe cee ee CT Se",
+        "box": {
+          "left": 0.6901041666666666,
+          "top": 0.39208984375,
+          "right": 0.8446180555555556,
+          "bottom": 0.399169921875
+        },
+        "method": "tesseract-eng",
+        "confidence": 27.33
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "\u2014\u2014 a ee",
+        "box": {
+          "left": 0.7074652777777778,
+          "top": 0.39892578125,
+          "right": 0.8059895833333334,
+          "bottom": 0.402587890625
+        },
+        "method": "tesseract-eng",
+        "confidence": 31.6
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 6,
+    "valid_reference_values": 6,
+    "aligned_values": 6,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

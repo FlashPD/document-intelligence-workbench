@@ -1,0 +1,179 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "2fc4bd8b25710009ae14f35dc0f708933027c8e2caf9b07ccc4ab1cdef6dfb90",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.483,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "SB 1: OR",
+        "box": {
+          "left": 0.2349537037037037,
+          "top": 0.43287037037037035,
+          "right": 0.35300925925925924,
+          "bottom": 0.4521604938271605
+        },
+        "method": "tesseract-eng",
+        "confidence": 65.26
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Chakocha Flt",
+        "box": {
+          "left": 0.2337962962962963,
+          "top": 0.46064814814814814,
+          "right": 0.4340277777777778,
+          "bottom": 0.4791666666666667
+        },
+        "method": "tesseract-eng",
+        "confidence": 53.34
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Bbq Bento",
+        "box": {
+          "left": 0.2326388888888889,
+          "top": 0.4876543209876543,
+          "right": 0.38657407407407407,
+          "bottom": 0.5077160493827161
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.89
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Sub Total",
+        "box": {
+          "left": 0.41203703703703703,
+          "top": 0.5432098765432098,
+          "right": 0.5590277777777778,
+          "bottom": 0.5625
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.43
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "P.Rest 10 %",
+        "box": {
+          "left": 0.375,
+          "top": 0.6273148148148148,
+          "right": 0.5636574074074074,
+          "bottom": 0.6466049382716049
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.8
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Total",
+        "box": {
+          "left": 0.48148148148148145,
+          "top": 0.7075617283950617,
+          "right": 0.5590277777777778,
+          "bottom": 0.7276234567901234
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.51
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Cash",
+        "box": {
+          "left": 0.4965277777777778,
+          "top": 0.7314814814814815,
+          "right": 0.5648148148148148,
+          "bottom": 0.7523148148148148
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.7
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Kembal |",
+        "box": {
+          "left": 0.44212962962962965,
+          "top": 0.7893518518518519,
+          "right": 0.5659722222222222,
+          "bottom": 0.8202160493827161
+        },
+        "method": "tesseract-eng",
+        "confidence": 63.11
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "3 Items,",
+        "box": {
+          "left": 0.17824074074074073,
+          "top": 0.9182098765432098,
+          "right": 0.31828703703703703,
+          "bottom": 0.941358024691358
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.72
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

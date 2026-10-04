@@ -1,0 +1,461 @@
+{
+  "record": {
+    "schema_version": "invoice-v1-spike",
+    "fields": {
+      "supplier_name": {
+        "value": "Birch Signal Works",
+        "raw": "Birch Signal Works",
+        "evidence_ids": [
+          "p1-l0002"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "invoice_number": {
+        "value": "F08-005",
+        "raw": "Invoice No.: F08-005",
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "issue_date": {
+        "value": "2026-04-06",
+        "raw": "Date: 2026-04-06",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "due_date": {
+        "value": "2026-05-06",
+        "raw": "Due date: 2026-05-06",
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "currency": {
+        "value": "USD",
+        "raw": "Currency: USD",
+        "evidence_ids": [
+          "p1-l0007"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed"
+      },
+      "tax": {
+        "value": "7.00",
+        "raw": "Tax: 7.00",
+        "evidence_ids": [
+          "p1-l0011"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed"
+      },
+      "shipping": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed"
+      },
+      "total": {
+        "value": "1064.00",
+        "raw": "Total: 1064.00",
+        "evidence_ids": [
+          "p1-l0014"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Technical editing",
+          "raw": "Technical editing 3 74.00 222.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "3",
+          "raw": "Technical editing 3 74.00 222.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "74.00",
+          "raw": "Technical editing 3 74.00 222.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "222.00",
+          "raw": "Technical editing 3 74.00 222.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Design review",
+          "raw": "Design review 4 60.00 240.00",
+          "evidence_ids": [
+            "p1-l0012"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "4",
+          "raw": "Design review 4 60.00 240.00",
+          "evidence_ids": [
+            "p1-l0012"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "60.00",
+          "raw": "Design review 4 60.00 240.00",
+          "evidence_ids": [
+            "p1-l0012"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "240.00",
+          "raw": "Design review 4 60.00 240.00",
+          "evidence_ids": [
+            "p1-l0012"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "Layout study",
+          "raw": "Layout study 4 67.00 268.00",
+          "evidence_ids": [
+            "p1-l0015"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "4",
+          "raw": "Layout study 4 67.00 268.00",
+          "evidence_ids": [
+            "p1-l0015"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "67.00",
+          "raw": "Layout study 4 67.00 268.00",
+          "evidence_ids": [
+            "p1-l0015"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "268.00",
+          "raw": "Layout study 4 67.00 268.00",
+          "evidence_ids": [
+            "p1-l0015"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      }
+    ]
+  },
+  "issue_codes": [
+    "TOTAL_NOT_CHECKED"
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "width_px": 1100,
+      "height_px": 1500,
+      "spans": [
+        {
+          "id": "p1-l0001",
+          "page": 1,
+          "text": "ns",
+          "box": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 0.017272727272727273,
+            "bottom": 1.0
+          },
+          "method": "tesseract-eng",
+          "confidence": 23.04
+        },
+        {
+          "id": "p1-l0002",
+          "page": 1,
+          "text": "Birch Signal Works",
+          "box": {
+            "left": 0.03909090909090909,
+            "top": 0.7133333333333334,
+            "right": 0.07545454545454545,
+            "bottom": 0.9546666666666667
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.23
+        },
+        {
+          "id": "p1-l0003",
+          "page": 1,
+          "text": "INVOICE",
+          "box": {
+            "left": 0.09363636363636364,
+            "top": 0.84,
+            "right": 0.12181818181818181,
+            "bottom": 0.954
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.11
+        },
+        {
+          "id": "p1-l0004",
+          "page": 1,
+          "text": "Invoice No.: F08-005",
+          "box": {
+            "left": 0.19545454545454546,
+            "top": 0.43533333333333335,
+            "right": 0.21272727272727274,
+            "bottom": 0.592
+          },
+          "method": "tesseract-eng",
+          "confidence": 82.93
+        },
+        {
+          "id": "p1-l0005",
+          "page": 1,
+          "text": "Date: 2026-04-06",
+          "box": {
+            "left": 0.24909090909090909,
+            "top": 0.462,
+            "right": 0.26636363636363636,
+            "bottom": 0.592
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.59
+        },
+        {
+          "id": "p1-l0006",
+          "page": 1,
+          "text": "Due date: 2026-05-06",
+          "box": {
+            "left": 0.30272727272727273,
+            "top": 0.42933333333333334,
+            "right": 0.32,
+            "bottom": 0.592
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.04
+        },
+        {
+          "id": "p1-l0007",
+          "page": 1,
+          "text": "Currency: USD",
+          "box": {
+            "left": 0.3563636363636364,
+            "top": 0.478,
+            "right": 0.3781818181818182,
+            "bottom": 0.5926666666666667
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.17
+        },
+        {
+          "id": "p1-l0008",
+          "page": 1,
+          "text": "Description Qty Unit price Amount",
+          "box": {
+            "left": 0.4690909090909091,
+            "top": 0.30133333333333334,
+            "right": 0.49818181818181817,
+            "bottom": 0.952
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.52
+        },
+        {
+          "id": "p1-l0009",
+          "page": 1,
+          "text": ". - Subtotal: 1057.00",
+          "box": {
+            "left": 0.5181818181818182,
+            "top": 0.09533333333333334,
+            "right": 0.54,
+            "bottom": 0.9046666666666666
+          },
+          "method": "tesseract-eng",
+          "confidence": 53.54
+        },
+        {
+          "id": "p1-l0010",
+          "page": 1,
+          "text": "Technical editing 3 74.00 222.00",
+          "box": {
+            "left": 0.5381818181818182,
+            "top": 0.30933333333333335,
+            "right": 0.56,
+            "bottom": 0.9533333333333334
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.55
+        },
+        {
+          "id": "p1-l0011",
+          "page": 1,
+          "text": "Tax: 7.00",
+          "box": {
+            "left": 0.57,
+            "top": 0.15666666666666668,
+            "right": 0.5872727272727273,
+            "bottom": 0.22666666666666666
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.25
+        },
+        {
+          "id": "p1-l0012",
+          "page": 1,
+          "text": "Design review 4 60.00 240.00",
+          "box": {
+            "left": 0.6118181818181818,
+            "top": 0.30933333333333335,
+            "right": 0.6336363636363637,
+            "bottom": 0.952
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.31
+        },
+        {
+          "id": "p1-l0013",
+          "page": 1,
+          "text": "Data cleanup 3 109.00 327.00 Shipping: 0.00",
+          "box": {
+            "left": 0.6736363636363636,
+            "top": 0.11933333333333333,
+            "right": 0.7072727272727273,
+            "bottom": 0.952
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.53
+        },
+        {
+          "id": "p1-l0014",
+          "page": 1,
+          "text": "Total: 1064.00",
+          "box": {
+            "left": 0.7254545454545455,
+            "top": 0.11933333333333333,
+            "right": 0.7427272727272727,
+            "bottom": 0.22666666666666666
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.54
+        },
+        {
+          "id": "p1-l0015",
+          "page": 1,
+          "text": "Layout study 4 67.00 268.00",
+          "box": {
+            "left": 0.759090909090909,
+            "top": 0.30933333333333335,
+            "right": 0.7809090909090909,
+            "bottom": 0.952
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.46
+        },
+        {
+          "id": "p1-l0016",
+          "page": 1,
+          "text": "Page 1",
+          "box": {
+            "left": 0.9454545454545454,
+            "top": 0.10266666666666667,
+            "right": 0.9672727272727273,
+            "bottom": 0.152
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.69
+        }
+      ]
+    }
+  ],
+  "source_sha256": "a781698e43938810ffe4c6f454d3e1db9573a1b9ee1cc8c75a009c60d35958de",
+  "run_version": "invoice-preview-ocr-rules-v3",
+  "baseline_version": "ocr-rules-v0.4",
+  "pipeline_sha256": "b79588d6331e367c1d94483ab82371a0f470b5706d55b41baef59389d9082833",
+  "ocr_psm": 1,
+  "input_mode": "verified_corpus_png_previews",
+  "runtime_seconds": {
+    "ocr": 0.787,
+    "total": 0.788
+  }
+}

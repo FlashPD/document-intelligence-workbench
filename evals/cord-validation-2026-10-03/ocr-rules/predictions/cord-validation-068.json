@@ -1,0 +1,202 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "0",
+        "raw": "00",
+        "evidence_ids": [
+          "p1-l0003"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "\u00b0 13,",
+          "raw": "\u00b0 13,",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "2",
+          "raw": "2",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "000",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Honey Mandarin \u00bb",
+          "raw": "Honey Mandarin \u00bb",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "26000",
+          "raw": "26,000",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "b3e04da0b884cc75603a94c2f290f55a621a564fca03ea524b9c6c407aa9520f",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.509,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "2X \u00b0 13, 000",
+        "box": {
+          "left": 0.2974537037037037,
+          "top": 0.3873456790123457,
+          "right": 0.6655092592592593,
+          "bottom": 0.4089506172839506
+        },
+        "method": "tesseract-eng",
+        "confidence": 71.38
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Honey Mandarin \u00bb 26,000",
+        "box": {
+          "left": 0.17476851851851852,
+          "top": 0.41280864197530864,
+          "right": 0.7372685185185185,
+          "bottom": 0.4375
+        },
+        "method": "tesseract-eng",
+        "confidence": 53.34
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "TOTAL #26, O00",
+        "box": {
+          "left": 0.25,
+          "top": 0.466820987654321,
+          "right": 0.7361111111111112,
+          "bottom": 0.48996913580246915
+        },
+        "method": "tesseract-eng",
+        "confidence": 60.53
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "CASH *30, 000",
+        "box": {
+          "left": 0.24768518518518517,
+          "top": 0.49382716049382713,
+          "right": 0.7430555555555556,
+          "bottom": 0.5162037037037037
+        },
+        "method": "tesseract-eng",
+        "confidence": 69.53
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "CHANGE",
+        "box": {
+          "left": 0.2465277777777778,
+          "top": 0.5239197530864198,
+          "right": 0.3854166666666667,
+          "bottom": 0.5447530864197531
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.66
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 6,
+    "valid_reference_values": 6,
+    "aligned_values": 6,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "STIX ECLAIRS",
+          "raw": "STIX ECLAIRS",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "ALMOND CREAM CHEESE",
+          "raw": "ALMOND CREAM CHEESE",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "cac2fe7129ff76dbfb047c827e0598ed0b8891f947507600fa7f0c5a48f605d6",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 46.798
+  },
+  "ocr_prediction_sha256": "4fa385d791a6799d44ea74dccb674f2e0b8eb90eba199ee16004bad02b4ea405",
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "\u2014",
+        "box": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.7245370370370371,
+          "bottom": 0.08410493827160494
+        },
+        "method": "tesseract-eng",
+        "confidence": 34.83
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "(2) 1untic Anne\u2019",
+        "box": {
+          "left": 0.05324074074074074,
+          "top": 0.09799382716049383,
+          "right": 0.9108796296296297,
+          "bottom": 0.17978395061728394
+        },
+        "method": "tesseract-eng",
+        "confidence": 41.82
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "STIX ECLAIRS",
+        "box": {
+          "left": 0.13657407407407407,
+          "top": 0.404320987654321,
+          "right": 0.3576388888888889,
+          "bottom": 0.42592592592592593
+        },
+        "method": "tesseract-eng",
+        "confidence": 82.85
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "1 x 19,000 49,000",
+        "box": {
+          "left": 0.14351851851851852,
+          "top": 0.42669753086419754,
+          "right": 0.8541666666666666,
+          "bottom": 0.4591049382716049
+        },
+        "method": "tesseract-eng",
+        "confidence": 82.47
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "ALMOND CREAM CHEESE",
+        "box": {
+          "left": 0.1423611111111111,
+          "top": 0.4645061728395062,
+          "right": 0.5543981481481481,
+          "bottom": 0.48996913580246915
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.32
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "1 x 28,000 28,000",
+        "box": {
+          "left": 0.14583333333333334,
+          "top": 0.49151234567901236,
+          "right": 0.8587962962962963,
+          "bottom": 0.5208333333333334
+        },
+        "method": "tesseract-eng",
+        "confidence": 83.4
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "SUBTOTAL. ( Ee ryie's",
+        "box": {
+          "left": 0.09837962962962964,
+          "top": 0.5270061728395061,
+          "right": 0.8645833333333334,
+          "bottom": 0.5686728395061729
+        },
+        "method": "tesseract-eng",
+        "confidence": 28.44
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "GRAND TOTAL 47,000",
+        "box": {
+          "left": 0.08912037037037036,
+          "top": 0.6103395061728395,
+          "right": 0.8738425925925926,
+          "bottom": 0.6388888888888888
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.33
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "VISA 8945 47,000",
+        "box": {
+          "left": 0.08217592592592593,
+          "top": 0.6651234567901234,
+          "right": 0.8807870370370371,
+          "bottom": 0.6936728395061729
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.59
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "CHANGE DUE 0",
+        "box": {
+          "left": 0.0787037037037037,
+          "top": 0.7214506172839507,
+          "right": 0.8854166666666666,
+          "bottom": 0.7507716049382716
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.56
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 2,
+    "valid_reference_values": 2,
+    "aligned_values": 2,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

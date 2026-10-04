@@ -1,0 +1,273 @@
+{
+  "comparison_version": "paired-cord-receipts-v1",
+  "split": "test",
+  "documents": 100,
+  "baseline_report_sha256": "6131f3eaeeeb1202bbd6d234bbaa02226b0185b7c9cf4fe4c5b652a256b179e4",
+  "model_report_sha256": "956cb630ff695e7713831bb6244120039d220625f48c2e7ef15842a002d5abb7",
+  "manifest_sha256": "8e55986acaf6eecde85ca2ff29ace8827167980ce82978129184738b451b8bfc",
+  "implementation_sha256": "9cf409f2299359f7f59eb981bc2f68d9cdce2cc429297490fc2b04f1843abd13",
+  "baseline": {
+    "documents_scheduled": 100,
+    "documents_processed": 100,
+    "header_fields": {
+      "subtotal": {
+        "tp": 5,
+        "fp": 3,
+        "fn": 59,
+        "precision": 0.625,
+        "recall": 0.0781,
+        "f1": 0.1389
+      },
+      "discount": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 3,
+        "precision": 1.0,
+        "recall": 0.4,
+        "f1": 0.5714
+      },
+      "service": {
+        "tp": 1,
+        "fp": 2,
+        "fn": 10,
+        "precision": 0.3333,
+        "recall": 0.0909,
+        "f1": 0.1429
+      },
+      "tax": {
+        "tp": 3,
+        "fp": 1,
+        "fn": 37,
+        "precision": 0.75,
+        "recall": 0.075,
+        "f1": 0.1364
+      },
+      "total": {
+        "tp": 14,
+        "fp": 6,
+        "fn": 81,
+        "precision": 0.7,
+        "recall": 0.1474,
+        "f1": 0.2435
+      }
+    },
+    "row_fields": {
+      "description": {
+        "tp": 27,
+        "fp": 98,
+        "fn": 224,
+        "precision": 0.216,
+        "recall": 0.1076,
+        "f1": 0.1436
+      },
+      "quantity": {
+        "tp": 25,
+        "fp": 20,
+        "fn": 195,
+        "precision": 0.5556,
+        "recall": 0.1136,
+        "f1": 0.1887
+      },
+      "unit_price": {
+        "tp": 2,
+        "fp": 4,
+        "fn": 65,
+        "precision": 0.3333,
+        "recall": 0.0299,
+        "f1": 0.0548
+      },
+      "line_total": {
+        "tp": 32,
+        "fp": 93,
+        "fn": 210,
+        "precision": 0.256,
+        "recall": 0.1322,
+        "f1": 0.1744
+      }
+    },
+    "row_detection": {
+      "tp": 33,
+      "fp": 92,
+      "fn": 218,
+      "precision": 0.264,
+      "recall": 0.1315,
+      "f1": 0.1755
+    },
+    "eligible_exact_rows": {
+      "tp": 18,
+      "fp": 107,
+      "fn": 233,
+      "precision": 0.144,
+      "recall": 0.0717,
+      "f1": 0.0957
+    },
+    "header_exclusions": {
+      "service": 89,
+      "subtotal": 36,
+      "discount": 95,
+      "tax": 60,
+      "total": 5
+    },
+    "row_exclusions": {
+      "unit_price": 184,
+      "quantity": 31,
+      "line_total": 9
+    },
+    "failures_by_type": {}
+  },
+  "model": {
+    "documents_scheduled": 100,
+    "documents_processed": 95,
+    "header_fields": {
+      "subtotal": {
+        "tp": 6,
+        "fp": 6,
+        "fn": 58,
+        "precision": 0.5,
+        "recall": 0.0938,
+        "f1": 0.1579
+      },
+      "discount": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 5,
+        "precision": null,
+        "recall": 0.0,
+        "f1": 0.0
+      },
+      "service": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 10,
+        "precision": 1.0,
+        "recall": 0.0909,
+        "f1": 0.1667
+      },
+      "tax": {
+        "tp": 2,
+        "fp": 2,
+        "fn": 38,
+        "precision": 0.5,
+        "recall": 0.05,
+        "f1": 0.0909
+      },
+      "total": {
+        "tp": 9,
+        "fp": 5,
+        "fn": 86,
+        "precision": 0.6429,
+        "recall": 0.0947,
+        "f1": 0.1651
+      }
+    },
+    "row_fields": {
+      "description": {
+        "tp": 41,
+        "fp": 100,
+        "fn": 210,
+        "precision": 0.2908,
+        "recall": 0.1633,
+        "f1": 0.2092
+      },
+      "quantity": {
+        "tp": 12,
+        "fp": 14,
+        "fn": 208,
+        "precision": 0.4615,
+        "recall": 0.0545,
+        "f1": 0.0976
+      },
+      "unit_price": {
+        "tp": 10,
+        "fp": 3,
+        "fn": 57,
+        "precision": 0.7692,
+        "recall": 0.1493,
+        "f1": 0.25
+      },
+      "line_total": {
+        "tp": 16,
+        "fp": 5,
+        "fn": 226,
+        "precision": 0.7619,
+        "recall": 0.0661,
+        "f1": 0.1217
+      }
+    },
+    "row_detection": {
+      "tp": 50,
+      "fp": 91,
+      "fn": 201,
+      "precision": 0.3546,
+      "recall": 0.1992,
+      "f1": 0.2551
+    },
+    "eligible_exact_rows": {
+      "tp": 4,
+      "fp": 137,
+      "fn": 247,
+      "precision": 0.0284,
+      "recall": 0.0159,
+      "f1": 0.0204
+    },
+    "header_exclusions": {
+      "service": 89,
+      "subtotal": 36,
+      "discount": 95,
+      "tax": 60,
+      "total": 5
+    },
+    "row_exclusions": {
+      "unit_price": 184,
+      "quantity": 31,
+      "line_total": 9
+    },
+    "failures_by_type": {
+      "ModelContextOverflow": 1,
+      "ModelUnavailable": 4
+    }
+  },
+  "delta_model_minus_rules": {
+    "row_detection_f1": 0.0796,
+    "eligible_exact_row_f1": -0.0753,
+    "header_subtotal_f1": 0.019,
+    "header_discount_f1": -0.5714,
+    "header_service_f1": 0.0238,
+    "header_tax_f1": -0.0455,
+    "header_total_f1": -0.0784
+  },
+  "paired_95_intervals": {
+    "row_detection_f1": [
+      -0.0041,
+      0.1709
+    ],
+    "eligible_exact_row_f1": [
+      -0.1425,
+      -0.0121
+    ],
+    "header_subtotal_f1": [
+      -0.1056,
+      0.1456
+    ],
+    "header_discount_f1": [
+      -1.0,
+      0.0
+    ],
+    "header_service_f1": [
+      -0.375,
+      0.4306
+    ],
+    "header_tax_f1": [
+      -0.1948,
+      0.0953
+    ],
+    "header_total_f1": [
+      -0.196,
+      0.037
+    ]
+  },
+  "draws": 1000,
+  "seed": 42,
+  "scope": "Experimental English-OCR receipt adapters. Settings frozen using the official validation split; top-level purchased items and released labeled amounts only. No currency, vendor, invoice number, date, submenu, void-item, or payment-label scoring. No automatic approval or production receipt workflow claim.",
+  "interpretation": "Descriptive receipt results; no default promotion, automatic approval, or invoice-quality claim."
+}

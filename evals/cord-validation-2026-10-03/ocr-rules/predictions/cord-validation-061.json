@@ -1,0 +1,358 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": "10",
+        "raw": "10",
+        "evidence_ids": [
+          "p1-l0009"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": "1800",
+        "raw": "1,800",
+        "evidence_ids": [
+          "p1-l0014"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Wang Bayar ,",
+          "raw": "Wang Bayar ,",
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "10000",
+          "raw": "10,000",
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Free Kembal.in",
+          "raw": "Free Kembal.in",
+          "evidence_ids": [
+            "p1-l0013"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "50",
+          "raw": "50",
+          "evidence_ids": [
+            "p1-l0013"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "aa2de89a0a51024f43ed5a0579453354447fba47b7714f4a19605fd96a0a67c4",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 2.353,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 1356,
+    "height_px": 2315,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": ".",
+        "box": {
+          "left": 0.7676991150442478,
+          "top": 0.09632829373650108,
+          "right": 0.7890855457227138,
+          "bottom": 0.1062634989200864
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "| ee",
+        "box": {
+          "left": 0.4896755162241888,
+          "top": 0.12311015118790497,
+          "right": 0.7116519174041298,
+          "bottom": 0.13822894168466524
+        },
+        "method": "tesseract-eng",
+        "confidence": 22.34
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "-)",
+        "box": {
+          "left": 0.6231563421828908,
+          "top": 0.16630669546436286,
+          "right": 0.6556047197640118,
+          "bottom": 0.1758099352051836
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "- w",
+        "box": {
+          "left": 0.5929203539823009,
+          "top": 0.21123110151187904,
+          "right": 0.7278761061946902,
+          "bottom": 0.22116630669546436
+        },
+        "method": "tesseract-eng",
+        "confidence": 64.93
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Oe .",
+        "box": {
+          "left": 0.5936578171091446,
+          "top": 0.24362850971922245,
+          "right": 0.7123893805309734,
+          "bottom": 0.25356371490280777
+        },
+        "method": "tesseract-eng",
+        "confidence": 20.28
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Paddle Pop Ch co Magma =",
+        "box": {
+          "left": 0.09587020648967552,
+          "top": 0.5028077753779697,
+          "right": 0.8643067846607669,
+          "bottom": 0.561987041036717
+        },
+        "method": "tesseract-eng",
+        "confidence": 76.8
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "1 3,000 3,000",
+        "box": {
+          "left": 0.1467551622418879,
+          "top": 0.5628509719222462,
+          "right": 0.8812684365781711,
+          "bottom": 0.5909287257019439
+        },
+        "method": "tesseract-eng",
+        "confidence": 85.45
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "sub Total \u00ab=\u2014si(i\u00e9\u2018\u00e9~SC\u00e9\u00ab*T\u00abC RO",
+        "box": {
+          "left": 0.13200589970501475,
+          "top": 0.6038876889848812,
+          "right": 0.890117994100295,
+          "bottom": 0.6596112311015119
+        },
+        "method": "tesseract-eng",
+        "confidence": 43.41
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "Pajak Resto (10%) es",
+        "box": {
+          "left": 0.12684365781710916,
+          "top": 0.6272138228941685,
+          "right": 0.8997050147492626,
+          "bottom": 0.6911447084233261
+        },
+        "method": "tesseract-eng",
+        "confidence": 75.24
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "Total Bayar 8 250",
+        "box": {
+          "left": 0.12536873156342182,
+          "top": 0.6928725701943844,
+          "right": 0.9100294985250738,
+          "bottom": 0.729157667386609
+        },
+        "method": "tesseract-eng",
+        "confidence": 84.26
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "Wang Bayar , 10,000",
+        "box": {
+          "left": 0.10545722713864307,
+          "top": 0.7295896328293736,
+          "right": 0.915929203539823,
+          "bottom": 0.7645788336933045
+        },
+        "method": "tesseract-eng",
+        "confidence": 58.9
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "bette: 460 +e",
+        "box": {
+          "left": 0.13200589970501475,
+          "top": 0.7749460043196544,
+          "right": 0.9070796460176991,
+          "bottom": 0.7952483801295896
+        },
+        "method": "tesseract-eng",
+        "confidence": 31.83
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "Free Kembal.in 50",
+        "box": {
+          "left": 0.11946902654867257,
+          "top": 0.8038876889848812,
+          "right": 0.915929203539823,
+          "bottom": 0.838012958963283
+        },
+        "method": "tesseract-eng",
+        "confidence": 60.05
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "Total Kemba| ian 1,800",
+        "box": {
+          "left": 0.1172566371681416,
+          "top": 0.8384449244060476,
+          "right": 0.9107669616519174,
+          "bottom": 0.8773218142548597
+        },
+        "method": "tesseract-eng",
+        "confidence": 60.27
+      },
+      {
+        "id": "p1-l0015",
+        "page": 1,
+        "text": "\u2014 \u2014_ a on ee",
+        "box": {
+          "left": 0.06268436578171091,
+          "top": 0.8790496760259179,
+          "right": 0.9056047197640118,
+          "bottom": 0.895464362850972
+        },
+        "method": "tesseract-eng",
+        "confidence": 27.08
+      },
+      {
+        "id": "p1-l0016",
+        "page": 1,
+        "text": "ee ee ee ees oe ee wees Ores te ees es cen an gees ve cone owe ae wae Ae Fe SE",
+        "box": {
+          "left": 0.11799410029498525,
+          "top": 0.8829373650107991,
+          "right": 0.8045722713864307,
+          "bottom": 0.8997840172786177
+        },
+        "method": "tesseract-eng",
+        "confidence": 31.94
+      },
+      {
+        "id": "p1-l0017",
+        "page": 1,
+        "text": "es ae reese swe see Sen en oomet oY Dee SES, ee weeny eee es int 0m ee rm eh wt wae arm cen en TS",
+        "box": {
+          "left": 0.0700589970501475,
+          "top": 0.9403887688984881,
+          "right": 0.8915929203539823,
+          "bottom": 0.9619870410367171
+        },
+        "method": "tesseract-eng",
+        "confidence": 27.84
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 6,
+    "valid_reference_values": 6,
+    "aligned_values": 6,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

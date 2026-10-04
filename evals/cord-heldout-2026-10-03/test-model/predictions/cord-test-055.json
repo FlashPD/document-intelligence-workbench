@@ -1,0 +1,273 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "1 APPLE CINNAMON PASTRY 22,000",
+          "raw": "1 APPLE CINNAMON PASTRY 22,000",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "2 ROYAL CHEESE TART 32,000",
+          "raw": "2 ROYAL CHEESE TART 32,000",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "07ae62e2d56b156014acc0f4e0b701b8d0890b36b4a7a934852429418f743d7b",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 49.061
+  },
+  "ocr_prediction_sha256": "45edbfa3fab4aaa1fa75387ad4e0e9e2da7a2d1f82d92cf979cf12894ca56e03",
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "| teed a",
+        "box": {
+          "left": 0.28935185185185186,
+          "top": 0.14660493827160495,
+          "right": 0.5138888888888888,
+          "bottom": 0.17669753086419754
+        },
+        "method": "tesseract-eng",
+        "confidence": 23.24
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "i\" TT",
+        "box": {
+          "left": 0.3738425925925926,
+          "top": 0.1736111111111111,
+          "right": 0.5104166666666666,
+          "bottom": 0.19135802469135801
+        },
+        "method": "tesseract-eng",
+        "confidence": 15.62
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "'",
+        "box": {
+          "left": 0.46064814814814814,
+          "top": 0.20910493827160495,
+          "right": 0.46412037037037035,
+          "bottom": 0.2175925925925926
+        },
+        "method": "tesseract-eng",
+        "confidence": 47.94
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "1 APPLE CINNAMON PASTRY 22,000",
+        "box": {
+          "left": 0.23726851851851852,
+          "top": 0.404320987654321,
+          "right": 0.8067129629629629,
+          "bottom": 0.4390432098765432
+        },
+        "method": "tesseract-eng",
+        "confidence": 82.49
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "2 ROYAL CHEESE TART 32,000",
+        "box": {
+          "left": 0.2337962962962963,
+          "top": 0.44135802469135804,
+          "right": 0.8113425925925926,
+          "bottom": 0.46296296296296297
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.95
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "TOTAL = \u00a9\u2014-5\u00a2 ,000",
+        "box": {
+          "left": 0.26157407407407407,
+          "top": 0.4691358024691358,
+          "right": 0.8182870370370371,
+          "bottom": 0.5493827160493827
+        },
+        "method": "tesseract-eng",
+        "confidence": 40.0
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "CARD = 5c , 000",
+        "box": {
+          "left": 0.25462962962962965,
+          "top": 0.5347222222222222,
+          "right": 0.8240740740740741,
+          "bottom": 0.5925925925925926
+        },
+        "method": "tesseract-eng",
+        "confidence": 43.36
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "pwewe",
+        "box": {
+          "left": 0.25578703703703703,
+          "top": 0.5725308641975309,
+          "right": 0.3402777777777778,
+          "bottom": 0.6003086419753086
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "+ e ~~",
+        "box": {
+          "left": 0.2638888888888889,
+          "top": 0.6111111111111112,
+          "right": 0.8125,
+          "bottom": 0.6242283950617284
+        },
+        "method": "tesseract-eng",
+        "confidence": 52.47
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "eel F ganitiyt",
+        "box": {
+          "left": 0.17708333333333334,
+          "top": 0.6666666666666666,
+          "right": 0.47685185185185186,
+          "bottom": 0.6905864197530864
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "Ha ee",
+        "box": {
+          "left": 0.1736111111111111,
+          "top": 0.6952160493827161,
+          "right": 0.32175925925925924,
+          "bottom": 0.7345679012345679
+        },
+        "method": "tesseract-eng",
+        "confidence": 42.08
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 2,
+    "valid_reference_values": 2,
+    "aligned_values": 2,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

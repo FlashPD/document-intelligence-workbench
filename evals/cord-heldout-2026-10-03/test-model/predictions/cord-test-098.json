@@ -1,0 +1,449 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "BLACK PEF PPER VEATBALA",
+          "raw": "BLACK PEF PPER VEATBALA",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "TRUFFLE CREAM",
+          "raw": "TRUFFLE CREAM",
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "EARL GREY MILK JEA",
+          "raw": "EARL GREY MILK JEA",
+          "evidence_ids": [
+            "p1-l0012"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "d7f3c76c6562fe034942b11fc161e39b3a468c6f426042be2dc73e05dc1d4ca6",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 65.901
+  },
+  "ocr_prediction_sha256": "20bf9ebcae872e70a54150360542b89c4840f7e5b18be1ff45a570eccda52134",
+  "page": {
+    "number": 1,
+    "width_px": 2048,
+    "height_px": 2048,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "BEVERAG",
+        "box": {
+          "left": 0.12353515625,
+          "top": 0.51171875,
+          "right": 0.21826171875,
+          "bottom": 0.537109375
+        },
+        "method": "tesseract-eng",
+        "confidence": 40.89
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Quality/K",
+        "box": {
+          "left": 0.1220703125,
+          "top": 0.54736328125,
+          "right": 0.216796875,
+          "bottom": 0.56689453125
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.93
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Presenta",
+        "box": {
+          "left": 0.12109375,
+          "top": 0.578125,
+          "right": 0.208984375,
+          "bottom": 0.59423828125
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.46
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Taste/Ra",
+        "box": {
+          "left": 0.11865234375,
+          "top": 0.60595703125,
+          "right": 0.208984375,
+          "bottom": 0.62353515625
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.16
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "SERVICE",
+        "box": {
+          "left": 0.11572265625,
+          "top": 0.66455078125,
+          "right": 0.21044921875,
+          "bottom": 0.6875
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.12
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Friendlin",
+        "box": {
+          "left": 0.11572265625,
+          "top": 0.69677734375,
+          "right": 0.20361328125,
+          "bottom": 0.71533203125
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.84
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Prompt",
+        "box": {
+          "left": 0.11474609375,
+          "top": 0.72900390625,
+          "right": 0.19287109375,
+          "bottom": 0.74853515625
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.59
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Attentiv:",
+        "box": {
+          "left": 0.11279296875,
+          "top": 0.759765625,
+          "right": 0.201171875,
+          "bottom": 0.77978515625
+        },
+        "method": "tesseract-eng",
+        "confidence": 85.15
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "Time/W",
+        "box": {
+          "left": 0.1123046875,
+          "top": 0.791015625,
+          "right": 0.19873046875,
+          "bottom": 0.8125
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.7
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "BLACK PEF PPER VEATBALA",
+        "box": {
+          "left": 0.31298828125,
+          "top": 0.58642578125,
+          "right": 0.52685546875,
+          "bottom": 0.63134765625
+        },
+        "method": "tesseract-eng",
+        "confidence": 71.51
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "TRUFFLE CREAM",
+        "box": {
+          "left": 0.31591796875,
+          "top": 0.6298828125,
+          "right": 0.451171875,
+          "bottom": 0.65185546875
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.96
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "EARL GREY MILK JEA",
+        "box": {
+          "left": 0.3134765625,
+          "top": 0.64892578125,
+          "right": 0.5068359375,
+          "bottom": 0.6748046875
+        },
+        "method": "tesseract-eng",
+        "confidence": 71.93
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "SUBTT!",
+        "box": {
+          "left": 0.31298828125,
+          "top": 0.68115234375,
+          "right": 0.3720703125,
+          "bottom": 0.69970703125
+        },
+        "method": "tesseract-eng",
+        "confidence": 7.79
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "service Charge 6%",
+        "box": {
+          "left": 0.3134765625,
+          "top": 0.69775390625,
+          "right": 0.50146484375,
+          "bottom": 0.724609375
+        },
+        "method": "tesseract-eng",
+        "confidence": 68.26
+      },
+      {
+        "id": "p1-l0015",
+        "page": 1,
+        "text": "ysis",
+        "box": {
+          "left": 0.3173828125,
+          "top": 0.728515625,
+          "right": 0.39208984375,
+          "bottom": 0.77099609375
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0016",
+        "page": 1,
+        "text": "ri or AL.",
+        "box": {
+          "left": 0.31982421875,
+          "top": 0.76708984375,
+          "right": 0.41943359375,
+          "bottom": 0.80810546875
+        },
+        "method": "tesseract-eng",
+        "confidence": 53.26
+      },
+      {
+        "id": "p1-l0017",
+        "page": 1,
+        "text": "He)",
+        "box": {
+          "left": 0.6142578125,
+          "top": 0.6376953125,
+          "right": 0.64208984375,
+          "bottom": 0.65380859375
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0018",
+        "page": 1,
+        "text": "i)",
+        "box": {
+          "left": 0.65234375,
+          "top": 0.5947265625,
+          "right": 0.66162109375,
+          "bottom": 0.6044921875
+        },
+        "method": "tesseract-eng",
+        "confidence": 55.49
+      },
+      {
+        "id": "p1-l0019",
+        "page": 1,
+        "text": "000",
+        "box": {
+          "left": 0.634765625,
+          "top": 0.61181640625,
+          "right": 0.669921875,
+          "bottom": 0.630859375
+        },
+        "method": "tesseract-eng",
+        "confidence": 37.42
+      },
+      {
+        "id": "p1-l0020",
+        "page": 1,
+        "text": "OOo",
+        "box": {
+          "left": 0.64453125,
+          "top": 0.6337890625,
+          "right": 0.67529296875,
+          "bottom": 0.64990234375
+        },
+        "method": "tesseract-eng",
+        "confidence": 37.48
+      },
+      {
+        "id": "p1-l0021",
+        "page": 1,
+        "text": "\u00a7 O00",
+        "box": {
+          "left": 0.62890625,
+          "top": 0.65673828125,
+          "right": 0.6806640625,
+          "bottom": 0.6767578125
+        },
+        "method": "tesseract-eng",
+        "confidence": 34.66
+      },
+      {
+        "id": "p1-l0022",
+        "page": 1,
+        "text": "\\2, Pa ;",
+        "box": {
+          "left": 0.62646484375,
+          "top": 0.68017578125,
+          "right": 0.69140625,
+          "bottom": 0.72265625
+        },
+        "method": "tesseract-eng",
+        "confidence": 19.4
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 3,
+    "valid_reference_values": 3,
+    "aligned_values": 3,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

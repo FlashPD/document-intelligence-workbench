@@ -1,0 +1,217 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "0",
+        "raw": "000",
+        "evidence_ids": [
+          "p1-l0003"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "[MD] SOFT STEAMED CHEESEC",
+          "raw": "[MD] SOFT STEAMED CHEESEC",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "2",
+          "raw": "2",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "20000",
+          "raw": "20,000",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "[MD] SOFT STEAMED CHOCCCA",
+          "raw": "[MD] SOFT STEAMED CHOCCCA",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "2",
+          "raw": "2",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "20000",
+          "raw": "20,000",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "707ccec39b2fc656f51ecc7294078228e727c10a9b6fbf417be86e7c58d70bb2",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.359,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "2 [MD] SOFT STEAMED CHEESEC 20,000",
+        "box": {
+          "left": 0.15393518518518517,
+          "top": 0.4174382716049383,
+          "right": 0.7847222222222222,
+          "bottom": 0.44367283950617287
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.89
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "2 [MD] SOFT STEAMED CHOCCCA 20,000",
+        "box": {
+          "left": 0.15393518518518517,
+          "top": 0.44675925925925924,
+          "right": 0.7824074074074074,
+          "bottom": 0.4722222222222222
+        },
+        "method": "tesseract-eng",
+        "confidence": 80.25
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "TOTAL 40 ,000",
+        "box": {
+          "left": 0.1886574074074074,
+          "top": 0.5054012345679012,
+          "right": 0.7743055555555556,
+          "bottom": 0.5493827160493827
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.4
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "CASH",
+        "box": {
+          "left": 0.1840277777777778,
+          "top": 0.5493827160493827,
+          "right": 0.2569444444444444,
+          "bottom": 0.5694444444444444
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.83
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "100,000",
+        "box": {
+          "left": 0.6678240740740741,
+          "top": 0.5493827160493827,
+          "right": 0.78125,
+          "bottom": 0.5717592592592593
+        },
+        "method": "tesseract-eng",
+        "confidence": 69.13
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "CHANGE 60 ,000",
+        "box": {
+          "left": 0.18055555555555555,
+          "top": 0.566358024691358,
+          "right": 0.7905092592592593,
+          "bottom": 0.6226851851851852
+        },
+        "method": "tesseract-eng",
+        "confidence": 85.39
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 7,
+    "valid_reference_values": 7,
+    "aligned_values": 7,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

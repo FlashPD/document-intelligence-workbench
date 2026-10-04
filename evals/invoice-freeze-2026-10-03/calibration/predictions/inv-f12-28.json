@@ -1,0 +1,654 @@
+{
+  "record": {
+    "schema_version": "invoice-v1-spike",
+    "fields": {
+      "supplier_name": {
+        "value": "Quartz Letter Co",
+        "raw": "Quartz Letter Co",
+        "evidence_ids": [
+          "p1-l0001"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "invoice_number": {
+        "value": "F12-003",
+        "raw": "Invoice No.: F12-003",
+        "evidence_ids": [
+          "p1-l0003"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "issue_date": {
+        "value": "2026-05-26",
+        "raw": "Date: 2026-05-26",
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "due_date": {
+        "value": "2026-06-25",
+        "raw": "Due date: 2026-06-25",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "currency": {
+        "value": "USD",
+        "raw": "Currency: USD",
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "subtotal": {
+        "value": "688.00",
+        "raw": "Subtotal: 688.00",
+        "evidence_ids": [
+          "p2-l0007"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "tax": {
+        "value": "6.00",
+        "raw": "Tax: 6.00",
+        "evidence_ids": [
+          "p2-l0008"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": "0.00",
+        "raw": "Discount: 0.00",
+        "evidence_ids": [
+          "p2-l0009"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "shipping": {
+        "value": "0.00",
+        "raw": "Shipping: 0.00",
+        "evidence_ids": [
+          "p2-l0010"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": "694.00",
+        "raw": "Total: 694.00",
+        "evidence_ids": [
+          "p2-l0011"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Data cleanup fl",
+          "raw": "Data cleanup fl 106.00 106.00",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "106.00",
+          "raw": "Data cleanup fl 106.00 106.00",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "106.00",
+          "raw": "Data cleanup fl 106.00 106.00",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "rightmost_amount_not_observed"
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Accessibility audit",
+          "raw": "Accessibility audit 2 50.00 100.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "2",
+          "raw": "Accessibility audit 2 50.00 100.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "50.00",
+          "raw": "Accessibility audit 2 50.00 100.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "100.00",
+          "raw": "Accessibility audit 2 50.00 100.00",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "Research workshop HI",
+          "raw": "Research workshop HI 57.00 57.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "57.00",
+          "raw": "Research workshop HI 57.00 57.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "57.00",
+          "raw": "Research workshop HI 57.00 57.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "rightmost_amount_not_observed"
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "Archive preparation fl",
+          "raw": "Archive preparation fl 57.00 57.00",
+          "evidence_ids": [
+            "p2-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "57.00",
+          "raw": "Archive preparation fl 57.00 57.00",
+          "evidence_ids": [
+            "p2-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "57.00",
+          "raw": "Archive preparation fl 57.00 57.00",
+          "evidence_ids": [
+            "p2-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "rightmost_amount_not_observed"
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      },
+      {
+        "row_id": "row-005",
+        "description": {
+          "value": "Data cleanup",
+          "raw": "Data cleanup 4 92.00 368.00",
+          "evidence_ids": [
+            "p2-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "4",
+          "raw": "Data cleanup 4 92.00 368.00",
+          "evidence_ids": [
+            "p2-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "92.00",
+          "raw": "Data cleanup 4 92.00 368.00",
+          "evidence_ids": [
+            "p2-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "368.00",
+          "raw": "Data cleanup 4 92.00 368.00",
+          "evidence_ids": [
+            "p2-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "tax": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_explicit_on_row"
+        }
+      }
+    ]
+  },
+  "issue_codes": [
+    "INVALID_ROW_AMOUNT",
+    "INVALID_ROW_AMOUNT",
+    "INVALID_ROW_AMOUNT"
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "width_px": 1500,
+      "height_px": 1100,
+      "spans": [
+        {
+          "id": "p1-l0001",
+          "page": 1,
+          "text": "Quartz Letter Co",
+          "box": {
+            "left": 0.04466666666666667,
+            "top": 0.03909090909090909,
+            "right": 0.254,
+            "bottom": 0.06909090909090909
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.74
+        },
+        {
+          "id": "p1-l0002",
+          "page": 1,
+          "text": "INVOICE",
+          "box": {
+            "left": 0.04933333333333333,
+            "top": 0.09363636363636364,
+            "right": 0.16333333333333333,
+            "bottom": 0.12181818181818181
+          },
+          "method": "tesseract-eng",
+          "confidence": 94.87
+        },
+        {
+          "id": "p1-l0003",
+          "page": 1,
+          "text": "Invoice No.: F12-003",
+          "box": {
+            "left": 0.6613333333333333,
+            "top": 0.18636363636363637,
+            "right": 0.8173333333333334,
+            "bottom": 0.20363636363636364
+          },
+          "method": "tesseract-eng",
+          "confidence": 91.45
+        },
+        {
+          "id": "p1-l0004",
+          "page": 1,
+          "text": "Date: 2026-05-26",
+          "box": {
+            "left": 0.6613333333333333,
+            "top": 0.24,
+            "right": 0.7913333333333333,
+            "bottom": 0.25727272727272726
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.34
+        },
+        {
+          "id": "p1-l0005",
+          "page": 1,
+          "text": "Due date: 2026-06-25",
+          "box": {
+            "left": 0.6613333333333333,
+            "top": 0.29363636363636364,
+            "right": 0.8246666666666667,
+            "bottom": 0.3109090909090909
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.8
+        },
+        {
+          "id": "p1-l0006",
+          "page": 1,
+          "text": "Currency: USD",
+          "box": {
+            "left": 0.6606666666666666,
+            "top": 0.3472727272727273,
+            "right": 0.7753333333333333,
+            "bottom": 0.3690909090909091
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.14
+        },
+        {
+          "id": "p1-l0007",
+          "page": 1,
+          "text": "Description Qty Unit price Amount",
+          "box": {
+            "left": 0.048,
+            "top": 0.47363636363636363,
+            "right": 0.6986666666666667,
+            "bottom": 0.5036363636363637
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.44
+        },
+        {
+          "id": "p1-l0008",
+          "page": 1,
+          "text": "Data cleanup fl 106.00 106.00",
+          "box": {
+            "left": 0.048,
+            "top": 0.5390909090909091,
+            "right": 0.6906666666666667,
+            "bottom": 0.5681818181818182
+          },
+          "method": "tesseract-eng",
+          "confidence": 85.52
+        },
+        {
+          "id": "p1-l0009",
+          "page": 1,
+          "text": "Accessibility audit 2 50.00 100.00",
+          "box": {
+            "left": 0.04666666666666667,
+            "top": 0.6163636363636363,
+            "right": 0.6906666666666667,
+            "bottom": 0.6381818181818182
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.05
+        },
+        {
+          "id": "p1-l0010",
+          "page": 1,
+          "text": "Research workshop HI 57.00 57.00",
+          "box": {
+            "left": 0.048,
+            "top": 0.6863636363636364,
+            "right": 0.6813333333333333,
+            "bottom": 0.7154545454545455
+          },
+          "method": "tesseract-eng",
+          "confidence": 82.95
+        },
+        {
+          "id": "p1-l0011",
+          "page": 1,
+          "text": "Page 1",
+          "box": {
+            "left": 0.848,
+            "top": 0.9454545454545454,
+            "right": 0.8973333333333333,
+            "bottom": 0.9672727272727273
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.27
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "width_px": 1500,
+      "height_px": 1100,
+      "spans": [
+        {
+          "id": "p2-l0001",
+          "page": 2,
+          "text": "Quartz Letter Co",
+          "box": {
+            "left": 0.04466666666666667,
+            "top": 0.03909090909090909,
+            "right": 0.254,
+            "bottom": 0.06909090909090909
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.24
+        },
+        {
+          "id": "p2-l0002",
+          "page": 2,
+          "text": "INVOICE CONTINUED",
+          "box": {
+            "left": 0.04933333333333333,
+            "top": 0.09363636363636364,
+            "right": 0.3413333333333333,
+            "bottom": 0.12181818181818181
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.26
+        },
+        {
+          "id": "p2-l0003",
+          "page": 2,
+          "text": "Invoice No.: F12-003",
+          "box": {
+            "left": 0.04466666666666667,
+            "top": 0.21818181818181817,
+            "right": 0.20066666666666666,
+            "bottom": 0.23545454545454544
+          },
+          "method": "tesseract-eng",
+          "confidence": 91.92
+        },
+        {
+          "id": "p2-l0004",
+          "page": 2,
+          "text": "Description Qty Unit price Amount",
+          "box": {
+            "left": 0.048,
+            "top": 0.3281818181818182,
+            "right": 0.6986666666666667,
+            "bottom": 0.35818181818181816
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.44
+        },
+        {
+          "id": "p2-l0005",
+          "page": 2,
+          "text": "Archive preparation fl 57.00 57.00",
+          "box": {
+            "left": 0.04666666666666667,
+            "top": 0.3936363636363636,
+            "right": 0.6813333333333333,
+            "bottom": 0.42272727272727273
+          },
+          "method": "tesseract-eng",
+          "confidence": 85.42
+        },
+        {
+          "id": "p2-l0006",
+          "page": 2,
+          "text": "Data cleanup 4 92.00 368.00",
+          "box": {
+            "left": 0.048,
+            "top": 0.4709090909090909,
+            "right": 0.6906666666666667,
+            "bottom": 0.49272727272727274
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.41
+        },
+        {
+          "id": "p2-l0007",
+          "page": 2,
+          "text": "Subtotal: 688.00",
+          "box": {
+            "left": 0.774,
+            "top": 0.5863636363636363,
+            "right": 0.8953333333333333,
+            "bottom": 0.6036363636363636
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.22
+        },
+        {
+          "id": "p2-l0008",
+          "page": 2,
+          "text": "Tax: 6.00",
+          "box": {
+            "left": 0.7733333333333333,
+            "top": 0.6381818181818182,
+            "right": 0.8433333333333334,
+            "bottom": 0.6554545454545454
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.96
+        },
+        {
+          "id": "p2-l0009",
+          "page": 2,
+          "text": "Discount: 0.00",
+          "box": {
+            "left": 0.7746666666666666,
+            "top": 0.69,
+            "right": 0.8813333333333333,
+            "bottom": 0.7072727272727273
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.51
+        },
+        {
+          "id": "p2-l0010",
+          "page": 2,
+          "text": "Shipping: 0.00",
+          "box": {
+            "left": 0.774,
+            "top": 0.7418181818181818,
+            "right": 0.8806666666666667,
+            "bottom": 0.7636363636363637
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.22
+        },
+        {
+          "id": "p2-l0011",
+          "page": 2,
+          "text": "Total: 694.00",
+          "box": {
+            "left": 0.7733333333333333,
+            "top": 0.7936363636363636,
+            "right": 0.8713333333333333,
+            "bottom": 0.8109090909090909
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.43
+        },
+        {
+          "id": "p2-l0012",
+          "page": 2,
+          "text": "Page 2",
+          "box": {
+            "left": 0.848,
+            "top": 0.9454545454545454,
+            "right": 0.8993333333333333,
+            "bottom": 0.9672727272727273
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.41
+        }
+      ]
+    }
+  ],
+  "source_sha256": "7d55f627e01232d5a64576e00a150accfcceff49cfae4737222267d71783625f",
+  "run_version": "invoice-preview-ocr-rules-v4",
+  "baseline_version": "ocr-rules-v0.3",
+  "extractor": "ocr_rules",
+  "pipeline_sha256": "f72345e373ad3c7100e5892679ca255396943ae2b6703715efc940f9577dfaef",
+  "ocr_psm": 1,
+  "input_mode": "verified_corpus_png_previews",
+  "runtime_seconds": {
+    "ocr": 1.026,
+    "total": 1.027
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "TAHU BAKSO Grg Ayam VC [biji",
+          "raw": "TAHU BAKSO Grg Ayam VC [biji",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "68000",
+          "raw": "68.000",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "QTY 11 ITEMS =",
+          "raw": "QTY 11 ITEMS =",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "2",
+          "raw": "2",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "d985c82572298e2ac7ca039696e0176906e6adc1eacff404b4d68be59fa438dd",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.727,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 1108,
+    "height_px": 1478,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Enting? Dua Bandeng Ori",
+        "box": {
+          "left": 0.09566787003610108,
+          "top": 0.41069012178619757,
+          "right": 0.4747292418772563,
+          "bottom": 0.43843031123139375
+        },
+        "method": "tesseract-eng",
+        "confidence": 82.88
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "01069 ~=Ss\u00ab 1: @ 31.000 em",
+        "box": {
+          "left": 0.09296028880866426,
+          "top": 0.439106901217862,
+          "right": 0.7490974729241877,
+          "bottom": 0.47158322056833557
+        },
+        "method": "tesseract-eng",
+        "confidence": 44.15
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "TAHU BAKSO Grg Ayam VC [biji 68.000",
+        "box": {
+          "left": 0.09296028880866426,
+          "top": 0.4688768606224628,
+          "right": 0.7563176895306859,
+          "bottom": 0.4986468200270636
+        },
+        "method": "tesseract-eng",
+        "confidence": 89.0
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "07165 10 & 6.800",
+        "box": {
+          "left": 0.08935018050541517,
+          "top": 0.503382949932341,
+          "right": 0.40974729241877256,
+          "bottom": 0.5277401894451962
+        },
+        "method": "tesseract-eng",
+        "confidence": 64.95
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Sa SS SSSTSSSnSS Een S SSS SSSR SESS",
+        "box": {
+          "left": 0.08754512635379061,
+          "top": 0.530446549391069,
+          "right": 0.776173285198556,
+          "bottom": 0.5656292286874154
+        },
+        "method": "tesseract-eng",
+        "confidence": 2.42
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "QTY 11 ITEMS = 2",
+        "box": {
+          "left": 0.08754512635379061,
+          "top": 0.564276048714479,
+          "right": 0.4259927797833935,
+          "bottom": 0.5960757780784844
+        },
+        "method": "tesseract-eng",
+        "confidence": 69.76
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "TOTAL \u2018",
+        "box": {
+          "left": 0.08664259927797834,
+          "top": 0.5974289580514208,
+          "right": 0.398014440433213,
+          "bottom": 0.6231393775372125
+        },
+        "method": "tesseract-eng",
+        "confidence": 63.11
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 4,
+    "valid_reference_values": 4,
+    "aligned_values": 4,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

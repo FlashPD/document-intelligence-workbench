@@ -1,0 +1,3085 @@
+{
+  "dataset_id": "self-authored-development-v0",
+  "split": "development",
+  "author_created": true,
+  "generator": {
+    "pillow_version": "9.1.1",
+    "font": "/System/Library/Fonts/Supplemental/Arial.ttf"
+  },
+  "documents": [
+    {
+      "id": "dev-01-01",
+      "family": "classic",
+      "family_group": "family-01",
+      "split": "development",
+      "image": "samples/development/dev-01-01.png",
+      "sha256": "3396c096093378dc067dee102ca33a78cc82efa3b259c92b15fba4ddfc143312",
+      "fields": {
+        "supplier_name": "Aster Studio LLC",
+        "invoice_number": "F1-001",
+        "issue_date": "2026-09-01",
+        "due_date": "2026-10-01",
+        "currency": "USD",
+        "subtotal": "150.00",
+        "tax": "10.00",
+        "discount": "0.00",
+        "shipping": "0.00",
+        "total": "160.00"
+      },
+      "line_items": [
+        {
+          "description": "Research workshop",
+          "quantity": "2",
+          "unit_price": "75.00",
+          "line_total": "150.00"
+        }
+      ],
+      "expected_issue_codes": [],
+      "geometry": {
+        "raw_size": [
+          1500,
+          1900
+        ],
+        "display_size": [
+          1500,
+          1900
+        ],
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "right": 1500,
+          "bottom": 1900
+        },
+        "rotation_clockwise": 0,
+        "raw_field_boxes": {
+          "supplier_name": {
+            "left": 94,
+            "top": 101,
+            "right": 582,
+            "bottom": 149
+          },
+          "invoice_number": {
+            "left": 395.0,
+            "top": 338,
+            "right": 520.0,
+            "bottom": 367
+          },
+          "issue_date": {
+            "left": 201.0,
+            "top": 413,
+            "right": 403.0,
+            "bottom": 442
+          },
+          "due_date": {
+            "left": 285.0,
+            "top": 488,
+            "right": 487.0,
+            "bottom": 517
+          },
+          "currency": {
+            "left": 278.0,
+            "top": 563,
+            "right": 363.0,
+            "bottom": 592
+          },
+          "subtotal": {
+            "left": 263.0,
+            "top": 1168,
+            "right": 384.0,
+            "bottom": 1197
+          },
+          "tax": {
+            "left": 182.9375,
+            "top": 1243,
+            "right": 281.9375,
+            "bottom": 1272
+          },
+          "discount": {
+            "left": 272.0,
+            "top": 1318,
+            "right": 349.0,
+            "bottom": 1347
+          },
+          "shipping": {
+            "left": 272.0,
+            "top": 1393,
+            "right": 349.0,
+            "bottom": 1422
+          },
+          "total": {
+            "left": 204.9375,
+            "top": 1468,
+            "right": 325.9375,
+            "bottom": 1497
+          }
+        },
+        "raw_row_boxes": [
+          {
+            "description": {
+              "left": 95,
+              "top": 868,
+              "right": 446,
+              "bottom": 905
+            },
+            "quantity": {
+              "left": 745,
+              "top": 868,
+              "right": 767,
+              "bottom": 897
+            },
+            "unit_price": {
+              "left": 960,
+              "top": 868,
+              "right": 1059,
+              "bottom": 897
+            },
+            "line_total": {
+              "left": 1210,
+              "top": 868,
+              "right": 1331,
+              "bottom": 897
+            }
+          }
+        ],
+        "field_boxes": {
+          "supplier_name": {
+            "left": 0.06266666666666666,
+            "top": 0.053157894736842105,
+            "right": 0.388,
+            "bottom": 0.07842105263157895
+          },
+          "invoice_number": {
+            "left": 0.2633333333333333,
+            "top": 0.17789473684210527,
+            "right": 0.3466666666666667,
+            "bottom": 0.1931578947368421
+          },
+          "issue_date": {
+            "left": 0.134,
+            "top": 0.21736842105263157,
+            "right": 0.26866666666666666,
+            "bottom": 0.2326315789473684
+          },
+          "due_date": {
+            "left": 0.19,
+            "top": 0.25684210526315787,
+            "right": 0.32466666666666666,
+            "bottom": 0.27210526315789474
+          },
+          "currency": {
+            "left": 0.18533333333333332,
+            "top": 0.2963157894736842,
+            "right": 0.242,
+            "bottom": 0.31157894736842107
+          },
+          "subtotal": {
+            "left": 0.17533333333333334,
+            "top": 0.6147368421052631,
+            "right": 0.256,
+            "bottom": 0.63
+          },
+          "tax": {
+            "left": 0.12195833333333334,
+            "top": 0.6542105263157895,
+            "right": 0.18795833333333334,
+            "bottom": 0.6694736842105263
+          },
+          "discount": {
+            "left": 0.18133333333333335,
+            "top": 0.6936842105263158,
+            "right": 0.23266666666666666,
+            "bottom": 0.7089473684210527
+          },
+          "shipping": {
+            "left": 0.18133333333333335,
+            "top": 0.7331578947368421,
+            "right": 0.23266666666666666,
+            "bottom": 0.748421052631579
+          },
+          "total": {
+            "left": 0.136625,
+            "top": 0.7726315789473684,
+            "right": 0.21729166666666666,
+            "bottom": 0.7878947368421053
+          }
+        },
+        "row_boxes": [
+          {
+            "description": {
+              "left": 0.06333333333333334,
+              "top": 0.4568421052631579,
+              "right": 0.29733333333333334,
+              "bottom": 0.4763157894736842
+            },
+            "quantity": {
+              "left": 0.49666666666666665,
+              "top": 0.4568421052631579,
+              "right": 0.5113333333333333,
+              "bottom": 0.47210526315789475
+            },
+            "unit_price": {
+              "left": 0.64,
+              "top": 0.4568421052631579,
+              "right": 0.706,
+              "bottom": 0.47210526315789475
+            },
+            "line_total": {
+              "left": 0.8066666666666666,
+              "top": 0.4568421052631579,
+              "right": 0.8873333333333333,
+              "bottom": 0.47210526315789475
+            }
+          }
+        ]
+      },
+      "treatment": "none"
+    },
+    {
+      "id": "dev-01-02",
+      "family": "classic",
+      "family_group": "family-01",
+      "split": "development",
+      "image": "samples/development/dev-01-02.png",
+      "sha256": "07eecabc53cf1467038c0a435d5ec2b537f08ec3a8446da43dc02bc525e3887a",
+      "fields": {
+        "supplier_name": "Aster Studio LLC",
+        "invoice_number": "F1-002",
+        "issue_date": "2026-09-02",
+        "due_date": "2026-10-02",
+        "currency": "USD",
+        "subtotal": "240.00",
+        "tax": "10.00",
+        "discount": "0.00",
+        "shipping": "0.00",
+        "total": "250.00"
+      },
+      "line_items": [
+        {
+          "description": "Research workshop",
+          "quantity": "3",
+          "unit_price": "80.00",
+          "line_total": "240.00"
+        }
+      ],
+      "expected_issue_codes": [],
+      "geometry": {
+        "raw_size": [
+          1500,
+          1900
+        ],
+        "display_size": [
+          1500,
+          1900
+        ],
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "right": 1500,
+          "bottom": 1900
+        },
+        "rotation_clockwise": 0,
+        "raw_field_boxes": {
+          "supplier_name": {
+            "left": 94,
+            "top": 101,
+            "right": 582,
+            "bottom": 149
+          },
+          "invoice_number": {
+            "left": 395.0,
+            "top": 338,
+            "right": 520.0,
+            "bottom": 367
+          },
+          "issue_date": {
+            "left": 201.0,
+            "top": 413,
+            "right": 403.0,
+            "bottom": 442
+          },
+          "due_date": {
+            "left": 285.0,
+            "top": 488,
+            "right": 487.0,
+            "bottom": 517
+          },
+          "currency": {
+            "left": 278.0,
+            "top": 563,
+            "right": 363.0,
+            "bottom": 592
+          },
+          "subtotal": {
+            "left": 263.0,
+            "top": 1168,
+            "right": 384.0,
+            "bottom": 1197
+          },
+          "tax": {
+            "left": 182.9375,
+            "top": 1243,
+            "right": 281.9375,
+            "bottom": 1272
+          },
+          "discount": {
+            "left": 272.0,
+            "top": 1318,
+            "right": 349.0,
+            "bottom": 1347
+          },
+          "shipping": {
+            "left": 272.0,
+            "top": 1393,
+            "right": 349.0,
+            "bottom": 1422
+          },
+          "total": {
+            "left": 204.9375,
+            "top": 1468,
+            "right": 325.9375,
+            "bottom": 1497
+          }
+        },
+        "raw_row_boxes": [
+          {
+            "description": {
+              "left": 95,
+              "top": 868,
+              "right": 446,
+              "bottom": 905
+            },
+            "quantity": {
+              "left": 745,
+              "top": 868,
+              "right": 767,
+              "bottom": 897
+            },
+            "unit_price": {
+              "left": 960,
+              "top": 868,
+              "right": 1059,
+              "bottom": 897
+            },
+            "line_total": {
+              "left": 1210,
+              "top": 868,
+              "right": 1331,
+              "bottom": 897
+            }
+          }
+        ],
+        "field_boxes": {
+          "supplier_name": {
+            "left": 0.06266666666666666,
+            "top": 0.053157894736842105,
+            "right": 0.388,
+            "bottom": 0.07842105263157895
+          },
+          "invoice_number": {
+            "left": 0.2633333333333333,
+            "top": 0.17789473684210527,
+            "right": 0.3466666666666667,
+            "bottom": 0.1931578947368421
+          },
+          "issue_date": {
+            "left": 0.134,
+            "top": 0.21736842105263157,
+            "right": 0.26866666666666666,
+            "bottom": 0.2326315789473684
+          },
+          "due_date": {
+            "left": 0.19,
+            "top": 0.25684210526315787,
+            "right": 0.32466666666666666,
+            "bottom": 0.27210526315789474
+          },
+          "currency": {
+            "left": 0.18533333333333332,
+            "top": 0.2963157894736842,
+            "right": 0.242,
+            "bottom": 0.31157894736842107
+          },
+          "subtotal": {
+            "left": 0.17533333333333334,
+            "top": 0.6147368421052631,
+            "right": 0.256,
+            "bottom": 0.63
+          },
+          "tax": {
+            "left": 0.12195833333333334,
+            "top": 0.6542105263157895,
+            "right": 0.18795833333333334,
+            "bottom": 0.6694736842105263
+          },
+          "discount": {
+            "left": 0.18133333333333335,
+            "top": 0.6936842105263158,
+            "right": 0.23266666666666666,
+            "bottom": 0.7089473684210527
+          },
+          "shipping": {
+            "left": 0.18133333333333335,
+            "top": 0.7331578947368421,
+            "right": 0.23266666666666666,
+            "bottom": 0.748421052631579
+          },
+          "total": {
+            "left": 0.136625,
+            "top": 0.7726315789473684,
+            "right": 0.21729166666666666,
+            "bottom": 0.7878947368421053
+          }
+        },
+        "row_boxes": [
+          {
+            "description": {
+              "left": 0.06333333333333334,
+              "top": 0.4568421052631579,
+              "right": 0.29733333333333334,
+              "bottom": 0.4763157894736842
+            },
+            "quantity": {
+              "left": 0.49666666666666665,
+              "top": 0.4568421052631579,
+              "right": 0.5113333333333333,
+              "bottom": 0.47210526315789475
+            },
+            "unit_price": {
+              "left": 0.64,
+              "top": 0.4568421052631579,
+              "right": 0.706,
+              "bottom": 0.47210526315789475
+            },
+            "line_total": {
+              "left": 0.8066666666666666,
+              "top": 0.4568421052631579,
+              "right": 0.8873333333333333,
+              "bottom": 0.47210526315789475
+            }
+          }
+        ]
+      },
+      "treatment": "none"
+    },
+    {
+      "id": "dev-02-01",
+      "family": "right_header",
+      "family_group": "family-02",
+      "split": "development",
+      "image": "samples/development/dev-02-01.png",
+      "sha256": "235dc01376b884f51e6c57dee1b1c7af97e612b0ff42d039357f3e0ea2ad8c79",
+      "fields": {
+        "supplier_name": "Juniper Labs",
+        "invoice_number": "F2-001",
+        "issue_date": "2026-09-03",
+        "due_date": "2026-10-03",
+        "currency": "USD",
+        "subtotal": "215.00",
+        "tax": "11.00",
+        "discount": "0.00",
+        "shipping": "0.00",
+        "total": "226.00"
+      },
+      "line_items": [
+        {
+          "description": "Research workshop",
+          "quantity": "2",
+          "unit_price": "85.00",
+          "line_total": "170.00"
+        },
+        {
+          "description": "Archive prep",
+          "quantity": "1",
+          "unit_price": "45.00",
+          "line_total": "45.00"
+        }
+      ],
+      "expected_issue_codes": [],
+      "geometry": {
+        "raw_size": [
+          1500,
+          1900
+        ],
+        "display_size": [
+          1500,
+          1900
+        ],
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "right": 1500,
+          "bottom": 1900
+        },
+        "rotation_clockwise": 0,
+        "raw_field_boxes": {
+          "supplier_name": {
+            "left": 95,
+            "top": 102,
+            "right": 464,
+            "bottom": 161
+          },
+          "invoice_number": {
+            "left": 1080.0,
+            "top": 288,
+            "right": 1205.0,
+            "bottom": 317
+          },
+          "issue_date": {
+            "left": 886.0,
+            "top": 363,
+            "right": 1088.0,
+            "bottom": 392
+          },
+          "due_date": {
+            "left": 970.0,
+            "top": 438,
+            "right": 1172.0,
+            "bottom": 467
+          },
+          "currency": {
+            "left": 963.0,
+            "top": 513,
+            "right": 1048.0,
+            "bottom": 542
+          },
+          "subtotal": {
+            "left": 948.0,
+            "top": 1188,
+            "right": 1069.0,
+            "bottom": 1217
+          },
+          "tax": {
+            "left": 867.9375,
+            "top": 1263,
+            "right": 966.9375,
+            "bottom": 1292
+          },
+          "discount": {
+            "left": 957.0,
+            "top": 1338,
+            "right": 1034.0,
+            "bottom": 1367
+          },
+          "shipping": {
+            "left": 957.0,
+            "top": 1413,
+            "right": 1034.0,
+            "bottom": 1442
+          },
+          "total": {
+            "left": 889.9375,
+            "top": 1488,
+            "right": 1010.9375,
+            "bottom": 1517
+          }
+        },
+        "raw_row_boxes": [
+          {
+            "description": {
+              "left": 95,
+              "top": 838,
+              "right": 446,
+              "bottom": 875
+            },
+            "quantity": {
+              "left": 745,
+              "top": 838,
+              "right": 767,
+              "bottom": 867
+            },
+            "unit_price": {
+              "left": 960,
+              "top": 838,
+              "right": 1059,
+              "bottom": 867
+            },
+            "line_total": {
+              "left": 1210,
+              "top": 838,
+              "right": 1331,
+              "bottom": 867
+            }
+          },
+          {
+            "description": {
+              "left": 94,
+              "top": 938,
+              "right": 318,
+              "bottom": 975
+            },
+            "quantity": {
+              "left": 745,
+              "top": 938,
+              "right": 767,
+              "bottom": 967
+            },
+            "unit_price": {
+              "left": 960,
+              "top": 938,
+              "right": 1059,
+              "bottom": 967
+            },
+            "line_total": {
+              "left": 1210,
+              "top": 938,
+              "right": 1309,
+              "bottom": 967
+            }
+          }
+        ],
+        "field_boxes": {
+          "supplier_name": {
+            "left": 0.06333333333333334,
+            "top": 0.05368421052631579,
+            "right": 0.30933333333333335,
+            "bottom": 0.08473684210526315
+          },
+          "invoice_number": {
+            "left": 0.72,
+            "top": 0.15157894736842106,
+            "right": 0.8033333333333333,
+            "bottom": 0.1668421052631579
+          },
+          "issue_date": {
+            "left": 0.5906666666666667,
+            "top": 0.19105263157894736,
+            "right": 0.7253333333333334,
+            "bottom": 0.2063157894736842
+          },
+          "due_date": {
+            "left": 0.6466666666666666,
+            "top": 0.2305263157894737,
+            "right": 0.7813333333333333,
+            "bottom": 0.24578947368421053
+          },
+          "currency": {
+            "left": 0.642,
+            "top": 0.27,
+            "right": 0.6986666666666667,
+            "bottom": 0.28526315789473683
+          },
+          "subtotal": {
+            "left": 0.632,
+            "top": 0.6252631578947369,
+            "right": 0.7126666666666667,
+            "bottom": 0.6405263157894737
+          },
+          "tax": {
+            "left": 0.578625,
+            "top": 0.6647368421052632,
+            "right": 0.644625,
+            "bottom": 0.68
+          },
+          "discount": {
+            "left": 0.638,
+            "top": 0.7042105263157895,
+            "right": 0.6893333333333334,
+            "bottom": 0.7194736842105263
+          },
+          "shipping": {
+            "left": 0.638,
+            "top": 0.7436842105263158,
+            "right": 0.6893333333333334,
+            "bottom": 0.7589473684210526
+          },
+          "total": {
+            "left": 0.5932916666666667,
+            "top": 0.783157894736842,
+            "right": 0.6739583333333333,
+            "bottom": 0.7984210526315789
+          }
+        },
+        "row_boxes": [
+          {
+            "description": {
+              "left": 0.06333333333333334,
+              "top": 0.44105263157894736,
+              "right": 0.29733333333333334,
+              "bottom": 0.4605263157894737
+            },
+            "quantity": {
+              "left": 0.49666666666666665,
+              "top": 0.44105263157894736,
+              "right": 0.5113333333333333,
+              "bottom": 0.45631578947368423
+            },
+            "unit_price": {
+              "left": 0.64,
+              "top": 0.44105263157894736,
+              "right": 0.706,
+              "bottom": 0.45631578947368423
+            },
+            "line_total": {
+              "left": 0.8066666666666666,
+              "top": 0.44105263157894736,
+              "right": 0.8873333333333333,
+              "bottom": 0.45631578947368423
+            }
+          },
+          {
+            "description": {
+              "left": 0.06266666666666666,
+              "top": 0.4936842105263158,
+              "right": 0.212,
+              "bottom": 0.5131578947368421
+            },
+            "quantity": {
+              "left": 0.49666666666666665,
+              "top": 0.4936842105263158,
+              "right": 0.5113333333333333,
+              "bottom": 0.5089473684210526
+            },
+            "unit_price": {
+              "left": 0.64,
+              "top": 0.4936842105263158,
+              "right": 0.706,
+              "bottom": 0.5089473684210526
+            },
+            "line_total": {
+              "left": 0.8066666666666666,
+              "top": 0.4936842105263158,
+              "right": 0.8726666666666667,
+              "bottom": 0.5089473684210526
+            }
+          }
+        ]
+      },
+      "treatment": "none"
+    },
+    {
+      "id": "dev-02-02",
+      "family": "right_header",
+      "family_group": "family-02",
+      "split": "development",
+      "image": "samples/development/dev-02-02.png",
+      "sha256": "f6e47c089cc2157e20c98b281c64fdeebb1006b4ea80dc7a8fefde1e059920bf",
+      "fields": {
+        "supplier_name": "Juniper Labs",
+        "invoice_number": "F2-002",
+        "issue_date": "2026-09-04",
+        "due_date": "2026-10-04",
+        "currency": "USD",
+        "subtotal": "315.00",
+        "tax": "11.00",
+        "discount": "0.00",
+        "shipping": "0.00",
+        "total": "326.00"
+      },
+      "line_items": [
+        {
+          "description": "Research workshop",
+          "quantity": "3",
+          "unit_price": "90.00",
+          "line_total": "270.00"
+        },
+        {
+          "description": "Archive prep",
+          "quantity": "1",
+          "unit_price": "45.00",
+          "line_total": "45.00"
+        }
+      ],
+      "expected_issue_codes": [],
+      "geometry": {
+        "raw_size": [
+          1500,
+          1900
+        ],
+        "display_size": [
+          1500,
+          1900
+        ],
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "right": 1500,
+          "bottom": 1900
+        },
+        "rotation_clockwise": 0,
+        "raw_field_boxes": {
+          "supplier_name": {
+            "left": 95,
+            "top": 102,
+            "right": 464,
+            "bottom": 161
+          },
+          "invoice_number": {
+            "left": 1080.0,
+            "top": 288,
+            "right": 1205.0,
+            "bottom": 317
+          },
+          "issue_date": {
+            "left": 886.0,
+            "top": 363,
+            "right": 1088.0,
+            "bottom": 392
+          },
+          "due_date": {
+            "left": 970.0,
+            "top": 438,
+            "right": 1172.0,
+            "bottom": 467
+          },
+          "currency": {
+            "left": 963.0,
+            "top": 513,
+            "right": 1048.0,
+            "bottom": 542
+          },
+          "subtotal": {
+            "left": 948.0,
+            "top": 1188,
+            "right": 1069.0,
+            "bottom": 1217
+          },
+          "tax": {
+            "left": 867.9375,
+            "top": 1263,
+            "right": 966.9375,
+            "bottom": 1292
+          },
+          "discount": {
+            "left": 957.0,
+            "top": 1338,
+            "right": 1034.0,
+            "bottom": 1367
+          },
+          "shipping": {
+            "left": 957.0,
+            "top": 1413,
+            "right": 1034.0,
+            "bottom": 1442
+          },
+          "total": {
+            "left": 889.9375,
+            "top": 1488,
+            "right": 1010.9375,
+            "bottom": 1517
+          }
+        },
+        "raw_row_boxes": [
+          {
+            "description": {
+              "left": 95,
+              "top": 838,
+              "right": 446,
+              "bottom": 875
+            },
+            "quantity": {
+              "left": 745,
+              "top": 838,
+              "right": 767,
+              "bottom": 867
+            },
+            "unit_price": {
+              "left": 960,
+              "top": 838,
+              "right": 1059,
+              "bottom": 867
+            },
+            "line_total": {
+              "left": 1210,
+              "top": 838,
+              "right": 1331,
+              "bottom": 867
+            }
+          },
+          {
+            "description": {
+              "left": 94,
+              "top": 938,
+              "right": 318,
+              "bottom": 975
+            },
+            "quantity": {
+              "left": 745,
+              "top": 938,
+              "right": 767,
+              "bottom": 967
+            },
+            "unit_price": {
+              "left": 960,
+              "top": 938,
+              "right": 1059,
+              "bottom": 967
+            },
+            "line_total": {
+              "left": 1210,
+              "top": 938,
+              "right": 1309,
+              "bottom": 967
+            }
+          }
+        ],
+        "field_boxes": {
+          "supplier_name": {
+            "left": 0.06333333333333334,
+            "top": 0.05368421052631579,
+            "right": 0.30933333333333335,
+            "bottom": 0.08473684210526315
+          },
+          "invoice_number": {
+            "left": 0.72,
+            "top": 0.15157894736842106,
+            "right": 0.8033333333333333,
+            "bottom": 0.1668421052631579
+          },
+          "issue_date": {
+            "left": 0.5906666666666667,
+            "top": 0.19105263157894736,
+            "right": 0.7253333333333334,
+            "bottom": 0.2063157894736842
+          },
+          "due_date": {
+            "left": 0.6466666666666666,
+            "top": 0.2305263157894737,
+            "right": 0.7813333333333333,
+            "bottom": 0.24578947368421053
+          },
+          "currency": {
+            "left": 0.642,
+            "top": 0.27,
+            "right": 0.6986666666666667,
+            "bottom": 0.28526315789473683
+          },
+          "subtotal": {
+            "left": 0.632,
+            "top": 0.6252631578947369,
+            "right": 0.7126666666666667,
+            "bottom": 0.6405263157894737
+          },
+          "tax": {
+            "left": 0.578625,
+            "top": 0.6647368421052632,
+            "right": 0.644625,
+            "bottom": 0.68
+          },
+          "discount": {
+            "left": 0.638,
+            "top": 0.7042105263157895,
+            "right": 0.6893333333333334,
+            "bottom": 0.7194736842105263
+          },
+          "shipping": {
+            "left": 0.638,
+            "top": 0.7436842105263158,
+            "right": 0.6893333333333334,
+            "bottom": 0.7589473684210526
+          },
+          "total": {
+            "left": 0.5932916666666667,
+            "top": 0.783157894736842,
+            "right": 0.6739583333333333,
+            "bottom": 0.7984210526315789
+          }
+        },
+        "row_boxes": [
+          {
+            "description": {
+              "left": 0.06333333333333334,
+              "top": 0.44105263157894736,
+              "right": 0.29733333333333334,
+              "bottom": 0.4605263157894737
+            },
+            "quantity": {
+              "left": 0.49666666666666665,
+              "top": 0.44105263157894736,
+              "right": 0.5113333333333333,
+              "bottom": 0.45631578947368423
+            },
+            "unit_price": {
+              "left": 0.64,
+              "top": 0.44105263157894736,
+              "right": 0.706,
+              "bottom": 0.45631578947368423
+            },
+            "line_total": {
+              "left": 0.8066666666666666,
+              "top": 0.44105263157894736,
+              "right": 0.8873333333333333,
+              "bottom": 0.45631578947368423
+            }
+          },
+          {
+            "description": {
+              "left": 0.06266666666666666,
+              "top": 0.4936842105263158,
+              "right": 0.212,
+              "bottom": 0.5131578947368421
+            },
+            "quantity": {
+              "left": 0.49666666666666665,
+              "top": 0.4936842105263158,
+              "right": 0.5113333333333333,
+              "bottom": 0.5089473684210526
+            },
+            "unit_price": {
+              "left": 0.64,
+              "top": 0.4936842105263158,
+              "right": 0.706,
+              "bottom": 0.5089473684210526
+            },
+            "line_total": {
+              "left": 0.8066666666666666,
+              "top": 0.4936842105263158,
+              "right": 0.8726666666666667,
+              "bottom": 0.5089473684210526
+            }
+          }
+        ]
+      },
+      "treatment": "none"
+    },
+    {
+      "id": "dev-03-01",
+      "family": "compact",
+      "family_group": "family-03",
+      "split": "development",
+      "image": "samples/development/dev-03-01.png",
+      "sha256": "28d00710d7b0fed227176d08cecc746d0a80610e42cf54ce3dea11e02417eebd",
+      "fields": {
+        "supplier_name": "Cobalt Paper Co",
+        "invoice_number": "F3-001",
+        "issue_date": "2026-09-05",
+        "due_date": "2026-10-05",
+        "currency": "USD",
+        "subtotal": "190.00",
+        "tax": "12.00",
+        "discount": "0.00",
+        "shipping": "0.00",
+        "total": "202.00"
+      },
+      "line_items": [
+        {
+          "description": "Research workshop",
+          "quantity": "2",
+          "unit_price": "95.00",
+          "line_total": "190.00"
+        }
+      ],
+      "expected_issue_codes": [],
+      "geometry": {
+        "raw_size": [
+          1500,
+          1900
+        ],
+        "display_size": [
+          1500,
+          1900
+        ],
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "right": 1500,
+          "bottom": 1900
+        },
+        "rotation_clockwise": 0,
+        "raw_field_boxes": {
+          "supplier_name": {
+            "left": 95,
+            "top": 101,
+            "right": 571,
+            "bottom": 161
+          },
+          "invoice_number": {
+            "left": 395.0,
+            "top": 303,
+            "right": 520.0,
+            "bottom": 332
+          },
+          "issue_date": {
+            "left": 201.0,
+            "top": 378,
+            "right": 403.0,
+            "bottom": 407
+          },
+          "due_date": {
+            "left": 285.0,
+            "top": 453,
+            "right": 487.0,
+            "bottom": 482
+          },
+          "currency": {
+            "left": 278.0,
+            "top": 528,
+            "right": 363.0,
+            "bottom": 557
+          },
+          "subtotal": {
+            "left": 263.0,
+            "top": 1298,
+            "right": 384.0,
+            "bottom": 1327
+          },
+          "tax": {
+            "left": 182.9375,
+            "top": 1373,
+            "right": 281.9375,
+            "bottom": 1402
+          },
+          "discount": {
+            "left": 272.0,
+            "top": 1448,
+            "right": 349.0,
+            "bottom": 1477
+          },
+          "shipping": {
+            "left": 272.0,
+            "top": 1523,
+            "right": 349.0,
+            "bottom": 1552
+          },
+          "total": {
+            "left": 204.9375,
+            "top": 1598,
+            "right": 325.9375,
+            "bottom": 1627
+          }
+        },
+        "raw_row_boxes": [
+          {
+            "description": {
+              "left": 95,
+              "top": 978,
+              "right": 446,
+              "bottom": 1015
+            },
+            "quantity": {
+              "left": 745,
+              "top": 978,
+              "right": 767,
+              "bottom": 1007
+            },
+            "unit_price": {
+              "left": 960,
+              "top": 978,
+              "right": 1059,
+              "bottom": 1007
+            },
+            "line_total": {
+              "left": 1210,
+              "top": 978,
+              "right": 1331,
+              "bottom": 1007
+            }
+          }
+        ],
+        "field_boxes": {
+          "supplier_name": {
+            "left": 0.06333333333333334,
+            "top": 0.053157894736842105,
+            "right": 0.38066666666666665,
+            "bottom": 0.08473684210526315
+          },
+          "invoice_number": {
+            "left": 0.2633333333333333,
+            "top": 0.15947368421052632,
+            "right": 0.3466666666666667,
+            "bottom": 0.17473684210526316
+          },
+          "issue_date": {
+            "left": 0.134,
+            "top": 0.19894736842105262,
+            "right": 0.26866666666666666,
+            "bottom": 0.21421052631578946
+          },
+          "due_date": {
+            "left": 0.19,
+            "top": 0.23842105263157895,
+            "right": 0.32466666666666666,
+            "bottom": 0.2536842105263158
+          },
+          "currency": {
+            "left": 0.18533333333333332,
+            "top": 0.27789473684210525,
+            "right": 0.242,
+            "bottom": 0.2931578947368421
+          },
+          "subtotal": {
+            "left": 0.17533333333333334,
+            "top": 0.6831578947368421,
+            "right": 0.256,
+            "bottom": 0.6984210526315789
+          },
+          "tax": {
+            "left": 0.12195833333333334,
+            "top": 0.7226315789473684,
+            "right": 0.18795833333333334,
+            "bottom": 0.7378947368421053
+          },
+          "discount": {
+            "left": 0.18133333333333335,
+            "top": 0.7621052631578947,
+            "right": 0.23266666666666666,
+            "bottom": 0.7773684210526316
+          },
+          "shipping": {
+            "left": 0.18133333333333335,
+            "top": 0.8015789473684211,
+            "right": 0.23266666666666666,
+            "bottom": 0.8168421052631579
+          },
+          "total": {
+            "left": 0.136625,
+            "top": 0.8410526315789474,
+            "right": 0.21729166666666666,
+            "bottom": 0.8563157894736843
+          }
+        },
+        "row_boxes": [
+          {
+            "description": {
+              "left": 0.06333333333333334,
+              "top": 0.5147368421052632,
+              "right": 0.29733333333333334,
+              "bottom": 0.5342105263157895
+            },
+            "quantity": {
+              "left": 0.49666666666666665,
+              "top": 0.5147368421052632,
+              "right": 0.5113333333333333,
+              "bottom": 0.53
+            },
+            "unit_price": {
+              "left": 0.64,
+              "top": 0.5147368421052632,
+              "right": 0.706,
+              "bottom": 0.53
+            },
+            "line_total": {
+              "left": 0.8066666666666666,
+              "top": 0.5147368421052632,
+              "right": 0.8873333333333333,
+              "bottom": 0.53
+            }
+          }
+        ]
+      },
+      "treatment": "none"
+    },
+    {
+      "id": "dev-03-02",
+      "family": "compact",
+      "family_group": "family-03",
+      "split": "development",
+      "image": "samples/development/dev-03-02.png",
+      "sha256": "76f008197eec59a62c3fb17624c7225d2f0e8468ad044bd9c3cd28e7f20bbb68",
+      "fields": {
+        "supplier_name": "Cobalt Paper Co",
+        "invoice_number": "F3-002",
+        "issue_date": "2026-09-06",
+        "due_date": "2026-10-06",
+        "currency": "USD",
+        "subtotal": "300.00",
+        "tax": "12.00",
+        "discount": "0.00",
+        "shipping": "0.00",
+        "total": "312.00"
+      },
+      "line_items": [
+        {
+          "description": "Research workshop",
+          "quantity": "3",
+          "unit_price": "100.00",
+          "line_total": "300.00"
+        }
+      ],
+      "expected_issue_codes": [],
+      "geometry": {
+        "raw_size": [
+          1500,
+          1900
+        ],
+        "display_size": [
+          1500,
+          1900
+        ],
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "right": 1500,
+          "bottom": 1900
+        },
+        "rotation_clockwise": 0,
+        "raw_field_boxes": {
+          "supplier_name": {
+            "left": 95,
+            "top": 101,
+            "right": 571,
+            "bottom": 161
+          },
+          "invoice_number": {
+            "left": 395.0,
+            "top": 303,
+            "right": 520.0,
+            "bottom": 332
+          },
+          "issue_date": {
+            "left": 201.0,
+            "top": 378,
+            "right": 403.0,
+            "bottom": 407
+          },
+          "due_date": {
+            "left": 285.0,
+            "top": 453,
+            "right": 487.0,
+            "bottom": 482
+          },
+          "currency": {
+            "left": 278.0,
+            "top": 528,
+            "right": 363.0,
+            "bottom": 557
+          },
+          "subtotal": {
+            "left": 263.0,
+            "top": 1298,
+            "right": 384.0,
+            "bottom": 1327
+          },
+          "tax": {
+            "left": 182.9375,
+            "top": 1373,
+            "right": 281.9375,
+            "bottom": 1402
+          },
+          "discount": {
+            "left": 272.0,
+            "top": 1448,
+            "right": 349.0,
+            "bottom": 1477
+          },
+          "shipping": {
+            "left": 272.0,
+            "top": 1523,
+            "right": 349.0,
+            "bottom": 1552
+          },
+          "total": {
+            "left": 204.9375,
+            "top": 1598,
+            "right": 325.9375,
+            "bottom": 1627
+          }
+        },
+        "raw_row_boxes": [
+          {
+            "description": {
+              "left": 95,
+              "top": 978,
+              "right": 446,
+              "bottom": 1015
+            },
+            "quantity": {
+              "left": 745,
+              "top": 978,
+              "right": 767,
+              "bottom": 1007
+            },
+            "unit_price": {
+              "left": 960,
+              "top": 978,
+              "right": 1081,
+              "bottom": 1007
+            },
+            "line_total": {
+              "left": 1210,
+              "top": 978,
+              "right": 1331,
+              "bottom": 1007
+            }
+          }
+        ],
+        "field_boxes": {
+          "supplier_name": {
+            "left": 0.06333333333333334,
+            "top": 0.053157894736842105,
+            "right": 0.38066666666666665,
+            "bottom": 0.08473684210526315
+          },
+          "invoice_number": {
+            "left": 0.2633333333333333,
+            "top": 0.15947368421052632,
+            "right": 0.3466666666666667,
+            "bottom": 0.17473684210526316
+          },
+          "issue_date": {
+            "left": 0.134,
+            "top": 0.19894736842105262,
+            "right": 0.26866666666666666,
+            "bottom": 0.21421052631578946
+          },
+          "due_date": {
+            "left": 0.19,
+            "top": 0.23842105263157895,
+            "right": 0.32466666666666666,
+            "bottom": 0.2536842105263158
+          },
+          "currency": {
+            "left": 0.18533333333333332,
+            "top": 0.27789473684210525,
+            "right": 0.242,
+            "bottom": 0.2931578947368421
+          },
+          "subtotal": {
+            "left": 0.17533333333333334,
+            "top": 0.6831578947368421,
+            "right": 0.256,
+            "bottom": 0.6984210526315789
+          },
+          "tax": {
+            "left": 0.12195833333333334,
+            "top": 0.7226315789473684,
+            "right": 0.18795833333333334,
+            "bottom": 0.7378947368421053
+          },
+          "discount": {
+            "left": 0.18133333333333335,
+            "top": 0.7621052631578947,
+            "right": 0.23266666666666666,
+            "bottom": 0.7773684210526316
+          },
+          "shipping": {
+            "left": 0.18133333333333335,
+            "top": 0.8015789473684211,
+            "right": 0.23266666666666666,
+            "bottom": 0.8168421052631579
+          },
+          "total": {
+            "left": 0.136625,
+            "top": 0.8410526315789474,
+            "right": 0.21729166666666666,
+            "bottom": 0.8563157894736843
+          }
+        },
+        "row_boxes": [
+          {
+            "description": {
+              "left": 0.06333333333333334,
+              "top": 0.5147368421052632,
+              "right": 0.29733333333333334,
+              "bottom": 0.5342105263157895
+            },
+            "quantity": {
+              "left": 0.49666666666666665,
+              "top": 0.5147368421052632,
+              "right": 0.5113333333333333,
+              "bottom": 0.53
+            },
+            "unit_price": {
+              "left": 0.64,
+              "top": 0.5147368421052632,
+              "right": 0.7206666666666667,
+              "bottom": 0.53
+            },
+            "line_total": {
+              "left": 0.8066666666666666,
+              "top": 0.5147368421052632,
+              "right": 0.8873333333333333,
+              "bottom": 0.53
+            }
+          }
+        ]
+      },
+      "treatment": "none"
+    },
+    {
+      "id": "dev-04-01",
+      "family": "two_column",
+      "family_group": "family-04",
+      "split": "development",
+      "image": "samples/development/dev-04-01.png",
+      "sha256": "6324efd3b4655b43dc79a86c724f1cdb3d05306d8bc83907f012c3f94e6a6003",
+      "fields": {
+        "supplier_name": "Maple Lantern Works",
+        "invoice_number": "F4-001",
+        "issue_date": "2026-09-07",
+        "due_date": "2026-10-07",
+        "currency": "USD",
+        "subtotal": "255.00",
+        "tax": "13.00",
+        "discount": "0.00",
+        "shipping": "0.00",
+        "total": "268.00"
+      },
+      "line_items": [
+        {
+          "description": "Research workshop",
+          "quantity": "2",
+          "unit_price": "105.00",
+          "line_total": "210.00"
+        },
+        {
+          "description": "Archive prep",
+          "quantity": "1",
+          "unit_price": "45.00",
+          "line_total": "45.00"
+        }
+      ],
+      "expected_issue_codes": [],
+      "geometry": {
+        "raw_size": [
+          1500,
+          1900
+        ],
+        "display_size": [
+          1500,
+          1900
+        ],
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "right": 1500,
+          "bottom": 1900
+        },
+        "rotation_clockwise": 0,
+        "raw_field_boxes": {
+          "supplier_name": {
+            "left": 95,
+            "top": 102,
+            "right": 706,
+            "bottom": 161
+          },
+          "invoice_number": {
+            "left": 395.0,
+            "top": 288,
+            "right": 520.0,
+            "bottom": 317
+          },
+          "issue_date": {
+            "left": 201.0,
+            "top": 363,
+            "right": 403.0,
+            "bottom": 392
+          },
+          "due_date": {
+            "left": 285.0,
+            "top": 438,
+            "right": 487.0,
+            "bottom": 467
+          },
+          "currency": {
+            "left": 1003.0,
+            "top": 288,
+            "right": 1088.0,
+            "bottom": 317
+          },
+          "subtotal": {
+            "left": 988.0,
+            "top": 1188,
+            "right": 1109.0,
+            "bottom": 1217
+          },
+          "tax": {
+            "left": 907.9375,
+            "top": 1263,
+            "right": 1006.9375,
+            "bottom": 1292
+          },
+          "discount": {
+            "left": 997.0,
+            "top": 1338,
+            "right": 1074.0,
+            "bottom": 1367
+          },
+          "shipping": {
+            "left": 997.0,
+            "top": 1413,
+            "right": 1074.0,
+            "bottom": 1442
+          },
+          "total": {
+            "left": 929.9375,
+            "top": 1488,
+            "right": 1050.9375,
+            "bottom": 1517
+          }
+        },
+        "raw_row_boxes": [
+          {
+            "description": {
+              "left": 95,
+              "top": 818,
+              "right": 446,
+              "bottom": 855
+            },
+            "quantity": {
+              "left": 745,
+              "top": 818,
+              "right": 767,
+              "bottom": 847
+            },
+            "unit_price": {
+              "left": 960,
+              "top": 818,
+              "right": 1081,
+              "bottom": 847
+            },
+            "line_total": {
+              "left": 1210,
+              "top": 818,
+              "right": 1331,
+              "bottom": 847
+            }
+          },
+          {
+            "description": {
+              "left": 94,
+              "top": 918,
+              "right": 318,
+              "bottom": 955
+            },
+            "quantity": {
+              "left": 745,
+              "top": 918,
+              "right": 767,
+              "bottom": 947
+            },
+            "unit_price": {
+              "left": 960,
+              "top": 918,
+              "right": 1059,
+              "bottom": 947
+            },
+            "line_total": {
+              "left": 1210,
+              "top": 918,
+              "right": 1309,
+              "bottom": 947
+            }
+          }
+        ],
+        "field_boxes": {
+          "supplier_name": {
+            "left": 0.06333333333333334,
+            "top": 0.05368421052631579,
+            "right": 0.4706666666666667,
+            "bottom": 0.08473684210526315
+          },
+          "invoice_number": {
+            "left": 0.2633333333333333,
+            "top": 0.15157894736842106,
+            "right": 0.3466666666666667,
+            "bottom": 0.1668421052631579
+          },
+          "issue_date": {
+            "left": 0.134,
+            "top": 0.19105263157894736,
+            "right": 0.26866666666666666,
+            "bottom": 0.2063157894736842
+          },
+          "due_date": {
+            "left": 0.19,
+            "top": 0.2305263157894737,
+            "right": 0.32466666666666666,
+            "bottom": 0.24578947368421053
+          },
+          "currency": {
+            "left": 0.6686666666666666,
+            "top": 0.15157894736842106,
+            "right": 0.7253333333333334,
+            "bottom": 0.1668421052631579
+          },
+          "subtotal": {
+            "left": 0.6586666666666666,
+            "top": 0.6252631578947369,
+            "right": 0.7393333333333333,
+            "bottom": 0.6405263157894737
+          },
+          "tax": {
+            "left": 0.6052916666666667,
+            "top": 0.6647368421052632,
+            "right": 0.6712916666666666,
+            "bottom": 0.68
+          },
+          "discount": {
+            "left": 0.6646666666666666,
+            "top": 0.7042105263157895,
+            "right": 0.716,
+            "bottom": 0.7194736842105263
+          },
+          "shipping": {
+            "left": 0.6646666666666666,
+            "top": 0.7436842105263158,
+            "right": 0.716,
+            "bottom": 0.7589473684210526
+          },
+          "total": {
+            "left": 0.6199583333333333,
+            "top": 0.783157894736842,
+            "right": 0.700625,
+            "bottom": 0.7984210526315789
+          }
+        },
+        "row_boxes": [
+          {
+            "description": {
+              "left": 0.06333333333333334,
+              "top": 0.4305263157894737,
+              "right": 0.29733333333333334,
+              "bottom": 0.45
+            },
+            "quantity": {
+              "left": 0.49666666666666665,
+              "top": 0.4305263157894737,
+              "right": 0.5113333333333333,
+              "bottom": 0.4457894736842105
+            },
+            "unit_price": {
+              "left": 0.64,
+              "top": 0.4305263157894737,
+              "right": 0.7206666666666667,
+              "bottom": 0.4457894736842105
+            },
+            "line_total": {
+              "left": 0.8066666666666666,
+              "top": 0.4305263157894737,
+              "right": 0.8873333333333333,
+              "bottom": 0.4457894736842105
+            }
+          },
+          {
+            "description": {
+              "left": 0.06266666666666666,
+              "top": 0.4831578947368421,
+              "right": 0.212,
+              "bottom": 0.5026315789473684
+            },
+            "quantity": {
+              "left": 0.49666666666666665,
+              "top": 0.4831578947368421,
+              "right": 0.5113333333333333,
+              "bottom": 0.49842105263157893
+            },
+            "unit_price": {
+              "left": 0.64,
+              "top": 0.4831578947368421,
+              "right": 0.706,
+              "bottom": 0.49842105263157893
+            },
+            "line_total": {
+              "left": 0.8066666666666666,
+              "top": 0.4831578947368421,
+              "right": 0.8726666666666667,
+              "bottom": 0.49842105263157893
+            }
+          }
+        ]
+      },
+      "treatment": "none"
+    },
+    {
+      "id": "dev-04-02",
+      "family": "two_column",
+      "family_group": "family-04",
+      "split": "development",
+      "image": "samples/development/dev-04-02.png",
+      "sha256": "ff7c9c598fa074cd9fac8afb817cd5ee78b668d169b70db0b1f440db954e9c31",
+      "fields": {
+        "supplier_name": "Maple Lantern Works",
+        "invoice_number": "F4-002",
+        "issue_date": "2026-09-08",
+        "due_date": "2026-10-08",
+        "currency": "USD",
+        "subtotal": "375.00",
+        "tax": "13.00",
+        "discount": "5.00",
+        "shipping": "0.00",
+        "total": "383.00"
+      },
+      "line_items": [
+        {
+          "description": "Research workshop",
+          "quantity": "3",
+          "unit_price": "110.00",
+          "line_total": "330.00"
+        },
+        {
+          "description": "Archive prep",
+          "quantity": "1",
+          "unit_price": "45.00",
+          "line_total": "45.00"
+        }
+      ],
+      "expected_issue_codes": [],
+      "geometry": {
+        "raw_size": [
+          1500,
+          1900
+        ],
+        "display_size": [
+          1500,
+          1900
+        ],
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "right": 1500,
+          "bottom": 1900
+        },
+        "rotation_clockwise": 0,
+        "raw_field_boxes": {
+          "supplier_name": {
+            "left": 95,
+            "top": 102,
+            "right": 706,
+            "bottom": 161
+          },
+          "invoice_number": {
+            "left": 395.0,
+            "top": 288,
+            "right": 520.0,
+            "bottom": 317
+          },
+          "issue_date": {
+            "left": 201.0,
+            "top": 363,
+            "right": 403.0,
+            "bottom": 392
+          },
+          "due_date": {
+            "left": 285.0,
+            "top": 438,
+            "right": 487.0,
+            "bottom": 467
+          },
+          "currency": {
+            "left": 1003.0,
+            "top": 288,
+            "right": 1088.0,
+            "bottom": 317
+          },
+          "subtotal": {
+            "left": 988.0,
+            "top": 1188,
+            "right": 1109.0,
+            "bottom": 1217
+          },
+          "tax": {
+            "left": 907.9375,
+            "top": 1263,
+            "right": 1006.9375,
+            "bottom": 1292
+          },
+          "discount": {
+            "left": 997.0,
+            "top": 1338,
+            "right": 1074.0,
+            "bottom": 1367
+          },
+          "shipping": {
+            "left": 997.0,
+            "top": 1413,
+            "right": 1074.0,
+            "bottom": 1442
+          },
+          "total": {
+            "left": 929.9375,
+            "top": 1488,
+            "right": 1050.9375,
+            "bottom": 1517
+          }
+        },
+        "raw_row_boxes": [
+          {
+            "description": {
+              "left": 95,
+              "top": 818,
+              "right": 446,
+              "bottom": 855
+            },
+            "quantity": {
+              "left": 745,
+              "top": 818,
+              "right": 767,
+              "bottom": 847
+            },
+            "unit_price": {
+              "left": 960,
+              "top": 818,
+              "right": 1081,
+              "bottom": 847
+            },
+            "line_total": {
+              "left": 1210,
+              "top": 818,
+              "right": 1331,
+              "bottom": 847
+            }
+          },
+          {
+            "description": {
+              "left": 94,
+              "top": 918,
+              "right": 318,
+              "bottom": 955
+            },
+            "quantity": {
+              "left": 745,
+              "top": 918,
+              "right": 767,
+              "bottom": 947
+            },
+            "unit_price": {
+              "left": 960,
+              "top": 918,
+              "right": 1059,
+              "bottom": 947
+            },
+            "line_total": {
+              "left": 1210,
+              "top": 918,
+              "right": 1309,
+              "bottom": 947
+            }
+          }
+        ],
+        "field_boxes": {
+          "supplier_name": {
+            "left": 0.06333333333333334,
+            "top": 0.05368421052631579,
+            "right": 0.4706666666666667,
+            "bottom": 0.08473684210526315
+          },
+          "invoice_number": {
+            "left": 0.2633333333333333,
+            "top": 0.15157894736842106,
+            "right": 0.3466666666666667,
+            "bottom": 0.1668421052631579
+          },
+          "issue_date": {
+            "left": 0.134,
+            "top": 0.19105263157894736,
+            "right": 0.26866666666666666,
+            "bottom": 0.2063157894736842
+          },
+          "due_date": {
+            "left": 0.19,
+            "top": 0.2305263157894737,
+            "right": 0.32466666666666666,
+            "bottom": 0.24578947368421053
+          },
+          "currency": {
+            "left": 0.6686666666666666,
+            "top": 0.15157894736842106,
+            "right": 0.7253333333333334,
+            "bottom": 0.1668421052631579
+          },
+          "subtotal": {
+            "left": 0.6586666666666666,
+            "top": 0.6252631578947369,
+            "right": 0.7393333333333333,
+            "bottom": 0.6405263157894737
+          },
+          "tax": {
+            "left": 0.6052916666666667,
+            "top": 0.6647368421052632,
+            "right": 0.6712916666666666,
+            "bottom": 0.68
+          },
+          "discount": {
+            "left": 0.6646666666666666,
+            "top": 0.7042105263157895,
+            "right": 0.716,
+            "bottom": 0.7194736842105263
+          },
+          "shipping": {
+            "left": 0.6646666666666666,
+            "top": 0.7436842105263158,
+            "right": 0.716,
+            "bottom": 0.7589473684210526
+          },
+          "total": {
+            "left": 0.6199583333333333,
+            "top": 0.783157894736842,
+            "right": 0.700625,
+            "bottom": 0.7984210526315789
+          }
+        },
+        "row_boxes": [
+          {
+            "description": {
+              "left": 0.06333333333333334,
+              "top": 0.4305263157894737,
+              "right": 0.29733333333333334,
+              "bottom": 0.45
+            },
+            "quantity": {
+              "left": 0.49666666666666665,
+              "top": 0.4305263157894737,
+              "right": 0.5113333333333333,
+              "bottom": 0.4457894736842105
+            },
+            "unit_price": {
+              "left": 0.64,
+              "top": 0.4305263157894737,
+              "right": 0.7206666666666667,
+              "bottom": 0.4457894736842105
+            },
+            "line_total": {
+              "left": 0.8066666666666666,
+              "top": 0.4305263157894737,
+              "right": 0.8873333333333333,
+              "bottom": 0.4457894736842105
+            }
+          },
+          {
+            "description": {
+              "left": 0.06266666666666666,
+              "top": 0.4831578947368421,
+              "right": 0.212,
+              "bottom": 0.5026315789473684
+            },
+            "quantity": {
+              "left": 0.49666666666666665,
+              "top": 0.4831578947368421,
+              "right": 0.5113333333333333,
+              "bottom": 0.49842105263157893
+            },
+            "unit_price": {
+              "left": 0.64,
+              "top": 0.4831578947368421,
+              "right": 0.706,
+              "bottom": 0.49842105263157893
+            },
+            "line_total": {
+              "left": 0.8066666666666666,
+              "top": 0.4831578947368421,
+              "right": 0.8726666666666667,
+              "bottom": 0.49842105263157893
+            }
+          }
+        ]
+      },
+      "treatment": "none"
+    },
+    {
+      "id": "dev-05-01",
+      "family": "summary_first",
+      "family_group": "family-05",
+      "split": "development",
+      "image": "samples/development/dev-05-01.png",
+      "sha256": "f4bb8d5e91f7a74a78b3de4658367d3db1b16733e6df05750144d29c46ce6955",
+      "fields": {
+        "supplier_name": "Fable Transit Design",
+        "invoice_number": "F5-001",
+        "issue_date": "2026-09-09",
+        "due_date": "2026-10-09",
+        "currency": "USD",
+        "subtotal": "275.00",
+        "tax": "14.00",
+        "discount": "0.00",
+        "shipping": "0.00",
+        "total": "289.00"
+      },
+      "line_items": [
+        {
+          "description": "Design review",
+          "quantity": "2",
+          "unit_price": "115.00",
+          "line_total": "230.00"
+        },
+        {
+          "description": "Design review",
+          "quantity": "1",
+          "unit_price": "45.00",
+          "line_total": "45.00"
+        }
+      ],
+      "expected_issue_codes": [],
+      "geometry": {
+        "raw_size": [
+          1500,
+          1900
+        ],
+        "display_size": [
+          1500,
+          1900
+        ],
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "right": 1500,
+          "bottom": 1900
+        },
+        "rotation_clockwise": 0,
+        "raw_field_boxes": {
+          "supplier_name": {
+            "left": 95,
+            "top": 102,
+            "right": 688,
+            "bottom": 162
+          },
+          "invoice_number": {
+            "left": 395.0,
+            "top": 308,
+            "right": 520.0,
+            "bottom": 337
+          },
+          "issue_date": {
+            "left": 201.0,
+            "top": 383,
+            "right": 403.0,
+            "bottom": 412
+          },
+          "due_date": {
+            "left": 285.0,
+            "top": 458,
+            "right": 487.0,
+            "bottom": 487
+          },
+          "currency": {
+            "left": 278.0,
+            "top": 533,
+            "right": 363.0,
+            "bottom": 562
+          },
+          "subtotal": {
+            "left": 988.0,
+            "top": 678,
+            "right": 1109.0,
+            "bottom": 707
+          },
+          "tax": {
+            "left": 907.9375,
+            "top": 753,
+            "right": 1006.9375,
+            "bottom": 782
+          },
+          "discount": {
+            "left": 997.0,
+            "top": 828,
+            "right": 1074.0,
+            "bottom": 857
+          },
+          "shipping": {
+            "left": 997.0,
+            "top": 903,
+            "right": 1074.0,
+            "bottom": 932
+          },
+          "total": {
+            "left": 929.9375,
+            "top": 978,
+            "right": 1050.9375,
+            "bottom": 1007
+          }
+        },
+        "raw_row_boxes": [
+          {
+            "description": {
+              "left": 95,
+              "top": 1238,
+              "right": 345,
+              "bottom": 1275
+            },
+            "quantity": {
+              "left": 745,
+              "top": 1238,
+              "right": 767,
+              "bottom": 1267
+            },
+            "unit_price": {
+              "left": 960,
+              "top": 1238,
+              "right": 1081,
+              "bottom": 1267
+            },
+            "line_total": {
+              "left": 1210,
+              "top": 1238,
+              "right": 1331,
+              "bottom": 1267
+            }
+          },
+          {
+            "description": {
+              "left": 95,
+              "top": 1338,
+              "right": 345,
+              "bottom": 1375
+            },
+            "quantity": {
+              "left": 745,
+              "top": 1338,
+              "right": 767,
+              "bottom": 1367
+            },
+            "unit_price": {
+              "left": 960,
+              "top": 1338,
+              "right": 1059,
+              "bottom": 1367
+            },
+            "line_total": {
+              "left": 1210,
+              "top": 1338,
+              "right": 1309,
+              "bottom": 1367
+            }
+          }
+        ],
+        "field_boxes": {
+          "supplier_name": {
+            "left": 0.06333333333333334,
+            "top": 0.05368421052631579,
+            "right": 0.45866666666666667,
+            "bottom": 0.08526315789473685
+          },
+          "invoice_number": {
+            "left": 0.2633333333333333,
+            "top": 0.16210526315789472,
+            "right": 0.3466666666666667,
+            "bottom": 0.1773684210526316
+          },
+          "issue_date": {
+            "left": 0.134,
+            "top": 0.20157894736842105,
+            "right": 0.26866666666666666,
+            "bottom": 0.2168421052631579
+          },
+          "due_date": {
+            "left": 0.19,
+            "top": 0.24105263157894738,
+            "right": 0.32466666666666666,
+            "bottom": 0.2563157894736842
+          },
+          "currency": {
+            "left": 0.18533333333333332,
+            "top": 0.2805263157894737,
+            "right": 0.242,
+            "bottom": 0.29578947368421055
+          },
+          "subtotal": {
+            "left": 0.6586666666666666,
+            "top": 0.3568421052631579,
+            "right": 0.7393333333333333,
+            "bottom": 0.3721052631578947
+          },
+          "tax": {
+            "left": 0.6052916666666667,
+            "top": 0.39631578947368423,
+            "right": 0.6712916666666666,
+            "bottom": 0.41157894736842104
+          },
+          "discount": {
+            "left": 0.6646666666666666,
+            "top": 0.4357894736842105,
+            "right": 0.716,
+            "bottom": 0.45105263157894737
+          },
+          "shipping": {
+            "left": 0.6646666666666666,
+            "top": 0.47526315789473683,
+            "right": 0.716,
+            "bottom": 0.4905263157894737
+          },
+          "total": {
+            "left": 0.6199583333333333,
+            "top": 0.5147368421052632,
+            "right": 0.700625,
+            "bottom": 0.53
+          }
+        },
+        "row_boxes": [
+          {
+            "description": {
+              "left": 0.06333333333333334,
+              "top": 0.651578947368421,
+              "right": 0.23,
+              "bottom": 0.6710526315789473
+            },
+            "quantity": {
+              "left": 0.49666666666666665,
+              "top": 0.651578947368421,
+              "right": 0.5113333333333333,
+              "bottom": 0.6668421052631579
+            },
+            "unit_price": {
+              "left": 0.64,
+              "top": 0.651578947368421,
+              "right": 0.7206666666666667,
+              "bottom": 0.6668421052631579
+            },
+            "line_total": {
+              "left": 0.8066666666666666,
+              "top": 0.651578947368421,
+              "right": 0.8873333333333333,
+              "bottom": 0.6668421052631579
+            }
+          },
+          {
+            "description": {
+              "left": 0.06333333333333334,
+              "top": 0.7042105263157895,
+              "right": 0.23,
+              "bottom": 0.7236842105263158
+            },
+            "quantity": {
+              "left": 0.49666666666666665,
+              "top": 0.7042105263157895,
+              "right": 0.5113333333333333,
+              "bottom": 0.7194736842105263
+            },
+            "unit_price": {
+              "left": 0.64,
+              "top": 0.7042105263157895,
+              "right": 0.706,
+              "bottom": 0.7194736842105263
+            },
+            "line_total": {
+              "left": 0.8066666666666666,
+              "top": 0.7042105263157895,
+              "right": 0.8726666666666667,
+              "bottom": 0.7194736842105263
+            }
+          }
+        ]
+      },
+      "treatment": "none"
+    },
+    {
+      "id": "dev-05-02",
+      "family": "summary_first",
+      "family_group": "family-05",
+      "split": "development",
+      "image": "samples/development/dev-05-02.png",
+      "sha256": "55f001ebecfd42a47e20ed78858cdcf9124268e8c2d1a6f50938fd18e83def95",
+      "fields": {
+        "supplier_name": "Fable Transit Design",
+        "invoice_number": "F5-002",
+        "issue_date": "2026-09-10",
+        "due_date": "2026-10-10",
+        "currency": "USD",
+        "subtotal": "405.00",
+        "tax": "14.00",
+        "discount": "0.00",
+        "shipping": "0.00",
+        "total": "424.00"
+      },
+      "line_items": [
+        {
+          "description": "Design review",
+          "quantity": "3",
+          "unit_price": "120.00",
+          "line_total": "360.00"
+        },
+        {
+          "description": "Design review",
+          "quantity": "1",
+          "unit_price": "45.00",
+          "line_total": "45.00"
+        }
+      ],
+      "expected_issue_codes": [
+        "TOTAL_MISMATCH"
+      ],
+      "geometry": {
+        "raw_size": [
+          1500,
+          1900
+        ],
+        "display_size": [
+          1500,
+          1900
+        ],
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "right": 1500,
+          "bottom": 1900
+        },
+        "rotation_clockwise": 0,
+        "raw_field_boxes": {
+          "supplier_name": {
+            "left": 95,
+            "top": 102,
+            "right": 688,
+            "bottom": 162
+          },
+          "invoice_number": {
+            "left": 395.0,
+            "top": 308,
+            "right": 520.0,
+            "bottom": 337
+          },
+          "issue_date": {
+            "left": 201.0,
+            "top": 383,
+            "right": 403.0,
+            "bottom": 412
+          },
+          "due_date": {
+            "left": 285.0,
+            "top": 458,
+            "right": 487.0,
+            "bottom": 487
+          },
+          "currency": {
+            "left": 278.0,
+            "top": 533,
+            "right": 363.0,
+            "bottom": 562
+          },
+          "subtotal": {
+            "left": 988.0,
+            "top": 678,
+            "right": 1109.0,
+            "bottom": 707
+          },
+          "tax": {
+            "left": 907.9375,
+            "top": 753,
+            "right": 1006.9375,
+            "bottom": 782
+          },
+          "discount": {
+            "left": 997.0,
+            "top": 828,
+            "right": 1074.0,
+            "bottom": 857
+          },
+          "shipping": {
+            "left": 997.0,
+            "top": 903,
+            "right": 1074.0,
+            "bottom": 932
+          },
+          "total": {
+            "left": 929.9375,
+            "top": 978,
+            "right": 1050.9375,
+            "bottom": 1007
+          }
+        },
+        "raw_row_boxes": [
+          {
+            "description": {
+              "left": 95,
+              "top": 1238,
+              "right": 345,
+              "bottom": 1275
+            },
+            "quantity": {
+              "left": 745,
+              "top": 1238,
+              "right": 767,
+              "bottom": 1267
+            },
+            "unit_price": {
+              "left": 960,
+              "top": 1238,
+              "right": 1081,
+              "bottom": 1267
+            },
+            "line_total": {
+              "left": 1210,
+              "top": 1238,
+              "right": 1331,
+              "bottom": 1267
+            }
+          },
+          {
+            "description": {
+              "left": 95,
+              "top": 1338,
+              "right": 345,
+              "bottom": 1375
+            },
+            "quantity": {
+              "left": 745,
+              "top": 1338,
+              "right": 767,
+              "bottom": 1367
+            },
+            "unit_price": {
+              "left": 960,
+              "top": 1338,
+              "right": 1059,
+              "bottom": 1367
+            },
+            "line_total": {
+              "left": 1210,
+              "top": 1338,
+              "right": 1309,
+              "bottom": 1367
+            }
+          }
+        ],
+        "field_boxes": {
+          "supplier_name": {
+            "left": 0.06333333333333334,
+            "top": 0.05368421052631579,
+            "right": 0.45866666666666667,
+            "bottom": 0.08526315789473685
+          },
+          "invoice_number": {
+            "left": 0.2633333333333333,
+            "top": 0.16210526315789472,
+            "right": 0.3466666666666667,
+            "bottom": 0.1773684210526316
+          },
+          "issue_date": {
+            "left": 0.134,
+            "top": 0.20157894736842105,
+            "right": 0.26866666666666666,
+            "bottom": 0.2168421052631579
+          },
+          "due_date": {
+            "left": 0.19,
+            "top": 0.24105263157894738,
+            "right": 0.32466666666666666,
+            "bottom": 0.2563157894736842
+          },
+          "currency": {
+            "left": 0.18533333333333332,
+            "top": 0.2805263157894737,
+            "right": 0.242,
+            "bottom": 0.29578947368421055
+          },
+          "subtotal": {
+            "left": 0.6586666666666666,
+            "top": 0.3568421052631579,
+            "right": 0.7393333333333333,
+            "bottom": 0.3721052631578947
+          },
+          "tax": {
+            "left": 0.6052916666666667,
+            "top": 0.39631578947368423,
+            "right": 0.6712916666666666,
+            "bottom": 0.41157894736842104
+          },
+          "discount": {
+            "left": 0.6646666666666666,
+            "top": 0.4357894736842105,
+            "right": 0.716,
+            "bottom": 0.45105263157894737
+          },
+          "shipping": {
+            "left": 0.6646666666666666,
+            "top": 0.47526315789473683,
+            "right": 0.716,
+            "bottom": 0.4905263157894737
+          },
+          "total": {
+            "left": 0.6199583333333333,
+            "top": 0.5147368421052632,
+            "right": 0.700625,
+            "bottom": 0.53
+          }
+        },
+        "row_boxes": [
+          {
+            "description": {
+              "left": 0.06333333333333334,
+              "top": 0.651578947368421,
+              "right": 0.23,
+              "bottom": 0.6710526315789473
+            },
+            "quantity": {
+              "left": 0.49666666666666665,
+              "top": 0.651578947368421,
+              "right": 0.5113333333333333,
+              "bottom": 0.6668421052631579
+            },
+            "unit_price": {
+              "left": 0.64,
+              "top": 0.651578947368421,
+              "right": 0.7206666666666667,
+              "bottom": 0.6668421052631579
+            },
+            "line_total": {
+              "left": 0.8066666666666666,
+              "top": 0.651578947368421,
+              "right": 0.8873333333333333,
+              "bottom": 0.6668421052631579
+            }
+          },
+          {
+            "description": {
+              "left": 0.06333333333333334,
+              "top": 0.7042105263157895,
+              "right": 0.23,
+              "bottom": 0.7236842105263158
+            },
+            "quantity": {
+              "left": 0.49666666666666665,
+              "top": 0.7042105263157895,
+              "right": 0.5113333333333333,
+              "bottom": 0.7194736842105263
+            },
+            "unit_price": {
+              "left": 0.64,
+              "top": 0.7042105263157895,
+              "right": 0.706,
+              "bottom": 0.7194736842105263
+            },
+            "line_total": {
+              "left": 0.8066666666666666,
+              "top": 0.7042105263157895,
+              "right": 0.8726666666666667,
+              "bottom": 0.7194736842105263
+            }
+          }
+        ]
+      },
+      "treatment": "none"
+    },
+    {
+      "id": "dev-06-01",
+      "family": "degraded_orientation",
+      "family_group": "family-06",
+      "split": "development",
+      "image": "samples/development/dev-06-01.png",
+      "sha256": "ad784a4b7d9f816b2ffd13e36a9ac34bbe94691d260c3aa6190e92809ea6b194",
+      "fields": {
+        "supplier_name": "Northline Atelier",
+        "invoice_number": "F6-001",
+        "issue_date": "2026-09-11",
+        "due_date": "2026-10-11",
+        "currency": "USD",
+        "subtotal": "250.00",
+        "tax": "15.00",
+        "discount": "0.00",
+        "shipping": "0.00",
+        "total": "265.00"
+      },
+      "line_items": [
+        {
+          "description": "Research workshop",
+          "quantity": "2",
+          "unit_price": "125.00",
+          "line_total": "250.00"
+        }
+      ],
+      "expected_issue_codes": [],
+      "geometry": {
+        "raw_size": [
+          1200,
+          2000
+        ],
+        "display_size": [
+          1200,
+          2000
+        ],
+        "crop": {
+          "left": 0,
+          "top": 0,
+          "right": 1200,
+          "bottom": 2000
+        },
+        "rotation_clockwise": 0,
+        "raw_field_boxes": {
+          "supplier_name": {
+            "left": 65,
+            "top": 106,
+            "right": 463,
+            "bottom": 146
+          },
+          "invoice_number": {
+            "left": 337.0,
+            "top": 332,
+            "right": 451.0,
+            "bottom": 358
+          },
+          "issue_date": {
+            "left": 161.0,
+            "top": 407,
+            "right": 341.0,
+            "bottom": 433
+          },
+          "due_date": {
+            "left": 237.0,
+            "top": 482,
+            "right": 417.0,
+            "bottom": 508
+          },
+          "currency": {
+            "left": 231.0,
+            "top": 557,
+            "right": 307.0,
+            "bottom": 583
+          },
+          "subtotal": {
+            "left": 217.0,
+            "top": 1337,
+            "right": 327.0,
+            "bottom": 1363
+          },
+          "tax": {
+            "left": 144.9375,
+            "top": 1412,
+            "right": 234.9375,
+            "bottom": 1438
+          },
+          "discount": {
+            "left": 225.0,
+            "top": 1487,
+            "right": 295.0,
+            "bottom": 1513
+          },
+          "shipping": {
+            "left": 225.0,
+            "top": 1562,
+            "right": 295.0,
+            "bottom": 1588
+          },
+          "total": {
+            "left": 164.9375,
+            "top": 1637,
+            "right": 274.9375,
+            "bottom": 1663
+          }
+        },
+        "raw_row_boxes": [
+          {
+            "description": {
+              "left": 65,
+              "top": 897,
+              "right": 383,
+              "bottom": 930
+            },
+            "quantity": {
+              "left": 620,
+              "top": 897,
+              "right": 640,
+              "bottom": 923
+            },
+            "unit_price": {
+              "left": 805,
+              "top": 897,
+              "right": 915,
+              "bottom": 923
+            },
+            "line_total": {
+              "left": 1030,
+              "top": 897,
+              "right": 1140,
+              "bottom": 923
+            }
+          }
+        ],
+        "field_boxes": {
+          "supplier_name": {
+            "left": 0.05416666666666667,
+            "top": 0.053,
+            "right": 0.3858333333333333,
+            "bottom": 0.073
+          },
+          "invoice_number": {
+            "left": 0.2808333333333333,
+            "top": 0.166,
+            "right": 0.37583333333333335,
+            "bottom": 0.179
+          },
+          "issue_date": {
+            "left": 0.13416666666666666,
+            "top": 0.2035,
+            "right": 0.2841666666666667,
+            "bottom": 0.2165
+          },
+          "due_date": {
+            "left": 0.1975,
+            "top": 0.241,
+            "right": 0.3475,
+            "bottom": 0.254
+          },
+          "currency": {
+            "left": 0.1925,
+            "top": 0.2785,
+            "right": 0.25583333333333336,
+            "bottom": 0.2915
+          },
+          "subtotal": {
+            "left": 0.18083333333333335,
+            "top": 0.6685,
+            "right": 0.2725,
+            "bottom": 0.6815
+          },
+          "tax": {
+            "left": 0.12078125,
+            "top": 0.706,
+            "right": 0.19578125,
+            "bottom": 0.719
+          },
+          "discount": {
+            "left": 0.1875,
+            "top": 0.7435,
+            "right": 0.24583333333333332,
+            "bottom": 0.7565
+          },
+          "shipping": {
+            "left": 0.1875,
+            "top": 0.781,
+            "right": 0.24583333333333332,
+            "bottom": 0.794
+          },
+          "total": {
+            "left": 0.13744791666666667,
+            "top": 0.8185,
+            "right": 0.22911458333333334,
+            "bottom": 0.8315
+          }
+        },
+        "row_boxes": [
+          {
+            "description": {
+              "left": 0.05416666666666667,
+              "top": 0.4485,
+              "right": 0.31916666666666665,
+              "bottom": 0.465
+            },
+            "quantity": {
+              "left": 0.5166666666666667,
+              "top": 0.4485,
+              "right": 0.5333333333333333,
+              "bottom": 0.4615
+            },
+            "unit_price": {
+              "left": 0.6708333333333333,
+              "top": 0.4485,
+              "right": 0.7625,
+              "bottom": 0.4615
+            },
+            "line_total": {
+              "left": 0.8583333333333333,
+              "top": 0.4485,
+              "right": 0.95,
+              "bottom": 0.4615
+            }
+          }
+        ]
+      },
+      "treatment": "blur_low_contrast"
+    },
+    {
+      "id": "dev-06-02",
+      "family": "degraded_orientation",
+      "family_group": "family-06",
+      "split": "development",
+      "image": "samples/development/dev-06-02.png",
+      "sha256": "baad5b46c22c1eb5ebddc1fefc2df753b9998742e7bf2ee7e40e3de4d882f3d6",
+      "fields": {
+        "supplier_name": "Northline Atelier",
+        "invoice_number": "F6-002",
+        "issue_date": "2026-09-12",
+        "due_date": "2026-10-12",
+        "currency": "USD",
+        "subtotal": "390.00",
+        "tax": "15.00",
+        "discount": "0.00",
+        "shipping": "0.00",
+        "total": "405.00"
+      },
+      "line_items": [
+        {
+          "description": "Research workshop",
+          "quantity": "3",
+          "unit_price": "130.00",
+          "line_total": "390.00"
+        }
+      ],
+      "expected_issue_codes": [],
+      "geometry": {
+        "raw_size": [
+          1200,
+          2000
+        ],
+        "display_size": [
+          1960,
+          1160
+        ],
+        "crop": {
+          "left": 20,
+          "top": 20,
+          "right": 1180,
+          "bottom": 1980
+        },
+        "rotation_clockwise": 270,
+        "raw_field_boxes": {
+          "supplier_name": {
+            "left": 65,
+            "top": 106,
+            "right": 463,
+            "bottom": 146
+          },
+          "invoice_number": {
+            "left": 337.0,
+            "top": 332,
+            "right": 451.0,
+            "bottom": 358
+          },
+          "issue_date": {
+            "left": 161.0,
+            "top": 407,
+            "right": 341.0,
+            "bottom": 433
+          },
+          "due_date": {
+            "left": 237.0,
+            "top": 482,
+            "right": 417.0,
+            "bottom": 508
+          },
+          "currency": {
+            "left": 231.0,
+            "top": 557,
+            "right": 307.0,
+            "bottom": 583
+          },
+          "subtotal": {
+            "left": 217.0,
+            "top": 1337,
+            "right": 327.0,
+            "bottom": 1363
+          },
+          "tax": {
+            "left": 144.9375,
+            "top": 1412,
+            "right": 234.9375,
+            "bottom": 1438
+          },
+          "discount": {
+            "left": 225.0,
+            "top": 1487,
+            "right": 295.0,
+            "bottom": 1513
+          },
+          "shipping": {
+            "left": 225.0,
+            "top": 1562,
+            "right": 295.0,
+            "bottom": 1588
+          },
+          "total": {
+            "left": 164.9375,
+            "top": 1637,
+            "right": 274.9375,
+            "bottom": 1663
+          }
+        },
+        "raw_row_boxes": [
+          {
+            "description": {
+              "left": 65,
+              "top": 897,
+              "right": 383,
+              "bottom": 930
+            },
+            "quantity": {
+              "left": 620,
+              "top": 897,
+              "right": 640,
+              "bottom": 923
+            },
+            "unit_price": {
+              "left": 805,
+              "top": 897,
+              "right": 915,
+              "bottom": 923
+            },
+            "line_total": {
+              "left": 1030,
+              "top": 897,
+              "right": 1140,
+              "bottom": 923
+            }
+          }
+        ],
+        "field_boxes": {
+          "supplier_name": {
+            "left": 0.04387755102040816,
+            "top": 0.618103448275862,
+            "right": 0.06428571428571428,
+            "bottom": 0.9612068965517241
+          },
+          "invoice_number": {
+            "left": 0.15918367346938775,
+            "top": 0.628448275862069,
+            "right": 0.17244897959183675,
+            "bottom": 0.7267241379310345
+          },
+          "issue_date": {
+            "left": 0.19744897959183674,
+            "top": 0.7232758620689655,
+            "right": 0.21071428571428572,
+            "bottom": 0.878448275862069
+          },
+          "due_date": {
+            "left": 0.2357142857142857,
+            "top": 0.6577586206896552,
+            "right": 0.24897959183673468,
+            "bottom": 0.8129310344827586
+          },
+          "currency": {
+            "left": 0.2739795918367347,
+            "top": 0.7525862068965518,
+            "right": 0.2872448979591837,
+            "bottom": 0.8181034482758621
+          },
+          "subtotal": {
+            "left": 0.6719387755102041,
+            "top": 0.7353448275862069,
+            "right": 0.685204081632653,
+            "bottom": 0.8301724137931035
+          },
+          "tax": {
+            "left": 0.710204081632653,
+            "top": 0.8147090517241379,
+            "right": 0.7234693877551021,
+            "bottom": 0.8922952586206897
+          },
+          "discount": {
+            "left": 0.7484693877551021,
+            "top": 0.7629310344827587,
+            "right": 0.761734693877551,
+            "bottom": 0.8232758620689655
+          },
+          "shipping": {
+            "left": 0.786734693877551,
+            "top": 0.7629310344827587,
+            "right": 0.8,
+            "bottom": 0.8232758620689655
+          },
+          "total": {
+            "left": 0.825,
+            "top": 0.7802262931034483,
+            "right": 0.838265306122449,
+            "bottom": 0.8750538793103448
+          }
+        },
+        "row_boxes": [
+          {
+            "description": {
+              "left": 0.4474489795918367,
+              "top": 0.6870689655172414,
+              "right": 0.4642857142857143,
+              "bottom": 0.9612068965517241
+            },
+            "quantity": {
+              "left": 0.4474489795918367,
+              "top": 0.46551724137931033,
+              "right": 0.4607142857142857,
+              "bottom": 0.4827586206896552
+            },
+            "unit_price": {
+              "left": 0.4474489795918367,
+              "top": 0.22844827586206898,
+              "right": 0.4607142857142857,
+              "bottom": 0.3232758620689655
+            },
+            "line_total": {
+              "left": 0.4474489795918367,
+              "top": 0.034482758620689655,
+              "right": 0.4607142857142857,
+              "bottom": 0.12931034482758622
+            }
+          }
+        ]
+      },
+      "treatment": "crop_rotate_270_clockwise"
+    }
+  ]
+}

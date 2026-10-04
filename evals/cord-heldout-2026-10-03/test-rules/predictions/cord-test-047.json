@@ -1,0 +1,375 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "63000",
+        "raw": "63,000.00",
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "COPIA",
+          "raw": "COPIA",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "45000",
+          "raw": "45,000.00",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "PLASTIC BAG RED CENTRAL SI",
+          "raw": "PLASTIC BAG RED CENTRAL SI",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "0.00",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "COPIA",
+          "raw": "COPIA",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "18000",
+          "raw": "18,000.00",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "568bd64dc2b183936b66699327edb7f74878d6a6fed434f920945f55a1015c9b",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.561,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Oe seneen eee 9a",
+        "box": {
+          "left": 0.12152777777777778,
+          "top": 0.03935185185185185,
+          "right": 0.7835648148148148,
+          "bottom": 0.08256172839506173
+        },
+        "method": "tesseract-eng",
+        "confidence": 7.49
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "oat Jenene Fae GF",
+        "box": {
+          "left": 0.10416666666666667,
+          "top": 0.06867283950617284,
+          "right": 0.7592592592592593,
+          "bottom": 0.10185185185185185
+        },
+        "method": "tesseract-eng",
+        "confidence": 31.85
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "4 \u2014 4 ee ed",
+        "box": {
+          "left": 0.26967592592592593,
+          "top": 0.10416666666666667,
+          "right": 0.6805555555555556,
+          "bottom": 0.1257716049382716
+        },
+        "method": "tesseract-eng",
+        "confidence": 33.46
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "\u201c.",
+        "box": {
+          "left": 0.2222222222222222,
+          "top": 0.13734567901234568,
+          "right": 0.2465277777777778,
+          "bottom": 0.14969135802469136
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "~~ \u201c4",
+        "box": {
+          "left": 0.1527777777777778,
+          "top": 0.42746913580246915,
+          "right": 0.8842592592592593,
+          "bottom": 0.4513888888888889
+        },
+        "method": "tesseract-eng",
+        "confidence": 21.49
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "COPIA 1 /GB 1 45,000.00",
+        "box": {
+          "left": 0.07291666666666667,
+          "top": 0.4807098765432099,
+          "right": 0.7314814814814815,
+          "bottom": 0.503858024691358
+        },
+        "method": "tesseract-eng",
+        "confidence": 85.93
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "2100252000358 45,000.00",
+        "box": {
+          "left": 0.07291666666666667,
+          "top": 0.5077160493827161,
+          "right": 0.9004629629629629,
+          "bottom": 0.5324074074074074
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.31
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "PLASTIC BAG RED CENTRAL SI 1 0.00",
+        "box": {
+          "left": 0.07291666666666667,
+          "top": 0.566358024691358,
+          "right": 0.7349537037037037,
+          "bottom": 0.5887345679012346
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.26
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "\u00a7100544260074 0.00",
+        "box": {
+          "left": 0.07060185185185185,
+          "top": 0.595679012345679,
+          "right": 0.9039351851851852,
+          "bottom": 0.6188271604938271
+        },
+        "method": "tesseract-eng",
+        "confidence": 66.52
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "COPIA 1 /GB 1 18,000.00",
+        "box": {
+          "left": 0.06481481481481481,
+          "top": 0.654320987654321,
+          "right": 0.7384259259259259,
+          "bottom": 0.6774691358024691
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.43
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "2100252000358 18,000.00",
+        "box": {
+          "left": 0.0625,
+          "top": 0.6844135802469136,
+          "right": 0.9085648148148148,
+          "bottom": 0.7075617283950617
+        },
+        "method": "tesseract-eng",
+        "confidence": 81.64
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "Total 63,000.00",
+        "box": {
+          "left": 0.052083333333333336,
+          "top": 0.7746913580246914,
+          "right": 0.9155092592592593,
+          "bottom": 0.7993827160493827
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.33
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "Total discount A",
+        "box": {
+          "left": 0.047453703703703706,
+          "top": 0.8016975308641975,
+          "right": 0.9143518518518519,
+          "bottom": 0.8533950617283951
+        },
+        "method": "tesseract-eng",
+        "confidence": 70.41
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "Total quantity",
+        "box": {
+          "left": 0.04513888888888889,
+          "top": 0.8395061728395061,
+          "right": 0.26157407407407407,
+          "bottom": 0.8672839506172839
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.81
+      },
+      {
+        "id": "p1-l0015",
+        "page": 1,
+        "text": "Card Payment DEBIT CARD",
+        "box": {
+          "left": 0.041666666666666664,
+          "top": 0.8950617283950617,
+          "right": 0.4039351851851852,
+          "bottom": 0.9243827160493827
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.94
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 12,
+    "valid_reference_values": 12,
+    "aligned_values": 12,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

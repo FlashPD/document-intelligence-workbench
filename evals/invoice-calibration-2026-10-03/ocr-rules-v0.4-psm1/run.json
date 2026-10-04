@@ -1,0 +1,13 @@
+{
+  "run_version": "invoice-preview-ocr-rules-v3",
+  "dataset_id": "self-authored-invoices-v1",
+  "split": "calibration",
+  "manifest_sha256": "a39a99cf5543888ebd7b9af5a42a18ac82e4ff6baf2534b8cd6d16ca9c76f61c",
+  "baseline_version": "ocr-rules-v0.4",
+  "pipeline_sha256": "b79588d6331e367c1d94483ab82371a0f470b5706d55b41baef59389d9082833",
+  "ocr_psm": 1,
+  "tesseract_version": "tesseract 5.4.1",
+  "python_version": "3.12.12",
+  "input_mode": "verified_corpus_png_previews",
+  "documents_scheduled": 180
+}

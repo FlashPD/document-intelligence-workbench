@@ -1,0 +1,354 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": "15.40",
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "A SUNRISE TraLtaMeSBP",
+          "raw": "A SUNRISE TraLtaMeSBP",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "6",
+          "raw": "6",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "foTaL",
+          "raw": "foTaL",
+          "evidence_ids": [
+            "p1-l0013"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "1723000",
+          "raw": "1723000",
+          "evidence_ids": [
+            "p1-l0013"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "b32ba204e0cbdc7541e4e316ebc9f5efde8ed85948987030d463a071702e1e6c",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 1.751,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "! PARET BER4 138.182 +",
+        "box": {
+          "left": 0.1875,
+          "top": 0.345679012345679,
+          "right": 0.8032407407407407,
+          "bottom": 0.37885802469135804
+        },
+        "method": "tesseract-eng",
+        "confidence": 61.83
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "{ BREAD N CHEESE pep",
+        "box": {
+          "left": 0.2523148148148148,
+          "top": 0.3773148148148148,
+          "right": 0.5914351851851852,
+          "bottom": 0.4050925925925926
+        },
+        "method": "tesseract-eng",
+        "confidence": 70.28
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "1 BREAD N CHEESE pe,",
+        "box": {
+          "left": 0.2523148148148148,
+          "top": 0.408179012345679,
+          "right": 0.5879629629629629,
+          "bottom": 0.43441358024691357
+        },
+        "method": "tesseract-eng",
+        "confidence": 84.63
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "{ CRARSTICK FUSTLLT pep",
+        "box": {
+          "left": 0.2523148148148148,
+          "top": 0.4382716049382716,
+          "right": 0.6377314814814815,
+          "bottom": 0.4660493827160494
+        },
+        "method": "tesseract-eng",
+        "confidence": 46.74
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "1 LINE SQUASH ne,",
+        "box": {
+          "left": 0.2523148148148148,
+          "top": 0.4683641975308642,
+          "right": 0.53125,
+          "bottom": 0.49151234567901236
+        },
+        "method": "tesseract-eng",
+        "confidence": 84.41
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "4 LINE SQUASH per",
+        "box": {
+          "left": 0.2523148148148148,
+          "top": 0.49537037037037035,
+          "right": 0.5277777777777778,
+          "bottom": 0.5192901234567902
+        },
+        "method": "tesseract-eng",
+        "confidence": 64.32
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "1 P/P. SPICY Tia DEL",
+        "box": {
+          "left": 0.2511574074074074,
+          "top": 0.5231481481481481,
+          "right": 0.5752314814814815,
+          "bottom": 0.5493827160493827
+        },
+        "method": "tesseract-eng",
+        "confidence": 61.78
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "1 P/P THUOSAND Tgp DEL",
+        "box": {
+          "left": 0.2488425925925926,
+          "top": 0.5501543209876543,
+          "right": 0.6053240740740741,
+          "bottom": 0.5756172839506173
+        },
+        "method": "tesseract-eng",
+        "confidence": 77.17
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "1 P/P BEEF CORN og",
+        "box": {
+          "left": 0.24768518518518517,
+          "top": 0.5779320987654321,
+          "right": 0.5682870370370371,
+          "bottom": 0.6064814814814815
+        },
+        "method": "tesseract-eng",
+        "confidence": 56.01
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "A SUNRISE TraLtaMeSBP6",
+        "box": {
+          "left": 0.24537037037037038,
+          "top": 0.6057098765432098,
+          "right": 0.5972222222222222,
+          "bottom": 0.628858024691358
+        },
+        "method": "tesseract-eng",
+        "confidence": 24.18
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "4 LIPTON ce TEA PEL i",
+        "box": {
+          "left": 0.24421296296296297,
+          "top": 0.6296296296296297,
+          "right": 0.6898148148148148,
+          "bottom": 0.654320987654321
+        },
+        "method": "tesseract-eng",
+        "confidence": 58.16
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "Tax 15.40",
+        "box": {
+          "left": 0.44560185185185186,
+          "top": 0.7199074074074074,
+          "right": 0.6979166666666666,
+          "bottom": 0.7476851851851852
+        },
+        "method": "tesseract-eng",
+        "confidence": 59.95
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "foTaL 1723000",
+        "box": {
+          "left": 0.1724537037037037,
+          "top": 0.779320987654321,
+          "right": 0.6967592592592593,
+          "bottom": 0.8279320987654321
+        },
+        "method": "tesseract-eng",
+        "confidence": 22.35
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "SesssSzsces.",
+        "box": {
+          "left": 0.5023148148148148,
+          "top": 0.8271604938271605,
+          "right": 0.6990740740740741,
+          "bottom": 0.8395061728395061
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0015",
+        "page": 1,
+        "text": "\u00b0 e",
+        "box": {
+          "left": 0.33217592592592593,
+          "top": 0.8773148148148148,
+          "right": 0.4513888888888889,
+          "bottom": 0.8919753086419753
+        },
+        "method": "tesseract-eng",
+        "confidence": 8.76
+      },
+      {
+        "id": "p1-l0016",
+        "page": 1,
+        "text": "ame \u00a9",
+        "box": {
+          "left": 0.33101851851851855,
+          "top": 0.8919753086419753,
+          "right": 0.4826388888888889,
+          "bottom": 0.9274691358024691
+        },
+        "method": "tesseract-eng",
+        "confidence": 38.25
+      },
+      {
+        "id": "p1-l0017",
+        "page": 1,
+        "text": "\u00b0",
+        "box": {
+          "left": 0.45023148148148145,
+          "top": 0.9212962962962963,
+          "right": 0.46064814814814814,
+          "bottom": 0.9290123456790124
+        },
+        "method": "tesseract-eng",
+        "confidence": 34.48
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 4,
+    "valid_reference_values": 4,
+    "aligned_values": 4,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,349 @@
+{
+  "source_sha256": "a0e6c17a6e08faea41eef2f7079c90d90cdc9a33093aebe5128bc1d35f012f58",
+  "pages": [
+    {
+      "number": 1,
+      "width_px": 1200,
+      "height_px": 1600,
+      "spans": [
+        {
+          "id": "p1-l0001",
+          "page": 1,
+          "text": "a",
+          "box": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 1.0,
+            "bottom": 0.011875
+          },
+          "method": "tesseract-eng",
+          "confidence": 18.41
+        },
+        {
+          "id": "p1-l0002",
+          "page": 1,
+          "text": "Fable Transit Design",
+          "box": {
+            "left": 0.056666666666666664,
+            "top": 0.026875,
+            "right": 0.38416666666666666,
+            "bottom": 0.051875
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.33
+        },
+        {
+          "id": "p1-l0003",
+          "page": 1,
+          "text": "INVOICE",
+          "box": {
+            "left": 0.07,
+            "top": 0.064375,
+            "right": 0.2125,
+            "bottom": 0.08375
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.05
+        },
+        {
+          "id": "p1-l0004",
+          "page": 1,
+          "text": "Invoice No.: F05-001",
+          "box": {
+            "left": 0.3933333333333333,
+            "top": 0.16875,
+            "right": 0.5858333333333333,
+            "bottom": 0.180625
+          },
+          "method": "tesseract-eng",
+          "confidence": 85.37
+        },
+        {
+          "id": "p1-l0005",
+          "page": 1,
+          "text": "Date: 05/06/2026",
+          "box": {
+            "left": 0.3933333333333333,
+            "top": 0.205625,
+            "right": 0.5525,
+            "bottom": 0.2175
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.7
+        },
+        {
+          "id": "p1-l0006",
+          "page": 1,
+          "text": "Currency: USD",
+          "box": {
+            "left": 0.3925,
+            "top": 0.279375,
+            "right": 0.5358333333333334,
+            "bottom": 0.294375
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.26
+        },
+        {
+          "id": "p1-l0007",
+          "page": 1,
+          "text": "Description Qty Unit price Amount",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.406875,
+            "right": 0.9066666666666666,
+            "bottom": 0.4275
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.42
+        },
+        {
+          "id": "p1-l0008",
+          "page": 1,
+          "text": "Design review 4 57.00 228.00",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.454375,
+            "right": 0.8966666666666666,
+            "bottom": 0.469375
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.49
+        },
+        {
+          "id": "p1-l0009",
+          "page": 1,
+          "text": "Subtotal: 228.00",
+          "box": {
+            "left": 0.5841666666666666,
+            "top": 0.765625,
+            "right": 0.7358333333333333,
+            "bottom": 0.7775
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.71
+        },
+        {
+          "id": "p1-l0010",
+          "page": 1,
+          "text": "Tax: 0.00",
+          "box": {
+            "left": 0.5833333333333334,
+            "top": 0.80125,
+            "right": 0.6708333333333333,
+            "bottom": 0.813125
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.33
+        },
+        {
+          "id": "p1-l0011",
+          "page": 1,
+          "text": "Discount: 3.00",
+          "box": {
+            "left": 0.585,
+            "top": 0.836875,
+            "right": 0.7183333333333334,
+            "bottom": 0.84875
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.46
+        },
+        {
+          "id": "p1-l0012",
+          "page": 1,
+          "text": "Shipping: 0.00",
+          "box": {
+            "left": 0.5841666666666666,
+            "top": 0.8725,
+            "right": 0.7175,
+            "bottom": 0.8875
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.44
+        },
+        {
+          "id": "p1-l0013",
+          "page": 1,
+          "text": "Total: 230.00",
+          "box": {
+            "left": 0.5833333333333334,
+            "top": 0.908125,
+            "right": 0.7058333333333333,
+            "bottom": 0.92
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.86
+        },
+        {
+          "id": "p1-l0014",
+          "page": 1,
+          "text": "Page 1",
+          "box": {
+            "left": 0.81,
+            "top": 0.9625,
+            "right": 0.8716666666666667,
+            "bottom": 0.9775
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.27
+        }
+      ]
+    }
+  ],
+  "record": {
+    "fields": {
+      "currency": {
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Currency: USD",
+        "value": "USD"
+      },
+      "discount": {
+        "evidence_ids": [
+          "p1-l0011"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Discount: 3.00",
+        "value": "3.00"
+      },
+      "due_date": {
+        "evidence_ids": [],
+        "missing_reason": "not_observed",
+        "origin": "observed",
+        "raw": null,
+        "value": null
+      },
+      "invoice_number": {
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Invoice No.: F05-001",
+        "value": "F05-001"
+      },
+      "issue_date": {
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Date: 05/06/2026",
+        "value": "05/06/2026"
+      },
+      "shipping": {
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Shipping: 0.00",
+        "value": "0.00"
+      },
+      "subtotal": {
+        "evidence_ids": [
+          "p1-l0009"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Subtotal: 228.00",
+        "value": "228.00"
+      },
+      "supplier_name": {
+        "evidence_ids": [
+          "p1-l0002"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Fable Transit Design",
+        "value": "Fable Transit Design"
+      },
+      "tax": {
+        "evidence_ids": [
+          "p1-l0010"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Tax: 0.00",
+        "value": "0.00"
+      },
+      "total": {
+        "evidence_ids": [
+          "p1-l0013"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Total: 230.00",
+        "value": "230.00"
+      }
+    },
+    "line_items": [
+      {
+        "description": {
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Design review 4 57.00 228.00",
+          "value": "Design review"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Design review 4 57.00 228.00",
+          "value": "228.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Design review 4 57.00 228.00",
+          "value": "4"
+        },
+        "row_id": "row-001",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_explicit_on_row",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Design review 4 57.00 228.00",
+          "value": "57.00"
+        }
+      }
+    ],
+    "schema_version": "invoice-v1-spike"
+  },
+  "issues": [
+    {
+      "blocking": true,
+      "code": "AMBIGUOUS_DATE",
+      "detail": "Expected YYYY-MM-DD",
+      "path": "fields.issue_date"
+    },
+    {
+      "blocking": true,
+      "code": "TOTAL_MISMATCH",
+      "detail": "Observed total differs from computed 225.00",
+      "path": "fields.total"
+    }
+  ]
+}

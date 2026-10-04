@@ -1,0 +1,102 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "ca18f6b8a3b43f3d5b916d382fe2f8e482e318c023884dca8dca3ecc1ab5d562",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 16.639
+  },
+  "ocr_prediction_sha256": "5c6785c4d0a6b5b43f2e1441f7d197fbdc444abfc23baef2107cea12f1d7949e",
+  "page": {
+    "number": 1,
+    "width_px": 720,
+    "height_px": 1280,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "a",
+        "box": {
+          "left": 0.4722222222222222,
+          "top": 0.021875,
+          "right": 0.5263888888888889,
+          "bottom": 0.03125
+        },
+        "method": "tesseract-eng",
+        "confidence": 34.25
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "thant | Adem",
+        "box": {
+          "left": 0.36944444444444446,
+          "top": 0.0296875,
+          "right": 0.5611111111111111,
+          "bottom": 0.05390625
+        },
+        "method": "tesseract-eng",
+        "confidence": 21.62
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "; 5\t1\t2\t1\t1\t3\t317\t93\t2\t9\t0.000000\tD\n5\t1\t2\t1\t1\t4\t323\t58\t21\t53\t31.039705\tss\n5\t1\t2\t1\t1\t5\t355\t59\t51\t41\t23.072048\tedt\n2\t1\t3\t0\t0\t0\t0\t0\t720\t1280\t-1\t\n3\t1\t3\t1\t0\t0\t0\t0\t720\t1280\t-1\t\n4\t1\t3\t1\t1\t0\t0\t0\t720\t1280\t-1\t\n5\t1\t3\t1\t1\t1\t0\t0\t720\t1280\t95.000000",
+        "box": {
+          "left": 0.3736111111111111,
+          "top": 0.04921875,
+          "right": 0.4361111111111111,
+          "bottom": 0.08125
+        },
+        "method": "tesseract-eng",
+        "confidence": 5.4
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

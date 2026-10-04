@@ -1,0 +1,136 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "4 BBQ Chicken",
+          "raw": "4 BBQ Chicken",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "ecf08ab2350db2a2861495846cb761ee07307591b708c8042cf8967763e81dc7",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 25.436
+  },
+  "ocr_prediction_sha256": "fc7c2f4d5653eafbf6a57473d375659e9d83c59043d8dc0d26960fb1541c552b",
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "J) ennmennnnennnnerenceensana",
+        "box": {
+          "left": 0.1076388888888889,
+          "top": 0.6682098765432098,
+          "right": 0.4097222222222222,
+          "bottom": 0.6875
+        },
+        "method": "tesseract-eng",
+        "confidence": 11.45
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "4 BBQ Chicken",
+        "box": {
+          "left": 0.15856481481481483,
+          "top": 0.6820987654320988,
+          "right": 0.3819444444444444,
+          "bottom": 0.7021604938271605
+        },
+        "method": "tesseract-eng",
+        "confidence": 48.35
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "| 1 -Tidak Pedas",
+        "box": {
+          "left": 0.12384259259259259,
+          "top": 0.6998456790123457,
+          "right": 0.38425925925925924,
+          "bottom": 0.7229938271604939
+        },
+        "method": "tesseract-eng",
+        "confidence": 61.08
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 1,
+    "valid_reference_values": 1,
+    "aligned_values": 1,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

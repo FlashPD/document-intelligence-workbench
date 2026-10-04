@@ -1,0 +1,287 @@
+{
+  "record": {
+    "schema_version": "invoice-v1-spike",
+    "fields": {
+      "supplier_name": {
+        "value": "Elm Beacon Design",
+        "raw": "Elm Beacon Design",
+        "evidence_ids": [
+          "p1-l0002"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "invoice_number": {
+        "value": "F10-004",
+        "raw": "Invoice No.: F10-004",
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "issue_date": {
+        "value": "2026-05-01",
+        "raw": "Date: 2026-05-01",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "due_date": {
+        "value": "2026-05-31",
+        "raw": "Due date: 2026-05-31",
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "currency": {
+        "value": "USD",
+        "raw": "Currency: USD",
+        "evidence_ids": [
+          "p1-l0007"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed"
+      },
+      "discount": {
+        "value": "0.00",
+        "raw": "Discount: 0.00",
+        "evidence_ids": [
+          "p1-l0010"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "shipping": {
+        "value": "0.00",
+        "raw": "Shipping: 0.00",
+        "evidence_ids": [
+          "p1-l0011"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": "120.00",
+        "raw": "Total: 120.00",
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": []
+  },
+  "issue_codes": [
+    "NO_LINE_ITEMS",
+    "TOTAL_NOT_CHECKED"
+  ],
+  "pages": [
+    {
+      "number": 1,
+      "width_px": 1500,
+      "height_px": 1100,
+      "spans": [
+        {
+          "id": "p1-l0001",
+          "page": 1,
+          "text": "_ eee",
+          "box": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 0.8493333333333334,
+            "bottom": 0.04454545454545455
+          },
+          "method": "tesseract-eng",
+          "confidence": 50.83
+        },
+        {
+          "id": "p1-l0002",
+          "page": 1,
+          "text": "Elm Beacon Design",
+          "box": {
+            "left": 0.034,
+            "top": 0.05090909090909091,
+            "right": 0.2846666666666667,
+            "bottom": 0.0890909090909091
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.77
+        },
+        {
+          "id": "p1-l0003",
+          "page": 1,
+          "text": "INVOICE",
+          "box": {
+            "left": 0.712,
+            "top": 0.07818181818181819,
+            "right": 0.826,
+            "bottom": 0.11181818181818182
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.89
+        },
+        {
+          "id": "p1-l0004",
+          "page": 1,
+          "text": "Invoice No.: F10-004",
+          "box": {
+            "left": 0.034,
+            "top": 0.21454545454545454,
+            "right": 0.19,
+            "bottom": 0.2390909090909091
+          },
+          "method": "tesseract-eng",
+          "confidence": 91.81
+        },
+        {
+          "id": "p1-l0005",
+          "page": 1,
+          "text": "Date: 2026-05-01",
+          "box": {
+            "left": 0.035333333333333335,
+            "top": 0.2690909090909091,
+            "right": 0.16333333333333333,
+            "bottom": 0.2927272727272727
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.72
+        },
+        {
+          "id": "p1-l0006",
+          "page": 1,
+          "text": "Due date: 2026-05-31",
+          "box": {
+            "left": 0.03666666666666667,
+            "top": 0.32181818181818184,
+            "right": 0.198,
+            "bottom": 0.3463636363636364
+          },
+          "method": "tesseract-eng",
+          "confidence": 93.57
+        },
+        {
+          "id": "p1-l0007",
+          "page": 1,
+          "text": "Currency: USD",
+          "box": {
+            "left": 0.037333333333333336,
+            "top": 0.37727272727272726,
+            "right": 0.15133333333333332,
+            "bottom": 0.4018181818181818
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.78
+        },
+        {
+          "id": "p1-l0008",
+          "page": 1,
+          "text": "Description Qty Unit price Amount Subtotal: 111.00",
+          "box": {
+            "left": 0.048666666666666664,
+            "top": 0.4990909090909091,
+            "right": 0.896,
+            "bottom": 0.56
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.91
+        },
+        {
+          "id": "p1-l0009",
+          "page": 1,
+          "text": "Extended technical documentation review 1 111.00 111.00 Tax: 9.00",
+          "box": {
+            "left": 0.05,
+            "top": 0.5536363636363636,
+            "right": 0.8453333333333334,
+            "bottom": 0.6181818181818182
+          },
+          "method": "tesseract-eng",
+          "confidence": 89.73
+        },
+        {
+          "id": "p1-l0010",
+          "page": 1,
+          "text": "Discount: 0.00",
+          "box": {
+            "left": 0.7773333333333333,
+            "top": 0.6036363636363636,
+            "right": 0.8846666666666667,
+            "bottom": 0.6263636363636363
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.79
+        },
+        {
+          "id": "p1-l0011",
+          "page": 1,
+          "text": "Shipping: 0.00",
+          "box": {
+            "left": 0.7786666666666666,
+            "top": 0.6554545454545454,
+            "right": 0.8853333333333333,
+            "bottom": 0.6809090909090909
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.22
+        },
+        {
+          "id": "p1-l0012",
+          "page": 1,
+          "text": "Total: 120.00",
+          "box": {
+            "left": 0.7786666666666666,
+            "top": 0.7081818181818181,
+            "right": 0.8773333333333333,
+            "bottom": 0.7290909090909091
+          },
+          "method": "tesseract-eng",
+          "confidence": 92.82
+        },
+        {
+          "id": "p1-l0013",
+          "page": 1,
+          "text": "Page 1",
+          "box": {
+            "left": 0.8593333333333333,
+            "top": 0.9263636363636364,
+            "right": 0.9086666666666666,
+            "bottom": 0.9490909090909091
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.87
+        }
+      ]
+    }
+  ],
+  "source_sha256": "e650ba577b9865e4f0388501733536b78d84fccd22208354909d8c755cfee03d",
+  "run_version": "invoice-preview-ocr-rules-v4",
+  "baseline_version": "ocr-rules-v0.3",
+  "extractor": "ocr_rules",
+  "pipeline_sha256": "f72345e373ad3c7100e5892679ca255396943ae2b6703715efc940f9577dfaef",
+  "ocr_psm": 1,
+  "input_mode": "verified_corpus_png_previews",
+  "runtime_seconds": {
+    "ocr": 0.609,
+    "total": 0.609
+  }
+}

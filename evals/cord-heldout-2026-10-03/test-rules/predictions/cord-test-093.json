@@ -1,0 +1,114 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "fa9b5f2a3fd62199e328487d1b7408d6f57846083b2efb082492fc9113321af4",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.305,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Jumlah Item",
+        "box": {
+          "left": 0.16550925925925927,
+          "top": 0.628858024691358,
+          "right": 0.35300925925925924,
+          "bottom": 0.6512345679012346
+        },
+        "method": "tesseract-eng",
+        "confidence": 47.77
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Sub Total",
+        "box": {
+          "left": 0.16782407407407407,
+          "top": 0.6597222222222222,
+          "right": 0.32060185185185186,
+          "bottom": 0.6820987654320988
+        },
+        "method": "tesseract-eng",
+        "confidence": 76.68
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Pajak Resto",
+        "box": {
+          "left": 0.16435185185185186,
+          "top": 0.6898148148148148,
+          "right": 0.3541666666666667,
+          "bottom": 0.7175925925925926
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.55
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Grand Total",
+        "box": {
+          "left": 0.16782407407407407,
+          "top": 0.720679012345679,
+          "right": 0.35532407407407407,
+          "bottom": 0.7453703703703703
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.52
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

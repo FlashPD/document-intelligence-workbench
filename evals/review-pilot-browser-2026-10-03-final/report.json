@@ -1,0 +1,33 @@
+{
+  "report_version": "review-pilot-browser-check-v1",
+  "status": "passed",
+  "human_timing_measurement": false,
+  "browser": "Chrome/154.0.8037.93",
+  "checks": [
+    "declared pilot mode",
+    "no source before start",
+    "source canvas and field highlight",
+    "hidden empty workspace",
+    "pause hides review",
+    "reviewer label locked",
+    "resume",
+    "approval",
+    "JSON export",
+    "completion"
+  ],
+  "source_sha256": {
+    "src/docwork/review_pilot.py": "cdcfa7d841b4afeacf707e38e0d85e04cabfd468fc8e8477e6beee41cd7d8458",
+    "src/docwork/pilot_bundle.py": "760b12c81a0b6188f585e9285a64fa4913703bd9686a5fb7abf0e8b69260e755",
+    "src/docwork/review.py": "dfd3bb2bc700b71e8592e5cb0923155e6caf4aaaafb78462fd7199cc8df9b317",
+    "src/docwork/intake.py": "46a4de19a2c9dd9071711ae60adc93973aeca892b35b5dce018323b4919d6789",
+    "src/docwork/web.py": "c2343f99e812484d04c30cfba72894d08d89ff097ad1471e28c7fac372f6706a",
+    "scripts/review_pilot.py": "848ac50be241c3a7800551566c4f97e041a760ce294476b012be555037ee1e6b",
+    "ui/app.js": "5b70c1b125eee44c3cf1616950860ca0c7634b83186e52282fbd4c66d4683c88",
+    "ui/pilot.js": "ba5888d2932b971d95c91a69a3304202917305cb75c096ebd5d3df6c433d76c8",
+    "ui/index.html": "79433b6fa599c015472230b84bc8e283868fb1207ebff440c13046d2a18a0831",
+    "ui/style.css": "65a5ddedc4c0747cbcf46627cdc067ce8a8d43b2a7a9d7741473fc2ef1e55324"
+  },
+  "verification_script_sha256": "dff97fd92d5b7818a47742ab04eb8595dba829f356b4add3001c406260628717",
+  "screenshot_sha256": "9841ec92342cf1edd0aa6c6bb62b44d11de9bbd789167661039508a88ee92638",
+  "scope": "Automated Chrome UI check on one disposable development fixture. No human review time, productivity comparison, or author-pilot outcome. Disposable trial/database/browser profile removed after verification."
+}

@@ -1,0 +1,550 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "1343000",
+        "raw": "1,343,000",
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": "580",
+        "raw": "580",
+        "evidence_ids": [
+          "p1-l0013"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "tax": {
+        "value": "142358",
+        "raw": "142,358",
+        "evidence_ids": [
+          "p1-l0014"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "UDANG RE (214,000",
+          "raw": "UDANG RE (214,000",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "432",
+          "raw": "432",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "AYM GR JUN NJAN",
+          "raw": "AYM GR JUN NJAN",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "108000",
+          "raw": "108,000",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "SAPO TH SEAFOOD",
+          "raw": "SAPO TH SEAFOOD",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "172000",
+          "raw": "172,000",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "POCAI",
+          "raw": "POCAI",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "3",
+          "raw": "3",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "111000",
+          "raw": "111,000",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "222000",
+          "raw": "222,000",
+          "evidence_ids": [
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-005",
+        "description": {
+          "value": "GURAME FILLET M",
+          "raw": "GURAME FILLET M",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "163000",
+          "raw": "163,000",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-006",
+        "description": {
+          "value": "5\t1\t1\t1\t10\t2\t312\t894\t61\t21\t11.121025\tASAM\n5\t1\t1\t1\t10\t3\t391\t893\t75\t30\t83.460754\tMANIS\n4\t1\t1\t1\t11\t0\t296\t926\t383\t29\t-1\t\n5\t1\t1\t1\t11\t1\t296\t928\t77\t22\t86.479866\tRIHUN\n5\t1\t1\t1\t11\t2\t390\t926\t91\t22\t48.522129\tGORENG\n5\t1\t1\t1\t11\t3\t498\t926\t28\t22\t65.600899\tJJ\n5\t1\t1\t1\t11\t4\t577\t926\t102\t29\t66.994789\t116,000\n4\t1\t1\t1\t12\t0\t311\t962\t154\t22\t-1\t\n5\t1\t1\t1\t12\t1\t311\t962\t154\t22\t0.000000\t=#LARGEX==\n4\t1\t1\t1\t13\t0\t298\t996\t382\t29\t-1\t\n5\t1\t1\t1\t13\t1\t298\t998\t58\t23\t96.837837\tICED\n5\t1\t1\t1\t13\t2\t374\t998\t44\t22\t79.084061\tTEA\n5\t1\t1\t1\t13\t3\t454\t997\t89\t28\t0.000000\tM12,000\n5\t1\t1\t1\t13\t4\t590\t996\t90\t28\t67.089127\t40,000\n4\t1\t1\t1\t14\t0\t294\t1032\t387\t28\t-1\t\n5\t1\t1\t1\t14\t1\t294\t1034\t58\t21\t91.949158\tNASI\n5\t1\t1\t1\t14\t2\t372\t1033\t76\t22\t91.949158\tPUTIH\n5\t1\t1\t1\t14\t3\t486\t1033\t86\t27\t47.253304\t110,000\n5\t1\t1\t1\t14\t4\t589\t1032\t92\t28\t96.318405\t70,000\n2\t1\t2\t0\t0\t0\t293\t1096\t388\t208\t-1\t\n3\t1\t2\t1\t0\t0\t293\t1096\t388\t208\t-1\t\n4\t1\t2\t1\t1\t0\t294\t1096\t387\t34\t-1\t\n5\t1\t2\t1\t1\t1\t294\t1103\t61\t22\t90.005753\tFOOD\n5\t1\t2\t1\t1\t2\t546\t1096\t135\t34\t92.276497\t1,213,000\n4\t1\t2\t1\t2\t0\t294\t1132\t387\t33\t-1\t\n5\t1\t2\t1\t2\t1\t294\t1138\t138\t22\t91.744774\tBEVERAGES\n5\t1\t2\t1\t2\t2\t456\t1141\t3\t2\t53.547585\t~\n5\t1\t2\t1\t2\t3\t580\t1132\t101",
+          "raw": "5\t1\t1\t1\t10\t2\t312\t894\t61\t21\t11.121025\tASAM\n5\t1\t1\t1\t10\t3\t391\t893\t75\t30\t83.460754\tMANIS\n4\t1\t1\t1\t11\t0\t296\t926\t383\t29\t-1\t\n5\t1\t1\t1\t11\t1\t296\t928\t77\t22\t86.479866\tRIHUN\n5\t1\t1\t1\t11\t2\t390\t926\t91\t22\t48.522129\tGORENG\n5\t1\t1\t1\t11\t3\t498\t926\t28\t22\t65.600899\tJJ\n5\t1\t1\t1\t11\t4\t577\t926\t102\t29\t66.994789\t116,000\n4\t1\t1\t1\t12\t0\t311\t962\t154\t22\t-1\t\n5\t1\t1\t1\t12\t1\t311\t962\t154\t22\t0.000000\t=#LARGEX==\n4\t1\t1\t1\t13\t0\t298\t996\t382\t29\t-1\t\n5\t1\t1\t1\t13\t1\t298\t998\t58\t23\t96.837837\tICED\n5\t1\t1\t1\t13\t2\t374\t998\t44\t22\t79.084061\tTEA\n5\t1\t1\t1\t13\t3\t454\t997\t89\t28\t0.000000\tM12,000\n5\t1\t1\t1\t13\t4\t590\t996\t90\t28\t67.089127\t40,000\n4\t1\t1\t1\t14\t0\t294\t1032\t387\t28\t-1\t\n5\t1\t1\t1\t14\t1\t294\t1034\t58\t21\t91.949158\tNASI\n5\t1\t1\t1\t14\t2\t372\t1033\t76\t22\t91.949158\tPUTIH\n5\t1\t1\t1\t14\t3\t486\t1033\t86\t27\t47.253304\t110,000\n5\t1\t1\t1\t14\t4\t589\t1032\t92\t28\t96.318405\t70,000\n2\t1\t2\t0\t0\t0\t293\t1096\t388\t208\t-1\t\n3\t1\t2\t1\t0\t0\t293\t1096\t388\t208\t-1\t\n4\t1\t2\t1\t1\t0\t294\t1096\t387\t34\t-1\t\n5\t1\t2\t1\t1\t1\t294\t1103\t61\t22\t90.005753\tFOOD\n5\t1\t2\t1\t1\t2\t546\t1096\t135\t34\t92.276497\t1,213,000\n4\t1\t2\t1\t2\t0\t294\t1132\t387\t33\t-1\t\n5\t1\t2\t1\t2\t1\t294\t1138\t138\t22\t91.744774\tBEVERAGES\n5\t1\t2\t1\t2\t2\t456\t1141\t3\t2\t53.547585\t~\n5\t1\t2\t1\t2\t3\t580\t1132\t101",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "33",
+          "raw": "33",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": "60.632942",
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "60000",
+          "raw": "60,000",
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-007",
+        "description": {
+          "value": "OTHERS",
+          "raw": "OTHERS",
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "70000",
+          "raw": "70,000",
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-008",
+        "description": {
+          "value": "DU",
+          "raw": "DU",
+          "evidence_ids": [
+            "p1-l0015"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "1565938",
+          "raw": "1,565,938",
+          "evidence_ids": [
+            "p1-l0015"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "ca0698c4e0e39499e2b5f2ac1ecac60498fc7554a03f5f298d2eeace5af34fe2",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.806,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 1108,
+    "height_px": 1478,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "UDANG RE (214,000 432",
+        "box": {
+          "left": 0.27166064981949456,
+          "top": 0.39715832205683355,
+          "right": 0.5577617328519856,
+          "bottom": 0.41542625169147496
+        },
+        "method": "tesseract-eng",
+        "confidence": 80.36
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "=*LARGEX==",
+        "box": {
+          "left": 0.2842960288808664,
+          "top": 0.42016238159675234,
+          "right": 0.4214801444043321,
+          "bottom": 0.43437077131258456
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "AYM GR JUN NJAN 108,000",
+        "box": {
+          "left": 0.27075812274368233,
+          "top": 0.4431664411366712,
+          "right": 0.6110108303249098,
+          "bottom": 0.4614343707713126
+        },
+        "method": "tesseract-eng",
+        "confidence": 82.69
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "=XMEDIUMK=",
+        "box": {
+          "left": 0.2842960288808664,
+          "top": 0.46617050067659,
+          "right": 0.4214801444043321,
+          "bottom": 0.4803788903924222
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "SAPO TH SEAFOOD 172,000",
+        "box": {
+          "left": 0.26985559566787004,
+          "top": 0.4891745602165088,
+          "right": 0.6119133574007221,
+          "bottom": 0.5074424898511503
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.17
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "=#LARGEX==",
+        "box": {
+          "left": 0.2833935018050541,
+          "top": 0.510148849797023,
+          "right": 0.42057761732851984,
+          "bottom": 0.5263870094722598
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "POCAI 3 111,000 222,000",
+        "box": {
+          "left": 0.26895306859205775,
+          "top": 0.5351826792963464,
+          "right": 0.6119133574007221,
+          "bottom": 0.5527740189445196
+        },
+        "method": "tesseract-eng",
+        "confidence": 58.8
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "=KMEDIUMK=",
+        "box": {
+          "left": 0.2824909747292419,
+          "top": 0.5581867388362652,
+          "right": 0.42057761732851984,
+          "bottom": 0.5723951285520974
+        },
+        "method": "tesseract-eng",
+        "confidence": 40.71
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "GURAME FILLET M 163,000",
+        "box": {
+          "left": 0.26805054151624547,
+          "top": 0.577807848443843,
+          "right": 0.6128158844765343,
+          "bottom": 0.5987821380243572
+        },
+        "method": "tesseract-eng",
+        "confidence": 69.69
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "5\t1\t1\t1\t10\t2\t312\t894\t61\t21\t11.121025\tASAM\n5\t1\t1\t1\t10\t3\t391\t893\t75\t30\t83.460754\tMANIS\n4\t1\t1\t1\t11\t0\t296\t926\t383\t29\t-1\t\n5\t1\t1\t1\t11\t1\t296\t928\t77\t22\t86.479866\tRIHUN\n5\t1\t1\t1\t11\t2\t390\t926\t91\t22\t48.522129\tGORENG\n5\t1\t1\t1\t11\t3\t498\t926\t28\t22\t65.600899\tJJ\n5\t1\t1\t1\t11\t4\t577\t926\t102\t29\t66.994789\t116,000\n4\t1\t1\t1\t12\t0\t311\t962\t154\t22\t-1\t\n5\t1\t1\t1\t12\t1\t311\t962\t154\t22\t0.000000\t=#LARGEX==\n4\t1\t1\t1\t13\t0\t298\t996\t382\t29\t-1\t\n5\t1\t1\t1\t13\t1\t298\t998\t58\t23\t96.837837\tICED\n5\t1\t1\t1\t13\t2\t374\t998\t44\t22\t79.084061\tTEA\n5\t1\t1\t1\t13\t3\t454\t997\t89\t28\t0.000000\tM12,000\n5\t1\t1\t1\t13\t4\t590\t996\t90\t28\t67.089127\t40,000\n4\t1\t1\t1\t14\t0\t294\t1032\t387\t28\t-1\t\n5\t1\t1\t1\t14\t1\t294\t1034\t58\t21\t91.949158\tNASI\n5\t1\t1\t1\t14\t2\t372\t1033\t76\t22\t91.949158\tPUTIH\n5\t1\t1\t1\t14\t3\t486\t1033\t86\t27\t47.253304\t110,000\n5\t1\t1\t1\t14\t4\t589\t1032\t92\t28\t96.318405\t70,000\n2\t1\t2\t0\t0\t0\t293\t1096\t388\t208\t-1\t\n3\t1\t2\t1\t0\t0\t293\t1096\t388\t208\t-1\t\n4\t1\t2\t1\t1\t0\t294\t1096\t387\t34\t-1\t\n5\t1\t2\t1\t1\t1\t294\t1103\t61\t22\t90.005753\tFOOD\n5\t1\t2\t1\t1\t2\t546\t1096\t135\t34\t92.276497\t1,213,000\n4\t1\t2\t1\t2\t0\t294\t1132\t387\t33\t-1\t\n5\t1\t2\t1\t2\t1\t294\t1138\t138\t22\t91.744774\tBEVERAGES\n5\t1\t2\t1\t2\t2\t456\t1141\t3\t2\t53.547585\t~\n5\t1\t2\t1\t2\t3\t580\t1132\t101\t33\t60.632942\t60,000",
+        "box": {
+          "left": 0.2518050541516246,
+          "top": 0.6014884979702301,
+          "right": 0.2536101083032491,
+          "bottom": 0.6028416779431665
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "OTHERS 70,000",
+        "box": {
+          "left": 0.2644404332129964,
+          "top": 0.7929634641407307,
+          "right": 0.6146209386281588,
+          "bottom": 0.8119079837618404
+        },
+        "method": "tesseract-eng",
+        "confidence": 83.89
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "SUBTOTAL 1,343,000",
+        "box": {
+          "left": 0.2644404332129964,
+          "top": 0.8166441136671178,
+          "right": 0.6146209386281588,
+          "bottom": 0.8355886332882273
+        },
+        "method": "tesseract-eng",
+        "confidence": 88.93
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "SERVICE CHARGE 80, 580",
+        "box": {
+          "left": 0.2644404332129964,
+          "top": 0.8396481732070366,
+          "right": 0.6146209386281588,
+          "bottom": 0.8585926928281461
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.46
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "Tax 10% 142,358",
+        "box": {
+          "left": 0.2644404332129964,
+          "top": 0.8633288227334236,
+          "right": 0.6146209386281588,
+          "bottom": 0.8822733423545331
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.11
+      },
+      {
+        "id": "p1-l0015",
+        "page": 1,
+        "text": "DU 1,565,938",
+        "box": {
+          "left": 0.26353790613718414,
+          "top": 0.8802435723951285,
+          "right": 0.6236462093862816,
+          "bottom": 0.9235453315290933
+        },
+        "method": "tesseract-eng",
+        "confidence": 78.33
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 22,
+    "valid_reference_values": 22,
+    "aligned_values": 22,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

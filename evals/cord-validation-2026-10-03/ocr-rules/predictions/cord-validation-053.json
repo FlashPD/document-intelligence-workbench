@@ -1,0 +1,278 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "*RhUM",
+          "raw": "*RhUM",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "0",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Pastry Keju",
+          "raw": "Pastry Keju",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "20000",
+          "raw": "20.000",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "*Plastik kKcl",
+          "raw": "*Plastik kKcl",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "0",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "a4979a4d3f8befa00b6626c4652ac60d1f77e4f1c378965931cf89c8c54aef94",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.499,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 576,
+    "height_px": 864,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "1 Large 1 m1 UU",
+        "box": {
+          "left": 0.10590277777777778,
+          "top": 0.23726851851851852,
+          "right": 0.9027777777777778,
+          "bottom": 0.2743055555555556
+        },
+        "method": "tesseract-eng",
+        "confidence": 60.81
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "1 *RhUM 0",
+        "box": {
+          "left": 0.10069444444444445,
+          "top": 0.26851851851851855,
+          "right": 0.90625,
+          "bottom": 0.30439814814814814
+        },
+        "method": "tesseract-eng",
+        "confidence": 57.68
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "1 Pastry Keju 20.000",
+        "box": {
+          "left": 0.09895833333333333,
+          "top": 0.30092592592592593,
+          "right": 0.9079861111111112,
+          "bottom": 0.33912037037037035
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.0
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "1 *Plastik kKcl 0",
+        "box": {
+          "left": 0.0954861111111111,
+          "top": 0.33449074074074076,
+          "right": 0.9097222222222222,
+          "bottom": 0.36921296296296297
+        },
+        "method": "tesseract-eng",
+        "confidence": 85.85
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "te",
+        "box": {
+          "left": 0.7170138888888888,
+          "top": 0.5069444444444444,
+          "right": 0.9236111111111112,
+          "bottom": 0.5601851851851852
+        },
+        "method": "tesseract-eng",
+        "confidence": 39.26
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Bayar",
+        "box": {
+          "left": 0.07465277777777778,
+          "top": 0.5104166666666666,
+          "right": 0.24305555555555555,
+          "bottom": 0.5405092592592593
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.08
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "9.000",
+        "box": {
+          "left": 0.7586805555555556,
+          "top": 0.6134259259259259,
+          "right": 0.9322916666666666,
+          "bottom": 0.6423611111111112
+        },
+        "method": "tesseract-eng",
+        "confidence": 52.11
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Kembali",
+        "box": {
+          "left": 0.06076388888888889,
+          "top": 0.6168981481481481,
+          "right": 0.3090277777777778,
+          "bottom": 0.6481481481481481
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.36
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 9,
+    "valid_reference_values": 9,
+    "aligned_values": 9,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

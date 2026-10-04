@@ -1,0 +1,798 @@
+{
+  "schema_version": "export-v1",
+  "document_id": "7767b9d13c084765bf92563181bec394",
+  "revision": 1,
+  "source_sha256": "7aaf3afac62e4850b2c0f66079735a64641dbb2bfc3479f994d74ca6fefcedbc",
+  "record_hash": "68ef232cbe3ffbf9fa11b2b700010b2f2eb390ad2267e9bff79916ed98cf9d4a",
+  "approval_hash": "c9b0bb975d3766560dd6fca8c18eec651eb6ef112514d706ea0cf5079cb03589",
+  "decision_hash": "35ed495d4d643356309111a289f1e7d705035643454f588fdabf97d27200626e",
+  "record": {
+    "fields": {
+      "currency": {
+        "evidence_ids": [
+          "p1-l0007"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Currency: USD",
+        "value": "USD"
+      },
+      "discount": {
+        "evidence_ids": [
+          "p1-l0015"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Discount: 0.00",
+        "value": "0.00"
+      },
+      "due_date": {
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Due date: 2026-02-11",
+        "value": "2026-02-11"
+      },
+      "invoice_number": {
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Invoice No.: F01-012",
+        "value": "F01-012"
+      },
+      "issue_date": {
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Date: 2026-01-12",
+        "value": "2026-01-12"
+      },
+      "shipping": {
+        "evidence_ids": [
+          "p1-l0016"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Shipping: 0.00",
+        "value": "0.00"
+      },
+      "subtotal": {
+        "evidence_ids": [
+          "p1-l0013"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Subtotal: 417.00",
+        "value": "417.00"
+      },
+      "supplier_name": {
+        "evidence_ids": [
+          "p1-l0002"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Aster Studio LLC",
+        "value": "Aster Studio LLC"
+      },
+      "tax": {
+        "evidence_ids": [
+          "p1-l0014"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Tax: 5.00",
+        "value": "5.00"
+      },
+      "total": {
+        "evidence_ids": [
+          "p1-l0017"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Total: 427.00",
+        "value": "427.00"
+      }
+    },
+    "line_items": [
+      {
+        "description": {
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 2 95.00 190.00",
+          "value": "Layout study"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 2 95.00 190.00",
+          "value": "190.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 2 95.00 190.00",
+          "value": "2"
+        },
+        "row_id": "row-001",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_explicit_on_row",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 2 95.00 190.00",
+          "value": "95.00"
+        }
+      },
+      {
+        "description": {
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 2 25.00 50.00",
+          "value": "Layout study"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 2 25.00 50.00",
+          "value": "50.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 2 25.00 50.00",
+          "value": "2"
+        },
+        "row_id": "row-002",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_explicit_on_row",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 2 25.00 50.00",
+          "value": "25.00"
+        }
+      },
+      {
+        "description": {
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Usability session 1 81.00 81.00",
+          "value": "Usability session"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Usability session 1 81.00 81.00",
+          "value": "81.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Usability session 1 81.00 81.00",
+          "value": "1"
+        },
+        "row_id": "row-003",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_explicit_on_row",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Usability session 1 81.00 81.00",
+          "value": "81.00"
+        }
+      },
+      {
+        "description": {
+          "evidence_ids": [
+            "p1-l0012"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Illustration set 3 32.00 96.00",
+          "value": "Illustration set"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p1-l0012"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Illustration set 3 32.00 96.00",
+          "value": "96.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p1-l0012"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Illustration set 3 32.00 96.00",
+          "value": "3"
+        },
+        "row_id": "row-004",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_explicit_on_row",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p1-l0012"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Illustration set 3 32.00 96.00",
+          "value": "32.00"
+        }
+      }
+    ],
+    "schema_version": "invoice-v1-spike"
+  },
+  "page": {
+    "number": 1,
+    "width_px": 1200,
+    "height_px": 1600,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "a",
+        "box": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 0.028333333333333332,
+          "bottom": 0.016875
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Aster Studio LLC",
+        "box": {
+          "left": 0.05416666666666667,
+          "top": 0.026875,
+          "right": 0.325,
+          "bottom": 0.04625
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.65
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "INVOICE",
+        "box": {
+          "left": 0.07,
+          "top": 0.064375,
+          "right": 0.21166666666666667,
+          "bottom": 0.08375
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.26
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Invoice No.: F01-012",
+        "box": {
+          "left": 0.06833333333333333,
+          "top": 0.171875,
+          "right": 0.2633333333333333,
+          "bottom": 0.18375
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.13
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Date: 2026-01-12",
+        "box": {
+          "left": 0.06833333333333333,
+          "top": 0.20875,
+          "right": 0.23083333333333333,
+          "bottom": 0.220625
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.58
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Due date: 2026-02-11",
+        "box": {
+          "left": 0.06833333333333333,
+          "top": 0.245625,
+          "right": 0.26916666666666667,
+          "bottom": 0.2575
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.68
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Currency: USD",
+        "box": {
+          "left": 0.0675,
+          "top": 0.2825,
+          "right": 0.21,
+          "bottom": 0.2975
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.19
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Description Qty Unit price Amount",
+        "box": {
+          "left": 0.06833333333333333,
+          "top": 0.381875,
+          "right": 0.9066666666666666,
+          "bottom": 0.4025
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.43
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "Layout study 2 95.00 190.00",
+        "box": {
+          "left": 0.06833333333333333,
+          "top": 0.429375,
+          "right": 0.8966666666666666,
+          "bottom": 0.444375
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.71
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "Layout study 2 25.00 50.00",
+        "box": {
+          "left": 0.06833333333333333,
+          "top": 0.48,
+          "right": 0.885,
+          "bottom": 0.495
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.65
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "Usability session 1 81.00 81.00",
+        "box": {
+          "left": 0.06833333333333333,
+          "top": 0.530625,
+          "right": 0.885,
+          "bottom": 0.545625
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.48
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "Illustration set 3 32.00 96.00",
+        "box": {
+          "left": 0.06833333333333333,
+          "top": 0.58125,
+          "right": 0.885,
+          "bottom": 0.593125
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.04
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "Subtotal: 417.00",
+        "box": {
+          "left": 0.0675,
+          "top": 0.759375,
+          "right": 0.21916666666666668,
+          "bottom": 0.77125
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.53
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "Tax: 5.00",
+        "box": {
+          "left": 0.06666666666666667,
+          "top": 0.795,
+          "right": 0.15416666666666667,
+          "bottom": 0.806875
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.34
+      },
+      {
+        "id": "p1-l0015",
+        "page": 1,
+        "text": "Discount: 0.00",
+        "box": {
+          "left": 0.06833333333333333,
+          "top": 0.830625,
+          "right": 0.20166666666666666,
+          "bottom": 0.8425
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.62
+      },
+      {
+        "id": "p1-l0016",
+        "page": 1,
+        "text": "Shipping: 0.00",
+        "box": {
+          "left": 0.0675,
+          "top": 0.86625,
+          "right": 0.20083333333333334,
+          "bottom": 0.88125
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.01
+      },
+      {
+        "id": "p1-l0017",
+        "page": 1,
+        "text": "Total: 427.00",
+        "box": {
+          "left": 0.06666666666666667,
+          "top": 0.901875,
+          "right": 0.18916666666666668,
+          "bottom": 0.91375
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.34
+      },
+      {
+        "id": "p1-l0018",
+        "page": 1,
+        "text": "Page 1",
+        "box": {
+          "left": 0.81,
+          "top": 0.9625,
+          "right": 0.8716666666666667,
+          "bottom": 0.9775
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.69
+      }
+    ]
+  },
+  "pages": [
+    {
+      "number": 1,
+      "width_px": 1200,
+      "height_px": 1600,
+      "spans": [
+        {
+          "id": "p1-l0001",
+          "page": 1,
+          "text": "a",
+          "box": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 0.028333333333333332,
+            "bottom": 0.016875
+          },
+          "method": "tesseract-eng",
+          "confidence": 0.0
+        },
+        {
+          "id": "p1-l0002",
+          "page": 1,
+          "text": "Aster Studio LLC",
+          "box": {
+            "left": 0.05416666666666667,
+            "top": 0.026875,
+            "right": 0.325,
+            "bottom": 0.04625
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.65
+        },
+        {
+          "id": "p1-l0003",
+          "page": 1,
+          "text": "INVOICE",
+          "box": {
+            "left": 0.07,
+            "top": 0.064375,
+            "right": 0.21166666666666667,
+            "bottom": 0.08375
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.26
+        },
+        {
+          "id": "p1-l0004",
+          "page": 1,
+          "text": "Invoice No.: F01-012",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.171875,
+            "right": 0.2633333333333333,
+            "bottom": 0.18375
+          },
+          "method": "tesseract-eng",
+          "confidence": 90.13
+        },
+        {
+          "id": "p1-l0005",
+          "page": 1,
+          "text": "Date: 2026-01-12",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.20875,
+            "right": 0.23083333333333333,
+            "bottom": 0.220625
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.58
+        },
+        {
+          "id": "p1-l0006",
+          "page": 1,
+          "text": "Due date: 2026-02-11",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.245625,
+            "right": 0.26916666666666667,
+            "bottom": 0.2575
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.68
+        },
+        {
+          "id": "p1-l0007",
+          "page": 1,
+          "text": "Currency: USD",
+          "box": {
+            "left": 0.0675,
+            "top": 0.2825,
+            "right": 0.21,
+            "bottom": 0.2975
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.19
+        },
+        {
+          "id": "p1-l0008",
+          "page": 1,
+          "text": "Description Qty Unit price Amount",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.381875,
+            "right": 0.9066666666666666,
+            "bottom": 0.4025
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.43
+        },
+        {
+          "id": "p1-l0009",
+          "page": 1,
+          "text": "Layout study 2 95.00 190.00",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.429375,
+            "right": 0.8966666666666666,
+            "bottom": 0.444375
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.71
+        },
+        {
+          "id": "p1-l0010",
+          "page": 1,
+          "text": "Layout study 2 25.00 50.00",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.48,
+            "right": 0.885,
+            "bottom": 0.495
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.65
+        },
+        {
+          "id": "p1-l0011",
+          "page": 1,
+          "text": "Usability session 1 81.00 81.00",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.530625,
+            "right": 0.885,
+            "bottom": 0.545625
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.48
+        },
+        {
+          "id": "p1-l0012",
+          "page": 1,
+          "text": "Illustration set 3 32.00 96.00",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.58125,
+            "right": 0.885,
+            "bottom": 0.593125
+          },
+          "method": "tesseract-eng",
+          "confidence": 93.04
+        },
+        {
+          "id": "p1-l0013",
+          "page": 1,
+          "text": "Subtotal: 417.00",
+          "box": {
+            "left": 0.0675,
+            "top": 0.759375,
+            "right": 0.21916666666666668,
+            "bottom": 0.77125
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.53
+        },
+        {
+          "id": "p1-l0014",
+          "page": 1,
+          "text": "Tax: 5.00",
+          "box": {
+            "left": 0.06666666666666667,
+            "top": 0.795,
+            "right": 0.15416666666666667,
+            "bottom": 0.806875
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.34
+        },
+        {
+          "id": "p1-l0015",
+          "page": 1,
+          "text": "Discount: 0.00",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.830625,
+            "right": 0.20166666666666666,
+            "bottom": 0.8425
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.62
+        },
+        {
+          "id": "p1-l0016",
+          "page": 1,
+          "text": "Shipping: 0.00",
+          "box": {
+            "left": 0.0675,
+            "top": 0.86625,
+            "right": 0.20083333333333334,
+            "bottom": 0.88125
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.01
+        },
+        {
+          "id": "p1-l0017",
+          "page": 1,
+          "text": "Total: 427.00",
+          "box": {
+            "left": 0.06666666666666667,
+            "top": 0.901875,
+            "right": 0.18916666666666668,
+            "bottom": 0.91375
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.34
+        },
+        {
+          "id": "p1-l0018",
+          "page": 1,
+          "text": "Page 1",
+          "box": {
+            "left": 0.81,
+            "top": 0.9625,
+            "right": 0.8716666666666667,
+            "bottom": 0.9775
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.69
+        }
+      ]
+    }
+  ],
+  "extraction": {
+    "profile": "replay_ocr_rules",
+    "model_id": null,
+    "prompt_sha256": null,
+    "parser_version": "container-tesseract-v3",
+    "input_sha256": "df8d0c301b86fce744225cabaf4543acce8172c7363bc9f8b51df6c3eb62ff78",
+    "created_at": "2026-10-03T20:46:26.521684+00:00"
+  },
+  "issues": [
+    {
+      "blocking": true,
+      "code": "TOTAL_MISMATCH",
+      "detail": "Observed total differs from computed 422.00",
+      "path": "fields.total"
+    }
+  ],
+  "decisions": [
+    {
+      "issue_key": "TOTAL_MISMATCH|fields.total",
+      "reason": "Computed total is false, observed total i.e 427 is correct",
+      "actor": "project-author",
+      "created_at": "2026-10-04T04:20:33.546162+00:00"
+    }
+  ]
+}

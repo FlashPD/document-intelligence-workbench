@@ -1,0 +1,228 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "PAHA BAWAH",
+          "raw": "PAHA BAWAH",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "13636",
+          "raw": "13,636",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "P Resto",
+          "raw": "P Resto",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "104",
+          "raw": "104",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "2700",
+          "raw": "2,700",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "c581efe94a4259bef3cfbd63fd4046af0d04dea99bda50826cc037679c5957dd",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 0.584,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 720,
+    "height_px": 1280,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "1 SAYAP 13,63",
+        "box": {
+          "left": 0.30277777777777776,
+          "top": 0.4125,
+          "right": 0.6666666666666666,
+          "bottom": 0.4265625
+        },
+        "method": "tesseract-eng",
+        "confidence": 81.66
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "1 PAHA BAWAH 13,636",
+        "box": {
+          "left": 0.3013888888888889,
+          "top": 0.42578125,
+          "right": 0.6819444444444445,
+          "bottom": 0.43984375
+        },
+        "method": "tesseract-eng",
+        "confidence": 71.49
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Subtotal Zr ece",
+        "box": {
+          "left": 0.3,
+          "top": 0.44921875,
+          "right": 0.6805555555555556,
+          "bottom": 0.4640625
+        },
+        "method": "tesseract-eng",
+        "confidence": 32.24
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "P Resto 104 2,700",
+        "box": {
+          "left": 0.3,
+          "top": 0.4625,
+          "right": 0.6805555555555556,
+          "bottom": 0.47734375
+        },
+        "method": "tesseract-eng",
+        "confidence": 74.12
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "2 Total",
+        "box": {
+          "left": 0.2986111111111111,
+          "top": 0.47734375,
+          "right": 0.40694444444444444,
+          "bottom": 0.4984375
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.67
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Tendered",
+        "box": {
+          "left": 0.2986111111111111,
+          "top": 0.5171875,
+          "right": 0.425,
+          "bottom": 0.528125
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.7
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Kembali",
+        "box": {
+          "left": 0.29583333333333334,
+          "top": 0.55859375,
+          "right": 0.4041666666666667,
+          "bottom": 0.56875
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.74
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 6,
+    "valid_reference_values": 6,
+    "aligned_values": 6,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

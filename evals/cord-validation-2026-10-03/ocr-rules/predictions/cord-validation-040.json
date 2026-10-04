@@ -1,0 +1,227 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "345000",
+        "raw": "345,000",
+        "evidence_ids": [
+          "p1-l0006",
+          "p1-l0010"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": "0",
+        "raw": "0",
+        "evidence_ids": [
+          "p1-l0007",
+          "p1-l0011"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "tax": {
+        "value": "34500",
+        "raw": "34,500",
+        "evidence_ids": [
+          "p1-l0008",
+          "p1-l0012"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "59ba670f57a7341c0ac6ce89f2dcbeaec51332f7b5d5a259d63bf2029ec466e8",
+  "run_sha256": "5d36e2f2eb49fcef4f87d7459bc8bb3ca3d070be706af1dcaec33da6ff698a66",
+  "runtime_seconds": {
+    "ocr": 1.82,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 1108,
+    "height_px": 1478,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Chilli Sauce H",
+        "box": {
+          "left": 0.11913357400722022,
+          "top": 0.4702300405953992,
+          "right": 0.34386281588447654,
+          "bottom": 0.4912043301759134
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.32
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Gojek Chicken",
+        "box": {
+          "left": 0.11823104693140794,
+          "top": 0.5020297699594046,
+          "right": 0.3510830324909747,
+          "bottom": 0.5290933694181326
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.0
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Soy Sauce F",
+        "box": {
+          "left": 0.11732851985559567,
+          "top": 0.5338294993234101,
+          "right": 0.3240072202166065,
+          "bottom": 0.560893098782138
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.41
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Gojek French",
+        "box": {
+          "left": 0.1164259927797834,
+          "top": 0.5663058186738836,
+          "right": 0.33303249097472926,
+          "bottom": 0.5933694181326117
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.85
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Fries",
+        "box": {
+          "left": 0.1164259927797834,
+          "top": 0.5994587280108254,
+          "right": 0.19494584837545126,
+          "bottom": 0.6204330175913396
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.41
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Sub Total",
+        "box": {
+          "left": 0.11371841155234658,
+          "top": 0.6481732070365359,
+          "right": 0.26895306859205775,
+          "bottom": 0.6705006765899865
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.37
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Service",
+        "box": {
+          "left": 0.11281588447653429,
+          "top": 0.6847090663058186,
+          "right": 0.2328519855595668,
+          "bottom": 0.706359945872801
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.75
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Tax",
+        "box": {
+          "left": 0.11191335740072202,
+          "top": 0.7198917456021651,
+          "right": 0.17057761732851986,
+          "bottom": 0.7408660351826793
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.76
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "Discount",
+        "box": {
+          "left": 0.11191335740072202,
+          "top": 0.7496617050067659,
+          "right": 0.25541516245487367,
+          "bottom": 0.7726657645466847
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.46
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "345,000",
+        "box": {
+          "left": 0.6254512635379061,
+          "top": 0.6461434370771313,
+          "right": 0.7653429602888087,
+          "bottom": 0.6732070365358592
+        },
+        "method": "tesseract-eng",
+        "confidence": 88.24
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "0",
+        "box": {
+          "left": 0.7445848375451264,
+          "top": 0.6847090663058186,
+          "right": 0.7644404332129964,
+          "bottom": 0.7077131258457375
+        },
+        "method": "tesseract-eng",
+        "confidence": 82.38
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "34,500",
+        "box": {
+          "left": 0.648014440433213,
+          "top": 0.7192151556156969,
+          "right": 0.7671480144404332,
+          "bottom": 0.7469553450608931
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.87
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 3,
+    "valid_reference_values": 3,
+    "aligned_values": 3,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

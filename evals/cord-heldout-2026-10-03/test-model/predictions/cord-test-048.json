@@ -1,0 +1,201 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "S-Hazelnut KOI Cafe",
+          "raw": "S-Hazelnut KOI Cafe",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "d686ae743789cf4c8366f064c078527f814e50b7447d85442829aef9f3943708",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 33.514
+  },
+  "ocr_prediction_sha256": "4af9fa32acfc99a1f9b34c6decfebc0efc21b73536bcd2f2937165d3398bc543",
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "1X S-Hazelnut KOI Cafe @25,000 25,000",
+        "box": {
+          "left": 0.1701388888888889,
+          "top": 0.2700617283950617,
+          "right": 0.7627314814814815,
+          "bottom": 0.2932098765432099
+        },
+        "method": "tesseract-eng",
+        "confidence": 83.18
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "25%",
+        "box": {
+          "left": 0.19791666666666666,
+          "top": 0.2970679012345679,
+          "right": 0.24074074074074073,
+          "bottom": 0.3148148148148148
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.97
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Less Ice",
+        "box": {
+          "left": 0.19907407407407407,
+          "top": 0.32253086419753085,
+          "right": 0.31712962962962965,
+          "bottom": 0.3395061728395062
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.41
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "PBI; 2a",
+        "box": {
+          "left": 0.4537037037037037,
+          "top": 0.36728395061728397,
+          "right": 0.7662037037037037,
+          "bottom": 0.3888888888888889
+        },
+        "method": "tesseract-eng",
+        "confidence": 54.73
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Subtotal: 22,728",
+        "box": {
+          "left": 0.38078703703703703,
+          "top": 0.3904320987654321,
+          "right": 0.7673611111111112,
+          "bottom": 0.4212962962962963
+        },
+        "method": "tesseract-eng",
+        "confidence": 81.25
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Total: 25,000",
+        "box": {
+          "left": 0.42592592592592593,
+          "top": 0.4166666666666667,
+          "right": 0.7685185185185185,
+          "bottom": 0.4375
+        },
+        "method": "tesseract-eng",
+        "confidence": 88.52
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Cash: 100,000",
+        "box": {
+          "left": 0.4398148148148148,
+          "top": 0.44135802469135804,
+          "right": 0.7696759259259259,
+          "bottom": 0.46219135802469136
+        },
+        "method": "tesseract-eng",
+        "confidence": 79.09
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "CHANGE : 75,000",
+        "box": {
+          "left": 0.41087962962962965,
+          "top": 0.49074074074074076,
+          "right": 0.7719907407407407,
+          "bottom": 0.5200617283950617
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.99
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 1,
+    "valid_reference_values": 1,
+    "aligned_values": 1,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

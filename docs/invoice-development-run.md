@@ -1,0 +1,119 @@
+# Invoice corpus development baseline — October 2, 2026
+
+The first full split run scores all 180 development invoices in the [frozen synthetic corpus](invoice-corpus.md). It uses host Tesseract 5.4.1 on the corpus's hash-verified PNG page previews, then the deterministic `ocr_rules` extractor and [release scorer](release-evaluation.md). Python was 3.12.12 on the Apple M1 / 16 GB Mac. Multi-page PDF invoices contribute both preview pages, but this run does **not** exercise PDF rendering, container isolation, or the upload worker. Calibration was run later with the unchanged baseline; see the [separate report](invoice-calibration-run.md). The test split remains unscored.
+
+The [v0.2 evidence](../evals/invoice-development-2026-10-02/ocr-rules-v0.2/report.json) exposed an OCR-order bug: Tesseract frequently produced a clipped glyph at the upper-left page corner before the printed supplier name. Version `ocr-rules-v0.3` ignores that corner span when choosing the supplier. The [v0.3 evidence](../evals/invoice-development-2026-10-02/ocr-rules-v0.3/report.json) is a fresh run on the same development images. Both bundles include all 180 original predictions, source hashes, timings, issue codes, and scored reports.
+
+| Measure | `ocr-rules-v0.2` | `ocr-rules-v0.3` |
+|---|---:|---:|
+| Processed documents | 180/180 | 180/180 |
+| Header macro F1, ten fields | 0.9093 | 0.9738 |
+| Supplier-name F1 | 0.3222 | 0.9667 |
+| All required fields exact, eligible documents | 43/166 | 145/166 |
+| Exact line-item F1 | 0.9688 | 0.9688 |
+| Row detection F1 | 0.9727 | 0.9727 |
+| Sum of serial OCR times | 105.588 s | 107.498 s |
+
+The 14 documents with an ambiguous printed issue date are excluded from the all-required-exact denominator by the frozen label policy. The scorer retains every other document and every failed extraction in its denominators. Numeric values use Decimal equivalence; row matching is order independent and preserves duplicates. The elapsed sums are serial stage timings, not controlled throughput or a speed comparison.
+
+### Remaining errors
+
+With Tesseract's default PSM 3, version v0.3 recovers 174/180 supplier names. All six remaining supplier errors are the deliberately rotated 90-degree derivatives. Those six documents also yield no exact rows and no required-field-complete records. The other prominent error is the multi-page continuation family: Tesseract often reads `F06` invoice identifiers as `FO6` or `FO06`. The extractor preserves the observed OCR text rather than guessing the intended digit. Invoice-number exactness is 159/180 overall, including the six rotated failures. Exact row matching finds 496 of 522 gold rows, with six predicted rows not exact.
+
+On the development labels, validation flags all 24 injected `TOTAL_MISMATCH` cases with no false total-mismatch flags, and all 14 ambiguous-date cases with no false ambiguous-date flags. This is a narrow synthetic diagnostic. It does not measure whether validation detects arbitrary real-world errors. `TOTAL_NOT_CHECKED` appears on 72 documents because at least one arithmetic component is absent or unreadable; it must not be counted as a successful check.
+
+### Reproduce and audit
+
+Use a new output directory for a fresh run. An interrupted run can continue with `--resume` if the manifest and runtime identity still match.
+
+```sh
+PYTHONPATH=src python3.12 -m docwork.cli eval-run-invoices \
+  --ocr-psm 3 --output-dir artifacts/invoice-development-psm3-fresh
+PYTHONPATH=src python3.12 -m docwork.cli eval-verify-invoice-run \
+  evals/invoice-development-2026-10-02/ocr-rules-v0.3
+```
+
+The verifier rechecks every asset hash and prediction source hash, rescoring all 180 documents and checking the saved report, prediction hashes, timings, and issue counts. The committed manifest SHA-256 is `a39a99cf5543888ebd7b9af5a42a18ac82e4ff6baf2534b8cd6d16ca9c76f61c`. A live rerun also requires local Tesseract English OCR. The recorded evidence is development data from the same author as the extractor; it does not establish held-out or real-invoice performance. A later release run must use the isolated PDF parser and freeze choices before scoring the test families.
+
+## Orientation-aware OCR follow-up — October 3, 2026
+
+The [PSM 1 run](../evals/invoice-development-2026-10-03/ocr-rules-v0.3-psm1/report.json) repeats all 180 development documents with Tesseract's automatic orientation and page segmentation. Rules, corpus, scorer, and serial hardware are the same as the v0.3 PSM 3 run above; only the OCR mode changes. Every prediction is saved under the linked run directory and passes `eval-verify-invoice-run`.
+
+| Measure | PSM 3 | PSM 1 |
+|---|---:|---:|
+| Processed documents | 180/180 | 180/180 |
+| Header macro F1 | 0.9738 | 0.9911 |
+| All required fields exact, eligible documents | 145/166 | 150/166 |
+| Exact line-item F1 | 0.9688 | 0.9817 |
+| Exact rows on six rotated documents | 0/16 | 13/16 |
+| Sum of serial OCR times | 107.498 s | 136.929 s |
+
+The five additional required-field-complete documents are rotated derivatives. No previously correct required-field document or exact row regressed in this paired development run. One rotated document still has a wrong invoice number, and three rotated rows are not exact. The continuation-family `F06`/`FO6` recognition error remains. This is development tuning on six related rotated examples, not a guarantee that orientation detection works on arbitrary scans. Tesseract PSM 1 is now the default for new OCR jobs; the parser image/version moved to `docwork-parser:v3` / `container-tesseract-v3`. A PSM 1 failure on sparse text falls back to PSM 3. The saved run had no such OCR failures.
+
+The parser's page raster remains in its decoded orientation while PSM 1 recognizes sideways text and returns boxes on that raster. The browser now offers review-only page rotation and transforms cited highlights with the preview; automatic display rotation and a real Docker/PDF run remain open. The Docker daemon was unavailable on this host; a direct trusted-PNG parser invocation and the rotated OCR smoke check passed, but they do not establish container isolation or PDF behavior.
+
+For a fresh run with the current OCR default:
+
+```sh
+PYTHONPATH=src python3.12 -m docwork.cli eval-run-invoices \
+  --output-dir artifacts/invoice-development-orientation-fresh
+PYTHONPATH=src python3.12 -m docwork.cli eval-verify-invoice-run \
+  evals/invoice-development-2026-10-03/ocr-rules-v0.3-psm1
+```
+
+## Review-priority diagnostic — October 3, 2026
+
+The [saved priority report](../evals/invoice-development-2026-10-03/ocr-rules-v0.3-psm1/priority-report.json) applies the same additive [triage score](review.md#review-queue-priority) used by the browser to all 180 verified PSM 1 development predictions. It ranks using prediction issue codes only; gold labels are read afterward to measure errors among documents at or below each score threshold. The table describes a hypothetical selection analysis. The product still requires a reviewer to approve every export.
+
+| Maximum triage points | Selected documents | Wrong required fields among label-eligible selected | Exact-row errors among selected |
+|---:|---:|---:|---:|
+| 0 | 74/180 | 7/74 (9.5%) | 1 |
+| 2 | 145/180 | 14/145 (9.7%) | 1 |
+| 5 | 164/180 | 15/162 (9.3%); 2 labels excluded | 6 |
+| 10 | 180/180 | 16/166 (9.6%); 14 labels excluded | 10 |
+
+Seven of the zero-point documents have a wrong required field, chiefly invoice numbers in the continuation-page family where OCR reads `F06` as `FO6` or `FO06` without triggering a validation issue. Thus even the strictest threshold fails the proposed below-1% critical-field error target on development data. The full report contains every document's signals, all distinct thresholds, observed error rates, a one-sided document-level Wilson upper bound, and a deterministic parent-group bootstrap 95th percentile with layout families held fixed. The Wilson bound assumes independent documents, while the bootstrap only resamples observed parent groups; neither estimates behavior on unseen vendors or genuine scans. No threshold is being promoted to a production skip-review rule.
+
+Recompute and verify the saved report without OCR or model inference:
+
+```sh
+PYTHONPATH=src python3.12 -m docwork.cli eval-review-priority \
+  evals/invoice-development-2026-10-03/ocr-rules-v0.3-psm1 \
+  --output artifacts/development-priority-check.json
+PYTHONPATH=src python3.12 -m docwork.cli eval-verify-review-priority \
+  evals/invoice-development-2026-10-03/ocr-rules-v0.3-psm1 \
+  evals/invoice-development-2026-10-03/ocr-rules-v0.3-psm1/priority-report.json
+```
+
+## Spatial-fragment extraction — October 3, 2026
+
+The [v0.4 development run](../evals/invoice-development-2026-10-03/ocr-rules-v0.4-psm1/report.json) tests the experimental [spatial fragment grouping](spatial-extraction.md) candidate with unchanged Tesseract PSM 1 and the frozen scorer. It processes all 180 invoices and saves every prediction's OCR pages plus a hash-bound pipeline source snapshot. `eval-verify-invoice-run` verifies the new bundle; the original v0.3 bundle also still verifies.
+
+| Measure | v0.3 PSM 1 | v0.4 PSM 1 |
+|---|---:|---:|
+| Header macro F1 | 0.9911 | 0.9911 |
+| All required fields exact | 150/166 | 150/166 |
+| Row detection F1 | 0.9855 | 0.9914 |
+| Detected gold rows | 511/522 | 517/522 |
+| Exact-row F1 | 0.9817 | 0.9779 |
+| Exact gold rows | 509/522 | 510/522 |
+| Line-total F1 | 0.9874 | 0.9933 |
+
+Six additional gold rows are detected. One becomes fully exact: [inv-f02-24](../evals/invoice-development-2026-10-03/ocr-rules-v0.4-psm1/predictions/inv-f02-24.json) has a description, quantity, and price pair in separate OCR spans. The other five recovered rows have no recognized quantity. They remain partial rows with `quantity_not_observed` and blocking `INVALID_ROW_AMOUNT`. The stricter exact-row scorer penalizes those additional inexact predictions, so its F1 decreases despite one more exact row. No previously exact row or required-field-complete document regresses in the paired run. This change improves visible row coverage for human correction; it is not an improvement in every quality measure, and no review-time benefit has been measured.
+
+The [new triage diagnostic](../evals/invoice-development-2026-10-03/ocr-rules-v0.4-psm1/priority-report.json) still finds seven wrong required-field records among 75 zero-point documents. All 24 injected total conflicts and 14 ambiguous dates are flagged; `TOTAL_NOT_CHECKED` remains on 72 documents. Human approval remains required for every export.
+
+The separate 12-image development set also passes its [paired comparison gate](../evals/spatial-development-2026-10-03/comparison.html), with unchanged 108/120 headers and 17/18 line totals. That small-set gate does not override the larger split's exact-row tradeoff. The [prototype Docker evidence bundle](../evals/parser-verification-2026-10-03-v0.4/report.json) passed all ten basic workflow checks before promotion was rejected. Those fixture checks did not reveal the calibration regression. The [final default-workflow bundle](../evals/parser-verification-2026-10-03-final/report.json) records verification after restoring v0.3. The 180-invoice quality run continues to use host PNG previews, rather than container PDF rendering. Its serial OCR sum is 141.925 seconds; other local checks ran during portions of evaluation, so these timings do not support a speed comparison.
+
+Reproduce the spatial development run at a new path:
+
+```sh
+PYTHONPATH=src python3.12 -m docwork.cli eval-run-invoices \
+  --extractor spatial_rules --output-dir artifacts/invoice-spatial-development-fresh
+PYTHONPATH=src python3.12 -m docwork.cli eval-verify-invoice-run \
+  evals/invoice-development-2026-10-03/ocr-rules-v0.4-psm1
+```
+
+The extraction and validation source was frozen after development and before the follow-up calibration run. Calibration diagnostics do not become held-out evidence; the test families remain unscored.
+
+The unchanged candidate subsequently regressed on calibration and was [rejected for default promotion](invoice-calibration-run.md#spatial-candidate-rejected--october-3-2026). The product and ordinary evaluation commands continue to use v0.3. The spatial candidate is retained behind an explicit evaluation-only option; improved development coverage is not used to override the calibration result.
