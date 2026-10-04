@@ -402,7 +402,9 @@ print(json.dumps({
     'python': sys.version.split()[0], 'pillow': PIL.__version__,
     'packages': subprocess.check_output(['dpkg-query', '-W', '-f=${Package}=${Version}\\n', 'poppler-utils', 'tesseract-ocr', 'tesseract-ocr-eng', 'tesseract-ocr-osd'], text=True).splitlines(),
     'ocr_assets': {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in Path('/usr/share/tesseract-ocr/5/tessdata').glob('*.traineddata')},
-    'source_sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in Path('/app/docwork').glob('*.py')}
+    'source_sha256': {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in Path('/app/docwork').glob('*.py')},
+    'build_sha256': {name: hashlib.sha256(Path('/opt/docwork-build', name).read_bytes()).hexdigest()
+                     for name in ('install_parser.py', 'parser-build-lock.json')}
 }))
 """
         command = self.probe_command(code)
@@ -443,6 +445,15 @@ print(json.dumps({
             self.assertEqual(probe["source_sha256"], {
                 path.name: hashlib.sha256(path.read_bytes()).hexdigest() for path in source_root.glob("*.py")
             }, "Parser image is stale; rebuild it before verification")
+            build_root = source_root.parents[1] / "sandbox"
+            lock = json.loads((build_root / "parser-build-lock.json").read_text())
+            self.assertEqual(probe["python"], lock["python"])
+            self.assertEqual(probe["pillow"], lock["pillow"]["version"])
+            self.assertEqual(dict(line.split("=", 1) for line in probe["packages"]), lock["packages"])
+            self.assertEqual(probe["ocr_assets"], lock["ocr_assets"])
+            self.assertEqual(probe["build_sha256"], {
+                name: hashlib.sha256((build_root / name).read_bytes()).hexdigest()
+                for name in ("install_parser.py", "parser-build-lock.json")})
         finally:
             subprocess.run(["docker", "rm", "-f", container_id], capture_output=True, timeout=15, check=True)
 

@@ -1,10 +1,8 @@
-FROM python:3.12.12-slim-bookworm
+FROM python:3.12.12-slim-bookworm@sha256:593bd06efe90efa80dc4eee3948be7c0fde4134606dd40d8dd8dbcade98e669c
 
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends poppler-utils tesseract-ocr tesseract-ocr-eng \
-    && rm -rf /var/lib/apt/lists/*
-RUN pip install --no-cache-dir Pillow==11.3.0
+COPY sandbox/parser-build-lock.json sandbox/install_parser.py /opt/docwork-build/
+RUN python /opt/docwork-build/install_parser.py
 COPY src/docwork /app/docwork
 ENV PYTHONPATH=/app
 WORKDIR /app

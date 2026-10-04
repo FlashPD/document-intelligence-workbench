@@ -1,0 +1,5 @@
+{
+  "status": "failed",
+  "snapshot": "20260224T000000Z",
+  "reason": "The selected snapshot predates poppler-utils 22.12.0-2+deb12u3; apt refused the exact version. Later rebuilds use 20261003T000000Z. This original log is unchanged."
+}

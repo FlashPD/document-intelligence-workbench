@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 25, in <module>
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/pathlib.py", line 682, in relative_to
+    raise ValueError(f"{str(self)!r} is not in the subpath of {str(other)!r}")
+ValueError: '/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/docwork-upgrade-55nect7e/workbench/exports/d90b79929db24044be430246ce0a8ba0/revision-2/line-items.csv' is not in the subpath of '/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/docwork-upgrade-55nect7e/workbench'

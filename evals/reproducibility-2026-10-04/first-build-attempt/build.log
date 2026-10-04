@@ -1,0 +1,157 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 440B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12.12-slim-bookworm@sha256:593bd06efe90efa80dc4eee3948be7c0fde4134606dd40d8dd8dbcade98e669c
+#2 ...
+
+#3 [auth] library/python:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12.12-slim-bookworm@sha256:593bd06efe90efa80dc4eee3948be7c0fde4134606dd40d8dd8dbcade98e669c
+#2 DONE 0.9s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 121B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/python:3.12.12-slim-bookworm@sha256:593bd06efe90efa80dc4eee3948be7c0fde4134606dd40d8dd8dbcade98e669c
+#5 CACHED
+
+#6 [internal] load build context
+#6 transferring context: 12.68kB done
+#6 DONE 0.0s
+
+#7 [2/5] COPY sandbox/parser-build-lock.json sandbox/install_parser.py /opt/docwork-build/
+#7 DONE 0.0s
+
+#8 [3/5] RUN python /opt/docwork-build/install_parser.py
+#8 1.852 Get:1 https://snapshot.debian.org/archive/debian/20260224T000000Z bookworm InRelease [151 kB]
+#8 2.420 Get:2 https://snapshot.debian.org/archive/debian/20260224T000000Z bookworm-updates InRelease [55.4 kB]
+#8 3.140 Get:3 https://snapshot.debian.org/archive/debian-security/20260224T000000Z bookworm-security InRelease [48.0 kB]
+#8 4.778 Get:4 https://snapshot.debian.org/archive/debian/20260224T000000Z bookworm/main arm64 Packages [8691 kB]
+#8 6.585 Get:5 https://snapshot.debian.org/archive/debian/20260224T000000Z bookworm-updates/main arm64 Packages [6936 B]
+#8 6.619 Get:6 https://snapshot.debian.org/archive/debian-security/20260224T000000Z bookworm-security/main arm64 Packages [293 kB]
+#8 7.880 Fetched 9245 kB in 8s (1227 kB/s)
+#8 7.880 Reading package lists...
+#8 8.498 Reading package lists...
+#8 9.066 Building dependency tree...
+#8 9.171 Reading state information...
+#8 9.177 Package poppler-utils is not available, but is referred to by another package.
+#8 9.177 This may mean that the package is missing, has been obsoleted, or
+#8 9.177 is only available from another source
+#8 9.177 
+#8 9.178 E: Version '22.12.0-2+deb12u3' for 'poppler-utils' was not found
+#8 9.179 Traceback (most recent call last):
+#8 9.179   File "/opt/docwork-build/install_parser.py", line 100, in <module>
+#8 9.180     main()
+#8 9.180   File "/opt/docwork-build/install_parser.py", line 86, in main
+#8 9.180     subprocess.run(["apt-get", "install", "-y", "--no-install-recommends",
+#8 9.180   File "/usr/local/lib/python3.12/subprocess.py", line 571, in run
+#8 9.180     raise CalledProcessError(retcode, process.args,
+#8 9.180 subprocess.CalledProcessError: Command '['apt-get', 'install', '-y', '--no-install-recommends', 'poppler-utils=22.12.0-2+deb12u3', 'tesseract-ocr=5.3.0-2', 'tesseract-ocr-eng=1:4.1.0-2', 'tesseract-ocr-osd=1:4.1.0-2']' returned non-zero exit status 100.
+#8 ERROR: process "/bin/sh -c python /opt/docwork-build/install_parser.py" did not complete successfully: exit code: 1
+------
+ > [3/5] RUN python /opt/docwork-build/install_parser.py:
+9.177 
+9.178 E: Version '22.12.0-2+deb12u3' for 'poppler-utils' was not found
+9.179 Traceback (most recent call last):
+9.179   File "/opt/docwork-build/install_parser.py", line 100, in <module>
+9.180     main()
+9.180   File "/opt/docwork-build/install_parser.py", line 86, in main
+9.180     subprocess.run(["apt-get", "install", "-y", "--no-install-recommends",
+9.180   File "/usr/local/lib/python3.12/subprocess.py", line 571, in run
+9.180     raise CalledProcessError(retcode, process.args,
+9.180 subprocess.CalledProcessError: Command '['apt-get', 'install', '-y', '--no-install-recommends', 'poppler-utils=22.12.0-2+deb12u3', 'tesseract-ocr=5.3.0-2', 'tesseract-ocr-eng=1:4.1.0-2', 'tesseract-ocr-osd=1:4.1.0-2']' returned non-zero exit status 100.
+------
+Dockerfile:5
+--------------------
+   3 |     ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+   4 |     COPY sandbox/parser-build-lock.json sandbox/install_parser.py /opt/docwork-build/
+   5 | >>> RUN python /opt/docwork-build/install_parser.py
+   6 |     COPY src/docwork /app/docwork
+   7 |     ENV PYTHONPATH=/app
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c python /opt/docwork-build/install_parser.py" did not complete successfully: exit code: 1
+10082 v0.36.1-desktop.1 /Users/pushyanth/.docker/cli-plugins/docker-buildx buildx build --no-cache --progress plain -f sandbox/Dockerfile -t docwork-parser:pinned-candidate-20261004 .
+github.com/docker/buildx/commands.runBuildWithOptions
+	github.com/docker/buildx/commands/build.go:504
+github.com/docker/buildx/commands.runBuild
+	github.com/docker/buildx/commands/build.go:419
+github.com/docker/buildx/commands.buildCmd.func1
+	github.com/docker/buildx/commands/build.go:540
+github.com/docker/cli/cli-plugins/plugin.RunPlugin.func1.1.2
+	github.com/docker/cli@v29.6.2+incompatible/cli-plugins/plugin/plugin.go:65
+github.com/spf13/cobra.(*Command).execute
+	github.com/spf13/cobra@v1.10.2/command.go:1015
+github.com/spf13/cobra.(*Command).ExecuteC
+	github.com/spf13/cobra@v1.10.2/command.go:1148
+github.com/spf13/cobra.(*Command).Execute
+	github.com/spf13/cobra@v1.10.2/command.go:1071
+github.com/docker/cli/cli-plugins/plugin.RunPlugin
+	github.com/docker/cli@v29.6.2+incompatible/cli-plugins/plugin/plugin.go:80
+main.runPlugin
+	github.com/docker/buildx/cmd/buildx/main.go:66
+main.run
+	github.com/docker/buildx/cmd/buildx/main.go:80
+main.main
+	github.com/docker/buildx/cmd/buildx/main.go:90
+runtime.main
+	runtime/proc.go:290
+runtime.goexit
+	runtime/asm_arm64.s:1447
+
+257  /usr/local/bin/dockerd --config-file /run/config/docker/daemon.json
+github.com/moby/buildkit/executor/runcexecutor.exitError
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/executor/runcexecutor/executor.go:434
+github.com/moby/buildkit/executor/runcexecutor.(*runcExecutor).Run
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/executor/runcexecutor/executor.go:382
+github.com/moby/buildkit/solver/llbsolver/ops.(*ExecOp).Exec
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/llbsolver/ops/exec.go:524
+github.com/moby/buildkit/solver.(*sharedOp).Exec.func2
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/jobs.go:1248
+github.com/moby/buildkit/util/flightcontrol.(*call[...]).run
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/util/flightcontrol/flightcontrol.go:122
+sync.(*Once).doSlow
+	/usr/local/go/src/sync/once.go:78
+sync.(*Once).Do
+	/usr/local/go/src/sync/once.go:69
+runtime.goexit
+	/usr/local/go/src/runtime/asm_arm64.s:1447
+
+10082 v0.36.1-desktop.1 /Users/pushyanth/.docker/cli-plugins/docker-buildx buildx build --no-cache --progress plain -f sandbox/Dockerfile -t docwork-parser:pinned-candidate-20261004 .
+google.golang.org/grpc.(*ClientConn).Invoke
+	google.golang.org/grpc@v1.82.1/call.go:35
+github.com/moby/buildkit/api/services/control.(*controlClient).Solve
+	github.com/moby/buildkit@v0.32.2/api/services/control/control_grpc.pb.go:88
+github.com/moby/buildkit/client.(*Client).solve.func2
+	github.com/moby/buildkit@v0.32.2/client/solve.go:337
+golang.org/x/sync/errgroup.(*Group).Go.func1
+	golang.org/x/sync@v0.22.0/errgroup/errgroup.go:93
+runtime.goexit
+	runtime/asm_arm64.s:1447
+
+257  /usr/local/bin/dockerd --config-file /run/config/docker/daemon.json
+github.com/moby/buildkit/solver.(*edge).execOp
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/edge.go:979
+github.com/moby/buildkit/solver/internal/pipe.NewWithFunction[...].func2
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/internal/pipe/pipe.go:78
+runtime.goexit
+	/usr/local/go/src/runtime/asm_arm64.s:1447
+
+10082 v0.36.1-desktop.1 /Users/pushyanth/.docker/cli-plugins/docker-buildx buildx build --no-cache --progress plain -f sandbox/Dockerfile -t docwork-parser:pinned-candidate-20261004 .
+github.com/moby/buildkit/client.(*Client).solve.func2
+	github.com/moby/buildkit@v0.32.2/client/solve.go:339
+golang.org/x/sync/errgroup.(*Group).Go.func1
+	golang.org/x/sync@v0.22.0/errgroup/errgroup.go:93
+
+257  /usr/local/bin/dockerd --config-file /run/config/docker/daemon.json
+github.com/moby/buildkit/solver/llbsolver/ops.(*ExecOp).Exec
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/llbsolver/ops/exec.go:555
+github.com/moby/buildkit/solver.(*sharedOp).Exec.func2
+	/root/build-deb/engine/vendor/github.com/moby/buildkit/solver/jobs.go:1248
+
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/gtc3nrn2yhvozud1ygfnnuhn1

@@ -1,0 +1,3 @@
+Traceback (most recent call last):
+  File "<string>", line 27, in <module>
+AttributeError: 'JobClaim' object has no attribute '__dict__'. Did you mean: '__dir__'?

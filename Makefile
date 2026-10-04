@@ -46,7 +46,15 @@ models-verify:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli models verify
 
 parser-build:
+	$(PYTHON) scripts/verify_parser_build.py
 	docker build -f sandbox/Dockerfile -t docwork-parser:v3 .
+
+.PHONY: parser-lock-check parser-rebuild-verify
+parser-lock-check:
+	$(PYTHON) scripts/verify_parser_build.py
+
+parser-rebuild-verify:
+	$(PYTHON) scripts/verify_parser_build.py --output-dir "$(or $(OUTPUT),artifacts/parser-rebuild-fresh)"
 
 parser-smoke:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m unittest discover -s tests -p 'container_*.py' -v

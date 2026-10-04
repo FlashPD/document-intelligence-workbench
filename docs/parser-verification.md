@@ -1,5 +1,7 @@
 # Live parser verification — October 3, 2026
 
+The results below are historical. The [October 4 pinned-build guide](parser-build.md) supersedes their moving-build-input limitation and links new sixteen-check runtime and rebuild evidence. Historical image identities and outcomes remain unchanged.
+
 The later [checkpoint recovery run](parser-recovery.md) extends this suite to 12 passing checks with abrupt host worker exit and model transport failure evidence. The original ten-check results below remain historical.
 
 The latest [resource-failure run](parser-resources.md) passes 16 checks, adding live deadline/OOM handling to the existing backup restoration and checkpoint recovery checks. It records Docker fault/cleanup events and real-parser retries; the original results below remain historical.

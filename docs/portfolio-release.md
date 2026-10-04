@@ -6,6 +6,8 @@ The [experimental portfolio release](portfolio-candidate.md) presents a local, e
 
 For ongoing work after `v0.1.0-experimental`, use the [full release backlog](backlog.md), [v1 contract](v1-release-contract.md), and [scope decision](adr/0001-local-v1-scope.md). This runbook describes the experimental workflow and evidence audit; its checklist is a subset of full v1 acceptance.
 
+Current development setup uses the [pinned parser and prior-version upgrade guide](parser-build.md). Its rebuild/runtime/upgrade checks and [retained results](../evals/reproducibility-2026-10-04/README.md) cover part of G14; they do not publish a full release or close the complete gate review.
+
 Clone this repository and enter its root. Use Python 3.12; the default application and deterministic tests have no third-party Python dependencies. The commands below run directly from source, so an editable install is unnecessary. Commit-retained fixtures and evidence are required; a wheel alone is not the demo distribution.
 
 ```sh

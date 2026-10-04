@@ -14,6 +14,8 @@ For the automatic browser worker, bounded batches, cancellation, reprocessing, d
 
 With Docker Desktop running, build the parser image once:
 
+The [pinned-build and upgrade guide](parser-build.md) records the exact base, Debian snapshot, package/wheel/language identities and two-rebuild verification. Building is the explicit download step; uploaded-document processing never downloads dependencies.
+
 ```sh
 make parser-build
 make parser-smoke

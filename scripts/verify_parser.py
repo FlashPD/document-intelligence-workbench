@@ -62,7 +62,8 @@ def main() -> int:
         parser.error("Output already exists; choose a fresh report path")
     root = Path(__file__).resolve().parents[1]
     paths = [*sorted((root / "src/docwork").glob("*.py")),
-             *sorted((root / "tests").glob("container_*.py")), Path(__file__).resolve(), root / "sandbox/Dockerfile",
+             *sorted((root / "tests").glob("container_*.py")), Path(__file__).resolve(),
+             *sorted(path for path in (root / "sandbox").glob("*") if path.is_file()), root / ".dockerignore",
              root / "samples/clean.png", root / "samples/conflicting-total.png"]
     hashes = {str(path.relative_to(root)): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths}
     report = {"report_version": "parser-verification-v1", "status": "failed",

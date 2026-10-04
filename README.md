@@ -12,7 +12,9 @@ Live development now includes automatic serial processing, bounded batches, canc
 
 Authenticated [operations endpoints](docs/operations.md) expose service/storage/parser readiness, optional model availability, queue age, retry/failure counts and persisted stage timings without document content. Controlled cold/warm upload benchmarks use a separately frozen protocol; component memory observations do not establish whole-application peak memory.
 
-The [October 4 operations evidence](evals/operations-2026-10-04/index.html) retains rules/model timings, failed earlier attempts, current-image parser/model/browser checks and an eight-check clean-source verification with **356 tests**. Full v1 still needs genuine scans/semantic assessments, complete memory accounting, pinned rebuild inputs and final-configuration timing/presentation; these reports do not close those gaps.
+The [October 4 operations evidence](evals/operations-2026-10-04/index.html) retains rules/model timings, failed earlier attempts, then-current parser/model/browser checks and an eight-check clean-source verification with **356 tests**. At that snapshot, genuine scans/semantic assessments, complete memory accounting, pinned rebuild inputs and final-configuration timing/presentation remained open; these historical reports do not close those gaps.
+
+The later [reproducibility work](docs/parser-build.md) pins the parser base, Debian snapshots, PDF/OCR/language packages and Pillow wheel hashes. Two uncached arm64 rebuilds, all sixteen live parser checks, prior-release database upgrade/portable export preservation and **360 deterministic tests** pass. On the pinned image, all **34** controlled rules uploads reach review-ready and warm P95 is **1.707 s**. [Retained evidence](evals/reproducibility-2026-10-04/README.md) keeps earlier failed attempts separate. Genuine scan/semantic assessments, whole-application memory, complete final model timing and final release setup/presentation remain open.
 
 ![Review workspace with source evidence and a versioned correction](evals/portfolio-candidate-browser-2026-10-03/frames/01.png)
 
@@ -107,6 +109,7 @@ The offline demo and invoice/model-workflow/author-pilot audits need no CORD dow
 | Evidence overlays, rotations, session boundary | [Browser prototype](docs/browser.md) |
 | Parser checkpoints and host worker recovery | [Parser recovery](docs/parser-recovery.md) |
 | Container policy and real runtime checks | [Parser verification](docs/parser-verification.md), [resource drills](docs/parser-resources.md) |
+| Pinned dependencies, independent rebuilds, prior-release upgrade | [Parser build and upgrade](docs/parser-build.md) |
 | Corpus, development, calibration, held-out baseline | [Invoice corpus](docs/invoice-corpus.md), [development](docs/invoice-development-run.md), [calibration](docs/invoice-calibration-run.md), [test](docs/invoice-heldout-run.md) |
 | Frozen scoring, invoice/model and CORD comparisons | [Release evaluation](docs/release-evaluation.md) |
 | Production input protocol, separate approved quality, semantic audit | [Production study](docs/production-study.md) |

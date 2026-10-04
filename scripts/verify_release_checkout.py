@@ -20,7 +20,7 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
-DEFAULT_WORKFLOW = "evals/operations-2026-10-04/model-workflow"
+DEFAULT_WORKFLOW = "evals/reproducibility-2026-10-04/model-workflow"
 
 
 def digest(path: Path) -> str:
