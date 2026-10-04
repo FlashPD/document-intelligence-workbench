@@ -45,7 +45,27 @@ python3.12 scripts/verify_release_checkout.py \
   --model-workflow evals/portfolio-candidate-model-workflow-2026-10-03
 ```
 
-The earlier [browser-release check](../evals/review-release-checkout-2026-10-03/report.json), with 253 tests and 2,721 copied files, and [initial packaging check](../evals/portfolio-checkout-2026-10-03/report.json) remain historical. These checks reproduce source snapshots before commit; cloning the eventual release tag remains a separate final check. CORD source images remain under ignored `artifacts/` and are not copied into the clean snapshot; these commands do not claim full receipt rescoring in a bare checkout.
+The earlier [browser-release check](../evals/review-release-checkout-2026-10-03/report.json), with 253 tests and 2,721 copied files, and [initial packaging check](../evals/portfolio-checkout-2026-10-03/report.json) remain historical. These checks reproduce source snapshots before commit. CORD source images remain under ignored `artifacts/` and are not copied into the clean snapshot; these commands do not claim full receipt rescoring in a bare checkout.
+
+### Verify an exact commit or tag
+
+Before committing, verify the current source, including nonignored new files:
+
+```sh
+make release-checkout OUTPUT=artifacts/checkout-working-fresh
+```
+
+After committing, verify only the files actually retained in Git:
+
+```sh
+make release-checkout REF=HEAD OUTPUT=artifacts/checkout-commit-fresh
+```
+
+`REF` accepts a local commit, branch or tag. For an eventual release tag, replace `HEAD` with its name and use a new output directory. The reference is resolved once to an immutable commit and tree before reading files. Staged changes, uncommitted fixes, untracked helpers, and local runtime assets cannot contribute to that check. Git blobs are copied directly, preserving executable modes and bypassing archive attributes that could omit or substitute source files. Symlinks, submodules and committed runtime directories are rejected.
+
+The six checks are the same as the precommit check: all deterministic contracts, corpus integrity, invoice baseline, invoice model comparison, model HTTP workflow evidence, and offline replay preparation. A version 2 report records the commit/tree, each copied file's SHA-256, invoking verifier hash, Python version, exact commands, log hashes, and whether the tested files changed during execution. A nonzero check, skipped/empty contract suite, changed input, or incomplete copy fails the check. Exit 0 means these offline checks passed; exit 2 means verification failed. The report and per-command logs remain in the chosen output directory.
+
+CI now runs this committed-tree check and retains its evidence/logs. This is an offline reproducibility check using the invoking verifier; it does not establish that a remote clone is available, run new OCR/inference, verify Linux model support, or complete the human pilot. After publishing, a separate clone of the actual tag should run the same command and demo. Keep the [release audit](#generate-the-release-audit) separate: packaging can pass while the author pilot remains pending.
 
 Open the one-time loopback URL printed by `make dev`. Choose **Clean sample**; click fields to inspect source highlights, review the values, approve the current revision, and export JSON/CSV. Choose **Conflicting total**; inspect the printed total and `TOTAL_MISMATCH`, enter a reason to retain the printed value or correct an extraction error from its source, and approve the resulting revision. Export is blocked until approval. Fixture buttons use fresh host OCR, not Docker or model inference.
 
@@ -123,6 +143,6 @@ A model upload can be a separate recorded segment with its actual elapsed time l
 1. Finish the six-case author review pilot yourself and stop its server. Its report can describe effort; there is no manual-entry baseline to support time saved. Audit at a new output path after stopping the server.
 2. Review the captioned scripted recording and its declared scope, or replace it with a narrated continuous capture. Browser checks cover stated rotated/multi-page geometry; OS popup menus and broader visual acceptance remain separate.
 3. Review the system/data cards and [deliberate deferrals](portfolio-candidate.md#deliberately-deferred-scope), then commit the candidate evidence. Genuine scanner captures, semantic attribution sampling and controlled warm/cold/memory studies are not silently presented as completed.
-4. Run a fresh audit with the finished pilot and recording, and verify a checkout of the eventual experimental release tag before publishing with scoped claims.
+4. Run a fresh audit with the finished pilot and recording, then run `make release-checkout REF=HEAD` after committing (or supply the eventual local experimental tag). Retain that exact-commit report before publishing with scoped claims, and verify a remote clone of the published tag afterward.
 
 Packaging documentation and an audit do not publish or tag a release. Optional PC/GPU inference, framework migration, telemetry, and a VLM are separate workstreams; no claim is made that they have been completed.

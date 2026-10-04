@@ -76,9 +76,12 @@ For the pinned Apple Silicon model, follow [explicit model setup](docs/intake.md
 ```sh
 make evaluation-status
 make release-check OUTPUT=artifacts/portfolio-audit-001
+make release-checkout REF=HEAD OUTPUT=artifacts/checkout-commit-001
 ```
 
 `release-check` writes standalone HTML, a hash-bound JSON snapshot, and a fresh deterministic test log. Exit 1 means pending evidence; exit 2 means invalid evidence; exit 0 means this checklist's supplied evidence is complete, subject to manual content review and the broader architecture acceptance criteria. Always use a new output directory. See [fresh checkout and demo instructions](docs/portfolio-release.md).
+
+`release-checkout REF=HEAD` runs six offline checks against the exact committed Git tree in a temporary directory, excluding working-tree changes and local runtime assets. Omit `REF` for a precommit check of current changes. Reports bind the commit/tree, copied inputs and command logs; CI runs the committed-tree check. Packaging can pass while the human pilot remains pending. See [commit/tag verification](docs/portfolio-release.md#verify-an-exact-commit-or-tag).
 
 `make evaluation-status` verifies completed prediction hashes and reports the frozen schedule, remaining work, failure types, and provisional model-stage timing estimates. Add `INSPECT_RUNNER=1` to check the recorded coordinator's process identity without printing its command line. This progress view does not audit quality or infer model health from a live coordinator. See [evaluation monitoring](docs/release-evaluation.md).
 
