@@ -1,0 +1,522 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "RedVelvel Cheese Sle",
+          "raw": "RedVelvel Cheese Sle",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Chicken Raked Rice",
+          "raw": "Chicken Raked Rice",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "Fish # Chips",
+          "raw": "Fish # Chips",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "fushiroom Soup",
+          "raw": "fushiroom Soup",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-005",
+        "description": {
+          "value": "Chamanile",
+          "raw": "Chamanile",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-006",
+        "description": {
+          "value": "Teed Tea",
+          "raw": "Teed Tea",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "9dcf1f9f86c909b762767cb07d1cc0db30773d556154ce42e0210f65270ee39d",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 104.571
+  },
+  "ocr_prediction_sha256": "5f0b2ec255a130bd838479e70c5fe7540e6b902c68b9c809bbdf047650074b44",
+  "page": {
+    "number": 1,
+    "width_px": 1836,
+    "height_px": 3264,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "RedVelvel Cheese Sle",
+        "box": {
+          "left": 0.30718954248366015,
+          "top": 0.33425245098039214,
+          "right": 0.5533769063180828,
+          "bottom": 0.34681372549019607
+        },
+        "method": "tesseract-eng",
+        "confidence": 81.31
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Chicken Raked Rice",
+        "box": {
+          "left": 0.30610021786492375,
+          "top": 0.3480392156862745,
+          "right": 0.5288671023965141,
+          "bottom": 0.3639705882352941
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.13
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Fish # Chips",
+        "box": {
+          "left": 0.30501089324618735,
+          "top": 0.36213235294117646,
+          "right": 0.4564270152505447,
+          "bottom": 0.37714460784313725
+        },
+        "method": "tesseract-eng",
+        "confidence": 54.64
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "fushiroom Soup",
+        "box": {
+          "left": 0.30718954248366015,
+          "top": 0.37653186274509803,
+          "right": 0.4684095860566449,
+          "bottom": 0.3912377450980392
+        },
+        "method": "tesseract-eng",
+        "confidence": 52.04
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Chamanile",
+        "box": {
+          "left": 0.30501089324618735,
+          "top": 0.3903186274509804,
+          "right": 0.41830065359477125,
+          "bottom": 0.4019607843137255
+        },
+        "method": "tesseract-eng",
+        "confidence": 22.24
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Teed Tea",
+        "box": {
+          "left": 0.3077342047930283,
+          "top": 0.40471813725490197,
+          "right": 0.40522875816993464,
+          "bottom": 0.4166666666666667
+        },
+        "method": "tesseract-eng",
+        "confidence": 79.63
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "ee eee en ec eon or hr bras",
+        "box": {
+          "left": 0.25544662309368193,
+          "top": 0.41942401960784315,
+          "right": 0.7576252723311547,
+          "bottom": 0.42800245098039214
+        },
+        "method": "tesseract-eng",
+        "confidence": 10.84
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "SUBTOTAL",
+        "box": {
+          "left": 0.3044662309368192,
+          "top": 0.4322916666666667,
+          "right": 0.40522875816993464,
+          "bottom": 0.44424019607843135
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.79
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "Service",
+        "box": {
+          "left": 0.3055555555555556,
+          "top": 0.44699754901960786,
+          "right": 0.39324618736383443,
+          "bottom": 0.4583333333333333
+        },
+        "method": "tesseract-eng",
+        "confidence": 80.58
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "PRI",
+        "box": {
+          "left": 0.30392156862745096,
+          "top": 0.46078431372549017,
+          "right": 0.3415032679738562,
+          "bottom": 0.4727328431372549
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.08
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "sole",
+        "box": {
+          "left": 0.3055555555555556,
+          "top": 0.5180759803921569,
+          "right": 0.380718954248366,
+          "bottom": 0.5441176470588235
+        },
+        "method": "tesseract-eng",
+        "confidence": 8.82
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "CAS",
+        "box": {
+          "left": 0.30392156862745096,
+          "top": 0.5324754901960784,
+          "right": 0.3431372549019608,
+          "bottom": 0.5441176470588235
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.38
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "Change",
+        "box": {
+          "left": 0.30610021786492375,
+          "top": 0.546875,
+          "right": 0.380718954248366,
+          "bottom": 0.5618872549019608
+        },
+        "method": "tesseract-eng",
+        "confidence": 80.41
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "Te tn nee ene ae ee Het nent fe",
+        "box": {
+          "left": 0.42429193899782136,
+          "top": 0.5845588235294118,
+          "right": 0.5577342047930284,
+          "bottom": 0.5934436274509803
+        },
+        "method": "tesseract-eng",
+        "confidence": 21.76
+      },
+      {
+        "id": "p1-l0015",
+        "page": 1,
+        "text": "Safe fa pend eck ere pepe mtepen pepe} otwebeadpelpaaapretenbonten by pn",
+        "box": {
+          "left": 0.3867102396514161,
+          "top": 0.5894607843137255,
+          "right": 0.7690631808278867,
+          "bottom": 0.5998774509803921
+        },
+        "method": "tesseract-eng",
+        "confidence": 20.42
+      },
+      {
+        "id": "p1-l0016",
+        "page": 1,
+        "text": "ee a ne oe oe ea wae a ene Fa Sa am ne coe Sane So ee neh ee ore",
+        "box": {
+          "left": 0.25272331154684097,
+          "top": 0.5928308823529411,
+          "right": 0.7282135076252724,
+          "bottom": 0.6014093137254902
+        },
+        "method": "tesseract-eng",
+        "confidence": 18.98
+      },
+      {
+        "id": "p1-l0017",
+        "page": 1,
+        "text": "te rae en ee ae a ame men eee nee ems met Ne a nh ee a gh es a am gh mee me Dn Hs i Ma Ate",
+        "box": {
+          "left": 0.25272331154684097,
+          "top": 0.47610294117647056,
+          "right": 0.7608932461873639,
+          "bottom": 0.4846813725490196
+        },
+        "method": "tesseract-eng",
+        "confidence": 23.34
+      },
+      {
+        "id": "p1-l0018",
+        "page": 1,
+        "text": "100,000",
+        "box": {
+          "left": 0.6753812636165577,
+          "top": 0.5165441176470589,
+          "right": 0.7625272331154684,
+          "bottom": 0.5318627450980392
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.91
+      },
+      {
+        "id": "p1-l0019",
+        "page": 1,
+        "text": "200 , 000",
+        "box": {
+          "left": 0.6753812636165577,
+          "top": 0.524203431372549,
+          "right": 0.7625272331154684,
+          "bottom": 0.5481004901960784
+        },
+        "method": "tesseract-eng",
+        "confidence": 75.56
+      },
+      {
+        "id": "p1-l0020",
+        "page": 1,
+        "text": "18,565",
+        "box": {
+          "left": 0.6900871459694989,
+          "top": 0.5453431372549019,
+          "right": 0.7647058823529411,
+          "bottom": 0.5640318627450981
+        },
+        "method": "tesseract-eng",
+        "confidence": 33.44
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 6,
+    "valid_reference_values": 6,
+    "aligned_values": 6,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

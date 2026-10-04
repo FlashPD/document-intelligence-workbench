@@ -36,8 +36,8 @@ def supplementary_evidence(directory: Path, stage: str) -> dict:
     seconds.sort()
     if not seconds:
         raise ValueError("Timing cannot describe an empty run")
-    sessions = [json.loads(path.read_text()) for path in sorted((directory / "sessions").glob("*/runtime.json"))]
-    lifecycle = audit_sessions(directory) if (directory / "sessions").exists() else None
+    sessions = [json.loads(path.read_text()) for path in sorted((directory / "sessions").glob("*/runtime.json"))] if stage == "model" else []
+    lifecycle = audit_sessions(directory) if stage == "model" and (directory / "sessions").exists() else None
     peaks = [s["peak_sampled_rss_bytes"] for s in sessions if s.get("peak_sampled_rss_bytes") is not None]
     cases = []
     for doc in documents:
@@ -56,7 +56,7 @@ def supplementary_evidence(directory: Path, stage: str) -> dict:
             "representative_cases": cases[:3],
             "case_selection": "Processing failures first, then largest exact-row FP+FN, header FP+FN, and ID; at most three. "
                               "Examples do not replace all-document denominators; no causal explanation inferred.",
-            "timing_method": "Nearest-rank percentiles over every scheduled call, including failures; saved OCR inference, "
+            "timing_method": "Nearest-rank percentiles over every scheduled document stage, including failures and page/repair requests; saved OCR inference, "
                              "uncontrolled machine load. Sampled RSS is process memory, not GPU or workbench peak."}
 
 
@@ -98,8 +98,8 @@ def render(invoice: dict, receipts: dict, systems: dict | None = None) -> str:
                            len(data["model_sessions"]["interrupted_sessions"]), data["model_sessions"]["memory_coverage"])
                           for name, data in systems.items() if data.get("model_sessions")]
         supplement = f"""<section><h2>Measured stage timings</h2>
-{table(timing_rows, ('Variant','Stage','Calls','Total seconds','P50 seconds','P95 seconds','Sampled server RSS GiB'))}
-<p>Nearest-rank percentiles include every scheduled call, including failures. OCR times describe verified corpus previews for invoices and prepared PNGs for receipts. Model times describe inference on those saved OCR inputs. Machine load was uncontrolled; no warm/cold, concurrency, or end-to-end latency claim. RSS is the largest available sampled process value across recorded runtime sessions, not GPU allocation, total application memory, or a whole-run peak when session metadata is missing.</p>
+{table(timing_rows, ('Variant','Stage','Documents','Total seconds','P50 seconds','P95 seconds','Sampled server RSS GiB'))}
+<p>Nearest-rank percentiles include every scheduled document stage, including failures. A model stage can contain multiple page requests or a schema-repair request; document counts are not HTTP request counts. OCR times describe verified corpus previews for invoices and prepared PNGs for receipts. Model times describe inference on those saved OCR inputs. Machine load was uncontrolled; no warm/cold, concurrency, or end-to-end latency claim. RSS is the largest available sampled process value across recorded runtime sessions, not GPU allocation, total application memory, or a whole-run peak when session metadata is missing.</p>
 {table(lifecycle_rows, ('Variant','Runtime sessions recorded','Interrupted sessions','Memory coverage')) if lifecycle_rows else ''}</section>
 <section><h2>Representative failures and disagreements</h2>
 {table(case_rows, ('Variant','Document','Outcome','Header FP + FN','Exact-row FP + FN','Exact / gold rows'))}

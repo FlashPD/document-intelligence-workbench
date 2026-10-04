@@ -1,0 +1,61 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "ca4bf89562b3f55c2c91968ca221a629e48386744a5322596d9c7345648ada13",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.25,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": []
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

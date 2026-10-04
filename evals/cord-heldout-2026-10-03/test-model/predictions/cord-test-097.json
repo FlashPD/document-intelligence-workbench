@@ -1,0 +1,335 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "55000",
+        "raw": "55.000",
+        "evidence_ids": [
+          "p1-l0008"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "55000",
+        "raw": "55.000",
+        "evidence_ids": [
+          "p1-l0007"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "BUBUR GO",
+          "raw": "BUBUR GO",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "40000",
+          "raw": "40.000",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "40000",
+          "raw": "40.000",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "PUYUH GO",
+          "raw": "PUYUH GO",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "6000",
+          "raw": "6.000",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "6000",
+          "raw": "6.000",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "SATECATIEGO",
+          "raw": "SATECATIEGO",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "9000",
+          "raw": "9.000",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "9000",
+          "raw": "9.000",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "3 #",
+          "raw": "3 #",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "3",
+          "raw": "3",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "3000",
+          "raw": "3.000",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "9000",
+          "raw": "9.000",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "4c2016fa28f5a8e5b6acfd762928eb9da2d16777aebb7120216b7c8df4b52bb4",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 80.556
+  },
+  "ocr_prediction_sha256": "90dd6e8e37cb47c0019519a438d4e1d2cc39438f34f48ea1ae6a208ad6b82155",
+  "page": {
+    "number": 1,
+    "width_px": 476,
+    "height_px": 616,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "2 20.000",
+        "box": {
+          "left": 0.0861344537815126,
+          "top": 0.40584415584415584,
+          "right": 0.6533613445378151,
+          "bottom": 0.4496753246753247
+        },
+        "method": "tesseract-eng",
+        "confidence": 58.01
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "BUBUR GO 40.000",
+        "box": {
+          "left": 0.0861344537815126,
+          "top": 0.44642857142857145,
+          "right": 0.9222689075630253,
+          "bottom": 0.49837662337662336
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.6
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "PUYUH GO 6.000",
+        "box": {
+          "left": 0.08403361344537816,
+          "top": 0.49837662337662336,
+          "right": 0.9222689075630253,
+          "bottom": 0.5487012987012987
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.55
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "3 #3.000",
+        "box": {
+          "left": 0.08403361344537816,
+          "top": 0.5551948051948052,
+          "right": 0.6260504201680672,
+          "bottom": 0.5974025974025974
+        },
+        "method": "tesseract-eng",
+        "confidence": 58.93
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "SATECATIEGO 9.000",
+        "box": {
+          "left": 0.08403361344537816,
+          "top": 0.599025974025974,
+          "right": 0.9201680672268907,
+          "bottom": 0.6477272727272727
+        },
+        "method": "tesseract-eng",
+        "confidence": 46.31
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "6 .OOxITEMS",
+        "box": {
+          "left": 0.37184873949579833,
+          "top": 0.6542207792207793,
+          "right": 0.6281512605042017,
+          "bottom": 0.6931818181818182
+        },
+        "method": "tesseract-eng",
+        "confidence": 49.58
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "TOTAL 55.000",
+        "box": {
+          "left": 0.08403361344537816,
+          "top": 0.702922077922078,
+          "right": 0.9222689075630253,
+          "bottom": 0.7548701298701299
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.76
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "55.000",
+        "box": {
+          "left": 0.7647058823529411,
+          "top": 0.7564935064935064,
+          "right": 0.9243697478991597,
+          "bottom": 0.7922077922077922
+        },
+        "method": "tesseract-eng",
+        "confidence": 71.13
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "Walley",
+        "box": {
+          "left": 0.8004201680672269,
+          "top": 0.922077922077922,
+          "right": 0.9180672268907563,
+          "bottom": 0.9431818181818182
+        },
+        "method": "tesseract-eng",
+        "confidence": 31.55
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 18,
+    "valid_reference_values": 15,
+    "aligned_values": 14,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+  "runtime_archive_sha256": "791eb0200a7c846ca925b6274fc21f0f21f537fda2924cc5a47402655816f56e",
+  "runtime_executable_sha256": "41df13c126456f8e5fab2057c86a790067a85ea1dfd8fbc0071cc45fbba56262",
+  "runtime_release": "b11149",
+  "runtime_commit": "d2e54583c7452353eb35d40431281f6ee984332f",
+  "inference": {
+    "model_id": "docwork-qwen3-4b-instruct",
+    "context_tokens": 8192,
+    "parallel": 1,
+    "gpu_layers": "all",
+    "seed": 42,
+    "temperature": 0,
+    "max_output_tokens": 2048,
+    "timeout_seconds": 150
+  },
+  "peak_sampled_rss_bytes": 7460208640,
+  "rss_sample_count": 3992,
+  "rss_interval_seconds": 1,
+  "memory_note": "Sampled server process RSS only; not peak GPU allocation or total application memory.",
+  "shutdown_complete": true,
+  "startup_seconds": 4.655,
+  "server_lifetime_seconds": 4056.824
+}

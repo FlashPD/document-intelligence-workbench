@@ -31,9 +31,9 @@ DEFAULTS = {
     "invoice_model": "evals/invoice-model-heldout-2026-10-03",
     "receipts": "evals/cord-heldout-2026-10-03",
     "receipt_manifest": "artifacts/cord-v2/prepared-v1/manifest.json",
-    "parser": "evals/review-release-parser-2026-10-03/report.json",
-    "workflow": "evals/real-model-upload-2026-10-03",
-    "browser": "evals/review-browser-2026-10-03-v2",
+    "parser": "evals/portfolio-candidate-parser-2026-10-03-v2/report.json",
+    "workflow": "evals/portfolio-candidate-model-workflow-2026-10-03",
+    "browser": "evals/portfolio-candidate-browser-2026-10-03",
 }
 DOCS = ("README.md", "docs/system-card.md", "docs/data-card.md", "docs/portfolio-release.md")
 PARSER_CHECKS = {
@@ -235,8 +235,13 @@ def audit_release(root: Path, output: Path, *, parser_report: str | None = None,
                 "model_sessions": audit_sessions(paths["receipts"] / "test-model"),
                 "note": "Separate descriptive receipt comparison; no invoice-quality or pretraining independence claim."}
 
-    check("receipt_model_comparison", paths["receipts"] / "comparison.json",
-          [paths["receipt_manifest"], paths["receipts"]], receipts)
+    if not paths["receipt_manifest"].is_file():
+        checks.append({"id": "receipt_model_comparison", "status": "pending",
+                       "note": "Local CORD source corpus has not been prepared. Run the explicit dataset setup in "
+                               "docs/release-evaluation.md before full receipt rescoring; saved report presence alone cannot pass."})
+    else:
+        check("receipt_model_comparison", paths["receipts"] / "comparison.json",
+              [paths["receipt_manifest"], paths["receipts"]], receipts)
     check("parser_reliability", paths["parser"], [paths["parser"]], lambda: verify_parser_report(root, paths["parser"]))
 
     def workflow():

@@ -1,0 +1,261 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "G001-Plastic Bag Small",
+          "raw": "G001-Plastic Bag Small",
+          "evidence_ids": [
+            "p1-l0002",
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "7",
+          "raw": "7",
+          "evidence_ids": [
+            "p1-l0002",
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "yO x",
+          "raw": "yO x",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "fotal Item:",
+          "raw": "fotal Item:",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "2",
+          "raw": "2",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "027f8ee65ccc34bad7908f1b5624b5128014e3a799499053fbf0d7f95fdfae16",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.281,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 576,
+    "height_px": 864,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "7",
+        "box": {
+          "left": 0.034722222222222224,
+          "top": 0.5069444444444444,
+          "right": 0.03993055555555555,
+          "bottom": 0.5162037037037037
+        },
+        "method": "tesseract-eng",
+        "confidence": 89.07
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "G001-Plastic Bag Small",
+        "box": {
+          "left": 0.022569444444444444,
+          "top": 0.5115740740740741,
+          "right": 0.5069444444444444,
+          "bottom": 0.5474537037037037
+        },
+        "method": "tesseract-eng",
+        "confidence": 81.49
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "yO x1",
+        "box": {
+          "left": 0.2934027777777778,
+          "top": 0.5567129629629629,
+          "right": 0.5017361111111112,
+          "bottom": 0.5821759259259259
+        },
+        "method": "tesseract-eng",
+        "confidence": 34.4
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "fotal Item: 2",
+        "box": {
+          "left": 0.0,
+          "top": 0.625,
+          "right": 0.5,
+          "bottom": 0.6631944444444444
+        },
+        "method": "tesseract-eng",
+        "confidence": 51.61
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "otal.",
+        "box": {
+          "left": 0.0,
+          "top": 0.7071759259259259,
+          "right": 0.1111111111111111,
+          "bottom": 0.7407407407407407
+        },
+        "method": "tesseract-eng",
+        "confidence": 72.91
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "22.000",
+        "box": {
+          "left": 0.7309027777777778,
+          "top": 0.4895833333333333,
+          "right": 0.8611111111111112,
+          "bottom": 0.5138888888888888
+        },
+        "method": "tesseract-eng",
+        "confidence": 83.01
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "\u00a9 22.000",
+        "box": {
+          "left": 0.6111111111111112,
+          "top": 0.7256944444444444,
+          "right": 0.8263888888888888,
+          "bottom": 0.7581018518518519
+        },
+        "method": "tesseract-eng",
+        "confidence": 49.9
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 6,
+    "valid_reference_values": 6,
+    "aligned_values": 6,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

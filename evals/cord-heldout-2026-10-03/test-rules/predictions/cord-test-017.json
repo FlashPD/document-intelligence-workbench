@@ -1,0 +1,445 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Goblin's Mace",
+          "raw": "Goblin's Mace",
+          "evidence_ids": [
+            "p1-l0001",
+            "p1-l0015"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "25000",
+          "raw": "25,000",
+          "evidence_ids": [
+            "p1-l0001",
+            "p1-l0015"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Mozarelia Hot",
+          "raw": "Mozarelia Hot",
+          "evidence_ids": [
+            "p1-l0002",
+            "p1-l0016"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "38000",
+          "raw": "38,000",
+          "evidence_ids": [
+            "p1-l0002",
+            "p1-l0016"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "Chili Pepper",
+          "raw": "Chili Pepper",
+          "evidence_ids": [
+            "p1-l0004",
+            "p1-l0017"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "14000",
+          "raw": "14,000",
+          "evidence_ids": [
+            "p1-l0004",
+            "p1-l0017"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "Cheese",
+          "raw": "Cheese",
+          "evidence_ids": [
+            "p1-l0006",
+            "p1-l0018"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "14000",
+          "raw": "14,000",
+          "evidence_ids": [
+            "p1-l0006",
+            "p1-l0018"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "4322ab5ec4f0b1365e08af0c31288e65e8cbd2c8eb5241adfb329244acbbb30b",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.39,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 960,
+    "height_px": 1280,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Goblin's Mace",
+        "box": {
+          "left": 0.2916666666666667,
+          "top": 0.47265625,
+          "right": 0.38958333333333334,
+          "bottom": 0.48125
+        },
+        "method": "tesseract-eng",
+        "confidence": 79.22
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Mozarelia Hot",
+        "box": {
+          "left": 0.2916666666666667,
+          "top": 0.49609375,
+          "right": 0.3875,
+          "bottom": 0.50546875
+        },
+        "method": "tesseract-eng",
+        "confidence": 73.88
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Dog",
+        "box": {
+          "left": 0.2916666666666667,
+          "top": 0.509375,
+          "right": 0.3177083333333333,
+          "bottom": 0.5203125
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.0
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Chili Pepper",
+        "box": {
+          "left": 0.290625,
+          "top": 0.5234375,
+          "right": 0.37395833333333334,
+          "bottom": 0.534375
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.06
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Croquetio",
+        "box": {
+          "left": 0.290625,
+          "top": 0.5375,
+          "right": 0.35833333333333334,
+          "bottom": 0.5484375
+        },
+        "method": "tesseract-eng",
+        "confidence": 34.43
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Cheese",
+        "box": {
+          "left": 0.28958333333333336,
+          "top": 0.5515625,
+          "right": 0.34270833333333334,
+          "bottom": 0.56015625
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.82
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Croquette",
+        "box": {
+          "left": 0.28958333333333336,
+          "top": 0.56484375,
+          "right": 0.3572916666666667,
+          "bottom": 0.57578125
+        },
+        "method": "tesseract-eng",
+        "confidence": 70.2
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Plastik Amook",
+        "box": {
+          "left": 0.28958333333333336,
+          "top": 0.578125,
+          "right": 0.3885416666666667,
+          "bottom": 0.5875
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.5
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "Plastik Putih",
+        "box": {
+          "left": 0.28958333333333336,
+          "top": 0.603125,
+          "right": 0.37395833333333334,
+          "bottom": 0.6125
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.21
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "Take Away",
+        "box": {
+          "left": 0.290625,
+          "top": 0.6171875,
+          "right": 0.36354166666666665,
+          "bottom": 0.6296875
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.63
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "ubtotal",
+        "box": {
+          "left": 0.2989583333333333,
+          "top": 0.63828125,
+          "right": 0.34375,
+          "bottom": 0.64765625
+        },
+        "method": "tesseract-eng",
+        "confidence": 66.7
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "Discount",
+        "box": {
+          "left": 0.2875,
+          "top": 0.66328125,
+          "right": 0.34791666666666665,
+          "bottom": 0.67265625
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.29
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "TOTAL",
+        "box": {
+          "left": 0.2864583333333333,
+          "top": 0.6875,
+          "right": 0.35,
+          "bottom": 0.69921875
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.27
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "Debit",
+        "box": {
+          "left": 0.2864583333333333,
+          "top": 0.71484375,
+          "right": 0.3229166666666667,
+          "bottom": 0.72421875
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.11
+      },
+      {
+        "id": "p1-l0015",
+        "page": 1,
+        "text": "25,000",
+        "box": {
+          "left": 0.5947916666666667,
+          "top": 0.471875,
+          "right": 0.640625,
+          "bottom": 0.48203125
+        },
+        "method": "tesseract-eng",
+        "confidence": 79.11
+      },
+      {
+        "id": "p1-l0016",
+        "page": 1,
+        "text": "38,000",
+        "box": {
+          "left": 0.5947916666666667,
+          "top": 0.49609375,
+          "right": 0.640625,
+          "bottom": 0.5046875
+        },
+        "method": "tesseract-eng",
+        "confidence": 72.53
+      },
+      {
+        "id": "p1-l0017",
+        "page": 1,
+        "text": "14,000",
+        "box": {
+          "left": 0.5958333333333333,
+          "top": 0.52265625,
+          "right": 0.6416666666666667,
+          "bottom": 0.5328125
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.77
+      },
+      {
+        "id": "p1-l0018",
+        "page": 1,
+        "text": "14,000",
+        "box": {
+          "left": 0.596875,
+          "top": 0.54921875,
+          "right": 0.6427083333333333,
+          "bottom": 0.559375
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.45
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 8,
+    "valid_reference_values": 8,
+    "aligned_values": 8,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

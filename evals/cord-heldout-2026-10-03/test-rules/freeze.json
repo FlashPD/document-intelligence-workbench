@@ -1,0 +1,32 @@
+{
+  "freeze_version": "cord-receipt-evaluation-v1",
+  "created_at": "2026-10-04T02:39:11.692998+00:00",
+  "manifest_sha256": "8e55986acaf6eecde85ca2ff29ace8827167980ce82978129184738b451b8bfc",
+  "source_sha256": {
+    "receipt_run.py": "bff88fdd418154dfa5aee128bee56d5b6c0d2a1b3f572a5a57fb4c0ad092c3e6",
+    "receipt.py": "0b2f73b7ee6f828eb13b5a7f46b7718365b53e0f6da7289e3139a3ba3c64c39b",
+    "cord.py": "06ce54d05bd32e440e5df989e70a4cf92d588253171822a5682d7a0f11e98421",
+    "ocr.py": "1f2eb6538fb5417c7d427d507a4cddc8ec82c6d9d6077d4d38f9ea54f6908ac0",
+    "contracts.py": "ce29932f2668f181612c80e445ee64f8891b7ff51d3a5c8ecd675bcd19637ccf",
+    "local_model.py": "b7fb04b8caa7acd9c6f782a6b0cbbd8c97e8add1fdc8f767d62f7df1b6b9c4c1",
+    "model_runtime.py": "d0b924aabcbe51afeb09fb9d9b43fde3f1eb0841d309ba2fb12b01043c8868bf",
+    "release_scoring.py": "ab4d9958e4afa7db9c0d88d3168c762def7dfa96387697bedaab3894a5c7be44"
+  },
+  "profile_sha256": "c453814de617120eea0f5b8d90f0a5dbfa7bfda214071b8dc03610aa03d555f7",
+  "prompt_sha256": "6c6375401ca1d460dfc553abd372876b7076b610a41cd10728039f1fa3bb16a2",
+  "development_evidence": [
+    {
+      "variant": "ocr_rules",
+      "documents": 100,
+      "report_sha256": "bbb70fa527e48a7fb51e933c612f0bd45ab425090898f06222b83e1196edabe2"
+    },
+    {
+      "variant": "span_llm",
+      "documents": 12,
+      "report_sha256": "20a425a7d6fa61de52882069b8144844a3f80554679ae711272d2d4fbc7642bf"
+    }
+  ],
+  "ocr_language": "eng",
+  "ocr_psm": 1,
+  "scope": "Experimental English-OCR receipt adapters. Settings frozen using the official validation split; top-level purchased items and released labeled amounts only. No currency, vendor, invoice number, date, submenu, void-item, or payment-label scoring. No automatic approval or production receipt workflow claim."
+}

@@ -1,0 +1,214 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "198000",
+        "raw": "198000",
+        "evidence_ids": [
+          "p1-l0003"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Tuna",
+          "raw": "Tuna",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "200200",
+          "raw": "200200",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Kermbalian",
+          "raw": "Kermbalian",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "22000",
+          "raw": "22000",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "2c73d02e1528bd76ecdfeae8e3e56fa2eaee5997f0473be80a56738e59350dff",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 48.23
+  },
+  "ocr_prediction_sha256": "b904f033dc8e7cc7dc3592926ca9e6fc61d8d25f18cef3bd9eed39cd95830096",
+  "page": {
+    "number": 1,
+    "width_px": 576,
+    "height_px": 864,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "fg#000",
+        "box": {
+          "left": 0.4600694444444444,
+          "top": 0.41782407407407407,
+          "right": 0.5763888888888888,
+          "bottom": 0.4375
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Sub Total",
+        "box": {
+          "left": 0.022569444444444444,
+          "top": 0.5081018518518519,
+          "right": 0.19270833333333334,
+          "bottom": 0.5300925925925926
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.42
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "198000",
+        "box": {
+          "left": 0.4565972222222222,
+          "top": 0.5254629629629629,
+          "right": 0.5763888888888888,
+          "bottom": 0.5451388888888888
+        },
+        "method": "tesseract-eng",
+        "confidence": 77.09
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Tuna",
+        "box": {
+          "left": 0.019097222222222224,
+          "top": 0.6076388888888888,
+          "right": 0.1111111111111111,
+          "bottom": 0.6284722222222222
+        },
+        "method": "tesseract-eng",
+        "confidence": 10.54
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "er 200200",
+        "box": {
+          "left": 0.09027777777777778,
+          "top": 0.6122685185185185,
+          "right": 0.5763888888888888,
+          "bottom": 0.6412037037037037
+        },
+        "method": "tesseract-eng",
+        "confidence": 47.56
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Kermbalian 22000",
+        "box": {
+          "left": 0.008680555555555556,
+          "top": 0.6979166666666666,
+          "right": 0.578125,
+          "bottom": 0.7384259259259259
+        },
+        "method": "tesseract-eng",
+        "confidence": 55.83
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 5,
+    "valid_reference_values": 5,
+    "aligned_values": 5,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

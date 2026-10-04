@@ -1,0 +1,125 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "2 ITER",
+          "raw": "2 ITER",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "2",
+          "raw": "2",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "90cfa5080f92be13fef22693172ca6c775d4f75758136d00e1a3a0ceb2cb7d12",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 26.386
+  },
+  "ocr_prediction_sha256": "5073c8335a74f66500031b73f968cc5591a171f9c8c16779a1cdcabe7901e830",
+  "page": {
+    "number": 1,
+    "width_px": 576,
+    "height_px": 864,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "2 PCS",
+        "box": {
+          "left": 0.6458333333333334,
+          "top": 0.8854166666666666,
+          "right": 0.7760416666666666,
+          "bottom": 0.9097222222222222
+        },
+        "method": "tesseract-eng",
+        "confidence": 80.5
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "2 ITER",
+        "box": {
+          "left": 0.4114583333333333,
+          "top": 0.8888888888888888,
+          "right": 0.5659722222222222,
+          "bottom": 0.9143518518518519
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.34
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 2,
+    "valid_reference_values": 2,
+    "aligned_values": 2,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

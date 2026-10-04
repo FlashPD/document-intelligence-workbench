@@ -1,0 +1,185 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "28182",
+        "raw": "28.182",
+        "evidence_ids": [
+          "p1-l0003"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": "2818",
+        "raw": "2.818",
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "31000",
+        "raw": "31.000",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "TRAD KY TOAST CARTE",
+          "raw": "TRAD KY TOAST CARTE",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1.00",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "28182",
+          "raw": "28.182",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "0b63b666b54ea615d1d05733ee2c6fc24f20e1a6c77b333872fa80fff28b2c48",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 35.845
+  },
+  "ocr_prediction_sha256": "e797aea956853ceb4c1f0ad2e16a756328f796d2715429f8e756cce28f2a98be",
+  "page": {
+    "number": 1,
+    "width_px": 2304,
+    "height_px": 4096,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "TRAD KY TOAST CARTE 28. 182",
+        "box": {
+          "left": 0.3038194444444444,
+          "top": 0.454345703125,
+          "right": 0.7938368055555556,
+          "bottom": 0.469970703125
+        },
+        "method": "tesseract-eng",
+        "confidence": 88.67
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "ITEMS 1.00",
+        "box": {
+          "left": 0.4348958333333333,
+          "top": 0.474365234375,
+          "right": 0.5755208333333334,
+          "bottom": 0.48779296875
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.25
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "SUBTTL 28.182",
+        "box": {
+          "left": 0.3029513888888889,
+          "top": 0.4921875,
+          "right": 0.7938368055555556,
+          "bottom": 0.50732421875
+        },
+        "method": "tesseract-eng",
+        "confidence": 84.23
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "PB-1 10% 2.818",
+        "box": {
+          "left": 0.3025173611111111,
+          "top": 0.510986328125,
+          "right": 0.7938368055555556,
+          "bottom": 0.526123046875
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.42
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "TOTAL 31.000",
+        "box": {
+          "left": 0.3029513888888889,
+          "top": 0.5302734375,
+          "right": 0.7916666666666666,
+          "bottom": 0.545166015625
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.41
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "CASH 31.000",
+        "box": {
+          "left": 0.3025173611111111,
+          "top": 0.549072265625,
+          "right": 0.7916666666666666,
+          "bottom": 0.56396484375
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.55
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 6,
+    "valid_reference_values": 6,
+    "aligned_values": 6,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

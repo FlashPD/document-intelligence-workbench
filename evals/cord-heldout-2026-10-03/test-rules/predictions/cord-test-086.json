@@ -1,0 +1,88 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "90cfa5080f92be13fef22693172ca6c775d4f75758136d00e1a3a0ceb2cb7d12",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.234,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 576,
+    "height_px": 864,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "2 PCS",
+        "box": {
+          "left": 0.6458333333333334,
+          "top": 0.8854166666666666,
+          "right": 0.7760416666666666,
+          "bottom": 0.9097222222222222
+        },
+        "method": "tesseract-eng",
+        "confidence": 80.5
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "2 ITER",
+        "box": {
+          "left": 0.4114583333333333,
+          "top": 0.8888888888888888,
+          "right": 0.5659722222222222,
+          "bottom": 0.9143518518518519
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.34
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

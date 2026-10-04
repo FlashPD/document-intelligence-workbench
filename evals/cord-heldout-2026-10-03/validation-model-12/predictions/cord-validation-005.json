@@ -1,0 +1,62 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "f2f39d5f12253390f4c8264a8fa96e9bfdde78009e57068cb05ca5ad3c5b7d02",
+  "run_sha256": "f17c96d49115a20156773ee318cdda06cca46e81ce22a024507de84a9bee2afb",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 8.788
+  },
+  "ocr_prediction_sha256": "83f644f0e51daad0a2275544df4e13de88855c8a47b2477938af87648f656a1d",
+  "page": {
+    "number": 1,
+    "width_px": 960,
+    "height_px": 1280,
+    "spans": []
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

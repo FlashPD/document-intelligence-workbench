@@ -13,4 +13,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: make test
+      - run: PYTHONPATH=src python -m docwork.cli eval-verify-corpus
+      - run: PYTHONPATH=src python -m docwork.cli eval-verify-heldout evals/invoice-heldout-2026-10-03/ocr-rules-v0.3-psm1
+      - run: PYTHONPATH=src python -m docwork.cli eval-verify-invoice-model evals/invoice-model-heldout-2026-10-03
+      - run: PYTHONPATH=src python -m docwork.cli eval-verify-model-workflow evals/portfolio-candidate-model-workflow-2026-10-03
       - run: PYTHONPATH=src python -m docwork.cli demo-replay --prepare-only --output-dir artifacts/ci-replay

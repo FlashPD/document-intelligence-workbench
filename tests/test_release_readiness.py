@@ -69,6 +69,16 @@ class ReleaseReadinessTests(unittest.TestCase):
         verify.assert_not_called()
         self.assertFalse(any(name.startswith(DEFAULTS["invoice_model"]) for name in report["input_sha256"]))
 
+    def test_saved_receipt_comparison_requires_explicit_local_dataset_setup(self):
+        self.write(DEFAULTS["receipts"] + "/comparison.json", {"split": "test", "documents": 100})
+        with patch("docwork.release_readiness.verify_receipt_comparison") as verify:
+            report = self.audit()
+        verify.assert_not_called()
+        result = next(c for c in report["checks"] if c["id"] == "receipt_model_comparison")
+        self.assertEqual(result["status"], "pending")
+        self.assertIn("explicit dataset setup", result["note"])
+        self.assertFalse(any(name.startswith(DEFAULTS["receipts"]) for name in report["input_sha256"]))
+
     def test_parser_skipped_missing_duplicate_or_failed_checks_cannot_pass(self):
         original = self.parser_report()
         variants = []

@@ -1,0 +1,359 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "4 [LG] BLACK SAKURA",
+          "raw": "4 [LG] BLACK SAKURA",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "1 LONGAN",
+          "raw": "1 LONGAN",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "1 ROASTED ALMOND",
+          "raw": "1 ROASTED ALMOND",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "1 VANGGO",
+          "raw": "1 VANGGO",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-005",
+        "description": {
+          "value": "1 VINERAL WATER (bundling) 5k",
+          "raw": "1 VINERAL WATER (bundling) 5k",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "eef326565b3945217a69afd84c893afdffd03a2f487943661c2423e6d6ec0d7d",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 79.893
+  },
+  "ocr_prediction_sha256": "fc9f1e881807d692abb2f18f8ef222a339f04f4dd9fb9a173deaf6cb3e3b81f5",
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "4 [LG] BLACK SAKURA",
+        "box": {
+          "left": 0.13310185185185186,
+          "top": 0.49382716049382713,
+          "right": 0.45717592592592593,
+          "bottom": 0.5138888888888888
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.01
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "1 LONGAN",
+        "box": {
+          "left": 0.13194444444444445,
+          "top": 0.5162037037037037,
+          "right": 0.2824074074074074,
+          "bottom": 0.5324074074074074
+        },
+        "method": "tesseract-eng",
+        "confidence": 88.87
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "1 ROASTED ALMOND",
+        "box": {
+          "left": 0.13078703703703703,
+          "top": 0.5393518518518519,
+          "right": 0.4398148148148148,
+          "bottom": 0.5555555555555556
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.84
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "1 VANGGO",
+        "box": {
+          "left": 0.12962962962962962,
+          "top": 0.5617283950617284,
+          "right": 0.2916666666666667,
+          "bottom": 0.5779320987654321
+        },
+        "method": "tesseract-eng",
+        "confidence": 88.46
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "1 VINERAL WATER (bundling) 5k",
+        "box": {
+          "left": 0.12731481481481483,
+          "top": 0.5848765432098766,
+          "right": 0.5983796296296297,
+          "bottom": 0.6072530864197531
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.4
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Sub Total",
+        "box": {
+          "left": 0.11342592592592593,
+          "top": 0.6319444444444444,
+          "right": 0.24537037037037038,
+          "bottom": 0.6489197530864198
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.53
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "PB1 (10%)",
+        "box": {
+          "left": 0.11342592592592593,
+          "top": 0.6550925925925926,
+          "right": 0.2604166666666667,
+          "bottom": 0.6759259259259259
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.49
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Rounding",
+        "box": {
+          "left": 0.1111111111111111,
+          "top": 0.6797839506172839,
+          "right": 0.24421296296296297,
+          "bottom": 0.7006172839506173
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.82
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "Total",
+        "box": {
+          "left": 0.1087962962962963,
+          "top": 0.7044753086419753,
+          "right": 0.19212962962962962,
+          "bottom": 0.7229938271604939
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.87
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "Cash Payment",
+        "box": {
+          "left": 0.10416666666666667,
+          "top": 0.7561728395061729,
+          "right": 0.3148148148148148,
+          "bottom": 0.7777777777777778
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.44
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 5,
+    "valid_reference_values": 5,
+    "aligned_values": 5,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,6 +1,6 @@
 # Portfolio release runbook
 
-The portfolio presentation should show a local, evidence-linked invoice workflow and explain its measured limits. A [captioned scripted recording](../evals/review-browser-2026-10-03-v2/index.html) is now available, with [Chrome verification](browser-verification.md) of keyboard, rotation, page navigation, revision, and export behavior on fictional recorded-OCR fixtures. The product remains experimental while the complete invoice/receipt model comparisons, human review pilot, and current-build model workflow rerun are pending. The [system card](system-card.md) and [data card](data-card.md) distinguish implemented behavior from the larger [architecture plan](../arch_plan/document-intelligence-workbench-plan.md).
+The [experimental portfolio candidate](portfolio-candidate.md) presents a local, evidence-linked invoice workflow and its measured limits. The [complete paired comparisons](heldout-model-comparison.md) account for 180 test invoices and 100 test receipts, including failed extractions. The local model regresses against rules on invoice headers and exact rows, so rules remain the default. A [refreshed captioned recording](../evals/portfolio-candidate-browser-2026-10-03/index.html) demonstrates verified browser controls on fictional recorded-OCR fixtures. The six-case human author pilot remains pending. The [system card](system-card.md) and [data card](data-card.md) distinguish this candidate from the broader [architecture plan](../arch_plan/document-intelligence-workbench-plan.md).
 
 ## Fresh checkout and first demo
 
@@ -14,10 +14,12 @@ make eval-verify-corpus
 PYTHONPATH=src python3.12 -m docwork.cli eval-verify-heldout \
   evals/invoice-heldout-2026-10-03/ocr-rules-v0.3-psm1
 PYTHONPATH=src python3.12 -m docwork.cli eval-verify-model-workflow \
-  evals/real-model-upload-2026-10-03
+  evals/portfolio-candidate-model-workflow-2026-10-03
+PYTHONPATH=src python3.12 -m docwork.cli eval-verify-invoice-model \
+  evals/invoice-model-heldout-2026-10-03
 ```
 
-These are offline integrity/contract checks. They do not require Docker, Tesseract, model weights, or CORD downloads. Recorded model evidence is audited without executing the model.
+These are offline integrity/contract checks. They do not require Docker, Tesseract, model weights, or CORD downloads. Recorded model evidence is audited without executing the model. Full receipt rescoring and its release-audit check require the explicitly prepared CORD source corpus described in [release evaluation](release-evaluation.md#cord-receipt-evaluation). Missing local receipt data stays pending; it does not block the offline demo or invoice verification.
 
 For an immediate interactive demo with only Python 3.12:
 
@@ -35,7 +37,15 @@ make smoke-ocr
 make dev
 ```
 
-The [browser-release clean-source check](../evals/review-release-checkout-2026-10-03/report.json) passes all four offline commands above, including 253 deterministic tests, in a temporary copy of 2,721 tracked/current-change files. It excludes the active inference bundle and starts without `artifacts/`, a virtual environment, or model assets. Saved source/log hashes identify the check. The [initial packaging check](../evals/portfolio-checkout-2026-10-03/report.json) remains as historical evidence. These are source-snapshot reproduction checks before commit; cloning the eventual release tag remains a separate final check.
+The [candidate clean-source check](../evals/portfolio-candidate-checkout-2026-10-03/report.json) copies tracked and nonignored current-change files into an isolated temporary tree, starts without `artifacts/`, model assets or a virtual environment, and runs six offline checks: contracts, corpus, baseline, complete invoice model, current model workflow and replay preparation. It binds every copied input and each command log. Reproduce it with a new output directory:
+
+```sh
+python3.12 scripts/verify_release_checkout.py \
+  --output-dir artifacts/checkout-fresh \
+  --model-workflow evals/portfolio-candidate-model-workflow-2026-10-03
+```
+
+The earlier [browser-release check](../evals/review-release-checkout-2026-10-03/report.json), with 253 tests and 2,721 copied files, and [initial packaging check](../evals/portfolio-checkout-2026-10-03/report.json) remain historical. These checks reproduce source snapshots before commit; cloning the eventual release tag remains a separate final check. CORD source images remain under ignored `artifacts/` and are not copied into the clean snapshot; these commands do not claim full receipt rescoring in a bare checkout.
 
 Open the one-time loopback URL printed by `make dev`. Choose **Clean sample**; click fields to inspect source highlights, review the values, approve the current revision, and export JSON/CSV. Choose **Conflicting total**; inspect the printed total and `TOTAL_MISMATCH`, enter a reason to retain the printed value or correct an extraction error from its source, and approve the resulting revision. Export is blocked until approval. Fixture buttons use fresh host OCR, not Docker or model inference.
 
@@ -56,12 +66,14 @@ make models-verify
 make dev-model
 ```
 
-Select **Local span model** for uploads. Credentials stay in the server; no endpoint/key entry is required. Missing assets fail startup instead of downloading. This profile is verified on macOS arm64; other hosts can use the rules workflow, but this is not a verified Linux/CUDA model profile. Run only one model workload at a time on the Mac. Let the current serialized evaluation finish before starting another model server.
+Select **Local span model** for uploads. Credentials stay in the server; no endpoint/key entry is required. Missing assets fail startup instead of downloading. This profile is verified on macOS arm64; other hosts can use the rules workflow, but this is not a verified Linux/CUDA model profile. Run only one model workload at a time on the Mac; serialize future evaluations and live model servers.
 
 ## Generate the release audit
 
 ```sh
-make release-check OUTPUT=artifacts/portfolio-audit-001
+PYTHONPATH=src python3.12 -m docwork.cli release-check \
+  --output-dir artifacts/portfolio-audit-001 \
+  --demo-recording evals/portfolio-candidate-browser-2026-10-03/demo.webm
 ```
 
 The command runs fresh deterministic contracts and audits existing complete evidence. It writes a new directory containing `index.html`, `report.json`, and `tests.log`. Open the HTML locally to inspect each check; the JSON binds input inventories, current audit source, and the test log. No model inference, parser jobs, human review, or downloads are started. A partial model ledger is neither scored nor presented as completed quality evidence.
@@ -82,24 +94,14 @@ PYTHONPATH=src python3.12 -m docwork.cli release-check \
   --parser-report artifacts/parser-checkout-fresh.json \
   --model-workflow-directory artifacts/model-workflow-fresh \
   --pilot-directory artifacts/review-pilot-author-2026-10-03-v3 \
-  --demo-recording evals/review-browser-2026-10-03-v2/demo.webm
+  --demo-recording evals/portfolio-candidate-browser-2026-10-03/demo.webm
 ```
 
 Run the audit only after supplied evidence writers stop. It checks input stability around verification and marks changed evidence invalid. Source drift in historical parser/model/browser reports remains visible; it does not rewrite original reports or rerun costly inference. Existing pending progress can be inspected with `python3.12 scripts/evaluation_status.py`; that command verifies completion hashes and shows ledger update time without inferring process liveness from missing metadata. The serialized coordinator and final comparison export are described in [release evaluation](release-evaluation.md), with [interrupted-session recovery](evaluation-recovery.md) and explicit lifecycle/memory limitations.
 
-The parser default points to the [browser-release parser report](../evals/review-release-parser-2026-10-03/report.json). The earlier [first verification attempt](../evals/portfolio-parser-2026-10-03/report.json) retained its failed stale-image check; the image was rebuilt before repeating verification. This preserves the failed attempt rather than rewriting it into a passing result.
+The defaults now select the [candidate parser report](../evals/portfolio-candidate-parser-2026-10-03-v2/report.json), [current model workflow](../evals/portfolio-candidate-model-workflow-2026-10-03/report.json), and [candidate browser bundle](../evals/portfolio-candidate-browser-2026-10-03/report.json). The [first candidate parser attempt](../evals/portfolio-candidate-parser-2026-10-03/report.json) preserves a stale-image failure after source changes. The image was rebuilt before all sixteen checks were repeated. Earlier [parser](../evals/queue-release-parser-2026-10-03/report.json), [browser](../evals/queue-release-browser-2026-10-03/report.json), and [recording](../evals/review-browser-2026-10-03-v2/index.html) bundles remain historical.
 
-After the offline replay entrypoint, the [queue-release parser refresh](../evals/queue-release-parser-2026-10-03/report.json) passes all 16 workflow/recovery/resource checks, and the [browser refresh](../evals/queue-release-browser-2026-10-03/report.json) passes all 15 normal-workbench controls. They identify the newer source and parser image. The browser refresh captures frames without making a new video; the earlier captioned recording remains separately labeled historical presentation evidence. Use these explicit overrides when auditing this source snapshot:
-
-```sh
-PYTHONPATH=src python3.12 -m docwork.cli release-check \
-  --output-dir artifacts/queue-release-audit-fresh \
-  --parser-report evals/queue-release-parser-2026-10-03/report.json \
-  --browser-directory evals/queue-release-browser-2026-10-03 \
-  --demo-recording evals/review-browser-2026-10-03-v2/demo.webm
-```
-
-The [20-document parser queue](parser-queue.md) separately measures real serial processing of development PNG/PDF originals. Its concurrent-model declaration was unverified and is qualified in the run guide; it cannot establish processing under model load. It is supplemental performance evidence, not an additional passing gate in `release-check`. The full invoice/receipt comparisons, current real-model workflow rerun, and human pilot are still required. A fresh six-case pilot was prepared at `artifacts/review-pilot-author-2026-10-03-v4`; its outcomes remain pending until the author reviews it and its server stops. Supply that directory to the final audit only after completion and shutdown.
+The [20-document parser queue](parser-queue.md) separately measures real serial processing of development PNG/PDF originals. Its concurrent-model declaration was unverified and remains qualified; it cannot establish processing under model load. It is supplemental performance evidence. The six-case author pilot is prepared at `artifacts/review-pilot-author-2026-10-03-v4`; its outcomes remain pending until the author reviews it and its server stops. Supply that directory to the final audit only after completion and shutdown.
 
 ## Three minute presentation script
 
@@ -118,10 +120,9 @@ A model upload can be a separate recorded segment with its actual elapsed time l
 
 ## Remaining release work
 
-1. Let the frozen invoice model run and serialized CORD evaluations finish; audit and export both complete comparisons without selecting successful cases or tuning on test results.
-2. After those jobs finish, rerun the real-model HTTP workflow against the current source with a new output directory. Its previous report is valid historical evidence but predates worker/browser changes.
-3. Finish the six-case author review pilot yourself and stop its server. Its report can describe effort; there is no manual-entry baseline to support time saved.
-4. Review the captioned scripted recording and its scope, or replace it with a narrated continuous capture. The four-case automated browser check covers stated rotated/multi-page geometry; OS popup menus and broader visual acceptance remain separate. Add genuine scanner-captured development evidence with permission and declared labels.
-5. Review the system/data cards and fresh-checkout instructions, identify any remaining architecture criteria deliberately deferred, and tag an experimental release with scoped claims when that evidence is ready.
+1. Finish the six-case author review pilot yourself and stop its server. Its report can describe effort; there is no manual-entry baseline to support time saved. Audit at a new output path after stopping the server.
+2. Review the captioned scripted recording and its declared scope, or replace it with a narrated continuous capture. Browser checks cover stated rotated/multi-page geometry; OS popup menus and broader visual acceptance remain separate.
+3. Review the system/data cards and [deliberate deferrals](portfolio-candidate.md#deliberately-deferred-scope), then commit the candidate evidence. Genuine scanner captures, semantic attribution sampling and controlled warm/cold/memory studies are not silently presented as completed.
+4. Run a fresh audit with the finished pilot and recording, and verify a checkout of the eventual experimental release tag before publishing with scoped claims.
 
 Packaging documentation and an audit do not publish or tag a release. Optional PC/GPU inference, framework migration, telemetry, and a VLM are separate workstreams; no claim is made that they have been completed.

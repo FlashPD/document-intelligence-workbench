@@ -2,11 +2,11 @@
 
 A local invoice application that extracts structured fields and rows, links suggestions to page evidence, and exports JSON/CSV only after human approval. Corrections create auditable revisions; approvals and export bytes belong to an exact revision. Uploaded PDFs and images run through an isolated Docker parser, with an optional pinned local language model.
 
-**Status: experimental; portfolio release evidence is being completed.** The upload/review/export workflow, parser recovery, and portable backups are implemented. A [captioned scripted demo](evals/review-browser-2026-10-03-v2/index.html) now shows the review workflow using saved OCR on fictional cases. Full held-out model comparisons and the human review pilot remain pending. [`release-check`](docs/portfolio-release.md#generate-the-release-audit) runs fresh contracts and makes missing, changed, and complete evidence visible without scoring partial inference.
+**Status: experimental portfolio candidate; human author pilot pending.** The upload/review/export workflow, parser recovery, portable backups, and complete 180-invoice/100-receipt paired comparisons are implemented and recorded. The local model regresses against rules on synthetic invoice headers and exact rows, so rules remain the default. A [refreshed captioned demo](evals/portfolio-candidate-browser-2026-10-03/index.html) shows the review workflow using saved OCR on fictional cases. [`release-check`](docs/portfolio-release.md#generate-the-release-audit) verifies the completed evidence and keeps the unfinished human pilot visible.
 
-Start with the [portfolio runbook](docs/portfolio-release.md), [system card](docs/system-card.md), and [data card](docs/data-card.md). The [architecture plan](arch_plan/document-intelligence-workbench-plan.md) records the original design and broader acceptance criteria.
+Start with the [portfolio candidate](docs/portfolio-candidate.md), [standalone comparison](evals/release-comparison-2026-10-03.html), [release audit](evals/portfolio-candidate-audit-2026-10-03/index.html), and [runbook](docs/portfolio-release.md). The [system card](docs/system-card.md) and [data card](docs/data-card.md) bound the claims; the [architecture plan](arch_plan/document-intelligence-workbench-plan.md) records the broader original design.
 
-![Review workspace with source evidence and a versioned correction](evals/review-browser-2026-10-03-v2/frames/01.png)
+![Review workspace with source evidence and a versioned correction](evals/portfolio-candidate-browser-2026-10-03/frames/01.png)
 
 *Automated Chrome capture on a disposable fictional development fixture using recorded OCR. This is interface evidence, not human review-time or live extraction evidence.*
 
@@ -28,14 +28,15 @@ The current stack is Python 3.12 standard-library HTTP/SQLite, HTML/CSS/JavaScri
 | Evidence | Recorded result | Scope |
 |---|---|---|
 | [Frozen default invoice baseline](docs/invoice-heldout-run.md) | 180/180 test invoices; header macro F1 **0.9981**; required fields exact **163/166** eligible documents; exact-row F1 **0.9423** | Self-authored held-out families, trusted PNG previews; excludes production PDF parsing |
+| [Held-out invoice model comparison](docs/heldout-model-comparison.md) | All 180 accounted for; 176 records, four failures; model header F1 **0.9766**, exact-row F1 **0.7985**; regression gate rejects promotion | Same saved OCR as rules; failures remain scored; paired uncertainty and family results published |
 | [Spatial extraction experiment](docs/spatial-extraction.md) | Rejected: calibration exact-row F1 falls from 0.8321 to 0.7863 | Default stays `ocr_rules` v0.3; improved development scores did not justify promotion |
-| [Real local-model HTTP workflow](docs/real-model-upload.md) | Both fictional PNGs pass upload, evidence checks, correction, approval, and downloads | Pinned Qwen3 4B / llama.cpp on Apple M1; historical source snapshot, two fixtures |
-| [Parser resource/recovery checks](docs/parser-resources.md) | 16 recorded Docker checks pass | Timeout/OOM probes, checkpoint recovery, backup restoration, and review/export fixtures; source freshness checked separately |
-| [CORD rules validation](evals/cord-validation-2026-10-03/ocr-rules/report.json) | 100/100 receipts; total F1 **0.1273**, eligible exact-row F1 **0.0774** | Separate public-receipt domain; exposes a large gap for this English OCR prototype |
+| [Current local-model HTTP workflow](docs/real-model-upload.md#candidate-source-refresh) | Both PNGs pass upload, correction, approval and downloads; **66.929/57.557 s** | Pinned Qwen3 4B / llama.cpp on Apple M1; two fictional fixtures, not controlled warm latency |
+| [Candidate parser checks](evals/portfolio-candidate-parser-2026-10-03-v2/report.json) | All **16** Docker checks pass after rebuilding a stale image | Timeout/OOM, checkpoint recovery, backup restoration and exports; failed first attempt retained |
+| [Held-out CORD comparison](docs/heldout-model-comparison.md#receipt-comparison-and-scope) | 100 cases per variant; rules/model total F1 **0.2435/0.1651**, eligible exact-row F1 **0.0957/0.0204** | Separate receipt adapter and label masks; five model failures; both variants expose a large domain gap |
 | [Browser pilot controls](docs/review-pilot.md) | Automated Chrome check passes | Source highlight, pause/resume, approval, export, completion; human results pending |
 | [Browser workflow and recording](docs/browser-verification.md) | 15 Chrome checks pass; captioned WebM decodes and plays | Keyboard, rotation/highlight alignment, page navigation, revisions, verified downloads; scripted saved-OCR demonstration |
-| [Offline portfolio replay](docs/demo-replay.md#recorded-checks) | 16 Chrome checks; clean-source preparation; 259 deterministic tests pass | Four recorded development cases, Python-only entrypoint, real review/export, explicit replay provenance |
-| [Bounded production parser queue](docs/parser-queue.md) | 20/20 review-ready; 24 pages in **41.799 s**; worker P50/P95 **1.794/3.412 s** | Fixed development originals, serial Docker OCR/rules, including four original PDFs; concurrent model workload disclosed |
+| [Offline portfolio replay](docs/demo-replay.md#recorded-checks) | **16** refreshed Chrome controls; clean-source preparation | Four recorded development cases, Python-only entrypoint, real review/export, explicit replay provenance |
+| [Bounded production parser queue](docs/parser-queue.md) | 20/20 review-ready; 24 pages in **41.799 s**; worker P50/P95 **1.794/3.412 s** | Historical serial Docker OCR/rules on development originals; declared concurrent model load was unverified |
 
 Synthetic invoice results cannot establish real vendor accuracy. Valid span IDs and substring alignment do not prove semantic evidence accuracy. Model stage timings on saved OCR exclude new parsing and human review. No time-saved or unattended-approval claim is made. See the cards and complete run reports for denominators, representative failures, hardware, and limitations.
 
@@ -80,6 +81,8 @@ make release-check OUTPUT=artifacts/portfolio-audit-001
 `release-check` writes standalone HTML, a hash-bound JSON snapshot, and a fresh deterministic test log. Exit 1 means pending evidence; exit 2 means invalid evidence; exit 0 means this checklist's supplied evidence is complete, subject to manual content review and the broader architecture acceptance criteria. Always use a new output directory. See [fresh checkout and demo instructions](docs/portfolio-release.md).
 
 `make evaluation-status` verifies completed prediction hashes and reports the frozen schedule, remaining work, failure types, and provisional model-stage timing estimates. Add `INSPECT_RUNNER=1` to check the recorded coordinator's process identity without printing its command line. This progress view does not audit quality or infer model health from a live coordinator. See [evaluation monitoring](docs/release-evaluation.md).
+
+The offline demo and invoice/model-workflow audits need no CORD downloads. Full receipt rescoring and its release-audit check require [explicit CORD preparation](docs/release-evaluation.md#cord-receipt-evaluation); absent local source data remains pending. The [clean-source packaging check](evals/portfolio-candidate-checkout-2026-10-03/report.json) verifies six offline commands without copying local runtime assets or receipt images.
 
 ## Implementation and evaluation guides
 

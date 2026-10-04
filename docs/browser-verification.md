@@ -1,6 +1,6 @@
 # Browser workflow verification and scripted demo
 
-The [recorded browser bundle](../evals/review-browser-2026-10-03-v2/report.json) checks four fictional development invoices in real Chrome: a clean page, printed total conflict, sideways page, and two-page PDF preview. The [playable demonstration](../evals/review-browser-2026-10-03-v2/index.html) includes a captioned WebM and five original screenshots. It replays hash-verified OCR/rules suggestions in a disposable workbench, with the reviewer explicitly labeled `scripted-fictional-demo`.
+The [candidate browser bundle](../evals/portfolio-candidate-browser-2026-10-03/report.json) checks four fictional development invoices in real Chrome: a clean page, printed total conflict, sideways page, and two-page PDF preview. The [playable demonstration](../evals/portfolio-candidate-browser-2026-10-03/index.html) includes a captioned WebM and five original screenshots. It replays hash-verified OCR/rules suggestions in a disposable workbench, with the reviewer explicitly labeled `scripted-fictional-demo`. The [earlier bundle](../evals/review-browser-2026-10-03-v2/report.json) remains historical.
 
 This is automated interface and presentation evidence. It contains no live parsing, model inference, human timing, or productivity measurement. The video assembles three-second holds of browser screenshots with captions; its duration is presentation pacing, not processing latency. It has no audio. The temporary store, exports, and Chrome profile are removed after verification. It cannot attach to an existing user's workbench.
 
@@ -21,7 +21,7 @@ This is automated interface and presentation evidence. It contains no live parsi
 
 The geometry checks use the saved OCR line rectangles, not exact field-level semantic evidence. Twelve sampled source pixels are checked per tested rotation, rather than every pixel. The highlight tolerance is 0.004 of displayed page dimensions. The page-selector test checks trusted uncanceled key events and dispatches the choice separately; operating-system popup-menu navigation is not verified. Narrow viewport checks establish the stated layout condition, not a mobile accessibility audit.
 
-The browser check found and fixed shortcuts that intercepted unrelated button/select keys. It also corrected the author-pilot label previously shown for every replay and changed the editor label from “Approved value” to “Corrected value.” The [separate refreshed pilot check](../evals/review-pilot-browser-2026-10-03-v5/report.json) retains pause/resume, source gating, approval, export, and completion coverage in timed mode. Neither automation report can substitute for human pilot outcomes.
+The browser check found and fixed shortcuts that intercepted unrelated button/select keys. It also corrected the author-pilot label previously shown for every replay and changed the editor label from “Approved value” to “Corrected value.” The [candidate pilot check](../evals/portfolio-candidate-pilot-browser-2026-10-03/report.json) retains pause/resume, source gating, approval, export, and completion coverage in timed mode. Neither automation report can substitute for human pilot outcomes.
 
 ## Reproduce
 
@@ -45,9 +45,9 @@ That host/profile requires its own passing report. `--skip-recording` runs the c
 ```sh
 PYTHONPATH=src python3.12 -m docwork.cli release-check \
   --output-dir artifacts/review-release-audit-fresh \
-  --demo-recording evals/review-browser-2026-10-03-v2/demo.webm
+  --demo-recording evals/portfolio-candidate-browser-2026-10-03/demo.webm
 ```
 
-The browser default selects the new bundle. Supply `--browser-directory` to audit a later run. This recording check can pass while extraction comparisons and human timing remain pending.
+The browser default selects the candidate bundle. Supply `--browser-directory` to audit a later run. This recording check can pass while human timing remains pending; the complete extraction comparisons are audited separately.
 
 The [queue-release refresh](../evals/queue-release-browser-2026-10-03/report.json) reruns all 15 controls after the offline portfolio entrypoint was committed. It retains current source hashes and [five frames](../evals/queue-release-browser-2026-10-03/index.html), without recording a new video. Supply `--browser-directory evals/queue-release-browser-2026-10-03` to audit that build. The [replay entrypoint check](demo-replay.md#recorded-checks) is separate and additionally verifies its four-case chooser and prohibition on live processing.

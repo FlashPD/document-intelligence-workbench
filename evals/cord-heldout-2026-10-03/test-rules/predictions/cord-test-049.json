@@ -1,0 +1,114 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "586d99b4bbdaed4f0aa9f9514eaa1bb0d306d270490eed8ddace08e6cdf804ac",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.193,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 576,
+    "height_px": 864,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "{ Ptgs Fe",
+        "box": {
+          "left": 0.2725694444444444,
+          "top": 0.5752314814814815,
+          "right": 0.4184027777777778,
+          "bottom": 0.5902777777777778
+        },
+        "method": "tesseract-eng",
+        "confidence": 72.59
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "1 Choco Me",
+        "box": {
+          "left": 0.2673611111111111,
+          "top": 0.6018518518518519,
+          "right": 0.4357638888888889,
+          "bottom": 0.6180555555555556
+        },
+        "method": "tesseract-eng",
+        "confidence": 74.99
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "SUBTOTAL",
+        "box": {
+          "left": 0.2899305555555556,
+          "top": 0.6585648148148148,
+          "right": 0.4322916666666667,
+          "bottom": 0.6712962962962963
+        },
+        "method": "tesseract-eng",
+        "confidence": 83.53
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "DUE",
+        "box": {
+          "left": 0.2847222222222222,
+          "top": 0.6875,
+          "right": 0.34375,
+          "bottom": 0.7071759259259259
+        },
+        "method": "tesseract-eng",
+        "confidence": 76.63
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

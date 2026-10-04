@@ -1,0 +1,319 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "385000",
+        "raw": "385,000",
+        "evidence_ids": [
+          "p1-l0004",
+          "p1-l0009"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Chocolate Log Cake 115,000",
+          "raw": "Chocolate Log Cake 115,000",
+          "evidence_ids": [
+            "p1-l0001",
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "115000",
+          "raw": "115,000",
+          "evidence_ids": [
+            "p1-l0001",
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Snowman Cake Chocolate",
+          "raw": "Snowman Cake Chocolate",
+          "evidence_ids": [
+            "p1-l0002",
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0002",
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "60000",
+          "raw": "60,000",
+          "evidence_ids": [
+            "p1-l0002",
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "60000",
+          "raw": "60,000",
+          "evidence_ids": [
+            "p1-l0002",
+            "p1-l0007"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "Strawberry Log Cake",
+          "raw": "Strawberry Log Cake",
+          "evidence_ids": [
+            "p1-l0003",
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "2",
+          "raw": "2",
+          "evidence_ids": [
+            "p1-l0003",
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "105000",
+          "raw": "105,000",
+          "evidence_ids": [
+            "p1-l0003",
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "210000",
+          "raw": "210,000",
+          "evidence_ids": [
+            "p1-l0003",
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "5f93bc30f680281efbdf8f6fdc173df91130d18129cda84de83bef34a15c3a6b",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.441,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Chocolate Log Cake 115,000",
+        "box": {
+          "left": 0.0787037037037037,
+          "top": 0.3001543209876543,
+          "right": 0.6377314814814815,
+          "bottom": 0.32407407407407407
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.07
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Snowman Cake Chocolate 1x 60,000",
+        "box": {
+          "left": 0.0775462962962963,
+          "top": 0.3248456790123457,
+          "right": 0.6377314814814815,
+          "bottom": 0.3464506172839506
+        },
+        "method": "tesseract-eng",
+        "confidence": 89.8
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Strawberry Log Cake 2x 105,000",
+        "box": {
+          "left": 0.07523148148148148,
+          "top": 0.34953703703703703,
+          "right": 0.6388888888888888,
+          "bottom": 0.3734567901234568
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.09
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "GRAND TOTAL",
+        "box": {
+          "left": 0.3888888888888889,
+          "top": 0.4529320987654321,
+          "right": 0.5636574074074074,
+          "bottom": 0.4722222222222222
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.69
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "~- VISA MASTER",
+        "box": {
+          "left": 0.11921296296296297,
+          "top": 0.5069444444444444,
+          "right": 0.3229166666666667,
+          "bottom": 0.5270061728395061
+        },
+        "method": "tesseract-eng",
+        "confidence": 77.5
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "115,000",
+        "box": {
+          "left": 0.7199074074074074,
+          "top": 0.2978395061728395,
+          "right": 0.8275462962962963,
+          "bottom": 0.31712962962962965
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.77
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "60,000",
+        "box": {
+          "left": 0.7349537037037037,
+          "top": 0.32253086419753085,
+          "right": 0.8287037037037037,
+          "bottom": 0.3425925925925926
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.65
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "210,000",
+        "box": {
+          "left": 0.7210648148148148,
+          "top": 0.3472222222222222,
+          "right": 0.8310185185185185,
+          "bottom": 0.3680555555555556
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.57
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "385,000",
+        "box": {
+          "left": 0.7256944444444444,
+          "top": 0.4506172839506173,
+          "right": 0.8379629629629629,
+          "bottom": 0.4722222222222222
+        },
+        "method": "tesseract-eng",
+        "confidence": 66.69
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "385,000",
+        "box": {
+          "left": 0.7268518518518519,
+          "top": 0.503858024691358,
+          "right": 0.8414351851851852,
+          "bottom": 0.5262345679012346
+        },
+        "method": "tesseract-eng",
+        "confidence": 15.28
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 11,
+    "valid_reference_values": 11,
+    "aligned_values": 11,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": "100%",
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": "6%",
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": "10%",
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "SALMON PESTO",
+          "raw": "SALMON PESTO",
+          "evidence_ids": [
+            "p1-l0001",
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "0052502fe9b8b69cb503076cce7b866101b6047ddbf9074660fb49954f90882c",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 32.453
+  },
+  "ocr_prediction_sha256": "bafe6650f5a10144df63fe9d0b3668c74697e8d01acceb0eabc4d44363355950",
+  "page": {
+    "number": 1,
+    "width_px": 2304,
+    "height_px": 4096,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "SALMON PESTO",
+        "box": {
+          "left": 0.3168402777777778,
+          "top": 0.4892578125,
+          "right": 0.4887152777777778,
+          "bottom": 0.50439453125
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.56
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "SALMON PESTO",
+        "box": {
+          "left": 0.3172743055555556,
+          "top": 0.508544921875,
+          "right": 0.4895833333333333,
+          "bottom": 0.5244140625
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.24
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Disc -100%(ITMO6)",
+        "box": {
+          "left": 0.2725694444444444,
+          "top": 0.527099609375,
+          "right": 0.5169270833333334,
+          "bottom": 0.545654296875
+        },
+        "method": "tesseract-eng",
+        "confidence": 76.64
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "SUBTTL",
+        "box": {
+          "left": 0.2734375,
+          "top": 0.55029296875,
+          "right": 0.3606770833333333,
+          "bottom": 0.566162109375
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.71
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "SVC CHG 6%",
+        "box": {
+          "left": 0.2738715277777778,
+          "top": 0.570068359375,
+          "right": 0.4201388888888889,
+          "bottom": 0.5869140625
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.89
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "PB1 10%",
+        "box": {
+          "left": 0.2738715277777778,
+          "top": 0.591552734375,
+          "right": 0.3763020833333333,
+          "bottom": 0.6083984375
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.49
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 1,
+    "valid_reference_values": 1,
+    "aligned_values": 1,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

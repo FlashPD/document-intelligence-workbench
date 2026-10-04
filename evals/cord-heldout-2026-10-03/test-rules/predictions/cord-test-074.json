@@ -1,0 +1,923 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "{ 1 i ; : ;",
+          "raw": "{ 1 i ; : ;",
+          "evidence_ids": [
+            "p1-l0023",
+            "p1-l0024",
+            "p1-l0022",
+            "p1-l0025"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0023",
+            "p1-l0024",
+            "p1-l0022",
+            "p1-l0025"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "| BLACKCURRANT 32 ,",
+          "raw": "| BLACKCURRANT 32 ,",
+          "evidence_ids": [
+            "p1-l0033"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "000",
+          "evidence_ids": [
+            "p1-l0033"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "SPRITE 32 ,",
+          "raw": "SPRITE 32 ,",
+          "evidence_ids": [
+            "p1-l0034"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0034"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "000",
+          "evidence_ids": [
+            "p1-l0034"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "BEVERAGE \u00bb",
+          "raw": "BEVERAGE \u00bb",
+          "evidence_ids": [
+            "p1-l0035"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "64000",
+          "raw": "64,000",
+          "evidence_ids": [
+            "p1-l0035"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-005",
+        "description": {
+          "value": "] GRILLED CALAMARI 85 ,",
+          "raw": "] GRILLED CALAMARI 85 ,",
+          "evidence_ids": [
+            "p1-l0036"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "000",
+          "evidence_ids": [
+            "p1-l0036"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-006",
+        "description": {
+          "value": "et FOOD",
+          "raw": "et FOOD",
+          "evidence_ids": [
+            "p1-l0040"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "214000",
+          "raw": "214,000",
+          "evidence_ids": [
+            "p1-l0040"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-007",
+        "description": {
+          "value": "SUBTTL",
+          "raw": "SUBTTL",
+          "evidence_ids": [
+            "p1-l0041"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "278000",
+          "raw": "278,000",
+          "evidence_ids": [
+            "p1-l0041"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-008",
+        "description": {
+          "value": "senmiCewGharge",
+          "raw": "senmiCewGharge",
+          "evidence_ids": [
+            "p1-l0042"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "22240",
+          "raw": "22,240",
+          "evidence_ids": [
+            "p1-l0042"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "06f9f2830f735ba3395ceeae8c4069cbc8542b3f7f828293f5c43522077389cb",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 1.575,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 2304,
+    "height_px": 4096,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "an HAN Sy",
+        "box": {
+          "left": 0.06510416666666667,
+          "top": 0.001953125,
+          "right": 0.3446180555555556,
+          "bottom": 0.027099609375
+        },
+        "method": "tesseract-eng",
+        "confidence": 24.07
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "i ef \u2018 |",
+        "box": {
+          "left": 0.1111111111111111,
+          "top": 0.02099609375,
+          "right": 0.3940972222222222,
+          "bottom": 0.02685546875
+        },
+        "method": "tesseract-eng",
+        "confidence": 31.04
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "a # i \u2019 oe sind",
+        "box": {
+          "left": 0.06032986111111111,
+          "top": 0.05615234375,
+          "right": 0.3845486111111111,
+          "bottom": 0.06640625
+        },
+        "method": "tesseract-eng",
+        "confidence": 33.78
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "| iH | : y fia \u2018",
+        "box": {
+          "left": 0.0842013888888889,
+          "top": 0.064208984375,
+          "right": 0.4388020833333333,
+          "bottom": 0.074462890625
+        },
+        "method": "tesseract-eng",
+        "confidence": 37.05
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "|",
+        "box": {
+          "left": 0.10460069444444445,
+          "top": 0.107666015625,
+          "right": 0.10677083333333333,
+          "bottom": 0.111328125
+        },
+        "method": "tesseract-eng",
+        "confidence": 54.22
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "4",
+        "box": {
+          "left": 0.1015625,
+          "top": 0.114013671875,
+          "right": 0.10416666666666667,
+          "bottom": 0.116455078125
+        },
+        "method": "tesseract-eng",
+        "confidence": 54.87
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "ie ;",
+        "box": {
+          "left": 0.08203125,
+          "top": 0.130126953125,
+          "right": 0.1332465277777778,
+          "bottom": 0.1376953125
+        },
+        "method": "tesseract-eng",
+        "confidence": 24.42
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "13 |",
+        "box": {
+          "left": 0.0642361111111111,
+          "top": 0.133544921875,
+          "right": 0.10807291666666667,
+          "bottom": 0.14306640625
+        },
+        "method": "tesseract-eng",
+        "confidence": 31.64
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "\\}",
+        "box": {
+          "left": 0.10069444444444445,
+          "top": 0.1474609375,
+          "right": 0.10807291666666667,
+          "bottom": 0.15283203125
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "} ah",
+        "box": {
+          "left": 0.0837673611111111,
+          "top": 0.156005859375,
+          "right": 0.11979166666666667,
+          "bottom": 0.1669921875
+        },
+        "method": "tesseract-eng",
+        "confidence": 18.24
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "ii",
+        "box": {
+          "left": 0.0837673611111111,
+          "top": 0.167724609375,
+          "right": 0.11979166666666667,
+          "bottom": 0.1748046875
+        },
+        "method": "tesseract-eng",
+        "confidence": 5.41
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "}",
+        "box": {
+          "left": 0.10112847222222222,
+          "top": 0.175048828125,
+          "right": 0.10286458333333333,
+          "bottom": 0.177001953125
+        },
+        "method": "tesseract-eng",
+        "confidence": 26.15
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "} ;",
+        "box": {
+          "left": 0.1015625,
+          "top": 0.177490234375,
+          "right": 0.12022569444444445,
+          "bottom": 0.180419921875
+        },
+        "method": "tesseract-eng",
+        "confidence": 24.95
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "j",
+        "box": {
+          "left": 0.039496527777777776,
+          "top": 0.192138671875,
+          "right": 0.041666666666666664,
+          "bottom": 0.198486328125
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0015",
+        "page": 1,
+        "text": "13! i",
+        "box": {
+          "left": 0.08463541666666667,
+          "top": 0.196044921875,
+          "right": 0.1644965277777778,
+          "bottom": 0.20703125
+        },
+        "method": "tesseract-eng",
+        "confidence": 55.9
+      },
+      {
+        "id": "p1-l0016",
+        "page": 1,
+        "text": "j ; ;",
+        "box": {
+          "left": 0.0685763888888889,
+          "top": 0.208984375,
+          "right": 0.1644965277777778,
+          "bottom": 0.212890625
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0017",
+        "page": 1,
+        "text": "|",
+        "box": {
+          "left": 0.08680555555555555,
+          "top": 0.227294921875,
+          "right": 0.08897569444444445,
+          "bottom": 0.232666015625
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.84
+      },
+      {
+        "id": "p1-l0018",
+        "page": 1,
+        "text": "R.4 } Y",
+        "box": {
+          "left": 0.015190972222222222,
+          "top": 0.235107421875,
+          "right": 0.0915798611111111,
+          "bottom": 0.24072265625
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0019",
+        "page": 1,
+        "text": "i 4 Pi !",
+        "box": {
+          "left": 0.015190972222222222,
+          "top": 0.2392578125,
+          "right": 0.1618923611111111,
+          "bottom": 0.246826171875
+        },
+        "method": "tesseract-eng",
+        "confidence": 28.87
+      },
+      {
+        "id": "p1-l0020",
+        "page": 1,
+        "text": "i}",
+        "box": {
+          "left": 0.029947916666666668,
+          "top": 0.247802734375,
+          "right": 0.04210069444444445,
+          "bottom": 0.25341796875
+        },
+        "method": "tesseract-eng",
+        "confidence": 42.8
+      },
+      {
+        "id": "p1-l0021",
+        "page": 1,
+        "text": "i",
+        "box": {
+          "left": 0.04123263888888889,
+          "top": 0.25390625,
+          "right": 0.042534722222222224,
+          "bottom": 0.25830078125
+        },
+        "method": "tesseract-eng",
+        "confidence": 80.53
+      },
+      {
+        "id": "p1-l0022",
+        "page": 1,
+        "text": ";",
+        "box": {
+          "left": 0.0681423611111111,
+          "top": 0.26806640625,
+          "right": 0.06944444444444445,
+          "bottom": 0.27294921875
+        },
+        "method": "tesseract-eng",
+        "confidence": 58.48
+      },
+      {
+        "id": "p1-l0023",
+        "page": 1,
+        "text": "{ 1",
+        "box": {
+          "left": 0.06770833333333333,
+          "top": 0.27197265625,
+          "right": 0.16276041666666666,
+          "bottom": 0.2763671875
+        },
+        "method": "tesseract-eng",
+        "confidence": 49.01
+      },
+      {
+        "id": "p1-l0024",
+        "page": 1,
+        "text": "i ; :",
+        "box": {
+          "left": 0.06770833333333333,
+          "top": 0.27734375,
+          "right": 0.1623263888888889,
+          "bottom": 0.28271484375
+        },
+        "method": "tesseract-eng",
+        "confidence": 47.67
+      },
+      {
+        "id": "p1-l0025",
+        "page": 1,
+        "text": "1",
+        "box": {
+          "left": 0.1484375,
+          "top": 0.28466796875,
+          "right": 0.1636284722222222,
+          "bottom": 0.294921875
+        },
+        "method": "tesseract-eng",
+        "confidence": 48.84
+      },
+      {
+        "id": "p1-l0026",
+        "page": 1,
+        "text": "it ee 5; rT",
+        "box": {
+          "left": 0.14930555555555555,
+          "top": 0.293701171875,
+          "right": 0.7608506944444444,
+          "bottom": 0.3037109375
+        },
+        "method": "tesseract-eng",
+        "confidence": 17.45
+      },
+      {
+        "id": "p1-l0027",
+        "page": 1,
+        "text": "i Si se Se sae encase se Sal Oy a er an oe or ee",
+        "box": {
+          "left": 0.14930555555555555,
+          "top": 0.296630859375,
+          "right": 0.7465277777777778,
+          "bottom": 0.30859375
+        },
+        "method": "tesseract-eng",
+        "confidence": 32.52
+      },
+      {
+        "id": "p1-l0028",
+        "page": 1,
+        "text": "Te",
+        "box": {
+          "left": 0.11197916666666667,
+          "top": 0.309326171875,
+          "right": 0.12760416666666666,
+          "bottom": 0.31396484375
+        },
+        "method": "tesseract-eng",
+        "confidence": 6.44
+      },
+      {
+        "id": "p1-l0029",
+        "page": 1,
+        "text": "i}",
+        "box": {
+          "left": 0.07074652777777778,
+          "top": 0.32568359375,
+          "right": 0.07769097222222222,
+          "bottom": 0.33154296875
+        },
+        "method": "tesseract-eng",
+        "confidence": 62.82
+      },
+      {
+        "id": "p1-l0030",
+        "page": 1,
+        "text": ":",
+        "box": {
+          "left": 0.11414930555555555,
+          "top": 0.33642578125,
+          "right": 0.1154513888888889,
+          "bottom": 0.33935546875
+        },
+        "method": "tesseract-eng",
+        "confidence": 45.48
+      },
+      {
+        "id": "p1-l0031",
+        "page": 1,
+        "text": "4",
+        "box": {
+          "left": 0.11458333333333333,
+          "top": 0.339599609375,
+          "right": 0.11631944444444445,
+          "bottom": 0.342041015625
+        },
+        "method": "tesseract-eng",
+        "confidence": 64.25
+      },
+      {
+        "id": "p1-l0032",
+        "page": 1,
+        "text": ";",
+        "box": {
+          "left": 0.11458333333333333,
+          "top": 0.343017578125,
+          "right": 0.11675347222222222,
+          "bottom": 0.345458984375
+        },
+        "method": "tesseract-eng",
+        "confidence": 53.83
+      },
+      {
+        "id": "p1-l0033",
+        "page": 1,
+        "text": "| BLACKCURRANT 32 ,000",
+        "box": {
+          "left": 0.2552083333333333,
+          "top": 0.489501953125,
+          "right": 0.7660590277777778,
+          "bottom": 0.505859375
+        },
+        "method": "tesseract-eng",
+        "confidence": 79.29
+      },
+      {
+        "id": "p1-l0034",
+        "page": 1,
+        "text": "1 SPRITE 32 ,000",
+        "box": {
+          "left": 0.2552083333333333,
+          "top": 0.509765625,
+          "right": 0.7669270833333334,
+          "bottom": 0.52587890625
+        },
+        "method": "tesseract-eng",
+        "confidence": 84.78
+      },
+      {
+        "id": "p1-l0035",
+        "page": 1,
+        "text": "BEVERAGE \u00bb 64,000",
+        "box": {
+          "left": 0.2764756944444444,
+          "top": 0.530029296875,
+          "right": 0.7235243055555556,
+          "bottom": 0.548095703125
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.78
+      },
+      {
+        "id": "p1-l0036",
+        "page": 1,
+        "text": "] GRILLED CALAMARI 85 ,000",
+        "box": {
+          "left": 0.2560763888888889,
+          "top": 0.550048828125,
+          "right": 0.7677951388888888,
+          "bottom": 0.56591796875
+        },
+        "method": "tesseract-eng",
+        "confidence": 76.85
+      },
+      {
+        "id": "p1-l0037",
+        "page": 1,
+        "text": "1 DINE FOR 2 129,000",
+        "box": {
+          "left": 0.2556423611111111,
+          "top": 0.570068359375,
+          "right": 0.7686631944444444,
+          "bottom": 0.58544921875
+        },
+        "method": "tesseract-eng",
+        "confidence": 80.51
+      },
+      {
+        "id": "p1-l0038",
+        "page": 1,
+        "text": "* DANISH FISH & CHIPS Dr ~~",
+        "box": {
+          "left": 0.2951388888888889,
+          "top": 0.589599609375,
+          "right": 0.7686631944444444,
+          "bottom": 0.60498046875
+        },
+        "method": "tesseract-eng",
+        "confidence": 79.54
+      },
+      {
+        "id": "p1-l0039",
+        "page": 1,
+        "text": "* NEW YORK FISH & CHIPS ao",
+        "box": {
+          "left": 0.2955729166666667,
+          "top": 0.609130859375,
+          "right": 0.76953125,
+          "bottom": 0.624755859375
+        },
+        "method": "tesseract-eng",
+        "confidence": 84.34
+      },
+      {
+        "id": "p1-l0040",
+        "page": 1,
+        "text": "et FOOD 214,000",
+        "box": {
+          "left": 0.22265625,
+          "top": 0.629638671875,
+          "right": 0.7261284722222222,
+          "bottom": 0.645263671875
+        },
+        "method": "tesseract-eng",
+        "confidence": 74.63
+      },
+      {
+        "id": "p1-l0041",
+        "page": 1,
+        "text": "SUBTTL 278,000",
+        "box": {
+          "left": 0.2808159722222222,
+          "top": 0.64990234375,
+          "right": 0.7708333333333334,
+          "bottom": 0.665283203125
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.46
+      },
+      {
+        "id": "p1-l0042",
+        "page": 1,
+        "text": "senmiCewGharge 22,240",
+        "box": {
+          "left": 0.2847222222222222,
+          "top": 0.67041015625,
+          "right": 0.7717013888888888,
+          "bottom": 0.68603515625
+        },
+        "method": "tesseract-eng",
+        "confidence": 45.43
+      },
+      {
+        "id": "p1-l0043",
+        "page": 1,
+        "text": "30,024",
+        "box": {
+          "left": 0.6866319444444444,
+          "top": 0.690673828125,
+          "right": 0.7725694444444444,
+          "bottom": 0.706787109375
+        },
+        "method": "tesseract-eng",
+        "confidence": 20.23
+      },
+      {
+        "id": "p1-l0044",
+        "page": 1,
+        "text": "330 ,264",
+        "box": {
+          "left": 0.5703125,
+          "top": 0.73046875,
+          "right": 0.7717013888888888,
+          "bottom": 0.7470703125
+        },
+        "method": "tesseract-eng",
+        "confidence": 77.57
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 17,
+    "valid_reference_values": 17,
+    "aligned_values": 17,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

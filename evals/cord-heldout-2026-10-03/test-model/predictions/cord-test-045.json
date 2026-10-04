@@ -1,0 +1,261 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Lemon Tea (L)",
+          "raw": "Lemon Tea (L)",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Mike & Ike Original",
+          "raw": "Mike & Ike Original",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "Mike & Berry",
+          "raw": "Mike & Berry",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "Roti Keju Manis",
+          "raw": "Roti Keju Manis",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "67503d672ef23dc9805f78218172feece7f6138716651bf2a5cb3100cec5fe54",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 59.243
+  },
+  "ocr_prediction_sha256": "3476f3fab412080f04c455a14c760057563c18ccbd1f4b91b1afb738e519af95",
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Lemon Tea (L)",
+        "box": {
+          "left": 0.25462962962962965,
+          "top": 0.5617283950617284,
+          "right": 0.44907407407407407,
+          "bottom": 0.5841049382716049
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.85
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Mike & Ike Original",
+        "box": {
+          "left": 0.2523148148148148,
+          "top": 0.5787037037037037,
+          "right": 0.5462962962962963,
+          "bottom": 0.6064814814814815
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.22
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Mike & Berry",
+        "box": {
+          "left": 0.2511574074074074,
+          "top": 0.6095679012345679,
+          "right": 0.44212962962962965,
+          "bottom": 0.6304012345679012
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.37
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Roti Keju Manis",
+        "box": {
+          "left": 0.2488425925925926,
+          "top": 0.6311728395061729,
+          "right": 0.4930555555555556,
+          "bottom": 0.6535493827160493
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.4
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "CHANGED",
+        "box": {
+          "left": 0.1736111111111111,
+          "top": 0.7893518518518519,
+          "right": 0.29282407407407407,
+          "bottom": 0.8125
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.54
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 4,
+    "valid_reference_values": 4,
+    "aligned_values": 4,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "fd95d923b0bbed4f81238a7932b1088b4f12335689d333d455704404577c4490",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.257,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "6 THIST DONUT",
+        "box": {
+          "left": 0.22453703703703703,
+          "top": 0.4660493827160494,
+          "right": 0.4085648148148148,
+          "bottom": 0.48225308641975306
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.61
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "1 REDBEAN BREAD",
+        "box": {
+          "left": 0.22685185185185186,
+          "top": 0.48919753086419754,
+          "right": 0.4375,
+          "bottom": 0.5061728395061729
+        },
+        "method": "tesseract-eng",
+        "confidence": 80.53
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "TOTAL",
+        "box": {
+          "left": 0.2523148148148148,
+          "top": 0.5216049382716049,
+          "right": 0.3912037037037037,
+          "bottom": 0.5709876543209876
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.92
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "CASH",
+        "box": {
+          "left": 0.2511574074074074,
+          "top": 0.5756172839506173,
+          "right": 0.30671296296296297,
+          "bottom": 0.5925925925925926
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.63
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "CHANGE",
+        "box": {
+          "left": 0.2511574074074074,
+          "top": 0.6003086419753086,
+          "right": 0.4201388888888889,
+          "bottom": 0.6334876543209876
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.84
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

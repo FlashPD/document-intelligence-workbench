@@ -1,6 +1,6 @@
 # Document Intelligence Workbench data card
 
-The project evaluates fictional invoices separately from public receipt images. Synthetic held-out families test variation within an author-created generator; they do not establish real vendor accuracy. Receipt labels use their own adapter and scoring rules. The complete paired local-model test evaluations are still pending.
+The project evaluates fictional invoices separately from public receipt images. Synthetic held-out families test variation within an author-created generator; they do not establish real vendor accuracy. Receipt labels use their own adapter and scoring rules. The [complete paired evaluations](heldout-model-comparison.md) account for all 180 test invoices and 100 official test receipts, including four invoice and five receipt model failures.
 
 ## Self-authored invoice corpus
 
@@ -18,7 +18,7 @@ The [committed manifest](../datasets/invoices-v1/manifest.json) binds all assets
 
 Names, invoice numbers, amounts, and rows are fictional, authored for this project. The generator supplies labels and source geometry. It has a limited English vocabulary and controlled formatting; shared generation patterns can make test families easier than unfamiliar documents. Derivatives stay with their parents, and families do not cross splits. Development informed extraction changes; calibration rejected the spatial candidate. Test settings were frozen before extraction, and the original test predictions remain unchanged after an explicitly recorded bootstrap reporting correction.
 
-The [default test run](invoice-heldout-run.md) used verified PNG previews, including previews of PDF pages. It measured extraction after host OCR, rather than production PDF parsing. Every scheduled document is scored, including failures and unmatched rows. The paired model run performs fresh inference on the exact saved OCR inputs; this controls OCR differences but cannot measure whether a model compensates for a different parser or OCR engine.
+The [default test run](invoice-heldout-run.md) used verified PNG previews, including previews of PDF pages. It measured extraction after host OCR, rather than production PDF parsing. Every scheduled document is scored, including failures and unmatched rows. The paired model run performs fresh inference on the exact saved OCR inputs; this controls OCR differences but cannot measure whether a model compensates for a different parser or OCR engine. Rules/model header macro F1 is 0.9981/0.9766, and exact-row F1 is 0.9423/0.7985. The model was not promoted. Its prompt/profile selection used the earlier 12-document development study without a full-corpus model calibration run; the rules test report was already published before the model freeze.
 
 ## CORD receipts
 
@@ -26,7 +26,7 @@ The [pinned dataset configuration](../config/cord-v2.json) records `naver-clova-
 
 The adapter imports the official 100 validation and 100 test receipts. The 800 official training rows are not imported. Project validation serves as development evidence; the initial model smoke uses the first 12 validation rows in source order. Test settings must be sealed before all 100 test receipts can be scored. Missing labels are masked, rather than treated as empty values. Top-level menu items and released receipt amount fields are scored; modifiers/submenus, void items, payment information, and store labels are excluded.
 
-The [100-receipt rules validation report](../evals/cord-validation-2026-10-03/ocr-rules/report.json) processes all receipts but achieves total F1 0.1273 and eligible exact-row F1 0.0774. This is evidence of a substantial domain gap for the English OCR prototype. It is neither an invoice-quality result nor a completed two-variant test comparison. CORD is public; exposure in model pretraining has not been audited, so held-out project tuning does not imply model pretraining independence.
+The [100-receipt rules validation report](../evals/cord-validation-2026-10-03/ocr-rules/report.json) processes all receipts but achieves total F1 0.1273 and eligible exact-row F1 0.0774. The [completed test comparison](../evals/cord-heldout-2026-10-03/comparison.json) records rules/model total F1 0.2435/0.1651 and eligible exact-row F1 0.0957/0.0204. Rules produce 100/100 records and the model 95/100; the failed model cases remain in the score. Both variants show a substantial domain gap for the English OCR prototype. These are separate receipt diagnostics, not invoice quality or full CORD hierarchical parsing results. CORD is public; exposure in model pretraining has not been audited, so held-out project tuning does not imply model pretraining independence.
 
 ## Scoring and claim boundaries
 

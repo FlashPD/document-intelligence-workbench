@@ -1,0 +1,778 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "68180",
+        "raw": "68,180",
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": "0",
+        "raw": "0",
+        "evidence_ids": [
+          "p1-l0013"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": "0",
+        "raw": "0",
+        "evidence_ids": [
+          "p1-l0016"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": "75000",
+        "raw": "75,000",
+        "evidence_ids": [
+          "p1-l0019"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "FL-Xmas 30 Off",
+          "raw": "FL-Xmas 30 Off",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "68180",
+          "raw": "68,180",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "/PAKET SLICES",
+          "raw": "/PAKET SLICES",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "0",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "1\u00bb FL Cake - French",
+          "raw": "1\u00bb FL Cake - French",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "0",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "PAKET SLICES",
+          "raw": "PAKET SLICES",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "0",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-005",
+        "description": {
+          "value": "1\u00bb FL Cake -Green",
+          "raw": "1\u00bb FL Cake -Green",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "0",
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-006",
+        "description": {
+          "value": "PAKET SLICES",
+          "raw": "PAKET SLICES",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "0",
+          "evidence_ids": [
+            "p1-l0008"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-007",
+        "description": {
+          "value": "FL Cake - Belgium",
+          "raw": "FL Cake - Belgium",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "0",
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-008",
+        "description": {
+          "value": "BIAYA TAMBAHAN",
+          "raw": "BIAYA TAMBAHAN",
+          "evidence_ids": [
+            "p1-l0014"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "0",
+          "evidence_ids": [
+            "p1-l0014"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-009",
+        "description": {
+          "value": "BIAYA CC",
+          "raw": "BIAYA CC",
+          "evidence_ids": [
+            "p1-l0017"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "0",
+          "raw": "0",
+          "evidence_ids": [
+            "p1-l0017"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-010",
+        "description": {
+          "value": "PEMBULATAN",
+          "raw": "PEMBULATAN",
+          "evidence_ids": [
+            "p1-l0018"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "2",
+          "raw": "2",
+          "evidence_ids": [
+            "p1-l0018"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-011",
+        "description": {
+          "value": "NON TUNA!",
+          "raw": "NON TUNA!",
+          "evidence_ids": [
+            "p1-l0021"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "75000",
+          "raw": "75,000",
+          "evidence_ids": [
+            "p1-l0021"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "250d56fd7a00f4eab720a28d1a5a20b741803b791d865d0bdc66511c0fa07b4a",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.646,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "1 FL-Xmas 30 Off 68,180",
+        "box": {
+          "left": 0.2650462962962963,
+          "top": 0.3873456790123457,
+          "right": 0.5833333333333334,
+          "bottom": 0.4066358024691358
+        },
+        "method": "tesseract-eng",
+        "confidence": 89.99
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "1 /PAKET SLICES 0",
+        "box": {
+          "left": 0.2650462962962963,
+          "top": 0.4066358024691358,
+          "right": 0.5833333333333334,
+          "bottom": 0.4243827160493827
+        },
+        "method": "tesseract-eng",
+        "confidence": 60.34
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "1\u00bb FL Cake - French 0",
+        "box": {
+          "left": 0.2638888888888889,
+          "top": 0.42669753086419754,
+          "right": 0.5844907407407407,
+          "bottom": 0.44367283950617287
+        },
+        "method": "tesseract-eng",
+        "confidence": 83.17
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Vanilla SLC",
+        "box": {
+          "left": 0.28587962962962965,
+          "top": 0.44675925925925924,
+          "right": 0.3923611111111111,
+          "bottom": 0.46141975308641975
+        },
+        "method": "tesseract-eng",
+        "confidence": 79.98
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "1 PAKET SLICES 0",
+        "box": {
+          "left": 0.26273148148148145,
+          "top": 0.4660493827160494,
+          "right": 0.5856481481481481,
+          "bottom": 0.4807098765432099
+        },
+        "method": "tesseract-eng",
+        "confidence": 64.06
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "1\u00bb FL Cake -Green 0",
+        "box": {
+          "left": 0.26273148148148145,
+          "top": 0.48302469135802467,
+          "right": 0.5856481481481481,
+          "bottom": 0.5061728395061729
+        },
+        "method": "tesseract-eng",
+        "confidence": 69.6
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Tea SLC",
+        "box": {
+          "left": 0.2847222222222222,
+          "top": 0.5054012345679012,
+          "right": 0.3645833333333333,
+          "bottom": 0.5192901234567902
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.57
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "1 PAKET SLICES 0",
+        "box": {
+          "left": 0.2604166666666667,
+          "top": 0.5246913580246914,
+          "right": 0.5868055555555556,
+          "bottom": 0.5385802469135802
+        },
+        "method": "tesseract-eng",
+        "confidence": 78.18
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "1 FL Cake - Belgium 0",
+        "box": {
+          "left": 0.25925925925925924,
+          "top": 0.5455246913580247,
+          "right": 0.5879629629629629,
+          "bottom": 0.5625
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.17
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "Choco SLC",
+        "box": {
+          "left": 0.2824074074074074,
+          "top": 0.5655864197530864,
+          "right": 0.3888888888888889,
+          "bottom": 0.5794753086419753
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.67
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "'",
+        "box": {
+          "left": 0.30092592592592593,
+          "top": 0.5925925925925926,
+          "right": 0.30439814814814814,
+          "bottom": 0.5995370370370371
+        },
+        "method": "tesseract-eng",
+        "confidence": 61.41
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "SUBTOTAL 68,180",
+        "box": {
+          "left": 0.27199074074074076,
+          "top": 0.6095679012345679,
+          "right": 0.5879629629629629,
+          "bottom": 0.625
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.98
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "DISKON 0",
+        "box": {
+          "left": 0.27199074074074076,
+          "top": 0.628858024691358,
+          "right": 0.5891203703703703,
+          "bottom": 0.6450617283950617
+        },
+        "method": "tesseract-eng",
+        "confidence": 84.74
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "BIAYA TAMBAHAN 0",
+        "box": {
+          "left": 0.2708333333333333,
+          "top": 0.6489197530864198,
+          "right": 0.5879629629629629,
+          "bottom": 0.6651234567901234
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.56
+      },
+      {
+        "id": "p1-l0015",
+        "page": 1,
+        "text": "PAJAK PPN 10 % 6,818",
+        "box": {
+          "left": 0.2708333333333333,
+          "top": 0.6674382716049383,
+          "right": 0.5902777777777778,
+          "bottom": 0.6844135802469136
+        },
+        "method": "tesseract-eng",
+        "confidence": 89.84
+      },
+      {
+        "id": "p1-l0016",
+        "page": 1,
+        "text": "PAJAK 0% 0",
+        "box": {
+          "left": 0.26967592592592593,
+          "top": 0.6875,
+          "right": 0.5902777777777778,
+          "bottom": 0.7052469135802469
+        },
+        "method": "tesseract-eng",
+        "confidence": 76.01
+      },
+      {
+        "id": "p1-l0017",
+        "page": 1,
+        "text": "BIAYA CC 0",
+        "box": {
+          "left": 0.26967592592592593,
+          "top": 0.7083333333333334,
+          "right": 0.5902777777777778,
+          "bottom": 0.7268518518518519
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.39
+      },
+      {
+        "id": "p1-l0018",
+        "page": 1,
+        "text": "PEMBULATAN 2",
+        "box": {
+          "left": 0.26851851851851855,
+          "top": 0.7276234567901234,
+          "right": 0.5914351851851852,
+          "bottom": 0.7546296296296297
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.81
+      },
+      {
+        "id": "p1-l0019",
+        "page": 1,
+        "text": "TOTAL 75,000",
+        "box": {
+          "left": 0.2662037037037037,
+          "top": 0.7685185185185185,
+          "right": 0.5914351851851852,
+          "bottom": 0.7885802469135802
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.54
+      },
+      {
+        "id": "p1-l0020",
+        "page": 1,
+        "text": "TUNAI 0",
+        "box": {
+          "left": 0.2662037037037037,
+          "top": 0.7932098765432098,
+          "right": 0.5914351851851852,
+          "bottom": 0.8248456790123457
+        },
+        "method": "tesseract-eng",
+        "confidence": 81.6
+      },
+      {
+        "id": "p1-l0021",
+        "page": 1,
+        "text": "NON TUNA! 75,000",
+        "box": {
+          "left": 0.2662037037037037,
+          "top": 0.8155864197530864,
+          "right": 0.5914351851851852,
+          "bottom": 0.8379629629629629
+        },
+        "method": "tesseract-eng",
+        "confidence": 68.03
+      },
+      {
+        "id": "p1-l0022",
+        "page": 1,
+        "text": "KEMBALI 0",
+        "box": {
+          "left": 0.2662037037037037,
+          "top": 0.8371913580246914,
+          "right": 0.5914351851851852,
+          "bottom": 0.8657407407407407
+        },
+        "method": "tesseract-eng",
+        "confidence": 74.35
+      },
+      {
+        "id": "p1-l0023",
+        "page": 1,
+        "text": "set \u201c\u2014",
+        "box": {
+          "left": 0.2361111111111111,
+          "top": 0.8927469135802469,
+          "right": 0.3449074074074074,
+          "bottom": 0.9097222222222222
+        },
+        "method": "tesseract-eng",
+        "confidence": 44.08
+      },
+      {
+        "id": "p1-l0024",
+        "page": 1,
+        "text": "Pe",
+        "box": {
+          "left": 0.23148148148148148,
+          "top": 0.9104938271604939,
+          "right": 0.3472222222222222,
+          "bottom": 0.9274691358024691
+        },
+        "method": "tesseract-eng",
+        "confidence": 11.2
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 31,
+    "valid_reference_values": 31,
+    "aligned_values": 31,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

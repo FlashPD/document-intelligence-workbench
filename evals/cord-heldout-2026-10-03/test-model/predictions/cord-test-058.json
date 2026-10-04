@@ -1,0 +1,76 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "0f6a25eb66f3aac732d270cb3bfc6e89c4d435eccd9a343d380b1c7799253886",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 12.487
+  },
+  "ocr_prediction_sha256": "9fba54aaf14f1fd3cfc178af7ee6db6c5206de3502a2047571510c8c78328485",
+  "page": {
+    "number": 1,
+    "width_px": 1836,
+    "height_px": 3264,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": ": eee e",
+        "box": {
+          "left": 0.2510893246187364,
+          "top": 0.9543504901960784,
+          "right": 0.2630718954248366,
+          "bottom": 0.9966299019607843
+        },
+        "method": "tesseract-eng",
+        "confidence": 8.34
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

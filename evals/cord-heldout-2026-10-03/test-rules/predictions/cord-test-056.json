@@ -1,0 +1,191 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "418",
+        "raw": "418",
+        "evidence_ids": [
+          "p1-l0003"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "AIR MINERAL. : =o.",
+          "raw": "AIR MINERAL. : =o.",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "181",
+          "raw": "181",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "bd0f59b52e491495518284f614d567f839b31c27c6067e53c79557cd1cf8c387",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.45,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 1152,
+    "height_px": 1728,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Phere eter",
+        "box": {
+          "left": 0.6744791666666666,
+          "top": 0.5561342592592593,
+          "right": 0.7907986111111112,
+          "bottom": 0.5665509259259259
+        },
+        "method": "tesseract-eng",
+        "confidence": 14.52
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "AIR MINERAL. : =o. 181",
+        "box": {
+          "left": 0.2204861111111111,
+          "top": 0.6053240740740741,
+          "right": 0.7994791666666666,
+          "bottom": 0.6302083333333334
+        },
+        "method": "tesseract-eng",
+        "confidence": 66.05
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "SUBTOTAL ot 418\"]",
+        "box": {
+          "left": 0.2960069444444444,
+          "top": 0.6331018518518519,
+          "right": 0.7986111111111112,
+          "bottom": 0.65625
+        },
+        "method": "tesseract-eng",
+        "confidence": 44.55
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "\u2018818",
+        "box": {
+          "left": 0.7170138888888888,
+          "top": 0.6591435185185185,
+          "right": 0.8029513888888888,
+          "bottom": 0.6776620370370371
+        },
+        "method": "tesseract-eng",
+        "confidence": 35.56
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "-8. 9299",
+        "box": {
+          "left": 0.5303819444444444,
+          "top": 0.6857638888888888,
+          "right": 0.796875,
+          "bottom": 0.7060185185185185
+        },
+        "method": "tesseract-eng",
+        "confidence": 45.95
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "* 10, 000",
+        "box": {
+          "left": 0.6440972222222222,
+          "top": 0.7135416666666666,
+          "right": 0.8038194444444444,
+          "bottom": 0.7349537037037037
+        },
+        "method": "tesseract-eng",
+        "confidence": 73.04
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "\u00bb1, 001",
+        "box": {
+          "left": 0.6684027777777778,
+          "top": 0.7413194444444444,
+          "right": 0.7986111111111112,
+          "bottom": 0.7615740740740741
+        },
+        "method": "tesseract-eng",
+        "confidence": 48.62
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 3,
+    "valid_reference_values": 3,
+    "aligned_values": 3,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

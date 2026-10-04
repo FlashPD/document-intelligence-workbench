@@ -1,0 +1,262 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": "10000",
+        "raw": "10,000",
+        "evidence_ids": [
+          "p1-l0009"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "10000",
+        "raw": "10,000",
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "KACANG HERAH",
+          "raw": "KACANG HERAH",
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "10000",
+          "raw": "10,000",
+          "evidence_ids": [
+            "p1-l0009",
+            "p1-l0010",
+            "p1-l0011",
+            "p1-l0012"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "d29880f5c28ce8e8ab6ba2783231ecf216a71a3c8d61245183f66299b739065d",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 45.677
+  },
+  "ocr_prediction_sha256": "7716751ac205fd7f6d1d2914877db867c3a6123b186f54576679c23a2dcf4334",
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "-",
+        "box": {
+          "left": 0.27314814814814814,
+          "top": 0.44135802469135804,
+          "right": 0.34953703703703703,
+          "bottom": 0.4575617283950617
+        },
+        "method": "tesseract-eng",
+        "confidence": 8.88
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "ELE.",
+        "box": {
+          "left": 0.43287037037037035,
+          "top": 0.4645061728395062,
+          "right": 0.6215277777777778,
+          "bottom": 0.48302469135802467
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "na U6 hee",
+        "box": {
+          "left": 0.3854166666666667,
+          "top": 0.49074074074074076,
+          "right": 0.6747685185185185,
+          "bottom": 0.5092592592592593
+        },
+        "method": "tesseract-eng",
+        "confidence": 28.87
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "ee ae \u201c~~",
+        "box": {
+          "left": 0.25925925925925924,
+          "top": 0.5169753086419753,
+          "right": 0.5185185185185185,
+          "bottom": 0.5462962962962963
+        },
+        "method": "tesseract-eng",
+        "confidence": 10.4
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "KACANG HERAH",
+        "box": {
+          "left": 0.25,
+          "top": 0.5779320987654321,
+          "right": 0.4652777777777778,
+          "bottom": 0.6041666666666666
+        },
+        "method": "tesseract-eng",
+        "confidence": 89.47
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "SUBTOTAL",
+        "box": {
+          "left": 0.2511574074074074,
+          "top": 0.6095679012345679,
+          "right": 0.39467592592592593,
+          "bottom": 0.6334876543209876
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.93
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "TOTAL",
+        "box": {
+          "left": 0.25578703703703703,
+          "top": 0.6373456790123457,
+          "right": 0.42824074074074076,
+          "bottom": 0.6620370370370371
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.28
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Diane",
+        "box": {
+          "left": 0.28125,
+          "top": 0.3132716049382716,
+          "right": 0.7708333333333334,
+          "bottom": 0.4243827160493827
+        },
+        "method": "tesseract-eng",
+        "confidence": 0.0
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "10,000",
+        "box": {
+          "left": 0.7152777777777778,
+          "top": 0.5709876543209876,
+          "right": 0.8148148148148148,
+          "bottom": 0.5941358024691358
+        },
+        "method": "tesseract-eng",
+        "confidence": 81.8
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "10,000",
+        "box": {
+          "left": 0.7164351851851852,
+          "top": 0.5995370370370371,
+          "right": 0.8159722222222222,
+          "bottom": 0.6226851851851852
+        },
+        "method": "tesseract-eng",
+        "confidence": 85.02
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "10,000",
+        "box": {
+          "left": 0.7175925925925926,
+          "top": 0.6273148148148148,
+          "right": 0.8159722222222222,
+          "bottom": 0.6504629629629629
+        },
+        "method": "tesseract-eng",
+        "confidence": 38.08
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "10,000",
+        "box": {
+          "left": 0.7175925925925926,
+          "top": 0.6550925925925926,
+          "right": 0.8159722222222222,
+          "bottom": 0.6782407407407407
+        },
+        "method": "tesseract-eng",
+        "confidence": 77.54
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 4,
+    "valid_reference_values": 4,
+    "aligned_values": 4,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

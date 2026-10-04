@@ -1,0 +1,153 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "8f73f0c4803ea8815040a50e3389d4f3fa15e8c28cb6d50ea9854f6f6c22bd63",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.365,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Ditters",
+        "box": {
+          "left": 0.1875,
+          "top": 0.19984567901234568,
+          "right": 0.7129629629629629,
+          "bottom": 0.3279320987654321
+        },
+        "method": "tesseract-eng",
+        "confidence": 29.11
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "@11000",
+        "box": {
+          "left": 0.4548611111111111,
+          "top": 0.5030864197530864,
+          "right": 0.5648148148148148,
+          "bottom": 0.5277777777777778
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.32
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "ix",
+        "box": {
+          "left": 0.17476851851851852,
+          "top": 0.5162037037037037,
+          "right": 0.20601851851851852,
+          "bottom": 0.5385802469135802
+        },
+        "method": "tesseract-eng",
+        "confidence": 71.41
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "DONAT GULA",
+        "box": {
+          "left": 0.17592592592592593,
+          "top": 0.5408950617283951,
+          "right": 0.3599537037037037,
+          "bottom": 0.5671296296296297
+        },
+        "method": "tesseract-eng",
+        "confidence": 92.4
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "1.00xITEMs",
+        "box": {
+          "left": 0.38657407407407407,
+          "top": 0.5648148148148148,
+          "right": 0.5717592592592593,
+          "bottom": 0.5925925925925926
+        },
+        "method": "tesseract-eng",
+        "confidence": 41.29
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "SUBTOTAL",
+        "box": {
+          "left": 0.18287037037037038,
+          "top": 0.6041666666666666,
+          "right": 0.3275462962962963,
+          "bottom": 0.6280864197530864
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.8
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "TOTAL",
+        "box": {
+          "left": 0.1875,
+          "top": 0.6342592592592593,
+          "right": 0.3645833333333333,
+          "bottom": 0.6597222222222222
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.9
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

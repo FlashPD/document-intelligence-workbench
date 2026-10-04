@@ -1,0 +1,313 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "ES TEH TAWAR",
+          "raw": "ES TEH TAWAR",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "NAST GOR SFO TLR",
+          "raw": "NAST GOR SFO TLR",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "1 3.000 Rr3. 000",
+          "raw": "1 3.000 Rr3. 000",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-004",
+        "description": {
+          "value": "1) 35.000 Rp35. 000",
+          "raw": "1) 35.000 Rp35. 000",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "f4ec833b7b577f39211046770ae40e89f24c2486fe425898a06849384dea5c0f",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 66.847
+  },
+  "ocr_prediction_sha256": "514049316d9dd87c42239ef64315ddb72b8dc1a7f93c0faf289628913af7358b",
+  "page": {
+    "number": 1,
+    "width_px": 960,
+    "height_px": 1280,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "1) 35.000 Rp35. 000",
+        "box": {
+          "left": 0.24479166666666666,
+          "top": 0.425,
+          "right": 0.6895833333333333,
+          "bottom": 0.45078125
+        },
+        "method": "tesseract-eng",
+        "confidence": 79.99
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "NAST GOR SFO TLR",
+        "box": {
+          "left": 0.24270833333333333,
+          "top": 0.45703125,
+          "right": 0.4979166666666667,
+          "bottom": 0.48125
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.75
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "1 3.000 Rr3. 000",
+        "box": {
+          "left": 0.24375,
+          "top": 0.48671875,
+          "right": 0.6916666666666667,
+          "bottom": 0.5125
+        },
+        "method": "tesseract-eng",
+        "confidence": 52.74
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "ES TEH TAWAR",
+        "box": {
+          "left": 0.24270833333333333,
+          "top": 0.51875,
+          "right": 0.43333333333333335,
+          "bottom": 0.54296875
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.49
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "aeT0TAL \u00ab=Re3e. ooo",
+        "box": {
+          "left": 0.24166666666666667,
+          "top": 0.58203125,
+          "right": 0.6916666666666667,
+          "bottom": 0.61796875
+        },
+        "method": "tesseract-eng",
+        "confidence": 15.81
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "CASH Re50. 000",
+        "box": {
+          "left": 0.23958333333333334,
+          "top": 0.61640625,
+          "right": 0.6958333333333333,
+          "bottom": 0.64375
+        },
+        "method": "tesseract-eng",
+        "confidence": 72.13
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "CHANGE Rel2. 000",
+        "box": {
+          "left": 0.23854166666666668,
+          "top": 0.64921875,
+          "right": 0.696875,
+          "bottom": 0.6765625
+        },
+        "method": "tesseract-eng",
+        "confidence": 70.89
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "\u00a5",
+        "box": {
+          "left": 0.3729166666666667,
+          "top": 0.86875,
+          "right": 0.384375,
+          "bottom": 0.87890625
+        },
+        "method": "tesseract-eng",
+        "confidence": 20.63
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "bit ah td hh",
+        "box": {
+          "left": 0.5427083333333333,
+          "top": 0.965625,
+          "right": 0.7260416666666667,
+          "bottom": 0.98828125
+        },
+        "method": "tesseract-eng",
+        "confidence": 22.8
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 4,
+    "valid_reference_values": 4,
+    "aligned_values": 4,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

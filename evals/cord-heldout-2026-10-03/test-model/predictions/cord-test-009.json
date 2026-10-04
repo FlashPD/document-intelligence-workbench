@@ -1,0 +1,128 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "0411c4d9beb9be65165fdb70c2b60f8bbf9035cc9661be2b8d4c73bbfcff7972",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 17.509
+  },
+  "ocr_prediction_sha256": "5f6957afa6fb659ab8b4b1949be68958640c977906b2a17196dbf7a2585de0f5",
+  "page": {
+    "number": 1,
+    "width_px": 576,
+    "height_px": 864,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "36000",
+        "box": {
+          "left": 0.06076388888888889,
+          "top": 0.4050925925925926,
+          "right": 0.16319444444444445,
+          "bottom": 0.42592592592592593
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.32
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Sub Total",
+        "box": {
+          "left": 0.059027777777777776,
+          "top": 0.4791666666666667,
+          "right": 0.21180555555555555,
+          "bottom": 0.4988425925925926
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.52
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "Discount (0 %)",
+        "box": {
+          "left": 0.057291666666666664,
+          "top": 0.5219907407407407,
+          "right": 0.2986111111111111,
+          "bottom": 0.5462962962962963
+        },
+        "method": "tesseract-eng",
+        "confidence": 83.53
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Tunai",
+        "box": {
+          "left": 0.05555555555555555,
+          "top": 0.5659722222222222,
+          "right": 0.14583333333333334,
+          "bottom": 0.5856481481481481
+        },
+        "method": "tesseract-eng",
+        "confidence": 84.96
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Kembalian",
+        "box": {
+          "left": 0.05555555555555555,
+          "top": 0.6527777777777778,
+          "right": 0.2309027777777778,
+          "bottom": 0.6747685185185185
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.65
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

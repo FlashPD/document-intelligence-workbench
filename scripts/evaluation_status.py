@@ -61,7 +61,7 @@ def progress(directory: Path, scheduled: int) -> dict:
                           "p50_seconds": ordered[math.ceil(.5 * len(ordered)) - 1],
                           "p95_seconds": ordered[math.ceil(.95 * len(ordered)) - 1],
                           "remaining_stage_seconds_estimate": round(mean * remaining) if len(timings) >= 5 and mean > 0 else None,
-                          "scope": "Completed calls including failures; saved-OCR model stage only. Remaining-stage estimate uses their mean; excludes startup, interrupted uncommitted attempts, queued receipt stages, reports and human review. Partial sample and changing machine load make it provisional; no completion-time guarantee."}
+                          "scope": "Completed per-document stages including failures and any page/repair requests; calls counts documents, not HTTP requests. Saved-OCR model stage only. Remaining-stage estimate uses their mean; excludes startup, interrupted uncommitted attempts, queued receipt stages, reports and human review. Partial sample and changing machine load make it provisional; no completion-time guarantee."}
     return {"completed": len(ledger), "scheduled": scheduled, "remaining": remaining, "failed": failed,
             "failure_types": dict(sorted(failures.items())), "model_stage_timing": timing_summary,
             "schedule_source": "frozen run" if identity is not None else "configured release target",

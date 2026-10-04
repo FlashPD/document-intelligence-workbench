@@ -1,0 +1,226 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": "3600",
+        "raw": "Rp 3.600",
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Ix",
+          "raw": "Ix",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "12000",
+          "raw": "12.000",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "\u00bb Subtotal",
+          "raw": "\u00bb Subtotal",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "36000",
+          "raw": "Rp 36.000",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "a4116bc24ae37dffbc8d2dff00b671651f39ce63f624247f84af886c3070ebe1",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.379,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 605,
+    "height_px": 1280,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Ix 12.000",
+        "box": {
+          "left": 0.29256198347107437,
+          "top": 0.45703125,
+          "right": 0.4809917355371901,
+          "bottom": 0.47109375
+        },
+        "method": "tesseract-eng",
+        "confidence": 52.11
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Arem Arem",
+        "box": {
+          "left": 0.2892561983471074,
+          "top": 0.484375,
+          "right": 0.43471074380165287,
+          "bottom": 0.496875
+        },
+        "method": "tesseract-eng",
+        "confidence": 91.94
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "2x 812.000 24.000",
+        "box": {
+          "left": 0.2892561983471074,
+          "top": 0.50390625,
+          "right": 0.8033057851239669,
+          "bottom": 0.51796875
+        },
+        "method": "tesseract-eng",
+        "confidence": 75.74
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "\u00bb Subtotal Rp 36.000",
+        "box": {
+          "left": 0.2528925619834711,
+          "top": 0.54296875,
+          "right": 0.8066115702479338,
+          "bottom": 0.559375
+        },
+        "method": "tesseract-eng",
+        "confidence": 72.31
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Tax (10.0%) Rp 3.600",
+        "box": {
+          "left": 0.2859504132231405,
+          "top": 0.5640625,
+          "right": 0.8082644628099174,
+          "bottom": 0.5796875
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.65
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Rp 39.600",
+        "box": {
+          "left": 0.6644628099173554,
+          "top": 0.6046875,
+          "right": 0.8132231404958677,
+          "bottom": 0.62109375
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.82
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Rp 39.600",
+        "box": {
+          "left": 0.6661157024793388,
+          "top": 0.62578125,
+          "right": 0.8148760330578513,
+          "bottom": 0.6421875
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.12
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 5,
+    "valid_reference_values": 5,
+    "aligned_values": 5,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

@@ -23,7 +23,7 @@ class ReleaseReportTests(unittest.TestCase):
             self.docs.append({"id": id, "header": {"total": {"fp": index, "fn": index}},
                               "gold_rows": 2, "predicted_rows": 2, "exact_rows": 2 - index,
                               "failure_type": "ModelUnavailable" if index == 0 else None})
-            (self.directory / "predictions" / f"{id}.json").write_text(json.dumps({"runtime_seconds": {"model": seconds}}))
+            (self.directory / "predictions" / f"{id}.json").write_text(json.dumps({"runtime_seconds": {"model": seconds, "ocr": seconds}}))
         (self.directory / "report.json").write_text(json.dumps({"documents": self.docs, "summary": {"documents_scheduled": 3}}))
 
     def test_percentiles_include_failed_calls_and_case_selection_is_declared(self):
@@ -40,6 +40,18 @@ class ReleaseReportTests(unittest.TestCase):
                 MODULE.supplementary_evidence(self.directory, "model")
         (self.directory / "report.json").write_text(json.dumps({"documents": self.docs, "summary": {"documents_scheduled": 4}}))
         with self.assertRaises(ValueError):
+            MODULE.supplementary_evidence(self.directory, "model")
+
+    def test_ocr_rules_empty_sessions_directory_needs_no_model_lifecycle(self):
+        (self.directory / "sessions").mkdir()
+        data = MODULE.supplementary_evidence(self.directory, "ocr")
+        self.assertEqual((data["documents"], data["sum_seconds"]), (3, 40))
+        self.assertIsNone(data["model_sessions"])
+        self.assertIsNone(data["peak_sampled_server_rss_bytes"])
+
+    def test_model_empty_sessions_directory_cannot_bypass_lifecycle_audit(self):
+        (self.directory / "sessions").mkdir()
+        with self.assertRaisesRegex(ValueError, "no owned sessions"):
             MODULE.supplementary_evidence(self.directory, "model")
 
     def test_validation_and_small_test_subsets_cannot_be_labeled_release(self):

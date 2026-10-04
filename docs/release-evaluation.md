@@ -1,6 +1,6 @@
 # Frozen invoice scoring contract
 
-The release scorer supports the [540-document invoice corpus](invoice-corpus.md). It scores saved candidate records; it does not run OCR or a model. A [frozen experimental baseline](invoice-heldout-run.md) now measures all 180 test invoices. The full paired local-model and receipt evaluations remain open. The 12-document development reports keep their existing `canonical-exact-source-order-v1` scorer, so historical comparisons do not change.
+The release scorer supports the [540-document invoice corpus](invoice-corpus.md). It scores saved candidate records; it does not run OCR or a model. The [frozen baseline](invoice-heldout-run.md) and [complete paired comparisons](heldout-model-comparison.md) now account for all 180 test invoices and 100 official test receipts, including failures. The [standalone report](../evals/release-comparison-2026-10-03.html) includes uncertainty and per-document stage timings. The invoice model regresses and rules remain the default. The 12-document development reports keep their existing `canonical-exact-source-order-v1` scorer, so historical comparisons do not change.
 
 ## Inputs and command
 
@@ -92,7 +92,7 @@ The validation model smoke uses the first 12 official validation rows in source 
 
 `scripts/complete_release_evaluations.py` serializes invoice completion, the receipt validation model smoke, receipt freeze, both complete test variants, and paired comparison. It can wait for a confirmed running invoice evaluation with `--wait-for-invoice`, or own an interrupted frozen resume with `--resume-invoice` after other model workloads stop. These options are mutually exclusive. `scripts/render_release_reports.py` verifies the completed reports before exporting a standalone HTML comparison. Neither script treats an empty, partial, or failed run as a passing quality result.
 
-The current serialized run also requests automatic HTML export after all inference and offline audits finish:
+The recorded serialized run requested automatic HTML export after all inference and offline audits finished. This command is retained as its historical launch interface; both reports and the export are now complete:
 
 ```sh
 PYTHONPATH=src python3.12 scripts/complete_release_evaluations.py \
@@ -102,7 +102,7 @@ PYTHONPATH=src python3.12 scripts/complete_release_evaluations.py \
 python3.12 scripts/evaluation_status.py
 ```
 
-For routine monitoring, run `make evaluation-status`. It reads each existing frozen schedule, checks completed prediction hashes and membership, and reports remaining documents, failure types, and nearest-rank model-stage P50/P95 across committed calls, including failures. A remaining-stage estimate uses the mean of at least five committed calls. It is provisional: the completed subset is ordered, machine load changes, interrupted uncommitted attempts are missing, and queued receipt stages and report generation are excluded. It is not a promised finish time or a partial quality score.
+For routine monitoring, run `make evaluation-status`. It reads each existing frozen schedule, checks completed prediction hashes and membership, and reports remaining documents, failure types, and nearest-rank per-document model-stage P50/P95, including failures. A document stage can issue multiple page or repair requests; its count is not a count of HTTP requests. A remaining-stage estimate uses the mean of at least five completed document stages. It is provisional: the completed subset is ordered, machine load changes, interrupted uncommitted attempts are missing, and queued receipt stages and report generation are excluded. It is not a promised finish time or a partial quality score.
 
 Run `make evaluation-status INSPECT_RUNNER=1` to additionally inspect the recorded coordinator PID. The check compares its full command identity in memory and never prints process arguments. A reused PID, denied inspection, absent launch record, and stopped coordinator have distinct states. A live coordinator does not prove its model child is healthy; check successive ledger updates. Model servers put a temporary credential in their arguments, so avoid dumping their command lines to logs. Report existence and interruption-observation presence are informational here; use the domain verifiers and `release-check` to audit completed quality and lifecycle evidence.
 

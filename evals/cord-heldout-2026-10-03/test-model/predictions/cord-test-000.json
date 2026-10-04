@@ -1,0 +1,180 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": []
+  },
+  "source_sha256": "8612d04b70f430f3aef07fbbd5200e382dcc4152b344cc2eff9f735f05a257c8",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 23.78
+  },
+  "ocr_prediction_sha256": "a77cfac784036e8bb4bf1c47877f850d2337f7f30c40b6d41ace6ad6a1815269",
+  "page": {
+    "number": 1,
+    "width_px": 432,
+    "height_px": 648,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "-TICKET CP",
+        "box": {
+          "left": 0.34953703703703703,
+          "top": 0.6018518518518519,
+          "right": 0.5046296296296297,
+          "bottom": 0.6234567901234568
+        },
+        "method": "tesseract-eng",
+        "confidence": 83.28
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "0 60,000 \u00a30,000",
+        "box": {
+          "left": 0.2175925925925926,
+          "top": 0.6373456790123457,
+          "right": 0.8055555555555556,
+          "bottom": 0.6589506172839507
+        },
+        "method": "tesseract-eng",
+        "confidence": 59.35
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "901016",
+        "box": {
+          "left": 0.10648148148148148,
+          "top": 0.6080246913580247,
+          "right": 0.20601851851851852,
+          "bottom": 0.6296296296296297
+        },
+        "method": "tesseract-eng",
+        "confidence": 68.99
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "TOTAL DISC $",
+        "box": {
+          "left": 0.3472222222222222,
+          "top": 0.7129629629629629,
+          "right": 0.5416666666666666,
+          "bottom": 0.7361111111111112
+        },
+        "method": "tesseract-eng",
+        "confidence": 64.41
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "TAX",
+        "box": {
+          "left": 0.5023148148148148,
+          "top": 0.75,
+          "right": 0.5439814814814815,
+          "bottom": 0.7700617283950617
+        },
+        "method": "tesseract-eng",
+        "confidence": 89.62
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Subtotal",
+        "box": {
+          "left": 0.4166666666666667,
+          "top": 0.7885802469135802,
+          "right": 0.5416666666666666,
+          "bottom": 0.8101851851851852
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.65
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "TOTAL caty 2.00 60,000",
+        "box": {
+          "left": 0.1111111111111111,
+          "top": 0.8256172839506173,
+          "right": 0.8472222222222222,
+          "bottom": 0.8549382716049383
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.38
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "= EDC CINB NIAGA No: xx7730 60.000",
+        "box": {
+          "left": 0.11574074074074074,
+          "top": 0.9027777777777778,
+          "right": 0.8379629629629629,
+          "bottom": 0.9320987654320988
+        },
+        "method": "tesseract-eng",
+        "confidence": 78.26
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "eee tury,",
+        "box": {
+          "left": 0.11342592592592593,
+          "top": 0.9845679012345679,
+          "right": 0.3333333333333333,
+          "bottom": 1.0
+        },
+        "method": "tesseract-eng",
+        "confidence": 14.0
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 0,
+    "valid_reference_values": 0,
+    "aligned_values": 0,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

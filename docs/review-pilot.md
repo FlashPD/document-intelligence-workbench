@@ -2,7 +2,7 @@
 
 The workbench now has an explicit timed pilot mode. It opens six declared development invoices in a fixed order, records server-side interaction/pause events, and binds completion to the current approval and an existing hash-verified JSON export. The session uses a separate database and timing file. It does not change extraction settings or held-out evaluation inputs.
 
-**Human results are pending.** The [automated Chrome verification](../evals/review-pilot-browser-2026-10-03-v3/report.json) checks source highlighting, pause/resume, locked reviewer labels, approval, export, and completion on a disposable fixture. Its [screenshot](../evals/review-pilot-browser-2026-10-03-v3/review.png) demonstrates the interface. Those automated clicks are not human timing or productivity evidence.
+**Human results are pending.** The [candidate automated Chrome verification](../evals/portfolio-candidate-pilot-browser-2026-10-03/report.json) checks source highlighting, pause/resume, locked reviewer labels, approval, export, and completion on a disposable fixture. Its [screenshot](../evals/portfolio-candidate-pilot-browser-2026-10-03/review.png) demonstrates the interface. Those automated clicks are not human timing or productivity evidence. The [earlier check](../evals/review-pilot-browser-2026-10-03-v3/report.json) remains historical.
 
 ## Declared study
 

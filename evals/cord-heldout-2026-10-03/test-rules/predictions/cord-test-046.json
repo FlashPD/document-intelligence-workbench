@@ -1,0 +1,193 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "/",
+          "raw": "/",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": "620000",
+          "raw": "620,000",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "line_total": {
+          "value": "20000",
+          "raw": "20,000",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "1e237ed0ae2f24fe952a86558cf1742c67527de3d2b249e0a2a13452017fcb2e",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.354,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "/ 1X S-Bubble Wilk Tea 620,000 20,000",
+        "box": {
+          "left": 0.22916666666666666,
+          "top": 0.5262345679012346,
+          "right": 0.7592592592592593,
+          "bottom": 0.5486111111111112
+        },
+        "method": "tesseract-eng",
+        "confidence": 71.28
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "100%",
+        "box": {
+          "left": 0.2326388888888889,
+          "top": 0.5547839506172839,
+          "right": 0.3263888888888889,
+          "bottom": 0.5709876543209876
+        },
+        "method": "tesseract-eng",
+        "confidence": 30.29
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "1X $-Caramel Hilk Tea \u20ac20,000 20,000",
+        "box": {
+          "left": 0.2511574074074074,
+          "top": 0.5709876543209876,
+          "right": 0.7650462962962963,
+          "bottom": 0.5933641975308642
+        },
+        "method": "tesseract-eng",
+        "confidence": 78.36
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "\u2018 40,000",
+        "box": {
+          "left": 0.5451388888888888,
+          "top": 0.6859567901234568,
+          "right": 0.7777777777777778,
+          "bottom": 0.7037037037037037
+        },
+        "method": "tesseract-eng",
+        "confidence": 40.74
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Cash: 40,000",
+        "box": {
+          "left": 0.48726851851851855,
+          "top": 0.7091049382716049,
+          "right": 0.7800925925925926,
+          "bottom": 0.7276234567901234
+        },
+        "method": "tesseract-eng",
+        "confidence": 87.19
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "CHANGE / 0",
+        "box": {
+          "left": 0.46064814814814814,
+          "top": 0.7569444444444444,
+          "right": 0.7847222222222222,
+          "bottom": 0.7754629629629629
+        },
+        "method": "tesseract-eng",
+        "confidence": 76.31
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "ee eee",
+        "box": {
+          "left": 0.4988425925925926,
+          "top": 0.7878086419753086,
+          "right": 0.7824074074074074,
+          "bottom": 0.8047839506172839
+        },
+        "method": "tesseract-eng",
+        "confidence": 31.64
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 4,
+    "valid_reference_values": 4,
+    "aligned_values": 4,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

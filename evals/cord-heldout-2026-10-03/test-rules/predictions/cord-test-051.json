@@ -1,0 +1,400 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": "334000",
+        "raw": "334,000",
+        "evidence_ids": [
+          "p1-l0012",
+          "p1-l0019"
+        ],
+        "origin": "observed",
+        "missing_reason": null
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "ve Rounding",
+          "raw": "ve Rounding",
+          "evidence_ids": [
+            "p1-l0010",
+            "p1-l0017"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "334011",
+          "raw": "334,011",
+          "evidence_ids": [
+            "p1-l0010",
+            "p1-l0017"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "Rounding",
+          "raw": "Rounding",
+          "evidence_ids": [
+            "p1-l0011",
+            "p1-l0018"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": "1",
+          "raw": "1",
+          "evidence_ids": [
+            "p1-l0011",
+            "p1-l0018"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        }
+      }
+    ]
+  },
+  "source_sha256": "d7bb9ae6973048a5fccafd2559315523040d6450e6bf678c42c42f58508b9d88",
+  "run_sha256": "1f693d8f82950868737b8e40425be69d58b6b08cc24fcef495415d0065b5b6cd",
+  "runtime_seconds": {
+    "ocr": 0.417,
+    "model": 0
+  },
+  "page": {
+    "number": 1,
+    "width_px": 720,
+    "height_px": 1280,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "trai:",
+        "box": {
+          "left": 0.32916666666666666,
+          "top": 0.5046875,
+          "right": 0.3625,
+          "bottom": 0.51328125
+        },
+        "method": "tesseract-eng",
+        "confidence": 75.19
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Custoi",
+        "box": {
+          "left": 0.2722222222222222,
+          "top": 0.521875,
+          "right": 0.3416666666666667,
+          "bottom": 0.5328125
+        },
+        "method": "tesseract-eng",
+        "confidence": 37.13
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "(TA) NASI ORG TERT",
+        "box": {
+          "left": 0.23194444444444445,
+          "top": 0.54609375,
+          "right": 0.47638888888888886,
+          "bottom": 0.5609375
+        },
+        "method": "tesseract-eng",
+        "confidence": 77.69
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "MEDAN",
+        "box": {
+          "left": 0.23472222222222222,
+          "top": 0.565625,
+          "right": 0.31666666666666665,
+          "bottom": 0.5765625
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.4
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "(TA) BIHUN GORENG",
+        "box": {
+          "left": 0.23333333333333334,
+          "top": 0.584375,
+          "right": 0.4861111111111111,
+          "bottom": 0.59921875
+        },
+        "method": "tesseract-eng",
+        "confidence": 93.77
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "SEAFOOD",
+        "box": {
+          "left": 0.23333333333333334,
+          "top": 0.60390625,
+          "right": 0.3472222222222222,
+          "bottom": 0.61640625
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.57
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "TA) KWETTAW SFAI",
+        "box": {
+          "left": 0.25,
+          "top": 0.6234375,
+          "right": 0.4708333333333333,
+          "bottom": 0.6359375
+        },
+        "method": "tesseract-eng",
+        "confidence": 73.85
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "TRAM",
+        "box": {
+          "left": 0.24722222222222223,
+          "top": 0.64453125,
+          "right": 0.30694444444444446,
+          "bottom": 0.65703125
+        },
+        "method": "tesseract-eng",
+        "confidence": 70.3
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "} NAST GOREN.",
+        "box": {
+          "left": 0.2763888888888889,
+          "top": 0.66328125,
+          "right": 0.4527777777777778,
+          "bottom": 0.6796875
+        },
+        "method": "tesseract-eng",
+        "confidence": 69.07
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "ve Rounding",
+        "box": {
+          "left": 0.2833333333333333,
+          "top": 0.73359375,
+          "right": 0.4305555555555556,
+          "bottom": 0.74765625
+        },
+        "method": "tesseract-eng",
+        "confidence": 58.75
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "Rounding",
+        "box": {
+          "left": 0.2263888888888889,
+          "top": 0.75703125,
+          "right": 0.3402777777777778,
+          "bottom": 0.77109375
+        },
+        "method": "tesseract-eng",
+        "confidence": 42.44
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "Total",
+        "box": {
+          "left": 0.2222222222222222,
+          "top": 0.77578125,
+          "right": 0.2847222222222222,
+          "bottom": 0.78828125
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.84
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "DEBIT 8CA",
+        "box": {
+          "left": 0.2263888888888889,
+          "top": 0.796875,
+          "right": 0.3625,
+          "bottom": 0.809375
+        },
+        "method": "tesseract-eng",
+        "confidence": 88.01
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "yjungan",
+        "box": {
+          "left": 0.475,
+          "top": 0.84453125,
+          "right": 0.5652777777777778,
+          "bottom": 0.85703125
+        },
+        "method": "tesseract-eng",
+        "confidence": 69.5
+      },
+      {
+        "id": "p1-l0015",
+        "page": 1,
+        "text": "303,646",
+        "box": {
+          "left": 0.6847222222222222,
+          "top": 0.68984375,
+          "right": 0.7833333333333333,
+          "bottom": 0.70390625
+        },
+        "method": "tesseract-eng",
+        "confidence": 94.67
+      },
+      {
+        "id": "p1-l0016",
+        "page": 1,
+        "text": "30,305",
+        "box": {
+          "left": 0.7027777777777777,
+          "top": 0.7109375,
+          "right": 0.7847222222222222,
+          "bottom": 0.72265625
+        },
+        "method": "tesseract-eng",
+        "confidence": 78.63
+      },
+      {
+        "id": "p1-l0017",
+        "page": 1,
+        "text": "334,011",
+        "box": {
+          "left": 0.6902777777777778,
+          "top": 0.73046875,
+          "right": 0.7833333333333333,
+          "bottom": 0.74453125
+        },
+        "method": "tesseract-eng",
+        "confidence": 86.36
+      },
+      {
+        "id": "p1-l0018",
+        "page": 1,
+        "text": "1",
+        "box": {
+          "left": 0.7666666666666667,
+          "top": 0.75234375,
+          "right": 0.7888888888888889,
+          "bottom": 0.76484375
+        },
+        "method": "tesseract-eng",
+        "confidence": 36.74
+      },
+      {
+        "id": "p1-l0019",
+        "page": 1,
+        "text": "334,000",
+        "box": {
+          "left": 0.7,
+          "top": 0.77265625,
+          "right": 0.7902777777777777,
+          "bottom": 0.7875
+        },
+        "method": "tesseract-eng",
+        "confidence": 88.88
+      },
+      {
+        "id": "p1-l0020",
+        "page": 1,
+        "text": "334,000",
+        "box": {
+          "left": 0.6944444444444444,
+          "top": 0.79296875,
+          "right": 0.7888888888888889,
+          "bottom": 0.80859375
+        },
+        "method": "tesseract-eng",
+        "confidence": 90.43
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 5,
+    "valid_reference_values": 5,
+    "aligned_values": 5,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

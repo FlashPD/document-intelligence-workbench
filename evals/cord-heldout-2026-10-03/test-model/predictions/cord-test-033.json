@@ -1,0 +1,280 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "GRILLED BABY POTATO iR",
+          "raw": "GRILLED BABY POTATO iR",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "HOT TUNA",
+          "raw": "HOT TUNA",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "HOT TUNA",
+          "raw": "HOT TUNA",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "c0561fcfa9cd1aea727ae12b63aaadf6e9d721e1bc9510686b53f8622e42a1d5",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 54.41
+  },
+  "ocr_prediction_sha256": "534873f3ef2b90479e298bf57ff8528866deaf3e0fd4cabd10e6146df977ed5e",
+  "page": {
+    "number": 1,
+    "width_px": 576,
+    "height_px": 864,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "GRILLED BABY POTATO iR",
+        "box": {
+          "left": 0.2222222222222222,
+          "top": 0.6921296296296297,
+          "right": 0.6354166666666666,
+          "bottom": 0.7465277777777778
+        },
+        "method": "tesseract-eng",
+        "confidence": 78.73
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "HOT TUNA",
+        "box": {
+          "left": 0.22395833333333334,
+          "top": 0.7534722222222222,
+          "right": 0.3715277777777778,
+          "bottom": 0.7766203703703703
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.54
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": ". HOT TUNA",
+        "box": {
+          "left": 0.1701388888888889,
+          "top": 0.7835648148148148,
+          "right": 0.3732638888888889,
+          "bottom": 0.8379629629629629
+        },
+        "method": "tesseract-eng",
+        "confidence": 48.49
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "(1TH06)",
+        "box": {
+          "left": 0.359375,
+          "top": 0.8125,
+          "right": 0.484375,
+          "bottom": 0.8518518518518519
+        },
+        "method": "tesseract-eng",
+        "confidence": 24.52
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "50 , 500",
+        "box": {
+          "left": 0.6961805555555556,
+          "top": 0.7199074074074074,
+          "right": 0.8055555555555556,
+          "bottom": 0.7442129629629629
+        },
+        "method": "tesseract-eng",
+        "confidence": 77.82
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "67,000",
+        "box": {
+          "left": 0.6944444444444444,
+          "top": 0.75,
+          "right": 0.8072916666666666,
+          "bottom": 0.7743055555555556
+        },
+        "method": "tesseract-eng",
+        "confidence": 77.88
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "67,000",
+        "box": {
+          "left": 0.6961805555555556,
+          "top": 0.7800925925925926,
+          "right": 0.8090277777777778,
+          "bottom": 0.8055555555555556
+        },
+        "method": "tesseract-eng",
+        "confidence": 39.41
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "~67 ,000",
+        "box": {
+          "left": 0.6788194444444444,
+          "top": 0.8125,
+          "right": 0.8090277777777778,
+          "bottom": 0.8379629629629629
+        },
+        "method": "tesseract-eng",
+        "confidence": 44.44
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "117,500",
+        "box": {
+          "left": 0.6822916666666666,
+          "top": 0.84375,
+          "right": 0.8107638888888888,
+          "bottom": 0.8703703703703703
+        },
+        "method": "tesseract-eng",
+        "confidence": 40.72
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 3,
+    "valid_reference_values": 3,
+    "aligned_values": 3,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

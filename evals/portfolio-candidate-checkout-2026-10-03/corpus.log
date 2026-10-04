@@ -1,0 +1,15 @@
+{
+  "dataset_id": "self-authored-invoices-v1",
+  "manifest_sha256": "a39a99cf5543888ebd7b9af5a42a18ac82e4ff6baf2534b8cd6d16ca9c76f61c",
+  "documents": 540,
+  "split_counts": {
+    "development": 180,
+    "calibration": 180,
+    "test": 180
+  },
+  "families": 18,
+  "multi_page_documents": 90,
+  "degraded_documents": 90,
+  "intentional_total_conflicts": 72,
+  "ambiguous_date_cases": 42
+}

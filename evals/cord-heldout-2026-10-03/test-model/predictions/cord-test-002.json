@@ -1,0 +1,269 @@
+{
+  "record": {
+    "schema_version": "receipt-span-rules-model-v1",
+    "fields": {
+      "subtotal": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "discount": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "service": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "tax": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      },
+      "total": {
+        "value": null,
+        "raw": null,
+        "evidence_ids": [],
+        "origin": "observed",
+        "missing_reason": "not_observed_or_ambiguous"
+      }
+    },
+    "line_items": [
+      {
+        "row_id": "row-001",
+        "description": {
+          "value": "Ibe MT CL) 24,000",
+          "raw": "Ibe MT CL) 24,000",
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-002",
+        "description": {
+          "value": "WONUT JELLY CL) 4,000",
+          "raw": "WONUT JELLY CL) 4,000",
+          "evidence_ids": [
+            "p1-l0002"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      },
+      {
+        "row_id": "row-003",
+        "description": {
+          "value": "SUB TUT 28,000",
+          "raw": "SUB TUT 28,000",
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "quantity": {
+          "value": "4",
+          "raw": "4",
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "origin": "observed",
+          "missing_reason": null
+        },
+        "unit_price": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        },
+        "line_total": {
+          "value": null,
+          "raw": null,
+          "evidence_ids": [],
+          "origin": "observed",
+          "missing_reason": "not_observed_or_ambiguous"
+        }
+      }
+    ]
+  },
+  "source_sha256": "571ac6af26e75de8c06747a8c536c778f19a4562879090813571eddc74603d34",
+  "run_sha256": "424325b585ed51e106fc0f19c0d5236f8763bb61f93a5f7ce065e79f33faf0c7",
+  "runtime_seconds": {
+    "ocr": 0,
+    "model": 57.638
+  },
+  "ocr_prediction_sha256": "2a31c6f3ef2f8a58975c42d35b1394f39bfebfe7e7f5645ebb5e437095b4e3e0",
+  "page": {
+    "number": 1,
+    "width_px": 864,
+    "height_px": 1296,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "Ibe MT CL) 24,000",
+        "box": {
+          "left": 0.27199074074074076,
+          "top": 0.5023148148148148,
+          "right": 0.8576388888888888,
+          "bottom": 0.5208333333333334
+        },
+        "method": "tesseract-eng",
+        "confidence": 61.51
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "WONUT JELLY CL) 4,000",
+        "box": {
+          "left": 0.2708333333333333,
+          "top": 0.529320987654321,
+          "right": 0.8611111111111112,
+          "bottom": 0.5493827160493827
+        },
+        "method": "tesseract-eng",
+        "confidence": 61.08
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "SUB TUT 28,000",
+        "box": {
+          "left": 0.12731481481481483,
+          "top": 0.5902777777777778,
+          "right": 0.8657407407407407,
+          "bottom": 0.6087962962962963
+        },
+        "method": "tesseract-eng",
+        "confidence": 71.39
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "4",
+        "box": {
+          "left": 0.8761574074074074,
+          "top": 0.6242283950617284,
+          "right": 0.8969907407407407,
+          "bottom": 0.6365740740740741
+        },
+        "method": "tesseract-eng",
+        "confidence": 3.38
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "TOTAL SAI SS 28.000",
+        "box": {
+          "left": 0.12731481481481483,
+          "top": 0.6520061728395061,
+          "right": 0.8761574074074074,
+          "bottom": 0.6720679012345679
+        },
+        "method": "tesseract-eng",
+        "confidence": 32.04
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "TOTAL TMS \\",
+        "box": {
+          "left": 0.1261574074074074,
+          "top": 0.6828703703703703,
+          "right": 0.8784722222222222,
+          "bottom": 0.7060185185185185
+        },
+        "method": "tesseract-eng",
+        "confidence": 58.15
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "CASH 100,000",
+        "box": {
+          "left": 0.12037037037037036,
+          "top": 0.7145061728395061,
+          "right": 0.8842592592592593,
+          "bottom": 0.7391975308641975
+        },
+        "method": "tesseract-eng",
+        "confidence": 89.71
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "CHANGE",
+        "box": {
+          "left": 0.11921296296296297,
+          "top": 0.753858024691358,
+          "right": 0.19907407407407407,
+          "bottom": 0.7731481481481481
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.32
+      }
+    ]
+  },
+  "evidence": {
+    "observed_values": 4,
+    "valid_reference_values": 4,
+    "aligned_values": 4,
+    "note": "OCR value alignment only; not gold attribution or bounding-box accuracy."
+  }
+}

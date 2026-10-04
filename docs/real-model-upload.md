@@ -47,4 +47,10 @@ PYTHONPATH=src python3.12 -m docwork.cli eval-verify-model-workflow \
 
 The verifier checks artifact inventory/hashes, profile/runtime identity and shutdown, both source-linked candidates, recalculated validation issues, preserved correction provenance, revision-bound exports, and approval history. It performs no fresh inference and needs neither model assets nor Docker. It establishes integrity relative to the saved report, not signed attestation of a model process.
 
-Multi-page model extraction through uploads, genuine scans, visual browser verification, the full held-out model comparison, and controlled latency/review-time studies remain open. The product stays experimental and every export still requires human approval.
+## Candidate source refresh
+
+The [candidate workflow report](../evals/portfolio-candidate-model-workflow-2026-10-03/report.json) repeats both real-model upload/review/export checks against the current source and rebuilt parser image after the invoice and receipt model workloads stop. Both cases pass, and offline verification reproduces the saved candidate, validation, correction, approval and export checks. The original report above remains historical.
+
+Clean/conflicting-total processing takes **66.929/57.557 seconds**, including Docker parsing and model extraction after readiness. Peak sampled server RSS is 3,851,468,800 bytes, about 3.59 GiB; shutdown is recorded complete. These are two serial fixtures with uncontrolled machine load, not a warm/cold study or a total memory peak. The clean fixture again exceeds the original 60-second feasibility objective; an experimental label retains that failed objective.
+
+The [complete held-out comparisons](heldout-model-comparison.md) and [browser verification](browser-verification.md) are now separately recorded. Multi-page model uploads, genuine scanner captures, controlled latency/memory studies and human review results remain unverified or deferred in the [candidate scope](portfolio-candidate.md). Every export still requires human approval.

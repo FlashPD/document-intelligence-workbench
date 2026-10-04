@@ -34,3 +34,7 @@ The earlier [parser queue](parser-queue.md) declared concurrent model load witho
 ## Recovery validation
 
 The [fresh release audit](../evals/interruption-release-audit-2026-10-03/index.html) records **271 passing contract tests**, [16 passing Docker parser checks](../evals/interruption-release-parser-2026-10-03/report.json), and verified existing browser and recording evidence. Its overall status is **pending**: the invoice and receipt model comparisons, a current real-model workflow check, and the human author review pilot are still required. Partial inference results are progress evidence only.
+
+## Completed continuation
+
+The continuation now publishes the [complete paired comparisons](heldout-model-comparison.md): 180 invoice and 100 receipt predictions, with every committed failure retained. Both invoice shutdown sessions and the original interruption observation remain intact. The [candidate parser refresh](../evals/portfolio-candidate-parser-2026-10-03-v2/report.json), [current model workflow](../evals/portfolio-candidate-model-workflow-2026-10-03/report.json), and [candidate audit](../evals/portfolio-candidate-audit-2026-10-03/index.html) supersede the historical pending snapshot above without rewriting it. Human author-review outcomes remain pending; available invoice RSS samples still cannot recover the lost first session's memory coverage.
