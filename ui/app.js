@@ -411,7 +411,13 @@ async function pollProcessing() {
       $("deletions").append(node("p", "muted", `Deletion ${deletion.document_id.slice(0, 8)}: ${deletion.status}${deletion.error_code ? ` (${deletion.error_code})` : ""}`));
     }
     const runtime = await request("/api/runtime");
-  $("actor").value = runtime.principal.actor;
+    $("actor").value = runtime.principal.actor;
+    const metrics = await request("/metrics");
+    const readinessResponse = await fetch("/readyz");
+    const readiness = await readinessResponse.json();
+    if (![200, 503].includes(readinessResponse.status)) throw new Error("Service status is unavailable.");
+    $("operations-status").hidden = false;
+    $("operations-status").textContent = `Processing ${readiness.ready ? "ready" : "needs attention"} · ${metrics.jobs.QUEUED || 0} queued${metrics.oldest_queue_age_seconds === null ? "" : ` (oldest ${Math.floor(metrics.oldest_queue_age_seconds)}s)`} · ${metrics.jobs.PROCESSING || 0} active · ${metrics.jobs.FAILED || 0} failed · ${metrics.retry_or_reprocess_count} retries/reprocesses · parser ${readiness.parser} · model ${readiness.model}`;
     if (runtime.worker?.last_error) notice(`Processing needs attention: ${runtime.worker.last_error}`, true);
   } catch (error) {
     notice(error.message, true);

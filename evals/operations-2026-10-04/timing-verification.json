@@ -1,0 +1,230 @@
+{
+  "rules-003": {
+    "status": "verified",
+    "source_current": true,
+    "summary": {
+      "groups": {
+        "cold": {
+          "scheduled": 3,
+          "ready": 3,
+          "failed": 0,
+          "upload_to_terminal": {
+            "count": 3,
+            "sum_seconds": 4.663224,
+            "p50_seconds": 1.566438,
+            "p95_seconds": 1.568553
+          },
+          "startup": {
+            "count": 3,
+            "sum_seconds": 0.480757,
+            "p50_seconds": 0.160428,
+            "p95_seconds": 0.163492
+          },
+          "cold_workflow": {
+            "count": 3,
+            "sum_seconds": 5.239903,
+            "p50_seconds": 1.757542,
+            "p95_seconds": 1.758615
+          },
+          "stages": {
+            "parsing": {
+              "count": 3,
+              "sum_seconds": 4.49669,
+              "p50_seconds": 1.494412,
+              "p95_seconds": 1.524842
+            },
+            "extracting": {
+              "count": 3,
+              "sum_seconds": 0.005358,
+              "p50_seconds": 0.001725,
+              "p95_seconds": 0.001992
+            },
+            "checking": {
+              "count": 3,
+              "sum_seconds": 0.01446,
+              "p50_seconds": 0.004881,
+              "p95_seconds": 0.004984
+            }
+          }
+        },
+        "warm": {
+          "scheduled": 10,
+          "ready": 10,
+          "failed": 0,
+          "upload_to_terminal": {
+            "count": 10,
+            "sum_seconds": 15.162576,
+            "p50_seconds": 1.5167,
+            "p95_seconds": 1.540738
+          },
+          "startup": {
+            "count": 10,
+            "sum_seconds": 0,
+            "p50_seconds": 0,
+            "p95_seconds": 0
+          },
+          "cold_workflow": null,
+          "stages": {
+            "parsing": {
+              "count": 10,
+              "sum_seconds": 14.770299,
+              "p50_seconds": 1.474867,
+              "p95_seconds": 1.486171
+            },
+            "extracting": {
+              "count": 10,
+              "sum_seconds": 0.015537,
+              "p50_seconds": 0.001536,
+              "p95_seconds": 0.001734
+            },
+            "checking": {
+              "count": 10,
+              "sum_seconds": 0.043205,
+              "p50_seconds": 0.004298,
+              "p95_seconds": 0.00484
+            }
+          }
+        },
+        "queue": {
+          "scheduled": 20,
+          "ready": 20,
+          "failed": 0,
+          "upload_to_terminal": {
+            "count": 20,
+            "sum_seconds": 341.686814,
+            "p50_seconds": 15.145288,
+            "p95_seconds": 34.921537
+          },
+          "startup": {
+            "count": 20,
+            "sum_seconds": 0,
+            "p50_seconds": 0,
+            "p95_seconds": 0
+          },
+          "cold_workflow": null,
+          "stages": {
+            "parsing": {
+              "count": 20,
+              "sum_seconds": 38.139703,
+              "p50_seconds": 1.596967,
+              "p95_seconds": 3.524876
+            },
+            "extracting": {
+              "count": 20,
+              "sum_seconds": 0.034357,
+              "p50_seconds": 0.00168,
+              "p95_seconds": 0.00192
+            },
+            "checking": {
+              "count": 20,
+              "sum_seconds": 0.232443,
+              "p50_seconds": 0.010332,
+              "p95_seconds": 0.018158
+            }
+          },
+          "batch_start_to_drain_seconds": 38.693725,
+          "pages_ready": 24,
+          "pages_per_minute": 37.215,
+          "max_observed_active": 1
+        }
+      },
+      "rules_latency_gate": "pass",
+      "scheduled": 34,
+      "failures": 0,
+      "memory_acceptance": "pending: sampled component RSS cannot establish whole-application unified-memory peak"
+    }
+  },
+  "model-003": {
+    "status": "verified",
+    "source_current": true,
+    "summary": {
+      "groups": {
+        "cold": {
+          "scheduled": 3,
+          "ready": 3,
+          "failed": 0,
+          "upload_to_terminal": {
+            "count": 3,
+            "sum_seconds": 239.185424,
+            "p50_seconds": 80.901017,
+            "p95_seconds": 82.904076
+          },
+          "startup": {
+            "count": 3,
+            "sum_seconds": 21.531505,
+            "p50_seconds": 7.109515,
+            "p95_seconds": 7.632608
+          },
+          "cold_workflow": {
+            "count": 3,
+            "sum_seconds": 260.888396,
+            "p50_seconds": 88.08113,
+            "p95_seconds": 90.591095
+          },
+          "stages": {
+            "parsing": {
+              "count": 3,
+              "sum_seconds": 5.188208,
+              "p50_seconds": 1.745147,
+              "p95_seconds": 1.775167
+            },
+            "extracting": {
+              "count": 3,
+              "sum_seconds": 233.876699,
+              "p50_seconds": 79.092994,
+              "p95_seconds": 81.123624
+            },
+            "checking": {
+              "count": 3,
+              "sum_seconds": 0.01997,
+              "p50_seconds": 0.00662,
+              "p95_seconds": 0.007698
+            }
+          }
+        },
+        "warm": {
+          "scheduled": 10,
+          "ready": 10,
+          "failed": 0,
+          "upload_to_terminal": {
+            "count": 10,
+            "sum_seconds": 660.651482,
+            "p50_seconds": 65.963554,
+            "p95_seconds": 66.784881
+          },
+          "startup": {
+            "count": 10,
+            "sum_seconds": 0,
+            "p50_seconds": 0,
+            "p95_seconds": 0
+          },
+          "cold_workflow": null,
+          "stages": {
+            "parsing": {
+              "count": 10,
+              "sum_seconds": 15.827231,
+              "p50_seconds": 1.550156,
+              "p95_seconds": 1.69146
+            },
+            "extracting": {
+              "count": 10,
+              "sum_seconds": 644.318738,
+              "p50_seconds": 64.305685,
+              "p95_seconds": 65.195852
+            },
+            "checking": {
+              "count": 10,
+              "sum_seconds": 0.055615,
+              "p50_seconds": 0.004869,
+              "p95_seconds": 0.009825
+            }
+          }
+        }
+      },
+      "rules_latency_gate": "not_applicable",
+      "scheduled": 14,
+      "failures": 0,
+      "memory_acceptance": "pending: sampled component RSS cannot establish whole-application unified-memory peak"
+    }
+  }
+}

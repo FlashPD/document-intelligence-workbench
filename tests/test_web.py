@@ -34,6 +34,22 @@ def candidate():
 
 
 class WebTests(unittest.TestCase):
+    def test_operations_routes_require_reviewer_and_surface_not_ready_status(self):
+        from docwork.operations import Readiness
+        self.server.supervisor = None
+        self.server.readiness = Readiness(self.server)
+        for route in ("/healthz", "/readyz", "/metrics"):
+            self.assertEqual(self.call("GET", route)[0], 401)
+        self.login()
+        self.assertEqual(self.call("GET", "/healthz")[1], {"status": "alive"})
+        self.assertTrue(self.call("GET", "/readyz")[1]["ready"])
+        self.assertEqual(self.call("GET", "/metrics")[1]["jobs"], {})
+        for route in ("/healthz", "/readyz", "/metrics"):
+            self.assertEqual(self.call("GET", route, headers={"Authorization":
+                f"Bearer {self.server.access.processing_token}"})[0], 403)
+        self.server.readiness.cached = {"ready": False, "storage": "INSUFFICIENT_DISK_SPACE"}
+        self.assertEqual(self.call("GET", "/readyz")[0], 503)
+
     def test_batch_lifecycle_api_and_background_wakeup_are_nonblocking(self):
         from unittest.mock import Mock
         self.login()

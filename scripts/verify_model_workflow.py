@@ -29,6 +29,7 @@ FIXTURES = {
 }
 SOURCES = ("worker.py", "intake.py", "review.py", "local_model.py", "model_runtime.py", "web.py",
            "access.py", "supervisor.py", "lifecycle.py", "request_control.py", "storage_budget.py",
+           "operations.py",
            "contracts.py", "validation.py", "ocr.py", "geometry.py", "baseline.py",
            "review_priority.py", "parser_protocol.py", "parser_entry.py")
 

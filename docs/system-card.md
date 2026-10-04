@@ -48,6 +48,8 @@ B03 adds [local reviewer capabilities](access.md) to the working source. Browser
 
 ## Provenance and recovery
 
+Current working source also includes [authenticated operations](operations.md): service/database/storage/parser/worker readiness, separately probed optional model availability, queue age, failure/retry counts and persistent stage timings. Operational payloads omit document content, identifiers, paths, actors and credentials; deletion removes the corresponding metric history. Wall-clock coverage and review-age limits remain explicit. Controlled timing is a separate frozen study; component memory samples do not establish whole-application unified-memory peaks. These additions do not complete full v1 acceptance.
+
 Each observed field refers to canonical OCR span IDs. The server validates reference existence and value alignment; selecting a field navigates to its page and highlights its line region. Corrections retain the original suggestion and evidence while marking reviewer origin. Missing or unsupported evidence remains a review concern. Arithmetic uses decimal values and preserves printed totals when they disagree with computed values. Missing components leave the check incomplete.
 
 SQLite stores revisions, extraction metadata, issue decisions, approvals, exports, and durable jobs. Processing claims have renewable leases and fencing tokens so an expired worker cannot publish over a reclaimed job. A hash-verified parser checkpoint binds original bytes, the immutable parser image, and host contracts, allowing extraction retries without another parser invocation.

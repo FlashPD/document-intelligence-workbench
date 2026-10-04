@@ -93,6 +93,11 @@ def main():
             batch = api("GET", "/api/batches/" + client.evaluate("state.batchId"))
             assert [item["status"] for item in batch["items"]] == ["REVIEW_READY", "REJECTED"]
             checks.append("native multiple upload records success and rejection separately")
+            client.wait("!$('operations-status').hidden && $('operations-status').textContent.includes('Processing ready')")
+            metrics = api("GET", "/metrics")
+            assert api("GET", "/readyz")["ready"]
+            assert metrics["jobs"] == {"COMPLETE": 1} and metrics["timings"]["parsing"]["count"] == 1
+            checks.append("native live browser exposes readiness and content-free queue metrics")
             (output / "review-ready.png").write_bytes(base64.b64decode(client.call("Page.captureScreenshot")["data"]))
             detail = api("GET", f"/api/documents/{doc}")
             assert detail["revision"] == 1 and detail["extraction"]["profile"] == "ocr_rules"

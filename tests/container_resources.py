@@ -13,7 +13,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from docwork.intake import IntakeStore
-from docwork.review import ReviewBlocked
+from docwork.review import ReviewBlocked, ReviewConflict
 from docwork.worker import PARSER_IMAGE, ParserFailure, _docker_run, parser_command, process_one
 
 
@@ -61,7 +61,7 @@ class ParserResourceChecks(unittest.TestCase):
         self.assertIsNone(status["parser_checkpoint"])
         with self.assertRaises(ReviewBlocked):
             self.store.get(document_id)
-        with self.assertRaisesRegex(KeyError, "Unknown revision: 0"):
+        with self.assertRaisesRegex(ReviewConflict, "require a review-ready candidate"):
             self.store.export(document_id, "json")
         self.assertEqual(list((self.store.object_root / "quarantine").iterdir()), [])
         self.assertEqual(hashlib.sha256(self.store.object_path(document_id).read_bytes()).hexdigest(), status["source_sha256"])

@@ -73,3 +73,7 @@ lifecycle-verify:
 .PHONY: access-verify
 access-verify:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/verify_access.py --output-dir $(or $(OUTPUT),artifacts/access-fresh)
+
+.PHONY: operations-verify
+operations-verify:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/verify_operations.py --output-dir $(or $(OUTPUT),artifacts/operations-fresh)

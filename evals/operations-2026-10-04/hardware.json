@@ -1,0 +1,7 @@
+{
+  "recorded_at_utc": "2026-10-04T15:04:20.172453+00:00",
+  "scope": "Read-only host identification after timing; frozen protocol records platform/machine/Python before measurement.",
+  "cpu": "Apple M1",
+  "physical_memory_bytes": 17179869184,
+  "logical_cpus": 8
+}

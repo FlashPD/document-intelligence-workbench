@@ -1,0 +1,55 @@
+{
+  "version": "operations-v1",
+  "jobs": {
+    "COMPLETE": 31
+  },
+  "active_stages": {},
+  "oldest_queue_age_seconds": null,
+  "queue_age_known_count": 0,
+  "attempts": {
+    "COMPLETE": 31,
+    "ABANDONED": 1
+  },
+  "retry_or_reprocess_count": 1,
+  "failure_codes": {},
+  "unfinished_or_invalid_timing_count": 0,
+  "timings": {
+    "queue": {
+      "count": 32,
+      "sum_seconds": 1839.041083,
+      "p50_seconds": 6.175003,
+      "p95_seconds": 183.69467
+    },
+    "processing": {
+      "count": 32,
+      "sum_seconds": 207.673594,
+      "p50_seconds": 1.531964,
+      "p95_seconds": 3.652875
+    },
+    "parsing": {
+      "count": 32,
+      "sum_seconds": 207.241939,
+      "p50_seconds": 1.522554,
+      "p95_seconds": 3.627016
+    },
+    "extracting": {
+      "count": 31,
+      "sum_seconds": 0.047439,
+      "p50_seconds": 0.001509,
+      "p95_seconds": 0.001765
+    },
+    "checking": {
+      "count": 31,
+      "sum_seconds": 0.258378,
+      "p50_seconds": 0.00806,
+      "p95_seconds": 0.017157
+    }
+  },
+  "review_wait": {
+    "count": 31,
+    "sum_seconds": 4144.552917,
+    "p50_seconds": 183.54516,
+    "p95_seconds": 205.240361
+  },
+  "timing_method": "Persisted UTC wall-clock intervals; invalid/backward intervals omitted. Processing includes failures. Stage coverage starts with operations-v1; parsing includes checkpoint lookup/import, extracting includes model requests, checking includes validation/persistence. Review wait is not active human effort. Metrics cover retained documents; deletion removes their history."
+}

@@ -1,0 +1,59 @@
+test_abrupt_worker_exit_resumes_committed_parser_checkpoint (container_parser.ParserSmoke.test_abrupt_worker_exit_resumes_committed_parser_checkpoint) ... ok
+test_backup_restores_interrupted_real_parser_checkpoint (container_parser.ParserSmoke.test_backup_restores_interrupted_real_parser_checkpoint) ... ok
+test_backup_restores_real_pdf_review_and_immutable_exports (container_parser.ParserSmoke.test_backup_restores_real_pdf_review_and_immutable_exports) ... ok
+test_container_conflict_review_export_and_reopen (container_parser.ParserSmoke.test_container_conflict_review_export_and_reopen) ... ok
+test_container_duplicate_submissions_have_independent_approval (container_parser.ParserSmoke.test_container_duplicate_submissions_have_independent_approval) ... ok
+test_container_jpeg_exif_rotation (container_parser.ParserSmoke.test_container_jpeg_exif_rotation) ... ok
+test_container_missing_image_retry (container_parser.ParserSmoke.test_container_missing_image_retry) ... ok
+test_container_processes_committed_png (container_parser.ParserSmoke.test_container_processes_committed_png) ... ok
+test_container_processes_two_page_pdf (container_parser.ParserSmoke.test_container_processes_two_page_pdf) ... ok
+test_container_rejects_eleven_page_pdf (container_parser.ParserSmoke.test_container_rejects_eleven_page_pdf) ... ok
+test_container_rejects_malformed_pdf (container_parser.ParserSmoke.test_container_rejects_malformed_pdf) ... ok
+test_container_rejects_truncated_png (container_parser.ParserSmoke.test_container_rejects_truncated_png) ... ok
+test_container_runtime_restrictions (container_parser.ParserSmoke.test_container_runtime_restrictions) ... FAIL
+test_model_outage_retry_reuses_real_two_page_parser_output (container_parser.ParserSmoke.test_model_outage_retry_reuses_real_two_page_parser_output) ... ok
+test_cgroup_oom_is_recorded_then_real_parser_retry_succeeds (container_resources.ParserResourceChecks.test_cgroup_oom_is_recorded_then_real_parser_retry_succeeds) ... ERROR
+test_timeout_kills_container_then_real_parser_retry_succeeds (container_resources.ParserResourceChecks.test_timeout_kills_container_then_real_parser_retry_succeeds) ... ERROR
+
+======================================================================
+ERROR: test_cgroup_oom_is_recorded_then_real_parser_retry_succeeds (container_resources.ParserResourceChecks.test_cgroup_oom_is_recorded_then_real_parser_retry_succeeds)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/tests/container_resources.py", line 123, in test_cgroup_oom_is_recorded_then_real_parser_retry_succeeds
+    self.fault("""
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/tests/container_resources.py", line 65, in fault
+    self.store.export(document_id, "json")
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/src/docwork/review.py", line 494, in export
+    self._reviewable(doc)
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/src/docwork/review.py", line 235, in _reviewable
+    raise ReviewConflict("Review and new exports require a review-ready candidate")
+docwork.review.ReviewConflict: Review and new exports require a review-ready candidate
+
+======================================================================
+ERROR: test_timeout_kills_container_then_real_parser_retry_succeeds (container_resources.ParserResourceChecks.test_timeout_kills_container_then_real_parser_retry_succeeds)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/tests/container_resources.py", line 115, in test_timeout_kills_container_then_real_parser_retry_succeeds
+    self.fault("""
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/tests/container_resources.py", line 65, in fault
+    self.store.export(document_id, "json")
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/src/docwork/review.py", line 494, in export
+    self._reviewable(doc)
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/src/docwork/review.py", line 235, in _reviewable
+    raise ReviewConflict("Review and new exports require a review-ready candidate")
+docwork.review.ReviewConflict: Review and new exports require a review-ready candidate
+
+======================================================================
+FAIL: test_container_runtime_restrictions (container_parser.ParserSmoke.test_container_runtime_restrictions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/tests/container_parser.py", line 443, in test_container_runtime_restrictions
+    self.assertEqual(probe["source_sha256"], {
+AssertionError: {'priority_evaluation.py': 'e12aff8581cb525[3735 chars]d2f'} != {'intake.py': '1de49a01d4b5f3ba343673ee523d[4078 chars]e58'}
+Diff is 4687 characters long. Set self.maxDiff to None to see it. : Parser image is stale; rebuild it before verification
+
+----------------------------------------------------------------------
+Ran 16 tests in 50.528s
+
+FAILED (failures=1, errors=2)
+{"status": "failed", "checks": 16, "report": "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/artifacts/operations-parser-2026-10-04-001/report.json"}

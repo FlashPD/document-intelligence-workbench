@@ -1,0 +1,285 @@
+[
+  {
+    "id": "cold-0",
+    "startup_seconds": 7.632608,
+    "cold_workflow_seconds": 90.591095,
+    "document_id": "76860695ba1c423e9f5192f2980b0d88",
+    "status": "REVIEW_READY",
+    "error_code": null,
+    "page_count": 1,
+    "attempt_count": 1,
+    "checkpoint_reused": false,
+    "upload_to_terminal_seconds": 82.904076,
+    "stages_seconds": {
+      "parsing": 1.7451469898223877,
+      "extracting": 81.12362408638,
+      "checking": 0.006619930267333984
+    },
+    "processing_started_at_seconds": 1791125595.862165,
+    "processing_finished_at_seconds": 1791125678.741297,
+    "max_observed_active": 1,
+    "terminal_since_batch_start_seconds": null
+  },
+  {
+    "id": "cold-1",
+    "startup_seconds": 7.109515,
+    "cold_workflow_seconds": 88.08113,
+    "document_id": "0885a1a76e1649a4ba55d39359039c06",
+    "status": "REVIEW_READY",
+    "error_code": null,
+    "page_count": 1,
+    "attempt_count": 1,
+    "checkpoint_reused": false,
+    "upload_to_terminal_seconds": 80.901017,
+    "stages_seconds": {
+      "parsing": 1.7751669883728027,
+      "extracting": 79.09299397468567,
+      "checking": 0.00769805908203125
+    },
+    "processing_started_at_seconds": 1791125686.075288,
+    "processing_finished_at_seconds": 1791125766.956001,
+    "max_observed_active": 1,
+    "terminal_since_batch_start_seconds": null
+  },
+  {
+    "id": "cold-2",
+    "startup_seconds": 6.789382,
+    "cold_workflow_seconds": 82.216171,
+    "document_id": "804fc543b02d4c7894ef57caa87b77e3",
+    "status": "REVIEW_READY",
+    "error_code": null,
+    "page_count": 1,
+    "attempt_count": 1,
+    "checkpoint_reused": false,
+    "upload_to_terminal_seconds": 75.380331,
+    "stages_seconds": {
+      "parsing": 1.667893886566162,
+      "extracting": 73.660080909729,
+      "checking": 0.005652189254760742
+    },
+    "processing_started_at_seconds": 1791125773.964028,
+    "processing_finished_at_seconds": 1791125849.301021,
+    "max_observed_active": 1,
+    "terminal_since_batch_start_seconds": null
+  },
+  {
+    "id": "warmup",
+    "startup_seconds": 0,
+    "document_id": "5b53d130b93c48e6ba8debd2b82dabf8",
+    "status": "REVIEW_READY",
+    "error_code": null,
+    "page_count": 1,
+    "attempt_count": 1,
+    "checkpoint_reused": false,
+    "upload_to_terminal_seconds": 77.044449,
+    "stages_seconds": {
+      "parsing": 1.644840955734253,
+      "extracting": 75.34597492218018,
+      "checking": 0.005507946014404297
+    },
+    "processing_started_at_seconds": 1791125856.573187,
+    "processing_finished_at_seconds": 1791125933.573011,
+    "max_observed_active": 1,
+    "terminal_since_batch_start_seconds": null
+  },
+  {
+    "id": "warm-0",
+    "startup_seconds": 0,
+    "document_id": "dfa7a49de9df46cbbbe897d42572eef9",
+    "status": "REVIEW_READY",
+    "error_code": null,
+    "page_count": 1,
+    "attempt_count": 1,
+    "checkpoint_reused": false,
+    "upload_to_terminal_seconds": 66.126615,
+    "stages_seconds": {
+      "parsing": 1.5271580219268799,
+      "extracting": 64.59791398048401,
+      "checking": 0.005007028579711914
+    },
+    "processing_started_at_seconds": 1791125933.6385,
+    "processing_finished_at_seconds": 1791125999.771255,
+    "max_observed_active": 1,
+    "terminal_since_batch_start_seconds": null
+  },
+  {
+    "id": "warm-1",
+    "startup_seconds": 0,
+    "document_id": "6deef12ca10249c3a83aee282b72d350",
+    "status": "REVIEW_READY",
+    "error_code": null,
+    "page_count": 1,
+    "attempt_count": 1,
+    "checkpoint_reused": false,
+    "upload_to_terminal_seconds": 65.985989,
+    "stages_seconds": {
+      "parsing": 1.5501558780670166,
+      "extracting": 64.39385509490967,
+      "checking": 0.0046880245208740234
+    },
+    "processing_started_at_seconds": 1791125999.792291,
+    "processing_finished_at_seconds": 1791126065.74439,
+    "max_observed_active": 1,
+    "terminal_since_batch_start_seconds": null
+  },
+  {
+    "id": "warm-2",
+    "startup_seconds": 0,
+    "document_id": "f65f6ccec65845f7b5f602da8c4caf12",
+    "status": "REVIEW_READY",
+    "error_code": null,
+    "page_count": 1,
+    "attempt_count": 1,
+    "checkpoint_reused": false,
+    "upload_to_terminal_seconds": 66.784881,
+    "stages_seconds": {
+      "parsing": 1.510828971862793,
+      "extracting": 65.1958520412445,
+      "checking": 0.009824991226196289
+    },
+    "processing_started_at_seconds": 1791126065.776617,
+    "processing_finished_at_seconds": 1791126132.49647,
+    "max_observed_active": 1,
+    "terminal_since_batch_start_seconds": null
+  },
+  {
+    "id": "warm-3",
+    "startup_seconds": 0,
+    "document_id": "7c269e364db440d2bfa1fa28ed423e56",
+    "status": "REVIEW_READY",
+    "error_code": null,
+    "page_count": 1,
+    "attempt_count": 1,
+    "checkpoint_reused": false,
+    "upload_to_terminal_seconds": 65.816041,
+    "stages_seconds": {
+      "parsing": 1.6906490325927734,
+      "extracting": 64.0475561618805,
+      "checking": 0.005282878875732422
+    },
+    "processing_started_at_seconds": 1791126132.565299,
+    "processing_finished_at_seconds": 1791126198.313324,
+    "max_observed_active": 1,
+    "terminal_since_batch_start_seconds": null
+  },
+  {
+    "id": "warm-4",
+    "startup_seconds": 0,
+    "document_id": "ae586fa2433844b8906056194d5335e0",
+    "status": "REVIEW_READY",
+    "error_code": null,
+    "page_count": 1,
+    "attempt_count": 1,
+    "checkpoint_reused": false,
+    "upload_to_terminal_seconds": 66.057806,
+    "stages_seconds": {
+      "parsing": 1.6914598941802979,
+      "extracting": 64.30568504333496,
+      "checking": 0.004734039306640625
+    },
+    "processing_started_at_seconds": 1791126198.375945,
+    "processing_finished_at_seconds": 1791126264.383337,
+    "max_observed_active": 1,
+    "terminal_since_batch_start_seconds": null
+  },
+  {
+    "id": "warm-5",
+    "startup_seconds": 0,
+    "document_id": "d79969222ce94550afb42c730b48db84",
+    "status": "REVIEW_READY",
+    "error_code": null,
+    "page_count": 1,
+    "attempt_count": 1,
+    "checkpoint_reused": false,
+    "upload_to_terminal_seconds": 65.963554,
+    "stages_seconds": {
+      "parsing": 1.5665018558502197,
+      "extracting": 64.36787915229797,
+      "checking": 0.004581928253173828
+    },
+    "processing_started_at_seconds": 1791126264.435218,
+    "processing_finished_at_seconds": 1791126330.377723,
+    "max_observed_active": 1,
+    "terminal_since_batch_start_seconds": null
+  },
+  {
+    "id": "warm-6",
+    "startup_seconds": 0,
+    "document_id": "0775d9829da6440484770c77664d11c5",
+    "status": "REVIEW_READY",
+    "error_code": null,
+    "page_count": 1,
+    "attempt_count": 1,
+    "checkpoint_reused": false,
+    "upload_to_terminal_seconds": 66.455386,
+    "stages_seconds": {
+      "parsing": 1.5102970600128174,
+      "extracting": 64.88128209114075,
+      "checking": 0.004842996597290039
+    },
+    "processing_started_at_seconds": 1791126330.398843,
+    "processing_finished_at_seconds": 1791126396.798638,
+    "max_observed_active": 1,
+    "terminal_since_batch_start_seconds": null
+  },
+  {
+    "id": "warm-7",
+    "startup_seconds": 0,
+    "document_id": "3ec5fe925ec14fbf8fcf20d5d6d0e679",
+    "status": "REVIEW_READY",
+    "error_code": null,
+    "page_count": 1,
+    "attempt_count": 1,
+    "checkpoint_reused": false,
+    "upload_to_terminal_seconds": 65.744622,
+    "stages_seconds": {
+      "parsing": 1.5970039367675781,
+      "extracting": 64.11207103729248,
+      "checking": 0.006844043731689453
+    },
+    "processing_started_at_seconds": 1791126396.851452,
+    "processing_finished_at_seconds": 1791126462.572278,
+    "max_observed_active": 1,
+    "terminal_since_batch_start_seconds": null
+  },
+  {
+    "id": "warm-8",
+    "startup_seconds": 0,
+    "document_id": "70258ba3f42849faa9cba371124c890b",
+    "status": "REVIEW_READY",
+    "error_code": null,
+    "page_count": 1,
+    "attempt_count": 1,
+    "checkpoint_reused": false,
+    "upload_to_terminal_seconds": 65.890863,
+    "stages_seconds": {
+      "parsing": 1.6617071628570557,
+      "extracting": 64.15077090263367,
+      "checking": 0.004868984222412109
+    },
+    "processing_started_at_seconds": 1791126462.602808,
+    "processing_finished_at_seconds": 1791126528.425484,
+    "max_observed_active": 1,
+    "terminal_since_batch_start_seconds": null
+  },
+  {
+    "id": "warm-9",
+    "startup_seconds": 0,
+    "document_id": "6c8c23df07e74e559d4cbeabec376793",
+    "status": "REVIEW_READY",
+    "error_code": null,
+    "page_count": 1,
+    "attempt_count": 1,
+    "checkpoint_reused": false,
+    "upload_to_terminal_seconds": 65.825725,
+    "stages_seconds": {
+      "parsing": 1.5214691162109375,
+      "extracting": 64.26587200164795,
+      "checking": 0.004940032958984375
+    },
+    "processing_started_at_seconds": 1791126528.492065,
+    "processing_finished_at_seconds": 1791126594.287707,
+    "max_observed_active": 1,
+    "terminal_since_batch_start_seconds": null
+  }
+]

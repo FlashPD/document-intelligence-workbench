@@ -10,6 +10,10 @@ Start with the [portfolio overview](docs/portfolio-candidate.md), [standalone co
 
 Live development now includes automatic serial processing, bounded batches, cancellation, versioned reprocessing, tracked local deletion and persisted storage guards. Review actions use a [server-established local identity](docs/access.md) with separate processing permissions. See the [lifecycle runbook](docs/lifecycle.md). Build the parser with `make parser-build`, then use `make dev`; select the extractor before uploading.
 
+Authenticated [operations endpoints](docs/operations.md) expose service/storage/parser readiness, optional model availability, queue age, retry/failure counts and persisted stage timings without document content. Controlled cold/warm upload benchmarks use a separately frozen protocol; component memory observations do not establish whole-application peak memory.
+
+The [October 4 operations evidence](evals/operations-2026-10-04/index.html) retains rules/model timings, failed earlier attempts, current-image parser/model/browser checks and an eight-check clean-source verification with **356 tests**. Full v1 still needs genuine scans/semantic assessments, complete memory accounting, pinned rebuild inputs and final-configuration timing/presentation; these reports do not close those gaps.
+
 ![Review workspace with source evidence and a versioned correction](evals/portfolio-candidate-browser-2026-10-03/frames/01.png)
 
 *Automated Chrome capture on a disposable fictional development fixture using recorded OCR. This is interface evidence, not human review-time or live extraction evidence.*
@@ -99,6 +103,7 @@ The offline demo and invoice/model-workflow/author-pilot audits need no CORD dow
 | Intake, quotas, reconciliation, backups | [Local intake](docs/intake.md) |
 | Revisions, issue decisions, priority, approvals, exports | [Review workflow](docs/review.md) |
 | Server reviewer identity, processing permissions, trusted CLI | [Local access](docs/access.md) |
+| Readiness, private metrics, controlled timing and memory methods | [Local operations](docs/operations.md) |
 | Evidence overlays, rotations, session boundary | [Browser prototype](docs/browser.md) |
 | Parser checkpoints and host worker recovery | [Parser recovery](docs/parser-recovery.md) |
 | Container policy and real runtime checks | [Parser verification](docs/parser-verification.md), [resource drills](docs/parser-resources.md) |

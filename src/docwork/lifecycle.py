@@ -68,6 +68,11 @@ class LifecycleMixin:
             db.execute("BEGIN IMMEDIATE")
             self._verify_claim(db, claim)
             db.execute("UPDATE jobs SET stage=? WHERE id=?", (stage, claim.job_id))
+            previous = db.execute("SELECT detail FROM review_events WHERE document_id=? AND kind='processing_stage' "
+                                  "ORDER BY id DESC LIMIT 1", (claim.document_id,)).fetchone()
+            detail = json.dumps({"fence": claim.fence, "stage": stage}, sort_keys=True)
+            if previous is None or previous["detail"] != detail:
+                self._event(db, claim.document_id, 0, "processing_stage", claim.worker_id, detail)
 
     def check_claim(self, claim) -> None:
         with self._connect() as db:

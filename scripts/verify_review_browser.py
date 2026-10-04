@@ -168,7 +168,8 @@ def main():
     cases = tuple(case[0] for case in REPLAY_CASES) if args.demo_replay else CASES
     source_names = (*SOURCES, "scripts/verify_pilot_browser.py", "scripts/verify_review_browser.py",
                     "src/docwork/geometry.py", "src/docwork/access.py", "src/docwork/supervisor.py",
-                    "src/docwork/lifecycle.py", "src/docwork/request_control.py", "src/docwork/storage_budget.py")
+                    "src/docwork/lifecycle.py", "src/docwork/request_control.py", "src/docwork/storage_budget.py",
+                    "src/docwork/operations.py")
     if args.demo_replay:
         source_names += ("src/docwork/demo_replay.py", "src/docwork/cli.py", "Makefile")
     snapshot = {name: (root / name).read_text() for name in source_names}

@@ -1,0 +1,9 @@
+{
+  "scope": "Read-only inspection of the host power log after an invalid controlled benchmark. No document content.",
+  "command": "pmset -g log, filtered to Sleep/Wake events for October 4, 2026 09:37\u201309:40 America/Chicago",
+  "sleep_at": "2026-10-04T09:37:38-05:00",
+  "wake_at": "2026-10-04T09:40:09-05:00",
+  "reason": "Idle Sleep",
+  "reported_sleep_seconds": 151,
+  "outcome": "All 34 documents eventually review-ready; queue-10 had an abandoned attempt and a second completed attempt. Benchmark rejected no-retry eligibility; this is not controlled acceptance evidence."
+}

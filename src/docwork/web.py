@@ -26,6 +26,7 @@ from .review import ReviewBlocked, ReviewConflict
 from .worker import process_one
 from .supervisor import WorkerSupervisor
 from .storage_budget import StorageLimitExceeded, DEFAULT_ARTIFACT_BYTES, DEFAULT_DISK_RESERVE_BYTES
+from .operations import Readiness, snapshot
 
 DOCUMENT_ID = re.compile(r"[0-9a-f]{32}")
 PAGE_ROUTE = re.compile(r"/api/documents/([0-9a-f]{32})/pages/([1-9]\d*)")
@@ -63,6 +64,7 @@ class ReviewServer(ThreadingHTTPServer):
         if background_processing:
             self.supervisor = WorkerSupervisor(store, model_config=model_config, processor=processor, cleanup=cleanup)
             self.supervisor.start()
+        self.readiness = Readiness(self)
 
     def server_close(self):
         if self.supervisor:
@@ -188,6 +190,13 @@ class ReviewHandler(BaseHTTPRequestHandler):
                 self._send(HTTPStatus.OK, content, media)
             elif url.path == "/api/documents":
                 self._json(HTTPStatus.OK, self.server.store.list_documents())
+            elif url.path == "/healthz":
+                self._json(HTTPStatus.OK, {"status": "alive"})
+            elif url.path == "/readyz":
+                readiness = self.server.readiness.view()
+                self._json(HTTPStatus.OK if readiness["ready"] else HTTPStatus.SERVICE_UNAVAILABLE, readiness)
+            elif url.path == "/metrics":
+                self._json(HTTPStatus.OK, snapshot(self.server.store))
             elif url.path == "/api/runtime":
                 config = self.server.model_config
                 self._json(HTTPStatus.OK, {"principal": self._principal().as_dict(),

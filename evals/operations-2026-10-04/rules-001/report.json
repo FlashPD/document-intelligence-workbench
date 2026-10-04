@@ -1,0 +1,4070 @@
+{
+  "version": "controlled-upload-performance-v1",
+  "variant": "ocr_rules",
+  "protocol_sha256": "79cc36d74d835437fc34ebe029ba76a4453f6b26b279dd4ea209137df5ed98ca",
+  "status": "interrupted",
+  "measurements": [
+    {
+      "id": "cold-0",
+      "startup_seconds": 0.16119,
+      "cold_workflow_seconds": 4.855172,
+      "document_id": "7b5b45f4231a420eb676a0009e0c8762",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 4.662858,
+      "stages_seconds": {
+        "parsing": 4.646620035171509,
+        "extracting": 0.0015368461608886719,
+        "checking": 0.00416111946105957
+      },
+      "processing_started_at_seconds": 1791124618.804668,
+      "processing_finished_at_seconds": 1791124623.459336,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": null
+    },
+    {
+      "id": "cold-1",
+      "startup_seconds": 0.159808,
+      "cold_workflow_seconds": 1.772938,
+      "document_id": "e81df2aecf8a4f168b13bb0e5d29b488",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 1.580082,
+      "stages_seconds": {
+        "parsing": 1.547868013381958,
+        "extracting": 0.0015721321105957031,
+        "checking": 0.004131793975830078
+      },
+      "processing_started_at_seconds": 1791124623.739303,
+      "processing_finished_at_seconds": 1791124625.295529,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": null
+    },
+    {
+      "id": "cold-2",
+      "startup_seconds": 0.162819,
+      "cold_workflow_seconds": 1.71878,
+      "document_id": "f5aab2a29a6940debac5b923555097b4",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 1.52643,
+      "stages_seconds": {
+        "parsing": 1.4837958812713623,
+        "extracting": 0.0017979145050048828,
+        "checking": 0.004547119140625
+      },
+      "processing_started_at_seconds": 1791124625.538633,
+      "processing_finished_at_seconds": 1791124627.032032,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": null
+    },
+    {
+      "id": "warmup",
+      "startup_seconds": 0,
+      "document_id": "db8b1161b31f4f43b509983cf0d07360",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 1.596947,
+      "stages_seconds": {
+        "parsing": 1.5194640159606934,
+        "extracting": 0.0011451244354248047,
+        "checking": 0.00397491455078125
+      },
+      "processing_started_at_seconds": 1791124627.274606,
+      "processing_finished_at_seconds": 1791124628.80299,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": null
+    },
+    {
+      "id": "warm-0",
+      "startup_seconds": 0,
+      "document_id": "1c207900d6594a738a3b96faa4e84a6d",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 1.517282,
+      "stages_seconds": {
+        "parsing": 1.4881720542907715,
+        "extracting": 0.0014519691467285156,
+        "checking": 0.0039310455322265625
+      },
+      "processing_started_at_seconds": 1791124628.876408,
+      "processing_finished_at_seconds": 1791124630.375052,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": null
+    },
+    {
+      "id": "warm-1",
+      "startup_seconds": 0,
+      "document_id": "d46794859d7942eba2eb45a07f265342",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 1.517527,
+      "stages_seconds": {
+        "parsing": 1.4711809158325195,
+        "extracting": 0.0013349056243896484,
+        "checking": 0.004026174545288086
+      },
+      "processing_started_at_seconds": 1791124630.397165,
+      "processing_finished_at_seconds": 1791124631.877479,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": null
+    },
+    {
+      "id": "warm-2",
+      "startup_seconds": 0,
+      "document_id": "58cac26ae9e84245923e03e47e0fd163",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 1.625333,
+      "stages_seconds": {
+        "parsing": 1.5518732070922852,
+        "extracting": 0.002057790756225586,
+        "checking": 0.004188060760498047
+      },
+      "processing_started_at_seconds": 1791124631.913509,
+      "processing_finished_at_seconds": 1791124633.475081,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": null
+    },
+    {
+      "id": "warm-3",
+      "startup_seconds": 0,
+      "document_id": "24d48b2343b64250963f76b627910797",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 1.58488,
+      "stages_seconds": {
+        "parsing": 1.558685064315796,
+        "extracting": 0.0013890266418457031,
+        "checking": 0.0038330554962158203
+      },
+      "processing_started_at_seconds": 1791124633.541215,
+      "processing_finished_at_seconds": 1791124635.108648,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": null
+    },
+    {
+      "id": "warm-4",
+      "startup_seconds": 0,
+      "document_id": "1b432cb023c94ddfab02c54f6d493bba",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 1.576412,
+      "stages_seconds": {
+        "parsing": 1.510772943496704,
+        "extracting": 0.0014519691467285156,
+        "checking": 0.0043299198150634766
+      },
+      "processing_started_at_seconds": 1791124635.128736,
+      "processing_finished_at_seconds": 1791124636.648624,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": null
+    },
+    {
+      "id": "warm-5",
+      "startup_seconds": 0,
+      "document_id": "dd52b45224834484abc5f431da4db1fa",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 1.575362,
+      "stages_seconds": {
+        "parsing": 1.5225541591644287,
+        "extracting": 0.0013740062713623047,
+        "checking": 0.004047870635986328
+      },
+      "processing_started_at_seconds": 1791124636.705536,
+      "processing_finished_at_seconds": 1791124638.2375,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": null
+    },
+    {
+      "id": "warm-6",
+      "startup_seconds": 0,
+      "document_id": "b53ce0b595234600b9666eb78c94af0a",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 1.539055,
+      "stages_seconds": {
+        "parsing": 1.5052149295806885,
+        "extracting": 0.0014050006866455078,
+        "checking": 0.003882884979248047
+      },
+      "processing_started_at_seconds": 1791124638.284749,
+      "processing_finished_at_seconds": 1791124639.798694,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": null
+    },
+    {
+      "id": "warm-7",
+      "startup_seconds": 0,
+      "document_id": "16d7181976574720a0a3cbb4d1c7b11c",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 1.556104,
+      "stages_seconds": {
+        "parsing": 1.507401943206787,
+        "extracting": 0.001425027847290039,
+        "checking": 0.0038139820098876953
+      },
+      "processing_started_at_seconds": 1791124639.822653,
+      "processing_finished_at_seconds": 1791124641.338857,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": null
+    },
+    {
+      "id": "warm-8",
+      "startup_seconds": 0,
+      "document_id": "137c5203b5dd4d6e8664e054baa02ab6",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 1.554909,
+      "stages_seconds": {
+        "parsing": 1.4839420318603516,
+        "extracting": 0.0013740062713623047,
+        "checking": 0.003813028335571289
+      },
+      "processing_started_at_seconds": 1791124641.382283,
+      "processing_finished_at_seconds": 1791124642.875042,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": null
+    },
+    {
+      "id": "warm-9",
+      "startup_seconds": 0,
+      "document_id": "dc893829a0c14c95bf910f4806ece7d8",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 1.552819,
+      "stages_seconds": {
+        "parsing": 1.4966208934783936,
+        "extracting": 0.0015261173248291016,
+        "checking": 0.003958940505981445
+      },
+      "processing_started_at_seconds": 1791124642.939198,
+      "processing_finished_at_seconds": 1791124644.444529,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": null
+    },
+    {
+      "id": "queue-0",
+      "startup_seconds": 0,
+      "document_id": "0f5aad84626f41ee9b0326b3d4994139",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 1.576513,
+      "stages_seconds": {
+        "parsing": 1.4935228824615479,
+        "extracting": 0.0015499591827392578,
+        "checking": 0.007915973663330078
+      },
+      "processing_started_at_seconds": 1791124644.496226,
+      "processing_finished_at_seconds": 1791124646.003831,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 1.580304
+    },
+    {
+      "id": "queue-1",
+      "startup_seconds": 0,
+      "document_id": "9f5479d6773b4cbaa3c36d908dbb01d0",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 3.093612,
+      "stages_seconds": {
+        "parsing": 1.5513510704040527,
+        "extracting": 0.0014069080352783203,
+        "checking": 0.007560014724731445
+      },
+      "processing_started_at_seconds": 1791124646.009596,
+      "processing_finished_at_seconds": 1791124647.573207,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 3.106658
+    },
+    {
+      "id": "queue-2",
+      "startup_seconds": 0,
+      "document_id": "e00ae401644e45478db4bf14370cd668",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 4.484358,
+      "stages_seconds": {
+        "parsing": 1.392359972000122,
+        "extracting": 0.0015459060668945312,
+        "checking": 0.007769107818603516
+      },
+      "processing_started_at_seconds": 1791124647.578769,
+      "processing_finished_at_seconds": 1791124648.983813,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 4.509065
+    },
+    {
+      "id": "queue-3",
+      "startup_seconds": 0,
+      "document_id": "492f519c611c487f858915121abaa0fa",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 6.191417,
+      "stages_seconds": {
+        "parsing": 1.697598934173584,
+        "extracting": 0.001689910888671875,
+        "checking": 0.008059978485107422
+      },
+      "processing_started_at_seconds": 1791124648.989856,
+      "processing_finished_at_seconds": 1791124650.703271,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 6.224911
+    },
+    {
+      "id": "queue-4",
+      "startup_seconds": 0,
+      "document_id": "669a113fd63a4b2894af6cd1a3354d4a",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 7.558895,
+      "stages_seconds": {
+        "parsing": 1.3445069789886475,
+        "extracting": 0.0017321109771728516,
+        "checking": 0.007912874221801758
+      },
+      "processing_started_at_seconds": 1791124650.7096,
+      "processing_finished_at_seconds": 1791124652.070253,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 7.60087
+    },
+    {
+      "id": "queue-5",
+      "startup_seconds": 0,
+      "document_id": "b187f9aa2dd44e0fa0825a13ae3745d2",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 9.772844,
+      "stages_seconds": {
+        "parsing": 2.201608896255493,
+        "extracting": 0.001432180404663086,
+        "checking": 0.00820779800415039
+      },
+      "processing_started_at_seconds": 1791124652.076376,
+      "processing_finished_at_seconds": 1791124654.29118,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 9.826422
+    },
+    {
+      "id": "queue-6",
+      "startup_seconds": 0,
+      "document_id": "62339744e00247608ba2485c307b21c5",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 11.395143,
+      "stages_seconds": {
+        "parsing": 1.5979399681091309,
+        "extracting": 0.0015559196472167969,
+        "checking": 0.008481025695800781
+      },
+      "processing_started_at_seconds": 1791124654.297641,
+      "processing_finished_at_seconds": 1791124655.909791,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 11.457915
+    },
+    {
+      "id": "queue-7",
+      "startup_seconds": 0,
+      "document_id": "620b902dae0746feb5832e25f9505e84",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 12.748126,
+      "stages_seconds": {
+        "parsing": 1.317756175994873,
+        "extracting": 0.0016248226165771484,
+        "checking": 0.009752035140991211
+      },
+      "processing_started_at_seconds": 1791124655.915846,
+      "processing_finished_at_seconds": 1791124657.248395,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 12.819764
+    },
+    {
+      "id": "queue-8",
+      "startup_seconds": 0,
+      "document_id": "12507ef8d704427c84a4c230e0defbfe",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 14.163721,
+      "stages_seconds": {
+        "parsing": 1.4309279918670654,
+        "extracting": 0.0014691352844238281,
+        "checking": 0.008833885192871094
+      },
+      "processing_started_at_seconds": 1791124657.254317,
+      "processing_finished_at_seconds": 1791124658.699353,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 14.243185
+    },
+    {
+      "id": "queue-9",
+      "startup_seconds": 0,
+      "document_id": "69012fd99e7e4c4d98900992337f64b5",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 15.415552,
+      "stages_seconds": {
+        "parsing": 1.2614459991455078,
+        "extracting": 0.0015091896057128906,
+        "checking": 0.008624792098999023
+      },
+      "processing_started_at_seconds": 1791124658.705469,
+      "processing_finished_at_seconds": 1791124659.980538,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 15.50453
+    },
+    {
+      "id": "queue-10",
+      "startup_seconds": 0,
+      "document_id": "bce716a3ba7040dabc00128cf9d5a2c3",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 2,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 20.012943,
+      "stages_seconds": {
+        "parsing": 3.559113025665283,
+        "extracting": 0.0014638900756835938,
+        "checking": 0.009733915328979492
+      },
+      "processing_started_at_seconds": 1791124809.84206,
+      "processing_finished_at_seconds": 1791124813.416087,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 20.111949
+    },
+    {
+      "id": "queue-11",
+      "startup_seconds": 0,
+      "document_id": "839796c121294382882dd727fd8ec355",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 21.611213,
+      "stages_seconds": {
+        "parsing": 1.5615959167480469,
+        "extracting": 0.0013730525970458984,
+        "checking": 0.009128093719482422
+      },
+      "processing_started_at_seconds": 1791124813.422533,
+      "processing_finished_at_seconds": 1791124814.998768,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 21.720642
+    },
+    {
+      "id": "queue-12",
+      "startup_seconds": 0,
+      "document_id": "3d879c5597e24579b8745647f9318a04",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 23.199189,
+      "stages_seconds": {
+        "parsing": 1.5908501148223877,
+        "extracting": 0.0014557838439941406,
+        "checking": 0.009556055068969727
+      },
+      "processing_started_at_seconds": 1791124815.005343,
+      "processing_finished_at_seconds": 1791124816.611224,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 23.319698
+    },
+    {
+      "id": "queue-13",
+      "startup_seconds": 0,
+      "document_id": "fb7aba34acda43ad828a12c429eb7994",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 24.7399,
+      "stages_seconds": {
+        "parsing": 1.5058341026306152,
+        "extracting": 0.0017020702362060547,
+        "checking": 0.01133584976196289
+      },
+      "processing_started_at_seconds": 1791124816.617936,
+      "processing_finished_at_seconds": 1791124818.140353,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 24.872569
+    },
+    {
+      "id": "queue-14",
+      "startup_seconds": 0,
+      "document_id": "7be9f13b6299497c9391cbb29f2d747d",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 26.300477,
+      "stages_seconds": {
+        "parsing": 1.5483009815216064,
+        "extracting": 0.0015881061553955078,
+        "checking": 0.011495828628540039
+      },
+      "processing_started_at_seconds": 1791124818.147104,
+      "processing_finished_at_seconds": 1791124819.71203,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 26.445638
+    },
+    {
+      "id": "queue-15",
+      "startup_seconds": 0,
+      "document_id": "fcddf4a7fecb4c52939a59eb71eff36f",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 1,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 27.914783,
+      "stages_seconds": {
+        "parsing": 1.62095308303833,
+        "extracting": 0.0015978813171386719,
+        "checking": 0.010082006454467773
+      },
+      "processing_started_at_seconds": 1791124819.719405,
+      "processing_finished_at_seconds": 1791124821.355907,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 28.069661
+    },
+    {
+      "id": "queue-16",
+      "startup_seconds": 0,
+      "document_id": "be288d0e19ca412b938d56855bcfaac6",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 2,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 31.499017,
+      "stages_seconds": {
+        "parsing": 3.5679569244384766,
+        "extracting": 0.0017211437225341797,
+        "checking": 0.01588582992553711
+      },
+      "processing_started_at_seconds": 1791124821.363102,
+      "processing_finished_at_seconds": 1791124824.952247,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 31.667572
+    },
+    {
+      "id": "queue-17",
+      "startup_seconds": 0,
+      "document_id": "d9dbff232e614b3d92bbcc9b612b537c",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 2,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 34.92467,
+      "stages_seconds": {
+        "parsing": 3.3973710536956787,
+        "extracting": 0.0016129016876220703,
+        "checking": 0.01715707778930664
+      },
+      "processing_started_at_seconds": 1791124824.960675,
+      "processing_finished_at_seconds": 1791124828.381114,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 35.109745
+    },
+    {
+      "id": "queue-18",
+      "startup_seconds": 0,
+      "document_id": "1654bd3ff3844529b2ef877ebb3ab71b",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 2,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 38.438419,
+      "stages_seconds": {
+        "parsing": 3.513381004333496,
+        "extracting": 0.0017080307006835938,
+        "checking": 0.017017126083374023
+      },
+      "processing_started_at_seconds": 1791124828.388864,
+      "processing_finished_at_seconds": 1791124831.925173,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 38.637073
+    },
+    {
+      "id": "queue-19",
+      "startup_seconds": 0,
+      "document_id": "979754509fe04e0ea64ecc3f0784378f",
+      "status": "REVIEW_READY",
+      "error_code": null,
+      "page_count": 2,
+      "attempt_count": 1,
+      "checkpoint_reused": false,
+      "upload_to_terminal_seconds": 42.082714,
+      "stages_seconds": {
+        "parsing": 3.6270158290863037,
+        "extracting": 0.0017650127410888672,
+        "checking": 0.020069122314453125
+      },
+      "processing_started_at_seconds": 1791124831.932979,
+      "processing_finished_at_seconds": 1791124835.585854,
+      "max_observed_active": 1,
+      "terminal_since_batch_start_seconds": 42.295193
+    }
+  ],
+  "readiness": [
+    {
+      "ready": true,
+      "service": "ready",
+      "database": "ready",
+      "storage": "ready",
+      "worker": "ready",
+      "parser": "ready",
+      "model": "not_configured",
+      "model_required_for_rules": false,
+      "cache_seconds": 5
+    },
+    {
+      "ready": true,
+      "service": "ready",
+      "database": "ready",
+      "storage": "ready",
+      "worker": "ready",
+      "parser": "ready",
+      "model": "not_configured",
+      "model_required_for_rules": false,
+      "cache_seconds": 5
+    },
+    {
+      "ready": true,
+      "service": "ready",
+      "database": "ready",
+      "storage": "ready",
+      "worker": "ready",
+      "parser": "ready",
+      "model": "not_configured",
+      "model_required_for_rules": false,
+      "cache_seconds": 5
+    },
+    {
+      "ready": true,
+      "service": "ready",
+      "database": "ready",
+      "storage": "ready",
+      "worker": "ready",
+      "parser": "ready",
+      "model": "not_configured",
+      "model_required_for_rules": false,
+      "cache_seconds": 5
+    }
+  ],
+  "memory": [
+    {
+      "host_samples": [
+        {
+          "elapsed_seconds": 0.042,
+          "application_rss_bytes": 4308992,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 214761472,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.005859375,
+            2.095703125,
+            2.349609375
+          ],
+          "host_free_plus_speculative_bytes": 157270016,
+          "host_free_percentage": 71
+        },
+        {
+          "elapsed_seconds": 0.356,
+          "application_rss_bytes": 60997632,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 225148928,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.005859375,
+            2.095703125,
+            2.349609375
+          ],
+          "host_free_plus_speculative_bytes": 106627072,
+          "host_free_percentage": 71
+        },
+        {
+          "elapsed_seconds": 0.694,
+          "application_rss_bytes": 61063168,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 226607104,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.005859375,
+            2.095703125,
+            2.349609375
+          ],
+          "host_free_plus_speculative_bytes": 135856128,
+          "host_free_percentage": 70
+        },
+        {
+          "elapsed_seconds": 1.006,
+          "application_rss_bytes": 61063168,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 226590720,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.005859375,
+            2.095703125,
+            2.349609375
+          ],
+          "host_free_plus_speculative_bytes": 129253376,
+          "host_free_percentage": 70
+        },
+        {
+          "elapsed_seconds": 1.326,
+          "application_rss_bytes": 61063168,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 227360768,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.005859375,
+            2.095703125,
+            2.349609375
+          ],
+          "host_free_plus_speculative_bytes": 121208832,
+          "host_free_percentage": 70
+        },
+        {
+          "elapsed_seconds": 1.655,
+          "application_rss_bytes": 61063168,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 241238016,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.005859375,
+            2.095703125,
+            2.349609375
+          ],
+          "host_free_plus_speculative_bytes": 141230080,
+          "host_free_percentage": 70
+        },
+        {
+          "elapsed_seconds": 1.989,
+          "application_rss_bytes": 41287680,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 237912064,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.005859375,
+            2.095703125,
+            2.349609375
+          ],
+          "host_free_plus_speculative_bytes": 160956416,
+          "host_free_percentage": 69
+        },
+        {
+          "elapsed_seconds": 2.297,
+          "application_rss_bytes": 41353216,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 235896832,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.005859375,
+            2.095703125,
+            2.349609375
+          ],
+          "host_free_plus_speculative_bytes": 189202432,
+          "host_free_percentage": 69
+        },
+        {
+          "elapsed_seconds": 2.607,
+          "application_rss_bytes": 41353216,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 236224512,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.08544921875,
+            2.1103515625,
+            2.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 184877056,
+          "host_free_percentage": 69
+        },
+        {
+          "elapsed_seconds": 2.942,
+          "application_rss_bytes": 41254912,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 235880448,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.08544921875,
+            2.1103515625,
+            2.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 197902336,
+          "host_free_percentage": 68
+        },
+        {
+          "elapsed_seconds": 3.257,
+          "application_rss_bytes": 46465024,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 250511360,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.08544921875,
+            2.1103515625,
+            2.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 215171072,
+          "host_free_percentage": 68
+        },
+        {
+          "elapsed_seconds": 3.564,
+          "application_rss_bytes": 46481408,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 250511360,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.08544921875,
+            2.1103515625,
+            2.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 215957504,
+          "host_free_percentage": 68
+        },
+        {
+          "elapsed_seconds": 3.895,
+          "application_rss_bytes": 46497792,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 246333440,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.08544921875,
+            2.1103515625,
+            2.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 261144576,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 4.214,
+          "application_rss_bytes": 46497792,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 225247232,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.08544921875,
+            2.1103515625,
+            2.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 256491520,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 4.526,
+          "application_rss_bytes": 46514176,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 203800576,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.08544921875,
+            2.1103515625,
+            2.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 256131072,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 4.826,
+          "application_rss_bytes": 25722880,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 204275712,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.08544921875,
+            2.1103515625,
+            2.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 260685824,
+          "host_free_percentage": 66
+        }
+      ],
+      "container_samples": [
+        {
+          "elapsed_seconds": 0.026,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 1.06,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 2.092,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 3.126,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 4.777,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        }
+      ],
+      "sampling_errors": {
+        "host": 0,
+        "container": 0
+      },
+      "sampled_component_peaks_bytes": {
+        "application_rss_bytes": 61063168,
+        "model_rss_bytes": 0,
+        "docker_backend_rss_bytes": 250511360,
+        "parser_working_set_bytes": null
+      },
+      "clean_shutdown": true
+    },
+    {
+      "host_samples": [
+        {
+          "elapsed_seconds": 0.043,
+          "application_rss_bytes": 4423680,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 204308480,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.08544921875,
+            2.1103515625,
+            2.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 264830976,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 0.348,
+          "application_rss_bytes": 61849600,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 209076224,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.08544921875,
+            2.1103515625,
+            2.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 227573760,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 0.701,
+          "application_rss_bytes": 61915136,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 209190912,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.08544921875,
+            2.1103515625,
+            2.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 218726400,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 1.017,
+          "application_rss_bytes": 61915136,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 209190912,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.08544921875,
+            2.1103515625,
+            2.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 216104960,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 1.32,
+          "application_rss_bytes": 61915136,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 209158144,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.08544921875,
+            2.1103515625,
+            2.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 211353600,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 1.636,
+          "application_rss_bytes": 61947904,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 209158144,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.08544921875,
+            2.1103515625,
+            2.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 209223680,
+          "host_free_percentage": 66
+        }
+      ],
+      "container_samples": [
+        {
+          "elapsed_seconds": 0.028,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 1.735,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        }
+      ],
+      "sampling_errors": {
+        "host": 0,
+        "container": 0
+      },
+      "sampled_component_peaks_bytes": {
+        "application_rss_bytes": 61947904,
+        "model_rss_bytes": 0,
+        "docker_backend_rss_bytes": 209190912,
+        "parser_working_set_bytes": null
+      },
+      "clean_shutdown": true
+    },
+    {
+      "host_samples": [
+        {
+          "elapsed_seconds": 0.042,
+          "application_rss_bytes": 3670016,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 209190912,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.08544921875,
+            2.1103515625,
+            2.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 240943104,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 0.353,
+          "application_rss_bytes": 62046208,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 209534976,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.08544921875,
+            2.1103515625,
+            2.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 209305600,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 0.663,
+          "application_rss_bytes": 62095360,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 209666048,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.08544921875,
+            2.1103515625,
+            2.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 207650816,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 0.971,
+          "application_rss_bytes": 62144512,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 209666048,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.3984375,
+            2.1748046875,
+            2.3740234375
+          ],
+          "host_free_plus_speculative_bytes": 201195520,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 1.283,
+          "application_rss_bytes": 62144512,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 209731584,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.3984375,
+            2.1748046875,
+            2.3740234375
+          ],
+          "host_free_plus_speculative_bytes": 161529856,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 1.602,
+          "application_rss_bytes": 62144512,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 209731584,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.3984375,
+            2.1748046875,
+            2.3740234375
+          ],
+          "host_free_plus_speculative_bytes": 160251904,
+          "host_free_percentage": 66
+        }
+      ],
+      "container_samples": [
+        {
+          "elapsed_seconds": 0.028,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 1.671,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        }
+      ],
+      "sampling_errors": {
+        "host": 0,
+        "container": 0
+      },
+      "sampled_component_peaks_bytes": {
+        "application_rss_bytes": 62144512,
+        "model_rss_bytes": 0,
+        "docker_backend_rss_bytes": 209731584,
+        "parser_working_set_bytes": null
+      },
+      "clean_shutdown": true
+    },
+    {
+      "host_samples": [
+        {
+          "elapsed_seconds": 0.043,
+          "application_rss_bytes": 5210112,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 210272256,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.3984375,
+            2.1748046875,
+            2.3740234375
+          ],
+          "host_free_plus_speculative_bytes": 187170816,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 0.354,
+          "application_rss_bytes": 61587456,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 210518016,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.3984375,
+            2.1748046875,
+            2.3740234375
+          ],
+          "host_free_plus_speculative_bytes": 160055296,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 0.665,
+          "application_rss_bytes": 61652992,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 210534400,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.3984375,
+            2.1748046875,
+            2.3740234375
+          ],
+          "host_free_plus_speculative_bytes": 142950400,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 0.976,
+          "application_rss_bytes": 61652992,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 210534400,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.3984375,
+            2.1748046875,
+            2.3740234375
+          ],
+          "host_free_plus_speculative_bytes": 144326656,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 1.29,
+          "application_rss_bytes": 61702144,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 210534400,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.3984375,
+            2.1748046875,
+            2.3740234375
+          ],
+          "host_free_plus_speculative_bytes": 72744960,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 1.602,
+          "application_rss_bytes": 61702144,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 210534400,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.3984375,
+            2.1748046875,
+            2.3740234375
+          ],
+          "host_free_plus_speculative_bytes": 76038144,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 1.91,
+          "application_rss_bytes": 61374464,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 210763776,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.3984375,
+            2.1748046875,
+            2.3740234375
+          ],
+          "host_free_plus_speculative_bytes": 75464704,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 2.227,
+          "application_rss_bytes": 62013440,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 210911232,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.3984375,
+            2.1748046875,
+            2.3740234375
+          ],
+          "host_free_plus_speculative_bytes": 78233600,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 2.542,
+          "application_rss_bytes": 62046208,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 210911232,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.3984375,
+            2.1748046875,
+            2.3740234375
+          ],
+          "host_free_plus_speculative_bytes": 71892992,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 2.85,
+          "application_rss_bytes": 62046208,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 210944000,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.3984375,
+            2.1748046875,
+            2.3740234375
+          ],
+          "host_free_plus_speculative_bytes": 77447168,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 3.169,
+          "application_rss_bytes": 62046208,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 210944000,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.3984375,
+            2.1748046875,
+            2.3740234375
+          ],
+          "host_free_plus_speculative_bytes": 79314944,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 3.481,
+          "application_rss_bytes": 62128128,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211058688,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.3984375,
+            2.1748046875,
+            2.3740234375
+          ],
+          "host_free_plus_speculative_bytes": 80986112,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 3.792,
+          "application_rss_bytes": 62128128,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211058688,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.3984375,
+            2.1748046875,
+            2.3740234375
+          ],
+          "host_free_plus_speculative_bytes": 70041600,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 4.107,
+          "application_rss_bytes": 62128128,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211058688,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.3984375,
+            2.1748046875,
+            2.3740234375
+          ],
+          "host_free_plus_speculative_bytes": 73433088,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 4.42,
+          "application_rss_bytes": 62128128,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211058688,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.4462890625,
+            2.1884765625,
+            2.37744140625
+          ],
+          "host_free_plus_speculative_bytes": 74989568,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 4.729,
+          "application_rss_bytes": 62128128,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211058688,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.4462890625,
+            2.1884765625,
+            2.37744140625
+          ],
+          "host_free_plus_speculative_bytes": 73269248,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 5.037,
+          "application_rss_bytes": 62406656,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211451904,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.4462890625,
+            2.1884765625,
+            2.37744140625
+          ],
+          "host_free_plus_speculative_bytes": 80347136,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 5.342,
+          "application_rss_bytes": 62406656,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211451904,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.4462890625,
+            2.1884765625,
+            2.37744140625
+          ],
+          "host_free_plus_speculative_bytes": 76595200,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 5.653,
+          "application_rss_bytes": 62406656,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211451904,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.4462890625,
+            2.1884765625,
+            2.37744140625
+          ],
+          "host_free_plus_speculative_bytes": 70533120,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 5.965,
+          "application_rss_bytes": 62406656,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211451904,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.4462890625,
+            2.1884765625,
+            2.37744140625
+          ],
+          "host_free_plus_speculative_bytes": 75022336,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 6.28,
+          "application_rss_bytes": 62406656,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211451904,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.4462890625,
+            2.1884765625,
+            2.37744140625
+          ],
+          "host_free_plus_speculative_bytes": 74039296,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 6.591,
+          "application_rss_bytes": 61980672,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211632128,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.4462890625,
+            2.1884765625,
+            2.37744140625
+          ],
+          "host_free_plus_speculative_bytes": 67174400,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 6.899,
+          "application_rss_bytes": 61997056,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211632128,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.4462890625,
+            2.1884765625,
+            2.37744140625
+          ],
+          "host_free_plus_speculative_bytes": 73072640,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 7.215,
+          "application_rss_bytes": 61997056,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211632128,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.4462890625,
+            2.1884765625,
+            2.37744140625
+          ],
+          "host_free_plus_speculative_bytes": 82526208,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 7.528,
+          "application_rss_bytes": 61997056,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211664896,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.4462890625,
+            2.1884765625,
+            2.37744140625
+          ],
+          "host_free_plus_speculative_bytes": 92422144,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 7.845,
+          "application_rss_bytes": 61997056,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211664896,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.4462890625,
+            2.1884765625,
+            2.37744140625
+          ],
+          "host_free_plus_speculative_bytes": 85557248,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 8.156,
+          "application_rss_bytes": 61521920,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211812352,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.4462890625,
+            2.1884765625,
+            2.37744140625
+          ],
+          "host_free_plus_speculative_bytes": 88686592,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 8.471,
+          "application_rss_bytes": 62062592,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 212533248,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.4462890625,
+            2.1884765625,
+            2.37744140625
+          ],
+          "host_free_plus_speculative_bytes": 89260032,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 8.783,
+          "application_rss_bytes": 62062592,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 212533248,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.4462890625,
+            2.1884765625,
+            2.37744140625
+          ],
+          "host_free_plus_speculative_bytes": 85901312,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 9.091,
+          "application_rss_bytes": 62062592,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 212549632,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.4462890625,
+            2.1884765625,
+            2.37744140625
+          ],
+          "host_free_plus_speculative_bytes": 72335360,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 9.406,
+          "application_rss_bytes": 62062592,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 212549632,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.490234375,
+            2.20166015625,
+            2.380859375
+          ],
+          "host_free_plus_speculative_bytes": 73007104,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 9.71,
+          "application_rss_bytes": 50135040,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 212615168,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.490234375,
+            2.20166015625,
+            2.380859375
+          ],
+          "host_free_plus_speculative_bytes": 79036416,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 10.019,
+          "application_rss_bytes": 62308352,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 212729856,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.490234375,
+            2.20166015625,
+            2.380859375
+          ],
+          "host_free_plus_speculative_bytes": 77545472,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 10.332,
+          "application_rss_bytes": 62308352,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 212729856,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.490234375,
+            2.20166015625,
+            2.380859375
+          ],
+          "host_free_plus_speculative_bytes": 76054528,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 10.639,
+          "application_rss_bytes": 62308352,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 212762624,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.490234375,
+            2.20166015625,
+            2.380859375
+          ],
+          "host_free_plus_speculative_bytes": 70434816,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 10.946,
+          "application_rss_bytes": 62308352,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 212762624,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.490234375,
+            2.20166015625,
+            2.380859375
+          ],
+          "host_free_plus_speculative_bytes": 69435392,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 11.254,
+          "application_rss_bytes": 36700160,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 212926464,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.490234375,
+            2.20166015625,
+            2.380859375
+          ],
+          "host_free_plus_speculative_bytes": 80855040,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 11.56,
+          "application_rss_bytes": 62128128,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215498752,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.490234375,
+            2.20166015625,
+            2.380859375
+          ],
+          "host_free_plus_speculative_bytes": 76873728,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 11.873,
+          "application_rss_bytes": 62128128,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215498752,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.490234375,
+            2.20166015625,
+            2.380859375
+          ],
+          "host_free_plus_speculative_bytes": 74514432,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 12.185,
+          "application_rss_bytes": 62128128,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215498752,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.490234375,
+            2.20166015625,
+            2.380859375
+          ],
+          "host_free_plus_speculative_bytes": 78741504,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 12.492,
+          "application_rss_bytes": 62128128,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215515136,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.490234375,
+            2.20166015625,
+            2.380859375
+          ],
+          "host_free_plus_speculative_bytes": 79151104,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 12.803,
+          "application_rss_bytes": 61276160,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215531520,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.490234375,
+            2.20166015625,
+            2.380859375
+          ],
+          "host_free_plus_speculative_bytes": 85180416,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 13.114,
+          "application_rss_bytes": 61997056,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215662592,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.490234375,
+            2.20166015625,
+            2.380859375
+          ],
+          "host_free_plus_speculative_bytes": 86507520,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 13.417,
+          "application_rss_bytes": 61997056,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215662592,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.490234375,
+            2.20166015625,
+            2.380859375
+          ],
+          "host_free_plus_speculative_bytes": 80789504,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 13.727,
+          "application_rss_bytes": 61997056,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215662592,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.490234375,
+            2.20166015625,
+            2.380859375
+          ],
+          "host_free_plus_speculative_bytes": 71598080,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 14.045,
+          "application_rss_bytes": 61997056,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215662592,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.490234375,
+            2.20166015625,
+            2.380859375
+          ],
+          "host_free_plus_speculative_bytes": 71761920,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 14.352,
+          "application_rss_bytes": 37453824,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215695360,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.61083984375,
+            2.2314453125,
+            2.39013671875
+          ],
+          "host_free_plus_speculative_bytes": 79413248,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 14.66,
+          "application_rss_bytes": 62455808,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215728128,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.61083984375,
+            2.2314453125,
+            2.39013671875
+          ],
+          "host_free_plus_speculative_bytes": 78823424,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 14.972,
+          "application_rss_bytes": 62455808,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215728128,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.61083984375,
+            2.2314453125,
+            2.39013671875
+          ],
+          "host_free_plus_speculative_bytes": 75661312,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 15.277,
+          "application_rss_bytes": 62455808,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215728128,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.61083984375,
+            2.2314453125,
+            2.39013671875
+          ],
+          "host_free_plus_speculative_bytes": 75808768,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 15.594,
+          "application_rss_bytes": 62455808,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215777280,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.61083984375,
+            2.2314453125,
+            2.39013671875
+          ],
+          "host_free_plus_speculative_bytes": 74596352,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 15.9,
+          "application_rss_bytes": 33931264,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215826432,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.61083984375,
+            2.2314453125,
+            2.39013671875
+          ],
+          "host_free_plus_speculative_bytes": 88227840,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 16.212,
+          "application_rss_bytes": 62488576,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215973888,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.61083984375,
+            2.2314453125,
+            2.39013671875
+          ],
+          "host_free_plus_speculative_bytes": 81117184,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 16.525,
+          "application_rss_bytes": 62488576,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215973888,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.61083984375,
+            2.2314453125,
+            2.39013671875
+          ],
+          "host_free_plus_speculative_bytes": 78397440,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 16.841,
+          "application_rss_bytes": 62488576,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215924736,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.61083984375,
+            2.2314453125,
+            2.39013671875
+          ],
+          "host_free_plus_speculative_bytes": 75038720,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 17.146,
+          "application_rss_bytes": 62488576,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215924736,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.61083984375,
+            2.2314453125,
+            2.39013671875
+          ],
+          "host_free_plus_speculative_bytes": 74104832,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 17.451,
+          "application_rss_bytes": 33964032,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215990272,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.61083984375,
+            2.2314453125,
+            2.39013671875
+          ],
+          "host_free_plus_speculative_bytes": 96321536,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 17.761,
+          "application_rss_bytes": 62799872,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216137728,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.61083984375,
+            2.2314453125,
+            2.39013671875
+          ],
+          "host_free_plus_speculative_bytes": 80592896,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 18.075,
+          "application_rss_bytes": 62799872,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216137728,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.61083984375,
+            2.2314453125,
+            2.39013671875
+          ],
+          "host_free_plus_speculative_bytes": 75857920,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 18.396,
+          "application_rss_bytes": 62799872,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216137728,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.61083984375,
+            2.2314453125,
+            2.39013671875
+          ],
+          "host_free_plus_speculative_bytes": 90603520,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 18.707,
+          "application_rss_bytes": 62799872,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216154112,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.61083984375,
+            2.2314453125,
+            2.39013671875
+          ],
+          "host_free_plus_speculative_bytes": 83689472,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 19.01,
+          "application_rss_bytes": 39550976,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216170496,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.61083984375,
+            2.2314453125,
+            2.39013671875
+          ],
+          "host_free_plus_speculative_bytes": 94912512,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 19.322,
+          "application_rss_bytes": 62488576,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216268800,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.7216796875,
+            2.2607421875,
+            2.3994140625
+          ],
+          "host_free_plus_speculative_bytes": 108953600,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 19.631,
+          "application_rss_bytes": 62488576,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216268800,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.7216796875,
+            2.2607421875,
+            2.3994140625
+          ],
+          "host_free_plus_speculative_bytes": 135348224,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 19.946,
+          "application_rss_bytes": 62488576,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216268800,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.7216796875,
+            2.2607421875,
+            2.3994140625
+          ],
+          "host_free_plus_speculative_bytes": 121962496,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 20.251,
+          "application_rss_bytes": 62488576,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216301568,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.7216796875,
+            2.2607421875,
+            2.3994140625
+          ],
+          "host_free_plus_speculative_bytes": 118358016,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 20.56,
+          "application_rss_bytes": 60227584,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216301568,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.7216796875,
+            2.2607421875,
+            2.3994140625
+          ],
+          "host_free_plus_speculative_bytes": 128450560,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 20.871,
+          "application_rss_bytes": 62324736,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216350720,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.7216796875,
+            2.2607421875,
+            2.3994140625
+          ],
+          "host_free_plus_speculative_bytes": 128761856,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 21.177,
+          "application_rss_bytes": 62324736,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216350720,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.7216796875,
+            2.2607421875,
+            2.3994140625
+          ],
+          "host_free_plus_speculative_bytes": 126910464,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 21.489,
+          "application_rss_bytes": 62324736,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216350720,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.7216796875,
+            2.2607421875,
+            2.3994140625
+          ],
+          "host_free_plus_speculative_bytes": 116113408,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 21.814,
+          "application_rss_bytes": 62324736,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216367104,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.7216796875,
+            2.2607421875,
+            2.3994140625
+          ],
+          "host_free_plus_speculative_bytes": 115179520,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 22.125,
+          "application_rss_bytes": 62226432,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216580096,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.7216796875,
+            2.2607421875,
+            2.3994140625
+          ],
+          "host_free_plus_speculative_bytes": 125190144,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 22.432,
+          "application_rss_bytes": 62226432,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216580096,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.7216796875,
+            2.2607421875,
+            2.3994140625
+          ],
+          "host_free_plus_speculative_bytes": 125911040,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 22.745,
+          "application_rss_bytes": 62226432,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216580096,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.7216796875,
+            2.2607421875,
+            2.3994140625
+          ],
+          "host_free_plus_speculative_bytes": 107102208,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 23.058,
+          "application_rss_bytes": 62226432,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216580096,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.7216796875,
+            2.2607421875,
+            2.3994140625
+          ],
+          "host_free_plus_speculative_bytes": 93765632,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 23.372,
+          "application_rss_bytes": 62226432,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216580096,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.7216796875,
+            2.2607421875,
+            2.3994140625
+          ],
+          "host_free_plus_speculative_bytes": 92700672,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 23.675,
+          "application_rss_bytes": 34291712,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216645632,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.7216796875,
+            2.2607421875,
+            2.3994140625
+          ],
+          "host_free_plus_speculative_bytes": 106250240,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 23.98,
+          "application_rss_bytes": 62521344,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216678400,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.7216796875,
+            2.2607421875,
+            2.3994140625
+          ],
+          "host_free_plus_speculative_bytes": 103153664,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 24.292,
+          "application_rss_bytes": 62521344,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216678400,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.82373046875,
+            2.28955078125,
+            2.40869140625
+          ],
+          "host_free_plus_speculative_bytes": 94896128,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 24.604,
+          "application_rss_bytes": 62521344,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216678400,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.82373046875,
+            2.28955078125,
+            2.40869140625
+          ],
+          "host_free_plus_speculative_bytes": 81952768,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 24.909,
+          "application_rss_bytes": 62521344,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216678400,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.82373046875,
+            2.28955078125,
+            2.40869140625
+          ],
+          "host_free_plus_speculative_bytes": 73908224,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 25.221,
+          "application_rss_bytes": 62734336,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216776704,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.82373046875,
+            2.28955078125,
+            2.40869140625
+          ],
+          "host_free_plus_speculative_bytes": 82591744,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 25.534,
+          "application_rss_bytes": 62734336,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216776704,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.82373046875,
+            2.28955078125,
+            2.40869140625
+          ],
+          "host_free_plus_speculative_bytes": 81182720,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 25.835,
+          "application_rss_bytes": 62734336,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216776704,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.82373046875,
+            2.28955078125,
+            2.40869140625
+          ],
+          "host_free_plus_speculative_bytes": 77348864,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 26.14,
+          "application_rss_bytes": 62734336,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 216776704,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.82373046875,
+            2.28955078125,
+            2.40869140625
+          ],
+          "host_free_plus_speculative_bytes": 77889536,
+          "host_free_percentage": 67
+        },
+        {
+          "elapsed_seconds": 26.572,
+          "application_rss_bytes": 62767104,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 214056960,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.82373046875,
+            2.28955078125,
+            2.40869140625
+          ],
+          "host_free_plus_speculative_bytes": 88047616,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 26.913,
+          "application_rss_bytes": 62734336,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 214056960,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.82373046875,
+            2.28955078125,
+            2.40869140625
+          ],
+          "host_free_plus_speculative_bytes": 75055104,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 27.218,
+          "application_rss_bytes": 62734336,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 214106112,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.82373046875,
+            2.28955078125,
+            2.40869140625
+          ],
+          "host_free_plus_speculative_bytes": 100286464,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 27.524,
+          "application_rss_bytes": 62521344,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 214138880,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.82373046875,
+            2.28955078125,
+            2.40869140625
+          ],
+          "host_free_plus_speculative_bytes": 89620480,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 27.835,
+          "application_rss_bytes": 62521344,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 214138880,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.82373046875,
+            2.28955078125,
+            2.40869140625
+          ],
+          "host_free_plus_speculative_bytes": 82821120,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 28.146,
+          "application_rss_bytes": 62521344,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 214122496,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.82373046875,
+            2.28955078125,
+            2.40869140625
+          ],
+          "host_free_plus_speculative_bytes": 80281600,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 28.455,
+          "application_rss_bytes": 62521344,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 214122496,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.82373046875,
+            2.28955078125,
+            2.40869140625
+          ],
+          "host_free_plus_speculative_bytes": 79822848,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 28.764,
+          "application_rss_bytes": 62521344,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 214122496,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.82373046875,
+            2.28955078125,
+            2.40869140625
+          ],
+          "host_free_plus_speculative_bytes": 77676544,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 29.067,
+          "application_rss_bytes": 63078400,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215498752,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.82373046875,
+            2.28955078125,
+            2.40869140625
+          ],
+          "host_free_plus_speculative_bytes": 88260608,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 29.381,
+          "application_rss_bytes": 63078400,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215498752,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.83740234375,
+            2.30126953125,
+            2.412109375
+          ],
+          "host_free_plus_speculative_bytes": 88866816,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 29.693,
+          "application_rss_bytes": 63078400,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215498752,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.83740234375,
+            2.30126953125,
+            2.412109375
+          ],
+          "host_free_plus_speculative_bytes": 86327296,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 29.997,
+          "application_rss_bytes": 63078400,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215498752,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.83740234375,
+            2.30126953125,
+            2.412109375
+          ],
+          "host_free_plus_speculative_bytes": 81494016,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 30.308,
+          "application_rss_bytes": 62439424,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215597056,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.83740234375,
+            2.30126953125,
+            2.412109375
+          ],
+          "host_free_plus_speculative_bytes": 88539136,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 30.621,
+          "application_rss_bytes": 62439424,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215629824,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.83740234375,
+            2.30126953125,
+            2.412109375
+          ],
+          "host_free_plus_speculative_bytes": 82280448,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 30.936,
+          "application_rss_bytes": 62439424,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215629824,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.83740234375,
+            2.30126953125,
+            2.412109375
+          ],
+          "host_free_plus_speculative_bytes": 83214336,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 31.268,
+          "application_rss_bytes": 62439424,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215613440,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.83740234375,
+            2.30126953125,
+            2.412109375
+          ],
+          "host_free_plus_speculative_bytes": 81117184,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 31.577,
+          "application_rss_bytes": 62439424,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215613440,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.83740234375,
+            2.30126953125,
+            2.412109375
+          ],
+          "host_free_plus_speculative_bytes": 76070912,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 31.888,
+          "application_rss_bytes": 63275008,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215777280,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.83740234375,
+            2.30126953125,
+            2.412109375
+          ],
+          "host_free_plus_speculative_bytes": 82886656,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 32.199,
+          "application_rss_bytes": 63275008,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215777280,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.83740234375,
+            2.30126953125,
+            2.412109375
+          ],
+          "host_free_plus_speculative_bytes": 81248256,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 32.512,
+          "application_rss_bytes": 63275008,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215777280,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.83740234375,
+            2.30126953125,
+            2.412109375
+          ],
+          "host_free_plus_speculative_bytes": 80363520,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 32.824,
+          "application_rss_bytes": 63275008,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215777280,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.83740234375,
+            2.30126953125,
+            2.412109375
+          ],
+          "host_free_plus_speculative_bytes": 84688896,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 33.136,
+          "application_rss_bytes": 62750720,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215859200,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.83740234375,
+            2.30126953125,
+            2.412109375
+          ],
+          "host_free_plus_speculative_bytes": 83443712,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 33.564,
+          "application_rss_bytes": 63619072,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215842816,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.83740234375,
+            2.30126953125,
+            2.412109375
+          ],
+          "host_free_plus_speculative_bytes": 88866816,
+          "host_free_percentage": 66
+        },
+        {
+          "elapsed_seconds": 33.945,
+          "application_rss_bytes": 28868608,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 214990848,
+          "competing_model_processes": 0,
+          "load_average": [
+            2.83740234375,
+            2.30126953125,
+            2.412109375
+          ],
+          "host_free_plus_speculative_bytes": 109281280,
+          "host_free_percentage": 64
+        },
+        {
+          "elapsed_seconds": 34.263,
+          "application_rss_bytes": 57065472,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 214876160,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.30126953125,
+            4.6865234375,
+            3.25341796875
+          ],
+          "host_free_plus_speculative_bytes": 101990400,
+          "host_free_percentage": 63
+        },
+        {
+          "elapsed_seconds": 34.633,
+          "application_rss_bytes": 57065472,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 214810624,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.30126953125,
+            4.6865234375,
+            3.25341796875
+          ],
+          "host_free_plus_speculative_bytes": 105234432,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 35.912,
+          "application_rss_bytes": 57065472,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 212516864,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.30126953125,
+            4.6865234375,
+            3.25341796875
+          ],
+          "host_free_plus_speculative_bytes": 153649152,
+          "host_free_percentage": 60
+        },
+        {
+          "elapsed_seconds": 36.373,
+          "application_rss_bytes": 55689216,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211910656,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.30126953125,
+            4.6865234375,
+            3.25341796875
+          ],
+          "host_free_plus_speculative_bytes": 118439936,
+          "host_free_percentage": 60
+        },
+        {
+          "elapsed_seconds": 36.731,
+          "application_rss_bytes": 51396608,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211140608,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.30126953125,
+            4.6865234375,
+            3.25341796875
+          ],
+          "host_free_plus_speculative_bytes": 126844928,
+          "host_free_percentage": 60
+        },
+        {
+          "elapsed_seconds": 37.052,
+          "application_rss_bytes": 50659328,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211107840,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.30126953125,
+            4.6865234375,
+            3.25341796875
+          ],
+          "host_free_plus_speculative_bytes": 145702912,
+          "host_free_percentage": 60
+        },
+        {
+          "elapsed_seconds": 37.366,
+          "application_rss_bytes": 50331648,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 211042304,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.30126953125,
+            4.6865234375,
+            3.25341796875
+          ],
+          "host_free_plus_speculative_bytes": 146767872,
+          "host_free_percentage": 60
+        },
+        {
+          "elapsed_seconds": 37.678,
+          "application_rss_bytes": 57589760,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 210370560,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.30126953125,
+            4.6865234375,
+            3.25341796875
+          ],
+          "host_free_plus_speculative_bytes": 157040640,
+          "host_free_percentage": 60
+        },
+        {
+          "elapsed_seconds": 37.985,
+          "application_rss_bytes": 57606144,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 210386944,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.30126953125,
+            4.6865234375,
+            3.25341796875
+          ],
+          "host_free_plus_speculative_bytes": 152813568,
+          "host_free_percentage": 60
+        },
+        {
+          "elapsed_seconds": 38.294,
+          "application_rss_bytes": 57606144,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 210386944,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.30126953125,
+            4.6865234375,
+            3.25341796875
+          ],
+          "host_free_plus_speculative_bytes": 162316288,
+          "host_free_percentage": 59
+        },
+        {
+          "elapsed_seconds": 38.603,
+          "application_rss_bytes": 57606144,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 210386944,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.30126953125,
+            4.6865234375,
+            3.25341796875
+          ],
+          "host_free_plus_speculative_bytes": 147619840,
+          "host_free_percentage": 59
+        },
+        {
+          "elapsed_seconds": 38.916,
+          "application_rss_bytes": 57606144,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 210386944,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.30126953125,
+            4.6865234375,
+            3.25341796875
+          ],
+          "host_free_plus_speculative_bytes": 141623296,
+          "host_free_percentage": 59
+        },
+        {
+          "elapsed_seconds": 39.226,
+          "application_rss_bytes": 56950784,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215384064,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.03662109375,
+            4.791015625,
+            3.29833984375
+          ],
+          "host_free_plus_speculative_bytes": 143835136,
+          "host_free_percentage": 59
+        },
+        {
+          "elapsed_seconds": 39.53,
+          "application_rss_bytes": 56950784,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215433216,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.03662109375,
+            4.791015625,
+            3.29833984375
+          ],
+          "host_free_plus_speculative_bytes": 222527488,
+          "host_free_percentage": 60
+        },
+        {
+          "elapsed_seconds": 39.839,
+          "application_rss_bytes": 56950784,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215433216,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.03662109375,
+            4.791015625,
+            3.29833984375
+          ],
+          "host_free_plus_speculative_bytes": 215924736,
+          "host_free_percentage": 60
+        },
+        {
+          "elapsed_seconds": 40.155,
+          "application_rss_bytes": 56950784,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215433216,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.03662109375,
+            4.791015625,
+            3.29833984375
+          ],
+          "host_free_plus_speculative_bytes": 203259904,
+          "host_free_percentage": 60
+        },
+        {
+          "elapsed_seconds": 40.461,
+          "application_rss_bytes": 56950784,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215433216,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.03662109375,
+            4.791015625,
+            3.29833984375
+          ],
+          "host_free_plus_speculative_bytes": 196001792,
+          "host_free_percentage": 60
+        },
+        {
+          "elapsed_seconds": 40.77,
+          "application_rss_bytes": 55934976,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215580672,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.03662109375,
+            4.791015625,
+            3.29833984375
+          ],
+          "host_free_plus_speculative_bytes": 193560576,
+          "host_free_percentage": 61
+        },
+        {
+          "elapsed_seconds": 41.075,
+          "application_rss_bytes": 57229312,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215744512,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.03662109375,
+            4.791015625,
+            3.29833984375
+          ],
+          "host_free_plus_speculative_bytes": 415219712,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 41.381,
+          "application_rss_bytes": 57229312,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215744512,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.03662109375,
+            4.791015625,
+            3.29833984375
+          ],
+          "host_free_plus_speculative_bytes": 455196672,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 41.69,
+          "application_rss_bytes": 57229312,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215744512,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.03662109375,
+            4.791015625,
+            3.29833984375
+          ],
+          "host_free_plus_speculative_bytes": 433848320,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 41.997,
+          "application_rss_bytes": 57229312,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215777280,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.03662109375,
+            4.791015625,
+            3.29833984375
+          ],
+          "host_free_plus_speculative_bytes": 422133760,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 42.301,
+          "application_rss_bytes": 56295424,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 215826432,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.03662109375,
+            4.791015625,
+            3.29833984375
+          ],
+          "host_free_plus_speculative_bytes": 431849472,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 42.606,
+          "application_rss_bytes": 57245696,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 217989120,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.03662109375,
+            4.791015625,
+            3.29833984375
+          ],
+          "host_free_plus_speculative_bytes": 429391872,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 42.908,
+          "application_rss_bytes": 57245696,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 218005504,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.03662109375,
+            4.791015625,
+            3.29833984375
+          ],
+          "host_free_plus_speculative_bytes": 424722432,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 43.219,
+          "application_rss_bytes": 57245696,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 218005504,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.03662109375,
+            4.791015625,
+            3.29833984375
+          ],
+          "host_free_plus_speculative_bytes": 411516928,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 43.529,
+          "application_rss_bytes": 57245696,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 218005504,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.03662109375,
+            4.791015625,
+            3.29833984375
+          ],
+          "host_free_plus_speculative_bytes": 412106752,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 43.832,
+          "application_rss_bytes": 28868608,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 218251264,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.03662109375,
+            4.791015625,
+            3.29833984375
+          ],
+          "host_free_plus_speculative_bytes": 424509440,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 44.134,
+          "application_rss_bytes": 58327040,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 218382336,
+          "competing_model_processes": 0,
+          "load_average": [
+            14.03662109375,
+            4.791015625,
+            3.29833984375
+          ],
+          "host_free_plus_speculative_bytes": 423641088,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 44.44,
+          "application_rss_bytes": 58327040,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 219004928,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.15234375,
+            4.76123046875,
+            3.29638671875
+          ],
+          "host_free_plus_speculative_bytes": 422739968,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 44.748,
+          "application_rss_bytes": 58327040,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 219004928,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.15234375,
+            4.76123046875,
+            3.29638671875
+          ],
+          "host_free_plus_speculative_bytes": 422428672,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 45.059,
+          "application_rss_bytes": 58327040,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 220184576,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.15234375,
+            4.76123046875,
+            3.29638671875
+          ],
+          "host_free_plus_speculative_bytes": 410025984,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 45.368,
+          "application_rss_bytes": 58327040,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 220495872,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.15234375,
+            4.76123046875,
+            3.29638671875
+          ],
+          "host_free_plus_speculative_bytes": 405438464,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 45.679,
+          "application_rss_bytes": 58261504,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 221642752,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.15234375,
+            4.76123046875,
+            3.29638671875
+          ],
+          "host_free_plus_speculative_bytes": 414269440,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 45.982,
+          "application_rss_bytes": 58261504,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 221642752,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.15234375,
+            4.76123046875,
+            3.29638671875
+          ],
+          "host_free_plus_speculative_bytes": 421019648,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 46.291,
+          "application_rss_bytes": 58261504,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 221642752,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.15234375,
+            4.76123046875,
+            3.29638671875
+          ],
+          "host_free_plus_speculative_bytes": 423919616,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 46.598,
+          "application_rss_bytes": 58261504,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 221675520,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.15234375,
+            4.76123046875,
+            3.29638671875
+          ],
+          "host_free_plus_speculative_bytes": 410861568,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 46.907,
+          "application_rss_bytes": 58294272,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 221675520,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.15234375,
+            4.76123046875,
+            3.29638671875
+          ],
+          "host_free_plus_speculative_bytes": 407961600,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 47.213,
+          "application_rss_bytes": 58261504,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 221675520,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.15234375,
+            4.76123046875,
+            3.29638671875
+          ],
+          "host_free_plus_speculative_bytes": 410042368,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 47.522,
+          "application_rss_bytes": 58261504,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 221757440,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.15234375,
+            4.76123046875,
+            3.29638671875
+          ],
+          "host_free_plus_speculative_bytes": 422379520,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 47.832,
+          "application_rss_bytes": 58261504,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 221773824,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.15234375,
+            4.76123046875,
+            3.29638671875
+          ],
+          "host_free_plus_speculative_bytes": 420216832,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 48.141,
+          "application_rss_bytes": 58261504,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 221855744,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.15234375,
+            4.76123046875,
+            3.29638671875
+          ],
+          "host_free_plus_speculative_bytes": 407928832,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 48.465,
+          "application_rss_bytes": 58261504,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 234815488,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.15234375,
+            4.76123046875,
+            3.29638671875
+          ],
+          "host_free_plus_speculative_bytes": 382599168,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 48.778,
+          "application_rss_bytes": 58261504,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 242286592,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.15234375,
+            4.76123046875,
+            3.29638671875
+          ],
+          "host_free_plus_speculative_bytes": 346718208,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 49.084,
+          "application_rss_bytes": 29982720,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 248840192,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.15234375,
+            4.76123046875,
+            3.29638671875
+          ],
+          "host_free_plus_speculative_bytes": 366592000,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 49.387,
+          "application_rss_bytes": 58621952,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 248922112,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.14013671875,
+            4.89794921875,
+            3.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 355614720,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 49.694,
+          "application_rss_bytes": 58621952,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 253706240,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.14013671875,
+            4.89794921875,
+            3.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 344047616,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 49.995,
+          "application_rss_bytes": 58621952,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 260358144,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.14013671875,
+            4.89794921875,
+            3.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 333463552,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 50.301,
+          "application_rss_bytes": 58621952,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 260866048,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.14013671875,
+            4.89794921875,
+            3.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 322797568,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 50.61,
+          "application_rss_bytes": 58621952,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 260866048,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.14013671875,
+            4.89794921875,
+            3.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 313393152,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 50.916,
+          "application_rss_bytes": 58621952,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 260866048,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.14013671875,
+            4.89794921875,
+            3.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 291553280,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 51.218,
+          "application_rss_bytes": 58621952,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 260980736,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.14013671875,
+            4.89794921875,
+            3.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 299433984,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 51.522,
+          "application_rss_bytes": 58621952,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 260980736,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.14013671875,
+            4.89794921875,
+            3.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 291241984,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 51.827,
+          "application_rss_bytes": 58621952,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 260980736,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.14013671875,
+            4.89794921875,
+            3.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 284508160,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 52.132,
+          "application_rss_bytes": 58621952,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 260997120,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.14013671875,
+            4.89794921875,
+            3.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 281116672,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 52.441,
+          "application_rss_bytes": 58621952,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 260997120,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.14013671875,
+            4.89794921875,
+            3.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 296370176,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 52.745,
+          "application_rss_bytes": 58146816,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 261144576,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.14013671875,
+            4.89794921875,
+            3.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 278167552,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 53.056,
+          "application_rss_bytes": 58146816,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 261144576,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.14013671875,
+            4.89794921875,
+            3.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 277446656,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 53.36,
+          "application_rss_bytes": 58146816,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 261144576,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.14013671875,
+            4.89794921875,
+            3.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 275578880,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 53.669,
+          "application_rss_bytes": 58146816,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 261144576,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.14013671875,
+            4.89794921875,
+            3.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 269156352,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 53.978,
+          "application_rss_bytes": 58146816,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 261144576,
+          "competing_model_processes": 0,
+          "load_average": [
+            13.14013671875,
+            4.89794921875,
+            3.35302734375
+          ],
+          "host_free_plus_speculative_bytes": 259653632,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 54.293,
+          "application_rss_bytes": 58146816,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 261095424,
+          "competing_model_processes": 0,
+          "load_average": [
+            12.248046875,
+            4.849609375,
+            3.3447265625
+          ],
+          "host_free_plus_speculative_bytes": 261390336,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 54.598,
+          "application_rss_bytes": 58146816,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 261111808,
+          "competing_model_processes": 0,
+          "load_average": [
+            12.248046875,
+            4.849609375,
+            3.3447265625
+          ],
+          "host_free_plus_speculative_bytes": 270991360,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 54.899,
+          "application_rss_bytes": 58146816,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 261144576,
+          "competing_model_processes": 0,
+          "load_average": [
+            12.248046875,
+            4.849609375,
+            3.3447265625
+          ],
+          "host_free_plus_speculative_bytes": 270090240,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 55.216,
+          "application_rss_bytes": 58146816,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 261144576,
+          "competing_model_processes": 0,
+          "load_average": [
+            12.248046875,
+            4.849609375,
+            3.3447265625
+          ],
+          "host_free_plus_speculative_bytes": 244629504,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 55.525,
+          "application_rss_bytes": 58146816,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 261144576,
+          "competing_model_processes": 0,
+          "load_average": [
+            12.248046875,
+            4.849609375,
+            3.3447265625
+          ],
+          "host_free_plus_speculative_bytes": 185303040,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 55.848,
+          "application_rss_bytes": 58146816,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 261144576,
+          "competing_model_processes": 0,
+          "load_average": [
+            12.248046875,
+            4.849609375,
+            3.3447265625
+          ],
+          "host_free_plus_speculative_bytes": 146751488,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 56.165,
+          "application_rss_bytes": 58572800,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 264044544,
+          "competing_model_processes": 0,
+          "load_average": [
+            12.248046875,
+            4.849609375,
+            3.3447265625
+          ],
+          "host_free_plus_speculative_bytes": 128499712,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 56.483,
+          "application_rss_bytes": 58572800,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 264093696,
+          "competing_model_processes": 0,
+          "load_average": [
+            12.248046875,
+            4.849609375,
+            3.3447265625
+          ],
+          "host_free_plus_speculative_bytes": 111607808,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 56.799,
+          "application_rss_bytes": 58572800,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 264060928,
+          "competing_model_processes": 0,
+          "load_average": [
+            12.248046875,
+            4.849609375,
+            3.3447265625
+          ],
+          "host_free_plus_speculative_bytes": 119472128,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 57.109,
+          "application_rss_bytes": 58572800,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 263880704,
+          "competing_model_processes": 0,
+          "load_average": [
+            12.248046875,
+            4.849609375,
+            3.3447265625
+          ],
+          "host_free_plus_speculative_bytes": 137084928,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 57.418,
+          "application_rss_bytes": 58572800,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 263913472,
+          "competing_model_processes": 0,
+          "load_average": [
+            12.248046875,
+            4.849609375,
+            3.3447265625
+          ],
+          "host_free_plus_speculative_bytes": 180535296,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 57.734,
+          "application_rss_bytes": 58572800,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 263913472,
+          "competing_model_processes": 0,
+          "load_average": [
+            12.248046875,
+            4.849609375,
+            3.3447265625
+          ],
+          "host_free_plus_speculative_bytes": 170082304,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 58.05,
+          "application_rss_bytes": 58605568,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 263913472,
+          "competing_model_processes": 0,
+          "load_average": [
+            12.248046875,
+            4.849609375,
+            3.3447265625
+          ],
+          "host_free_plus_speculative_bytes": 190365696,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 58.358,
+          "application_rss_bytes": 58572800,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 263684096,
+          "competing_model_processes": 0,
+          "load_average": [
+            12.248046875,
+            4.849609375,
+            3.3447265625
+          ],
+          "host_free_plus_speculative_bytes": 195723264,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 58.673,
+          "application_rss_bytes": 58572800,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 263684096,
+          "competing_model_processes": 0,
+          "load_average": [
+            12.248046875,
+            4.849609375,
+            3.3447265625
+          ],
+          "host_free_plus_speculative_bytes": 195510272,
+          "host_free_percentage": 62
+        },
+        {
+          "elapsed_seconds": 58.987,
+          "application_rss_bytes": 58572800,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 263634944,
+          "competing_model_processes": 0,
+          "load_average": [
+            12.248046875,
+            4.849609375,
+            3.3447265625
+          ],
+          "host_free_plus_speculative_bytes": 212762624,
+          "host_free_percentage": 61
+        },
+        {
+          "elapsed_seconds": 59.295,
+          "application_rss_bytes": 58572800,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 263585792,
+          "competing_model_processes": 0,
+          "load_average": [
+            15.67138671875,
+            5.68212890625,
+            3.64697265625
+          ],
+          "host_free_plus_speculative_bytes": 222101504,
+          "host_free_percentage": 61
+        },
+        {
+          "elapsed_seconds": 59.611,
+          "application_rss_bytes": 58572800,
+          "model_rss_bytes": 0,
+          "docker_backend_rss_bytes": 263585792,
+          "competing_model_processes": 0,
+          "load_average": [
+            15.67138671875,
+            5.68212890625,
+            3.64697265625
+          ],
+          "host_free_plus_speculative_bytes": 241025024,
+          "host_free_percentage": 61
+        }
+      ],
+      "container_samples": [
+        {
+          "elapsed_seconds": 0.028,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 1.703,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 3.274,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 4.778,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 6.375,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 8.011,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 9.55,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 11.139,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 12.702,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 14.241,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 15.777,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 17.346,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 18.899,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 20.469,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 21.877,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 23.596,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 24.965,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 27.018,
+          "active_container_count": 1,
+          "working_set_bytes": 92285174
+        },
+        {
+          "elapsed_seconds": 28.799,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 30.139,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 31.588,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 32.869,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 33.922,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 37.017,
+          "active_container_count": 1,
+          "working_set_bytes": 91121254
+        },
+        {
+          "elapsed_seconds": 39.056,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 40.672,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 42.197,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 43.765,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 45.412,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 47.454,
+          "active_container_count": 1,
+          "working_set_bytes": 47919923
+        },
+        {
+          "elapsed_seconds": 48.996,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 51.039,
+          "active_container_count": 1,
+          "working_set_bytes": 31646024
+        },
+        {
+          "elapsed_seconds": 52.42,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 54.457,
+          "active_container_count": 1,
+          "working_set_bytes": 31551652
+        },
+        {
+          "elapsed_seconds": 55.962,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        },
+        {
+          "elapsed_seconds": 58.015,
+          "active_container_count": 1,
+          "working_set_bytes": 103641252
+        },
+        {
+          "elapsed_seconds": 59.614,
+          "active_container_count": 0,
+          "working_set_bytes": 0
+        }
+      ],
+      "sampling_errors": {
+        "host": 0,
+        "container": 0
+      },
+      "sampled_component_peaks_bytes": {
+        "application_rss_bytes": 63619072,
+        "model_rss_bytes": 0,
+        "docker_backend_rss_bytes": 264093696,
+        "parser_working_set_bytes": 103641252
+      },
+      "clean_shutdown": true
+    }
+  ],
+  "docker_vm_memory_limit_bytes": 8215117824,
+  "host_physical_memory_bytes": 17179869184,
+  "failure_type": "ValueError",
+  "artifacts_sha256": {
+    "cold-0-metrics.json": "6b8ee2946b974f8c234428e7375f1431a03beb3bfcbf8187cf6926a3d5723d79",
+    "cold-1-metrics.json": "1d519a3ff147121f9249e50edfd8429fafb8e0ef1e2906d0b6be82aa9b87c6a4",
+    "cold-2-metrics.json": "f64ec5441c6f26fb7aaea829d3bab7e9480b81488dbbdeef0e09f7fc2e273191",
+    "warm-metrics.json": "30d5e2e46e43afeb68c94dcac09f61761345ceebe1c5c77c2a47e5872d041d4c"
+  }
+}

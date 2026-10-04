@@ -1,0 +1,45 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 438B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12.12-slim-bookworm
+#2 ...
+
+#3 [auth] library/python:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12.12-slim-bookworm
+#2 DONE 0.8s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 121B done
+#4 DONE 0.0s
+
+#5 [1/5] FROM docker.io/library/python:3.12.12-slim-bookworm@sha256:593bd06efe90efa80dc4eee3948be7c0fde4134606dd40d8dd8dbcade98e669c
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 538.81kB 0.0s done
+#6 DONE 0.0s
+
+#7 [2/5] RUN apt-get update     && apt-get install -y --no-install-recommends poppler-utils tesseract-ocr tesseract-ocr-eng     && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [3/5] RUN pip install --no-cache-dir Pillow==11.3.0
+#8 CACHED
+
+#9 [4/5] COPY src/docwork /app/docwork
+#9 DONE 0.0s
+
+#10 [5/5] WORKDIR /app
+#10 DONE 0.0s
+
+#11 exporting to image
+#11 exporting layers 0.1s done
+#11 writing image sha256:1882551df34e75e029bb64bdd9663b5843d4b11d87ba9073bab13ae6fc97dd8c 0.0s done
+#11 naming to docker.io/library/docwork-parser:v3 done
+#11 DONE 0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/3gdonbld0hzzlrvsycrhcit8i
