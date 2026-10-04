@@ -65,6 +65,7 @@ def main() -> int:
              *sorted((root / "tests").glob("container_*.py")), Path(__file__).resolve(),
              *sorted(path for path in (root / "sandbox").glob("*") if path.is_file()), root / ".dockerignore",
              root / "samples/clean.png", root / "samples/conflicting-total.png"]
+    paths += sorted(path for path in (root / "tests/fixtures/security").glob("*") if path.is_file())
     hashes = {str(path.relative_to(root)): hashlib.sha256(path.read_bytes()).hexdigest() for path in paths}
     report = {"report_version": "parser-verification-v1", "status": "failed",
               "started_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -72,6 +73,8 @@ def main() -> int:
                        "python": platform.python_version()},
               "parser_image": PARSER_IMAGE, "source_sha256": hashes, "checks": [],
               "scope": "Self-authored fixtures and runtime probes; OCR/rules only. "
+                       "Includes valid encrypted PDFs with empty/nonempty passwords, independently confirmed "
+                       "by pinned pdfinfo before production refusal; legacy RC4 fixture, not encryption security. "
                        "Includes refused-loopback-model retry and abrupt host worker exit after a parser checkpoint, "
                        "with rules extraction on resume and a shortened real lease; "
                        "also portable backup/restore of a reviewed two-page PDF and an interrupted checkpoint. "

@@ -20,6 +20,8 @@ The latest [footprint and performance evidence](evals/memory-performance-2026-10
 
 The [fresh-source model setup evidence](evals/model-setup-2026-10-04/README.md) now covers explicit acquisition and verified local transfer, each with **seven passing checks** and both real fictional review/export workflows under an inherited macOS outbound-network policy. The final verifier adds owned timeout/interruption cleanup; **375 deterministic tests** and **eight isolated checkout checks** pass. Host Python/Docker and the installed parser remain prerequisites. G14 setup is covered for this configuration; genuine scans/manual judgments, whole-memory accounting and final adversarial/presentation/publication gates remain open.
 
+The later [adversarial checks](docs/adversarial.md) add valid encrypted-PDF refusal, two real hostile-document/model cases, literal malicious browser values and formula-safe exports. **Eighteen parser, nine Chrome, ten access and eight isolated checkout checks pass**, including **384 deterministic tests**. Original model row errors and an intermittent short-lease parser-test failure are preserved; model verifier drift and an unexecuted refresh are explicit. G08 is covered for these bounded cases; production/semantic studies, whole-memory accounting, remaining stage recovery and release presentation/confirmation remain open. [Reviewed evidence](evals/adversarial-2026-10-04/README.md).
+
 ![Review workspace with source evidence and a versioned correction](evals/portfolio-candidate-browser-2026-10-03/frames/01.png)
 
 *Automated Chrome capture on a disposable fictional development fixture using recorded OCR. This is interface evidence, not human review-time or live extraction evidence.*

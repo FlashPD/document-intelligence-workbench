@@ -1,6 +1,6 @@
 # Live parser verification — October 3, 2026
 
-The results below are historical. The [October 4 pinned-build guide](parser-build.md) supersedes their moving-build-input limitation and links new sixteen-check runtime and rebuild evidence. Historical image identities and outcomes remain unchanged.
+The results below are historical. The [October 4 pinned-build guide](parser-build.md) supersedes their moving-build-input limitation and links new sixteen-check runtime and rebuild evidence. The later [adversarial verification](adversarial.md) adds valid encrypted-PDF fixtures and an eighteen-check pinned-image pass, preserving its initial short-lease recovery-test failure. Historical image identities and outcomes remain unchanged.
 
 The later [checkpoint recovery run](parser-recovery.md) extends this suite to 12 passing checks with abrupt host worker exit and model transport failure evidence. The original ten-check results below remain historical.
 

@@ -139,6 +139,38 @@ with Image.open('/input/original') as source:
         document_id = self.process(b"%PDF-1.4\ninvalid\n", "broken.pdf", "application/pdf")
         self.assert_failed(document_id, "PDF_INFO_FAILED")
 
+    def encrypted_case(self, name, password, error_code):
+        fixtures = Path(__file__).resolve().parent / "fixtures/security"
+        source = fixtures / name
+        manifest = json.loads((fixtures / "manifest.json").read_text())
+        self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(), manifest["cases"][name]["sha256"])
+        output = self.root / "encrypted-probe"
+        output.mkdir()
+        output.chmod(0o777)
+        command = parser_command(source, "application/pdf", output,
+                                 JobClaim(uuid.uuid4().hex, "probe", 1, "smoke", 0), image=PARSER_IMAGE)
+        # Confirm this is a valid encrypted PDF through the pinned independent
+        # pdfinfo tool, not just malformed bytes with an /Encrypt marker.
+        probe = subprocess.run(command[:-4] + ["--entrypoint", "pdfinfo", PARSER_IMAGE,
+                                                "-upw", password, "/input/original"],
+                               capture_output=True, text=True, check=True, timeout=30)
+        self.assertIn("Encrypted:       yes", probe.stdout)
+        self.assertIn("Pages:           1", probe.stdout)
+        document_id = self.process(source.read_bytes(), name, "application/pdf")
+        self.assert_failed(document_id, error_code)
+        self.assertIsNone(self.store.status(document_id)["parser_checkpoint"])
+        self.evidence.update(fixture=name, encryption_confirmed=True,
+                             independent_pdfinfo=probe.stdout,
+                             outcome="Refused before rendering/checkpoint/candidate/approval/export")
+
+    def test_container_rejects_encrypted_pdf_with_empty_password(self):
+        self.encrypted_case("encrypted-empty-password.pdf", "", "PDF_ENCRYPTED")
+
+    def test_container_rejects_password_protected_pdf(self):
+        # Without its fictional password pdfinfo cannot inspect the document.
+        # The product retains the existing PDF_INFO_FAILED rejection code.
+        self.encrypted_case("encrypted-password.pdf", "fixture-open-only", "PDF_INFO_FAILED")
+
     def test_container_rejects_eleven_page_pdf(self):
         document_id = self.process(two_page_pdf(11), "eleven.pdf", "application/pdf")
         self.assert_failed(document_id, "PDF_PAGE_LIMIT")

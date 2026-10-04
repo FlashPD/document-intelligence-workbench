@@ -69,6 +69,13 @@ model-workflow-verify:
 model-setup-verify:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/verify_model_setup.py --output-dir "$(or $(OUTPUT),artifacts/model-setup-fresh)" $(if $(ASSET_SOURCE),--asset-source "$(ASSET_SOURCE)",--download)
 
+.PHONY: adversarial-model-verify adversarial-browser-verify
+adversarial-model-verify:
+	PYTHONPATH=$(PYTHONPATH) /usr/bin/sandbox-exec -f evals/model-setup-2026-10-04/transfer/offline.sb $(PYTHON) scripts/verify_adversarial.py --mode model --output-dir "$(or $(OUTPUT),artifacts/adversarial-model-fresh)"
+
+adversarial-browser-verify:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/verify_adversarial.py --mode browser --output-dir "$(or $(OUTPUT),artifacts/adversarial-browser-fresh)"
+
 dev:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli serve
 

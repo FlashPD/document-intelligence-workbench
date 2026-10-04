@@ -1,0 +1,727 @@
+{
+  "document_id": "ee8b8c682f514c1badc36bab0a6effc6",
+  "source_sha256": "bdd8ee263d7877fade240cd1622c101e7a680b0d0e924494003e0a5c64a96165",
+  "source_name": "<img id=\"docwork-injected\" src=\"x\" onerror=\"globalThis.__docworkAttack=1\"><script>globalThis.__docworkAttack=2</script>.png",
+  "page": {
+    "number": 1,
+    "width_px": 1200,
+    "height_px": 1600,
+    "spans": [
+      {
+        "id": "p1-l0001",
+        "page": 1,
+        "text": "agama",
+        "box": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 1.0,
+          "bottom": 0.011875
+        },
+        "method": "tesseract-eng",
+        "confidence": 38.2
+      },
+      {
+        "id": "p1-l0002",
+        "page": 1,
+        "text": "Juniper Labs",
+        "box": {
+          "left": 0.055,
+          "top": 0.026875,
+          "right": 0.25916666666666666,
+          "bottom": 0.051875
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.54
+      },
+      {
+        "id": "p1-l0003",
+        "page": 1,
+        "text": "INVOICE",
+        "box": {
+          "left": 0.6866666666666666,
+          "top": 0.064375,
+          "right": 0.8291666666666667,
+          "bottom": 0.08375
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.11
+      },
+      {
+        "id": "p1-l0004",
+        "page": 1,
+        "text": "Invoice No.: F02-002",
+        "box": {
+          "left": 0.585,
+          "top": 0.1625,
+          "right": 0.78,
+          "bottom": 0.174375
+        },
+        "method": "tesseract-eng",
+        "confidence": 84.58
+      },
+      {
+        "id": "p1-l0005",
+        "page": 1,
+        "text": "Date: 2026-01-15",
+        "box": {
+          "left": 0.585,
+          "top": 0.199375,
+          "right": 0.7483333333333333,
+          "bottom": 0.21125
+        },
+        "method": "tesseract-eng",
+        "confidence": 95.57
+      },
+      {
+        "id": "p1-l0006",
+        "page": 1,
+        "text": "Due date: 2026-02-14",
+        "box": {
+          "left": 0.585,
+          "top": 0.23625,
+          "right": 0.7883333333333333,
+          "bottom": 0.248125
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.45
+      },
+      {
+        "id": "p1-l0007",
+        "page": 1,
+        "text": "Currency: USD",
+        "box": {
+          "left": 0.5841666666666666,
+          "top": 0.273125,
+          "right": 0.7275,
+          "bottom": 0.288125
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.17
+      },
+      {
+        "id": "p1-l0008",
+        "page": 1,
+        "text": "Description Qty Unit price Amount",
+        "box": {
+          "left": 0.06833333333333333,
+          "top": 0.388125,
+          "right": 0.9066666666666666,
+          "bottom": 0.40875
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.49
+      },
+      {
+        "id": "p1-l0009",
+        "page": 1,
+        "text": "Usability session 4 68.00 272.00",
+        "box": {
+          "left": 0.06833333333333333,
+          "top": 0.435625,
+          "right": 0.8966666666666666,
+          "bottom": 0.450625
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.37
+      },
+      {
+        "id": "p1-l0010",
+        "page": 1,
+        "text": "Field interview 3 54.00 162.00",
+        "box": {
+          "left": 0.06833333333333333,
+          "top": 0.48375,
+          "right": 0.8966666666666666,
+          "bottom": 0.505
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.1
+      },
+      {
+        "id": "p1-l0011",
+        "page": 1,
+        "text": "Layout study 4 61.00 244.00",
+        "box": {
+          "left": 0.06833333333333333,
+          "top": 0.536875,
+          "right": 0.8966666666666666,
+          "bottom": 0.551875
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.45
+      },
+      {
+        "id": "p1-l0012",
+        "page": 1,
+        "text": "Subtotal: 678.00",
+        "box": {
+          "left": 0.5841666666666666,
+          "top": 0.753125,
+          "right": 0.7358333333333333,
+          "bottom": 0.765
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.28
+      },
+      {
+        "id": "p1-l0013",
+        "page": 1,
+        "text": "Tax: 6.00",
+        "box": {
+          "left": 0.5833333333333334,
+          "top": 0.78875,
+          "right": 0.6708333333333333,
+          "bottom": 0.800625
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.07
+      },
+      {
+        "id": "p1-l0014",
+        "page": 1,
+        "text": "Discount: 0.00",
+        "box": {
+          "left": 0.585,
+          "top": 0.824375,
+          "right": 0.7183333333333334,
+          "bottom": 0.83625
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.62
+      },
+      {
+        "id": "p1-l0015",
+        "page": 1,
+        "text": "Shipping: 2.00",
+        "box": {
+          "left": 0.5841666666666666,
+          "top": 0.86,
+          "right": 0.7175,
+          "bottom": 0.875
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.32
+      },
+      {
+        "id": "p1-l0016",
+        "page": 1,
+        "text": "Total: 686.00",
+        "box": {
+          "left": 0.5833333333333334,
+          "top": 0.895625,
+          "right": 0.7058333333333333,
+          "bottom": 0.9075
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.32
+      },
+      {
+        "id": "p1-l0017",
+        "page": 1,
+        "text": "Page 1",
+        "box": {
+          "left": 0.81,
+          "top": 0.9625,
+          "right": 0.8716666666666667,
+          "bottom": 0.9775
+        },
+        "method": "tesseract-eng",
+        "confidence": 96.69
+      }
+    ]
+  },
+  "pages": [
+    {
+      "number": 1,
+      "width_px": 1200,
+      "height_px": 1600,
+      "spans": [
+        {
+          "id": "p1-l0001",
+          "page": 1,
+          "text": "agama",
+          "box": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 1.0,
+            "bottom": 0.011875
+          },
+          "method": "tesseract-eng",
+          "confidence": 38.2
+        },
+        {
+          "id": "p1-l0002",
+          "page": 1,
+          "text": "Juniper Labs",
+          "box": {
+            "left": 0.055,
+            "top": 0.026875,
+            "right": 0.25916666666666666,
+            "bottom": 0.051875
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.54
+        },
+        {
+          "id": "p1-l0003",
+          "page": 1,
+          "text": "INVOICE",
+          "box": {
+            "left": 0.6866666666666666,
+            "top": 0.064375,
+            "right": 0.8291666666666667,
+            "bottom": 0.08375
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.11
+        },
+        {
+          "id": "p1-l0004",
+          "page": 1,
+          "text": "Invoice No.: F02-002",
+          "box": {
+            "left": 0.585,
+            "top": 0.1625,
+            "right": 0.78,
+            "bottom": 0.174375
+          },
+          "method": "tesseract-eng",
+          "confidence": 84.58
+        },
+        {
+          "id": "p1-l0005",
+          "page": 1,
+          "text": "Date: 2026-01-15",
+          "box": {
+            "left": 0.585,
+            "top": 0.199375,
+            "right": 0.7483333333333333,
+            "bottom": 0.21125
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.57
+        },
+        {
+          "id": "p1-l0006",
+          "page": 1,
+          "text": "Due date: 2026-02-14",
+          "box": {
+            "left": 0.585,
+            "top": 0.23625,
+            "right": 0.7883333333333333,
+            "bottom": 0.248125
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.45
+        },
+        {
+          "id": "p1-l0007",
+          "page": 1,
+          "text": "Currency: USD",
+          "box": {
+            "left": 0.5841666666666666,
+            "top": 0.273125,
+            "right": 0.7275,
+            "bottom": 0.288125
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.17
+        },
+        {
+          "id": "p1-l0008",
+          "page": 1,
+          "text": "Description Qty Unit price Amount",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.388125,
+            "right": 0.9066666666666666,
+            "bottom": 0.40875
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.49
+        },
+        {
+          "id": "p1-l0009",
+          "page": 1,
+          "text": "Usability session 4 68.00 272.00",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.435625,
+            "right": 0.8966666666666666,
+            "bottom": 0.450625
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.37
+        },
+        {
+          "id": "p1-l0010",
+          "page": 1,
+          "text": "Field interview 3 54.00 162.00",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.48375,
+            "right": 0.8966666666666666,
+            "bottom": 0.505
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.1
+        },
+        {
+          "id": "p1-l0011",
+          "page": 1,
+          "text": "Layout study 4 61.00 244.00",
+          "box": {
+            "left": 0.06833333333333333,
+            "top": 0.536875,
+            "right": 0.8966666666666666,
+            "bottom": 0.551875
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.45
+        },
+        {
+          "id": "p1-l0012",
+          "page": 1,
+          "text": "Subtotal: 678.00",
+          "box": {
+            "left": 0.5841666666666666,
+            "top": 0.753125,
+            "right": 0.7358333333333333,
+            "bottom": 0.765
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.28
+        },
+        {
+          "id": "p1-l0013",
+          "page": 1,
+          "text": "Tax: 6.00",
+          "box": {
+            "left": 0.5833333333333334,
+            "top": 0.78875,
+            "right": 0.6708333333333333,
+            "bottom": 0.800625
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.07
+        },
+        {
+          "id": "p1-l0014",
+          "page": 1,
+          "text": "Discount: 0.00",
+          "box": {
+            "left": 0.585,
+            "top": 0.824375,
+            "right": 0.7183333333333334,
+            "bottom": 0.83625
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.62
+        },
+        {
+          "id": "p1-l0015",
+          "page": 1,
+          "text": "Shipping: 2.00",
+          "box": {
+            "left": 0.5841666666666666,
+            "top": 0.86,
+            "right": 0.7175,
+            "bottom": 0.875
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.32
+        },
+        {
+          "id": "p1-l0016",
+          "page": 1,
+          "text": "Total: 686.00",
+          "box": {
+            "left": 0.5833333333333334,
+            "top": 0.895625,
+            "right": 0.7058333333333333,
+            "bottom": 0.9075
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.32
+        },
+        {
+          "id": "p1-l0017",
+          "page": 1,
+          "text": "Page 1",
+          "box": {
+            "left": 0.81,
+            "top": 0.9625,
+            "right": 0.8716666666666667,
+            "bottom": 0.9775
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.69
+        }
+      ]
+    }
+  ],
+  "extraction": {
+    "attempt_id": "da3f6864b3d14b8cb9d62a3dacf928e8:1",
+    "created_at": "2026-10-04T18:39:08.874267+00:00",
+    "input_sha256": "f3eea7de998550d2c09c6f83a8d57f54cd34c7a3b269ecec96a7f03b9a3b8570",
+    "model_id": null,
+    "parser_version": "container-tesseract-v3",
+    "profile": "replay_ocr_rules",
+    "prompt_sha256": null
+  },
+  "revision": 5,
+  "current_revision": 5,
+  "record": {
+    "fields": {
+      "currency": {
+        "evidence_ids": [
+          "p1-l0007"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Currency: USD",
+        "value": "USD"
+      },
+      "discount": {
+        "evidence_ids": [
+          "p1-l0014"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Discount: 0.00",
+        "value": "0.00"
+      },
+      "due_date": {
+        "evidence_ids": [
+          "p1-l0006"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Due date: 2026-02-14",
+        "value": "2026-02-14"
+      },
+      "invoice_number": {
+        "evidence_ids": [
+          "p1-l0004"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Invoice No.: F02-002",
+        "value": "F02-002"
+      },
+      "issue_date": {
+        "evidence_ids": [
+          "p1-l0005"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Date: 2026-01-15",
+        "value": "2026-01-15"
+      },
+      "shipping": {
+        "evidence_ids": [
+          "p1-l0015"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Shipping: 2.00",
+        "value": "2.00"
+      },
+      "subtotal": {
+        "evidence_ids": [
+          "p1-l0012"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Subtotal: 678.00",
+        "value": "678.00"
+      },
+      "supplier_name": {
+        "evidence_ids": [
+          "p1-l0002"
+        ],
+        "missing_reason": null,
+        "origin": "reviewer",
+        "raw": "Juniper Labs",
+        "value": " \t=HYPERLINK(\"https://example.invalid\",\"fictional CSV check\")"
+      },
+      "tax": {
+        "evidence_ids": [
+          "p1-l0013"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Tax: 6.00",
+        "value": "6.00"
+      },
+      "total": {
+        "evidence_ids": [
+          "p1-l0016"
+        ],
+        "missing_reason": null,
+        "origin": "observed",
+        "raw": "Total: 686.00",
+        "value": "686.00"
+      }
+    },
+    "line_items": [
+      {
+        "description": {
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "missing_reason": null,
+          "origin": "reviewer",
+          "raw": "Usability session 4 68.00 272.00",
+          "value": " \t=HYPERLINK(\"https://example.invalid\",\"fictional CSV check\")"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Usability session 4 68.00 272.00",
+          "value": "272.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Usability session 4 68.00 272.00",
+          "value": "4"
+        },
+        "row_id": "row-001",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_explicit_on_row",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Usability session 4 68.00 272.00",
+          "value": "68.00"
+        }
+      },
+      {
+        "description": {
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Field interview 3 54.00 162.00",
+          "value": "Field interview"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Field interview 3 54.00 162.00",
+          "value": "162.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Field interview 3 54.00 162.00",
+          "value": "3"
+        },
+        "row_id": "row-002",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_explicit_on_row",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Field interview 3 54.00 162.00",
+          "value": "54.00"
+        }
+      },
+      {
+        "description": {
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 4 61.00 244.00",
+          "value": "Layout study"
+        },
+        "line_total": {
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 4 61.00 244.00",
+          "value": "244.00"
+        },
+        "quantity": {
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 4 61.00 244.00",
+          "value": "4"
+        },
+        "row_id": "row-003",
+        "tax": {
+          "evidence_ids": [],
+          "missing_reason": "not_explicit_on_row",
+          "origin": "observed",
+          "raw": null,
+          "value": null
+        },
+        "unit_price": {
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Layout study 4 61.00 244.00",
+          "value": "61.00"
+        }
+      }
+    ],
+    "schema_version": "invoice-v1-spike"
+  },
+  "record_hash": "4aa265edc2e2ea4ecaa4574ae16b5af0127d01c79fdd532fb5132290e0001428",
+  "issues": [],
+  "review_priority": {
+    "version": "review-priority-v1",
+    "points": 0,
+    "signals": []
+  },
+  "decisions": [],
+  "approval": {
+    "document_id": "ee8b8c682f514c1badc36bab0a6effc6",
+    "revision": 5,
+    "record_hash": "4aa265edc2e2ea4ecaa4574ae16b5af0127d01c79fdd532fb5132290e0001428",
+    "decision_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "approval_hash": "fcc2c4fcdbd079e4400cc5566a54acef1fa5c8223de2e21af5fee11ca11c3699",
+    "actor": "local:pushyanth",
+    "policy_version": "review-v1",
+    "created_at": "2026-10-04T18:54:09.501942+00:00"
+  }
+}

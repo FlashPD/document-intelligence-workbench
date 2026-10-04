@@ -1,0 +1,52 @@
+PYTHONPATH=src python3.12 scripts/verify_parser.py --output artifacts/adversarial-parser-2026-10-04-001/report.json
+test_abrupt_worker_exit_resumes_committed_parser_checkpoint (container_parser.ParserSmoke.test_abrupt_worker_exit_resumes_committed_parser_checkpoint) ... FAIL
+test_backup_restores_interrupted_real_parser_checkpoint (container_parser.ParserSmoke.test_backup_restores_interrupted_real_parser_checkpoint) ... ok
+test_backup_restores_real_pdf_review_and_immutable_exports (container_parser.ParserSmoke.test_backup_restores_real_pdf_review_and_immutable_exports) ... ok
+test_container_conflict_review_export_and_reopen (container_parser.ParserSmoke.test_container_conflict_review_export_and_reopen) ... ok
+test_container_duplicate_submissions_have_independent_approval (container_parser.ParserSmoke.test_container_duplicate_submissions_have_independent_approval) ... ok
+test_container_jpeg_exif_rotation (container_parser.ParserSmoke.test_container_jpeg_exif_rotation) ... ok
+test_container_missing_image_retry (container_parser.ParserSmoke.test_container_missing_image_retry) ... ok
+test_container_processes_committed_png (container_parser.ParserSmoke.test_container_processes_committed_png) ... ok
+test_container_processes_two_page_pdf (container_parser.ParserSmoke.test_container_processes_two_page_pdf) ... ok
+test_container_rejects_eleven_page_pdf (container_parser.ParserSmoke.test_container_rejects_eleven_page_pdf) ... ok
+test_container_rejects_encrypted_pdf_with_empty_password (container_parser.ParserSmoke.test_container_rejects_encrypted_pdf_with_empty_password) ... ok
+test_container_rejects_malformed_pdf (container_parser.ParserSmoke.test_container_rejects_malformed_pdf) ... ok
+test_container_rejects_password_protected_pdf (container_parser.ParserSmoke.test_container_rejects_password_protected_pdf) ... ok
+test_container_rejects_truncated_png (container_parser.ParserSmoke.test_container_rejects_truncated_png) ... ok
+test_container_runtime_restrictions (container_parser.ParserSmoke.test_container_runtime_restrictions) ... ok
+test_model_outage_retry_reuses_real_two_page_parser_output (container_parser.ParserSmoke.test_model_outage_retry_reuses_real_two_page_parser_output) ... ok
+test_cgroup_oom_is_recorded_then_real_parser_retry_succeeds (container_resources.ParserResourceChecks.test_cgroup_oom_is_recorded_then_real_parser_retry_succeeds) ... ok
+test_timeout_kills_container_then_real_parser_retry_succeeds (container_resources.ParserResourceChecks.test_timeout_kills_container_then_real_parser_retry_succeeds) ... ok
+
+======================================================================
+FAIL: test_abrupt_worker_exit_resumes_committed_parser_checkpoint (container_parser.ParserSmoke.test_abrupt_worker_exit_resumes_committed_parser_checkpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/tests/container_parser.py", line 386, in test_abrupt_worker_exit_resumes_committed_parser_checkpoint
+    self.assertEqual(result.returncode, 73, result.stderr)
+AssertionError: 1 != 73 : Traceback (most recent call last):
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/src/docwork/worker.py", line 346, in process_one
+    _docker_run(source, status["media_type"], output, claim, image=identity, stop_event=stopped)
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/src/docwork/worker.py", line 165, in _docker_run
+    raise JobStopped("Processing stopped")
+docwork.intake.JobStopped: Processing stopped
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<string>", line 12, in <module>
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/src/docwork/worker.py", line 388, in process_one
+    store.check_claim(claim)
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/src/docwork/lifecycle.py", line 79, in check_claim
+    self._verify_claim(db, claim)
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/src/docwork/intake.py", line 529, in _verify_claim
+    raise ReviewConflict("Processing lease is missing, expired, or fenced out")
+docwork.review.ReviewConflict: Processing lease is missing, expired, or fenced out
+
+
+----------------------------------------------------------------------
+Ran 18 tests in 44.136s
+
+FAILED (failures=1)
+{"status": "failed", "checks": 18, "report": "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/artifacts/adversarial-parser-2026-10-04-001/report.json"}
+make: *** [parser-verify] Error 2
