@@ -9,17 +9,19 @@ import shutil
 import subprocess
 import tempfile
 import threading
+import time
 from contextlib import contextmanager
 from pathlib import Path
 
 from .baseline import extract_invoice_pages
-from .intake import IntakeStore, JobClaim, _check_content
+from .intake import IntakeStore, JobClaim, JobStopped, _check_content, validate_profile
 from .local_model import (
     PROMPT_SHA256, LocalModelConfig, ModelContextOverflow, ModelOutputInvalid,
     ModelRequestRejected, ModelUnavailable, extract_pages,
 )
 from .parser_protocol import MAX_PAGE_BYTES, MAX_PAGES, MAX_RESULT_BYTES, PARSER_VERSION
 from .review import ReviewConflict, page_from_dict
+from .storage_budget import StorageLimitExceeded
 
 PARSER_IMAGE = "docwork-parser:v3"
 PARSER_TIMEOUT = 600
@@ -34,7 +36,7 @@ KNOWN_REJECTIONS = frozenset({
 })
 
 
-class ParserFailure(Exception):
+class ParserFailure(RuntimeError):
     def __init__(self, code: str):
         self.code = code
         super().__init__(code)
@@ -140,13 +142,38 @@ def parser_command(source: Path, media_type: str, output: Path, claim: JobClaim,
 
 
 def _docker_run(source: Path, media_type: str, output: Path, claim: JobClaim,
-                *, image: str) -> None:
+                *, image: str, stop_event: threading.Event | None = None) -> None:
+    if stop_event is not None and stop_event.is_set():
+        raise JobStopped("Processing stopped")
     if shutil.which("docker") is None:
         raise ParserFailure("PARSER_UNAVAILABLE")
     command = parser_command(source, media_type, output, claim, image=image)
     container_name = command[command.index("--name") + 1]
     try:
-        completed = subprocess.run(command, capture_output=True, timeout=PARSER_TIMEOUT, check=False)
+        if stop_event is None:
+            completed = subprocess.run(command, capture_output=True, timeout=PARSER_TIMEOUT, check=False)
+        else:
+            process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            deadline = time.monotonic() + PARSER_TIMEOUT
+            try:
+                while True:
+                    if stop_event.is_set() or time.monotonic() >= deadline:
+                        remove_owned_container(container_name)
+                        process.kill()
+                        process.communicate()
+                        if stop_event.is_set():
+                            raise JobStopped("Processing stopped")
+                        raise ParserFailure("PARSER_TIMEOUT")
+                    try:
+                        stdout, stderr = process.communicate(timeout=.1)
+                        completed = subprocess.CompletedProcess(command, process.returncode, stdout, stderr)
+                        break
+                    except subprocess.TimeoutExpired:
+                        continue
+            finally:
+                if process.poll() is None:
+                    process.kill()
+                    process.communicate()
     except OSError as exc:
         raise ParserFailure("PARSER_UNAVAILABLE") from exc
     except subprocess.TimeoutExpired as exc:
@@ -171,6 +198,50 @@ def _docker_run(source: Path, media_type: str, output: Path, claim: JobClaim,
         else:
             code = error if error in KNOWN_REJECTIONS else "PARSER_FAILED"
         raise ParserFailure(code)
+
+
+def remove_owned_container(name: str) -> None:
+    if not re.fullmatch(r"docwork-[0-9a-f]{16}-[1-9][0-9]*", name):
+        raise ReviewConflict("Invalid owned parser container name")
+    try:
+        result = subprocess.run(["docker", "rm", "-f", name], capture_output=True, timeout=10, check=False)
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise ParserFailure("PARSER_CLEANUP_FAILED") from exc
+    if result.returncode and b"No such container" not in result.stderr:
+        raise ParserFailure("PARSER_CLEANUP_FAILED")
+
+
+class _StopSignal(threading.Event):
+    def __init__(self, shutdown):
+        super().__init__()
+        self.shutdown = shutdown
+
+    def is_set(self):
+        return super().is_set() or bool(self.shutdown and self.shutdown.is_set())
+
+
+@contextmanager
+def _control(store, claim, shutdown):
+    stopped, finished = _StopSignal(shutdown), threading.Event()
+
+    def monitor():
+        while not finished.wait(.05):
+            if shutdown is not None and shutdown.is_set():
+                stopped.set()
+                return
+            try:
+                store.check_claim(claim)
+            except (ReviewConflict, OSError):
+                stopped.set()
+                return
+
+    thread = threading.Thread(target=monitor, name="docwork-attempt-control", daemon=True)
+    thread.start()
+    try:
+        yield stopped
+    finally:
+        finished.set()
+        thread.join()
 
 
 @contextmanager
@@ -205,18 +276,36 @@ def _keep_lease(store: IntakeStore, claim: JobClaim, *,
 def process_one(store: IntakeStore, worker_id: str, *, image: str = PARSER_IMAGE,
                 runner=None, extractor: str = "ocr_rules",
                 model_config: LocalModelConfig | None = None, model_request=None,
-                parser_identity: str | None = None, reparse: bool = False) -> str | None:
+                parser_identity: str | None = None, reparse: bool = False,
+                honor_job_profile: bool = False, stop_event: threading.Event | None = None) -> str | None:
     """Claim and process one job; return the document ID or None if idle."""
     if extractor not in ("ocr_rules", "span_llm"):
         raise ValueError("Extractor must be ocr_rules or span_llm")
-    if extractor == "span_llm" and model_config is None:
+    if extractor == "span_llm" and model_config is None and not honor_job_profile:
         raise ValueError("span_llm requires a local model configuration")
     if parser_identity is not None and (runner is None or not re.fullmatch(r"sha256:[0-9a-f]{64}", parser_identity)):
         raise ValueError("An injected parser identity requires a runner and an immutable SHA-256 ID")
-    claim = store.claim(worker_id, lease_seconds=WORKER_LEASE_SECONDS)
+    claim = store.claim(worker_id, lease_seconds=WORKER_LEASE_SECONDS,
+                        reclaim_expired=not honor_job_profile)
     if claim is None:
         return None
     try:
+        if honor_job_profile:
+            selected = validate_profile(json.loads(claim.profile_json))
+            extractor = selected["extractor"]
+            reparse = claim.reparse or reparse
+            if extractor == "span_llm":
+                if model_config is None or model_config.model_id != selected["model_id"]:
+                    raise ModelUnavailable("Queued model profile is unavailable")
+                model_config = LocalModelConfig(model_config.endpoint, selected["model_id"],
+                                                selected["timeout_seconds"], selected["max_output_tokens"],
+                                                model_config.api_key)
+        else:
+            from .intake import processing_profile
+            selected = processing_profile(extractor, model_id=model_config.model_id if extractor == "span_llm" else None,
+                                          timeout_seconds=model_config.timeout_seconds if model_config else 150,
+                                          max_output_tokens=model_config.max_output_tokens if model_config else 2048)
+            store.configure_claim(claim, selected, reparse=reparse)
         try:
             source = store.object_path(claim.document_id)
         except ReviewConflict:
@@ -224,8 +313,13 @@ def process_one(store: IntakeStore, worker_id: str, *, image: str = PARSER_IMAGE
             return claim.document_id
         status = store.status(claim.document_id)
         with _keep_lease(store, claim, lease_seconds=WORKER_LEASE_SECONDS,
-                         interval_seconds=HEARTBEAT_SECONDS):
-            with tempfile.TemporaryDirectory(prefix="parse-", dir=store.object_root / "quarantine") as scratch:
+                         interval_seconds=HEARTBEAT_SECONDS), _control(store, claim, stop_event) as stopped:
+            store.set_stage(claim, "PARSING")
+            if runner is None:
+                # Allow the bounded parser output and its current raster copy
+                # before creating scratch files; imports are guarded separately.
+                store.storage_budget.check(MAX_RESULT_BYTES + MAX_PAGE_BYTES * (MAX_PAGES + 1))
+            with tempfile.TemporaryDirectory(prefix=f"parse-{claim.job_id[:16]}-{claim.fence}-", dir=store.object_root / "quarantine") as scratch:
                 output = Path(scratch)
                 # The unprivileged container user must be able to write its only output mount.
                 output.chmod(0o777)
@@ -248,8 +342,13 @@ def process_one(store: IntakeStore, worker_id: str, *, image: str = PARSER_IMAGE
                 if checkpoint:
                     store.record_parser_reuse(claim, cache_key)
                 else:
-                    (runner or _docker_run)(source, status["media_type"], output, claim,
-                                           image=identity if runner is None else image)
+                    if runner is None:
+                        _docker_run(source, status["media_type"], output, claim, image=identity, stop_event=stopped)
+                    else:
+                        runner(source, status["media_type"], output, claim, image=image)
+                    if stopped.is_set():
+                        raise JobStopped("Processing stopped")
+                    store.check_claim(claim)
                     pages, page_bytes = validate_output(output, status["source_sha256"])
                     if cache_key:
                         store.save_parser_checkpoint(claim, cache_key, identity,
@@ -257,19 +356,41 @@ def process_one(store: IntakeStore, worker_id: str, *, image: str = PARSER_IMAGE
             # Only imported, checked bytes survive into extraction. A model
             # outage or abrupt exit cannot strand the parser's scratch output.
             if extractor == "span_llm":
-                if model_request is None:
-                    result = extract_pages(pages, model_config)
-                else:
-                    result = extract_pages(pages, model_config, model_request)
+                from .request_control import cancellable_request
+                store.set_stage(claim, "EXTRACTING")
+
+                def request(config, payload):
+                    if stopped.is_set():
+                        raise JobStopped("Processing stopped")
+                    value = model_request(config, payload) if model_request else cancellable_request(config, payload, stopped)
+                    if stopped.is_set():
+                        raise JobStopped("Processing stopped")
+                    store.check_claim(claim)
+                    return value
+
+                result = extract_pages(pages, model_config, request)
             else:
+                store.set_stage(claim, "EXTRACTING")
                 result = None
                 record = extract_invoice_pages(pages)
+            if stopped.is_set():
+                raise JobStopped("Processing stopped")
+            store.set_stage(claim, "CHECKING")
             if result is not None:
                 store.complete(claim, pages, result.record, page_bytes, profile=extractor,
                                model_id=model_config.model_id, prompt_sha256=PROMPT_SHA256,
                                extra_issues=result.issues)
             else:
                 store.complete(claim, pages, record, page_bytes)
+    except JobStopped:
+        if not (stop_event and stop_event.is_set()):
+            try:
+                store.check_claim(claim)
+            except JobStopped:
+                pass
+        store.finish_stopped(claim, shutdown=bool(stop_event and stop_event.is_set()))
+    except StorageLimitExceeded as exc:
+        store.fail(claim, exc.code)
     except ModelUnavailable:
         store.fail(claim, "MODEL_UNAVAILABLE")
     except ModelRequestRejected:
@@ -279,7 +400,19 @@ def process_one(store: IntakeStore, worker_id: str, *, image: str = PARSER_IMAGE
     except ModelOutputInvalid:
         store.fail(claim, "MODEL_OUTPUT_INVALID")
     except ParserFailure as exc:
-        store.fail(claim, exc.code)
+        if exc.code == "PARSER_CLEANUP_FAILED":
+            store.cleanup_failed(claim)
+        else:
+            store.fail(claim, exc.code)
     except (OSError, ValueError):
         store.fail(claim, "PARSER_OUTPUT_INVALID")
+    except ReviewConflict:
+        raise
+    except Exception:
+        # Unexpected extractor failures remain explicit outcomes and cannot
+        # strand the serial queue or leak exception text into runtime status.
+        if stop_event and stop_event.is_set():
+            store.finish_stopped(claim, shutdown=True)
+        else:
+            store.fail(claim, "PROCESSING_FAILED")
     return claim.document_id

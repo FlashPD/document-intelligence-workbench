@@ -52,7 +52,7 @@ class QueueBenchmarkTests(unittest.TestCase):
             output = Path(temporary) / "queue"
             calls = []
 
-            def runner(source, mime, directory, claim, *, image):
+            def runner(source, mime, directory, claim, *, image, stop_event=None):
                 calls.append(image)
                 if len(calls) == 2:
                     raise ParserFailure("PARSER_TIMEOUT")

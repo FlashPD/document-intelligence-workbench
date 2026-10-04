@@ -65,3 +65,7 @@ demo-replay:
 
 dev-model:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli serve --model-profile config/model-mac-instruct.json
+
+.PHONY: lifecycle-verify
+lifecycle-verify:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/verify_lifecycle.py --output-dir $(or $(OUTPUT),artifacts/lifecycle-fresh)

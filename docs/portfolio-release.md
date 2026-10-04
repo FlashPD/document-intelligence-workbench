@@ -4,6 +4,8 @@ The [experimental portfolio release](portfolio-candidate.md) presents a local, e
 
 ## Fresh checkout and first demo
 
+For ongoing work after `v0.1.0-experimental`, use the [full release backlog](backlog.md), [v1 contract](v1-release-contract.md), and [scope decision](adr/0001-local-v1-scope.md). This runbook describes the experimental workflow and evidence audit; its checklist is a subset of full v1 acceptance.
+
 Clone this repository and enter its root. Use Python 3.12; the default application and deterministic tests have no third-party Python dependencies. The commands below run directly from source, so an editable install is unnecessary. Commit-retained fixtures and evidence are required; a wheel alone is not the demo distribution.
 
 ```sh
@@ -155,9 +157,9 @@ Use fictional samples and a disposable local workbench. Complete setup before re
 
 A model upload can be a separate recorded segment with its actual elapsed time labeled; the recorded clean fixture took over a minute. Do not present edited waiting time as measured latency. A demo recording is presentation evidence, not a human productivity study. [Run the author pilot separately](review-pilot.md) and publish incomplete outcomes as well as completed ones.
 
-## Remaining steps for the experimental release
+## Experimental release publication procedure
 
-The working branch is `dev`; branch integration and publishing are manual steps. The planned tag is `v0.1.0-experimental`. The complete local audit and clean-source checks below do not create a commit, merge, tag or GitHub release.
+`v0.1.0-experimental` is published from `main`. The steps below retain the experimental release's publication procedure for reference; they are not the current project backlog. Consult the [full release backlog](backlog.md) before new work. The commands create commits, merge branches, tag and publish only when explicitly run; offline audits alone do none of those actions.
 
 1. Inspect and approve the two [corrected drafts](post-pilot-corrections.md) if you want new corrected exports. The original pilot archive remains the published study evidence; draft maintenance scores are separate.
 2. Inspect the captioned recording and offline demo. A narrated two-to-three-minute walkthrough is an optional presentation improvement; the retained recording is explicitly a fifteen-second screenshot sequence.

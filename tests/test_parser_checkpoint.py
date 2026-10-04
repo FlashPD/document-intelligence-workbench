@@ -222,7 +222,7 @@ class ParserCheckpointTests(unittest.TestCase):
         self.submit()
         received = []
 
-        def runner(source, mime, output, claim, *, image):
+        def runner(source, mime, output, claim, *, image, stop_event=None):
             received.append(image)
             parser_result(output, source)
 

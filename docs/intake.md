@@ -10,6 +10,8 @@ The [resource-failure runbook](parser-resources.md) records real deadline/OOM pr
 
 ## Try the upload-to-review CLI
 
+For the automatic browser worker, bounded batches, cancellation, reprocessing, deletion and persisted storage limits, start with the [lifecycle runbook](lifecycle.md). CLI commands below explicitly process a single item; the live browser no longer needs a manual processing trigger.
+
 With Docker Desktop running, build the parser image once:
 
 ```sh
@@ -32,7 +34,7 @@ PYTHONPATH=src python3.12 -m docwork.cli intake page YOUR_DOCUMENT_ID --number 2
 PYTHONPATH=src python3.12 -m docwork.cli review show YOUR_DOCUMENT_ID
 ```
 
-`process-one` claims one queued or expired processing job. Run it again for the next document. The `page` command reports a checked page PNG path for evidence inspection; omit `--number` for page 1. Review, approval, and export commands are documented in [review.md](review.md). If the job fails, inspect its `error_code` and `parser_checkpoint` with `intake status`, then use `intake retry YOUR_DOCUMENT_ID` after fixing the cause. Matching checkpoints are reused automatically; `process-one --reparse` explicitly refreshes parsing. See the [recovery guide](parser-recovery.md) for identity, integrity errors, and model retry options.
+`process-one` confirms cleanup of expired work, then claims one queued job using its persisted profile by default. Run it again for the next document. The `page` command reports a checked page PNG path for evidence inspection; omit `--number` for page 1. Review, approval, and export commands are documented in [review.md](review.md). If the job fails, inspect its `error_code` and `parser_checkpoint` with `intake status`, then use `intake retry YOUR_DOCUMENT_ID` after fixing the cause and confirming any parser cleanup. Matching checkpoints are reused automatically; `process-one --reparse` explicitly refreshes parsing. See the [recovery guide](parser-recovery.md) and [lifecycle runbook](lifecycle.md) for attempt identity, cancellation and restart behavior.
 
 ## Audit stored artifacts
 
@@ -124,7 +126,7 @@ Both creation and restoration require a **new destination directory**. They stag
 
 The bundle contains `database.sqlite`, `manifest.json`, and only referenced files under `intake/` and `exports/`. The verifier checks SQLite integrity and foreign keys, supported schema, exact artifact inventory, database references, sizes, SHA-256 checksums, checkpoint payload hashes, and record counts. It rejects traversal paths and symlink artifacts. Duplicate originals/renders are copied once. Quarantine scratch files, orphan artifacts, model weights, configuration, runtime logs, and session credentials are excluded. The backup does contain invoice data and reviewer history; its directory is private to the creating user. It is neither encrypted nor a signed attestation. A person able to rewrite both a bundle and its hashes can replace its contents.
 
-Restoration relocates export manifest paths to the new directory while preserving the bytes of every export, revision, correction, issue decision, approval hash, and review event. A subsequent edit still needs a new approval. Failed jobs retain their errors and require explicit retry. Jobs that were `PROCESSING` in the snapshot become `QUEUED`, clear their worker/lease, advance their fencing token, and gain a `backup_restored` event. Their verified parser checkpoints remain available; the normal worker checks the current parser identity/cache key before reuse. Restore does not run parsing or inference, approve a record, or modify the source workbench. Start only the restored copy when recovering; independently running the old copy can still duplicate processing outside this single-node boundary.
+Restoration relocates export paths and storage policy while preserving every export byte, revision, correction, issue decision, approval hash and review event. A subsequent edit or new extraction still needs a new approval. Failed jobs retain their errors and require explicit retry. Interrupted processing becomes `QUEUED` with a newer fence; pending cancellation becomes `CANCELLED`. Restored attempts cannot operate source-workbench containers. Verified checkpoints and historical revision renders remain available. Finish pending deletions before creating a backup. Restore runs no parsing or inference and changes no source workbench. Start only the restored copy when recovering; independent copies can duplicate work outside the single-node boundary.
 
 Legacy trusted sample seeds have records and OCR spans but no intake-stored originals. Their backup count explicitly reports `documents_without_stored_original`; viewing those sample images still requires the repository fixtures. Uploaded originals are included. The command accepts the current intake/review schema, not arbitrary older or future SQLite schemas, and performs no migration. Model/runtime assets and the parser image must be set up separately on a fresh machine.
 

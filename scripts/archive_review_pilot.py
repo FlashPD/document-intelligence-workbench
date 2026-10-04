@@ -59,6 +59,9 @@ def restore_session(directory: Path, output: Path) -> None:
     # the database/object-root names differ from the pilot's dedicated layout.
     (output / "database.sqlite").rename(output / "review.sqlite")
     (output / "intake").rename(output / "objects")
+    with sqlite3.connect(output / "review.sqlite") as db:
+        if db.execute("SELECT 1 FROM sqlite_master WHERE name='storage_policy'").fetchone():
+            db.execute("UPDATE storage_policy SET object_root='objects' WHERE id=1")
     for name in SESSION_FILES:
         shutil.copyfile(directory / name, output / name)
 

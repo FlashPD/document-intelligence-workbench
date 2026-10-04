@@ -160,6 +160,9 @@ class WorkerTests(unittest.TestCase):
         self.assertEqual(self.store.status(document_id)["job"]["error_code"], "PARSER_CLEANUP_FAILED")
         self.assertEqual(self.store.status(document_id)["current_revision"], 0)
         self.assertEqual(list((self.store.object_root / "quarantine").iterdir()), [])
+        with self.assertRaises(ReviewConflict):
+            self.store.retry(document_id)
+        self.store.recover_stops(cleanup=lambda name: None)
         self.store.retry(document_id)
         process_one(self.store, "worker", runner=lambda source, mime, output, claim, image: parser_result(output, source))
         self.assertEqual(self.store.status(document_id)["status"], "REVIEW_READY")

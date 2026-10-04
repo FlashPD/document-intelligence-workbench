@@ -33,6 +33,46 @@ def candidate():
 
 
 class WebTests(unittest.TestCase):
+    def test_batch_lifecycle_api_and_background_wakeup_are_nonblocking(self):
+        from unittest.mock import Mock
+        self.login()
+        self.server.supervisor = Mock()
+        status, batch, _ = self.call("POST", "/api/batches", {"count": 2})
+        self.assertEqual(status, 201)
+        status, uploaded, _ = self.call("POST", "/api/upload", SAMPLE, headers={
+            "Content-Type": "image/png", "X-File-Name": "batch.png",
+            "X-Batch-Id": batch["batch_id"], "X-Batch-Position": "0"})
+        self.assertEqual(status, 201)
+        doc = uploaded["document_id"]
+        self.assertEqual(uploaded["job"]["status"], "QUEUED")
+        self.server.supervisor.notify.assert_called_once()
+        status, _, _ = self.call("POST", "/api/upload", b"invalid", headers={
+            "Content-Type": "image/png", "X-File-Name": "bad.png",
+            "X-Batch-Id": batch["batch_id"], "X-Batch-Position": "1"})
+        self.assertEqual(status, 400)
+        status, outcome, _ = self.call("GET", f"/api/batches/{batch['batch_id']}")
+        self.assertEqual(outcome["items"][1]["status"], "REJECTED")
+        status, stopped, _ = self.call("POST", f"/api/documents/{doc}/cancel", {})
+        self.assertEqual((status, stopped["status"]), (202, "CANCELLED"))
+        status, _, _ = self.call("POST", f"/api/documents/{doc}/reprocess", {"revision": 0, "reparse": True})
+        self.assertEqual(status, 202)
+        status, _, _ = self.call("POST", f"/api/documents/{doc}/delete", {})
+        self.assertEqual(status, 202)
+        self.assertEqual(self.call("GET", f"/api/documents/{doc}")[0], 404)
+        self.store.run_deletions()
+        status, deleted, _ = self.call("GET", f"/api/deletions/{doc}")
+        self.assertEqual((status, deleted["status"]), (200, "DELETED"))
+
+    def test_batch_limits_managed_profiles_and_typed_reprocessing(self):
+        self.login()
+        for count in (0, 21, True, "2"):
+            self.assertEqual(self.call("POST", "/api/batches", {"count": count})[0], 400)
+        self.assertEqual(self.call("POST", "/api/batches", {"count": 1, "extractor": "span_llm"})[0], 400)
+        _, uploaded, _ = self.call("POST", "/api/upload", SAMPLE, headers={"Content-Type": "image/png", "X-File-Name": "one.png"})
+        doc = uploaded["document_id"]
+        self.call("POST", f"/api/documents/{doc}/cancel", {})
+        self.assertEqual(self.call("POST", f"/api/documents/{doc}/reprocess", {"revision": 0, "reparse": "yes"})[0], 400)
+
     def setUp(self):
         temp = tempfile.TemporaryDirectory()
         self.addCleanup(temp.cleanup)
@@ -181,7 +221,7 @@ class WebTests(unittest.TestCase):
         self.login()
         status, runtime, _ = self.call("GET", "/api/runtime")
         self.assertEqual(status, 200)
-        self.assertEqual(runtime, {"managed_model": True, "model_id": "pinned-model", "profile": "pinned-profile", "demo_replay": None, "review_pilot": False})
+        self.assertEqual(runtime, {"managed_model": True, "model_id": "pinned-model", "profile": "pinned-profile", "demo_replay": None, "review_pilot": False, "background_processing": False, "worker": None})
         self.assertNotIn("private-key", json.dumps(runtime))
         with patch("docwork.web.process_one", return_value=None) as process:
             self.assertEqual(self.call("POST", "/api/process-one", {"extractor": "span_llm"})[0], 200)

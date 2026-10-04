@@ -18,11 +18,13 @@ from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlsplit
 
 from .baseline import extract_invoice
-from .intake import IntakeStore
+from .intake import IntakeStore, processing_profile
 from .local_model import LocalModelConfig
 from .ocr import MAX_FILE_BYTES, tesseract_page
 from .review import ReviewBlocked, ReviewConflict
 from .worker import process_one
+from .supervisor import WorkerSupervisor
+from .storage_budget import StorageLimitExceeded, DEFAULT_ARTIFACT_BYTES, DEFAULT_DISK_RESERVE_BYTES
 
 DOCUMENT_ID = re.compile(r"[0-9a-f]{32}")
 PAGE_ROUTE = re.compile(r"/api/documents/([0-9a-f]{32})/pages/([1-9]\d*)")
@@ -39,7 +41,8 @@ class ReviewServer(ThreadingHTTPServer):
 
     def __init__(self, address: tuple[str, int], store: IntakeStore, *, token: str | None = None,
                  model_config: LocalModelConfig | None = None, model_profile: str | None = None,
-                 review_pilot=None, demo_replay: dict | None = None):
+                 review_pilot=None, demo_replay: dict | None = None,
+                 background_processing: bool = False, processor=process_one, cleanup=None):
         if address[0] not in ("127.0.0.1", "::1"):
             raise ValueError("Review server must bind to loopback")
         self.store = store
@@ -51,7 +54,18 @@ class ReviewServer(ThreadingHTTPServer):
             raise ValueError("Replay uses recorded candidates without a model or timed pilot")
         self.demo_replay = demo_replay
         self.repo_root = Path(__file__).resolve().parents[2]
+        if background_processing and (demo_replay is not None or review_pilot is not None):
+            raise ValueError("Recorded replay and timed pilots cannot run a live worker")
+        self.supervisor = None
         super().__init__(address, ReviewHandler)
+        if background_processing:
+            self.supervisor = WorkerSupervisor(store, model_config=model_config, processor=processor, cleanup=cleanup)
+            self.supervisor.start()
+
+    def server_close(self):
+        if self.supervisor:
+            self.supervisor.close()
+        super().server_close()
 
     @property
     def origin(self) -> str:
@@ -126,7 +140,9 @@ class ReviewHandler(BaseHTTPRequestHandler):
         return parts[3], parts[4] if len(parts) == 5 else ""
 
     def _handle_error(self, exc: Exception) -> None:
-        if isinstance(exc, KeyError):
+        if isinstance(exc, StorageLimitExceeded):
+            status = HTTPStatus.INSUFFICIENT_STORAGE
+        elif isinstance(exc, KeyError):
             status = HTTPStatus.NOT_FOUND
         elif isinstance(exc, ReviewConflict):
             status = HTTPStatus.CONFLICT
@@ -166,7 +182,19 @@ class ReviewHandler(BaseHTTPRequestHandler):
                                           "model_id": config.model_id if config else None,
                                           "profile": self.server.model_profile,
                                           "demo_replay": getattr(self.server, "demo_replay", None),
-                                          "review_pilot": getattr(self.server, "review_pilot", None) is not None})
+                                          "review_pilot": getattr(self.server, "review_pilot", None) is not None,
+                                          "background_processing": getattr(self.server, "supervisor", None) is not None,
+                                          "worker": self.server.supervisor.status() if getattr(self.server, "supervisor", None) else None})
+            elif url.path == "/api/storage":
+                self._json(HTTPStatus.OK, self.server.store.storage_budget.inventory())
+            elif url.path == "/api/deletions":
+                self._json(HTTPStatus.OK, self.server.store.deletions())
+            elif url.path == "/api/batches":
+                self._json(HTTPStatus.OK, self.server.store.batches())
+            elif re.fullmatch(r"/api/batches/[0-9a-f]{32}", url.path):
+                self._json(HTTPStatus.OK, self.server.store.batch_status(url.path.rsplit("/", 1)[1]))
+            elif re.fullmatch(r"/api/deletions/[0-9a-f]{32}", url.path):
+                self._json(HTTPStatus.OK, self.server.store.deletion_status(url.path.rsplit("/", 1)[1]))
             elif url.path == "/api/pilot" and getattr(self.server, "review_pilot", None) is not None:
                 self._json(HTTPStatus.OK, self.server.review_pilot.view())
             elif match := EXPORT_ROUTE.fullmatch(url.path):
@@ -174,17 +202,21 @@ class ReviewHandler(BaseHTTPRequestHandler):
                 content, media = self.server.store.exported_file(doc_id, int(revision), format, filename)
                 self._send(HTTPStatus.OK, content, media, headers={"Content-Disposition": f'attachment; filename="{filename}"'})
             elif match := PAGE_ROUTE.fullmatch(url.path):
-                self._page(match.group(1), int(match.group(2)))
+                revision = parse_qs(url.query).get("revision", [None])[0]
+                self._page(match.group(1), int(match.group(2)), revision=int(revision) if revision else None)
             elif route := self._document_route(url.path):
                 doc_id, action = route
                 if action == "":
                     if getattr(self.server, "review_pilot", None) is not None:
                         self.server.review_pilot.guard_view(doc_id)
-                    self._json(HTTPStatus.OK, self.server.store.get(doc_id))
+                    revision = parse_qs(url.query).get("revision", [None])[0]
+                    self._json(HTTPStatus.OK, self.server.store.get(doc_id, int(revision) if revision else None))
                 elif action == "status":
                     self._json(HTTPStatus.OK, self.server.store.status(doc_id))
                 elif action == "history":
                     self._json(HTTPStatus.OK, self.server.store.history(doc_id))
+                elif action == "attempts":
+                    self._json(HTTPStatus.OK, self.server.store.attempts(doc_id))
                 elif action == "page":
                     self._page(doc_id, 1)
                 else:
@@ -194,13 +226,14 @@ class ReviewHandler(BaseHTTPRequestHandler):
         except (KeyError, ValueError, OSError, ReviewConflict, ReviewBlocked) as exc:
             self._handle_error(exc)
 
-    def _page(self, doc_id: str, number: int) -> None:
+    def _page(self, doc_id: str, number: int, *, revision: int | None = None) -> None:
         if getattr(self.server, "review_pilot", None) is not None:
             self.server.review_pilot.guard_view(doc_id)
-        if number > self.server.store.status(doc_id)["page_count"]:
+        count = len(self.server.store.get(doc_id, revision)["pages"]) if revision else self.server.store.status(doc_id)["page_count"]
+        if number > count:
             raise KeyError("Unknown page")
         try:
-            page = self.server.store.page_image_path(doc_id, number)
+            page = self.server.store.page_image_path(doc_id, number, revision=revision)
         except ReviewConflict:
             status = self.server.store.status(doc_id)
             if number != 1 or status["page_image_sha256"] is not None:
@@ -212,6 +245,19 @@ class ReviewHandler(BaseHTTPRequestHandler):
             page = self.server.repo_root / "samples" / sample
         self._send(HTTPStatus.OK, page.read_bytes(), "image/png")
 
+    def _notify_worker(self):
+        if getattr(self.server, "supervisor", None):
+            self.server.supervisor.notify()
+
+    def _profile(self, extractor: str):
+        if extractor == "span_llm":
+            config = self.server.model_config
+            if config is None:
+                raise ValueError("Start make dev-model to queue the pinned local model")
+            return processing_profile(extractor, model_id=config.model_id,
+                                      timeout_seconds=config.timeout_seconds, max_output_tokens=config.max_output_tokens)
+        return processing_profile(extractor)
+
     def do_POST(self) -> None:
         if not self._authorized():
             self._json(HTTPStatus.UNAUTHORIZED, {"error": "Session required"})
@@ -222,7 +268,8 @@ class ReviewHandler(BaseHTTPRequestHandler):
         path = urlsplit(self.path).path
         try:
             pilot = getattr(self.server, "review_pilot", None)
-            if getattr(self.server, "demo_replay", None) is not None and path in ("/api/upload", "/api/process-one", "/api/demo/seed"):
+            live_action = path in ("/api/upload", "/api/process-one", "/api/demo/seed", "/api/batches") or path.rsplit("/", 1)[-1] in ("cancel", "reprocess", "delete")
+            if getattr(self.server, "demo_replay", None) is not None and live_action:
                 raise ReviewBlocked("Replay uses recorded candidates. Start make dev for live processing.")
             elif path == "/api/pilot/start" and pilot is not None:
                 data = self._input()
@@ -233,19 +280,40 @@ class ReviewHandler(BaseHTTPRequestHandler):
                 self._json(HTTPStatus.OK, pilot.event(self._required(data, "trial_id", str),
                                                     self._required(data, "kind", str),
                                                     self._required(data, "event_id", str)))
-            elif pilot is not None and path in ("/api/upload", "/api/process-one", "/api/demo/seed"):
+            elif pilot is not None and live_action:
                 raise ReviewBlocked("The pilot uses its declared precomputed documents")
+            elif path == "/api/batches":
+                data = self._input()
+                profile = self._profile(data.get("extractor", "ocr_rules"))
+                batch_id = self.server.store.create_batch(data.get("count"), profile=profile)
+                self._json(HTTPStatus.CREATED, self.server.store.batch_status(batch_id))
             elif path == "/api/upload":
                 name = unquote(self.headers.get("X-File-Name", ""))
                 media = self.headers.get("Content-Type", "")
                 import io
-                doc_id = self.server.store.submit(io.BytesIO(self._read_body(MAX_FILE_BYTES)), name, media)
+                batch_id = self.headers.get("X-Batch-Id")
+                position = self.headers.get("X-Batch-Position")
+                try:
+                    doc_id = self.server.store.submit(io.BytesIO(self._read_body(MAX_FILE_BYTES)), name, media,
+                                                     profile=self._profile(self.headers.get("X-Extractor", "ocr_rules")),
+                                                     batch_id=batch_id, batch_position=int(position) if position is not None else None)
+                except (ValueError, OSError, ReviewConflict) as exc:
+                    if batch_id and position is not None and position.isdecimal():
+                        self.server.store.reject_batch_item(batch_id, int(position), getattr(exc, "code", "UPLOAD_REJECTED"))
+                    raise
+                self._notify_worker()
                 self._json(HTTPStatus.CREATED, self.server.store.status(doc_id))
             elif path == "/api/process-one":
                 data = self._input()
                 extractor = data.get("extractor", "ocr_rules")
                 if extractor not in ("ocr_rules", "span_llm"):
                     raise ValueError("Unknown extractor profile")
+                if getattr(self.server, "supervisor", None):
+                    if "model_endpoint" in data or "model_id" in data:
+                        raise ValueError("Queued processing uses the server-owned model profile")
+                    self._notify_worker()
+                    self._json(HTTPStatus.ACCEPTED, {"status": "QUEUED", "worker": self.server.supervisor.status()})
+                    return
                 model_config = None
                 if extractor == "span_llm":
                     configured = self.server.model_config
@@ -305,7 +373,22 @@ class ReviewHandler(BaseHTTPRequestHandler):
                     self._json(HTTPStatus.OK, manifest)
                 elif action == "retry":
                     self.server.store.retry(doc_id)
+                    self._notify_worker()
                     self._json(HTTPStatus.OK, self.server.store.status(doc_id))
+                elif action == "cancel":
+                    self.server.store.cancel(doc_id)
+                    self._notify_worker()
+                    self._json(HTTPStatus.ACCEPTED, self.server.store.status(doc_id))
+                elif action == "reprocess":
+                    profile = self._profile(data.get("extractor", "ocr_rules"))
+                    self.server.store.reprocess(doc_id, profile=profile, reparse=data.get("reparse", False),
+                                                expected_revision=self._required(data, "revision", int))
+                    self._notify_worker()
+                    self._json(HTTPStatus.ACCEPTED, self.server.store.status(doc_id))
+                elif action == "delete":
+                    result = self.server.store.request_delete(doc_id)
+                    self._notify_worker()
+                    self._json(HTTPStatus.ACCEPTED, result)
                 else:
                     self._json(HTTPStatus.NOT_FOUND, {"error": "Unknown route"})
             else:
@@ -316,10 +399,13 @@ class ReviewHandler(BaseHTTPRequestHandler):
 
 def serve(database: Path, object_root: Path, port: int = 8765, *,
           model_config: LocalModelConfig | None = None, model_profile: str | None = None,
-          demo_replay: dict | None = None) -> None:
-    store = IntakeStore(database, object_root)
+          demo_replay: dict | None = None, max_artifact_bytes: int | None = None,
+          disk_reserve_bytes: int | None = None) -> None:
+    store = IntakeStore(database, object_root, max_artifact_bytes=max_artifact_bytes,
+                        disk_reserve_bytes=disk_reserve_bytes)
     with ReviewServer(("127.0.0.1", port), store,
-                      model_config=model_config, model_profile=model_profile, demo_replay=demo_replay) as server:
+                      model_config=model_config, model_profile=model_profile, demo_replay=demo_replay,
+                      background_processing=demo_replay is None) as server:
         print(f"Open {server.origin}/?token={server.token}", flush=True)
         try:
             server.serve_forever()

@@ -4,6 +4,8 @@ This local invoice application turns bounded documents into evidence-linked sugg
 
 ## Implemented architecture
 
+This card describes the published experimental implementation. The [v1 release contract](v1-release-contract.md) defines future mandatory capabilities and evidence; the [backlog](backlog.md) records their status. [ADR 0001](adr/0001-local-v1-scope.md) reconciles the original design with the chosen local v1 stack. Planned controls must not be read as implemented controls in this card.
+
 ```mermaid
 flowchart LR
     U[Local browser] --> H[Loopback HTTP server]
@@ -60,7 +62,7 @@ On the recorded Apple M1 / 16 GiB host, the original two model workflows took 66
 
 ## Data handling and known limits
 
-Originals, rendered pages, OCR, candidate values, review history, exports, and optional model diagnostics reside on local disk. Model processing uses the configured loopback server; setup downloads are explicit. Runtime parsing has no cloud fallback. Local disk encryption is an OS responsibility. Backup copies and downloaded exports have separate retention; automatic retention and complete document deletion are not implemented.
+Originals, rendered pages, OCR, candidate values, review history, exports, and optional model diagnostics reside on local disk. Model processing uses the configured loopback server; setup downloads are explicit. Runtime parsing has no cloud fallback. Local disk encryption is an OS responsibility. The [lifecycle runbook](lifecycle.md) covers automatic serial processing, tracked local deletion and the persisted 20 GiB artifact growth budget with a 256 MiB disk reserve. Shared references survive deletion until their last owner is removed. This is logical deletion, not forensic erasure; backup copies, archived evidence and downloaded exports have separate retention. Automatic age-based retention remains outside this implementation.
 
 The system does not perform payment decisions, bank-account checks, invoice authenticity checks, tax advice, handwriting recognition, purchase-order matching, or unattended approval. English OCR and narrow amount/date conventions limit language and layout coverage. The [scripted Chrome demonstration](browser-verification.md) verifies rotation/highlight alignment, multiple pages, keyboard controls, and export downloads on declared fictional fixtures. The [20-document production parser queue](parser-queue.md) measures serial OCR/rules processing of development PNG/PDF originals; it excludes model inference, quality scoring, and controlled warm/cold or concurrent capacity. The [completed author pilot](review-pilot.md#recorded-author-results) has six approved/exported trials, active median 62.459 seconds, required headers exact on 5/6 documents and exact rows on 19/20. The retained invoice-number and description errors demonstrate that approval is not proof of correctness. The pilot uses one author, fixed synthetic development cases and recorded OCR; it cannot support time saved or independent workforce claims. Genuine scanner-captured invoices, semantic evidence attribution sampling and controlled performance/memory studies are explicitly deferred from the [experimental release](portfolio-candidate.md). The audit is a portfolio evidence checklist, not exhaustive architecture acceptance or production certification.
 

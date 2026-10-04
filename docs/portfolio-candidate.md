@@ -6,6 +6,8 @@ The six-case author pilot is complete and archived for independent offline resto
 
 ## Demo and evidence
 
+For work beyond this published experimental release, see the [maintained backlog](backlog.md), [full v1 acceptance contract](v1-release-contract.md), and [architecture scope decision](adr/0001-local-v1-scope.md). The experimental evidence below does not establish that the remaining v1 gates pass.
+
 ```sh
 make demo-replay
 ```
@@ -40,6 +42,8 @@ The demonstration and runtime probes use explicitly fictional fixture reviewers.
 The implemented stack is Python standard-library HTTP/SQLite, HTML/CSS/JavaScript, Poppler/Tesseract and optional llama.cpp. Docling, FastAPI/React migration, a VLM, PC/CUDA inference and a telemetry stack are separate workstreams. They are not implied by the original plan's diagrams.
 
 Genuine scanner-captured development invoices, semantic evidence-attribution sampling, controlled warm/cold latency and total RAM/VRAM studies, stronger reviewer identity, document deletion/retention, and a manual-versus-assisted review study remain unverified or unimplemented. Synthetic degraded images are not genuine scanner captures. The candidate makes no accuracy claim for arbitrary vendors, handwriting, payments, tax decisions or unattended approval.
+
+The [v1 contract](v1-release-contract.md) makes lifecycle, identity, production scan validation, semantic evidence and controlled runtime measurements mandatory for the full local release. A manual-versus-assisted study remains conditional on productivity claims; framework/converter migration, PC/GPU and VLM work remain outside that release scope under ADR 0001.
 
 ## Release verification
 

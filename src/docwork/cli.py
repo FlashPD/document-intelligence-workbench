@@ -275,10 +275,14 @@ def main(argv: list[str] | None = None) -> int:
     intake = commands.add_parser("intake", help="Store bounded documents and enqueue parser jobs")
     intake.add_argument("--db", type=Path, default=Path("artifacts/review.sqlite"))
     intake.add_argument("--objects", type=Path, default=Path("artifacts/intake"))
+    intake.add_argument("--max-artifact-mib", type=int, help="Persist the whole-workbench artifact budget")
+    intake.add_argument("--disk-reserve-mib", type=int, help="Persist the minimum free-disk reserve")
     intake_actions = intake.add_subparsers(dest="action", required=True)
     intake_submit = intake_actions.add_parser("submit", help="Validate and store one local document")
     intake_submit.add_argument("file", type=Path)
     intake_submit.add_argument("--mime", required=True, choices=("application/pdf", "image/png", "image/jpeg"))
+    intake_submit.add_argument("--extractor", choices=("ocr_rules", "span_llm"), default="ocr_rules")
+    intake_submit.add_argument("--model-id")
     intake_status = intake_actions.add_parser("status", help="Show submission and job state")
     intake_status.add_argument("document_id")
     intake_page = intake_actions.add_parser("page", help="Show the verified rendered page path")
@@ -286,6 +290,16 @@ def main(argv: list[str] | None = None) -> int:
     intake_page.add_argument("--number", type=int, default=1, help="One-based source page number")
     intake_retry = intake_actions.add_parser("retry", help="Requeue a failed unreviewed document")
     intake_retry.add_argument("document_id")
+    for action_name in ("cancel", "delete", "deletion-status", "attempts"):
+        intake_actions.add_parser(action_name).add_argument("document_id")
+    intake_actions.add_parser("resume-deletions", help="Resume pending cleanup and deletion jobs")
+    intake_actions.add_parser("storage", help="Show artifact usage and configured limits")
+    intake_reprocess = intake_actions.add_parser("reprocess", help="Queue a new extraction without reusing approval")
+    intake_reprocess.add_argument("document_id")
+    intake_reprocess.add_argument("--revision", type=int, required=True)
+    intake_reprocess.add_argument("--extractor", choices=("ocr_rules", "span_llm"))
+    intake_reprocess.add_argument("--model-id")
+    intake_reprocess.add_argument("--reparse", action="store_true")
     intake_reconcile = intake_actions.add_parser("reconcile", help="Audit stored objects and rendered pages")
     intake_reconcile.add_argument("--prune", action="store_true", help="Remove aged unreferenced files")
     intake_reconcile.add_argument("--min-age-seconds", type=int, default=86400,
@@ -294,7 +308,7 @@ def main(argv: list[str] | None = None) -> int:
     intake_process.add_argument("--worker-id", default="local-worker")
     intake_process.add_argument("--image", default="docwork-parser:v3")
     intake_process.add_argument("--reparse", action="store_true", help="Bypass saved parsing results and refresh the checkpoint")
-    intake_process.add_argument("--extractor", choices=("ocr_rules", "span_llm"), default="ocr_rules")
+    intake_process.add_argument("--extractor", choices=("ocr_rules", "span_llm"))
     intake_process.add_argument("--model-endpoint", help="Loopback HTTP URL of a local chat completion server")
     intake_process.add_argument("--model-id", help="Model ID served by the local endpoint")
     backup = commands.add_parser("backup", help="Create, verify, or restore a portable workbench backup")
@@ -314,6 +328,8 @@ def main(argv: list[str] | None = None) -> int:
     browser.add_argument("--objects", type=Path, default=Path("artifacts/intake"))
     browser.add_argument("--port", type=int, default=8765)
     browser.add_argument("--model-profile", type=Path, help="Verify local assets and own a pinned authenticated model server")
+    browser.add_argument("--max-artifact-mib", type=int)
+    browser.add_argument("--disk-reserve-mib", type=int)
     replay = commands.add_parser("demo-replay", help="Open a model-free portfolio demo using recorded development OCR")
     replay.add_argument("--output-dir", type=Path, help="New workbench directory; default creates a unique directory under artifacts/demo-replay")
     replay.add_argument("--port", type=int, default=8765)
@@ -334,6 +350,8 @@ def main(argv: list[str] | None = None) -> int:
             return 0
         if args.command == "serve":
             from .web import serve
+            storage_options = {"max_artifact_bytes": args.max_artifact_mib * 1024**2 if args.max_artifact_mib is not None else None,
+                               "disk_reserve_bytes": args.disk_reserve_mib * 1024**2 if args.disk_reserve_mib is not None else None}
             if args.model_profile:
                 import uuid
                 from .model_runtime import load_profile, managed_server
@@ -346,12 +364,12 @@ def main(argv: list[str] | None = None) -> int:
                 try:
                     with managed_server(root, profile, session / "server.log") as (config, runtime):
                         print(f"Pinned model ready: {profile['profile']} ({config.model_id})", flush=True)
-                        serve(args.db, args.objects, args.port, model_config=config, model_profile=profile["profile"])
+                        serve(args.db, args.objects, args.port, model_config=config, model_profile=profile["profile"], **storage_options)
                 finally:
                     if runtime is not None:
                         _atomic_write(session / "runtime.json", (json.dumps(runtime, indent=2) + "\n").encode())
             else:
-                serve(args.db, args.objects, args.port)
+                serve(args.db, args.objects, args.port, **storage_options)
             return 0
         if args.command == "doctor":
             data = doctor()
@@ -525,11 +543,35 @@ def main(argv: list[str] | None = None) -> int:
             else:
                 data = store.export(args.document_id, args.format)
         elif args.command == "intake":
-            store = IntakeStore(args.db, args.objects)
+            from .intake import processing_profile
+            store = IntakeStore(args.db, args.objects,
+                                max_artifact_bytes=args.max_artifact_mib * 1024**2 if args.max_artifact_mib is not None else None,
+                                disk_reserve_bytes=args.disk_reserve_mib * 1024**2 if args.disk_reserve_mib is not None else None)
             if args.action == "submit":
                 with args.file.open("rb") as source:
-                    document_id = store.submit(source, args.file.name, args.mime)
+                    document_id = store.submit(source, args.file.name, args.mime,
+                                               profile=processing_profile(args.extractor, model_id=args.model_id))
                 data = store.status(document_id)
+            elif args.action == "cancel":
+                store.cancel(args.document_id)
+                data = store.status(args.document_id)
+            elif args.action == "reprocess":
+                profile = processing_profile(args.extractor, model_id=args.model_id) if args.extractor else None
+                store.reprocess(args.document_id, profile=profile, reparse=args.reparse, expected_revision=args.revision)
+                data = store.status(args.document_id)
+            elif args.action == "delete":
+                data = store.request_delete(args.document_id)
+                store.run_deletions()
+                data = store.deletion_status(args.document_id)
+            elif args.action == "deletion-status":
+                data = store.deletion_status(args.document_id)
+            elif args.action == "resume-deletions":
+                store.recover_stops()
+                data = {"completed": store.run_deletions()}
+            elif args.action == "attempts":
+                data = store.attempts(args.document_id)
+            elif args.action == "storage":
+                data = store.storage_budget.inventory()
             elif args.action == "retry":
                 store.retry(args.document_id)
                 data = store.status(args.document_id)
@@ -538,10 +580,12 @@ def main(argv: list[str] | None = None) -> int:
                 if data["missing"] or data["corrupt"] or data["metadata_errors"]:
                     exit_code = 2
             elif args.action == "process-one":
+                store.recover_stops()
                 model_config = (LocalModelConfig(args.model_endpoint or "", args.model_id or "")
-                                if args.extractor == "span_llm" else None)
+                                if args.extractor == "span_llm" or args.model_endpoint else None)
                 document_id = process_one(store, args.worker_id, image=args.image,
-                                          extractor=args.extractor, model_config=model_config, reparse=args.reparse)
+                                          extractor=args.extractor or "ocr_rules", model_config=model_config,
+                                          reparse=args.reparse, honor_job_profile=args.extractor is None)
                 data = store.status(document_id) if document_id else {"status": "IDLE"}
             elif args.action == "page":
                 data = {"document_id": args.document_id, "page_number": args.number,

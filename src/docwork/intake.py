@@ -16,7 +16,7 @@ import tempfile
 import time
 import uuid
 from collections.abc import Sequence
-from dataclasses import dataclass
+from dataclasses import dataclass, replace, asdict
 from pathlib import Path
 from typing import BinaryIO, Iterable
 
@@ -25,6 +25,8 @@ from .ocr import MAX_FILE_BYTES, MAX_PIXELS, PNG_SIGNATURE
 from .parser_protocol import MAX_PAGE_BYTES, MAX_PAGES, MAX_RESULT_BYTES
 from .review import ReviewConflict, ReviewStore, _atomic_write, _now
 from .review_priority import score_review_priority
+from .storage_budget import StorageBudget, DEFAULT_ARTIFACT_BYTES, DEFAULT_DISK_RESERVE_BYTES
+from .lifecycle import LifecycleMixin
 
 MAX_BATCH_FILES = 20
 MAX_STORE_BYTES = 1024 * 1024 * 1024
@@ -38,6 +40,36 @@ class JobClaim:
     fence: int
     worker_id: str
     lease_until: float
+    profile_json: str = '{"extractor":"ocr_rules"}'
+    reparse: bool = False
+
+
+class JobStopped(ReviewConflict):
+    """A cooperatively stopped attempt cannot publish output."""
+
+
+def processing_profile(extractor: str = "ocr_rules", *, model_id: str | None = None,
+                       timeout_seconds: int = 150, max_output_tokens: int = 2048) -> dict:
+    if extractor == "ocr_rules":
+        if model_id is not None:
+            raise ValueError("Rules profile cannot select a model")
+        return {"extractor": extractor}
+    if extractor != "span_llm":
+        raise ValueError("Unknown extractor profile")
+    if type(model_id) is not str or type(timeout_seconds) is not int or type(max_output_tokens) is not int:
+        raise ValueError("Model ID must be text and request limits must be integers")
+    from .local_model import LocalModelConfig
+    LocalModelConfig("http://127.0.0.1:1", model_id or "", timeout_seconds, max_output_tokens)
+    return {"extractor": extractor, "model_id": model_id,
+            "timeout_seconds": timeout_seconds, "max_output_tokens": max_output_tokens}
+
+
+def validate_profile(profile: dict | None) -> dict:
+    profile = {"extractor": "ocr_rules"} if profile is None else profile
+    if not isinstance(profile, dict) or "extractor" not in profile or set(profile) - {
+            "extractor", "model_id", "timeout_seconds", "max_output_tokens"}:
+        raise ValueError("Invalid processing profile")
+    return processing_profile(**profile)
 
 
 def _display_name(name: str) -> str:
@@ -101,8 +133,10 @@ def _check_content(path: Path, name: str, declared_mime: str) -> tuple[str, int]
     return expected, len(data)
 
 
-class IntakeStore(ReviewStore):
-    def __init__(self, database: Path, object_root: Path, *, max_store_bytes: int = MAX_STORE_BYTES):
+class IntakeStore(LifecycleMixin, ReviewStore):
+    def __init__(self, database: Path, object_root: Path, *, max_store_bytes: int = MAX_STORE_BYTES,
+                 max_artifact_bytes: int | None = None,
+                 disk_reserve_bytes: int | None = None):
         super().__init__(database)
         self.object_root = object_root.resolve()
         self.max_store_bytes = max_store_bytes
@@ -141,9 +175,54 @@ class IntakeStore(ReviewStore):
                     PRIMARY KEY (document_id, page_number),
                     FOREIGN KEY (document_id) REFERENCES parser_checkpoints(document_id)
                 );
+                CREATE TABLE IF NOT EXISTS processing_attempts (
+                    id TEXT PRIMARY KEY, document_id TEXT NOT NULL, job_id TEXT NOT NULL,
+                    fence INTEGER NOT NULL, profile_json TEXT NOT NULL, status TEXT NOT NULL,
+                    started_at TEXT NOT NULL, finished_at TEXT, error_code TEXT,
+                    FOREIGN KEY (document_id) REFERENCES documents(id)
+                );
+                CREATE TABLE IF NOT EXISTS deletion_jobs (
+                    document_id TEXT PRIMARY KEY, status TEXT NOT NULL, manifest_json TEXT NOT NULL,
+                    created_at TEXT NOT NULL, finished_at TEXT, error_code TEXT
+                );
+                CREATE TABLE IF NOT EXISTS batches (
+                    id TEXT PRIMARY KEY, expected_count INTEGER NOT NULL, profile_json TEXT NOT NULL,
+                    created_at TEXT NOT NULL
+                );
+                CREATE TABLE IF NOT EXISTS batch_items (
+                    batch_id TEXT NOT NULL, position INTEGER NOT NULL, document_id TEXT,
+                    status TEXT NOT NULL, error_code TEXT,
+                    PRIMARY KEY (batch_id, position),
+                    FOREIGN KEY (batch_id) REFERENCES batches(id)
+                );
+                CREATE TABLE IF NOT EXISTS storage_policy (
+                    id INTEGER PRIMARY KEY CHECK (id=1), object_root TEXT NOT NULL,
+                    max_artifact_bytes INTEGER NOT NULL, disk_reserve_bytes INTEGER NOT NULL
+                );
             """)
+            columns = {row["name"] for row in db.execute("PRAGMA table_info(jobs)")}
+            for name, definition in (
+                ("profile_json", "TEXT NOT NULL DEFAULT '{\"extractor\":\"ocr_rules\"}'"),
+                ("reparse", "INTEGER NOT NULL DEFAULT 0"),
+                ("stop_requested", "INTEGER NOT NULL DEFAULT 0"),
+                ("stage", "TEXT NOT NULL DEFAULT 'QUEUED'"),
+            ):
+                if name not in columns:
+                    db.execute(f"ALTER TABLE jobs ADD COLUMN {name} {definition}")
+            policy = db.execute("SELECT * FROM storage_policy WHERE id=1").fetchone()
+            relative = os.path.relpath(self.object_root, self.database.absolute().parent)
+            if policy and policy["object_root"] != relative:
+                raise ValueError("Database is configured for a different object store")
+            maximum = max_artifact_bytes if max_artifact_bytes is not None else policy["max_artifact_bytes"] if policy else DEFAULT_ARTIFACT_BYTES
+            reserve = disk_reserve_bytes if disk_reserve_bytes is not None else policy["disk_reserve_bytes"] if policy else DEFAULT_DISK_RESERVE_BYTES
+            self.storage_budget = StorageBudget(self.database, self.object_root, self.export_root,
+                                               maximum=maximum, reserve=reserve)
+            db.execute("INSERT OR REPLACE INTO storage_policy VALUES (1,?,?,?)", (relative, maximum, reserve))
 
-    def submit(self, stream: BinaryIO, filename: str, declared_mime: str) -> str:
+    def submit(self, stream: BinaryIO, filename: str, declared_mime: str, *,
+               profile: dict | None = None, batch_id: str | None = None,
+               batch_position: int | None = None) -> str:
+        profile = validate_profile(profile)
         name = _display_name(filename)
         fd, temp_name = tempfile.mkstemp(prefix="upload-", dir=self.object_root / "quarantine")
         temp_path = Path(temp_name)
@@ -160,7 +239,10 @@ class IntakeStore(ReviewStore):
                     size += len(chunk)
                     if size > MAX_FILE_BYTES:
                         raise ValueError("Document exceeds 20 MB")
-                    output.write(chunk)
+                    with self.storage_budget.locked():
+                        self.storage_budget.check(len(chunk), target=temp_path)
+                        output.write(chunk)
+                        output.flush()
                     digest.update(chunk)
                 output.flush()
                 os.fsync(output.fileno())
@@ -173,6 +255,16 @@ class IntakeStore(ReviewStore):
             job_id = uuid.uuid4().hex
             with self._connect() as db:
                 db.execute("BEGIN IMMEDIATE")
+                if batch_id is not None:
+                    batch = db.execute("SELECT profile_json FROM batches WHERE id=?", (batch_id,)).fetchone()
+                    slot = db.execute("SELECT status FROM batch_items WHERE batch_id=? AND position=?",
+                                      (batch_id, batch_position)).fetchone()
+                    if batch is None or slot is None or slot["status"] != "WAITING_UPLOAD":
+                        raise ReviewConflict("Unknown or already submitted batch position")
+                    profile = json.loads(batch["profile_json"])
+                elif batch_position is not None:
+                    raise ValueError("A batch position requires a batch ID")
+                self.storage_budget.check(64 * 1024)
                 existing = db.execute("SELECT size_bytes, relative_path FROM document_objects WHERE sha256=?", (sha256,)).fetchone()
                 if existing is None:
                     used = db.execute("SELECT COALESCE(SUM(size_bytes), 0) FROM document_objects").fetchone()[0]
@@ -191,8 +283,11 @@ class IntakeStore(ReviewStore):
                     raise ReviewConflict("Stored document object failed checksum verification")
                 db.execute("INSERT INTO documents(id,source_sha256,source_name,page_json,current_revision,created_at,media_type,size_bytes,object_relpath,status) VALUES (?,?,?,?,?,?,?,?,?,?)",
                            (document_id, sha256, name, "null", 0, _now(), media_type, size, str(relative), "RECEIVED"))
-                db.execute("INSERT INTO jobs(id,document_id,status,created_at) VALUES (?,?,?,?)",
-                           (job_id, document_id, "QUEUED", _now()))
+                db.execute("INSERT INTO jobs(id,document_id,status,created_at,profile_json) VALUES (?,?,?,?,?)",
+                           (job_id, document_id, "QUEUED", _now(), json.dumps(profile, sort_keys=True)))
+                if batch_id is not None:
+                    db.execute("UPDATE batch_items SET document_id=?,status='RECEIVED' WHERE batch_id=? AND position=?",
+                               (document_id, batch_id, batch_position))
                 self._event(db, document_id, 0, "received", "intake", "")
             return document_id
         finally:
@@ -207,7 +302,7 @@ class IntakeStore(ReviewStore):
     def status(self, document_id: str) -> dict:
         with self._connect() as db:
             doc = self._current(db, document_id)
-            job = db.execute("SELECT id,status,attempts,fence,error_code FROM jobs WHERE document_id=?", (document_id,)).fetchone()
+            job = db.execute("SELECT id,status,attempts,fence,error_code,stage,profile_json,stop_requested FROM jobs WHERE document_id=?", (document_id,)).fetchone()
             page_count = db.execute("SELECT COUNT(*) FROM document_pages WHERE document_id=?", (document_id,)).fetchone()[0]
             approved = db.execute("SELECT 1 FROM approvals WHERE document_id=? AND revision=?",
                                   (document_id, doc["current_revision"])).fetchone()
@@ -216,7 +311,7 @@ class IntakeStore(ReviewStore):
             return {
                 "document_id": document_id, "source_name": doc["source_name"],
                 "source_sha256": doc["source_sha256"], "media_type": doc["media_type"],
-                "size_bytes": doc["size_bytes"], "status": "APPROVED" if approved else doc["status"],
+                "size_bytes": doc["size_bytes"], "status": "APPROVED" if approved and doc["status"] in ("REVIEW_READY", "APPROVED") else doc["status"],
                 "page_image_sha256": doc["page_image_sha256"],
                 "page_count": page_count or (1 if doc["current_revision"] else 0),
                 "current_revision": doc["current_revision"], "job": dict(job) if job else None,
@@ -227,13 +322,13 @@ class IntakeStore(ReviewStore):
         with self._connect() as db:
             rows = db.execute("""
                 SELECT d.id, d.source_name, d.source_sha256,
-                       CASE WHEN a.document_id IS NOT NULL THEN 'APPROVED' ELSE d.status END AS status,
+                       CASE WHEN a.document_id IS NOT NULL AND d.status IN ('REVIEW_READY','APPROVED') THEN 'APPROVED' ELSE d.status END AS status,
                        d.current_revision, d.created_at, j.status AS job_status,
-                       j.error_code, r.issues_json
+                       j.error_code, j.stage, r.issues_json
                 FROM documents d LEFT JOIN jobs j ON j.document_id=d.id
                 LEFT JOIN revisions r ON r.document_id=d.id AND r.revision=d.current_revision
                 LEFT JOIN approvals a ON a.document_id=d.id AND a.revision=d.current_revision
-                ORDER BY d.created_at DESC, d.id DESC
+                WHERE d.status != 'DELETING' ORDER BY d.created_at DESC, d.id DESC
             """).fetchall()
             documents = []
             for row in rows:
@@ -259,11 +354,21 @@ class IntakeStore(ReviewStore):
                 raise ReviewConflict("Stored original failed checksum verification")
             return path
 
-    def page_image_path(self, document_id: str, page_number: int = 1) -> Path:
+    def page_image_path(self, document_id: str, page_number: int = 1, *, revision: int | None = None) -> Path:
         if page_number < 1:
             raise ValueError("Page number must be positive")
         with self._connect() as db:
             doc = self._current(db, document_id)
+            if revision is not None:
+                self._revision(db, document_id, revision)
+                snapshot = db.execute("SELECT images_json FROM revision_sources WHERE document_id=? AND revision=?",
+                                      (document_id, revision)).fetchone()
+                if snapshot:
+                    image = next((item for item in json.loads(snapshot["images_json"])
+                                  if item["page_number"] == page_number), None)
+                    if image is None:
+                        raise ReviewConflict("Revision has no rendered page")
+                    return self._checked_render(image["image_relpath"], image["image_sha256"])
             row = db.execute("SELECT image_sha256,image_relpath FROM document_pages WHERE document_id=? AND page_number=?",
                              (document_id, page_number)).fetchone()
             relative = row["image_relpath"] if row else doc["page_image_relpath"] if page_number == 1 else None
@@ -275,6 +380,16 @@ class IntakeStore(ReviewStore):
                     or hashlib.sha256(path.read_bytes()).hexdigest() != digest):
                 raise ReviewConflict("Rendered page failed checksum verification")
             return path
+
+    def _checked_render(self, relative: str, digest: str) -> Path:
+        expected = f"renders/{digest[:2]}/{digest}.png"
+        path = self.object_root / relative
+        if (not re.fullmatch(r"[0-9a-f]{64}", digest) or relative != expected or
+                path.is_symlink() or path.parent.is_symlink() or
+                (self.object_root / "renders").is_symlink() or not path.is_file() or
+                hashlib.sha256(path.read_bytes()).hexdigest() != digest):
+            raise ReviewConflict("Rendered page failed checksum verification")
+        return path
 
     def reconcile(self, *, prune: bool = False, min_age_seconds: int = 86400) -> dict:
         """Audit stored objects and renders; optionally remove aged unreferenced files.
@@ -324,6 +439,9 @@ class IntakeStore(ReviewStore):
                 add(row["image_relpath"], row["image_sha256"])
             for row in db.execute("SELECT image_relpath,image_sha256 FROM parser_checkpoint_pages"):
                 add(row["image_relpath"], row["image_sha256"])
+            for row in db.execute("SELECT images_json FROM revision_sources"):
+                for image in json.loads(row["images_json"]):
+                    add(image["image_relpath"], image["image_sha256"])
 
             for relative, (digest, size) in sorted(references.items()):
                 path = self.object_root / relative
@@ -372,33 +490,45 @@ class IntakeStore(ReviewStore):
                 "metadata_errors": metadata_errors, "orphans": orphans, "removed": removed,
                 "prune_blocked": prune and bool(missing or corrupt or metadata_errors)}
 
-    def claim(self, worker_id: str, *, lease_seconds: int = 120) -> JobClaim | None:
+    def claim(self, worker_id: str, *, lease_seconds: int = 120, reclaim_expired: bool = True) -> JobClaim | None:
         if not worker_id.strip() or not 1 <= lease_seconds <= 3600:
             raise ValueError("Worker ID and a 1-3600 second lease are required")
         now = time.time()
         with self._connect() as db:
             db.execute("BEGIN IMMEDIATE")
-            active = db.execute("SELECT 1 FROM jobs WHERE status='PROCESSING' AND lease_until>=? LIMIT 1", (now,)).fetchone()
+            active = db.execute("SELECT 1 FROM jobs WHERE stage='CLEANUP_REQUIRED' OR "
+                                "(status='PROCESSING' AND (lease_until>=? OR stop_requested=1 OR ?=0)) LIMIT 1",
+                                (now, int(reclaim_expired))).fetchone()
             if active:
                 return None
-            job = db.execute("SELECT id,document_id,fence FROM jobs WHERE status='QUEUED' OR (status='PROCESSING' AND lease_until<?) ORDER BY created_at,id LIMIT 1", (now,)).fetchone()
+            job = db.execute("SELECT * FROM jobs WHERE stop_requested=0 AND "
+                             "(status='QUEUED' OR (status='PROCESSING' AND lease_until<? AND ?=1)) "
+                             "ORDER BY created_at,id LIMIT 1", (now, int(reclaim_expired))).fetchone()
             if job is None:
                 return None
             fence = job["fence"] + 1
             until = now + lease_seconds
-            db.execute("UPDATE jobs SET status='PROCESSING',worker_id=?,fence=?,lease_until=?,attempts=attempts+1,error_code=NULL WHERE id=?",
+            self.storage_budget.check(64 * 1024)
+            db.execute("UPDATE processing_attempts SET status='ABANDONED',finished_at=? WHERE job_id=? AND status='PROCESSING'",
+                       (_now(), job["id"]))
+            db.execute("UPDATE jobs SET status='PROCESSING',worker_id=?,fence=?,lease_until=?,attempts=attempts+1,error_code=NULL,stage='PARSING' WHERE id=?",
                        (worker_id, fence, until, job["id"]))
             db.execute("UPDATE documents SET status='PROCESSING' WHERE id=?", (job["document_id"],))
             self._event(db, job["document_id"], 0, "claimed", worker_id, str(fence))
-            return JobClaim(job["id"], job["document_id"], fence, worker_id, until)
+            db.execute("INSERT INTO processing_attempts VALUES (?,?,?,?,?,'PROCESSING',?,NULL,NULL)",
+                       (f"{job['id']}:{fence}", job["document_id"], job["id"], fence, job["profile_json"], _now()))
+            return JobClaim(job["id"], job["document_id"], fence, worker_id, until,
+                            job["profile_json"], bool(job["reparse"]))
 
     @staticmethod
-    def _verify_claim(db, claim: JobClaim) -> None:
+    def _verify_claim(db, claim: JobClaim, *, allow_stopping: bool = False) -> None:
         job = db.execute("SELECT * FROM jobs WHERE id=?", (claim.job_id,)).fetchone()
         if (job is None or job["document_id"] != claim.document_id or job["status"] != "PROCESSING"
                 or job["worker_id"] != claim.worker_id or job["fence"] != claim.fence
                 or job["lease_until"] < time.time()):
             raise ReviewConflict("Processing lease is missing, expired, or fenced out")
+        if job["stop_requested"] and not allow_stopping:
+            raise JobStopped("Processing was cancelled or marked for deletion")
 
     def renew(self, claim: JobClaim, *, lease_seconds: int = 120) -> JobClaim:
         """Extend only the live, fenced claim held by this worker."""
@@ -406,10 +536,10 @@ class IntakeStore(ReviewStore):
             raise ValueError("Lease must be 1-3600 seconds")
         with self._connect() as db:
             db.execute("BEGIN IMMEDIATE")
-            self._verify_claim(db, claim)
+            self._verify_claim(db, claim, allow_stopping=True)
             until = time.time() + lease_seconds
             db.execute("UPDATE jobs SET lease_until=? WHERE id=?", (until, claim.job_id))
-        return JobClaim(claim.job_id, claim.document_id, claim.fence, claim.worker_id, until)
+        return replace(claim, lease_until=until)
 
     def save_parser_checkpoint(self, claim: JobClaim, cache_key: str, parser_identity: str,
                                result: bytes, images: Sequence[bytes]) -> None:
@@ -422,7 +552,8 @@ class IntakeStore(ReviewStore):
         with self._connect() as db:
             db.execute("BEGIN IMMEDIATE")
             self._verify_claim(db, claim)
-            self._current(db, claim.document_id, 0)
+            self._current(db, claim.document_id)
+            self.storage_budget.check(len(result) * 4 + sum(len(image) for image in images) + 64 * 1024)
             db.execute("DELETE FROM parser_checkpoint_pages WHERE document_id=?", (claim.document_id,))
             db.execute("INSERT OR REPLACE INTO parser_checkpoints VALUES (?,?,?,?,?,?)",
                        (claim.document_id, cache_key, parser_identity, encoded,
@@ -430,7 +561,7 @@ class IntakeStore(ReviewStore):
             for number, image in enumerate(images, start=1):
                 digest = hashlib.sha256(image).hexdigest()
                 relative = Path("renders") / digest[:2] / f"{digest}.png"
-                _atomic_write(self.object_root / relative, image)
+                self.storage_budget.write(self.object_root / relative, image, _atomic_write)
                 db.execute("INSERT INTO parser_checkpoint_pages VALUES (?,?,?,?)",
                            (claim.document_id, number, digest, str(relative)))
             self._verify_claim(db, claim)
@@ -488,10 +619,15 @@ class IntakeStore(ReviewStore):
         with self._connect() as db:
             db.execute("BEGIN IMMEDIATE")
             self._verify_claim(db, claim)
+            self._archive_sources(db, claim.document_id)
+            self.storage_budget.check(len(json.dumps(record.to_dict()).encode()) * 4 +
+                                      len(json.dumps([asdict(page) for page in pages]).encode()) * 4 +
+                                      sum(len(image) for image in images) + 64 * 1024)
+            db.execute("DELETE FROM document_pages WHERE document_id=?", (claim.document_id,))
             for source_page, image in zip(pages, images):
                 digest = hashlib.sha256(image).hexdigest()
                 relative = Path("renders") / digest[:2] / f"{digest}.png"
-                _atomic_write(self.object_root / relative, image)
+                self.storage_budget.write(self.object_root / relative, image, _atomic_write)
                 db.execute("INSERT INTO document_pages VALUES (?,?,?,?)",
                            (claim.document_id, source_page.number, digest, str(relative)))
                 if source_page.number == 1:
@@ -500,24 +636,40 @@ class IntakeStore(ReviewStore):
             self._attach_candidate(db, claim.document_id, pages, record, profile=profile,
                                    model_id=model_id, prompt_sha256=prompt_sha256,
                                    extra_issues=extra_issues)
-            db.execute("UPDATE jobs SET status='COMPLETE',lease_until=NULL WHERE id=?", (claim.job_id,))
+            self._archive_sources(db, claim.document_id, attempt_id=f"{claim.job_id}:{claim.fence}")
+            self._verify_claim(db, claim)
+            db.execute("UPDATE jobs SET status='COMPLETE',lease_until=NULL,stage='REVIEW_READY' WHERE id=?", (claim.job_id,))
+            db.execute("UPDATE processing_attempts SET status='COMPLETE',finished_at=? WHERE id=?",
+                       (_now(), f"{claim.job_id}:{claim.fence}"))
 
     def fail(self, claim: JobClaim, error_code: str) -> None:
         if not re.fullmatch(r"[A-Z][A-Z0-9_]{2,63}", error_code):
             raise ValueError("error_code must be an uppercase machine-readable token")
         with self._connect() as db:
             db.execute("BEGIN IMMEDIATE")
-            self._verify_claim(db, claim)
-            db.execute("UPDATE jobs SET status='FAILED',lease_until=NULL,error_code=? WHERE id=?", (error_code, claim.job_id))
+            self._verify_claim(db, claim, allow_stopping=True)
+            job = db.execute("SELECT stop_requested FROM jobs WHERE id=?", (claim.job_id,)).fetchone()
+            if job["stop_requested"]:
+                db.execute("UPDATE jobs SET status='CANCELLED',stage='CANCELLED',lease_until=NULL WHERE id=?", (claim.job_id,))
+                db.execute("UPDATE documents SET status='CANCELLED' WHERE id=? AND status!='DELETING'", (claim.document_id,))
+                db.execute("UPDATE processing_attempts SET status='CANCELLED',finished_at=? WHERE id=?",
+                           (_now(), f"{claim.job_id}:{claim.fence}"))
+                return
+            db.execute("UPDATE jobs SET status='FAILED',lease_until=NULL,error_code=?,stage='FAILED' WHERE id=?", (error_code, claim.job_id))
             db.execute("UPDATE documents SET status='FAILED' WHERE id=?", (claim.document_id,))
             self._event(db, claim.document_id, 0, "failed", claim.worker_id, error_code)
+            db.execute("UPDATE processing_attempts SET status='FAILED',finished_at=?,error_code=? WHERE id=?",
+                       (_now(), error_code, f"{claim.job_id}:{claim.fence}"))
 
     def retry(self, document_id: str) -> None:
         with self._connect() as db:
             db.execute("BEGIN IMMEDIATE")
-            doc = self._current(db, document_id, 0)
+            doc = self._current(db, document_id)
             if doc["status"] != "FAILED":
                 raise ReviewConflict("Only failed, unreviewed documents can be retried")
-            db.execute("UPDATE jobs SET status='QUEUED',worker_id=NULL,lease_until=NULL,error_code=NULL WHERE document_id=?", (document_id,))
+            job = db.execute("SELECT stage FROM jobs WHERE document_id=?", (document_id,)).fetchone()
+            if job["stage"] == "CLEANUP_REQUIRED":
+                raise ReviewConflict("Parser cleanup must finish before retry")
+            db.execute("UPDATE jobs SET status='QUEUED',worker_id=NULL,lease_until=NULL,error_code=NULL,stop_requested=0,stage='QUEUED' WHERE document_id=?", (document_id,))
             db.execute("UPDATE documents SET status='RECEIVED' WHERE id=?", (document_id,))
             self._event(db, document_id, 0, "retried", "operator", "")

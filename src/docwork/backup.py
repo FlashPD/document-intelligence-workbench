@@ -20,6 +20,7 @@ TABLES = {
     "extraction_runs", "document_objects", "jobs", "document_pages",
     "parser_checkpoints", "parser_checkpoint_pages",
 }
+LIFECYCLE_TABLES = {"revision_sources", "processing_attempts", "deletion_jobs", "batches", "batch_items", "storage_policy"}
 
 
 def _digest(path: Path) -> str:
@@ -54,13 +55,16 @@ def _regular(root: Path, relative: str) -> Path:
 
 def _check_database(db: sqlite3.Connection) -> None:
     schema = db.execute("SELECT name,type FROM sqlite_master WHERE name NOT LIKE 'sqlite_%'").fetchall()
-    if ({row["name"] for row in schema if row["type"] == "table"} != TABLES
+    tables = {row["name"] for row in schema if row["type"] == "table"}
+    if (tables not in (TABLES, TABLES | {"revision_sources"}, TABLES | LIFECYCLE_TABLES)
             or any(row["type"] not in ("table", "index") for row in schema)):
         raise ValueError("Unsupported workbench database schema")
     if [row[0] for row in db.execute("PRAGMA integrity_check")] != ["ok"]:
         raise ValueError("Workbench database failed integrity check")
     if db.execute("PRAGMA foreign_key_check").fetchone() is not None:
         raise ValueError("Workbench database has broken references")
+    if "deletion_jobs" in tables and db.execute("SELECT 1 FROM deletion_jobs WHERE status='PENDING'").fetchone():
+        raise ValueError("Finish pending document deletions before creating a portable backup")
 
 
 def _references(db: sqlite3.Connection, *, export_root: Path | None = None) -> dict[str, tuple[str, int | None]]:
@@ -98,6 +102,10 @@ def _references(db: sqlite3.Connection, *, export_root: Path | None = None) -> d
     for table in ("document_pages", "parser_checkpoint_pages"):
         for row in db.execute(f"SELECT image_relpath,image_sha256 FROM {table}"):
             intake(*row)
+    if db.execute("SELECT 1 FROM sqlite_master WHERE name='revision_sources'").fetchone():
+        for row in db.execute("SELECT images_json FROM revision_sources"):
+            for image in json.loads(row[0]):
+                intake(image["image_relpath"], image["image_sha256"])
     for row in db.execute("SELECT result_json,result_sha256 FROM parser_checkpoints"):
         if hashlib.sha256(row["result_json"].encode()).hexdigest() != row["result_sha256"]:
             raise ValueError("Parser checkpoint failed integrity verification")
@@ -193,6 +201,8 @@ def create_backup(database: Path, object_root: Path, destination: Path, *,
                     for file in manifest["files"]:
                         file["path"] = "exports/" + str(Path(file["path"]).relative_to(export_root))
                     db.execute("UPDATE exports SET manifest_json=? WHERE rowid=?", (_json(manifest), row["rowid"]))
+                if db.execute("SELECT 1 FROM sqlite_master WHERE name='storage_policy'").fetchone():
+                    db.execute("UPDATE storage_policy SET object_root='intake'")
                 db.commit()
                 counts = _counts(db)
             guard.rollback()
@@ -269,12 +279,22 @@ def restore_backup(bundle: Path, destination: Path) -> dict:
                 for file in export["files"]:
                     file["path"] = str(destination / file["path"])
                 db.execute("UPDATE exports SET manifest_json=? WHERE rowid=?", (_json(export), row["rowid"]))
-            interrupted = db.execute("SELECT id,document_id FROM jobs WHERE status='PROCESSING'").fetchall()
+            columns = {row["name"] for row in db.execute("PRAGMA table_info(jobs)")}
+            interrupted = db.execute("SELECT * FROM jobs WHERE status='PROCESSING'").fetchall()
+            requeued = 0
             for row in interrupted:
-                db.execute("UPDATE jobs SET status='QUEUED',worker_id=NULL,lease_until=NULL,fence=fence+1,error_code=NULL WHERE id=?", (row["id"],))
-                db.execute("UPDATE documents SET status='RECEIVED' WHERE id=?", (row["document_id"],))
+                cancelled = "stop_requested" in columns and row["stop_requested"]
+                status = "CANCELLED" if cancelled else "QUEUED"
+                requeued += int(not cancelled)
+                db.execute("UPDATE jobs SET status=?,worker_id=NULL,lease_until=NULL,fence=fence+1,error_code=NULL WHERE id=?", (status, row["id"]))
+                db.execute("UPDATE documents SET status=? WHERE id=?", ("CANCELLED" if cancelled else "RECEIVED", row["document_id"]))
+                if "stop_requested" in columns:
+                    db.execute("UPDATE jobs SET stage=?,stop_requested=0 WHERE id=?", (status, row["id"]))
                 db.execute("INSERT INTO review_events(document_id,revision,kind,actor,detail,created_at) VALUES (?,0,'backup_restored','operator',?,?)",
                            (row["document_id"], verified["manifest_sha256"], _now()))
+            if db.execute("SELECT 1 FROM sqlite_master WHERE name='processing_attempts'").fetchone():
+                db.execute("UPDATE processing_attempts SET status='RESTORED',finished_at=? "
+                           "WHERE status IN ('PROCESSING','ABANDONED','CLEANUP_REQUIRED')", (_now(),))
             db.commit()
             _check_database(db)
             _references(db, export_root=destination / "exports")
@@ -282,7 +302,7 @@ def restore_backup(bundle: Path, destination: Path) -> dict:
         report = {"status": "restored", "manifest_sha256": verified["manifest_sha256"],
                   "database": str(destination / "database.sqlite"),
                   "objects": str(destination / "intake"), "counts": verified["counts"],
-                  "requeued_jobs": len(interrupted)}
+                  "requeued_jobs": requeued}
         _write(stage / "restore.json", (json.dumps(report, indent=2) + "\n").encode())
         _publish(stage, destination)
     return report

@@ -25,6 +25,7 @@ from .contracts import HEADER_FIELDS, REQUIRED_FIELDS, Box, DocumentPage, FieldV
 from .parser_protocol import PARSER_VERSION
 from .review_priority import score_review_priority
 from .validation import validate_invoice
+from .storage_budget import StorageBudget
 
 POLICY_VERSION = "review-v1"
 EXPORT_SCHEMA_VERSION = "export-v1"
@@ -179,6 +180,12 @@ class ReviewStore:
                     extra_issues_json TEXT NOT NULL, created_at TEXT NOT NULL,
                     FOREIGN KEY (document_id) REFERENCES documents(id)
                 );
+                CREATE TABLE IF NOT EXISTS revision_sources (
+                    document_id TEXT NOT NULL, revision INTEGER NOT NULL,
+                    page_json TEXT NOT NULL, extraction_json TEXT NOT NULL, images_json TEXT NOT NULL,
+                    PRIMARY KEY (document_id, revision),
+                    FOREIGN KEY (document_id, revision) REFERENCES revisions(document_id, revision)
+                );
             """)
             # Preserve databases created by the first review prototype.
             columns = {row["name"] for row in db.execute("PRAGMA table_info(documents)")}
@@ -189,6 +196,12 @@ class ReviewStore:
             ):
                 if name not in columns:
                     db.execute(f"ALTER TABLE documents ADD COLUMN {name} {definition}")
+            policy = (db.execute("SELECT * FROM storage_policy WHERE id=1").fetchone()
+                      if db.execute("SELECT 1 FROM sqlite_master WHERE name='storage_policy'").fetchone() else None)
+            if policy:
+                self.storage_budget = StorageBudget(self.database, self.database.parent / policy["object_root"],
+                                                   self.export_root, maximum=policy["max_artifact_bytes"],
+                                                   reserve=policy["disk_reserve_bytes"])
 
     @contextmanager
     def _connect(self):
@@ -210,11 +223,68 @@ class ReviewStore:
     @staticmethod
     def _current(db: sqlite3.Connection, document_id: str, expected_revision: int | None = None) -> sqlite3.Row:
         row = db.execute("SELECT * FROM documents WHERE id=?", (document_id,)).fetchone()
-        if row is None:
+        if row is None or row["status"] == "DELETING":
             raise KeyError(f"Unknown document: {document_id}")
         if expected_revision is not None and row["current_revision"] != expected_revision:
             raise ReviewConflict(f"Current revision is {row['current_revision']}, expected {expected_revision}")
         return row
+
+    @staticmethod
+    def _reviewable(doc) -> None:
+        if doc["status"] not in ("REVIEW_READY", "APPROVED"):
+            raise ReviewConflict("Review and new exports require a review-ready candidate")
+
+    def _write_artifact(self, path: Path, content: bytes) -> str:
+        budget = getattr(self, "storage_budget", None)
+        if budget:
+            budget.roots = (budget.roots[0], self.export_root.absolute())
+        return budget.write(path, content, _atomic_write) if budget else _atomic_write(path, content)
+
+    def _guard_metadata(self, content_bytes: int = 0) -> None:
+        budget = getattr(self, "storage_budget", None)
+        if budget:
+            # Reserve for copied JSON, SQLite pages/indexes and the WAL before
+            # changing references. Physical DB/WAL size is also inventoried.
+            budget.check(content_bytes * 4 + 64 * 1024)
+
+    def _write_export_files(self, outputs: list[tuple[Path, bytes]]) -> list[dict]:
+        self._guard_metadata(sum(len(content) for _, content in outputs))
+        created, files = [], []
+        try:
+            for path, content in outputs:
+                existed = path.exists() or path.is_symlink()
+                digest = self._write_artifact(path, content)
+                if not existed:
+                    created.append((path, digest))
+                files.append({"path": str(path), "sha256": digest})
+        except Exception:
+            # Export holds the database write lock. Clean only files created by
+            # this attempt, preserving retries of already immutable exports.
+            for path, digest in created:
+                if not path.is_symlink() and path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest() == digest:
+                    path.unlink()
+            raise
+        return files
+
+    def _archive_sources(self, db, document_id: str, *, attempt_id: str | None = None) -> None:
+        """Snapshot sources before replacing an extraction, including old databases."""
+        doc = self._current(db, document_id)
+        extraction = db.execute("SELECT profile,model_id,prompt_sha256,parser_version,input_sha256,created_at "
+                                "FROM extraction_runs WHERE document_id=?", (document_id,)).fetchone()
+        data = dict(extraction) if extraction else None
+        if data is not None and attempt_id is not None:
+            data["attempt_id"] = attempt_id
+        images = []
+        if db.execute("SELECT 1 FROM sqlite_master WHERE name='document_pages'").fetchone():
+            images = [dict(row) for row in db.execute(
+                "SELECT page_number,image_sha256,image_relpath FROM document_pages WHERE document_id=? ORDER BY page_number",
+                (document_id,))]
+        if not images and doc["page_image_relpath"]:
+            images = [{"page_number": 1, "image_sha256": doc["page_image_sha256"],
+                       "image_relpath": doc["page_image_relpath"]}]
+        db.execute("INSERT OR IGNORE INTO revision_sources "
+                   "SELECT document_id,revision,?,?,? FROM revisions WHERE document_id=?",
+                   (doc["page_json"], _json(data), _json(images), document_id))
 
     @staticmethod
     def _revision(db: sqlite3.Connection, document_id: str, revision: int) -> sqlite3.Row:
@@ -230,6 +300,7 @@ class ReviewStore:
         record_data = record.to_dict()
         issues = [asdict(issue) for issue in validate_invoice(record, page)]
         with self._connect() as db:
+            self._guard_metadata(len(_json(record_data).encode()) + len(_json(asdict(page)).encode()))
             db.execute("INSERT INTO documents(id,source_sha256,source_name,page_json,current_revision,created_at,status) VALUES (?,?,?,?,?,?,?)",
                        (document_id, source_sha256, source_name, _json(asdict(page)), 1, _now(), "REVIEW_READY"))
             db.execute("INSERT INTO revisions VALUES (?,?,?,?,?,?,?,?)",
@@ -252,17 +323,20 @@ class ReviewStore:
             raise ValueError("Span IDs must be unique across the document")
         data = record.to_dict()
         issues = [asdict(issue) for issue in (*validate_invoice(record, pages), *extra_issues)]
-        doc = self._current(db, document_id, 0)
+        doc = self._current(db, document_id)
         if doc["status"] not in ("RECEIVED", "PROCESSING"):
             raise ReviewConflict(f"Cannot attach candidate in status {doc['status']}")
+        self._archive_sources(db, document_id)
+        revision = doc["current_revision"] + 1
         db.execute("INSERT INTO revisions VALUES (?,?,?,?,?,?,?,?)",
-                   (document_id, 1, None, _json(data), _hash(data), _json(issues), "extractor", _now()))
-        db.execute("INSERT INTO extraction_runs VALUES (?,?,?,?,?,?,?,?)",
+                   (document_id, revision, doc["current_revision"] or None,
+                    _json(data), _hash(data), _json(issues), "extractor", _now()))
+        db.execute("INSERT OR REPLACE INTO extraction_runs VALUES (?,?,?,?,?,?,?,?)",
                    (document_id, profile, model_id, prompt_sha256, PARSER_VERSION,
                     _hash([asdict(page) for page in pages]), _json([asdict(issue) for issue in extra_issues]), _now()))
-        db.execute("UPDATE documents SET page_json=?, current_revision=1, status='REVIEW_READY' WHERE id=?",
-                   (pages_to_json(pages), document_id))
-        self._event(db, document_id, 1, "candidate_created", "extractor", "")
+        db.execute("UPDATE documents SET page_json=?, current_revision=?, status='REVIEW_READY' WHERE id=?",
+                   (pages_to_json(pages), revision, document_id))
+        self._event(db, document_id, revision, "candidate_created", "extractor", "")
 
     def get(self, document_id: str, revision: int | None = None) -> dict:
         with self._connect() as db:
@@ -274,6 +348,10 @@ class ReviewStore:
             pages = pages_from_json(doc["page_json"])
             extraction = db.execute("SELECT profile,model_id,prompt_sha256,parser_version,input_sha256,created_at FROM extraction_runs WHERE document_id=?",
                                     (document_id,)).fetchone()
+            source = db.execute("SELECT * FROM revision_sources WHERE document_id=? AND revision=?",
+                                (document_id, selected)).fetchone()
+            if source:
+                pages = pages_from_json(source["page_json"])
             decisions = db.execute("SELECT issue_key, reason, actor, created_at FROM decisions WHERE document_id=? AND revision=? ORDER BY issue_key",
                                    (document_id, selected)).fetchall()
             approval = db.execute("SELECT * FROM approvals WHERE document_id=? AND revision=?", (document_id, selected)).fetchone()
@@ -282,7 +360,7 @@ class ReviewStore:
                 "document_id": document_id, "source_sha256": doc["source_sha256"],
                 "source_name": doc["source_name"], "page": asdict(pages[0]),
                 "pages": [asdict(page) for page in pages],
-                "extraction": dict(extraction) if extraction else None,
+                "extraction": json.loads(source["extraction_json"]) if source else dict(extraction) if extraction else None,
                 "revision": selected, "current_revision": doc["current_revision"],
                 "record": json.loads(rev["record_json"]), "record_hash": rev["record_hash"],
                 "issues": issues, "review_priority": score_review_priority(issues),
@@ -297,6 +375,8 @@ class ReviewStore:
         with self._connect() as db:
             db.execute("BEGIN IMMEDIATE")
             doc = self._current(db, document_id, expected_revision)
+            self._reviewable(doc)
+            self._archive_sources(db, document_id)
             current = self._revision(db, document_id, expected_revision)
             record = record_from_dict(json.loads(current["record_json"]))
             pages = pages_from_json(doc["page_json"])
@@ -330,6 +410,7 @@ class ReviewStore:
                 record = replace(record, line_items=rows)
             new_revision = expected_revision + 1
             data = record.to_dict()
+            self._guard_metadata(len(_json(data).encode()) + len(doc["page_json"].encode()))
             run = db.execute("SELECT extra_issues_json FROM extraction_runs WHERE document_id=?", (document_id,)).fetchone()
             extra_issues = json.loads(run["extra_issues_json"]) if run else []
             issues = [asdict(issue) for issue in validate_invoice(record, pages)] + extra_issues
@@ -338,6 +419,9 @@ class ReviewStore:
             db.execute("UPDATE documents SET current_revision=?, status='REVIEW_READY' WHERE id=?",
                        (new_revision, document_id))
             self._event(db, document_id, new_revision, "field_edited", actor, path)
+            db.execute("INSERT INTO revision_sources SELECT document_id,?,page_json,extraction_json,images_json "
+                       "FROM revision_sources WHERE document_id=? AND revision=?",
+                       (new_revision, document_id, expected_revision))
             return new_revision
 
     def acknowledge(self, document_id: str, expected_revision: int, code: str, path: str,
@@ -347,7 +431,7 @@ class ReviewStore:
         key = f"{code}|{path}"
         with self._connect() as db:
             db.execute("BEGIN IMMEDIATE")
-            self._current(db, document_id, expected_revision)
+            self._reviewable(self._current(db, document_id, expected_revision))
             rev = self._revision(db, document_id, expected_revision)
             if db.execute("SELECT 1 FROM approvals WHERE document_id=? AND revision=?",
                           (document_id, expected_revision)).fetchone():
@@ -355,6 +439,7 @@ class ReviewStore:
             issues = json.loads(rev["issues_json"])
             if not any(_issue_key(issue) == key and issue["blocking"] for issue in issues):
                 raise ValueError(f"No blocking issue at {key}")
+            self._guard_metadata(len(reason.encode()) + len(actor.encode()))
             db.execute("INSERT INTO decisions VALUES (?,?,?,?,?,?) ON CONFLICT(document_id,revision,issue_key) DO UPDATE SET reason=excluded.reason, actor=excluded.actor, created_at=excluded.created_at",
                        (document_id, expected_revision, key, reason, actor, _now()))
             self._event(db, document_id, expected_revision, "issue_acknowledged", actor, key)
@@ -365,6 +450,7 @@ class ReviewStore:
         with self._connect() as db:
             db.execute("BEGIN IMMEDIATE")
             doc = self._current(db, document_id, expected_revision)
+            self._reviewable(doc)
             rev = self._revision(db, document_id, expected_revision)
             record = json.loads(rev["record_json"])
             absent = [name for name in REQUIRED_FIELDS if not (record["fields"][name]["value"] or "").strip()]
@@ -391,6 +477,7 @@ class ReviewStore:
             }
             approval_hash = _hash(payload)
             created_at = _now()
+            self._guard_metadata(len(actor.encode()))
             db.execute("INSERT INTO approvals VALUES (?,?,?,?,?,?,?,?)",
                        (document_id, expected_revision, rev["record_hash"], payload["decision_hash"],
                         approval_hash, actor, POLICY_VERSION, created_at))
@@ -404,6 +491,7 @@ class ReviewStore:
         with self._connect() as db:
             db.execute("BEGIN IMMEDIATE")
             doc = self._current(db, document_id)
+            self._reviewable(doc)
             revision = doc["current_revision"]
             rev = self._revision(db, document_id, revision)
             approved = db.execute("SELECT * FROM approvals WHERE document_id=? AND revision=?",
@@ -439,8 +527,7 @@ class ReviewStore:
                     "issues": issues, "decisions": decisions,
                 }
                 path = base / "invoice.json"
-                digest = _atomic_write(path, (json.dumps(data, indent=2, ensure_ascii=False) + "\n").encode())
-                files.append({"path": str(path), "sha256": digest})
+                files = self._write_export_files([(path, (json.dumps(data, indent=2, ensure_ascii=False) + "\n").encode())])
             else:
                 fields = record["fields"]
                 header = io.StringIO(newline="")
@@ -471,9 +558,8 @@ class ReviewStore:
                             "|".join(row[name]["evidence_ids"]),
                         )
                     )])
-                for name, content in (("header.csv", header.getvalue()), ("line-items.csv", items.getvalue())):
-                    path = base / name
-                    files.append({"path": str(path), "sha256": _atomic_write(path, content.encode("utf-8"))})
+                files = self._write_export_files([(base / name, content.encode("utf-8")) for name, content in
+                                                  (("header.csv", header.getvalue()), ("line-items.csv", items.getvalue()))])
             manifest = {
                 "document_id": document_id, "revision": revision, "format": format,
                 "schema_version": EXPORT_SCHEMA_VERSION, "approval_hash": approved["approval_hash"],
