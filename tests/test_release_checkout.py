@@ -115,7 +115,7 @@ class CommittedCheckoutTests(unittest.TestCase):
         self.assertEqual(report["status"], "passed")
         self.assertEqual(report["git_source"]["commit"], self.commit)
         self.assertEqual(report["mode"], "committed-git-tree")
-        self.assertEqual(len(checked), 6)
+        self.assertEqual(len(checked), 8)
         self.assertTrue(report["inputs_unchanged"])
         self.assertTrue(report["checkout_inputs_unchanged"])
         self.assertEqual(report["input_sha256"]["README.md"], hashlib.sha256(b"committed source\n").hexdigest())

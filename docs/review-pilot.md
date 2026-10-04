@@ -2,7 +2,41 @@
 
 The workbench now has an explicit timed pilot mode. It opens six declared development invoices in a fixed order, records server-side interaction/pause events, and binds completion to the current approval and an existing hash-verified JSON export. The session uses a separate database and timing file. It does not change extraction settings or held-out evaluation inputs.
 
-**Human results are pending.** The [candidate automated Chrome verification](../evals/portfolio-candidate-pilot-browser-2026-10-03/report.json) checks source highlighting, pause/resume, locked reviewer labels, approval, export, and completion on a disposable fixture. Its [screenshot](../evals/portfolio-candidate-pilot-browser-2026-10-03/review.png) demonstrates the interface. Those automated clicks are not human timing or productivity evidence. The [earlier check](../evals/review-pilot-browser-2026-10-03-v3/report.json) remains historical.
+**Human results: all six author trials completed.** The [results page](../evals/author-review-pilot-2026-10-03-results.html) and [original report](../evals/author-review-pilot-2026-10-03/report.json) retain timing, corrections and final quality, including two remaining errors. The [candidate automated Chrome verification](../evals/portfolio-candidate-pilot-browser-2026-10-03/report.json) separately checks source highlighting, pause/resume, locked reviewer labels, approval, export, and completion on a disposable fixture. Its [screenshot](../evals/portfolio-candidate-pilot-browser-2026-10-03/review.png) demonstrates the interface. Those automated clicks are not human timing or productivity evidence. The [earlier check](../evals/review-pilot-browser-2026-10-03-v3/report.json) remains historical.
+
+The two errors have separate [post-pilot corrected drafts](post-pilot-corrections.md) for normal review and fresh approval. They do not replace the original study results below.
+
+## Recorded author results
+
+| Case | Active seconds | Final revision | Field edits | Acknowledgments |
+|---|---:|---:|---:|---:|
+| Clean single page | 140.992 | 1 | 0 | 0 |
+| Printed total conflict | 130.710 | 1 | 0 | 1 |
+| Low contrast | 71.858 | 5 | 4 | 0 |
+| Skew | 53.060 | 2 | 1 | 0 |
+| Sideways page | 51.791 | 1 | 0 | 0 |
+| Two pages | 38.608 | 1 | 0 | 0 |
+
+The recorded active and elapsed medians are both **62.459 seconds**. All six scheduled trials completed; the first includes 1.050 paused seconds and the recorded idle total is zero. Five edit events and one printed-conflict acknowledgment were recorded. These are interaction-based review measurements, not extraction latency or a manual-entry comparison.
+
+Final required headers are exact on **5/6** eligible documents, header macro F1 is **0.9833**, and exact-row F1 is **0.9500** with **19/20** exact rows. Quantities, unit prices and line totals are correct on all twenty rows. The low-contrast case retains description `Illustration set 3}` instead of `Illustration set`; the two-page case retains invoice number `FO06-004` instead of `F06-004`. Original suggestions, decisions and approved exports remain unchanged after inspecting these errors. Completing the approval workflow does not establish semantic correctness.
+
+The [portable archive](../evals/author-review-pilot-2026-10-03/manifest.json) contains the supplied report byte-for-byte, protocol, source snapshot, raw timing events, and a verified SQLite/artifact backup. The backup rebases export paths and compacts SQLite pages; approved records, revision history, approval hashes and original JSON/CSV export bytes remain intact. Verify it offline from the repository root:
+
+```sh
+PYTHONPATH=src python3.12 scripts/archive_review_pilot.py verify \
+  evals/author-review-pilot-2026-10-03 --require-complete
+```
+
+Verification restores only into a temporary directory and reproduces the report. To supply a portable session to a later release audit, restore into a new ignored directory:
+
+```sh
+PYTHONPATH=src python3.12 scripts/archive_review_pilot.py restore \
+  evals/author-review-pilot-2026-10-03 \
+  --output-dir artifacts/author-pilot-restored
+```
+
+Retain the original archive rather than serving its restored copy for another study. Local integrity checks do not authenticate the participant. Author familiarity, six fixed synthetic development cases, the sixty-second activity cutoff and lack of a manual baseline limit the findings; there is no time-saved or general workforce claim.
 
 ## Declared study
 

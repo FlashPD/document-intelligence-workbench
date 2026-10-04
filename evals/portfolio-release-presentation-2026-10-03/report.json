@@ -1,0 +1,52 @@
+{
+  "report_version": "portfolio-presentation-review-v1",
+  "status": "passed",
+  "video": "evals/portfolio-candidate-browser-2026-10-03/demo.webm",
+  "video_sha256": "ec69425311c5c6d235eb3d82ec6aeb6d9cbc34471ebac5362c7bb69f5b26c5c7",
+  "declared_nominal_seconds": 15,
+  "playback": {
+    "width": 1440,
+    "height": 1190,
+    "current_time": 12.045336,
+    "ended": true
+  },
+  "frames": [
+    {
+      "path": "evals/portfolio-candidate-browser-2026-10-03/frames/01.png",
+      "caption": "A keyboard correction creates revision 2 and preserves the original suggestion.",
+      "sha256": "4ba1ffec73b7014a5ef5229ac5a499780df54b34415dc7e2e6a0c344f0e02b7c"
+    },
+    {
+      "path": "evals/portfolio-candidate-browser-2026-10-03/frames/02.png",
+      "caption": "Only the approved revision can produce verified JSON and CSV downloads.",
+      "sha256": "aca2299580dc90752511d6067f16679a419cbd7118147c1c39d318911b71bf2f"
+    },
+    {
+      "path": "evals/portfolio-candidate-browser-2026-10-03/frames/03.png",
+      "caption": "Printed total conflict: the reviewer records a reason; source values stay unchanged.",
+      "sha256": "7198e146c103c8b3e108cb9f6ee574f2bd7825050093f76232e02261d2a9bf08"
+    },
+    {
+      "path": "evals/portfolio-candidate-browser-2026-10-03/frames/04.png",
+      "caption": "Review rotation: the page and cited line highlights rotate together.",
+      "sha256": "ae85ace01ad8b012d09d4f19b93acc92f4f82ff78b18fe0b70001897375abd7a"
+    },
+    {
+      "path": "evals/portfolio-candidate-browser-2026-10-03/frames/05.png",
+      "caption": "A cited row jumps to page 2; each page retains its own review rotation.",
+      "sha256": "b43ed0f878030f4d21748fa2e05986d4f7fcc13879af54e7ec009b9e40fe65f9"
+    }
+  ],
+  "visual_review": {
+    "reviewer": "Codex",
+    "human_presentation_review": false,
+    "method": "Codex inspected all five original source screenshots and captions; Chrome decoded and played the saved video to its end in an isolated profile.",
+    "findings": [
+      "Fictional reviewer and recorded OCR labels are visible in the interface.",
+      "Corrections, revision-bound approval, exports, conflicting totals and page rotations are shown.",
+      "No session URL, API credential or terminal secret is visible in the five reviewed screenshots.",
+      "Rotated screenshots demonstrate controls; they are not a continuous narration or human usability study."
+    ]
+  },
+  "scope": "Fifteen-second captioned screenshot sequence, no audio. Presentation pacing is not processing or review latency. No inference, new human review or productivity measurement."
+}

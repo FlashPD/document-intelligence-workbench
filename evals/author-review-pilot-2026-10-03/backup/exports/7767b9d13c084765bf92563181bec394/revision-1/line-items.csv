@@ -1,0 +1,5 @@
+document_id,revision,row_id,description,description_origin,description_missing_reason,description_evidence_ids,quantity,quantity_origin,quantity_missing_reason,quantity_evidence_ids,unit_price,unit_price_origin,unit_price_missing_reason,unit_price_evidence_ids,line_total,line_total_origin,line_total_missing_reason,line_total_evidence_ids,tax,tax_origin,tax_missing_reason,tax_evidence_ids
+7767b9d13c084765bf92563181bec394,1,row-001,Layout study,observed,,p1-l0009,2,observed,,p1-l0009,95.00,observed,,p1-l0009,190.00,observed,,p1-l0009,,observed,not_explicit_on_row,
+7767b9d13c084765bf92563181bec394,1,row-002,Layout study,observed,,p1-l0010,2,observed,,p1-l0010,25.00,observed,,p1-l0010,50.00,observed,,p1-l0010,,observed,not_explicit_on_row,
+7767b9d13c084765bf92563181bec394,1,row-003,Usability session,observed,,p1-l0011,1,observed,,p1-l0011,81.00,observed,,p1-l0011,81.00,observed,,p1-l0011,,observed,not_explicit_on_row,
+7767b9d13c084765bf92563181bec394,1,row-004,Illustration set,observed,,p1-l0012,3,observed,,p1-l0012,32.00,observed,,p1-l0012,96.00,observed,,p1-l0012,,observed,not_explicit_on_row,

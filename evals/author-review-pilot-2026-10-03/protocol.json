@@ -1,0 +1,93 @@
+{
+  "pilot_version": "assisted-author-pilot-v1",
+  "created_at": "2026-10-03T20:46:26.568456+00:00",
+  "documents": [
+    {
+      "ordinal": 1,
+      "corpus_id": "inv-f02-02",
+      "document_id": "b4669f822353427287215a6fe71a1660",
+      "family_group": "family-02",
+      "treatment": "none",
+      "pages": 1,
+      "initial_record_hash": "860827eb9bf1f25952731ddb748345f70c88e25bf6af16d2f402655d61905e47",
+      "source_sha256": "bdd8ee263d7877fade240cd1622c101e7a680b0d0e924494003e0a5c64a96165",
+      "prediction_sha256": "54e0ef7d7b1cec1e6c1904af9282402744c51901a13fbb8109eedd5704f26df7"
+    },
+    {
+      "ordinal": 2,
+      "corpus_id": "inv-f01-12",
+      "document_id": "7767b9d13c084765bf92563181bec394",
+      "family_group": "family-01",
+      "treatment": "none",
+      "pages": 1,
+      "initial_record_hash": "68ef232cbe3ffbf9fa11b2b700010b2f2eb390ad2267e9bff79916ed98cf9d4a",
+      "source_sha256": "7aaf3afac62e4850b2c0f66079735a64641dbb2bfc3479f994d74ca6fefcedbc",
+      "prediction_sha256": "1b1d825f8e97c58f828c9872612ec82bc753839aa4c19e5c0c7ebc4134311eb0"
+    },
+    {
+      "ordinal": 3,
+      "corpus_id": "inv-f03-27",
+      "document_id": "0101089da7a948459a08ec7ed1170f92",
+      "family_group": "family-03",
+      "treatment": "low_contrast",
+      "pages": 1,
+      "initial_record_hash": "de0ec0a7368ef7a60ae444fd1aefb0f1e048c1ca2a19c6bfe67bdf755c4e2f21",
+      "source_sha256": "c315391bbcdad3e7e7638fd91ccbf021eed83020098809ee8020487b84570947",
+      "prediction_sha256": "e87b1acd5e4f66603023f2c5211bea8f63ecf4e59eba2b255190cffc565b450f"
+    },
+    {
+      "ordinal": 4,
+      "corpus_id": "inv-f04-29",
+      "document_id": "42bde4f199aa46988a62fc1932c62cb5",
+      "family_group": "family-04",
+      "treatment": "skew_2deg",
+      "pages": 1,
+      "initial_record_hash": "fb86434839f5a2dcf315f2621520f8effb04e63b02a91d02a02c4045b2f42924",
+      "source_sha256": "ae17440eff6cb0fa8cc3a1a679a3c15d0b16466749d379d2e213ec5c443cadee",
+      "prediction_sha256": "fbbf6b6b6342ec310a4e0c613e79194e4d9a5da545d651d2236efdec17dcf371"
+    },
+    {
+      "ordinal": 5,
+      "corpus_id": "inv-f05-30",
+      "document_id": "dee2516db11641fbbc70d6888d5fdc56",
+      "family_group": "family-05",
+      "treatment": "rotate_90ccw",
+      "pages": 1,
+      "initial_record_hash": "6c393012a6bd99def3825f20cbd5c057fc2819d5607a6cb62a36b8e2b3bcf3fa",
+      "source_sha256": "9cf5df21ea9bf3628a245a62eea8abaea95ee37ba08401580f6ca1e623d1b912",
+      "prediction_sha256": "e1deb852b48e4886103e1c8d22b074ea5b78582c95b9035b580566e8ecdc2490"
+    },
+    {
+      "ordinal": 6,
+      "corpus_id": "inv-f06-04",
+      "document_id": "0fb26990c0e64e6c94318285688677ee",
+      "family_group": "family-06",
+      "treatment": "none",
+      "pages": 2,
+      "initial_record_hash": "def13e7cc697f468c89484a6976eff3805388d6cd4baa5a6a82de2eed5cbf086",
+      "source_sha256": "c5b2d285935cc9f80519e7470f5d9cd8ec1afda9c12aae4eb177aa9fb03b3758",
+      "prediction_sha256": "299a11183c3a40a05d9b7c7636e3ddb30ac46ad85955cc31fd60ddf26f9a64d3"
+    }
+  ],
+  "idle_cutoff_seconds": 60,
+  "mode": "assisted_only",
+  "participant": "project_author",
+  "manifest": "datasets/invoices-v1/manifest.json",
+  "manifest_sha256": "a39a99cf5543888ebd7b9af5a42a18ac82e4ff6baf2534b8cd6d16ca9c76f61c",
+  "baseline_report": "evals/invoice-freeze-2026-10-03/development/report.json",
+  "baseline_report_sha256": "7023cee65072a28794031c29e479b3da43344098f932f872de6cbbd3facbf43a",
+  "source_sha256": {
+    "src/docwork/review_pilot.py": "cf4989b1d8f889b0be9b259c2998249ebdea7d7e315e9c6b99ffaf01af17ed2f",
+    "src/docwork/pilot_bundle.py": "431952a5824ec4d75644dc5423b6ed04e7593d281e493fcedb531f603e2940e8",
+    "src/docwork/review.py": "dfd3bb2bc700b71e8592e5cb0923155e6caf4aaaafb78462fd7199cc8df9b317",
+    "src/docwork/intake.py": "46a4de19a2c9dd9071711ae60adc93973aeca892b35b5dce018323b4919d6789",
+    "src/docwork/web.py": "38224907ce81c690d2e2054751b1ebc83ac33b33fd32ebcddea907a292162d8f",
+    "scripts/review_pilot.py": "848ac50be241c3a7800551566c4f97e041a760ce294476b012be555037ee1e6b",
+    "ui/app.js": "30f82a0756ce8fd1a34182b409da67a6471558cee96d52cc07804d843fe1924c",
+    "ui/pilot.js": "ba5888d2932b971d95c91a69a3304202917305cb75c096ebd5d3df6c433d76c8",
+    "ui/index.html": "4bc6db3084dbda996013fe746bfc04ae092510e0d588ddb39e57c7ca9a8ed36b",
+    "ui/style.css": "a390fa1f09e64678b2b5d2acfeeb357a2d23a8751941dadd79bb8545ccec4f84"
+  },
+  "selection": "One declared document per development family; clean, conflict, contrast, skew, rotation, multi-page. Fixed selection by corpus ID; not a random sample and not screened for successful review.",
+  "scope": "Author assisted-review pilot of recorded OCR/rules suggestions. Processing excluded. No manual-entry baseline, independent workforce study, or productivity claim."
+}

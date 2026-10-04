@@ -1,0 +1,269 @@
+{
+  "report_version": "assisted-author-pilot-v1",
+  "status": "complete",
+  "scheduled": 6,
+  "completed": 6,
+  "documents": [
+    {
+      "corpus_id": "inv-f02-02",
+      "document_id": "b4669f822353427287215a6fe71a1660",
+      "status": "COMPLETE",
+      "active_seconds": 140.992,
+      "idle_seconds": 0.0,
+      "paused_seconds": 1.05,
+      "elapsed_seconds": 142.042,
+      "revision": 1,
+      "record_hash": "860827eb9bf1f25952731ddb748345f70c88e25bf6af16d2f402655d61905e47",
+      "approval_hash": "0e2cdb89163dfd30e7d3b485c7b7782359fd6099033fac48dc9a5f1e5f9a2454",
+      "export_sha256": "22c22be7fd697cdd5a0d6a5c7ca36b076d47e884caf149575e38d0dcc79aac7a",
+      "corrections": 0,
+      "acknowledgments": 0
+    },
+    {
+      "corpus_id": "inv-f01-12",
+      "document_id": "7767b9d13c084765bf92563181bec394",
+      "status": "COMPLETE",
+      "active_seconds": 130.71,
+      "idle_seconds": 0.0,
+      "paused_seconds": 0.0,
+      "elapsed_seconds": 130.71,
+      "revision": 1,
+      "record_hash": "68ef232cbe3ffbf9fa11b2b700010b2f2eb390ad2267e9bff79916ed98cf9d4a",
+      "approval_hash": "c9b0bb975d3766560dd6fca8c18eec651eb6ef112514d706ea0cf5079cb03589",
+      "export_sha256": "cb6592affd20983af6a3f8bfc75cb52bcbaed33ead1e8d013aac44774beee08d",
+      "corrections": 0,
+      "acknowledgments": 1
+    },
+    {
+      "corpus_id": "inv-f03-27",
+      "document_id": "0101089da7a948459a08ec7ed1170f92",
+      "status": "COMPLETE",
+      "active_seconds": 71.858,
+      "idle_seconds": 0.0,
+      "paused_seconds": 0.0,
+      "elapsed_seconds": 71.858,
+      "revision": 5,
+      "record_hash": "a0043873ec002ad0ece8e9ec71141766f9349e0f9414acc6dc5a82ec53497fc0",
+      "approval_hash": "68e1d5077c2dc59ae5ac5e981df6f7737355e37edf08f81a8c147dff08c890ea",
+      "export_sha256": "4130d93a08db5393a6fd53317f077ed894170de2805c2e96bca182ed4134409d",
+      "corrections": 4,
+      "acknowledgments": 0
+    },
+    {
+      "corpus_id": "inv-f04-29",
+      "document_id": "42bde4f199aa46988a62fc1932c62cb5",
+      "status": "COMPLETE",
+      "active_seconds": 53.06,
+      "idle_seconds": 0.0,
+      "paused_seconds": 0.0,
+      "elapsed_seconds": 53.06,
+      "revision": 2,
+      "record_hash": "b88b6f47945b93ad5d3a6622248b5144d8d93db4a0b197d050c54bb8948f3215",
+      "approval_hash": "5741930fd878c5262ea92bb1ec30db6c7bad84cfb2d5684a07e53a701eb8a71b",
+      "export_sha256": "acde76d7daf2a3f81fdb3cd77387f896407a83d6b2c6e118f987884fcb3fa277",
+      "corrections": 1,
+      "acknowledgments": 0
+    },
+    {
+      "corpus_id": "inv-f05-30",
+      "document_id": "dee2516db11641fbbc70d6888d5fdc56",
+      "status": "COMPLETE",
+      "active_seconds": 51.791,
+      "idle_seconds": 0.0,
+      "paused_seconds": 0.0,
+      "elapsed_seconds": 51.791,
+      "revision": 1,
+      "record_hash": "6c393012a6bd99def3825f20cbd5c057fc2819d5607a6cb62a36b8e2b3bcf3fa",
+      "approval_hash": "88ab48897296501a1ac583ecc8f321e3d0433ba7335c1ef73cda8ef02e2c8695",
+      "export_sha256": "133860432c1e1eb3627d3b57b7e313e0670a29e8eabee224b5e2cd99b318814b",
+      "corrections": 0,
+      "acknowledgments": 0
+    },
+    {
+      "corpus_id": "inv-f06-04",
+      "document_id": "0fb26990c0e64e6c94318285688677ee",
+      "status": "COMPLETE",
+      "active_seconds": 38.608,
+      "idle_seconds": 0.0,
+      "paused_seconds": 0.0,
+      "elapsed_seconds": 38.608,
+      "revision": 1,
+      "record_hash": "def13e7cc697f468c89484a6976eff3805388d6cd4baa5a6a82de2eed5cbf086",
+      "approval_hash": "25b1784b9f524c0ea0d907d4b9c2bee744e157356ce47c94e00f74d4adc5a89f",
+      "export_sha256": "6eb1ca677c6f719be61ce30f54d0fdddc6ab190cf65e958442dde8f6650ccf5a",
+      "corrections": 0,
+      "acknowledgments": 0
+    }
+  ],
+  "timing": {
+    "completed_only_active_median_seconds": 62.459,
+    "completed_only_elapsed_median_seconds": 62.459
+  },
+  "completed_only_quality": {
+    "scoring_version": "invoice-release-scoring-v1",
+    "documents_scheduled": 6,
+    "documents_processed": 6,
+    "all_required_exact": {
+      "correct": 5,
+      "eligible": 6
+    },
+    "header_field_exclusions": {
+      "supplier_name": 0,
+      "invoice_number": 0,
+      "issue_date": 0,
+      "due_date": 0,
+      "currency": 0,
+      "subtotal": 0,
+      "tax": 0,
+      "discount": 0,
+      "shipping": 0,
+      "total": 0
+    },
+    "header_fields": {
+      "supplier_name": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "invoice_number": {
+        "tp": 5,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.8333,
+        "recall": 0.8333,
+        "f1": 0.8333
+      },
+      "issue_date": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "due_date": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "currency": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "subtotal": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "tax": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "discount": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "shipping": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "total": {
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "header_macro_f1": 0.9833,
+    "row_detection": {
+      "tp": 20,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "row_exact": {
+      "tp": 19,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.95,
+      "recall": 0.95,
+      "f1": 0.95
+    },
+    "row_fields": {
+      "description": {
+        "tp": 19,
+        "fp": 1,
+        "fn": 1,
+        "precision": 0.95,
+        "recall": 0.95,
+        "f1": 0.95
+      },
+      "quantity": {
+        "tp": 20,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "unit_price": {
+        "tp": 20,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "line_total": {
+        "tp": 20,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "tax": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "f1": null
+      }
+    },
+    "failures_by_type": {}
+  },
+  "protocol_sha256": "d3718b3b73caac0393c8da2e544f8a64742fa511d2fad6abbd87396e0cf98b3f",
+  "timing_sha256": "7ef8c79be457dd1c3f754d20c1ad5c7e091f500608e703279dc64d514163ae80",
+  "scope": "Author assisted-review pilot of recorded OCR/rules suggestions. Processing excluded. No manual-entry baseline, independent workforce study, or productivity claim.",
+  "limitations": "Author familiarity, synthetic development layouts, fixed sample, unauthenticated audit labels and browser activity heuristics. Reading beyond the 60-second idle cutoff can be undercounted; server receipt times include network overhead. Interruptions remain incomplete. Local hash checks are integrity checks, not signed evidence of human participation."
+}

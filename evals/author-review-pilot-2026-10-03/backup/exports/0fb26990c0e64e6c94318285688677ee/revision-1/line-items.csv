@@ -1,0 +1,6 @@
+document_id,revision,row_id,description,description_origin,description_missing_reason,description_evidence_ids,quantity,quantity_origin,quantity_missing_reason,quantity_evidence_ids,unit_price,unit_price_origin,unit_price_missing_reason,unit_price_evidence_ids,line_total,line_total_origin,line_total_missing_reason,line_total_evidence_ids,tax,tax_origin,tax_missing_reason,tax_evidence_ids
+0fb26990c0e64e6c94318285688677ee,1,row-001,Extended technical documentation review,observed,,p1-l0009,1,observed,,p1-l0009,65.00,observed,,p1-l0009,65.00,observed,,p1-l0009,,observed,not_explicit_on_row,
+0fb26990c0e64e6c94318285688677ee,1,row-002,Illustration set,observed,,p1-l0010,3,observed,,p1-l0010,107.00,observed,,p1-l0010,321.00,observed,,p1-l0010,,observed,not_explicit_on_row,
+0fb26990c0e64e6c94318285688677ee,1,row-003,Paper mockup,observed,,p1-l0011,4,observed,,p1-l0011,72.00,observed,,p1-l0011,288.00,observed,,p1-l0011,,observed,not_explicit_on_row,
+0fb26990c0e64e6c94318285688677ee,1,row-004,Data cleanup,observed,,p2-l0006,4,observed,,p2-l0006,58.00,observed,,p2-l0006,232.00,observed,,p2-l0006,,observed,not_explicit_on_row,
+0fb26990c0e64e6c94318285688677ee,1,row-005,Technical editing,observed,,p2-l0007,3,observed,,p2-l0007,107.00,observed,,p2-l0007,321.00,observed,,p2-l0007,,observed,not_explicit_on_row,

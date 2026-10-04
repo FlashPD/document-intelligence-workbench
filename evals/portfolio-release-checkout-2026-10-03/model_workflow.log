@@ -1,0 +1,6 @@
+{
+  "status": "verified",
+  "fixtures": 2,
+  "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+  "note": "Integrity and saved-record checks; no fresh inference, visual browser check, or signed attestation."
+}

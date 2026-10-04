@@ -1,6 +1,6 @@
 # Portfolio release runbook
 
-The [experimental portfolio candidate](portfolio-candidate.md) presents a local, evidence-linked invoice workflow and its measured limits. The [complete paired comparisons](heldout-model-comparison.md) account for 180 test invoices and 100 test receipts, including failed extractions. The local model regresses against rules on invoice headers and exact rows, so rules remain the default. A [refreshed captioned recording](../evals/portfolio-candidate-browser-2026-10-03/index.html) demonstrates verified browser controls on fictional recorded-OCR fixtures. The six-case human author pilot remains pending. The [system card](system-card.md) and [data card](data-card.md) distinguish this candidate from the broader [architecture plan](../arch_plan/document-intelligence-workbench-plan.md).
+The [experimental portfolio release](portfolio-candidate.md) presents a local, evidence-linked invoice workflow and its measured limits. The [complete paired comparisons](heldout-model-comparison.md) account for 180 test invoices and 100 test receipts, including failed extractions. The local model regresses against rules on invoice headers and exact rows, so rules remain the default. A [captioned recording](../evals/portfolio-candidate-browser-2026-10-03/index.html) demonstrates verified browser controls on fictional recorded-OCR fixtures. The [completed six-case author pilot](review-pilot.md#recorded-author-results) preserves timing, edits, approved exports and two residual errors. The [system card](system-card.md) and [data card](data-card.md) distinguish this release from the broader [architecture plan](../arch_plan/document-intelligence-workbench-plan.md).
 
 ## Fresh checkout and first demo
 
@@ -17,6 +17,8 @@ PYTHONPATH=src python3.12 -m docwork.cli eval-verify-model-workflow \
   evals/portfolio-candidate-model-workflow-2026-10-03
 PYTHONPATH=src python3.12 -m docwork.cli eval-verify-invoice-model \
   evals/invoice-model-heldout-2026-10-03
+PYTHONPATH=src python3.12 scripts/archive_review_pilot.py verify \
+  evals/author-review-pilot-2026-10-03 --require-complete
 ```
 
 These are offline integrity/contract checks. They do not require Docker, Tesseract, model weights, or CORD downloads. Recorded model evidence is audited without executing the model. Full receipt rescoring and its release-audit check require the explicitly prepared CORD source corpus described in [release evaluation](release-evaluation.md#cord-receipt-evaluation). Missing local receipt data stays pending; it does not block the offline demo or invoice verification.
@@ -37,7 +39,7 @@ make smoke-ocr
 make dev
 ```
 
-The [candidate clean-source check](../evals/portfolio-candidate-checkout-2026-10-03/report.json) copies tracked and nonignored current-change files into an isolated temporary tree, starts without `artifacts/`, model assets or a virtual environment, and runs six offline checks: contracts, corpus, baseline, complete invoice model, current model workflow and replay preparation. It binds every copied input and each command log. Reproduce it with a new output directory:
+The [release clean-source check](../evals/portfolio-release-checkout-2026-10-03/report.json) copies tracked and nonignored current-change files into an isolated temporary tree, starts without `artifacts/`, model assets or a virtual environment, and runs eight offline checks: contracts, corpus, baseline, complete invoice model, current model workflow, completed author-pilot archive, post-pilot draft corrections and replay preparation. It binds every copied input and each command log. The [earlier six-command candidate check](../evals/portfolio-candidate-checkout-2026-10-03/report.json) remains historical. Reproduce the current check with a new output directory:
 
 ```sh
 python3.12 scripts/verify_release_checkout.py \
@@ -63,9 +65,9 @@ make release-checkout REF=HEAD OUTPUT=artifacts/checkout-commit-fresh
 
 `REF` accepts a local commit, branch or tag. For an eventual release tag, replace `HEAD` with its name and use a new output directory. The reference is resolved once to an immutable commit and tree before reading files. Staged changes, uncommitted fixes, untracked helpers, and local runtime assets cannot contribute to that check. Git blobs are copied directly, preserving executable modes and bypassing archive attributes that could omit or substitute source files. Symlinks, submodules and committed runtime directories are rejected.
 
-The six checks are the same as the precommit check: all deterministic contracts, corpus integrity, invoice baseline, invoice model comparison, model HTTP workflow evidence, and offline replay preparation. A version 2 report records the commit/tree, each copied file's SHA-256, invoking verifier hash, Python version, exact commands, log hashes, and whether the tested files changed during execution. A nonzero check, skipped/empty contract suite, changed input, or incomplete copy fails the check. Exit 0 means these offline checks passed; exit 2 means verification failed. The report and per-command logs remain in the chosen output directory.
+The eight checks are the same as the precommit check: all deterministic contracts, corpus integrity, invoice baseline, invoice model comparison, model HTTP workflow evidence, completed author-pilot archive, post-pilot draft corrections and offline replay preparation. A version 2 report records the commit/tree, each copied file's SHA-256, invoking verifier hash, Python version, exact commands, log hashes, and whether the tested files changed during execution. A nonzero check, skipped/empty contract suite, changed input, incomplete author archive or incomplete copy fails the check. Exit 0 means these offline checks passed; exit 2 means verification failed. The report and per-command logs remain in the chosen output directory.
 
-CI now runs this committed-tree check and retains its evidence/logs. This is an offline reproducibility check using the invoking verifier; it does not establish that a remote clone is available, run new OCR/inference, verify Linux model support, or complete the human pilot. After publishing, a separate clone of the actual tag should run the same command and demo. Keep the [release audit](#generate-the-release-audit) separate: packaging can pass while the author pilot remains pending.
+CI runs this committed-tree check and retains its evidence/logs. This is an offline reproducibility check using the invoking verifier; it does not establish that a remote clone is available, run new OCR/inference, verify Linux model support, or rerun human participation. After publishing, a separate clone of the actual tag should run the same command and demo. Keep the [release audit](#generate-the-release-audit) separate: the full receipt rescore still requires explicit CORD setup.
 
 Open the one-time loopback URL printed by `make dev`. Choose **Clean sample**; click fields to inspect source highlights, review the values, approve the current revision, and export JSON/CSV. Choose **Conflicting total**; inspect the printed total and `TOTAL_MISMATCH`, enter a reason to retain the printed value or correct an extraction error from its source, and approve the resulting revision. Export is blocked until approval. Fixture buttons use fresh host OCR, not Docker or model inference.
 
@@ -93,10 +95,25 @@ Select **Local span model** for uploads. Credentials stay in the server; no endp
 ```sh
 PYTHONPATH=src python3.12 -m docwork.cli release-check \
   --output-dir artifacts/portfolio-audit-001 \
+  --pilot-directory artifacts/review-pilot-author-2026-10-03-v4 \
   --demo-recording evals/portfolio-candidate-browser-2026-10-03/demo.webm
 ```
 
-The command runs fresh deterministic contracts and audits existing complete evidence. It writes a new directory containing `index.html`, `report.json`, and `tests.log`. Open the HTML locally to inspect each check; the JSON binds input inventories, current audit source, and the test log. No model inference, parser jobs, human review, or downloads are started. A partial model ledger is neither scored nor presented as completed quality evidence.
+The command runs fresh deterministic contracts and audits existing complete evidence. It writes a new directory containing `index.html`, `report.json`, and `tests.log`. Open the HTML locally to inspect each check; the JSON binds input inventories, current audit source, and the test log. No model inference, parser jobs, human review, or downloads are started. A partial model ledger is neither scored nor presented as completed quality evidence. The [first release audit](../evals/portfolio-release-audit-2026-10-03/report.json) retains a contract-test failure after the checkout checklist grew from seven to eight commands; its expected count was corrected before repeating the full audit. The [completed release audit](../evals/portfolio-release-audit-2026-10-03-v2/index.html) retains all supplied results; the earlier candidate audit remains a historical pending snapshot.
+
+On a fresh checkout, first restore the completed author archive to a new ignored directory, then supply that session instead of a machine-local original:
+
+```sh
+PYTHONPATH=src python3.12 scripts/archive_review_pilot.py restore \
+  evals/author-review-pilot-2026-10-03 \
+  --output-dir artifacts/author-pilot-restored
+PYTHONPATH=src python3.12 -m docwork.cli release-check \
+  --output-dir artifacts/restored-portfolio-audit \
+  --pilot-directory artifacts/author-pilot-restored \
+  --demo-recording evals/portfolio-candidate-browser-2026-10-03/demo.webm
+```
+
+Without the explicitly prepared CORD source corpus, that full audit retains a pending receipt check. The eight-command checkout verifier and standalone pilot verifier remain fully offline and do not require those downloads.
 
 | Exit | Audit status | Meaning |
 |---|---|---|
@@ -113,7 +130,7 @@ PYTHONPATH=src python3.12 -m docwork.cli release-check \
   --output-dir artifacts/portfolio-audit-002 \
   --parser-report artifacts/parser-checkout-fresh.json \
   --model-workflow-directory artifacts/model-workflow-fresh \
-  --pilot-directory artifacts/review-pilot-author-2026-10-03-v3 \
+  --pilot-directory artifacts/author-pilot-restored \
   --demo-recording evals/portfolio-candidate-browser-2026-10-03/demo.webm
 ```
 
@@ -121,7 +138,7 @@ Run the audit only after supplied evidence writers stop. It checks input stabili
 
 The defaults now select the [candidate parser report](../evals/portfolio-candidate-parser-2026-10-03-v2/report.json), [current model workflow](../evals/portfolio-candidate-model-workflow-2026-10-03/report.json), and [candidate browser bundle](../evals/portfolio-candidate-browser-2026-10-03/report.json). The [first candidate parser attempt](../evals/portfolio-candidate-parser-2026-10-03/report.json) preserves a stale-image failure after source changes. The image was rebuilt before all sixteen checks were repeated. Earlier [parser](../evals/queue-release-parser-2026-10-03/report.json), [browser](../evals/queue-release-browser-2026-10-03/report.json), and [recording](../evals/review-browser-2026-10-03-v2/index.html) bundles remain historical.
 
-The [20-document parser queue](parser-queue.md) separately measures real serial processing of development PNG/PDF originals. Its concurrent-model declaration was unverified and remains qualified; it cannot establish processing under model load. It is supplemental performance evidence. The six-case author pilot is prepared at `artifacts/review-pilot-author-2026-10-03-v4`; its outcomes remain pending until the author reviews it and its server stops. Supply that directory to the final audit only after completion and shutdown.
+The [20-document parser queue](parser-queue.md) separately measures real serial processing of development PNG/PDF originals. Its concurrent-model declaration was unverified and remains qualified; it cannot establish processing under model load. It is supplemental performance evidence. The original author session completed all six trials at `artifacts/review-pilot-author-2026-10-03-v4`; its report is preserved byte-for-byte in the [portable archive](../evals/author-review-pilot-2026-10-03/manifest.json). The archive verifier restores and reproduces its results without that original directory.
 
 ## Three minute presentation script
 
@@ -138,11 +155,51 @@ Use fictional samples and a disposable local workbench. Complete setup before re
 
 A model upload can be a separate recorded segment with its actual elapsed time labeled; the recorded clean fixture took over a minute. Do not present edited waiting time as measured latency. A demo recording is presentation evidence, not a human productivity study. [Run the author pilot separately](review-pilot.md) and publish incomplete outcomes as well as completed ones.
 
-## Remaining release work
+## Remaining steps for the experimental release
 
-1. Finish the six-case author review pilot yourself and stop its server. Its report can describe effort; there is no manual-entry baseline to support time saved. Audit at a new output path after stopping the server.
-2. Review the captioned scripted recording and its declared scope, or replace it with a narrated continuous capture. Browser checks cover stated rotated/multi-page geometry; OS popup menus and broader visual acceptance remain separate.
-3. Review the system/data cards and [deliberate deferrals](portfolio-candidate.md#deliberately-deferred-scope), then commit the candidate evidence. Genuine scanner captures, semantic attribution sampling and controlled warm/cold/memory studies are not silently presented as completed.
-4. Run a fresh audit with the finished pilot and recording, then run `make release-checkout REF=HEAD` after committing (or supply the eventual local experimental tag). Retain that exact-commit report before publishing with scoped claims, and verify a remote clone of the published tag afterward.
+The working branch is `dev`; branch integration and publishing are manual steps. The planned tag is `v0.1.0-experimental`. The complete local audit and clean-source checks below do not create a commit, merge, tag or GitHub release.
+
+1. Inspect and approve the two [corrected drafts](post-pilot-corrections.md) if you want new corrected exports. The original pilot archive remains the published study evidence; draft maintenance scores are separate.
+2. Inspect the captioned recording and offline demo. A narrated two-to-three-minute walkthrough is an optional presentation improvement; the retained recording is explicitly a fifteen-second screenshot sequence.
+3. Commit the reviewed release evidence on `dev`, verify the exact commit, and push it.
+4. Merge `dev` into `main` with a merge commit, verify that commit, then tag and publish it.
+5. Verify a separate clone of the published tag and open its offline demo.
+
+```sh
+git switch dev
+git add README.md docs scripts tests evals
+git commit -m "feat: finalize experimental release evidence and audited pilot corrections"
+make release-checkout REF=HEAD OUTPUT=artifacts/dev-release-commit-check
+git push origin dev
+
+git switch main
+git pull --ff-only origin main
+git merge --no-ff dev -m "Merge dev for v0.1.0 experimental portfolio release"
+make release-checkout REF=HEAD OUTPUT=artifacts/main-release-commit-check
+git tag -a v0.1.0-experimental -m "Document Intelligence Workbench experimental portfolio release"
+git push origin main
+git push origin v0.1.0-experimental
+gh release create v0.1.0-experimental \
+  --title "Document Intelligence Workbench v0.1.0 (experimental)" \
+  --notes-file docs/releases/v0.1.0-experimental.md
+
+git clone --branch v0.1.0-experimental --single-branch \
+  https://github.com/FlashPD/document-intelligence-workbench.git \
+  artifacts/published-release-check
+make -C artifacts/published-release-check release-checkout \
+  REF=v0.1.0-experimental OUTPUT=artifacts/published-tag-check
+make -C artifacts/published-release-check demo-replay
+```
+
+Run commands sequentially and continue only when each succeeds. Use new output directories if repeating checks. The final two commands run inside the new clone; their outputs are under its own ignored `artifacts/`. `gh release create` requires an authenticated GitHub CLI. If repository rules require pull requests, merge `dev` through that workflow and verify the resulting `main` commit before tagging. The `--no-ff` merge explicitly preserves the branch integration as a merge commit.
+
+The experimental scope deliberately defers genuine scanner captures, semantic evidence-attribution sampling, controlled warm/cold and total-memory studies, stronger reviewer identity, retention/deletion, and a manual-entry comparison. Those are follow-up engineering studies rather than prerequisites for the explicitly narrowed portfolio release. Framework migration, PC/GPU inference and a VLM remain optional.
+
+## Evidence acceptance before publication
+
+1. Verify the completed six-case author archive. Retain raw timing, original suggestions, revisions and approved exports, including remaining errors. There is no manual-entry baseline to support time saved.
+2. Review the captioned scripted recording and its declared scope, or replace it with a narrated continuous capture. The [presentation check](../evals/portfolio-release-presentation-2026-10-03/report.json) records Chrome playback and Codex inspection of all five source screenshots; it is not an independent human presentation study. Browser checks cover stated rotated/multi-page geometry; OS popup menus and broader visual acceptance remain separate.
+3. Review the system/data cards and [deliberate deferrals](portfolio-candidate.md#deliberately-deferred-scope), then commit the release evidence. Genuine scanner captures, semantic attribution sampling and controlled warm/cold/memory studies are not silently presented as completed.
+4. Run the full audit with the completed pilot and recording, run `make release-checkout REF=HEAD` after committing, and retain that exact-commit report. Publish the scoped experimental tag with its [release notes](releases/v0.1.0-experimental.md), and verify a remote clone of the published tag afterward.
 
 Packaging documentation and an audit do not publish or tag a release. Optional PC/GPU inference, framework migration, telemetry, and a VLM are separate workstreams; no claim is made that they have been completed.
