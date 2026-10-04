@@ -1,0 +1,8 @@
+{
+  "profile": "docwork-mac-instruct-v1",
+  "status": "verified",
+  "assets": {
+    "model": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/docwork-setup-1xzjgcla/artifacts/models/Qwen3-4B-Instruct-2507-Q4_K_M.gguf",
+    "runtime": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/docwork-setup-1xzjgcla/artifacts/runtime/llama-b11149-bin-macos-arm64.tar.gz"
+  }
+}

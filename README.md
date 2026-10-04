@@ -18,6 +18,8 @@ The later [reproducibility work](docs/parser-build.md) pins the parser base, Deb
 
 The latest [footprint and performance evidence](evals/memory-performance-2026-10-04/README.md) adds macOS charged-memory/high-water counters and a bounded Linux VM observer. Both complete schedules pass: **34 rules uploads**, warm P95 **1.868 s**, and **14 model uploads**, warm P95 **93.473 s**. All **368 deterministic tests**, **eight isolated checkout checks** and **sixteen live parser checks** pass. Guest/host measurements remain separate; exclusive VM/driver accounting, genuine scans/manual assessments and final setup/adversarial/presentation gates are still open.
 
+The [fresh-source model setup evidence](evals/model-setup-2026-10-04/README.md) now covers explicit acquisition and verified local transfer, each with **seven passing checks** and both real fictional review/export workflows under an inherited macOS outbound-network policy. The final verifier adds owned timeout/interruption cleanup; **375 deterministic tests** and **eight isolated checkout checks** pass. Host Python/Docker and the installed parser remain prerequisites. G14 setup is covered for this configuration; genuine scans/manual judgments, whole-memory accounting and final adversarial/presentation/publication gates remain open.
+
 ![Review workspace with source evidence and a versioned correction](evals/portfolio-candidate-browser-2026-10-03/frames/01.png)
 
 *Automated Chrome capture on a disposable fictional development fixture using recorded OCR. This is interface evidence, not human review-time or live extraction evidence.*
@@ -112,6 +114,7 @@ The offline demo and invoice/model-workflow/author-pilot audits need no CORD dow
 | Parser checkpoints and host worker recovery | [Parser recovery](docs/parser-recovery.md) |
 | Container policy and real runtime checks | [Parser verification](docs/parser-verification.md), [resource drills](docs/parser-resources.md) |
 | Pinned dependencies, independent rebuilds, prior-release upgrade | [Parser build and upgrade](docs/parser-build.md) |
+| Fresh-source explicit model setup and restricted offline workflow | [Model setup verification](docs/model-setup.md) |
 | Corpus, development, calibration, held-out baseline | [Invoice corpus](docs/invoice-corpus.md), [development](docs/invoice-development-run.md), [calibration](docs/invoice-calibration-run.md), [test](docs/invoice-heldout-run.md) |
 | Frozen scoring, invoice/model and CORD comparisons | [Release evaluation](docs/release-evaluation.md) |
 | Production input protocol, separate approved quality, semantic audit | [Production study](docs/production-study.md) |

@@ -65,6 +65,10 @@ parser-verify:
 model-workflow-verify:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/verify_model_workflow.py --output-dir $(or $(OUTPUT),artifacts/model-workflow-fresh)
 
+.PHONY: model-setup-verify
+model-setup-verify:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/verify_model_setup.py --output-dir "$(or $(OUTPUT),artifacts/model-setup-fresh)" $(if $(ASSET_SOURCE),--asset-source "$(ASSET_SOURCE)",--download)
+
 dev:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) -m docwork.cli serve
 

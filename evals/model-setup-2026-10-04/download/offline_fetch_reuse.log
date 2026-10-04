@@ -1,0 +1,14 @@
+{
+  "profile": "docwork-mac-instruct-v1",
+  "status": "verified",
+  "assets": {
+    "model": {
+      "sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+      "size_bytes": 2497281120
+    },
+    "runtime": {
+      "sha256": "791eb0200a7c846ca925b6274fc21f0f21f537fda2924cc5a47402655816f56e",
+      "size_bytes": 11189509
+    }
+  }
+}
