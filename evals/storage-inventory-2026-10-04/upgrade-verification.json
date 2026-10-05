@@ -1,0 +1,7 @@
+{
+  "status": "verified",
+  "checks": 5,
+  "artifact_hashes_match": true,
+  "declared_current_source_hashes_match": true,
+  "scope": "Read-only report/source/inventory review, not an independent fresh upgrade execution."
+}

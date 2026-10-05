@@ -1,0 +1,21 @@
+{
+  "stale_edit_rejected": false,
+  "unapproved_export_rejected": false,
+  "returncode": 73,
+  "boundary": {
+    "case": "candidate_transaction",
+    "boundary_reached": true,
+    "pid": 60535,
+    "time_utc": "2026-10-04T22:21:53.883331+00:00",
+    "uncommitted_event": "candidate_created"
+  },
+  "lease_guarded": true,
+  "stale_claim_rejected": true,
+  "resume": {
+    "resumed_in_new_process": true,
+    "pid": 60550,
+    "parser_calls": 0,
+    "supervisor_error": null
+  },
+  "original_unchanged": true
+}

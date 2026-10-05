@@ -1,0 +1,26 @@
+{
+  "document_id": "b842d1b0893948448f99f65483ea1075",
+  "source_name": "authority-json.pdf",
+  "source_sha256": "e26139ac99f5823017fc0b8180c20ebed353558e861883977097693ff3267692",
+  "media_type": "application/pdf",
+  "size_bytes": 1267,
+  "status": "REVIEW_READY",
+  "page_image_sha256": "ced19b231a3b6e137a0f2af8f7dbd4eae9953e56855bcec44d817f4859bab4c4",
+  "page_count": 1,
+  "current_revision": 1,
+  "job": {
+    "id": "9d83e388724145efb6aef9efdb27f499",
+    "status": "COMPLETE",
+    "attempts": 1,
+    "fence": 1,
+    "error_code": null,
+    "stage": "REVIEW_READY",
+    "profile_json": "{\"extractor\": \"span_llm\", \"max_output_tokens\": 2048, \"model_id\": \"docwork-qwen3-4b-instruct\", \"timeout_seconds\": 150}",
+    "stop_requested": 0
+  },
+  "parser_checkpoint": {
+    "cache_key": "abcb915689e6fce84559737032b8ab91b592bc3009f4999c02596b741a4309b2",
+    "parser_identity": "sha256:93332a57ebdc02c1368925eb02cf6de2ae85260f845f1894be3814ea0f157b27",
+    "created_at": "2026-10-04T23:15:03.241668+00:00"
+  }
+}

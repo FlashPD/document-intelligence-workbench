@@ -1,0 +1,7 @@
+{
+  "case": "approval_transaction",
+  "boundary_reached": true,
+  "pid": 60565,
+  "time_utc": "2026-10-04T22:22:07.832734+00:00",
+  "uncommitted_event": "approved"
+}

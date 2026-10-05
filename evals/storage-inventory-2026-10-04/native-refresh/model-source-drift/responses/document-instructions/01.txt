@@ -1,0 +1,68 @@
+{
+  "fields": {
+    "supplier_name": {
+      "value": "Aster Studio LLC",
+      "evidence_ids": ["p1-l0001"]
+    },
+    "invoice_number": {
+      "value": "AST-1001",
+      "evidence_ids": ["p1-l0003"]
+    },
+    "issue_date": {
+      "value": "2026-09-12",
+      "evidence_ids": ["p1-l0004"]
+    },
+    "due_date": {
+      "value": "2026-10-12",
+      "evidence_ids": ["p1-l0005"]
+    },
+    "currency": {
+      "value": "USD",
+      "evidence_ids": ["p1-l0006"]
+    },
+    "subtotal": {
+      "value": "250.00",
+      "evidence_ids": ["p1-l0008"]
+    },
+    "tax": {
+      "value": "20.00",
+      "evidence_ids": ["p1-l0009"]
+    },
+    "discount": {
+      "value": "0.00",
+      "evidence_ids": ["p1-l0010"]
+    },
+    "shipping": {
+      "value": "0.00",
+      "evidence_ids": ["p1-l0011"]
+    },
+    "total": {
+      "value": "270.00",
+      "evidence_ids": ["p1-l0012"]
+    }
+  },
+  "line_items": [
+    {
+      "description": {
+        "value": "Research workshop 2",
+        "evidence_ids": ["p1-l0007"]
+      },
+      "quantity": {
+        "value": null,
+        "evidence_ids": []
+      },
+      "unit_price": {
+        "value": "125.00",
+        "evidence_ids": ["p1-l0007"]
+      },
+      "line_total": {
+        "value": "250.00",
+        "evidence_ids": ["p1-l0007"]
+      },
+      "tax": {
+        "value": null,
+        "evidence_ids": []
+      }
+    }
+  ]
+}

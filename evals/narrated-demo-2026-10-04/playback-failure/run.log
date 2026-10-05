@@ -1,0 +1,174 @@
+{
+  "version": "continuous-narrated-demo-v1",
+  "status": "failed",
+  "source_sha256": {
+    ".dockerignore": "417bb09db80ae5be00d1620256eb83ea9802fb9d4c06141234ad502849e6a077",
+    "sandbox/Dockerfile": "2d104006e5be6b700cd93daa8d63f63fe57b16b1d09a5481edce0318811fb611",
+    "sandbox/install_parser.py": "8c459c54817dd2f0095b2e64b7e7ac8f1d960a51ef0406135b82b72394e1236a",
+    "sandbox/parser-build-lock.json": "4fffbd464fdcb840319a1b41be4715f35d33b76872a108b55b8085f5730b81d0",
+    "scripts/benchmark_performance.py": "965faf0fe11598be000a1cf8c2adcf9f7cdc63895c3783a415f0a0d6d7944624",
+    "scripts/memory_accounting.py": "578803f485fd7ea6aa1c7a9747572963c4fc3a8cb5ecd8c5c9e86ebe32b3caae",
+    "scripts/narrated_demo_encoder.js": "404a409828fc635afeeaf737a1c5cb8c411a282fd25f1408bcd0ac7eb72accc4",
+    "scripts/record_narrated_demo.py": "3a3e97991350686b3ad0a216a6fa5adb56098acd9047f410fa8d7790573c98e5",
+    "scripts/verify_pilot_browser.py": "671bf5fb01f94cc5cf23a9d10fc41f06853fa2cffcac19ffb6331f466eb2c345",
+    "scripts/verify_review_browser.py": "9dbc1be722941e13f3724dfabe1b9a3905393931035b6928cae620882da7d0c6",
+    "src/docwork/__init__.py": "bd204b322b31c45f1b340090c93a77b04676e305d448ed9551b780b56b758a50",
+    "src/docwork/access.py": "327a843aa41de5eeec1710025fa2d855f132544e2b45b10fb91f9e235f66542d",
+    "src/docwork/backup.py": "209dbfec1d77994bc002bf32ca510d476aaed49e9d8b4c2ac0c480ee49a0fb5a",
+    "src/docwork/baseline.py": "2153cffacafa5085746e28a555ba785338aba97d211879db296c30412e44dda8",
+    "src/docwork/cli.py": "cb9891d86cc3eb73da3764791d0118e3cc504141fdbe89337020582c0d9ea92d",
+    "src/docwork/comparison.py": "bc714e8434172cbaa3a8f2257dd4b9f71ec9816a44114b1e7220b091ef62088a",
+    "src/docwork/contracts.py": "ce29932f2668f181612c80e445ee64f8891b7ff51d3a5c8ecd675bcd19637ccf",
+    "src/docwork/cord.py": "06ce54d05bd32e440e5df989e70a4cf92d588253171822a5682d7a0f11e98421",
+    "src/docwork/corpus.py": "98c1f13e913640dbcb1b4b1d20b70989f3a37eb1430c7c252b966b763573c2b2",
+    "src/docwork/demo_replay.py": "14a096ea3ef62f18ead2cc3f633e868e10622c911a46934f22b491f8294122d3",
+    "src/docwork/evaluation.py": "c3ff271e01fb39fd00a3b669d07cf9ad2090be68c6c1caf80a312cd635d3f664",
+    "src/docwork/evaluation_sessions.py": "7c6be189f59b5d3ed579928dab912d3ad66eb2cd7c6866610dbe226c005cb035",
+    "src/docwork/evidence.py": "9fdae805aefed4980ca55abdda44055345d29e7970d43659165f435756a2beea",
+    "src/docwork/geometry.py": "0f8cd59f8c205cb0b076fd21511be99aff13077453aa15631120b4ad08cf0275",
+    "src/docwork/heldout.py": "915ec2594a0562e99ace415c4770770c1ca0f8bb3abda27c3f65583ac27f5216",
+    "src/docwork/intake.py": "1de49a01d4b5f3ba343673ee523dddc7b295eae180a593315efd778b73cdaf55",
+    "src/docwork/invoice_model_run.py": "04a59b375fe1a0a3c3f022da484f0acea70b4df601b140ab741bbec12d89d720",
+    "src/docwork/invoice_run.py": "8b3d74ea35a3d5598f156cdfc6765ab743a6646ab5ae57460497b9d6e01911ac",
+    "src/docwork/lifecycle.py": "1b47619170b6a657c9b27cd094123ea97eb5c6692e5586bf0499c7b05da71e6e",
+    "src/docwork/local_model.py": "b7fb04b8caa7acd9c6f782a6b0cbbd8c97e8add1fdc8f767d62f7df1b6b9c4c1",
+    "src/docwork/model_runtime.py": "d0b924aabcbe51afeb09fb9d9b43fde3f1eb0841d309ba2fb12b01043c8868bf",
+    "src/docwork/ocr.py": "1f2eb6538fb5417c7d427d507a4cddc8ec82c6d9d6077d4d38f9ea54f6908ac0",
+    "src/docwork/operations.py": "0ebf2f53ab865df4c12457266381dfdbb48b6c7eafd82f88a19b3f2c5433aa9c",
+    "src/docwork/parser_entry.py": "e3e5c809a8c8b6eb06102b8db9377c5dbc3c43759d0fb756ebb9fcfb4b7c5bad",
+    "src/docwork/parser_protocol.py": "634fc5c68616c2919c5dd32728bfcc4a1d983a38fa53681426bb756c1ab24ff1",
+    "src/docwork/performance.py": "d2c02df88e33ab072592eecd9a825f0c6690eb60509102da1f7935ea0493adc4",
+    "src/docwork/pilot_bundle.py": "431952a5824ec4d75644dc5423b6ed04e7593d281e493fcedb531f603e2940e8",
+    "src/docwork/priority_evaluation.py": "e12aff8581cb5259062744c54623260942f7ea9a8f8f58a5b7e8379ec3162863",
+    "src/docwork/production_study.py": "50ef400da410abe001f62a1d9cbf95bf271434522dc24ec508091c1dac5b0e25",
+    "src/docwork/queue_benchmark.py": "6cbe40bd08db9f1d55fa805d4fd5fae50b81c29c3bf290a80249eb2614e769b1",
+    "src/docwork/receipt.py": "0b2f73b7ee6f828eb13b5a7f46b7718365b53e0f6da7289e3139a3ba3c64c39b",
+    "src/docwork/receipt_comparison.py": "9cf409f2299359f7f59eb981bc2f68d9cdce2cc429297490fc2b04f1843abd13",
+    "src/docwork/receipt_run.py": "bff88fdd418154dfa5aee128bee56d5b6c0d2a1b3f572a5a57fb4c0ad092c3e6",
+    "src/docwork/release_evaluation.py": "49e007c7ea619d8f56a2e32f9176edf7f027d4791fb486cdfbf0ca8903ed7561",
+    "src/docwork/release_readiness.py": "3863d58401e1342617f306f9c4b850160ea4f910eb385e9a427c5c3ad7c46524",
+    "src/docwork/release_scoring.py": "ab4d9958e4afa7db9c0d88d3168c762def7dfa96387697bedaab3894a5c7be44",
+    "src/docwork/request_control.py": "136f79bd443c17a20be49def3536e50b9685fa36a1ff947463f62d33aa470af4",
+    "src/docwork/review.py": "0754519dfc4f7f70212a402b34039ef6002b0495dde9dd6607348f371c7d6830",
+    "src/docwork/review_pilot.py": "cf4989b1d8f889b0be9b259c2998249ebdea7d7e315e9c6b99ffaf01af17ed2f",
+    "src/docwork/review_priority.py": "df9530ad79cbc6cbfea3c1be908de511fb774eed1e7f1e1337ae0c096dc40821",
+    "src/docwork/spatial_baseline.py": "6e41e2818a4b0b827b5cd56f29e84d5af27c7480c4f4cdad5570aca16b940f3b",
+    "src/docwork/spatial_lines.py": "8f1eee7e2ab298833e31f7c10bfb6a7aac77ed6364c817bfb3c993738d05036d",
+    "src/docwork/storage_budget.py": "f241716769cfb7685d5a03f05d502154936b7069baf41a2716aa91794b99dfb8",
+    "src/docwork/supervisor.py": "498df1aacf9933bda38560d8194fed4a378d923a1fe18a20e6f26369a059fe3d",
+    "src/docwork/validation.py": "d3729d8341e8886bcdcfe73e093439a2494ce275b9b85966ebdedab4928f7e58",
+    "src/docwork/web.py": "048a423e1fc85d520972a349d216b8b13ac94d292e28e9dd7578412eb0eaf9f3",
+    "src/docwork/worker.py": "ef3a62e1482133555c3d66db0ae45884c415854fb9380d0f6be53430ae131953",
+    "src/docwork/workflow_evidence.py": "eff02e73951c62df5282eab0bfaf7c6df4dd5dbe2466faf4c568106bfa507e88",
+    "ui/app.js": "55934ee47708d04f6c09f5615b49420fba7bb10b775cd4a965d5d04bee029855",
+    "ui/index.html": "a63259c5bfbab5c471cb93ac0ed05fd17a3c9c8dfbd9ad58e53449e53390b854",
+    "ui/pilot.js": "fd9ce7c21d3355d67415755f5f47d31cdc499c07a64f14f03103ff8f7389eb74",
+    "ui/style.css": "a390fa1f09e64678b2b5d2acfeeb357a2d23a8751941dadd79bb8545ccec4f84"
+  },
+  "parser_image_id": "sha256:09c23c3cf290412c5ae523c636c098d7f11c6a17a6a6ca6261e27419bfb6485c",
+  "input_sha256": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+  "narration_voice": "system_default",
+  "narration": {
+    "intro": {
+      "seconds": 13.962666666666667,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sha256": "3801dd0660e90b968c571a24d0ff1d8430bcd57baa6cac4d8f4fd8c6bd8caee7"
+    },
+    "upload": {
+      "seconds": 11.701333333333332,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sha256": "8aff81d6837eec8197777732eb3c9a87e2e783320068cb24a84a36b7d4c08ae9"
+    },
+    "source": {
+      "seconds": 14.256,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sha256": "beb2289742d22627a303f7237590029989e637fde5316dac794026da9e378c8c"
+    },
+    "edit": {
+      "seconds": 11.285333333333334,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sha256": "4d002e7f9cbbc531ac85271f269370798f5eda3bcd92c1d0d7c8638842aab715"
+    },
+    "approve": {
+      "seconds": 13.456,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sha256": "8ef9a96f851a6f68d693fb7f3a03c2111c1e7b99652d931ff336fe246cb60943"
+    },
+    "export": {
+      "seconds": 14.117333333333333,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sha256": "540d23c4b7ac0618c92e49b2f49283dcb8131d8ca7a1631757921e647abb9f55"
+    },
+    "restart": {
+      "seconds": 14.544,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sha256": "c5597773c30493a147411f654f766a9fb738fd30df771cd0620a441f9ac6e8e1"
+    },
+    "reprocess": {
+      "seconds": 13.744,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sha256": "a7338b42ea4ba4c3af96fa567a17b862563736f6d8432c16edf800eb44e38176"
+    },
+    "limits": {
+      "seconds": 20.042666666666666,
+      "sample_rate": 24000,
+      "channels": 1,
+      "sha256": "08df12bcf0fa945c78c823fa2592559abb6a17a1d8661323d4edc1574c3cbf33"
+    }
+  },
+  "checks": [
+    "live_rules_upload",
+    "source_rotation",
+    "versioned_edits_and_export_refusal",
+    "revision_approval",
+    "byte_verified_json_csv",
+    "restart_preserves_committed_review",
+    "checkpoint_reprocess_requires_approval"
+  ],
+  "scope": "Live rules parsing and scripted browser actions on one fictional clean fixture; synthesized voice, automated fixture approval, clean service restart. No model inference, physical scan, human review/semantic assessment, machine power-loss, or controlled performance evidence.",
+  "review_state": {
+    "document_id": "fef397c6bdc04d73a3d5fc6c1ab78b41",
+    "initial_record_sha256": "5525132b672ea28130b9ad40d3c8030fcb8194f6b130e712daac53a0826861d3",
+    "approved_record_sha256": "840db9b8f815850984f0682178675cb655a79e960e150afc5769ab7141b0c24d",
+    "approved_revision": 3,
+    "final_revision": 4,
+    "final_approval": null,
+    "checkpoint_reused": true
+  },
+  "export_sha256": {
+    "json/invoice.json": "f10ac13f83b3c284645d3565d4f2ef3057094460b704ba9735202fc14f35b829",
+    "csv/header.csv": "4bc91e49a6062d7da4975dea714ec096d7fb591bcec9fb16dbaa84468ddae7a3",
+    "csv/line-items.csv": "bf9cac4fe92e52937b8f31719fd9309dbb5a1ebf98f3f71ed7fcbf35d46a7d25"
+  },
+  "failure": {
+    "type": "TimeoutError",
+    "detail": "timed out"
+  },
+  "cleanup": {
+    "chrome_stopped": true,
+    "servers_stopped": true,
+    "scratch_removed": true
+  },
+  "artifacts": {
+    "final.png": "8676d50d8b351de0db31dd25051c49ef9aa95507c3dc0a10f98e1919460337a6",
+    "input.png": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+    "source-snapshot.json": "89de009d6bce44352465084053b1e705e2f82ea2671135c8de1fd18159ba31de",
+    "narration/export.wav": "540d23c4b7ac0618c92e49b2f49283dcb8131d8ca7a1631757921e647abb9f55",
+    "narration/restart.wav": "c5597773c30493a147411f654f766a9fb738fd30df771cd0620a441f9ac6e8e1",
+    "narration/reprocess.wav": "a7338b42ea4ba4c3af96fa567a17b862563736f6d8432c16edf800eb44e38176",
+    "narration/intro.wav": "3801dd0660e90b968c571a24d0ff1d8430bcd57baa6cac4d8f4fd8c6bd8caee7",
+    "narration/approve.wav": "8ef9a96f851a6f68d693fb7f3a03c2111c1e7b99652d931ff336fe246cb60943",
+    "narration/source.wav": "beb2289742d22627a303f7237590029989e637fde5316dac794026da9e378c8c",
+    "narration/edit.wav": "4d002e7f9cbbc531ac85271f269370798f5eda3bcd92c1d0d7c8638842aab715",
+    "narration/limits.wav": "08df12bcf0fa945c78c823fa2592559abb6a17a1d8661323d4edc1574c3cbf33",
+    "narration/upload.wav": "8aff81d6837eec8197777732eb3c9a87e2e783320068cb24a84a36b7d4c08ae9"
+  }
+}

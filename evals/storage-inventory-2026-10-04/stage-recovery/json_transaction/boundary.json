@@ -1,0 +1,7 @@
+{
+  "case": "json_transaction",
+  "boundary_reached": true,
+  "pid": 60594,
+  "time_utc": "2026-10-04T22:22:17.290440+00:00",
+  "uncommitted_event": "exported"
+}

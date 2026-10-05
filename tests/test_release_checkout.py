@@ -135,11 +135,57 @@ class CommittedCheckoutTests(unittest.TestCase):
             self.assertEqual(set(hashes), {entry["path"] for entry in files})
             self.assertEqual(source["tree"], self.git("rev-parse", "HEAD^{tree}").strip())
 
+    def test_new_tree_requires_saved_recovery_check_and_retains_legacy_schedule(self):
+        self.write("scripts/verify_stage_recovery.py", "fixture verifier\n")
+        self.git("add", "scripts/verify_stage_recovery.py")
+        self.git("-c", "commit.gpgsign=false", "commit", "--quiet", "-m", "Recovery fixture")
+        real_run = subprocess.run
+        commands = []
+
+        def run(command, **kwargs):
+            if command[0] == "git":
+                return real_run(command, **kwargs)
+            commands.append(command)
+            failed = "--verify" in command  # Missing retained archive must fail the ninth check.
+            return subprocess.CompletedProcess(command, int(failed), "", "\nRan 1 test in 0s\n\nOK\n")
+
+        with patch.object(MODULE.subprocess, "run", side_effect=run), \
+                contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            report = MODULE.verify(self.root, self.root / "artifacts/report", ref="HEAD")
+        self.assertEqual(len(commands), 9)
+        self.assertEqual(report["checks"][-1]["id"], "stage_recovery")
+        self.assertEqual(report["checks"][-1]["status"], "failed")
+        self.assertEqual(report["status"], "failed")
+        self.assertEqual(commands[-1][-1], "evals/storage-inventory-2026-10-04/stage-recovery")
+
     def test_unknown_or_option_like_ref_does_not_create_output(self):
         for ref in ("missing-tag", "--help"):
             with self.subTest(ref=ref), self.assertRaises(subprocess.CalledProcessError):
                 MODULE.verify(self.root, self.root / "artifacts/report", ref=ref)
             self.assertFalse((self.root / "artifacts/report").exists())
+
+    def test_new_memory_and_narration_tools_require_their_portable_archives(self):
+        for name in ("verify_stage_recovery.py", "benchmark_group_memory.py", "record_narrated_demo.py"):
+            self.write("scripts/" + name, "fixture verifier\n")
+        self.git("add", "scripts")
+        self.git("-c", "commit.gpgsign=false", "commit", "--quiet", "-m", "Evidence fixture")
+        real_run, commands = subprocess.run, []
+
+        def run(command, **kwargs):
+            if command[0] == "git":
+                return real_run(command, **kwargs)
+            commands.append(command)
+            missing = any("group-memory" in argument or "narrated-demo" in argument for argument in command)
+            return subprocess.CompletedProcess(command, int(missing), "", "\nRan 1 test in 0s\n\nOK\n")
+
+        with patch.object(MODULE.subprocess, "run", side_effect=run), \
+                contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            report = MODULE.verify(self.root, self.root / "artifacts/report", ref="HEAD")
+        self.assertEqual(len(commands), 12)
+        self.assertEqual([check["id"] for check in report["checks"][-3:]],
+                         ["group_memory_rules", "group_memory_model", "narrated_demo"])
+        self.assertTrue(all(check["status"] == "failed" for check in report["checks"][-3:]))
+        self.assertEqual(report["status"], "failed")
 
     def test_committed_symlink_submodule_and_runtime_data_are_rejected(self):
         for name, mode in (("link", "120000"), ("vendor", "160000"), ("artifacts/model.gguf", "100644")):

@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "scope": "Browser-only synthetic-tone media preflight; no parsing, workflow, human speech or timing acceptance.",
+  "recording": {
+    "method": "Uncut wall-rate canvas/MediaRecorder recording of live Chrome viewport samples with synthesized PCM narration; no screenshot montage or processing/human-time claim.",
+    "frames_seconds": [],
+    "query_errors": [
+      {
+        "elapsed_seconds": 10.002332875039428,
+        "type": "TimeoutError"
+      }
+    ],
+    "scenes": [],
+    "seconds": 10.550142917025369,
+    "playback": {
+      "mime": "video/webm;codecs=vp9,opus",
+      "bytes": 162607,
+      "width": 1440,
+      "height": 1160,
+      "current_time": 0.440659,
+      "audio_decoded_bytes": 5269,
+      "video_decoded_bytes": 14757
+    }
+  },
+  "chrome_stopped": true
+}

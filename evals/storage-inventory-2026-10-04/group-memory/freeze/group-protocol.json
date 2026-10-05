@@ -1,0 +1,18 @@
+{
+  "version": "native-group-footprint-v1",
+  "performance_protocol_sha256": "13b78cb603c8523ae9c30dab4ced25fd1cb395e172d0f5cf39fa2276301ef625",
+  "source_sha256": {
+    "scripts/group_memory.py": "a042036cda5699e1983bee38403b40f67987a8677883df58fd4a09df89ece3c2",
+    "scripts/benchmark_group_memory.py": "480feba801c8f7c68602de24b8c91ab3458d3304a181b1a39b4168bc82b83f57",
+    "tests/test_group_memory.py": "681baaea2f9663da702a9684688b031157adf358643e46c85dec4eed264357cb"
+  },
+  "utility_sha256": "c300bd4ffe79dac4dc20f58372bf5bc33b8b39ffd0c5f3988b95d452ab25373d",
+  "sample_interval_seconds": 0.5,
+  "max_complete_sample_gap_seconds": 5,
+  "error_accounting": "classified-v1",
+  "group_accounted_budget_bytes": 12884901888,
+  "ownership": "All server descendants, same-user Docker backends/controllers, and exactly one VM service whose open backing store matches Docker's vms/0/data/Docker.raw. No other active containers beyond this run's observer and its database-bound job/fence names. No unrelated model inference.",
+  "method": "Native footprint JSON in byte units with category/shared-mapping/charged-ledger data. Report observed maxima of native de-duplicated dirty, clean and reclaimable categories. Swapped and wired are subsets; guest/container memory is nested and never added. GPU/IOKit/unmapped/nofootprint categories are retained where returned. System auxiliary footprint is logical charged dirty memory, can exceed physical RAM, and stays separate.",
+  "limits": "Includes all Docker guest/kernel/cache/observer overhead, not incremental app-only cost. Global shared OS cache, unattributed system drivers, other-user services and browser are excluded. Samples are inspection windows, not atomic machine snapshots or continuous peaks. A sampled twelve-GiB budget is diagnostic, not an OS-enforced whole-application cap.",
+  "host_workloads": "Reference Mac, ordinary desktop idle; no test suites, builds, browser capture, asset downloads, or unrelated inference during controlled measurement. Owned collector, guest observer and idle-sleep inhibition are declared instrumentation. Corrected storage guard and refreshed parser image; earlier runs remain historical."
+}

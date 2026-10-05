@@ -1,0 +1,23 @@
+{
+  "stale_edit_rejected": false,
+  "unapproved_export_rejected": false,
+  "returncode": 73,
+  "boundary": {
+    "case": "checkpoint_render_written",
+    "boundary_reached": true,
+    "pid": 60476,
+    "time_utc": "2026-10-04T22:21:32.175413+00:00",
+    "written_file": "renders/ba/ba4e39cbc6320fcb87f852e87f7d942ca37bd9b7b887bba195632310fc3f3209.png",
+    "sha256": "ba4e39cbc6320fcb87f852e87f7d942ca37bd9b7b887bba195632310fc3f3209"
+  },
+  "lease_guarded": true,
+  "orphan_render_observed": true,
+  "stale_claim_rejected": true,
+  "resume": {
+    "resumed_in_new_process": true,
+    "pid": 60499,
+    "parser_calls": 1,
+    "supervisor_error": null
+  },
+  "original_unchanged": true
+}

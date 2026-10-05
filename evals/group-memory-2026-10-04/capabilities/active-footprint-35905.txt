@@ -1,0 +1,16 @@
+======================================================================
+com.docker.virtualization [35905]: 64-bit    Footprint: 36 MB (16384 bytes per page)
+======================================================================
+
+Auxiliary data:
+    phys_footprint: 36 MB
+    phys_footprint_peak: 36 MB
+
+
+System auxiliary data:
+    boot_carveout:              557 MB
+    sys_wired:                 1951 MB
+    sys_unwired:              21264 MB
+    ---------------------------------------
+    sys_footprint:            23772 MB
+

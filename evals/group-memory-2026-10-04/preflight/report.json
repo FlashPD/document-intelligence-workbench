@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "method": "native-group-shared-mapping-preflight-v1",
+  "allocation_bytes": 67108864,
+  "baseline_accounted_resident_bytes": 25086336,
+  "parent_accounted_resident_bytes": 84591936,
+  "child_accounted_resident_bytes": 77890880,
+  "group_accounted_resident_bytes": 92342912,
+  "shared_mapping_resident_delta_bytes": 67256576,
+  "independent_sum_less_group_bytes": 70139904,
+  "temporary_mapping_removed": true,
+  "source_sha256": {
+    "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/artifacts/native-group-preflight-2026-10-04-002/probe.py": "0f8b5aab98dd5ae346d801b1acd5e92ebc4431729941f61469fce4406dac7500",
+    "scripts/group_memory.py": "7e4502020d7852151c5efc8196578f6ba9bd3246ccc608fc3802895a8a335791",
+    "scripts/memory_accounting.py": "578803f485fd7ea6aa1c7a9747572963c4fc3a8cb5ecd8c5c9e86ebe32b3caae"
+  },
+  "utility_sha256": "c300bd4ffe79dac4dc20f58372bf5bc33b8b39ffd0c5f3988b95d452ab25373d"
+}

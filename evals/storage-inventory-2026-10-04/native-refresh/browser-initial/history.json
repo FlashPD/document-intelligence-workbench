@@ -1,0 +1,79 @@
+[
+  {
+    "revision": 0,
+    "kind": "received",
+    "actor": "intake",
+    "detail": "",
+    "created_at": "2026-10-04T23:14:02.399709+00:00"
+  },
+  {
+    "revision": 0,
+    "kind": "claimed",
+    "actor": "recorded-demo-setup",
+    "detail": "1",
+    "created_at": "2026-10-04T23:14:02.402256+00:00"
+  },
+  {
+    "revision": 1,
+    "kind": "candidate_created",
+    "actor": "extractor",
+    "detail": "",
+    "created_at": "2026-10-04T23:14:02.409558+00:00"
+  },
+  {
+    "revision": 2,
+    "kind": "field_edited",
+    "actor": "<img id=\"docwork-injected\" src=\"x\" onerror=\"globalThis.__docworkAttack=1\"><script>globalThis.__docworkAttack=2</script> automated fixture actor",
+    "detail": "fields.supplier_name",
+    "created_at": "2026-10-04T23:14:02.489779+00:00"
+  },
+  {
+    "revision": 3,
+    "kind": "field_edited",
+    "actor": "automated-adversarial-fixture",
+    "detail": "line_items.row-001.description",
+    "created_at": "2026-10-04T23:14:02.494790+00:00"
+  },
+  {
+    "revision": 4,
+    "kind": "field_edited",
+    "actor": "local:pushyanth",
+    "detail": "fields.supplier_name",
+    "created_at": "2026-10-04T23:14:06.282558+00:00"
+  },
+  {
+    "revision": 5,
+    "kind": "field_edited",
+    "actor": "local:pushyanth",
+    "detail": "line_items.row-001.description",
+    "created_at": "2026-10-04T23:14:06.301362+00:00"
+  },
+  {
+    "revision": 5,
+    "kind": "approved",
+    "actor": "local:pushyanth",
+    "detail": "ad5b5ef7e21277b52e0a917551dcd7e7f9535ac3695c7bccb8012409483e3796",
+    "created_at": "2026-10-04T23:14:06.318629+00:00"
+  },
+  {
+    "revision": 5,
+    "kind": "exported",
+    "actor": "local:pushyanth",
+    "detail": "json",
+    "created_at": "2026-10-04T23:14:06.342716+00:00"
+  },
+  {
+    "revision": 5,
+    "kind": "exported",
+    "actor": "local:pushyanth",
+    "detail": "csv",
+    "created_at": "2026-10-04T23:14:06.369367+00:00"
+  },
+  {
+    "revision": 6,
+    "kind": "field_edited",
+    "actor": "local:pushyanth",
+    "detail": "fields.supplier_name",
+    "created_at": "2026-10-04T23:14:06.401374+00:00"
+  }
+]

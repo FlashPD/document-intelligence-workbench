@@ -36,3 +36,7 @@ Use a new output directory for every live run. Reports and logs preserve failed 
 ## Recorded verification
 
 The [October 4 evidence bundle](../evals/model-setup-2026-10-04/README.md) retains both setup modes, each with all seven checks passing, independent offline verification, both real fictional workflows and owned runtime shutdown/scratch removal. The download run binds the initial verifier; the transfer run binds its final timeout/interruption cleanup. All **375 deterministic tests** and **eight isolated-checkout checks** pass. Integration timings overlap checkout work and do not replace the controlled performance study. G14 setup is covered for this working-source configuration; final-release source/tag confirmation remains B07.
+
+## Corrected-source refresh
+
+The later [storage-source setup](../evals/storage-inventory-2026-10-04/README.md#fresh-source-setup-and-upgrade) passes all seven checks on 4446 stable copied files with verified local transfer, followed by both real fictional model workflows on parser image `sha256:93332a57ebdc02c1368925eb02cf6de2ae85260f845f1894be3814ea0f157b27`. Source stability, owned shutdown and scratch removal pass; both saved setup/workflow audits verify. Previous acquisition/transfer reports remain unchanged. This refresh confirms the corrected working-source setup path; final requested commit/tag and separate published-clone verification remain pending.

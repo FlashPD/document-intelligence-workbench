@@ -1,0 +1,182 @@
+python3.12 scripts/verify_release_checkout.py --output-dir "artifacts/storage-final-checkout-2026-10-04-001" 
+Clean checkout: contracts
+Clean checkout: corpus
+Clean checkout: invoice_baseline
+Clean checkout: invoice_model
+Clean checkout: model_workflow
+Clean checkout: author_pilot
+Clean checkout: post_pilot_corrections
+Clean checkout: offline_replay
+Clean checkout: stage_recovery
+Clean checkout: group_memory_rules
+Clean checkout: group_memory_model
+Clean checkout: narrated_demo
+{
+  "status": "passed",
+  "files_copied": 4499,
+  "mode": "clean-source-snapshot",
+  "git_source": null,
+  "failure": null,
+  "checks": [
+    {
+      "id": "contracts",
+      "status": "passed",
+      "returncode": 0,
+      "command": [
+        "/opt/homebrew/opt/python@3.12/bin/python3.12",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "log_sha256": "f910c3d54bd63d50d1b5582d0032e9b0cb44d78066243b1da804a4004cc957a0"
+    },
+    {
+      "id": "corpus",
+      "status": "passed",
+      "returncode": 0,
+      "command": [
+        "/opt/homebrew/opt/python@3.12/bin/python3.12",
+        "-m",
+        "docwork.cli",
+        "eval-verify-corpus"
+      ],
+      "log_sha256": "4b196628ff97f996e873dba35a073f7de0f2df2aadb5d1417b76d75c2045a0a4"
+    },
+    {
+      "id": "invoice_baseline",
+      "status": "passed",
+      "returncode": 0,
+      "command": [
+        "/opt/homebrew/opt/python@3.12/bin/python3.12",
+        "-m",
+        "docwork.cli",
+        "eval-verify-heldout",
+        "evals/invoice-heldout-2026-10-03/ocr-rules-v0.3-psm1"
+      ],
+      "log_sha256": "82f76e52b29a9bdfda0e526fbbd5cbae49d8c8b72b90fa9a7a8f4d5d223a6ca9"
+    },
+    {
+      "id": "invoice_model",
+      "status": "passed",
+      "returncode": 0,
+      "command": [
+        "/opt/homebrew/opt/python@3.12/bin/python3.12",
+        "-m",
+        "docwork.cli",
+        "eval-verify-invoice-model",
+        "evals/invoice-model-heldout-2026-10-03"
+      ],
+      "log_sha256": "f9247741997e9c09f87e357a7e5007ce19c5c58c4d3601f7d571f84a5acc39b3"
+    },
+    {
+      "id": "model_workflow",
+      "status": "passed",
+      "returncode": 0,
+      "command": [
+        "/opt/homebrew/opt/python@3.12/bin/python3.12",
+        "-m",
+        "docwork.cli",
+        "eval-verify-model-workflow",
+        "evals/storage-inventory-2026-10-04/model-workflow"
+      ],
+      "log_sha256": "6ebbeea15b5c9b4aacc0ba28cad8ba0dcea5145b23e0ee34cf10b52f9fc88c44"
+    },
+    {
+      "id": "author_pilot",
+      "status": "passed",
+      "returncode": 0,
+      "command": [
+        "/opt/homebrew/opt/python@3.12/bin/python3.12",
+        "scripts/archive_review_pilot.py",
+        "verify",
+        "evals/author-review-pilot-2026-10-03",
+        "--require-complete"
+      ],
+      "log_sha256": "5d63fa7c9b03e118f334095a6cfcdd47c5048afd269254a13a5d58d9a07c6ac6"
+    },
+    {
+      "id": "post_pilot_corrections",
+      "status": "passed",
+      "returncode": 0,
+      "command": [
+        "/opt/homebrew/opt/python@3.12/bin/python3.12",
+        "scripts/correct_pilot_records.py",
+        "verify",
+        "evals/post-pilot-corrections-2026-10-04-storage.json"
+      ],
+      "log_sha256": "c7721c06f04d7d9976f1e11af60fd5e9b21cc099652042c8907f6a64aebe01bc"
+    },
+    {
+      "id": "offline_replay",
+      "status": "passed",
+      "returncode": 0,
+      "command": [
+        "/opt/homebrew/opt/python@3.12/bin/python3.12",
+        "-m",
+        "docwork.cli",
+        "demo-replay",
+        "--prepare-only",
+        "--output-dir",
+        "artifacts/checkout-replay"
+      ],
+      "log_sha256": "f0dbe59413e939cd8f8e504e47094ea9a30b7067a7c2b13253fd7561507549f8"
+    },
+    {
+      "id": "stage_recovery",
+      "status": "passed",
+      "returncode": 0,
+      "command": [
+        "/opt/homebrew/opt/python@3.12/bin/python3.12",
+        "scripts/verify_stage_recovery.py",
+        "--verify",
+        "evals/storage-inventory-2026-10-04/stage-recovery"
+      ],
+      "log_sha256": "9bc5ea2e26f429add2c2f0d9c52b27e59d59e1f030c71b63ca70bddd09cecc84"
+    },
+    {
+      "id": "group_memory_rules",
+      "status": "passed",
+      "returncode": 0,
+      "command": [
+        "/opt/homebrew/opt/python@3.12/bin/python3.12",
+        "scripts/benchmark_group_memory.py",
+        "verify",
+        "evals/storage-inventory-2026-10-04/group-memory/freeze",
+        "evals/storage-inventory-2026-10-04/group-memory/rules"
+      ],
+      "log_sha256": "bfbe0c2275419fb4c183de34276fd55ba5343066dd998a6e58686eaa6cb80c44"
+    },
+    {
+      "id": "group_memory_model",
+      "status": "passed",
+      "returncode": 0,
+      "command": [
+        "/opt/homebrew/opt/python@3.12/bin/python3.12",
+        "scripts/benchmark_group_memory.py",
+        "verify",
+        "evals/storage-inventory-2026-10-04/group-memory/freeze",
+        "evals/storage-inventory-2026-10-04/group-memory/model"
+      ],
+      "log_sha256": "b2c23909f24f16ab1b3836828d5026fb5ead874017d71b9e10cb4fbb70903d1f"
+    },
+    {
+      "id": "narrated_demo",
+      "status": "passed",
+      "returncode": 0,
+      "command": [
+        "/opt/homebrew/opt/python@3.12/bin/python3.12",
+        "scripts/record_narrated_demo.py",
+        "--verify",
+        "--output-dir",
+        "evals/narrated-demo-2026-10-04/final"
+      ],
+      "log_sha256": "94d2a2935b0d59a2950ae4ce0c76cb560308d998636273e5fec2cd927304a4ea"
+    }
+  ],
+  "report": "artifacts/storage-final-checkout-2026-10-04-001/report.json"
+}

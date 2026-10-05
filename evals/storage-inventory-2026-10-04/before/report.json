@@ -1,0 +1,7 @@
+{
+  "scope": "Deterministic removal of an owned regular WAL file immediately after successful lstat; models normal SQLite WAL disappearance. No other artifact mutation or document input.",
+  "source_sha256": "f241716769cfb7685d5a03f05d502154936b7069baf41a2716aa91794b99dfb8",
+  "status": "reproduced",
+  "failure": "Unexpected artifact entry",
+  "wal_absent": true
+}

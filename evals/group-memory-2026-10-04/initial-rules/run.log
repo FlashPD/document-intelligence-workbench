@@ -1,0 +1,144 @@
+ocr_rules: cold launch 1/3
+ocr_rules: cold launch 2/3
+ocr_rules: cold launch 3/3
+ocr_rules: warmup
+ocr_rules: warm-0
+ocr_rules: warm-1
+ocr_rules: warm-2
+ocr_rules: warm-3
+ocr_rules: warm-4
+ocr_rules: warm-5
+ocr_rules: warm-6
+ocr_rules: warm-7
+ocr_rules: warm-8
+ocr_rules: warm-9
+ocr_rules: queue 1/20
+ocr_rules: queue 2/20
+ocr_rules: queue 3/20
+ocr_rules: queue 4/20
+ocr_rules: queue 5/20
+ocr_rules: queue 6/20
+ocr_rules: queue 7/20
+ocr_rules: queue 8/20
+ocr_rules: queue 9/20
+ocr_rules: queue 10/20
+ocr_rules: queue 11/20
+ocr_rules: queue 12/20
+ocr_rules: queue 13/20
+ocr_rules: queue 14/20
+ocr_rules: queue 15/20
+ocr_rules: queue 16/20
+ocr_rules: queue 17/20
+ocr_rules: queue 18/20
+ocr_rules: queue 19/20
+ocr_rules: queue 20/20
+{
+  "version": "native-group-footprint-v1",
+  "status": "complete",
+  "variant": "ocr_rules",
+  "protocol_sha256": "c6ebc771339b887bff0e1d031c16c448762dde0bf283b810dcb8750f97982bf7",
+  "summary": {
+    "method": "native-group-footprint-v1",
+    "launches": [
+      {
+        "method": "native-group-footprint-v1",
+        "complete_samples": 2,
+        "model_samples": 0,
+        "first_sample_seconds": 3.092585291946307,
+        "last_sample_seconds": 3.954190207994543,
+        "max_sample_gap_seconds": 0.8616049160482362,
+        "max_observed_group_dirty_bytes": 1382782144,
+        "max_observed_group_swapped_bytes": 100089856,
+        "max_observed_accounted_resident_bytes": 1374524608,
+        "max_observed_group_accounted_bytes": 1474335936,
+        "max_observed_group_wired_bytes": 4259840,
+        "process_lifetime_dirty_upper_bound_bytes": 1459426368,
+        "driver_category_names": [
+          "CoreGraphics"
+        ],
+        "limits": "Native dirty/clean/reclaimable mapping categories are de-duplicated across selected user tasks. Swapped is a dirty subset charged at original size; wired is not added. Clean excludes globally shared OS cache. Docker VM includes guest/kernel/cache/observer; guest/container counters are nested and not added. Lifetime dirty upper bound sums maxima across process identities, can include pre-workload Docker use, and is not a simultaneous peak or resident-memory bound. Unattributed kernel/driver/other-user services and the browser are outside the selected group. Sampled maxima are lower bounds, not continuous peaks.",
+        "query_errors": 1,
+        "observed_budget_result": "pass",
+        "sampling_gap_result": "pass"
+      },
+      {
+        "method": "native-group-footprint-v1",
+        "complete_samples": 2,
+        "model_samples": 0,
+        "first_sample_seconds": 0.7041871669935063,
+        "last_sample_seconds": 1.5573932089610025,
+        "max_sample_gap_seconds": 0.8532060419674963,
+        "max_observed_group_dirty_bytes": 1522275904,
+        "max_observed_group_swapped_bytes": 132579328,
+        "max_observed_accounted_resident_bytes": 1478235712,
+        "max_observed_group_accounted_bytes": 1610618432,
+        "max_observed_group_wired_bytes": 4243456,
+        "process_lifetime_dirty_upper_bound_bytes": 1595741632,
+        "driver_category_names": [
+          "CoreGraphics"
+        ],
+        "limits": "Native dirty/clean/reclaimable mapping categories are de-duplicated across selected user tasks. Swapped is a dirty subset charged at original size; wired is not added. Clean excludes globally shared OS cache. Docker VM includes guest/kernel/cache/observer; guest/container counters are nested and not added. Lifetime dirty upper bound sums maxima across process identities, can include pre-workload Docker use, and is not a simultaneous peak or resident-memory bound. Unattributed kernel/driver/other-user services and the browser are outside the selected group. Sampled maxima are lower bounds, not continuous peaks.",
+        "query_errors": 1,
+        "observed_budget_result": "pass",
+        "sampling_gap_result": "pass"
+      },
+      {
+        "method": "native-group-footprint-v1",
+        "complete_samples": 2,
+        "model_samples": 0,
+        "first_sample_seconds": 0.4580112909898162,
+        "last_sample_seconds": 1.3299071249784902,
+        "max_sample_gap_seconds": 0.871895833988674,
+        "max_observed_group_dirty_bytes": 1558156928,
+        "max_observed_group_swapped_bytes": 135413760,
+        "max_observed_accounted_resident_bytes": 1515067008,
+        "max_observed_group_accounted_bytes": 1650398848,
+        "max_observed_group_wired_bytes": 4259840,
+        "process_lifetime_dirty_upper_bound_bytes": 1633818112,
+        "driver_category_names": [
+          "CoreGraphics"
+        ],
+        "limits": "Native dirty/clean/reclaimable mapping categories are de-duplicated across selected user tasks. Swapped is a dirty subset charged at original size; wired is not added. Clean excludes globally shared OS cache. Docker VM includes guest/kernel/cache/observer; guest/container counters are nested and not added. Lifetime dirty upper bound sums maxima across process identities, can include pre-workload Docker use, and is not a simultaneous peak or resident-memory bound. Unattributed kernel/driver/other-user services and the browser are outside the selected group. Sampled maxima are lower bounds, not continuous peaks.",
+        "query_errors": 1,
+        "observed_budget_result": "pass",
+        "sampling_gap_result": "pass"
+      },
+      {
+        "method": "native-group-footprint-v1",
+        "complete_samples": 52,
+        "model_samples": 0,
+        "first_sample_seconds": 0.6007070000050589,
+        "last_sample_seconds": 60.66311504202895,
+        "max_sample_gap_seconds": 1.7497198339551687,
+        "max_observed_group_dirty_bytes": 1891424960,
+        "max_observed_group_swapped_bytes": 138018816,
+        "max_observed_accounted_resident_bytes": 1845369600,
+        "max_observed_group_accounted_bytes": 1978096320,
+        "max_observed_group_wired_bytes": 4374528,
+        "process_lifetime_dirty_upper_bound_bytes": 2319767296,
+        "driver_category_names": [
+          "CoreGraphics"
+        ],
+        "limits": "Native dirty/clean/reclaimable mapping categories are de-duplicated across selected user tasks. Swapped is a dirty subset charged at original size; wired is not added. Clean excludes globally shared OS cache. Docker VM includes guest/kernel/cache/observer; guest/container counters are nested and not added. Lifetime dirty upper bound sums maxima across process identities, can include pre-workload Docker use, and is not a simultaneous peak or resident-memory bound. Unattributed kernel/driver/other-user services and the browser are outside the selected group. Sampled maxima are lower bounds, not continuous peaks.",
+        "query_errors": 20,
+        "observed_budget_result": "pass",
+        "sampling_gap_result": "pass"
+      }
+    ],
+    "artifacts": {
+      "native-group-36533.json.gz": "5e3b5900cabb98af52829ce21a852b650c4fbbd9c5fa77bbe1de0bfa8ca38e5d",
+      "native-group-36580.json.gz": "6026f21121e16c754c84d27d2377e20c8e9fbb15954fcb85bd66142235fb2ef3",
+      "native-group-36629.json.gz": "193e0a4257cfc703d23c7edfbcbdb6534c02eadeb68a6c1c87b60569f9fe9cec",
+      "native-group-36673.json.gz": "6dc1a394975d3f440aa5ee0ec975b32f58dc9a6f97883cbc28ee710acddfa3d7"
+    },
+    "group_accounted_budget_bytes": 12884901888,
+    "max_observed_group_accounted_bytes": 1978096320,
+    "max_observed_group_dirty_bytes": 1891424960,
+    "max_observed_accounted_resident_bytes": 1845369600,
+    "all_sampled_budgets_pass": true,
+    "all_sampling_gaps_pass": true,
+    "whole_memory_acceptance": "pending: inspect ownership, query errors, stage coverage and excluded kernel/shared-cache/driver boundaries before closing G12. Sampled native group accounting is not an exact continuous application-exclusive physical-memory peak."
+  },
+  "base_report_sha256": "68726dd37f5f5320c64adf951a4b084c08d03bf2a89b4087f76e4a3f2370bba4",
+  "source_unchanged": true
+}

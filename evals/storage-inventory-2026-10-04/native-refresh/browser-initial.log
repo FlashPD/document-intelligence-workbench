@@ -1,0 +1,16 @@
+PYTHONPATH=src python3.12 scripts/verify_adversarial.py --mode browser --output-dir "artifacts/storage-adversarial-browser-2026-10-04-001"
+{
+  "status": "passed",
+  "mode": "browser",
+  "checks": [
+    "malicious filename rendered literally",
+    "header and row markup rendered literally",
+    "issue detail rendered literally",
+    "history markup rendered literally",
+    "unapproved export blocked",
+    "current approval belongs to server reviewer",
+    "CSV formula text escaped and JSON unchanged",
+    "new edit invalidates approval and preserves prior export",
+    "owned Chrome shutdown"
+  ]
+}

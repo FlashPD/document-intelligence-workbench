@@ -1,0 +1,8 @@
+{
+  "case": "checkpoint_render_written",
+  "boundary_reached": true,
+  "pid": 34880,
+  "time_utc": "2026-10-04T21:13:32.450609+00:00",
+  "written_file": "renders/ba/ba4e39cbc6320fcb87f852e87f7d942ca37bd9b7b887bba195632310fc3f3209.png",
+  "sha256": "ba4e39cbc6320fcb87f852e87f7d942ca37bd9b7b887bba195632310fc3f3209"
+}

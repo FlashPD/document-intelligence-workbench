@@ -20,7 +20,7 @@ import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
-DEFAULT_WORKFLOW = "evals/reproducibility-2026-10-04/model-workflow"
+DEFAULT_WORKFLOW = "evals/storage-inventory-2026-10-04/model-workflow"
 
 
 def digest(path: Path) -> str:
@@ -158,7 +158,7 @@ def verify(root: Path, output: Path, workflow: str = DEFAULT_WORKFLOW, *, ref: s
         ("invoice_model", ["-m", "docwork.cli", "eval-verify-invoice-model", "evals/invoice-model-heldout-2026-10-03"]),
         ("model_workflow", ["-m", "docwork.cli", "eval-verify-model-workflow", workflow]),
         ("author_pilot", ["scripts/archive_review_pilot.py", "verify", "evals/author-review-pilot-2026-10-03", "--require-complete"]),
-        ("post_pilot_corrections", ["scripts/correct_pilot_records.py", "verify", "evals/post-pilot-corrections-2026-10-04-operations.json"]),
+        ("post_pilot_corrections", ["scripts/correct_pilot_records.py", "verify", "evals/post-pilot-corrections-2026-10-04-storage.json"]),
         ("offline_replay", ["-m", "docwork.cli", "demo-replay", "--prepare-only", "--output-dir", "artifacts/checkout-replay"]),
     ]
     try:
@@ -176,6 +176,19 @@ def verify(root: Path, output: Path, workflow: str = DEFAULT_WORKFLOW, *, ref: s
             report["started_without_artifacts"] = not (checkout / "artifacts").exists()
             env = {**os.environ, "PYTHONPATH": str(checkout / "src"), "PYTHONDONTWRITEBYTECODE": "1",
                    "PYTHONNOUSERSITE": "1"}
+            # Older committed releases retain their original eight-check schedule.
+            # Trees containing recovery tooling must also ship its reviewed archive.
+            if (checkout / "scripts/verify_stage_recovery.py").is_file():
+                commands.append(("stage_recovery", ["scripts/verify_stage_recovery.py", "--verify",
+                                                    "evals/storage-inventory-2026-10-04/stage-recovery"]))
+            if (checkout / "scripts/benchmark_group_memory.py").is_file():
+                for variant in ("rules", "model"):
+                    commands.append((f"group_memory_{variant}", ["scripts/benchmark_group_memory.py", "verify",
+                                     "evals/storage-inventory-2026-10-04/group-memory/freeze",
+                                     f"evals/storage-inventory-2026-10-04/group-memory/{variant}"]))
+            if (checkout / "scripts/record_narrated_demo.py").is_file():
+                commands.append(("narrated_demo", ["scripts/record_narrated_demo.py", "--verify", "--output-dir",
+                                                  "evals/narrated-demo-2026-10-04/final"]))
             for name, arguments in commands:
                 print(f"Clean checkout: {name}", flush=True)
                 result = subprocess.run([sys.executable, *arguments], cwd=checkout, env=env,

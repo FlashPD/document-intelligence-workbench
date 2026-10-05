@@ -1,0 +1,46 @@
+{
+  "status": {
+    "document_id": "59616d501d8f461f9ea155f6f987e0c0",
+    "source_name": "fictional-recovery.png",
+    "source_sha256": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+    "media_type": "image/png",
+    "size_bytes": 99913,
+    "status": "RECEIVED",
+    "page_image_sha256": null,
+    "page_count": 0,
+    "current_revision": 0,
+    "job": {
+      "id": "30d32e69f3274f8eac3a6d6bd0d92d88",
+      "status": "QUEUED",
+      "attempts": 0,
+      "fence": 0,
+      "error_code": null,
+      "stage": "QUEUED",
+      "profile_json": "{\"extractor\": \"ocr_rules\"}",
+      "stop_requested": 0,
+      "worker_id": null,
+      "lease_until": null
+    },
+    "parser_checkpoint": null
+  },
+  "detail": null,
+  "history": [
+    {
+      "revision": 0,
+      "kind": "received",
+      "actor": "intake",
+      "detail": "",
+      "created_at": "2026-10-04T21:13:52.431236+00:00"
+    }
+  ],
+  "attempts": [],
+  "counts": {
+    "revisions": 0,
+    "approvals": 0,
+    "exports": 0,
+    "parser_checkpoint_pages": 0
+  },
+  "integrity": "ok",
+  "export_files": {},
+  "scratch": []
+}

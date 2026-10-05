@@ -1,0 +1,74 @@
+{
+  "status": {
+    "document_id": "35be80612c3a43bc9a40743b02deb610",
+    "source_name": "fictional-recovery.png",
+    "source_sha256": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+    "media_type": "image/png",
+    "size_bytes": 99913,
+    "status": "PROCESSING",
+    "page_image_sha256": null,
+    "page_count": 0,
+    "current_revision": 0,
+    "job": {
+      "id": "1fddc9847f6b4bcfaa95b4ba54b7902f",
+      "status": "PROCESSING",
+      "attempts": 1,
+      "fence": 1,
+      "error_code": null,
+      "stage": "PARSING",
+      "profile_json": "{\"extractor\": \"ocr_rules\"}",
+      "stop_requested": 0,
+      "worker_id": "crash-probe",
+      "lease_until": 1791148420.4166222
+    },
+    "parser_checkpoint": null
+  },
+  "detail": null,
+  "history": [
+    {
+      "revision": 0,
+      "kind": "received",
+      "actor": "intake",
+      "detail": "",
+      "created_at": "2026-10-04T21:13:30.731562+00:00"
+    },
+    {
+      "revision": 0,
+      "kind": "claimed",
+      "actor": "crash-probe",
+      "detail": "1",
+      "created_at": "2026-10-04T21:13:30.878715+00:00"
+    },
+    {
+      "revision": 0,
+      "kind": "processing_stage",
+      "actor": "crash-probe",
+      "detail": "{\"fence\": 1, \"stage\": \"PARSING\"}",
+      "created_at": "2026-10-04T21:13:30.882463+00:00"
+    }
+  ],
+  "attempts": [
+    {
+      "id": "1fddc9847f6b4bcfaa95b4ba54b7902f:1",
+      "document_id": "35be80612c3a43bc9a40743b02deb610",
+      "job_id": "1fddc9847f6b4bcfaa95b4ba54b7902f",
+      "fence": 1,
+      "profile_json": "{\"extractor\": \"ocr_rules\"}",
+      "status": "PROCESSING",
+      "started_at": "2026-10-04T21:13:30.878743+00:00",
+      "finished_at": null,
+      "error_code": null
+    }
+  ],
+  "counts": {
+    "revisions": 0,
+    "approvals": 0,
+    "exports": 0,
+    "parser_checkpoint_pages": 0
+  },
+  "integrity": "ok",
+  "export_files": {},
+  "scratch": [
+    "parse-1fddc9847f6b4bcf-1-ndo2hh59"
+  ]
+}

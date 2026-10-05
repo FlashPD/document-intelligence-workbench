@@ -1,0 +1,26 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Live narrated workbench demo</title><style>body{max-width:1100px;margin:auto;padding:24px;font:16px/1.6 system-ui;background:#f4f7fa;color:#192b3c}video{width:100%}a{color:#245b88}</style><h1>A recoverable invoice review workflow</h1><p>Continuous live Chrome viewport recording, real rules parsing, scripted actions on a fictional invoice and synthesized narration. Automated fixture approvals supply no human-quality results. Experimental release; scan/manual/memory/final-release gaps remain.</p><video controls preload="metadata" src="demo.webm"></video><p><a href="transcript.txt">Narration transcript</a> · <a href="report.json">Source-bound verification</a></p><pre style="white-space:pre-wrap">A local invoice workflow
+This is a continuous, scripted demonstration of the local document intelligence workbench. The invoice is fictional, the voice is synthesized, and the product uses real rules parsing. This is not a human review study or a performance benchmark.
+
+Upload and automatic processing
+I upload the original invoice through the browser. The supervised serial worker parses it in a network denied Docker container and creates an unapproved suggestion. Rules remain the default extractor.
+
+Inspect cited OCR and review rotation
+Selecting the invoice number shows its cited OCR line on the source. I rotate the review view and its highlight together, then restore the view. A matching citation does not prove semantic correctness; the reviewer must inspect the document.
+
+A correction creates a new revision
+I demonstrate a correction using the native edit controls, then restore the printed value in another revision. The original suggestion is preserved. An attempted export before approval is refused.
+
+Approval binds the current revision
+The server establishes the local reviewer identity. I approve the current revision. This is an automated fixture approval for the demonstration, not a human quality assessment. Approval never proves that the values are correct.
+
+Download immutable JSON and CSV
+The approved revision now produces JSON and CSV downloads. I verify all downloaded bytes against the export store. CSV text is protected against spreadsheet formula interpretation, and earlier exports remain immutable.
+
+Restart preserves the committed review
+I stop this disposable service and reopen the same database and object store. The committed edits and approval survive, and the saved export remains byte identical. Separate crash drills cover incomplete transactions and stale worker fencing.
+
+Reprocessing requires fresh approval
+Reprocessing creates a new extraction identity and revision using the verified parser checkpoint. The earlier approved export survives, but the new candidate needs fresh approval. Review authority is separate from extraction.
+
+Measured results and release limits
+On the declared synthetic invoice comparison, the optional local model regresses against rules and is not promoted. The author pilot retains two errors in approved records. Genuine scanner validation, manual semantic assessments and remaining release gates are still pending. This project makes no time saved or unattended approval claim.</pre></html>

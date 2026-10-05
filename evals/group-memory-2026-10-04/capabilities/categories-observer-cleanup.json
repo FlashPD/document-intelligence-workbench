@@ -1,0 +1,49 @@
+{
+  "samples": [
+    {
+      "received_elapsed_seconds": 2.598788,
+      "guest_uptime_seconds": 187.54,
+      "meminfo_bytes": {
+        "MemTotal": 8215117824,
+        "MemFree": 7482957824,
+        "MemAvailable": 7689805824,
+        "Buffers": 22540288,
+        "Cached": 329711616,
+        "SwapTotal": 1073737728,
+        "SwapFree": 1073737728,
+        "Shmem": 520192,
+        "Slab": 43040768,
+        "SReclaimable": 10338304,
+        "KernelStack": 3997696,
+        "PageTables": 2428928
+      },
+      "observer_memory_current_bytes": 10743808,
+      "observer_memory_peak_bytes": 10883072
+    },
+    {
+      "received_elapsed_seconds": 2.855226,
+      "guest_uptime_seconds": 187.79,
+      "meminfo_bytes": {
+        "MemTotal": 8215117824,
+        "MemFree": 7482957824,
+        "MemAvailable": 7689805824,
+        "Buffers": 22540288,
+        "Cached": 329715712,
+        "SwapTotal": 1073737728,
+        "SwapFree": 1073737728,
+        "Shmem": 520192,
+        "Slab": 43040768,
+        "SReclaimable": 10338304,
+        "KernelStack": 3997696,
+        "PageTables": 2428928
+      },
+      "observer_memory_current_bytes": 10743808,
+      "observer_memory_peak_bytes": 10883072
+    }
+  ],
+  "sampling_errors": 0,
+  "clean_shutdown": true,
+  "cleanup_failure": null,
+  "early_exit": false,
+  "scope": "Whole Linux VM meminfo, including daemon/kernel/cache and a bounded measurement observer; parser working sets are nested. Guest occupancy is not host VM residency or app-exclusive use."
+}

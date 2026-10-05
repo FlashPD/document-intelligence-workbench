@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/scripts/verify_operations.py", line 113, in <module>
+    main()
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/scripts/verify_operations.py", line 33, in main
+    with ReviewServer(("127.0.0.1", 0), store,
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/src/docwork/web.py", line 63, in __init__
+    super().__init__(address, ReviewHandler)
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socketserver.py", line 457, in __init__
+    self.server_bind()
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/server.py", line 136, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/opt/homebrew/Cellar/python@3.12/3.12.12/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socketserver.py", line 478, in server_bind
+    self.socket.bind(self.server_address)
+PermissionError: [Errno 1] Operation not permitted

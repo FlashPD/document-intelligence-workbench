@@ -1,0 +1,720 @@
+{
+  "version": 1,
+  "created_at_utc": "2026-10-04T23:31:41.159998+00:00",
+  "status": "not_release_ready",
+  "identity": {
+    "mode": "uncommitted-working-source-review",
+    "base_commit": "74d3dfa225c07fd3d8ab53ec85a5ceb7fe6abe01",
+    "contract_sha256": "d4ac5961b2872af7ca01b6f56a150303f561564b5e0587b1bfe56c8e47d340c2"
+  },
+  "gates": [
+    {
+      "id": "G01",
+      "requirement": "Document scope/substitutions, map original requirements, and maintain current/next work in the backlog.",
+      "review_state": "defined",
+      "evidence": [
+        "checkout"
+      ],
+      "remaining": [
+        "Confirm ADR/contract/guide consistency on requested final source."
+      ],
+      "final_closure_proven": false
+    },
+    {
+      "id": "G02",
+      "requirement": "Return upload/batch requests without waiting for extraction. Supervise one automatic worker, persist job profile, enforce bounds, expose queue/stage/errors, and verify exclusive claims, shutdown and restart.",
+      "review_state": "covered_current_working_source",
+      "evidence": [
+        "lifecycle",
+        "checkout",
+        "rules"
+      ],
+      "remaining": [
+        "Confirm separately requested final commit/identity; current-source lifecycle runs pass after controlled timing."
+      ],
+      "final_closure_proven": false
+    },
+    {
+      "id": "G03",
+      "requirement": "Cancel/fence owned work without later publication. Reprocess with a new extraction identity/configuration, preserve old revisions/exports, invalidate approval for new candidates, and reuse only valid checkpoints.",
+      "review_state": "covered_current_working_source",
+      "evidence": [
+        "lifecycle",
+        "stages",
+        "narration",
+        "checkout"
+      ],
+      "remaining": [
+        "Confirm separately requested final commit/identity; current-source cancellation/deletion/reprocess checks pass with owned-runtime limits retained."
+      ],
+      "final_closure_proven": false
+    },
+    {
+      "id": "G04",
+      "requirement": "Restartable tracked deletion revokes access and removes local originals, rendered pages, checkpoints, review/candidate data and exports after active work stops. Shared objects survive until unreferenced. Enforce total artifact budget/free-space reserve; disclose external retention.",
+      "review_state": "covered_current_working_source",
+      "evidence": [
+        "lifecycle",
+        "parser",
+        "checkout"
+      ],
+      "remaining": [
+        "Confirm current-guard deletion/budget/disk behavior; retain logical deletion and external-copy exclusions."
+      ],
+      "final_closure_proven": false
+    },
+    {
+      "id": "G05",
+      "requirement": "Server-established reviewer identity authorizes edits/decisions/approval; forged actors and processing credentials cannot approve. Preserve session/origin checks and authenticated artifacts; document trusted-local-operator boundary.",
+      "review_state": "covered_current_working_source",
+      "evidence": [
+        "access",
+        "adversarial_browser",
+        "narration",
+        "source_review",
+        "checkout"
+      ],
+      "remaining": [
+        "Current-source native authority/access/browser checks pass after timing; confirm requested final commit/identity and trusted-local-operator boundary."
+      ],
+      "final_closure_proven": false
+    },
+    {
+      "id": "G06",
+      "requirement": "Resolve field sources or visibly disclose evidence limits. Verify crop/rotation/multi-page geometry and publish a predeclared semantic attribution sample with wrong-field, ambiguous and absent support. Fix misleading precision; IDs/substring alignment alone are insufficient.",
+      "review_state": "partial_missing_assessments",
+      "evidence": [
+        "checkout"
+      ],
+      "remaining": [
+        "Complete source-inspected semantic/geometry judgments on every frozen production target in both variants; do not substitute reference existence."
+      ],
+      "final_closure_proven": false
+    },
+    {
+      "id": "G07",
+      "requirement": "Preserve suggestions through edits; reject stale edits/approvals and unresolved blocking issues. Bind exports to current approved revisions, preserve retry bytes, prevent duplicate approval inheritance, and verify JSON/formula-safe CSV.",
+      "review_state": "covered_working_source",
+      "evidence": [
+        "stages",
+        "narration",
+        "checkout"
+      ],
+      "remaining": [
+        "Confirm relevant final-source/identity and unresolved-issue coverage before closure."
+      ],
+      "final_closure_proven": false
+    },
+    {
+      "id": "G08",
+      "requirement": "Exercise malformed/oversized/encrypted inputs, symlink/path attempts, parser network/resources, escaped UI/CSV and model-directed document instructions. Extraction instructions cannot gain review/export authority. Retain applicable deterministic/live checks.",
+      "review_state": "covered_current_working_source",
+      "evidence": [
+        "parser",
+        "adversarial_model",
+        "adversarial_browser",
+        "access",
+        "source_review",
+        "checkout"
+      ],
+      "remaining": [
+        "Current-source native model/browser/access checks pass with saved audits; confirm requested final commit/identity and retain failed source-drift/short-lease cases and bounded-case exclusions."
+      ],
+      "final_closure_proven": false
+    },
+    {
+      "id": "G09",
+      "requirement": "Interrupt parsing/extraction/review/export and restart without lost committed edits or stale authority. Verify restore, timeout/OOM cleanup, fencing and new cancellation/deletion recovery; partial artifacts cannot appear successful.",
+      "review_state": "covered_working_source",
+      "evidence": [
+        "stages",
+        "parser",
+        "upgrade",
+        "checkout"
+      ],
+      "remaining": [
+        "Confirm restore/lifecycle applicability and final identities; preserve controlled parser/short-lease/process-crash limits."
+      ],
+      "final_closure_proven": false
+    },
+    {
+      "id": "G10",
+      "requirement": "Account for all 180 original test invoices and 100 CORD receipts in separate two-variant reports with failures, masks, uncertainty and stage boundaries. Verify archives; extraction/scoring changes need new frozen source-bound comparisons. Reject default promotion of regressing candidates.",
+      "review_state": "covered_historical_comparisons",
+      "evidence": [
+        "invoice_rules",
+        "invoice_model",
+        "receipt_rules",
+        "receipt_model",
+        "comparison_review",
+        "checkout"
+      ],
+      "remaining": [
+        "Confirm frozen relevant-source reporting/deserializer applicability and preserved failures/masks/default; any extraction/scoring change needs new frozen evidence."
+      ],
+      "final_closure_proven": false
+    },
+    {
+      "id": "G11",
+      "requirement": "Freeze permitted genuine scan and clean/degraded/rotated/multi-page originals, labels and protocol, then run production uploads with rules and pinned real model. Publish original versus approved quality separately and retain all scheduled failures.",
+      "review_state": "partial_missing_inputs",
+      "evidence": [
+        "checkout"
+      ],
+      "remaining": [
+        "Acquire at least eight permitted English invoice cases, including two documented genuine scanner captures and all four treatments.",
+        "Source-label before predictions; freeze and run both production variants.",
+        "Complete separate approved-quality assessment without replacing original predictions."
+      ],
+      "final_closure_proven": false
+    },
+    {
+      "id": "G12",
+      "requirement": "Run the controlled workload below; publish cold/warm end-to-end/stage P50/P95, serial throughput, memory methods/budgets and failures. Meet rules clean-page latency target or retain experimental labeling until an explicit scope/implementation revision.",
+      "review_state": "partial_memory_acceptance",
+      "evidence": [
+        "rules",
+        "rules_group",
+        "model",
+        "model_group"
+      ],
+      "remaining": [
+        "Both corrected schedules complete with source-current verification/cleanup/stage coverage; sampled maxima remain lower bounds.",
+        "Resolve unavailable startup/shutdown/short-stage peaks and browser/global-cache/unattributed kernel-driver boundaries; sampled maxima do not close this gap."
+      ],
+      "final_closure_proven": false
+    },
+    {
+      "id": "G13",
+      "requirement": "Show queue age/stage/failures/retry state; expose service/storage readiness and model availability separately. Export content-free stage timing/failure counts; separate queue, processing and human wait. No external stack required.",
+      "review_state": "covered_current_working_source",
+      "evidence": [
+        "operations",
+        "checkout"
+      ],
+      "remaining": [
+        "Corrected-source authenticated operations checks pass after timing; confirm requested final identity and preserve injected-outcome limits."
+      ],
+      "final_closure_proven": false
+    },
+    {
+      "id": "G14",
+      "requirement": "Pin parser base/packages/language/Python inputs and model/runtime/data identities. Verify explicit fresh-checkout setup followed by offline runtime, prior-version database upgrade and portable restore preserving export bytes. Document disk/host requirements.",
+      "review_state": "covered_current_working_source",
+      "evidence": [
+        "setup",
+        "workflow",
+        "upgrade",
+        "parser",
+        "source_review",
+        "checkout"
+      ],
+      "remaining": [
+        "Current-source fresh transfer/offline workflow and prior-version upgrade/restore pass; confirm separately requested release commit/tag and published clone setup."
+      ],
+      "final_closure_proven": false
+    },
+    {
+      "id": "G15",
+      "requirement": "Reconcile guides/cards/README, record continuous narrated workflow and case study, retain final-source tests/live parser/model/browser/audit/gate evidence, and verify a separate published-tag clone/demo. G01\u2013G14 and G15\u2019s prepublication checks close before publication; G15\u2019s separate published-tag clone/demo is verified afterward.",
+      "review_state": "partial_release_unfinished",
+      "evidence": [
+        "narration",
+        "browser_controls",
+        "portfolio_audit",
+        "checkout",
+        "source_review"
+      ],
+      "remaining": [
+        "Current guides/cards reconcile implemented controls with historical measurements; review every mandatory gate against final source/config/input/runtime/human evidence.",
+        "Close G01\u2013G14 and G15 prepublication checks before separately requested publication; verify requested commit and separate published-tag clone/demo afterward to finish G15."
+      ],
+      "final_closure_proven": false
+    }
+  ],
+  "evidence": {
+    "parser": {
+      "path": "evals/storage-inventory-2026-10-04/parser/report.json",
+      "sha256": "eaf3635c2a535383a22afa4a446e1e878303c2adfba8a44ed7c29c27d16bea76",
+      "declared_status": "passed",
+      "declared_checks": [
+        {
+          "id": "container_parser.ParserSmoke.test_abrupt_worker_exit_resumes_committed_parser_checkpoint",
+          "status": "passed"
+        },
+        {
+          "id": "container_parser.ParserSmoke.test_backup_restores_interrupted_real_parser_checkpoint",
+          "status": "passed"
+        },
+        {
+          "id": "container_parser.ParserSmoke.test_backup_restores_real_pdf_review_and_immutable_exports",
+          "status": "passed"
+        },
+        {
+          "id": "container_parser.ParserSmoke.test_container_conflict_review_export_and_reopen",
+          "status": "passed"
+        },
+        {
+          "id": "container_parser.ParserSmoke.test_container_duplicate_submissions_have_independent_approval",
+          "status": "passed"
+        },
+        {
+          "id": "container_parser.ParserSmoke.test_container_jpeg_exif_rotation",
+          "status": "passed"
+        },
+        {
+          "id": "container_parser.ParserSmoke.test_container_missing_image_retry",
+          "status": "passed"
+        },
+        {
+          "id": "container_parser.ParserSmoke.test_container_processes_committed_png",
+          "status": "passed"
+        },
+        {
+          "id": "container_parser.ParserSmoke.test_container_processes_two_page_pdf",
+          "status": "passed"
+        },
+        {
+          "id": "container_parser.ParserSmoke.test_container_rejects_eleven_page_pdf",
+          "status": "passed"
+        },
+        {
+          "id": "container_parser.ParserSmoke.test_container_rejects_encrypted_pdf_with_empty_password",
+          "status": "passed"
+        },
+        {
+          "id": "container_parser.ParserSmoke.test_container_rejects_malformed_pdf",
+          "status": "passed"
+        },
+        {
+          "id": "container_parser.ParserSmoke.test_container_rejects_password_protected_pdf",
+          "status": "passed"
+        },
+        {
+          "id": "container_parser.ParserSmoke.test_container_rejects_truncated_png",
+          "status": "passed"
+        },
+        {
+          "id": "container_parser.ParserSmoke.test_container_runtime_restrictions",
+          "status": "passed"
+        },
+        {
+          "id": "container_parser.ParserSmoke.test_model_outage_retry_reuses_real_two_page_parser_output",
+          "status": "passed"
+        },
+        {
+          "id": "container_resources.ParserResourceChecks.test_cgroup_oom_is_recorded_then_real_parser_retry_succeeds",
+          "status": "passed"
+        },
+        {
+          "id": "container_resources.ParserResourceChecks.test_timeout_kills_container_then_real_parser_retry_succeeds",
+          "status": "passed"
+        }
+      ],
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "stages": {
+      "path": "evals/storage-inventory-2026-10-04/stage-recovery/report.json",
+      "sha256": "df00c47a7c812d55a13c30875c9ee36a2c552dbbd9f1375d87f1231734ebfab8",
+      "declared_status": "passed",
+      "declared_checks": [
+        {
+          "id": "parser_active",
+          "status": "passed"
+        },
+        {
+          "id": "checkpoint_render_written",
+          "status": "passed"
+        },
+        {
+          "id": "rules_extracted",
+          "status": "passed"
+        },
+        {
+          "id": "candidate_transaction",
+          "status": "passed"
+        },
+        {
+          "id": "review_transaction",
+          "status": "passed"
+        },
+        {
+          "id": "review_committed",
+          "status": "passed"
+        },
+        {
+          "id": "approval_transaction",
+          "status": "passed"
+        },
+        {
+          "id": "approval_committed",
+          "status": "passed"
+        },
+        {
+          "id": "csv_first_file",
+          "status": "passed"
+        },
+        {
+          "id": "csv_transaction",
+          "status": "passed"
+        },
+        {
+          "id": "csv_committed",
+          "status": "passed"
+        },
+        {
+          "id": "json_transaction",
+          "status": "passed"
+        }
+      ],
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "narration": {
+      "path": "evals/narrated-demo-2026-10-04/final/report.json",
+      "sha256": "5af31ffa788b1aeb94052e64c7fdd8893b4bb935a9bf99182bc1d1c6b1bbf1ca",
+      "declared_status": "passed",
+      "declared_checks": null,
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "checkout": {
+      "path": "evals/storage-inventory-2026-10-04/final-checkout/report.json",
+      "sha256": "0d41a5eed1d385dc6776c61797c79af6af75bf2db8dac3be31016197cf06dcb4",
+      "declared_status": "passed",
+      "declared_checks": [
+        {
+          "id": "contracts",
+          "status": "passed"
+        },
+        {
+          "id": "corpus",
+          "status": "passed"
+        },
+        {
+          "id": "invoice_baseline",
+          "status": "passed"
+        },
+        {
+          "id": "invoice_model",
+          "status": "passed"
+        },
+        {
+          "id": "model_workflow",
+          "status": "passed"
+        },
+        {
+          "id": "author_pilot",
+          "status": "passed"
+        },
+        {
+          "id": "post_pilot_corrections",
+          "status": "passed"
+        },
+        {
+          "id": "offline_replay",
+          "status": "passed"
+        },
+        {
+          "id": "stage_recovery",
+          "status": "passed"
+        },
+        {
+          "id": "group_memory_rules",
+          "status": "passed"
+        },
+        {
+          "id": "group_memory_model",
+          "status": "passed"
+        },
+        {
+          "id": "narrated_demo",
+          "status": "passed"
+        }
+      ],
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "rules": {
+      "path": "evals/storage-inventory-2026-10-04/group-memory/rules/report.json",
+      "sha256": "5f7fa23c3f0e2af9af9969142af90517af48c64e5505aa87967c45c76fa06cb3",
+      "declared_status": "complete",
+      "declared_checks": [],
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "model": {
+      "path": "evals/storage-inventory-2026-10-04/group-memory/model/report.json",
+      "sha256": "e298dac9df07ee6c33aae281414a6839a5f7a77f53ef3ff8f33e355924c686d8",
+      "declared_status": "complete",
+      "declared_checks": [],
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "model_group": {
+      "path": "evals/storage-inventory-2026-10-04/group-memory/model/group-report.json",
+      "sha256": "33b0e6e0f17df0f30ca178c754c78ae74b17dcb3a61e414548b7327564c4603d",
+      "declared_status": "complete",
+      "declared_checks": [],
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "workflow": {
+      "path": "evals/storage-inventory-2026-10-04/model-workflow/report.json",
+      "sha256": "136051a7b4edec87a23af03c90a96ec2e45dc6bba3858a365d04d32678e56dea",
+      "declared_status": "passed",
+      "declared_checks": [
+        {
+          "id": null,
+          "status": "passed"
+        },
+        {
+          "id": null,
+          "status": "passed"
+        }
+      ],
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "browser_controls": {
+      "path": "evals/storage-inventory-2026-10-04/review-browser/report.json",
+      "sha256": "5097eebe6195e86a12370ce6691feb040b29108a7f662eefaefe1d97ad210584",
+      "declared_status": "passed",
+      "declared_checks": null,
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "portfolio_audit": {
+      "path": "evals/storage-inventory-2026-10-04/portfolio-audit/report.json",
+      "sha256": "843f829f31746a2699f5aed53eab2c39a429e713e92198857738068234884e20",
+      "declared_status": "evidence_complete",
+      "declared_checks": [
+        {
+          "id": "deterministic_contracts",
+          "status": "passed"
+        },
+        {
+          "id": "invoice_corpus",
+          "status": "passed"
+        },
+        {
+          "id": "invoice_baseline",
+          "status": "passed"
+        },
+        {
+          "id": "invoice_model_comparison",
+          "status": "passed"
+        },
+        {
+          "id": "receipt_model_comparison",
+          "status": "passed"
+        },
+        {
+          "id": "parser_reliability",
+          "status": "passed"
+        },
+        {
+          "id": "real_model_workflow",
+          "status": "passed"
+        },
+        {
+          "id": "browser_workflow",
+          "status": "passed"
+        },
+        {
+          "id": "portfolio_documentation",
+          "status": "passed"
+        },
+        {
+          "id": "author_review_pilot",
+          "status": "passed"
+        },
+        {
+          "id": "demo_recording",
+          "status": "passed"
+        }
+      ],
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "rules_group": {
+      "path": "evals/storage-inventory-2026-10-04/group-memory/rules/group-report.json",
+      "sha256": "0a062eb39db173898f3ba6d2001e6d18f3b29ce0f7b95b984254ec8d7f75d825",
+      "declared_status": "complete",
+      "declared_checks": [],
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "source_review": {
+      "path": "evals/storage-inventory-2026-10-04/applicability/report.json",
+      "sha256": "0921d25e5ab13892f5538a443c70f277820744cf1a07a67535d4e9307a96532a",
+      "declared_status": null,
+      "declared_checks": [],
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "comparison_review": {
+      "path": "evals/storage-inventory-2026-10-04/applicability/comparison-review.json",
+      "sha256": "c13b196ce0afed517491c66a1e0d1eae8604f3faccf8c0dfe8b91f7488732faa",
+      "declared_status": null,
+      "declared_checks": [],
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "lifecycle": {
+      "path": "evals/storage-inventory-2026-10-04/native-refresh/lifecycle/report.json",
+      "sha256": "41abaf94bacf1242ea97729daabf843a8921002be1c36085cdb127e04de4ae8c",
+      "declared_status": "passed",
+      "declared_checks": null,
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "access": {
+      "path": "evals/storage-inventory-2026-10-04/native-refresh/access/report.json",
+      "sha256": "3e51af4d978ac8921a8f7da09b34b6849cdad55aff6b98cabd68c1f1eb234c16",
+      "declared_status": "passed",
+      "declared_checks": null,
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "adversarial_model": {
+      "path": "evals/storage-inventory-2026-10-04/native-refresh/model/report.json",
+      "sha256": "d35caa5835835d1a8cd0cd4fd68c89f67b30cf49036c80690acd09ba66ee4fa6",
+      "declared_status": "passed",
+      "declared_checks": null,
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "adversarial_browser": {
+      "path": "evals/storage-inventory-2026-10-04/native-refresh/browser/report.json",
+      "sha256": "5cd80b464d7edd7494fd820ce4c226497bf85725bf5e4b2e08d964047b8aafb8",
+      "declared_status": "passed",
+      "declared_checks": null,
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "invoice_rules": {
+      "path": "evals/invoice-heldout-2026-10-03/ocr-rules-v0.3-psm1/report.json",
+      "sha256": "b0dbbbccc0b95e409a1f1b0b30cf9a80bdd0a98208b23ffdd0a056529f9b0253",
+      "declared_status": "scored",
+      "declared_checks": [],
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "invoice_model": {
+      "path": "evals/invoice-model-heldout-2026-10-03/report.json",
+      "sha256": "82efab50f65e7d98c549ba2accab18989d97e9f681d2866846e076655109dd2a",
+      "declared_status": "scored",
+      "declared_checks": [],
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "receipt_rules": {
+      "path": "evals/cord-heldout-2026-10-03/test-rules/report.json",
+      "sha256": "6131f3eaeeeb1202bbd6d234bbaa02226b0185b7c9cf4fe4c5b652a256b179e4",
+      "declared_status": null,
+      "declared_checks": [],
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "receipt_model": {
+      "path": "evals/cord-heldout-2026-10-03/test-model/report.json",
+      "sha256": "956cb630ff695e7713831bb6244120039d220625f48c2e7ef15842a002d5abb7",
+      "declared_status": null,
+      "declared_checks": [],
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "operations": {
+      "path": "evals/storage-inventory-2026-10-04/native-refresh/operations/report.json",
+      "sha256": "bf0fb24ff22a267fdc491d79741e858d77c9c2dbd337d2a848035848d5477089",
+      "declared_status": "passed",
+      "declared_checks": null,
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "setup": {
+      "path": "evals/storage-inventory-2026-10-04/model-setup/report.json",
+      "sha256": "2a04c4a144148e22f9b5424740fc4e408fd74e852c058144a296e2cbc02ddb91",
+      "declared_status": "passed",
+      "declared_checks": [
+        {
+          "id": "network_policy",
+          "status": "passed"
+        },
+        {
+          "id": "missing_assets",
+          "status": "passed"
+        },
+        {
+          "id": "explicit_setup",
+          "status": "passed"
+        },
+        {
+          "id": "offline_assets",
+          "status": "passed"
+        },
+        {
+          "id": "offline_fetch_reuse",
+          "status": "passed"
+        },
+        {
+          "id": "offline_workflow",
+          "status": "passed"
+        },
+        {
+          "id": "saved_workflow",
+          "status": "passed"
+        }
+      ],
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    },
+    "upgrade": {
+      "path": "evals/storage-inventory-2026-10-04/upgrade/report.json",
+      "sha256": "87311c3f7313efb467e44758d57cd2df5359858e1d97ae52d2e44b6036420ac0",
+      "declared_status": "passed",
+      "declared_checks": null,
+      "scope": "Original report declaration/index only; no new live or saved verifier is executed by this index."
+    }
+  },
+  "measurements": {
+    "protocol": "evals/storage-inventory-2026-10-04/group-memory/freeze",
+    "rules": "terminal_passed",
+    "model": "terminal_passed",
+    "scope": "Both complete schedules, portable verification and shutdown retained; no active timing process. Sampled maxima do not prove continuous peaks."
+  },
+  "limits": "A content-free reviewer index, not an executable fifteen-gate acceptance test, runtime attestation, human assessment or release certificate. Declared report statuses and selected references cover subsets; broader gate closure is deliberately unproven. Original reports/measurements are unchanged. Later source/evidence changes require a new review identity; do not reinterpret this snapshot as a future release.",
+  "application_ui_sha256": {
+    "src/docwork/__init__.py": "bd204b322b31c45f1b340090c93a77b04676e305d448ed9551b780b56b758a50",
+    "src/docwork/access.py": "327a843aa41de5eeec1710025fa2d855f132544e2b45b10fb91f9e235f66542d",
+    "src/docwork/backup.py": "209dbfec1d77994bc002bf32ca510d476aaed49e9d8b4c2ac0c480ee49a0fb5a",
+    "src/docwork/baseline.py": "2153cffacafa5085746e28a555ba785338aba97d211879db296c30412e44dda8",
+    "src/docwork/cli.py": "cb9891d86cc3eb73da3764791d0118e3cc504141fdbe89337020582c0d9ea92d",
+    "src/docwork/comparison.py": "bc714e8434172cbaa3a8f2257dd4b9f71ec9816a44114b1e7220b091ef62088a",
+    "src/docwork/contracts.py": "ce29932f2668f181612c80e445ee64f8891b7ff51d3a5c8ecd675bcd19637ccf",
+    "src/docwork/cord.py": "06ce54d05bd32e440e5df989e70a4cf92d588253171822a5682d7a0f11e98421",
+    "src/docwork/corpus.py": "98c1f13e913640dbcb1b4b1d20b70989f3a37eb1430c7c252b966b763573c2b2",
+    "src/docwork/demo_replay.py": "14a096ea3ef62f18ead2cc3f633e868e10622c911a46934f22b491f8294122d3",
+    "src/docwork/evaluation.py": "c3ff271e01fb39fd00a3b669d07cf9ad2090be68c6c1caf80a312cd635d3f664",
+    "src/docwork/evaluation_sessions.py": "7c6be189f59b5d3ed579928dab912d3ad66eb2cd7c6866610dbe226c005cb035",
+    "src/docwork/evidence.py": "9fdae805aefed4980ca55abdda44055345d29e7970d43659165f435756a2beea",
+    "src/docwork/geometry.py": "0f8cd59f8c205cb0b076fd21511be99aff13077453aa15631120b4ad08cf0275",
+    "src/docwork/heldout.py": "915ec2594a0562e99ace415c4770770c1ca0f8bb3abda27c3f65583ac27f5216",
+    "src/docwork/intake.py": "1de49a01d4b5f3ba343673ee523dddc7b295eae180a593315efd778b73cdaf55",
+    "src/docwork/invoice_model_run.py": "04a59b375fe1a0a3c3f022da484f0acea70b4df601b140ab741bbec12d89d720",
+    "src/docwork/invoice_run.py": "8b3d74ea35a3d5598f156cdfc6765ab743a6646ab5ae57460497b9d6e01911ac",
+    "src/docwork/lifecycle.py": "1b47619170b6a657c9b27cd094123ea97eb5c6692e5586bf0499c7b05da71e6e",
+    "src/docwork/local_model.py": "b7fb04b8caa7acd9c6f782a6b0cbbd8c97e8add1fdc8f767d62f7df1b6b9c4c1",
+    "src/docwork/model_runtime.py": "d0b924aabcbe51afeb09fb9d9b43fde3f1eb0841d309ba2fb12b01043c8868bf",
+    "src/docwork/ocr.py": "1f2eb6538fb5417c7d427d507a4cddc8ec82c6d9d6077d4d38f9ea54f6908ac0",
+    "src/docwork/operations.py": "0ebf2f53ab865df4c12457266381dfdbb48b6c7eafd82f88a19b3f2c5433aa9c",
+    "src/docwork/parser_entry.py": "e3e5c809a8c8b6eb06102b8db9377c5dbc3c43759d0fb756ebb9fcfb4b7c5bad",
+    "src/docwork/parser_protocol.py": "634fc5c68616c2919c5dd32728bfcc4a1d983a38fa53681426bb756c1ab24ff1",
+    "src/docwork/performance.py": "d2c02df88e33ab072592eecd9a825f0c6690eb60509102da1f7935ea0493adc4",
+    "src/docwork/pilot_bundle.py": "431952a5824ec4d75644dc5423b6ed04e7593d281e493fcedb531f603e2940e8",
+    "src/docwork/priority_evaluation.py": "e12aff8581cb5259062744c54623260942f7ea9a8f8f58a5b7e8379ec3162863",
+    "src/docwork/production_study.py": "50ef400da410abe001f62a1d9cbf95bf271434522dc24ec508091c1dac5b0e25",
+    "src/docwork/queue_benchmark.py": "6cbe40bd08db9f1d55fa805d4fd5fae50b81c29c3bf290a80249eb2614e769b1",
+    "src/docwork/receipt.py": "0b2f73b7ee6f828eb13b5a7f46b7718365b53e0f6da7289e3139a3ba3c64c39b",
+    "src/docwork/receipt_comparison.py": "9cf409f2299359f7f59eb981bc2f68d9cdce2cc429297490fc2b04f1843abd13",
+    "src/docwork/receipt_run.py": "bff88fdd418154dfa5aee128bee56d5b6c0d2a1b3f572a5a57fb4c0ad092c3e6",
+    "src/docwork/release_evaluation.py": "49e007c7ea619d8f56a2e32f9176edf7f027d4791fb486cdfbf0ca8903ed7561",
+    "src/docwork/release_readiness.py": "3863d58401e1342617f306f9c4b850160ea4f910eb385e9a427c5c3ad7c46524",
+    "src/docwork/release_scoring.py": "ab4d9958e4afa7db9c0d88d3168c762def7dfa96387697bedaab3894a5c7be44",
+    "src/docwork/request_control.py": "136f79bd443c17a20be49def3536e50b9685fa36a1ff947463f62d33aa470af4",
+    "src/docwork/review.py": "0754519dfc4f7f70212a402b34039ef6002b0495dde9dd6607348f371c7d6830",
+    "src/docwork/review_pilot.py": "cf4989b1d8f889b0be9b259c2998249ebdea7d7e315e9c6b99ffaf01af17ed2f",
+    "src/docwork/review_priority.py": "df9530ad79cbc6cbfea3c1be908de511fb774eed1e7f1e1337ae0c096dc40821",
+    "src/docwork/spatial_baseline.py": "6e41e2818a4b0b827b5cd56f29e84d5af27c7480c4f4cdad5570aca16b940f3b",
+    "src/docwork/spatial_lines.py": "8f1eee7e2ab298833e31f7c10bfb6a7aac77ed6364c817bfb3c993738d05036d",
+    "src/docwork/storage_budget.py": "a17d8a32beb6c86e77155fbcda928cca1ae2fee98f0940bc0a8b58fdce09d84c",
+    "src/docwork/supervisor.py": "498df1aacf9933bda38560d8194fed4a378d923a1fe18a20e6f26369a059fe3d",
+    "src/docwork/validation.py": "d3729d8341e8886bcdcfe73e093439a2494ce275b9b85966ebdedab4928f7e58",
+    "src/docwork/web.py": "048a423e1fc85d520972a349d216b8b13ac94d292e28e9dd7578412eb0eaf9f3",
+    "src/docwork/worker.py": "ef3a62e1482133555c3d66db0ae45884c415854fb9380d0f6be53430ae131953",
+    "src/docwork/workflow_evidence.py": "eff02e73951c62df5282eab0bfaf7c6df4dd5dbe2466faf4c568106bfa507e88",
+    "ui/app.js": "55934ee47708d04f6c09f5615b49420fba7bb10b775cd4a965d5d04bee029855",
+    "ui/index.html": "a63259c5bfbab5c471cb93ac0ed05fd17a3c9c8dfbd9ad58e53449e53390b854",
+    "ui/pilot.js": "fd9ce7c21d3355d67415755f5f47d31cdc499c07a64f14f03103ff8f7389eb74",
+    "ui/style.css": "a390fa1f09e64678b2b5d2acfeeb357a2d23a8751941dadd79bb8545ccec4f84"
+  }
+}

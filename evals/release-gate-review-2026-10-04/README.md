@@ -1,0 +1,15 @@
+# Fifteen-gate working-source review — October 4, 2026
+
+The [initial reviewer index](initial/report.json) records all fifteen exact requirements from the [contract snapshot](initial/contract.snapshot.md), nineteen checksum-bound report references, current review states and concrete remaining work. Its status is **`not_release_ready`**; no gate’s final closure is claimed. Report-reference hashes were checked before retention. The [producer](initial/review.py) reproduces a new index against the then-current tree; do not overwrite this historical review.
+
+This snapshot follows the corrected storage guard, eighteen parser checks, twelve crash-stage drills, the narrated seven-check workflow, and the twelve-check/409-test checkout. The corrected rules timing schedule is complete; the model timing process is still active when the review is prepared. Original adversarial/lifecycle/setup/comparison observations retain their own source inventories and applicability limits. A declared report status is indexed, not promoted into broader gate proof.
+
+The working source is uncommitted; its Git base commit does not identify those uncommitted bytes as a release commit. Complete production scans/manual semantic and separate approved-quality assessments, remaining memory acceptance, current-guard runtime applicability and final identity/clone verification stay open. The active exec handle is a handoff hint, not future liveness evidence. Later terminal results/source changes require a new review identity.
+
+This is a content-free evidence index for the [release worksheet](../../docs/release-readiness.md), not an executable acceptance suite, independent attestation or release certificate. Original predictions, approvals, reports and failed probes are preserved. No commit, tag or publication is created.
+
+## Updated corrected-source review
+
+The [fresh reviewer index](refresh/report.json) binds a new [contract snapshot](refresh/contract.snapshot.md), **twenty-four report references** and **52 current application/UI hashes**. Both controlled schedules are terminal, and new source-bound native integrations, seven fresh setup/five upgrade checks, fifteen general Chrome controls, twelve checkout checks/409 tests and eleven portfolio audit checks pass. Current guide/card wording distinguishes the published experimental snapshot from implemented working-source controls. The initial index remains unchanged, including its then-active process handoff and historical evidence paths.
+
+`not_release_ready` and every final closure remains unproven: actual scanner selection/manual semantic and separate approved-quality assessments, unavailable memory peak/boundary acceptance and final requested commit/publication/clone identities remain. The [new producer](refresh/review.py) refuses an existing output path; reproducing it creates another review identity against the current tree. Report hashes and current application/UI hashes were checked before retention. An index is neither an executable full-gate verifier nor an independent attestation.

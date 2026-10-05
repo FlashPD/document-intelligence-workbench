@@ -29,13 +29,13 @@ PYTHONPATH=src python3.12 scripts/correct_pilot_records.py prepare \
   --report artifacts/post-pilot-corrections-report.json
 ```
 
-The [October 4 lifecycle refresh](../evals/post-pilot-corrections-2026-10-04.json) reproduces these same unapproved corrections against that implementation and expanded dependency inventory. The [operations refresh](../evals/post-pilot-corrections-2026-10-04-operations.json) binds the later persistent-stage implementation. The original October 3 and earlier October 4 reports remain historical; their exact-source verifiers reject later implementation drift. CI now selects the operations refresh. No extractor prediction or original human result is replaced.
+The [October 4 lifecycle refresh](../evals/post-pilot-corrections-2026-10-04.json) reproduces these same unapproved corrections against that implementation and expanded dependency inventory. The [operations refresh](../evals/post-pilot-corrections-2026-10-04-operations.json) binds the later persistent-stage implementation. The original October 3 and earlier October 4 reports remain historical; their exact-source verifiers reject later implementation drift. The [storage-guard refresh](../evals/post-pilot-corrections-2026-10-04-storage.json) reproduces the same two unapproved drafts on the captured-stat fix. CI now selects this storage refresh. No extractor prediction or original human result is replaced.
 
 Verify the current retained correction evidence offline:
 
 ```sh
 PYTHONPATH=src python3.12 scripts/correct_pilot_records.py verify \
-  evals/post-pilot-corrections-2026-10-04-operations.json
+  evals/post-pilot-corrections-2026-10-04-storage.json
 ```
 
 Verification restores the original archive into a temporary directory, reproduces the new revisions and draft scores, checks that export is blocked, and reproduces the original pilot report. It never approves drafts or runs a new human trial. Corrections do not change OCR rules, prompts or frozen evaluation predictions.

@@ -1,0 +1,128 @@
+{
+  "report_version": "real-model-upload-workflow-v1",
+  "status": "passed",
+  "started_at_utc": "2026-10-04T23:21:34.624495+00:00",
+  "source_sha256": {
+    "src/docwork/worker.py": "ef3a62e1482133555c3d66db0ae45884c415854fb9380d0f6be53430ae131953",
+    "src/docwork/intake.py": "1de49a01d4b5f3ba343673ee523dddc7b295eae180a593315efd778b73cdaf55",
+    "src/docwork/review.py": "0754519dfc4f7f70212a402b34039ef6002b0495dde9dd6607348f371c7d6830",
+    "src/docwork/local_model.py": "b7fb04b8caa7acd9c6f782a6b0cbbd8c97e8add1fdc8f767d62f7df1b6b9c4c1",
+    "src/docwork/model_runtime.py": "d0b924aabcbe51afeb09fb9d9b43fde3f1eb0841d309ba2fb12b01043c8868bf",
+    "src/docwork/web.py": "048a423e1fc85d520972a349d216b8b13ac94d292e28e9dd7578412eb0eaf9f3",
+    "src/docwork/access.py": "327a843aa41de5eeec1710025fa2d855f132544e2b45b10fb91f9e235f66542d",
+    "src/docwork/supervisor.py": "498df1aacf9933bda38560d8194fed4a378d923a1fe18a20e6f26369a059fe3d",
+    "src/docwork/lifecycle.py": "1b47619170b6a657c9b27cd094123ea97eb5c6692e5586bf0499c7b05da71e6e",
+    "src/docwork/request_control.py": "136f79bd443c17a20be49def3536e50b9685fa36a1ff947463f62d33aa470af4",
+    "src/docwork/storage_budget.py": "a17d8a32beb6c86e77155fbcda928cca1ae2fee98f0940bc0a8b58fdce09d84c",
+    "src/docwork/operations.py": "0ebf2f53ab865df4c12457266381dfdbb48b6c7eafd82f88a19b3f2c5433aa9c",
+    "src/docwork/contracts.py": "ce29932f2668f181612c80e445ee64f8891b7ff51d3a5c8ecd675bcd19637ccf",
+    "src/docwork/validation.py": "d3729d8341e8886bcdcfe73e093439a2494ce275b9b85966ebdedab4928f7e58",
+    "src/docwork/ocr.py": "1f2eb6538fb5417c7d427d507a4cddc8ec82c6d9d6077d4d38f9ea54f6908ac0",
+    "src/docwork/geometry.py": "0f8cd59f8c205cb0b076fd21511be99aff13077453aa15631120b4ad08cf0275",
+    "src/docwork/baseline.py": "2153cffacafa5085746e28a555ba785338aba97d211879db296c30412e44dda8",
+    "src/docwork/review_priority.py": "df9530ad79cbc6cbfea3c1be908de511fb774eed1e7f1e1337ae0c096dc40821",
+    "src/docwork/parser_protocol.py": "634fc5c68616c2919c5dd32728bfcc4a1d983a38fa53681426bb756c1ab24ff1",
+    "src/docwork/parser_entry.py": "e3e5c809a8c8b6eb06102b8db9377c5dbc3c43759d0fb756ebb9fcfb4b7c5bad",
+    "scripts/verify_model_workflow.py": "c1c23bad9532cc60f9238a3ffe107e7c6b1a54e46cb73381eb90f2e06bb203d7",
+    "ui/app.js": "55934ee47708d04f6c09f5615b49420fba7bb10b775cd4a965d5d04bee029855",
+    "ui/index.html": "a63259c5bfbab5c471cb93ac0ed05fd17a3c9c8dfbd9ad58e53449e53390b854",
+    "sandbox/Dockerfile": "2d104006e5be6b700cd93daa8d63f63fe57b16b1d09a5481edce0318811fb611"
+  },
+  "host": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.12.12"
+  },
+  "checks": [
+    {
+      "fixture": "clean.png",
+      "source_sha256": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+      "status": "passed",
+      "process_seconds": 78.81,
+      "parser_checkpoint": {
+        "cache_key": "2d870ace5edf768001863780e3fc8195d5a74033d7d3a1247b072c10c22ee990",
+        "parser_identity": "sha256:93332a57ebdc02c1368925eb02cf6de2ae85260f845f1894be3814ea0f157b27",
+        "created_at": "2026-10-04T23:21:44.361271+00:00"
+      },
+      "issues_before_review": [],
+      "approved_revision": 1,
+      "approval_hash": "afd808d4e983c4aa8cccae198f710d2c6889f685515149b850a2011847947ad6",
+      "export_sha256": {
+        "exports/clean/json/invoice.json": "7be21abf681a577e5ae4e40e7d0539ce4c45d32fbbc2d4d344541163d2979275",
+        "exports/clean/csv/header.csv": "b950237ad5e6d3527e2f7d75070ca9799ceb2d624ce47e8535352fbec363cc80",
+        "exports/clean/csv/line-items.csv": "2b36c5d6e046e9daeb9caa97a99793cdd94c6965bc31f9fad4917bee5fe7cce1"
+      }
+    },
+    {
+      "fixture": "conflicting-total.png",
+      "source_sha256": "13f2eef374c009a698a31e17639417d0b970df0feca6329e1053a59e8be331d3",
+      "status": "passed",
+      "process_seconds": 68.991,
+      "parser_checkpoint": {
+        "cache_key": "4152d57f07f0a7f142f9d060d9c02ae8256d537ce843c6b2047c98f08621d4d4",
+        "parser_identity": "sha256:93332a57ebdc02c1368925eb02cf6de2ae85260f845f1894be3814ea0f157b27",
+        "created_at": "2026-10-04T23:23:02.918373+00:00"
+      },
+      "issues_before_review": [
+        {
+          "blocking": true,
+          "code": "TOTAL_MISMATCH",
+          "detail": "Observed total differs from computed 270.00",
+          "path": "fields.total"
+        }
+      ],
+      "approved_revision": 2,
+      "approval_hash": "dda3e75476f1ab28e857f6c333a576853dfd704777787f54da4a3c4a6e67fe49",
+      "export_sha256": {
+        "exports/conflicting-total/json/invoice.json": "e98ffa0c9539d3c5ec62e5356f9293ebe7716607d15ec2e5849d71f51cd1869e",
+        "exports/conflicting-total/csv/header.csv": "41e9804b5f1c38a917ff32b70e1613f0c67857447c53ad70faa018d9bd76957a",
+        "exports/conflicting-total/csv/line-items.csv": "135f582824c6c8225a2c9273ed6bd3e73e8384e5785d37c7e79d5330c66cdfe1"
+      }
+    }
+  ],
+  "scope": "Two hash-pinned fictional PNG uploads via real HTTP, Docker parsing, and pinned real inference. Automated fixture reviewer only; no held-out quality, visual browser, or multi-page model claim.",
+  "parser_image_id": "sha256:93332a57ebdc02c1368925eb02cf6de2ae85260f845f1894be3814ea0f157b27",
+  "inputs_unchanged": true,
+  "managed_runtime": {
+    "model_sha256": "3605803b982cb64aead44f6c1b2ae36e3acdb41d8e46c8a94c6533bc4c67e597",
+    "runtime_archive_sha256": "791eb0200a7c846ca925b6274fc21f0f21f537fda2924cc5a47402655816f56e",
+    "runtime_executable_sha256": "41df13c126456f8e5fab2057c86a790067a85ea1dfd8fbc0071cc45fbba56262",
+    "runtime_release": "b11149",
+    "runtime_commit": "d2e54583c7452353eb35d40431281f6ee984332f",
+    "inference": {
+      "model_id": "docwork-qwen3-4b-instruct",
+      "context_tokens": 8192,
+      "parallel": 1,
+      "gpu_layers": "all",
+      "seed": 42,
+      "temperature": 0,
+      "max_output_tokens": 2048,
+      "timeout_seconds": 150
+    },
+    "peak_sampled_rss_bytes": null,
+    "rss_sample_count": 0,
+    "rss_interval_seconds": 1,
+    "memory_note": "Sampled server process RSS only; not peak GPU allocation or total application memory.",
+    "shutdown_complete": true,
+    "startup_seconds": 5.105,
+    "server_lifetime_seconds": 153.669
+  },
+  "artifacts": {
+    "exports/clean/csv/header.csv": "b950237ad5e6d3527e2f7d75070ca9799ceb2d624ce47e8535352fbec363cc80",
+    "exports/clean/csv/line-items.csv": "2b36c5d6e046e9daeb9caa97a99793cdd94c6965bc31f9fad4917bee5fe7cce1",
+    "exports/clean/json/invoice.json": "7be21abf681a577e5ae4e40e7d0539ce4c45d32fbbc2d4d344541163d2979275",
+    "exports/conflicting-total/csv/header.csv": "41e9804b5f1c38a917ff32b70e1613f0c67857447c53ad70faa018d9bd76957a",
+    "exports/conflicting-total/csv/line-items.csv": "135f582824c6c8225a2c9273ed6bd3e73e8384e5785d37c7e79d5330c66cdfe1",
+    "exports/conflicting-total/json/invoice.json": "e98ffa0c9539d3c5ec62e5356f9293ebe7716607d15ec2e5849d71f51cd1869e",
+    "history/clean.json": "af8129f46027a76f0534098ebc9d1c196026a471a735c56c7ec90a3272517f5c",
+    "history/conflicting-total.json": "18e3979e348ea5af219131c70b7be79a9a73680c9c74c06c2f834474eab538ff",
+    "pages/clean-1.png": "ba4e39cbc6320fcb87f852e87f7d942ca37bd9b7b887bba195632310fc3f3209",
+    "pages/conflicting-total-1.png": "e759210406d6761102cec51beb0d6b72f5840eeb4b6b20bfafa96b670499e007",
+    "predictions/clean.json": "fa3242d2cbbb90effef6e5a406d6bfff8c73bd3489077f31d14369570ad3c3bf",
+    "predictions/conflicting-total.json": "8e4dd93da26ddd299c3529635d1430b2303d5ec7f4fdc90d8499c1420103b98f",
+    "profile.json": "c453814de617120eea0f5b8d90f0a5dbfa7bfda214071b8dc03610aa03d555f7",
+    "reviews/conflicting-total.json": "0301e797bfa9d70fc91b9b77baaecd9fd466ea1183fbc6c72d738c806b4cbc29",
+    "server.log": "dce9fec1182593e90168147f3ae0a3385414ecaeab33dc0dd2a8d76e21d1599c",
+    "source_snapshot.json": "4fbbfe206182404d693d445c76af53078382033ec1241ea830a3b2400bde7588"
+  }
+}

@@ -1,0 +1,906 @@
+{
+  "report_version": "parser-verification-v1",
+  "status": "passed",
+  "started_at_utc": "2026-10-04T22:21:23.066257+00:00",
+  "host": {
+    "system": "Darwin",
+    "machine": "arm64",
+    "python": "3.12.12"
+  },
+  "parser_image": "docwork-parser:v3",
+  "source_sha256": {
+    "src/docwork/__init__.py": "bd204b322b31c45f1b340090c93a77b04676e305d448ed9551b780b56b758a50",
+    "src/docwork/access.py": "327a843aa41de5eeec1710025fa2d855f132544e2b45b10fb91f9e235f66542d",
+    "src/docwork/backup.py": "209dbfec1d77994bc002bf32ca510d476aaed49e9d8b4c2ac0c480ee49a0fb5a",
+    "src/docwork/baseline.py": "2153cffacafa5085746e28a555ba785338aba97d211879db296c30412e44dda8",
+    "src/docwork/cli.py": "cb9891d86cc3eb73da3764791d0118e3cc504141fdbe89337020582c0d9ea92d",
+    "src/docwork/comparison.py": "bc714e8434172cbaa3a8f2257dd4b9f71ec9816a44114b1e7220b091ef62088a",
+    "src/docwork/contracts.py": "ce29932f2668f181612c80e445ee64f8891b7ff51d3a5c8ecd675bcd19637ccf",
+    "src/docwork/cord.py": "06ce54d05bd32e440e5df989e70a4cf92d588253171822a5682d7a0f11e98421",
+    "src/docwork/corpus.py": "98c1f13e913640dbcb1b4b1d20b70989f3a37eb1430c7c252b966b763573c2b2",
+    "src/docwork/demo_replay.py": "14a096ea3ef62f18ead2cc3f633e868e10622c911a46934f22b491f8294122d3",
+    "src/docwork/evaluation.py": "c3ff271e01fb39fd00a3b669d07cf9ad2090be68c6c1caf80a312cd635d3f664",
+    "src/docwork/evaluation_sessions.py": "7c6be189f59b5d3ed579928dab912d3ad66eb2cd7c6866610dbe226c005cb035",
+    "src/docwork/evidence.py": "9fdae805aefed4980ca55abdda44055345d29e7970d43659165f435756a2beea",
+    "src/docwork/geometry.py": "0f8cd59f8c205cb0b076fd21511be99aff13077453aa15631120b4ad08cf0275",
+    "src/docwork/heldout.py": "915ec2594a0562e99ace415c4770770c1ca0f8bb3abda27c3f65583ac27f5216",
+    "src/docwork/intake.py": "1de49a01d4b5f3ba343673ee523dddc7b295eae180a593315efd778b73cdaf55",
+    "src/docwork/invoice_model_run.py": "04a59b375fe1a0a3c3f022da484f0acea70b4df601b140ab741bbec12d89d720",
+    "src/docwork/invoice_run.py": "8b3d74ea35a3d5598f156cdfc6765ab743a6646ab5ae57460497b9d6e01911ac",
+    "src/docwork/lifecycle.py": "1b47619170b6a657c9b27cd094123ea97eb5c6692e5586bf0499c7b05da71e6e",
+    "src/docwork/local_model.py": "b7fb04b8caa7acd9c6f782a6b0cbbd8c97e8add1fdc8f767d62f7df1b6b9c4c1",
+    "src/docwork/model_runtime.py": "d0b924aabcbe51afeb09fb9d9b43fde3f1eb0841d309ba2fb12b01043c8868bf",
+    "src/docwork/ocr.py": "1f2eb6538fb5417c7d427d507a4cddc8ec82c6d9d6077d4d38f9ea54f6908ac0",
+    "src/docwork/operations.py": "0ebf2f53ab865df4c12457266381dfdbb48b6c7eafd82f88a19b3f2c5433aa9c",
+    "src/docwork/parser_entry.py": "e3e5c809a8c8b6eb06102b8db9377c5dbc3c43759d0fb756ebb9fcfb4b7c5bad",
+    "src/docwork/parser_protocol.py": "634fc5c68616c2919c5dd32728bfcc4a1d983a38fa53681426bb756c1ab24ff1",
+    "src/docwork/performance.py": "d2c02df88e33ab072592eecd9a825f0c6690eb60509102da1f7935ea0493adc4",
+    "src/docwork/pilot_bundle.py": "431952a5824ec4d75644dc5423b6ed04e7593d281e493fcedb531f603e2940e8",
+    "src/docwork/priority_evaluation.py": "e12aff8581cb5259062744c54623260942f7ea9a8f8f58a5b7e8379ec3162863",
+    "src/docwork/production_study.py": "50ef400da410abe001f62a1d9cbf95bf271434522dc24ec508091c1dac5b0e25",
+    "src/docwork/queue_benchmark.py": "6cbe40bd08db9f1d55fa805d4fd5fae50b81c29c3bf290a80249eb2614e769b1",
+    "src/docwork/receipt.py": "0b2f73b7ee6f828eb13b5a7f46b7718365b53e0f6da7289e3139a3ba3c64c39b",
+    "src/docwork/receipt_comparison.py": "9cf409f2299359f7f59eb981bc2f68d9cdce2cc429297490fc2b04f1843abd13",
+    "src/docwork/receipt_run.py": "bff88fdd418154dfa5aee128bee56d5b6c0d2a1b3f572a5a57fb4c0ad092c3e6",
+    "src/docwork/release_evaluation.py": "49e007c7ea619d8f56a2e32f9176edf7f027d4791fb486cdfbf0ca8903ed7561",
+    "src/docwork/release_readiness.py": "3863d58401e1342617f306f9c4b850160ea4f910eb385e9a427c5c3ad7c46524",
+    "src/docwork/release_scoring.py": "ab4d9958e4afa7db9c0d88d3168c762def7dfa96387697bedaab3894a5c7be44",
+    "src/docwork/request_control.py": "136f79bd443c17a20be49def3536e50b9685fa36a1ff947463f62d33aa470af4",
+    "src/docwork/review.py": "0754519dfc4f7f70212a402b34039ef6002b0495dde9dd6607348f371c7d6830",
+    "src/docwork/review_pilot.py": "cf4989b1d8f889b0be9b259c2998249ebdea7d7e315e9c6b99ffaf01af17ed2f",
+    "src/docwork/review_priority.py": "df9530ad79cbc6cbfea3c1be908de511fb774eed1e7f1e1337ae0c096dc40821",
+    "src/docwork/spatial_baseline.py": "6e41e2818a4b0b827b5cd56f29e84d5af27c7480c4f4cdad5570aca16b940f3b",
+    "src/docwork/spatial_lines.py": "8f1eee7e2ab298833e31f7c10bfb6a7aac77ed6364c817bfb3c993738d05036d",
+    "src/docwork/storage_budget.py": "a17d8a32beb6c86e77155fbcda928cca1ae2fee98f0940bc0a8b58fdce09d84c",
+    "src/docwork/supervisor.py": "498df1aacf9933bda38560d8194fed4a378d923a1fe18a20e6f26369a059fe3d",
+    "src/docwork/validation.py": "d3729d8341e8886bcdcfe73e093439a2494ce275b9b85966ebdedab4928f7e58",
+    "src/docwork/web.py": "048a423e1fc85d520972a349d216b8b13ac94d292e28e9dd7578412eb0eaf9f3",
+    "src/docwork/worker.py": "ef3a62e1482133555c3d66db0ae45884c415854fb9380d0f6be53430ae131953",
+    "src/docwork/workflow_evidence.py": "eff02e73951c62df5282eab0bfaf7c6df4dd5dbe2466faf4c568106bfa507e88",
+    "tests/container_parser.py": "94fe88aaeb4090aadce1659c5d35f3c2694602d03d6598a171ed9236bad661c6",
+    "tests/container_resources.py": "e71d075f9e44025c88112bda6f7cfa7f50185e0f01693b5379cfbad21da34169",
+    "scripts/verify_parser.py": "5cbe5fd4e05aa70303f0af8df2593625871fedf75992c3f96b1ce781de2cde6e",
+    "sandbox/Dockerfile": "2d104006e5be6b700cd93daa8d63f63fe57b16b1d09a5481edce0318811fb611",
+    "sandbox/install_parser.py": "8c459c54817dd2f0095b2e64b7e7ac8f1d960a51ef0406135b82b72394e1236a",
+    "sandbox/parser-build-lock.json": "4fffbd464fdcb840319a1b41be4715f35d33b76872a108b55b8085f5730b81d0",
+    ".dockerignore": "417bb09db80ae5be00d1620256eb83ea9802fb9d4c06141234ad502849e6a077",
+    "samples/clean.png": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+    "samples/conflicting-total.png": "13f2eef374c009a698a31e17639417d0b970df0feca6329e1053a59e8be331d3",
+    "tests/fixtures/security/README.md": "4452725f5a999cbc1b0fe282f8a616374b9ae61555ea0cdeac4cf85a6081e59b",
+    "tests/fixtures/security/authority-json.pdf": "e26139ac99f5823017fc0b8180c20ebed353558e861883977097693ff3267692",
+    "tests/fixtures/security/document-instructions.pdf": "f8d699a2f0be571087bb14b46a78d97f79493f30b9434ba1660779cea7d30001",
+    "tests/fixtures/security/encrypted-empty-password.pdf": "5057ee505460bba995f3da751fa530b77d0d1d10be52233bf93a5d60f1b1923f",
+    "tests/fixtures/security/encrypted-password.pdf": "59631639ed83468eeb9c3a3ba3d32b36bce90d410cad23e52603f473cbc43065",
+    "tests/fixtures/security/manifest.json": "a2ac0e152ac740ab23c5225295a1267edd7e3f6cffb2e39a4331708f7e679c0d",
+    "tests/fixtures/security/plain-control.pdf": "59182a38722445ab46432276684a91ed0fb8b5c8c3d8197c4ba82fa6486078ab"
+  },
+  "checks": [
+    {
+      "id": "container_parser.ParserSmoke.test_abrupt_worker_exit_resumes_committed_parser_checkpoint",
+      "status": "passed",
+      "seconds": 3.842,
+      "evidence": {
+        "process_exit_code": 73,
+        "lease_seconds": 2,
+        "fence_before": 1,
+        "fence_after": 2,
+        "parser_checkpoint": {
+          "cache_key": "2d870ace5edf768001863780e3fc8195d5a74033d7d3a1247b072c10c22ee990",
+          "parser_identity": "sha256:93332a57ebdc02c1368925eb02cf6de2ae85260f845f1894be3814ea0f157b27",
+          "created_at": "2026-10-04T22:21:24.903784+00:00"
+        },
+        "parser_rerun": false,
+        "orphaned_scratch_directories": 0,
+        "model_request": "Exit callback; no model inference"
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_backup_restores_interrupted_real_parser_checkpoint",
+      "status": "passed",
+      "seconds": 1.849,
+      "evidence": {
+        "backup_manifest_sha256": "95880c72c95adb1de6ca85acdc0a0ffa5a6316b855d4593edc21fbf84ab44bad",
+        "process_exit_code": 73,
+        "requeued_jobs": 1,
+        "parser_rerun": false,
+        "fence_before": 1,
+        "fence_after": 3,
+        "source_workbench_unchanged": true,
+        "current_revision": 1,
+        "model_request": "Exit callback; no model inference"
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_backup_restores_real_pdf_review_and_immutable_exports",
+      "status": "passed",
+      "seconds": 2.243,
+      "evidence": {
+        "source_sha256": "44750f6dce7de66f5f5a6b4e731dc4a3315c3674b266a60d8eb4c5de5907f492",
+        "status": "REVIEW_READY",
+        "error_code": null,
+        "page_count": 2,
+        "backup_manifest_sha256": "5347d8a9b61b971cd2220ac8f2af7001e6d53fd61a3dfc5ce80c5cdbd7a2a23a",
+        "backup_counts": {
+          "documents": 1,
+          "revisions": 2,
+          "approvals": 2,
+          "exports": 3,
+          "parser_checkpoints": 1,
+          "documents_without_stored_original": 0
+        },
+        "requeued_jobs": 0,
+        "original_and_two_pages_verified": true,
+        "historical_export_preserved": true,
+        "review_history_preserved": true,
+        "export_retries_idempotent": true,
+        "export_sha256": [
+          "bde702ac6446d1ba12080ced5f0f5947038e89284c96e8d96065f3996fad4351",
+          "0b61f6196649c6e91bd8398e632b5a036a7074cb20f6717937d3b3c7f52ab777",
+          "9cd2428ce95e9ad654dda433bfa86bdcc2de284b010c292e2e797427a4b4e6ec"
+        ]
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_conflict_review_export_and_reopen",
+      "status": "passed",
+      "seconds": 1.643,
+      "evidence": {
+        "source_sha256": "13f2eef374c009a698a31e17639417d0b970df0feca6329e1053a59e8be331d3",
+        "status": "REVIEW_READY",
+        "error_code": null,
+        "page_count": 1,
+        "approved_revision": 1,
+        "new_unapproved_revision": 2,
+        "approval_hash": "78e175e0efccc6f2882472805630e62f2f373f03e0c354342a7b246c440e2201",
+        "export_sha256": [
+          "10a3ba4dce6560b82bc1719d0b45e6b0aa7d721f982327e2bcc0c9e16c0394fa",
+          "2033d876d517aaa263a44bc91e43681d7cf04a1db1fb80c59b2b1793686a9b2c",
+          "5e851587b7d36f900c87b691f097d7c9eb0dbfe25dca651d2e704fe2077dad28"
+        ],
+        "historical_export_preserved": true
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_duplicate_submissions_have_independent_approval",
+      "status": "passed",
+      "seconds": 3.154,
+      "evidence": {
+        "source_sha256": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+        "status": "REVIEW_READY",
+        "error_code": null,
+        "page_count": 1,
+        "shared_original": true,
+        "independent_approval": true
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_jpeg_exif_rotation",
+      "status": "passed",
+      "seconds": 2.252,
+      "evidence": {
+        "source_sha256": "89ce593dc826c8c4d98388a7dd1912e47595f6864d62b9bd6e40c0c693bdaef8",
+        "status": "REVIEW_READY",
+        "error_code": null,
+        "page_count": 1,
+        "render_dimensions": [
+          1800,
+          2200
+        ]
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_missing_image_retry",
+      "status": "passed",
+      "seconds": 1.646,
+      "evidence": {
+        "source_sha256": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+        "attempts": 2,
+        "status": "REVIEW_READY",
+        "initial_error": "PARSER_IMAGE_MISSING"
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_processes_committed_png",
+      "status": "passed",
+      "seconds": 1.648,
+      "evidence": {
+        "source_sha256": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+        "status": "REVIEW_READY",
+        "error_code": null,
+        "page_count": 1
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_processes_two_page_pdf",
+      "status": "passed",
+      "seconds": 2.055,
+      "evidence": {
+        "source_sha256": "44750f6dce7de66f5f5a6b4e731dc4a3315c3674b266a60d8eb4c5de5907f492",
+        "status": "REVIEW_READY",
+        "error_code": null,
+        "page_count": 2,
+        "second_page_row_evidence": [
+          "p2-l0002"
+        ]
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_rejects_eleven_page_pdf",
+      "status": "passed",
+      "seconds": 0.626,
+      "evidence": {
+        "source_sha256": "6f3d7db617ec7508b6c08eb88e291ccb18417d4300e774b48de5dc2190b2dd6f",
+        "status": "FAILED",
+        "error_code": "PDF_PAGE_LIMIT",
+        "page_count": 0
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_rejects_encrypted_pdf_with_empty_password",
+      "status": "passed",
+      "seconds": 0.775,
+      "evidence": {
+        "source_sha256": "5057ee505460bba995f3da751fa530b77d0d1d10be52233bf93a5d60f1b1923f",
+        "status": "FAILED",
+        "error_code": "PDF_ENCRYPTED",
+        "page_count": 0,
+        "fixture": "encrypted-empty-password.pdf",
+        "encryption_confirmed": true,
+        "independent_pdfinfo": "Custom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       yes (print:yes copy:yes change:yes addNotes:yes algorithm:RC4)\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       1283 bytes\nOptimized:       no\nPDF version:     1.3\n",
+        "outcome": "Refused before rendering/checkpoint/candidate/approval/export"
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_rejects_malformed_pdf",
+      "status": "passed",
+      "seconds": 0.614,
+      "evidence": {
+        "source_sha256": "35217a88798d9dfa15e6c69b3d3eb5db544484f14beaeec7592e398b8ef7785e",
+        "status": "FAILED",
+        "error_code": "PDF_INFO_FAILED",
+        "page_count": 0
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_rejects_password_protected_pdf",
+      "status": "passed",
+      "seconds": 0.802,
+      "evidence": {
+        "source_sha256": "59631639ed83468eeb9c3a3ba3d32b36bce90d410cad23e52603f473cbc43065",
+        "status": "FAILED",
+        "error_code": "PDF_INFO_FAILED",
+        "page_count": 0,
+        "fixture": "encrypted-password.pdf",
+        "encryption_confirmed": true,
+        "independent_pdfinfo": "Custom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           1\nEncrypted:       yes (print:yes copy:yes change:yes addNotes:yes algorithm:RC4)\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       1283 bytes\nOptimized:       no\nPDF version:     1.3\n",
+        "outcome": "Refused before rendering/checkpoint/candidate/approval/export"
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_rejects_truncated_png",
+      "status": "passed",
+      "seconds": 0.748,
+      "evidence": {
+        "source_sha256": "913a5cd40bce3f7da491716b8ad6601069dda16ee414117a08363b766417e001",
+        "status": "FAILED",
+        "error_code": "IMAGE_DECODE_FAILED",
+        "page_count": 0
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_container_runtime_restrictions",
+      "status": "passed",
+      "seconds": 0.439,
+      "evidence": {
+        "image_id": "sha256:93332a57ebdc02c1368925eb02cf6de2ae85260f845f1894be3814ea0f157b27",
+        "runtime": {
+          "uid": 65534,
+          "gid": 65534,
+          "cap_effective": "0000000000000000",
+          "no_new_privileges": "1",
+          "interfaces": [
+            "lo",
+            "tunl0",
+            "gre0",
+            "gretap0",
+            "erspan0",
+            "ip_vti0",
+            "ip6_vti0",
+            "sit0",
+            "ip6tnl0",
+            "ip6gre0"
+          ],
+          "up_interfaces": [
+            "lo"
+          ],
+          "ipv4_routes": [],
+          "root_write_denied": true,
+          "input_write_denied": true,
+          "python": "3.12.12",
+          "pillow": "11.3.0",
+          "packages": [
+            "poppler-utils=22.12.0-2+deb12u3",
+            "tesseract-ocr=5.3.0-2",
+            "tesseract-ocr-eng=1:4.1.0-2",
+            "tesseract-ocr-osd=1:4.1.0-2"
+          ],
+          "ocr_assets": {
+            "eng.traineddata": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2",
+            "osd.traineddata": "9cf5d576fcc47564f11265841e5ca839001e7e6f38ff7f7aacf46d15a96b00ff"
+          },
+          "source_sha256": {
+            "priority_evaluation.py": "e12aff8581cb5259062744c54623260942f7ea9a8f8f58a5b7e8379ec3162863",
+            "intake.py": "1de49a01d4b5f3ba343673ee523dddc7b295eae180a593315efd778b73cdaf55",
+            "spatial_lines.py": "8f1eee7e2ab298833e31f7c10bfb6a7aac77ed6364c817bfb3c993738d05036d",
+            "spatial_baseline.py": "6e41e2818a4b0b827b5cd56f29e84d5af27c7480c4f4cdad5570aca16b940f3b",
+            "review_priority.py": "df9530ad79cbc6cbfea3c1be908de511fb774eed1e7f1e1337ae0c096dc40821",
+            "performance.py": "d2c02df88e33ab072592eecd9a825f0c6690eb60509102da1f7935ea0493adc4",
+            "model_runtime.py": "d0b924aabcbe51afeb09fb9d9b43fde3f1eb0841d309ba2fb12b01043c8868bf",
+            "web.py": "048a423e1fc85d520972a349d216b8b13ac94d292e28e9dd7578412eb0eaf9f3",
+            "production_study.py": "50ef400da410abe001f62a1d9cbf95bf271434522dc24ec508091c1dac5b0e25",
+            "queue_benchmark.py": "6cbe40bd08db9f1d55fa805d4fd5fae50b81c29c3bf290a80249eb2614e769b1",
+            "validation.py": "d3729d8341e8886bcdcfe73e093439a2494ce275b9b85966ebdedab4928f7e58",
+            "pilot_bundle.py": "431952a5824ec4d75644dc5423b6ed04e7593d281e493fcedb531f603e2940e8",
+            "release_readiness.py": "3863d58401e1342617f306f9c4b850160ea4f910eb385e9a427c5c3ad7c46524",
+            "review.py": "0754519dfc4f7f70212a402b34039ef6002b0495dde9dd6607348f371c7d6830",
+            "invoice_run.py": "8b3d74ea35a3d5598f156cdfc6765ab743a6646ab5ae57460497b9d6e01911ac",
+            "supervisor.py": "498df1aacf9933bda38560d8194fed4a378d923a1fe18a20e6f26369a059fe3d",
+            "local_model.py": "b7fb04b8caa7acd9c6f782a6b0cbbd8c97e8add1fdc8f767d62f7df1b6b9c4c1",
+            "release_scoring.py": "ab4d9958e4afa7db9c0d88d3168c762def7dfa96387697bedaab3894a5c7be44",
+            "demo_replay.py": "14a096ea3ef62f18ead2cc3f633e868e10622c911a46934f22b491f8294122d3",
+            "parser_entry.py": "e3e5c809a8c8b6eb06102b8db9377c5dbc3c43759d0fb756ebb9fcfb4b7c5bad",
+            "evidence.py": "9fdae805aefed4980ca55abdda44055345d29e7970d43659165f435756a2beea",
+            "backup.py": "209dbfec1d77994bc002bf32ca510d476aaed49e9d8b4c2ac0c480ee49a0fb5a",
+            "invoice_model_run.py": "04a59b375fe1a0a3c3f022da484f0acea70b4df601b140ab741bbec12d89d720",
+            "receipt_run.py": "bff88fdd418154dfa5aee128bee56d5b6c0d2a1b3f572a5a57fb4c0ad092c3e6",
+            "parser_protocol.py": "634fc5c68616c2919c5dd32728bfcc4a1d983a38fa53681426bb756c1ab24ff1",
+            "worker.py": "ef3a62e1482133555c3d66db0ae45884c415854fb9380d0f6be53430ae131953",
+            "storage_budget.py": "a17d8a32beb6c86e77155fbcda928cca1ae2fee98f0940bc0a8b58fdce09d84c",
+            "ocr.py": "1f2eb6538fb5417c7d427d507a4cddc8ec82c6d9d6077d4d38f9ea54f6908ac0",
+            "release_evaluation.py": "49e007c7ea619d8f56a2e32f9176edf7f027d4791fb486cdfbf0ca8903ed7561",
+            "workflow_evidence.py": "eff02e73951c62df5282eab0bfaf7c6df4dd5dbe2466faf4c568106bfa507e88",
+            "comparison.py": "bc714e8434172cbaa3a8f2257dd4b9f71ec9816a44114b1e7220b091ef62088a",
+            "heldout.py": "915ec2594a0562e99ace415c4770770c1ca0f8bb3abda27c3f65583ac27f5216",
+            "__init__.py": "bd204b322b31c45f1b340090c93a77b04676e305d448ed9551b780b56b758a50",
+            "receipt.py": "0b2f73b7ee6f828eb13b5a7f46b7718365b53e0f6da7289e3139a3ba3c64c39b",
+            "evaluation_sessions.py": "7c6be189f59b5d3ed579928dab912d3ad66eb2cd7c6866610dbe226c005cb035",
+            "evaluation.py": "c3ff271e01fb39fd00a3b669d07cf9ad2090be68c6c1caf80a312cd635d3f664",
+            "cord.py": "06ce54d05bd32e440e5df989e70a4cf92d588253171822a5682d7a0f11e98421",
+            "contracts.py": "ce29932f2668f181612c80e445ee64f8891b7ff51d3a5c8ecd675bcd19637ccf",
+            "baseline.py": "2153cffacafa5085746e28a555ba785338aba97d211879db296c30412e44dda8",
+            "corpus.py": "98c1f13e913640dbcb1b4b1d20b70989f3a37eb1430c7c252b966b763573c2b2",
+            "operations.py": "0ebf2f53ab865df4c12457266381dfdbb48b6c7eafd82f88a19b3f2c5433aa9c",
+            "request_control.py": "136f79bd443c17a20be49def3536e50b9685fa36a1ff947463f62d33aa470af4",
+            "geometry.py": "0f8cd59f8c205cb0b076fd21511be99aff13077453aa15631120b4ad08cf0275",
+            "access.py": "327a843aa41de5eeec1710025fa2d855f132544e2b45b10fb91f9e235f66542d",
+            "lifecycle.py": "1b47619170b6a657c9b27cd094123ea97eb5c6692e5586bf0499c7b05da71e6e",
+            "receipt_comparison.py": "9cf409f2299359f7f59eb981bc2f68d9cdce2cc429297490fc2b04f1843abd13",
+            "cli.py": "cb9891d86cc3eb73da3764791d0118e3cc504141fdbe89337020582c0d9ea92d",
+            "review_pilot.py": "cf4989b1d8f889b0be9b259c2998249ebdea7d7e315e9c6b99ffaf01af17ed2f"
+          },
+          "build_sha256": {
+            "install_parser.py": "8c459c54817dd2f0095b2e64b7e7ac8f1d960a51ef0406135b82b72394e1236a",
+            "parser-build-lock.json": "4fffbd464fdcb840319a1b41be4715f35d33b76872a108b55b8085f5730b81d0"
+          }
+        },
+        "container_policy": {
+          "NetworkMode": "none",
+          "ReadonlyRootfs": true,
+          "CapDrop": [
+            "ALL"
+          ],
+          "SecurityOpt": [
+            "no-new-privileges"
+          ],
+          "Memory": 1073741824,
+          "NanoCpus": 2000000000,
+          "PidsLimit": 64,
+          "Tmpfs": {
+            "/tmp": "rw,nosuid,noexec,size=64m"
+          }
+        },
+        "mounts": {
+          "/input/original": false,
+          "/output": true
+        }
+      },
+      "detail": null
+    },
+    {
+      "id": "container_parser.ParserSmoke.test_model_outage_retry_reuses_real_two_page_parser_output",
+      "status": "passed",
+      "seconds": 9.854,
+      "evidence": {
+        "parser_checkpoint": {
+          "cache_key": "466ddaf4f92cb9792470182fd48d8c72b501a5f6eceed1e5bd11aa769056cf98",
+          "parser_identity": "sha256:93332a57ebdc02c1368925eb02cf6de2ae85260f845f1894be3814ea0f157b27",
+          "created_at": "2026-10-04T22:21:49.430969+00:00"
+        },
+        "reused_pages": 2,
+        "parser_rerun": false,
+        "model_outage": "Real HTTP connection refused on bound non-listening loopback socket",
+        "resumed_extractor": "ocr_rules",
+        "approved_revision": 1
+      },
+      "detail": null
+    },
+    {
+      "id": "container_resources.ParserResourceChecks.test_cgroup_oom_is_recorded_then_real_parser_retry_succeeds",
+      "status": "passed",
+      "seconds": 2.277,
+      "evidence": {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--pull",
+          "never",
+          "--name",
+          "docwork-3d0541f2e3224588-1",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "64",
+          "--memory",
+          "64m",
+          "--cpus",
+          "2",
+          "--user",
+          "65534:65534",
+          "--tmpfs",
+          "/tmp:rw,nosuid,noexec,size=64m",
+          "--mount",
+          "type=bind,src=/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpwobrutzr/objects/objects/92/925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106,dst=/input/original,readonly",
+          "--mount",
+          "type=bind,src=/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpwobrutzr/objects/quarantine/parse-3d0541f2e3224588-1-hohh8_7v,dst=/output",
+          "--memory-swap",
+          "64m",
+          "--entrypoint",
+          "python",
+          "docwork-parser:v3",
+          "-c",
+          "\nimport json\nfrom pathlib import Path\nPath('/output/probe-started.json').write_text(json.dumps({\n    'started': True,\n    'memory_max': Path('/sys/fs/cgroup/memory.max').read_text().strip(),\n    'swap_max': Path('/sys/fs/cgroup/memory.swap.max').read_text().strip(),\n}))\nchunks = []\nwhile True:\n    chunk = bytearray(8 * 1024 * 1024)\n    for offset in range(0, len(chunk), 4096):\n        chunk[offset] = 1\n    chunks.append(chunk)\n"
+        ],
+        "probe": {
+          "started": true,
+          "memory_max": "67108864",
+          "swap_max": "0"
+        },
+        "error_code": "PARSER_KILLED",
+        "timeout_seconds": 30,
+        "events": [
+          {
+            "Type": "container",
+            "Action": "create",
+            "Actor": {
+              "ID": "193326070c9f10873a3f29474a431c7974735c19b90b970a855c5eadf15452f2",
+              "Attributes": {
+                "desktop.docker.io/mounts/0/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpwobrutzr/objects/objects/92/925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+                "desktop.docker.io/mounts/0/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/0/Target": "/input/original",
+                "desktop.docker.io/mounts/1/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpwobrutzr/objects/quarantine/parse-3d0541f2e3224588-1-hohh8_7v",
+                "desktop.docker.io/mounts/1/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/1/Target": "/output",
+                "desktop.docker.io/ports.scheme": "v2",
+                "image": "docwork-parser:v3",
+                "name": "docwork-3d0541f2e3224588-1"
+              }
+            },
+            "scope": "local",
+            "time": 1791152517,
+            "timeNano": 1791152517390665421
+          },
+          {
+            "Type": "container",
+            "Action": "attach",
+            "Actor": {
+              "ID": "193326070c9f10873a3f29474a431c7974735c19b90b970a855c5eadf15452f2",
+              "Attributes": {
+                "desktop.docker.io/mounts/0/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpwobrutzr/objects/objects/92/925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+                "desktop.docker.io/mounts/0/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/0/Target": "/input/original",
+                "desktop.docker.io/mounts/1/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpwobrutzr/objects/quarantine/parse-3d0541f2e3224588-1-hohh8_7v",
+                "desktop.docker.io/mounts/1/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/1/Target": "/output",
+                "desktop.docker.io/ports.scheme": "v2",
+                "image": "docwork-parser:v3",
+                "name": "docwork-3d0541f2e3224588-1"
+              }
+            },
+            "scope": "local",
+            "time": 1791152517,
+            "timeNano": 1791152517393685837
+          },
+          {
+            "Type": "container",
+            "Action": "start",
+            "Actor": {
+              "ID": "193326070c9f10873a3f29474a431c7974735c19b90b970a855c5eadf15452f2",
+              "Attributes": {
+                "desktop.docker.io/mounts/0/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpwobrutzr/objects/objects/92/925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+                "desktop.docker.io/mounts/0/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/0/Target": "/input/original",
+                "desktop.docker.io/mounts/1/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpwobrutzr/objects/quarantine/parse-3d0541f2e3224588-1-hohh8_7v",
+                "desktop.docker.io/mounts/1/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/1/Target": "/output",
+                "desktop.docker.io/ports.scheme": "v2",
+                "image": "docwork-parser:v3",
+                "name": "docwork-3d0541f2e3224588-1"
+              }
+            },
+            "scope": "local",
+            "time": 1791152517,
+            "timeNano": 1791152517464829712
+          },
+          {
+            "Type": "container",
+            "Action": "oom",
+            "Actor": {
+              "ID": "193326070c9f10873a3f29474a431c7974735c19b90b970a855c5eadf15452f2",
+              "Attributes": {
+                "desktop.docker.io/mounts/0/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpwobrutzr/objects/objects/92/925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+                "desktop.docker.io/mounts/0/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/0/Target": "/input/original",
+                "desktop.docker.io/mounts/1/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpwobrutzr/objects/quarantine/parse-3d0541f2e3224588-1-hohh8_7v",
+                "desktop.docker.io/mounts/1/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/1/Target": "/output",
+                "desktop.docker.io/ports.scheme": "v2",
+                "image": "docwork-parser:v3",
+                "name": "docwork-3d0541f2e3224588-1"
+              }
+            },
+            "scope": "local",
+            "time": 1791152517,
+            "timeNano": 1791152517593082796
+          },
+          {
+            "Type": "container",
+            "Action": "die",
+            "Actor": {
+              "ID": "193326070c9f10873a3f29474a431c7974735c19b90b970a855c5eadf15452f2",
+              "Attributes": {
+                "desktop.docker.io/mounts/0/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpwobrutzr/objects/objects/92/925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+                "desktop.docker.io/mounts/0/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/0/Target": "/input/original",
+                "desktop.docker.io/mounts/1/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpwobrutzr/objects/quarantine/parse-3d0541f2e3224588-1-hohh8_7v",
+                "desktop.docker.io/mounts/1/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/1/Target": "/output",
+                "desktop.docker.io/ports.scheme": "v2",
+                "execDuration": "0",
+                "exitCode": "137",
+                "image": "docwork-parser:v3",
+                "name": "docwork-3d0541f2e3224588-1"
+              }
+            },
+            "scope": "local",
+            "time": 1791152517,
+            "timeNano": 1791152517615257212
+          },
+          {
+            "Type": "container",
+            "Action": "destroy",
+            "Actor": {
+              "ID": "193326070c9f10873a3f29474a431c7974735c19b90b970a855c5eadf15452f2",
+              "Attributes": {
+                "desktop.docker.io/mounts/0/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpwobrutzr/objects/objects/92/925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+                "desktop.docker.io/mounts/0/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/0/Target": "/input/original",
+                "desktop.docker.io/mounts/1/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpwobrutzr/objects/quarantine/parse-3d0541f2e3224588-1-hohh8_7v",
+                "desktop.docker.io/mounts/1/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/1/Target": "/output",
+                "desktop.docker.io/ports.scheme": "v2",
+                "image": "docwork-parser:v3",
+                "name": "docwork-3d0541f2e3224588-1"
+              }
+            },
+            "scope": "local",
+            "time": 1791152517,
+            "timeNano": 1791152517620067754
+          }
+        ],
+        "container_removed": true,
+        "scratch_removed": true,
+        "candidate_published": false,
+        "source_sha256": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+        "scope": "Injected Python probe in the pinned parser image; production isolation policy. Memory/swap reduced to 64 MiB/0 for OOM; deadline shortened for timeout. This is supervisor fault handling, not a claim about natural invoice resource usage.",
+        "retry_status": "REVIEW_READY",
+        "attempts": 2,
+        "fence_before": 1,
+        "fence_after": 2,
+        "retry_parser_checkpoint": {
+          "cache_key": "2d870ace5edf768001863780e3fc8195d5a74033d7d3a1247b072c10c22ee990",
+          "parser_identity": "sha256:93332a57ebdc02c1368925eb02cf6de2ae85260f845f1894be3814ea0f157b27",
+          "created_at": "2026-10-04T22:21:59.595634+00:00"
+        }
+      },
+      "detail": null
+    },
+    {
+      "id": "container_resources.ParserResourceChecks.test_timeout_kills_container_then_real_parser_retry_succeeds",
+      "status": "passed",
+      "seconds": 10.204,
+      "evidence": {
+        "command": [
+          "docker",
+          "run",
+          "--rm",
+          "--pull",
+          "never",
+          "--name",
+          "docwork-2051070f985c43c5-1",
+          "--network",
+          "none",
+          "--read-only",
+          "--cap-drop",
+          "ALL",
+          "--security-opt",
+          "no-new-privileges",
+          "--pids-limit",
+          "64",
+          "--memory",
+          "1g",
+          "--cpus",
+          "2",
+          "--user",
+          "65534:65534",
+          "--tmpfs",
+          "/tmp:rw,nosuid,noexec,size=64m",
+          "--mount",
+          "type=bind,src=/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpfkngmhz3/objects/objects/92/925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106,dst=/input/original,readonly",
+          "--mount",
+          "type=bind,src=/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpfkngmhz3/objects/quarantine/parse-2051070f985c43c5-1-2b64ww3o,dst=/output",
+          "--entrypoint",
+          "python",
+          "docwork-parser:v3",
+          "-c",
+          "\nimport json, time\nfrom pathlib import Path\nPath('/output/probe-started.json').write_text(json.dumps({'started': True}))\ntime.sleep(120)\n"
+        ],
+        "probe": {
+          "started": true
+        },
+        "error_code": "PARSER_TIMEOUT",
+        "timeout_seconds": 8,
+        "events": [
+          {
+            "Type": "container",
+            "Action": "create",
+            "Actor": {
+              "ID": "92ffaa38facab493fa6d5b49f7bbcd09f059a1c830b8af0f21a0c913a69d1a08",
+              "Attributes": {
+                "desktop.docker.io/mounts/0/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpfkngmhz3/objects/objects/92/925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+                "desktop.docker.io/mounts/0/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/0/Target": "/input/original",
+                "desktop.docker.io/mounts/1/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpfkngmhz3/objects/quarantine/parse-2051070f985c43c5-1-2b64ww3o",
+                "desktop.docker.io/mounts/1/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/1/Target": "/output",
+                "desktop.docker.io/ports.scheme": "v2",
+                "image": "docwork-parser:v3",
+                "name": "docwork-2051070f985c43c5-1"
+              }
+            },
+            "scope": "local",
+            "time": 1791152519,
+            "timeNano": 1791152519665554838
+          },
+          {
+            "Type": "container",
+            "Action": "attach",
+            "Actor": {
+              "ID": "92ffaa38facab493fa6d5b49f7bbcd09f059a1c830b8af0f21a0c913a69d1a08",
+              "Attributes": {
+                "desktop.docker.io/mounts/0/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpfkngmhz3/objects/objects/92/925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+                "desktop.docker.io/mounts/0/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/0/Target": "/input/original",
+                "desktop.docker.io/mounts/1/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpfkngmhz3/objects/quarantine/parse-2051070f985c43c5-1-2b64ww3o",
+                "desktop.docker.io/mounts/1/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/1/Target": "/output",
+                "desktop.docker.io/ports.scheme": "v2",
+                "image": "docwork-parser:v3",
+                "name": "docwork-2051070f985c43c5-1"
+              }
+            },
+            "scope": "local",
+            "time": 1791152519,
+            "timeNano": 1791152519668504922
+          },
+          {
+            "Type": "container",
+            "Action": "start",
+            "Actor": {
+              "ID": "92ffaa38facab493fa6d5b49f7bbcd09f059a1c830b8af0f21a0c913a69d1a08",
+              "Attributes": {
+                "desktop.docker.io/mounts/0/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpfkngmhz3/objects/objects/92/925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+                "desktop.docker.io/mounts/0/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/0/Target": "/input/original",
+                "desktop.docker.io/mounts/1/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpfkngmhz3/objects/quarantine/parse-2051070f985c43c5-1-2b64ww3o",
+                "desktop.docker.io/mounts/1/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/1/Target": "/output",
+                "desktop.docker.io/ports.scheme": "v2",
+                "image": "docwork-parser:v3",
+                "name": "docwork-2051070f985c43c5-1"
+              }
+            },
+            "scope": "local",
+            "time": 1791152519,
+            "timeNano": 1791152519741590463
+          },
+          {
+            "Type": "container",
+            "Action": "kill",
+            "Actor": {
+              "ID": "92ffaa38facab493fa6d5b49f7bbcd09f059a1c830b8af0f21a0c913a69d1a08",
+              "Attributes": {
+                "desktop.docker.io/mounts/0/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpfkngmhz3/objects/objects/92/925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+                "desktop.docker.io/mounts/0/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/0/Target": "/input/original",
+                "desktop.docker.io/mounts/1/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpfkngmhz3/objects/quarantine/parse-2051070f985c43c5-1-2b64ww3o",
+                "desktop.docker.io/mounts/1/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/1/Target": "/output",
+                "desktop.docker.io/ports.scheme": "v2",
+                "image": "docwork-parser:v3",
+                "name": "docwork-2051070f985c43c5-1",
+                "signal": "9"
+              }
+            },
+            "scope": "local",
+            "time": 1791152527,
+            "timeNano": 1791152527668147175
+          },
+          {
+            "Type": "container",
+            "Action": "die",
+            "Actor": {
+              "ID": "92ffaa38facab493fa6d5b49f7bbcd09f059a1c830b8af0f21a0c913a69d1a08",
+              "Attributes": {
+                "desktop.docker.io/mounts/0/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpfkngmhz3/objects/objects/92/925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+                "desktop.docker.io/mounts/0/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/0/Target": "/input/original",
+                "desktop.docker.io/mounts/1/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpfkngmhz3/objects/quarantine/parse-2051070f985c43c5-1-2b64ww3o",
+                "desktop.docker.io/mounts/1/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/1/Target": "/output",
+                "desktop.docker.io/ports.scheme": "v2",
+                "execDuration": "7",
+                "exitCode": "137",
+                "image": "docwork-parser:v3",
+                "name": "docwork-2051070f985c43c5-1"
+              }
+            },
+            "scope": "local",
+            "time": 1791152527,
+            "timeNano": 1791152527699811134
+          },
+          {
+            "Type": "container",
+            "Action": "destroy",
+            "Actor": {
+              "ID": "92ffaa38facab493fa6d5b49f7bbcd09f059a1c830b8af0f21a0c913a69d1a08",
+              "Attributes": {
+                "desktop.docker.io/mounts/0/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpfkngmhz3/objects/objects/92/925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+                "desktop.docker.io/mounts/0/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/0/Target": "/input/original",
+                "desktop.docker.io/mounts/1/Source": "/private/var/folders/dy/97ypcjl933g8csjkv5v7xmcm0000gn/T/tmpfkngmhz3/objects/quarantine/parse-2051070f985c43c5-1-2b64ww3o",
+                "desktop.docker.io/mounts/1/SourceKind": "hostFile",
+                "desktop.docker.io/mounts/1/Target": "/output",
+                "desktop.docker.io/ports.scheme": "v2",
+                "image": "docwork-parser:v3",
+                "name": "docwork-2051070f985c43c5-1"
+              }
+            },
+            "scope": "local",
+            "time": 1791152527,
+            "timeNano": 1791152527705307425
+          }
+        ],
+        "container_removed": true,
+        "scratch_removed": true,
+        "candidate_published": false,
+        "source_sha256": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+        "scope": "Injected Python probe in the pinned parser image; production isolation policy. Memory/swap reduced to 64 MiB/0 for OOM; deadline shortened for timeout. This is supervisor fault handling, not a claim about natural invoice resource usage.",
+        "retry_status": "REVIEW_READY",
+        "attempts": 2,
+        "fence_before": 1,
+        "fence_after": 2,
+        "retry_parser_checkpoint": {
+          "cache_key": "2d870ace5edf768001863780e3fc8195d5a74033d7d3a1247b072c10c22ee990",
+          "parser_identity": "sha256:93332a57ebdc02c1368925eb02cf6de2ae85260f845f1894be3814ea0f157b27",
+          "created_at": "2026-10-04T22:22:09.798753+00:00"
+        }
+      },
+      "detail": null
+    }
+  ],
+  "scope": "Self-authored fixtures and runtime probes; OCR/rules only. Includes valid encrypted PDFs with empty/nonempty passwords, independently confirmed by pinned pdfinfo before production refusal; legacy RC4 fixture, not encryption security. Includes refused-loopback-model retry and abrupt host worker exit after a parser checkpoint, with rules extraction on resume and a shortened real lease; also portable backup/restore of a reviewed two-page PDF and an interrupted checkpoint. Includes injected parser timeout and cgroup OOM probes with cleanup and real-parser retries; deadlines are shortened and the OOM memory/swap limit is reduced to 64 MiB/0. No held-out quality, real model inference, genuine-scan, natural invoice OOM, machine crash, or arbitrary-stage interruption claim.",
+  "docker_version": {
+    "Client": {
+      "Version": "29.7.2",
+      "ApiVersion": "1.55",
+      "DefaultAPIVersion": "1.55",
+      "GitCommit": "a7dcaa6",
+      "GoVersion": "go1.26.5",
+      "Os": "darwin",
+      "Arch": "arm64",
+      "BuildTime": "Wed Aug  5 18:27:50 2026",
+      "Context": "desktop-linux"
+    },
+    "Server": {
+      "Platform": {
+        "Name": "Docker Desktop 4.90.0 (238679)"
+      },
+      "Version": "29.7.2",
+      "ApiVersion": "1.55",
+      "MinAPIVersion": "1.40",
+      "Os": "linux",
+      "Arch": "arm64",
+      "Components": [
+        {
+          "Name": "Engine",
+          "Version": "29.7.2",
+          "Details": {
+            "ApiVersion": "1.55",
+            "Arch": "arm64",
+            "BuildTime": "Wed Aug  5 18:28:35 2026",
+            "Experimental": "false",
+            "GitCommit": "6a43e3d",
+            "GoVersion": "go1.26.5",
+            "KernelVersion": "7.0.12-linuxkit",
+            "MinAPIVersion": "1.40",
+            "Module": "github.com/moby/moby/v2",
+            "ModuleVersion": "v2.0.0+unknown",
+            "Os": "linux"
+          }
+        },
+        {
+          "Name": "containerd",
+          "Version": "v2.3.3",
+          "Details": {
+            "GitCommit": "aad11006b869517fcd3009450b6f82da282e1a9b"
+          }
+        },
+        {
+          "Name": "runc",
+          "Version": "1.4.3",
+          "Details": {
+            "GitCommit": "v1.4.3-0-gbb14dabe"
+          }
+        },
+        {
+          "Name": "docker-init",
+          "Version": "0.19.0",
+          "Details": {
+            "GitCommit": "de40ad0"
+          }
+        }
+      ],
+      "GitCommit": "6a43e3d",
+      "GoVersion": "go1.26.5",
+      "KernelVersion": "7.0.12-linuxkit",
+      "BuildTime": "2026-08-05T18:28:35.000000000+00:00"
+    }
+  },
+  "image": {
+    "Id": "sha256:93332a57ebdc02c1368925eb02cf6de2ae85260f845f1894be3814ea0f157b27",
+    "Os": "linux",
+    "Architecture": "arm64",
+    "RepoDigests": []
+  },
+  "inputs_unchanged": true
+}

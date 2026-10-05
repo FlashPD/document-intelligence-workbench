@@ -1,0 +1,8 @@
+{
+  "status": "verified",
+  "checks": 11,
+  "test_log_hash_matches": true,
+  "audit_source_hashes_match": true,
+  "input_hashes_match_before_later_documentation_updates": true,
+  "scope": "Read-only local report/input/source checks; evidence_complete is a subset audit and does not certify fifteen full-v1 gates."
+}

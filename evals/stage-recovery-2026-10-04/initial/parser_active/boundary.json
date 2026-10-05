@@ -1,0 +1,7 @@
+{
+  "case": "parser_active",
+  "boundary_reached": true,
+  "pid": 34855,
+  "time_utc": "2026-10-04T21:13:20.506215+00:00",
+  "method": "SIGKILL host while isolated sleep probe runs"
+}

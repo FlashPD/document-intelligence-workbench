@@ -1,0 +1,73 @@
+Process:         com.apple.Virtualization.VirtualMachine [35906]
+Path:            /System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine
+Load Address:    0x1007a0000
+Identifier:      com.apple.Virtualization.VirtualMachine
+Version:         1.0 (259.7.3)
+Code Type:       ARM64E
+Platform:        macOS
+Parent Process:  launchd [1]
+Target Type:     live task
+
+Date/Time:       2026-10-04 16:23:12.345 -0500
+Launch Time:     2026-10-04 16:23:06.661 -0500
+OS Version:      macOS 26.6.2 (25G83)
+Report Version:  7
+Analysis Tool:   /usr/bin/vmmap
+
+Physical footprint:         956.3M
+Physical footprint (peak):  956.3M
+Idle exit:                  dirty
+----
+
+ReadOnly portion of Libraries: Total=1.1G resident=285.7M(25%) swapped_out_or_unallocated=868.2M(75%)
+Writable regions: Total=8.1G written=45.9M(1%) resident=955.0M(11%) swapped_out=0K(0%) unallocated=7.2G(89%)
+
+                                VIRTUAL RESIDENT    DIRTY  SWAPPED VOLATILE   NONVOL    EMPTY   REGION 
+REGION TYPE                        SIZE     SIZE     SIZE     SIZE     SIZE     SIZE     SIZE    COUNT (non-coalesced) 
+===========                     ======= ========    =====  ======= ========   ======    =====  ======= 
+Activity Tracing                   256K      32K      32K       0K       0K      32K       0K        1 
+Dispatch continuations            64.0M     288K     288K       0K       0K       0K       0K        1 
+Kernel Alloc Once                   32K      16K      16K       0K       0K       0K       0K        1 
+MALLOC guard page                 3344K       0K       0K       0K       0K       0K       0K        4 
+MALLOC metadata                    880K     480K     480K       0K       0K       0K       0K        5 
+MALLOC_LARGE (empty)              37.3M    37.3M    37.3M       0K       0K       0K       0K        1         see MALLOC ZONE table below
+MALLOC_SMALL                      20.0M    5520K    5520K       0K       0K       0K       0K        7         see MALLOC ZONE table below
+MALLOC_SMALL (empty)              12.0M     160K     160K       0K       0K       0K       0K        3         see MALLOC ZONE table below
+MALLOC_TINY                       4096K     176K     176K       0K       0K       0K       0K        1         see MALLOC ZONE table below
+Memory Tag 22                     64.0M      16K      16K       0K       0K       0K       0K        1 
+Memory Tag 240                     7.9G   908.9M   908.9M       0K       0K       0K       0K       64 
+Memory Tag 28                      256K     256K     256K       0K       0K       0K       0K       16 
+STACK GUARD                        368K       0K       0K       0K       0K       0K       0K       23 
+Stack                             12.2M     656K     624K       0K       0K       0K       0K       24 
+Stack (reserved)                  1088K       0K       0K       0K       0K       0K       0K        2         reserved VM address space (unallocated)
+Stack Guard                       64.0M       0K       0K       0K       0K       0K       0K        4 
+VM_ALLOCATE                        528K      16K      16K       0K       0K       0K       0K        2 
+__AUTH                            2460K    1965K      432       0K       0K       0K       0K      267 
+__AUTH_CONST                      45.6M    26.0M       0K       0K       0K       0K       0K      510 
+__CTF                               824      824       0K       0K       0K       0K       0K        1 
+__DATA                            11.5M    4307K     140K       0K       0K       0K       0K      462 
+__DATA_CONST                      25.3M    12.6M      16K       0K       0K       0K       0K      512 
+__DATA_DIRTY                      2997K    2333K     566K       0K       0K       0K       0K      433 
+__FONT_DATA                        2352     2352       0K       0K       0K       0K       0K        1 
+__LINKEDIT                       572.5M    19.7M       0K       0K       0K       0K       0K        2 
+__OBJC_RO                         79.2M    63.1M       0K       0K       0K       0K       0K        1 
+__OBJC_RW                         2599K    2391K      39K       0K       0K       0K       0K        1 
+__TEXT                           581.4M   266.0M       0K       0K       0K       0K       0K      527 
+__TPRO_CONST                       128K      48K      48K       0K       0K       0K       0K        2 
+dyld private memory                160K       56       56       0K       0K       0K       0K        4 
+mapped file                       34.5M     496K       0K       0K       0K       0K       0K        6 
+page table in kernel              1574K    1574K    1574K       0K       0K       0K       0K        1 
+shared memory                      432K     208K     208K       0K       0K       0K       0K       12 
+unused but dirty shlib __DATA      167K     167K     167K       0K       0K       0K       0K       82 
+===========                     ======= ========    =====  ======= ========   ======    =====  ======= 
+TOTAL                              9.5G     1.3G   956.3M       0K       0K      32K       0K     2984 
+TOTAL, minus reserved VM space     9.5G     1.3G   956.3M       0K       0K      32K       0K     2984 
+
+                                 VIRTUAL   RESIDENT      DIRTY    SWAPPED ALLOCATION      BYTES DIRTY+SWAP          REGION
+MALLOC ZONE                         SIZE       SIZE       SIZE       SIZE      COUNT  ALLOCATED  FRAG SIZE  % FRAG   COUNT
+===========                      =======  =========  =========  =========  =========  =========  =========  ======  ======
+DefaultMallocZone_0x100e9c000      36.7M      6160K      6160K         0K       3396       867K      5293K     86%      12
+QuartzCore_0x105638000               16K        16K        16K         0K          1        320        16K     99%       1
+===========                      =======  =========  =========  =========  =========  =========  =========  ======  ======
+TOTAL                              36.7M      6176K      6176K         0K       3397       867K      5309K     86%      13
+

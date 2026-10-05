@@ -1,0 +1,51 @@
+{
+  "status": "evidence_complete",
+  "checks": [
+    {
+      "id": "deterministic_contracts",
+      "status": "passed"
+    },
+    {
+      "id": "invoice_corpus",
+      "status": "passed"
+    },
+    {
+      "id": "invoice_baseline",
+      "status": "passed"
+    },
+    {
+      "id": "invoice_model_comparison",
+      "status": "passed"
+    },
+    {
+      "id": "receipt_model_comparison",
+      "status": "passed"
+    },
+    {
+      "id": "parser_reliability",
+      "status": "passed"
+    },
+    {
+      "id": "real_model_workflow",
+      "status": "passed"
+    },
+    {
+      "id": "browser_workflow",
+      "status": "passed"
+    },
+    {
+      "id": "portfolio_documentation",
+      "status": "passed"
+    },
+    {
+      "id": "author_review_pilot",
+      "status": "passed"
+    },
+    {
+      "id": "demo_recording",
+      "status": "passed"
+    }
+  ],
+  "report": "artifacts/storage-portfolio-audit-2026-10-04-001/report.json",
+  "html": "artifacts/storage-portfolio-audit-2026-10-04-001/index.html"
+}

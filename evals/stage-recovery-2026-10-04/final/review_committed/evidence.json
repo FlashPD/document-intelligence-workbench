@@ -1,0 +1,14 @@
+{
+  "stale_edit_rejected": true,
+  "unapproved_export_rejected": true,
+  "returncode": 73,
+  "boundary": {
+    "case": "review_committed",
+    "boundary_reached": true,
+    "pid": 35142,
+    "time_utc": "2026-10-04T21:16:30.114755+00:00",
+    "operation_committed": true
+  },
+  "baseline_export_preserved": true,
+  "original_unchanged": true
+}

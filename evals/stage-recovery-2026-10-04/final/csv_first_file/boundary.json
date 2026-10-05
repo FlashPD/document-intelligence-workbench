@@ -1,0 +1,8 @@
+{
+  "case": "csv_first_file",
+  "boundary_reached": true,
+  "pid": 35170,
+  "time_utc": "2026-10-04T21:16:35.809320+00:00",
+  "written_file": "header.csv",
+  "sha256": "96c87ffa86b33340c7f22cca60dc14ed5c869bad8864e699272303efcb24600f"
+}

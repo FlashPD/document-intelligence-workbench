@@ -1,0 +1,13 @@
+{
+  "status": "verified",
+  "archive_version": "author-pilot-archive-v1",
+  "manifest_sha256": "c2f06d0f1b5a293fddd8cbcd3dfe844633cc516e029144fd42e6b243e544a988",
+  "pilot_status": "complete",
+  "completed": 6,
+  "scheduled": 6,
+  "timing": {
+    "completed_only_active_median_seconds": 62.459,
+    "completed_only_elapsed_median_seconds": 62.459
+  },
+  "scope": "Portable restore reproduces the original report, approved records and immutable exports. No inference, new human review, authenticated participation or time-saved claim."
+}

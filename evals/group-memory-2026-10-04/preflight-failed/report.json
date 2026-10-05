@@ -1,0 +1,12 @@
+{
+  "status": "failed",
+  "method": "native-group-shared-mapping-preflight-v1",
+  "allocation_bytes": 67108864,
+  "failure": "'specific_to_pid'",
+  "source_sha256": {
+    "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/artifacts/native-group-preflight-2026-10-04-001/probe.py": "de9e099ffe1fc292d3fb4eb9f9f9f63bdce04a043ed993d1e98e630781e17151",
+    "scripts/group_memory.py": "39935c91967f62c0fcf4a192c85434166391069175fd47c3cb4eff5d20cbf74b",
+    "scripts/memory_accounting.py": "578803f485fd7ea6aa1c7a9747572963c4fc3a8cb5ecd8c5c9e86ebe32b3caae"
+  },
+  "utility_sha256": "c300bd4ffe79dac4dc20f58372bf5bc33b8b39ffd0c5f3988b95d452ab25373d"
+}

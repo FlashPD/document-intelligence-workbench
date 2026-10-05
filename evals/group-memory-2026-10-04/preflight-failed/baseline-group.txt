@@ -1,0 +1,124 @@
+==========================================================================================
+Python [36415]: 64-bit    Footprint: 11797696 B (16384 bytes per page)
+==========================================================================================
+
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+  4128768 B           0 B           0 B           0 B           0 B          5    MALLOC_SMALL
+  3833856 B           0 B           0 B           0 B           0 B          7    untagged (VM_ALLOCATE)
+  1599989 B           0 B           0 B           0 B           0 B         37    __DATA
+   786432 B           0 B       65536 B           0 B           0 B         21    __DATA_CONST
+   359717 B           0 B           0 B           0 B           0 B         55    __DATA_DIRTY
+   328896 B           0 B           0 B           0 B           0 B          1    page table
+   294912 B           0 B           0 B           0 B           0 B          8    MALLOC metadata
+   147456 B           0 B           0 B           0 B           0 B          1    MALLOC_TINY
+    81864 B           0 B           0 B           0 B           0 B          2    __TPRO_CONST
+    71966 B           0 B           0 B           0 B           0 B         26    unused dyld shared cache area
+    65536 B           0 B           0 B           0 B           0 B          2    stack
+    16384 B           0 B           0 B           0 B           0 B          7    __AUTH
+    16384 B           0 B           0 B           0 B           0 B          1    os_alloc_once
+    16384 B           0 B           0 B           0 B           0 B          1    tag 22
+        0 B           0 B     1933312 B           0 B           0 B         17    __TEXT
+        0 B           0 B      688128 B           0 B           0 B         17    __LINKEDIT
+        ---           ---           ---           ---           ---        ---    ---
+ 11748544 B           0 B     2686976 B           0 B           0 B        210    TOTAL
+
+Shared with Python [36427]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B           0 B           0 B           0 B           0 B          2    untagged (VM_ALLOCATE)
+        0 B           0 B     2981888 B           0 B           0 B          8    __TEXT
+        0 B           0 B       98304 B           0 B           0 B          8    __LINKEDIT
+        0 B           0 B           0 B           0 B           0 B          1    mapped file
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B           0 B     3080192 B           0 B           0 B         19    TOTAL
+
+Auxiliary data:
+    phys_footprint: 11830464 B
+    phys_footprint_peak: 12010688 B
+
+==========================================================================================
+Python [36427]: 64-bit    Footprint: 7750784 B (16384 bytes per page)
+==========================================================================================
+
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+  2539520 B           0 B           0 B           0 B           0 B          5    MALLOC_SMALL
+  2424832 B           0 B           0 B           0 B           0 B          6    untagged (VM_ALLOCATE)
+  1337845 B           0 B           0 B           0 B           0 B         21    __DATA
+   359717 B           0 B           0 B           0 B           0 B         55    __DATA_DIRTY
+   312448 B           0 B           0 B           0 B           0 B          1    page table
+   294912 B           0 B           0 B           0 B           0 B          8    MALLOC metadata
+   163840 B           0 B           0 B           0 B           0 B          1    MALLOC_TINY
+    71966 B           0 B           0 B           0 B           0 B         26    unused dyld shared cache area
+    65536 B           0 B           0 B           0 B           0 B          2    stack
+    49096 B           0 B           0 B           0 B           0 B          2    __TPRO_CONST
+    32768 B           0 B       65536 B           0 B           0 B          4    __DATA_CONST
+    16384 B           0 B           0 B           0 B           0 B          7    __AUTH
+    16384 B           0 B           0 B           0 B           0 B          1    os_alloc_once
+    16384 B           0 B           0 B           0 B           0 B          1    tag 22
+        ---           ---           ---           ---           ---        ---    ---
+  7701632 B           0 B       65536 B           0 B           0 B        142    TOTAL
+
+Shared with Python [36415]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B           0 B           0 B           0 B           0 B          2    untagged (VM_ALLOCATE)
+        0 B           0 B     2981888 B           0 B           0 B          8    __TEXT
+        0 B           0 B       98304 B           0 B           0 B          8    __LINKEDIT
+        0 B           0 B           0 B           0 B           0 B          1    mapped file
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B           0 B     3080192 B           0 B           0 B         19    TOTAL
+
+Auxiliary data:
+    phys_footprint: 7783552 B
+    phys_footprint_peak: 7783552 B
+
+==========================================================================================
+Shared Cache F2E86C53-6052-388B-BA71-5A0C9B569413
+==========================================================================================
+
+Shared with Python [36415], Python [36427]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+        0 B           0 B           0 B           0 B           0 B        284    __AUTH
+        0 B           0 B           0 B           0 B           0 B        459    __DATA_DIRTY
+        0 B           0 B           0 B           0 B           0 B        555    __DATA
+        0 B           0 B           0 B           0 B           0 B        695    __TEXT
+        0 B           0 B           0 B           0 B           0 B        677    __DATA_CONST
+        0 B           0 B           0 B           0 B           0 B        681    __AUTH_CONST
+        0 B           0 B           0 B           0 B           0 B       1651    unused dyld shared cache area
+        0 B           0 B           0 B           0 B           0 B          4    __LINKEDIT
+        0 B           0 B           0 B           0 B           0 B          2    __CTF
+        0 B           0 B           0 B           0 B           0 B          2    __FONT_DATA
+        ---           ---           ---           ---           ---        ---    ---
+        0 B           0 B           0 B           0 B           0 B       5010    TOTAL
+
+==========================================================================================
+Summary Footprint: 19499328 B
+==========================================================================================
+
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+  6668288 B           0 B           0 B           0 B           0 B         10    MALLOC_SMALL
+  6307840 B           0 B           0 B           0 B           0 B         17    untagged (VM_ALLOCATE)
+  2937834 B           0 B           0 B           0 B           0 B        613    __DATA
+   819200 B           0 B      131072 B           0 B           0 B        702    __DATA_CONST
+   719434 B           0 B           0 B           0 B           0 B        569    __DATA_DIRTY
+   641344 B           0 B           0 B           0 B           0 B          2    page table
+   589824 B           0 B           0 B           0 B           0 B         16    MALLOC metadata
+   311296 B           0 B           0 B           0 B           0 B          2    MALLOC_TINY
+   143932 B           0 B           0 B           0 B           0 B       1703    unused dyld shared cache area
+   131072 B           0 B           0 B           0 B           0 B          4    stack
+   130960 B           0 B           0 B           0 B           0 B          4    __TPRO_CONST
+    32768 B           0 B           0 B           0 B           0 B        298    __AUTH
+    32768 B           0 B           0 B           0 B           0 B          2    os_alloc_once
+    32768 B           0 B           0 B           0 B           0 B          2    tag 22
+        0 B           0 B     4915200 B           0 B           0 B        720    __TEXT
+        0 B           0 B      786432 B           0 B           0 B         29    __LINKEDIT
+        0 B           0 B           0 B           0 B           0 B          2    __CTF
+        0 B           0 B           0 B           0 B           0 B        681    __AUTH_CONST
+        0 B           0 B           0 B           0 B           0 B          2    __FONT_DATA
+        0 B           0 B           0 B           0 B           0 B          2    mapped file
+        ---           ---           ---           ---           ---        ---    ---
+ 19499328 B           0 B     5832704 B           0 B           0 B       5384    TOTAL

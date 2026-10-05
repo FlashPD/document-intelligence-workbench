@@ -1,0 +1,6 @@
+{
+  "processes": [],
+  "footprint_returncode": 0,
+  "noninteractive_footprint_returncode": 1,
+  "scope": "Read-only capability diagnostic; no workload or whole-memory peak claim."
+}

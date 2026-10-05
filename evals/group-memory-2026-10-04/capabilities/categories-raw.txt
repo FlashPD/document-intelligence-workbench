@@ -1,0 +1,370 @@
+==========================================================================================
+com.apple.Virtualization.VirtualMachine [35906]: 64-bit    Footprint: 1068652736 B (16384 bytes per page)
+==========================================================================================
+
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+1018986496 B           0 B           0 B           0 B           0 B         64    app-specific tag 1
+ 39075840 B           0 B           0 B           0 B           0 B          1    MALLOC_LARGE
+  5963776 B           0 B           0 B           0 B           0 B          8    MALLOC_SMALL
+  1661120 B           0 B           0 B           0 B           0 B          1    page table
+   579341 B           0 B           0 B           0 B           0 B        114    __DATA_DIRTY
+   557056 B           0 B           0 B           0 B           0 B         45    stack
+   491520 B           0 B           0 B           0 B           0 B          9    MALLOC metadata
+   262144 B           0 B           0 B           0 B           0 B         16    tag 28
+   229376 B           0 B           0 B       65536 B           0 B          1    libdispatch
+   180224 B           0 B           0 B           0 B           0 B          1    MALLOC_TINY
+   162102 B           0 B           0 B           0 B           0 B         48    unused dyld shared cache area
+   142917 B           0 B           0 B           0 B           0 B         21    __DATA
+    49152 B           0 B           0 B           0 B           0 B          9    untagged (VM_ALLOCATE)
+    49096 B           0 B           0 B           0 B           0 B          2    __TPRO_CONST
+    32768 B           0 B           0 B           0 B           0 B          1    Activity Tracing
+    16384 B           0 B      131072 B           0 B           0 B          1    __DATA_CONST
+    16384 B           0 B           0 B           0 B           0 B          1    os_alloc_once
+    16384 B           0 B           0 B           0 B           0 B          1    tag 22
+      432 B           0 B           0 B           0 B           0 B          1    __AUTH
+        0 B           0 B     2392064 B           0 B           0 B          1    __TEXT
+        0 B           0 B       32768 B           0 B           0 B          1    __LINKEDIT
+        0 B           0 B       16384 B           0 B           0 B          1    mapped file
+        0 B           0 B           0 B           0 B           0 B          1    dyld private memory
+        ---           ---           ---           ---           ---        ---    ---
+1068472512 B           0 B     2572288 B       65536 B           0 B        351    TOTAL
+
+Shared with com.docker.virtualization [35905], com.docker.backend [19624]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+   131072 B           0 B           0 B           0 B           0 B          9    untagged (VM_ALLOCATE)
+        0 B           0 B      491520 B           0 B           0 B          5    mapped file
+        ---           ---           ---           ---           ---        ---    ---
+   131072 B           0 B      491520 B           0 B           0 B         14    TOTAL
+
+Shared with Python [36112], com.docker.backend [19623], com.docker.backend [19624], com.docker.backend [19625], com.docker.virtualization [35905]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B           0 B           0 B           0 B           0 B          2    untagged (VM_ALLOCATE)
+        0 B           0 B           0 B           0 B           0 B          1    mapped file
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B           0 B           0 B           0 B           0 B          3    TOTAL
+
+Auxiliary data:
+    phys_footprint: 1068685504 B
+    phys_footprint_peak: 1068685504 B
+
+==========================================================================================
+com.docker.backend [19624]: 64-bit    Footprint: 152736384 B (16384 bytes per page)
+==========================================================================================
+
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+128335872 B    12271616 B           0 B     7880704 B     2916352 B        380    untagged (VM_ALLOCATE)
+  8611355 B     1539143 B      278528 B           0 B           0 B         86    __DATA
+  8077312 B     4145152 B           0 B           0 B           0 B          9    MALLOC_SMALL
+  3604480 B     1671168 B           0 B           0 B           0 B        232    stack
+  1233536 B           0 B           0 B           0 B           0 B          1    page table
+  1041033 B      383405 B           0 B           0 B           0 B        206    __DATA_DIRTY
+   622592 B       32768 B           0 B           0 B           0 B         10    MALLOC metadata
+   265747 B      229515 B           0 B           0 B           0 B         99    unused dyld shared cache area
+   262144 B       32768 B           0 B           0 B           0 B          1    MALLOC_TINY
+   212992 B       49152 B           0 B           0 B           0 B          7    MALLOC_NANO
+    76161 B       59777 B           0 B           0 B           0 B         27    __AUTH
+    49096 B       32768 B           0 B           0 B           0 B          2    __TPRO_CONST
+    32768 B           0 B           0 B           0 B           0 B          1    Activity Tracing
+    16384 B       16384 B           0 B           0 B           0 B          1    Foundation
+    16384 B           0 B           0 B           0 B           0 B          1    os_alloc_once
+    16384 B           0 B           0 B           0 B           0 B          1    tag 22
+        0 B           0 B     9584640 B           0 B           0 B          1    __DATA_CONST
+        0 B           0 B       32768 B           0 B           0 B          2    mapped file
+        0 B           0 B           0 B           0 B           0 B          1    CoreGraphics
+        ---           ---           ---           ---           ---        ---    ---
+152474240 B    20463616 B     9895936 B     7880704 B     2916352 B       1070    TOTAL
+
+Shared with com.docker.virtualization [35905], com.apple.Virtualization.VirtualMachine [35906]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+   147456 B       65536 B           0 B           0 B           0 B          9    untagged (VM_ALLOCATE)
+        0 B           0 B      540672 B           0 B           0 B          5    mapped file
+        ---           ---           ---           ---           ---        ---    ---
+   147456 B       65536 B      540672 B           0 B           0 B         14    TOTAL
+
+Shared with Python [36112], com.docker.backend [19623], com.apple.Virtualization.VirtualMachine [35906], com.docker.backend [19625], com.docker.virtualization [35905]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B       32768 B           0 B           0 B           0 B          2    untagged (VM_ALLOCATE)
+        0 B           0 B           0 B           0 B           0 B          1    mapped file
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B       32768 B           0 B           0 B           0 B          3    TOTAL
+
+Shared with com.docker.backend [19623], com.docker.backend [19625]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+        0 B           0 B    32686080 B           0 B           0 B          3    __TEXT
+        0 B           0 B           0 B           0 B           0 B          3    __LINKEDIT
+        ---           ---           ---           ---           ---        ---    ---
+        0 B           0 B    32686080 B           0 B           0 B          6    TOTAL
+
+Shared with com.docker.virtualization [35905]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B       32768 B           0 B           0 B           0 B          3    untagged (VM_ALLOCATE)
+    16384 B       16384 B           0 B           0 B           0 B          1    CoreGraphics
+        0 B           0 B       65536 B           0 B           0 B          7    mapped file
+        0 B           0 B       16384 B           0 B           0 B          2    __LINKEDIT
+        0 B           0 B       16384 B           0 B           0 B          2    __TEXT
+        ---           ---           ---           ---           ---        ---    ---
+    65536 B       49152 B       98304 B           0 B           0 B         15    TOTAL
+
+Auxiliary data:
+    phys_footprint: 152769152 B
+    phys_footprint_peak: 221794944 B
+
+==========================================================================================
+com.docker.virtualization [35905]: 64-bit    Footprint: 38390208 B (16384 bytes per page)
+==========================================================================================
+
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+ 25493504 B           0 B           0 B           0 B           0 B          9    MALLOC_SMALL
+  8060928 B           0 B           0 B           0 B      409600 B         82    untagged (VM_ALLOCATE)
+   992625 B           0 B           0 B           0 B           0 B        185    __DATA_DIRTY
+   982414 B           0 B      163840 B           0 B           0 B         62    __DATA
+   657856 B           0 B           0 B           0 B           0 B          1    page table
+   622592 B           0 B           0 B           0 B           0 B         10    MALLOC metadata
+   327680 B           0 B           0 B           0 B           0 B         30    stack
+   314913 B           0 B           0 B           0 B           0 B         93    unused dyld shared cache area
+   229376 B           0 B     2097152 B           0 B           0 B          2    mapped file
+   229376 B           0 B           0 B           0 B           0 B          1    MALLOC_TINY
+    53016 B           0 B           0 B           0 B           0 B         11    __AUTH
+    49096 B           0 B           0 B           0 B           0 B          2    __TPRO_CONST
+    32768 B           0 B           0 B           0 B           0 B          1    Activity Tracing
+    32768 B           0 B           0 B           0 B           0 B          1    MALLOC_NANO
+    16384 B           0 B           0 B           0 B           0 B          1    Foundation
+    16384 B           0 B           0 B           0 B           0 B          1    os_alloc_once
+    16384 B           0 B           0 B           0 B           0 B          1    tag 22
+        0 B           0 B     7831552 B           0 B           0 B          1    __TEXT
+        0 B           0 B     2392064 B           0 B           0 B          1    __DATA_CONST
+        0 B           0 B       16384 B           0 B           0 B          1    __LINKEDIT
+        0 B           0 B           0 B           0 B           0 B          1    CoreGraphics
+        ---           ---           ---           ---           ---        ---    ---
+ 38128064 B           0 B    12500992 B           0 B      409600 B        499    TOTAL
+
+Shared with com.docker.backend [19624], com.apple.Virtualization.VirtualMachine [35906]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+   147456 B           0 B           0 B           0 B           0 B          9    untagged (VM_ALLOCATE)
+        0 B           0 B      704512 B           0 B           0 B          5    mapped file
+        ---           ---           ---           ---           ---        ---    ---
+   147456 B           0 B      704512 B           0 B           0 B         14    TOTAL
+
+Shared with Python [36112], com.docker.backend [19623], com.docker.backend [19624], com.apple.Virtualization.VirtualMachine [35906], com.docker.backend [19625]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B           0 B           0 B           0 B           0 B          2    untagged (VM_ALLOCATE)
+        0 B           0 B           0 B           0 B           0 B          1    mapped file
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B           0 B           0 B           0 B           0 B          3    TOTAL
+
+Shared with com.docker.backend [19624]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B           0 B           0 B           0 B           0 B          3    untagged (VM_ALLOCATE)
+    16384 B           0 B           0 B           0 B           0 B          1    CoreGraphics
+        0 B           0 B      835584 B           0 B           0 B          7    mapped file
+        0 B           0 B       16384 B           0 B           0 B          2    __LINKEDIT
+        0 B           0 B       16384 B           0 B           0 B          2    __TEXT
+        ---           ---           ---           ---           ---        ---    ---
+    65536 B           0 B      868352 B           0 B           0 B         15    TOTAL
+
+Auxiliary data:
+    phys_footprint: 38422976 B
+    phys_footprint_peak: 38455744 B
+
+==========================================================================================
+com.docker.backend [19623]: 64-bit    Footprint: 31984064 B (16384 bytes per page)
+==========================================================================================
+
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+ 21348352 B     4030464 B           0 B           0 B      327680 B         90    untagged (VM_ALLOCATE)
+  8186350 B     1343434 B      147456 B           0 B           0 B         25    __DATA
+   657856 B           0 B           0 B           0 B           0 B          1    page table
+   487101 B      411389 B           0 B           0 B           0 B        100    __DATA_DIRTY
+   376832 B      327680 B           0 B           0 B           0 B          5    MALLOC_SMALL
+   278528 B       65536 B           0 B           0 B           0 B         26    stack
+   262144 B      114688 B           0 B           0 B           0 B          8    MALLOC metadata
+   108429 B       96569 B           0 B           0 B           0 B         41    unused dyld shared cache area
+    81920 B       81920 B           0 B           0 B           0 B          1    MALLOC_TINY
+    49096 B       32768 B           0 B           0 B           0 B          2    __TPRO_CONST
+    32768 B       16384 B           0 B           0 B           0 B          1    MALLOC_NANO
+    32768 B       32768 B           0 B           0 B           0 B          1    Activity Tracing
+    16384 B       16384 B           0 B           0 B           0 B          1    os_alloc_once
+    16384 B           0 B           0 B           0 B           0 B          1    tag 22
+        0 B           0 B     1589248 B           0 B           0 B          1    __DATA_CONST
+        ---           ---           ---           ---           ---        ---    ---
+ 31934912 B     6569984 B     1736704 B           0 B      327680 B        306    TOTAL
+
+Shared with Python [36112], com.docker.backend [19624], com.apple.Virtualization.VirtualMachine [35906], com.docker.backend [19625], com.docker.virtualization [35905]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B       49152 B           0 B           0 B           0 B          2    untagged (VM_ALLOCATE)
+        0 B           0 B           0 B           0 B           0 B          1    mapped file
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B       49152 B           0 B           0 B           0 B          3    TOTAL
+
+Shared with com.docker.backend [19624], com.docker.backend [19625]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+        0 B           0 B    32686080 B           0 B           0 B          3    __TEXT
+        0 B           0 B           0 B           0 B           0 B          3    __LINKEDIT
+        ---           ---           ---           ---           ---        ---    ---
+        0 B           0 B    32686080 B           0 B           0 B          6    TOTAL
+
+Auxiliary data:
+    phys_footprint: 32016832 B
+    phys_footprint_peak: 32016832 B
+
+==========================================================================================
+com.docker.backend [19625]: 64-bit    Footprint: 28641600 B (16384 bytes per page)
+==========================================================================================
+
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+ 18186240 B     2621440 B           0 B           0 B      360448 B         88    untagged (VM_ALLOCATE)
+  8186350 B     1376198 B      147456 B           0 B           0 B         25    __DATA
+   624960 B           0 B           0 B           0 B           0 B          1    page table
+   487101 B      427721 B           0 B           0 B           0 B        100    __DATA_DIRTY
+   294912 B      294912 B           0 B           0 B           0 B          3    MALLOC_SMALL
+   278528 B       81920 B           0 B           0 B           0 B         26    stack
+   229376 B      229376 B           0 B           0 B           0 B          8    MALLOC metadata
+   108429 B       96625 B           0 B           0 B           0 B         41    unused dyld shared cache area
+    81920 B       81920 B           0 B           0 B           0 B          1    MALLOC_TINY
+    49096 B       32768 B           0 B           0 B           0 B          2    __TPRO_CONST
+    16384 B       16384 B           0 B           0 B           0 B          1    MALLOC_NANO
+    16384 B           0 B           0 B           0 B           0 B          1    tag 22
+    16384 B       16384 B           0 B           0 B           0 B          1    os_alloc_once
+    16384 B       16384 B           0 B           0 B           0 B          1    Activity Tracing
+        0 B           0 B     1163264 B           0 B           0 B          1    __DATA_CONST
+        ---           ---           ---           ---           ---        ---    ---
+ 28592448 B     5292032 B     1310720 B           0 B      360448 B        302    TOTAL
+
+Shared with Python [36112], com.docker.backend [19623], com.docker.backend [19624], com.apple.Virtualization.VirtualMachine [35906], com.docker.virtualization [35905]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B       49152 B           0 B           0 B           0 B          2    untagged (VM_ALLOCATE)
+        0 B           0 B           0 B           0 B           0 B          1    mapped file
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B       49152 B           0 B           0 B           0 B          3    TOTAL
+
+Shared with com.docker.backend [19623], com.docker.backend [19624]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+        0 B           0 B    32686080 B           0 B           0 B          3    __TEXT
+        0 B           0 B           0 B           0 B           0 B          3    __LINKEDIT
+        ---           ---           ---           ---           ---        ---    ---
+        0 B           0 B    32686080 B           0 B           0 B          6    TOTAL
+
+Auxiliary data:
+    phys_footprint: 28674368 B
+    phys_footprint_peak: 28952896 B
+
+==========================================================================================
+Python [36112]: 64-bit    Footprint: 10077440 B (16384 bytes per page)
+==========================================================================================
+
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+  3588096 B           0 B           0 B           0 B           0 B          8    untagged (VM_ALLOCATE)
+  3457024 B           0 B           0 B           0 B           0 B          6    MALLOC_SMALL
+  1436149 B           0 B           0 B           0 B           0 B         27    __DATA
+   359717 B           0 B           0 B           0 B           0 B         55    __DATA_DIRTY
+   345344 B           0 B           0 B           0 B           0 B          1    page table
+   311296 B           0 B           0 B           0 B           0 B          8    MALLOC metadata
+   147456 B           0 B           0 B           0 B           0 B          1    MALLOC_TINY
+   131072 B           0 B       65536 B           0 B           0 B         10    __DATA_CONST
+    81920 B           0 B           0 B           0 B           0 B          4    stack
+    71966 B           0 B           0 B           0 B           0 B         26    unused dyld shared cache area
+    49096 B           0 B           0 B           0 B           0 B          2    __TPRO_CONST
+    16384 B           0 B           0 B           0 B           0 B          7    __AUTH
+    16384 B           0 B           0 B           0 B           0 B          1    tag 22
+    16384 B           0 B           0 B           0 B           0 B          1    os_alloc_once
+        0 B           0 B     3194880 B           0 B           0 B         10    __TEXT
+        0 B           0 B      196608 B           0 B           0 B         10    __LINKEDIT
+        ---           ---           ---           ---           ---        ---    ---
+ 10028288 B           0 B     3457024 B           0 B           0 B        179    TOTAL
+
+Shared with com.docker.backend [19623], com.docker.backend [19624], com.apple.Virtualization.VirtualMachine [35906], com.docker.backend [19625], com.docker.virtualization [35905]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B           0 B           0 B           0 B           0 B          2    untagged (VM_ALLOCATE)
+        0 B           0 B           0 B           0 B           0 B          1    mapped file
+        ---           ---           ---           ---           ---        ---    ---
+    49152 B           0 B           0 B           0 B           0 B          3    TOTAL
+
+Auxiliary data:
+    phys_footprint: 10110208 B
+    phys_footprint_peak: 10110208 B
+
+==========================================================================================
+Shared Cache F2E86C53-6052-388B-BA71-5A0C9B569413
+==========================================================================================
+
+Shared with Python [36112], com.docker.backend [19623], com.docker.backend [19624], com.apple.Virtualization.VirtualMachine [35906], com.docker.backend [19625], com.docker.virtualization [35905]:
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+        0 B           0 B           0 B           0 B           0 B       1670    __AUTH
+        0 B           0 B           0 B           0 B           0 B       1973    __DATA_DIRTY
+        0 B           0 B           0 B           0 B           0 B       2695    __DATA
+        0 B           0 B           0 B           0 B           0 B       3344    __TEXT
+        0 B           0 B           0 B           0 B           0 B       3255    __DATA_CONST
+        0 B           0 B           0 B           0 B           0 B       3249    __AUTH_CONST
+        0 B           0 B           0 B           0 B           0 B       7153    unused dyld shared cache area
+        0 B           0 B           0 B           0 B           0 B          6    __CTF
+        0 B           0 B           0 B           0 B           0 B          6    __FONT_DATA
+        0 B           0 B           0 B           0 B           0 B         12    __LINKEDIT
+        ---           ---           ---           ---           ---        ---    ---
+        0 B           0 B           0 B           0 B           0 B      23363    TOTAL
+
+==========================================================================================
+Summary Footprint: 1330056448 B
+==========================================================================================
+
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+1018986496 B           0 B           0 B           0 B           0 B         64    app-specific tag 1
+179961856 B    19070976 B           0 B     7880704 B     4014080 B        702    untagged (VM_ALLOCATE)
+ 43663360 B     4767744 B           0 B           0 B           0 B         40    MALLOC_SMALL
+ 39075840 B           0 B           0 B           0 B           0 B          1    MALLOC_LARGE
+ 27545535 B     4258775 B      737280 B           0 B           0 B       2941    __DATA
+  5180672 B           0 B           0 B           0 B           0 B          6    page table
+  5128192 B     1818624 B           0 B           0 B           0 B        363    stack
+  3946918 B     1222515 B           0 B           0 B           0 B       2733    __DATA_DIRTY
+  2539520 B      376832 B           0 B           0 B           0 B         53    MALLOC metadata
+  1031586 B      422709 B           0 B           0 B           0 B       7501    unused dyld shared cache area
+   983040 B      196608 B           0 B           0 B           0 B          6    MALLOC_TINY
+   294912 B       81920 B           0 B           0 B           0 B         10    MALLOC_NANO
+   294576 B       98304 B           0 B           0 B           0 B         12    __TPRO_CONST
+   262144 B           0 B           0 B           0 B           0 B         16    tag 28
+   229376 B           0 B           0 B       65536 B           0 B          1    libdispatch
+   229376 B           0 B     3686400 B           0 B           0 B         40    mapped file
+   147456 B           0 B    14925824 B           0 B           0 B       3270    __DATA_CONST
+   147456 B       49152 B           0 B           0 B           0 B          5    Activity Tracing
+   145993 B       59777 B           0 B           0 B           0 B       1716    __AUTH
+    98304 B       32768 B           0 B           0 B           0 B          6    os_alloc_once
+    98304 B           0 B           0 B           0 B           0 B          6    tag 22
+    32768 B       16384 B           0 B           0 B           0 B          2    Foundation
+    32768 B       16384 B           0 B           0 B           0 B          4    CoreGraphics
+        0 B           0 B    46120960 B           0 B           0 B       3361    __TEXT
+        0 B           0 B      262144 B           0 B           0 B         29    __LINKEDIT
+        0 B           0 B           0 B           0 B           0 B          6    __CTF
+        0 B           0 B           0 B           0 B           0 B          1    dyld private memory
+        0 B           0 B           0 B           0 B           0 B       3249    __AUTH_CONST
+        0 B           0 B           0 B           0 B           0 B          6    __FONT_DATA
+        ---           ---           ---           ---           ---        ---    ---
+1330056448 B    32489472 B    65732608 B     7946240 B     4014080 B      26162    TOTAL
+
+System auxiliary data:
+    boot_carveout:         584073216 B
+    sys_wired:            2039758848 B
+    sys_unwired:         22323003392 B
+    ---------------------------------------
+    sys_footprint:       24946835456 B
+

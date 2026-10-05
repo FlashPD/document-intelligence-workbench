@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "recorded_run": "verified",
+  "source_drift": [],
+  "unrecorded_sources": [],
+  "note": "Scripted recorded-OCR browser workflow; no human timing or fresh extraction claim.",
+  "checks": 15,
+  "recording": null
+}

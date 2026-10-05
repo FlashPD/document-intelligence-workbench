@@ -41,7 +41,7 @@ The demonstration and runtime probes use explicitly fictional fixture reviewers.
 
 The implemented stack is Python standard-library HTTP/SQLite, HTML/CSS/JavaScript, Poppler/Tesseract and optional llama.cpp. Docling, FastAPI/React migration, a VLM, PC/CUDA inference and a telemetry stack are separate workstreams. They are not implied by the original plan's diagrams.
 
-Genuine scanner-captured development invoices, semantic evidence-attribution sampling, controlled warm/cold latency and total RAM/VRAM studies, stronger reviewer identity, document deletion/retention, and a manual-versus-assisted review study remain unverified or unimplemented. Synthetic degraded images are not genuine scanner captures. The candidate makes no accuracy claim for arbitrary vendors, handwriting, payments, tax decisions or unattended approval.
+At this published experimental snapshot, genuine scanner-captured development invoices, semantic evidence-attribution sampling, controlled warm/cold latency and total RAM/VRAM studies, stronger reviewer identity, document deletion/retention, and a manual-versus-assisted review study were unverified or unimplemented. Later working-source status is recorded below. Synthetic degraded images are not genuine scanner captures. The candidate makes no accuracy claim for arbitrary vendors, handwriting, payments, tax decisions or unattended approval.
 
 The [v1 contract](v1-release-contract.md) makes lifecycle, identity, production scan validation, semantic evidence and controlled runtime measurements mandatory for the full local release. A manual-versus-assisted study remains conditional on productivity claims; framework/converter migration, PC/GPU and VLM work remain outside that release scope under ADR 0001.
 
@@ -50,3 +50,9 @@ The [v1 contract](v1-release-contract.md) makes lifecycle, identity, production 
 The [completed pilot](review-pilot.md#recorded-author-results) and supplied recording are included in the final audit. The archive verifier restores into a disposable directory and reproduces the original report; it does not rerun human participation. The clean-source check verifies packaging before commit; commit/tag checks and the public release retain their own identities. None of these local hash checks is a signed runtime attestation or exhaustive architecture acceptance.
 
 See [the release runbook](portfolio-release.md), [system card](system-card.md) and [data card](data-card.md) for setup and claim boundaries.
+
+## October 4 working-source continuation
+
+Current source implements serial supervision, bounded batches, cancellation/reprocessing, tracked logical deletion, server-established reviewer capabilities and authenticated operations. [Corrected-source evidence](../evals/storage-inventory-2026-10-04/README.md) retains 409 tests/twelve isolated checkout checks, native parser/model/browser/authority/lifecycle checks, fresh-source setup and prior-version upgrade/restore. The [continuous narrated demo](narrated-demo.md) uses real rules parsing, synthesized narration and scripted fictional approvals. The [engineering case study](engineering-case-study.md) connects those decisions to evaluation results.
+
+Both [controlled workloads](../evals/storage-inventory-2026-10-04/group-memory/README.md) complete with warm P95 1.994/88.500 seconds for rules/model. Sampled group-accounted maxima remain observations with coverage/exclusion limits. Genuine scanner originals, source-inspected semantic/approved-quality judgments, memory acceptance and requested release identity/clone evidence remain open. The [fifteen-gate worksheet](release-readiness.md) governs full v1; this continuation creates no new published release and does not revise historical results.

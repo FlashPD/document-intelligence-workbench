@@ -1,0 +1,17 @@
+test_empty_skipped_and_failed_contract_suites_cannot_pass_packaging (test_release_checkout.CleanCheckoutTests.test_empty_skipped_and_failed_contract_suites_cannot_pass_packaging) ... ok
+test_nonignored_snapshot_includes_current_changes_and_excludes_its_own_report (test_release_checkout.CleanCheckoutTests.test_nonignored_snapshot_includes_current_changes_and_excludes_its_own_report) ... ok
+test_report_cannot_overwrite_inputs_or_an_existing_directory (test_release_checkout.CleanCheckoutTests.test_report_cannot_overwrite_inputs_or_an_existing_directory) ... ok
+test_snapshot_rejects_runtime_assets_path_escape_and_symlinks (test_release_checkout.CleanCheckoutTests.test_snapshot_rejects_runtime_assets_path_escape_and_symlinks) ... ok
+test_a_command_cannot_mutate_source_and_still_pass (test_release_checkout.CommittedCheckoutTests.test_a_command_cannot_mutate_source_and_still_pass) ... ok
+test_commit_snapshot_preserves_binary_blob_and_ignores_export_attributes (test_release_checkout.CommittedCheckoutTests.test_commit_snapshot_preserves_binary_blob_and_ignores_export_attributes) ... ok
+test_commit_verification_ignores_dirty_index_working_tree_and_moving_tag (test_release_checkout.CommittedCheckoutTests.test_commit_verification_ignores_dirty_index_working_tree_and_moving_tag) ... ok
+test_committed_symlink_submodule_and_runtime_data_are_rejected (test_release_checkout.CommittedCheckoutTests.test_committed_symlink_submodule_and_runtime_data_are_rejected) ... ok
+test_failed_committed_contracts_remain_failed_with_retained_logs (test_release_checkout.CommittedCheckoutTests.test_failed_committed_contracts_remain_failed_with_retained_logs) ... ok
+test_new_memory_and_narration_tools_require_their_portable_archives (test_release_checkout.CommittedCheckoutTests.test_new_memory_and_narration_tools_require_their_portable_archives) ... ok
+test_new_tree_requires_saved_recovery_check_and_retains_legacy_schedule (test_release_checkout.CommittedCheckoutTests.test_new_tree_requires_saved_recovery_check_and_retains_legacy_schedule) ... ok
+test_unknown_or_option_like_ref_does_not_create_output (test_release_checkout.CommittedCheckoutTests.test_unknown_or_option_like_ref_does_not_create_output) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 2.935s
+
+OK

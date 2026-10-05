@@ -1,0 +1,26 @@
+{
+  "document_id": "5340f2d203044b43ad98d2b271203326",
+  "source_name": "document-instructions.pdf",
+  "source_sha256": "f8d699a2f0be571087bb14b46a78d97f79493f30b9434ba1660779cea7d30001",
+  "media_type": "application/pdf",
+  "size_bytes": 1267,
+  "status": "REVIEW_READY",
+  "page_image_sha256": "2a337aa6f26845a42ac350c9c822418ce8a29dd2b3ef86199b0ae400865cc28c",
+  "page_count": 1,
+  "current_revision": 1,
+  "job": {
+    "id": "aed21db32823485283bf9004fa0f0006",
+    "status": "COMPLETE",
+    "attempts": 1,
+    "fence": 1,
+    "error_code": null,
+    "stage": "REVIEW_READY",
+    "profile_json": "{\"extractor\": \"span_llm\", \"max_output_tokens\": 2048, \"model_id\": \"docwork-qwen3-4b-instruct\", \"timeout_seconds\": 150}",
+    "stop_requested": 0
+  },
+  "parser_checkpoint": {
+    "cache_key": "fcbe26c4e402b3cd737741b738ce219d41e98d6a63f63ace349fec48cfd65398",
+    "parser_identity": "sha256:93332a57ebdc02c1368925eb02cf6de2ae85260f845f1894be3814ea0f157b27",
+    "created_at": "2026-10-04T23:13:35.224204+00:00"
+  }
+}

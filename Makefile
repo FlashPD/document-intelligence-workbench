@@ -96,3 +96,14 @@ access-verify:
 .PHONY: operations-verify
 operations-verify:
 	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/verify_operations.py --output-dir $(or $(OUTPUT),artifacts/operations-fresh)
+
+.PHONY: stage-recovery-verify
+stage-recovery-verify:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/verify_stage_recovery.py --output-dir "$(or $(OUTPUT),artifacts/stage-recovery-fresh)"
+
+.PHONY: narrated-demo narrated-demo-verify
+narrated-demo:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/record_narrated_demo.py --output-dir "$(or $(OUTPUT),artifacts/narrated-demo-fresh)"
+
+narrated-demo-verify:
+	PYTHONPATH=$(PYTHONPATH) $(PYTHON) scripts/record_narrated_demo.py --verify --output-dir "$(or $(OUTPUT),artifacts/narrated-demo-fresh)"

@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "model_snapshot_sha256": "c35ddea52aec445f7d6fe38f46c5fec024daee1ba16b37a962fd8282682cf19a",
+  "current_review_sha256": "0754519dfc4f7f70212a402b34039ef6002b0495dde9dd6607348f371c7d6830",
+  "top_level_review_ast_changes": [
+    "ReviewStore"
+  ],
+  "relevant_functions": {
+    "_now": {
+      "recorded_ast_sha256": "e8329f8a2c18c17fbabfc3114539154f10a66507623f8f47dad5f4216b85d05c",
+      "current_ast_sha256": "e8329f8a2c18c17fbabfc3114539154f10a66507623f8f47dad5f4216b85d05c",
+      "identical": true
+    },
+    "page_from_dict": {
+      "recorded_ast_sha256": "847eb688e32e2854535c4e303a72245c58ae5a9337cb4577cb6697e5f9e9703c",
+      "current_ast_sha256": "847eb688e32e2854535c4e303a72245c58ae5a9337cb4577cb6697e5f9e9703c",
+      "identical": true
+    },
+    "record_from_dict": {
+      "recorded_ast_sha256": "3c6f168bf09f2c56c3d28a9c907a69c4ca5213acfde11eda0e8cc0a8012d31f8",
+      "current_ast_sha256": "3c6f168bf09f2c56c3d28a9c907a69c4ca5213acfde11eda0e8cc0a8012d31f8",
+      "identical": true
+    }
+  },
+  "model_runner_sha256": "04a59b375fe1a0a3c3f022da484f0acea70b4df601b140ab741bbec12d89d720",
+  "model_runner_inspection": "invoice_model_run.py imports _now and page_from_dict from review and does not instantiate ReviewStore. This call-site conclusion is manually inspected, not proven by the AST assertions.",
+  "baseline_original_driver_sha256": "a68e3a203f4890f6b2787105e8ca63806f83d729f7e1816fb4fbd2f4f9c377b8",
+  "baseline_current_driver_sha256": "915ec2594a0562e99ace415c4770770c1ca0f8bb3abda27c3f65583ac27f5216",
+  "baseline_reporting_snapshot_sha256": "915ec2594a0562e99ace415c4770770c1ca0f8bb3abda27c3f65583ac27f5216",
+  "baseline_reporting_snapshot_current": true,
+  "limits": "Static inspection of declared imported functions and stored reporting correction. Whole original review-module/freeze inventory is not current. No new OCR/model predictions or fresh comparison is inferred; original reports/predictions remain unchanged. Checkout separately rescored saved evidence."
+}

@@ -1,0 +1,33 @@
+==========================================================================================
+Python [36472]: 64-bit    Footprint: 7669056 B (16384 bytes per page)
+==========================================================================================
+
+      Dirty     (Swapped)         Clean   Reclaimable       (Wired)    Regions    Category
+        ---           ---           ---           ---           ---        ---    ---
+  2473984 B           0 B           0 B           0 B           0 B          8    untagged (VM_ALLOCATE)
+  2424832 B           0 B           0 B           0 B           0 B          5    MALLOC_SMALL
+  1337845 B           0 B           0 B           0 B           0 B        298    __DATA
+   361792 B           0 B           0 B           0 B           0 B          1    page table
+   359717 B           0 B           0 B           0 B           0 B        284    __DATA_DIRTY
+   294912 B           0 B           0 B           0 B           0 B          8    MALLOC metadata
+   147456 B           0 B           0 B           0 B           0 B          1    MALLOC_TINY
+    71966 B           0 B           0 B           0 B           0 B        849    unused dyld shared cache area
+    65536 B           0 B           0 B           0 B           0 B          2    stack
+    49096 B           0 B           0 B           0 B           0 B          2    __TPRO_CONST
+    32768 B           0 B       65536 B           0 B           0 B        342    __DATA_CONST
+    16384 B           0 B           0 B           0 B           0 B        149    __AUTH
+    16384 B           0 B           0 B           0 B           0 B          1    os_alloc_once
+    16384 B           0 B           0 B           0 B           0 B          1    tag 22
+        0 B           0 B    67108864 B           0 B           0 B          2    mapped file
+        0 B           0 B     2949120 B           0 B           0 B        351    __TEXT
+        0 B           0 B       98304 B           0 B           0 B          6    __LINKEDIT
+        0 B           0 B           0 B           0 B           0 B          1    __CTF
+        0 B           0 B           0 B           0 B           0 B        340    __AUTH_CONST
+        0 B           0 B           0 B           0 B           0 B          1    __FONT_DATA
+        ---           ---           ---           ---           ---        ---    ---
+  7669056 B           0 B    70221824 B           0 B           0 B       2654    TOTAL
+
+Auxiliary data:
+    phys_footprint: 7701824 B
+    phys_footprint_peak: 7701824 B
+

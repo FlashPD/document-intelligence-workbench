@@ -1,0 +1,17 @@
+{
+  "version": "native-group-footprint-v1",
+  "performance_protocol_sha256": "1a150e31694c4536732f353738d69e46d6a349ccb9178ceaca7b237353ad3f63",
+  "source_sha256": {
+    "scripts/group_memory.py": "7e4502020d7852151c5efc8196578f6ba9bd3246ccc608fc3802895a8a335791",
+    "scripts/benchmark_group_memory.py": "dd26dbdc23f0c3301ff99188df7d0967851fe484409192680016beb2d54dfa6b",
+    "tests/test_group_memory.py": "e0a57eedcc1abb90f40d414d10b4649a17442197df50119123543d8f2b12c39b"
+  },
+  "utility_sha256": "c300bd4ffe79dac4dc20f58372bf5bc33b8b39ffd0c5f3988b95d452ab25373d",
+  "sample_interval_seconds": 0.5,
+  "max_complete_sample_gap_seconds": 5,
+  "group_accounted_budget_bytes": 12884901888,
+  "ownership": "All server descendants, same-user Docker backends/controllers, and exactly one VM service whose open backing store matches Docker's vms/0/data/Docker.raw. No other active containers beyond this run's observer and its database-bound job/fence names. No unrelated model inference.",
+  "method": "Native footprint JSON in byte units with category/shared-mapping/charged-ledger data. Report observed maxima of native de-duplicated dirty, clean and reclaimable categories. Swapped and wired are subsets; guest/container memory is nested and never added. GPU/IOKit/unmapped/nofootprint categories are retained where returned. System auxiliary footprint is logical charged dirty memory, can exceed physical RAM, and stays separate.",
+  "limits": "Includes all Docker guest/kernel/cache/observer overhead, not incremental app-only cost. Global shared OS cache, unattributed system drivers, other-user services and browser are excluded. Samples are inspection windows, not atomic machine snapshots or continuous peaks. A sampled twelve-GiB budget is diagnostic, not an OS-enforced whole-application cap.",
+  "host_workloads": "Apple M1 16 GiB reference host; ordinary interactive/background applications remain. Same-user Docker VM/backends included with backing-store proof; reject other active containers and unrelated inference. Native footprint group queries at 0.5 s plus existing component/guest observers are part of workflow overhead. No tests, builds, browser verification, upgrades, downloads or unrelated inference during measurements; OS/Docker caches retained."
+}

@@ -1,0 +1,7 @@
+{
+  "case": "candidate_transaction",
+  "boundary_reached": true,
+  "pid": 60535,
+  "time_utc": "2026-10-04T22:21:53.883331+00:00",
+  "uncommitted_event": "candidate_created"
+}

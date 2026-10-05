@@ -1,0 +1,13 @@
+{"id": "parser_active", "status": "passed", "seconds": 10.521}
+{"id": "checkpoint_render_written", "status": "passed", "seconds": 11.69}
+{"id": "rules_extracted", "status": "passed", "seconds": 10.145}
+{"id": "candidate_transaction", "status": "passed", "seconds": 10.124}
+{"id": "review_transaction", "status": "passed", "seconds": 1.915}
+{"id": "review_committed", "status": "passed", "seconds": 1.862}
+{"id": "approval_transaction", "status": "passed", "seconds": 1.838}
+{"id": "approval_committed", "status": "passed", "seconds": 2.029}
+{"id": "csv_first_file", "status": "passed", "seconds": 1.887}
+{"id": "csv_transaction", "status": "passed", "seconds": 1.889}
+{"id": "csv_committed", "status": "passed", "seconds": 1.858}
+{"id": "json_transaction", "status": "passed", "seconds": 1.854}
+{"status": "passed", "report": "/Users/pushyanth/Desktop/Code/document-intelligence-workbench/artifacts/storage-stage-recovery-2026-10-04-001/report.json"}

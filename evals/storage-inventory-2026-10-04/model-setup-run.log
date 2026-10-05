@@ -1,0 +1,12 @@
+PYTHONPATH=src python3.12 scripts/verify_model_setup.py --output-dir "artifacts/storage-model-setup-2026-10-04-001" --asset-source "."
+Fresh setup: network_policy
+Fresh setup: missing_assets
+Fresh setup: explicit_setup
+Fresh setup: offline_assets
+Fresh setup: offline_fetch_reuse
+Fresh setup: offline_workflow
+Fresh setup: saved_workflow
+{
+  "status": "passed",
+  "setup_mode": "verified-local-transfer"
+}

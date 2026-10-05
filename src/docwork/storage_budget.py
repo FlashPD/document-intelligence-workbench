@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import stat
 import shutil
 import fcntl
 import threading
@@ -60,9 +61,11 @@ class StorageBudget:
                 entry = path.lstat()
             except FileNotFoundError:
                 continue
-            if path.is_symlink():
+            # WAL/SHM and temporary artifacts can disappear after lstat. Classify
+            # the metadata we observed rather than restatting a changing path.
+            if stat.S_ISLNK(entry.st_mode):
                 unsafe += 1
-            elif not path.is_file():
+            elif not stat.S_ISREG(entry.st_mode):
                 raise ValueError("Unexpected artifact entry")
             identity = (entry.st_dev, entry.st_ino)
             if identity not in seen:

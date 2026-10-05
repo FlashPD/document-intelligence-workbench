@@ -1,0 +1,17 @@
+{
+  "stale_edit_rejected": false,
+  "unapproved_export_rejected": false,
+  "returncode": 73,
+  "boundary": {
+    "case": "json_transaction",
+    "boundary_reached": true,
+    "pid": 34975,
+    "time_utc": "2026-10-04T21:14:17.371218+00:00",
+    "uncommitted_event": "exported"
+  },
+  "baseline_export_preserved": true,
+  "partial_download_rejected": true,
+  "export_retry_idempotent": true,
+  "partial_bytes_preserved": true,
+  "original_unchanged": true
+}

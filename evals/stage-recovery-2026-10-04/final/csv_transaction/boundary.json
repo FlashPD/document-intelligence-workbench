@@ -1,0 +1,7 @@
+{
+  "case": "csv_transaction",
+  "boundary_reached": true,
+  "pid": 35174,
+  "time_utc": "2026-10-04T21:16:37.643617+00:00",
+  "uncommitted_event": "exported"
+}

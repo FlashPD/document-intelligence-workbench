@@ -1,0 +1,16 @@
+======================================================================
+Python [35845]: 64-bit    Footprint: 9473 KB (16384 bytes per page)
+======================================================================
+
+Auxiliary data:
+    phys_footprint: 9505 KB
+    phys_footprint_peak: 9505 KB
+
+
+System auxiliary data:
+    boot_carveout:              557 MB
+    sys_wired:                 1943 MB
+    sys_unwired:              20336 MB
+    ---------------------------------------
+    sys_footprint:            22835 MB
+

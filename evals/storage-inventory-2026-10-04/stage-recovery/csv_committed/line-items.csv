@@ -1,0 +1,2 @@
+document_id,revision,row_id,description,description_origin,description_missing_reason,description_evidence_ids,quantity,quantity_origin,quantity_missing_reason,quantity_evidence_ids,unit_price,unit_price_origin,unit_price_missing_reason,unit_price_evidence_ids,line_total,line_total_origin,line_total_missing_reason,line_total_evidence_ids,tax,tax_origin,tax_missing_reason,tax_evidence_ids
+782453f478c54909a2ced88fb39d8f88,1,row-001,Research workshop,observed,,p1-l0008,2,observed,,p1-l0008,125.00,observed,,p1-l0008,250.00,observed,,p1-l0008,,observed,not_explicit_on_row,

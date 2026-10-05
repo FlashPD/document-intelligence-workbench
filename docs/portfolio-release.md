@@ -6,6 +6,8 @@ The [experimental portfolio release](portfolio-candidate.md) presents a local, e
 
 For ongoing work after `v0.1.0-experimental`, use the [full release backlog](backlog.md), [v1 contract](v1-release-contract.md), and [scope decision](adr/0001-local-v1-scope.md). This runbook describes the experimental workflow and evidence audit; its checklist is a subset of full v1 acceptance.
 
+The current [engineering case study](engineering-case-study.md) and [fifteen-gate worksheet](release-readiness.md) organize the full-release portfolio narrative and remaining evidence. The [current continuous narrated demo](narrated-demo.md) supplies the declared scripted/synthesized live-rules presentation. These artifacts do not close missing scan/manual/memory gates.
+
 Current development setup uses the [pinned parser and prior-version upgrade guide](parser-build.md). Its rebuild/runtime/upgrade checks and [retained results](../evals/reproducibility-2026-10-04/README.md) cover part of G14; they do not publish a full release or close the complete gate review.
 
 Clone this repository and enter its root. Use Python 3.12; the default application and deterministic tests have no third-party Python dependencies. The commands below run directly from source, so an editable install is unnecessary. Commit-retained fixtures and evidence are required; a wheel alone is not the demo distribution.
@@ -69,7 +71,7 @@ make release-checkout REF=HEAD OUTPUT=artifacts/checkout-commit-fresh
 
 `REF` accepts a local commit, branch or tag. For an eventual release tag, replace `HEAD` with its name and use a new output directory. The reference is resolved once to an immutable commit and tree before reading files. Staged changes, uncommitted fixes, untracked helpers, and local runtime assets cannot contribute to that check. Git blobs are copied directly, preserving executable modes and bypassing archive attributes that could omit or substitute source files. Symlinks, submodules and committed runtime directories are rejected.
 
-The eight checks are the same as the precommit check: all deterministic contracts, corpus integrity, invoice baseline, invoice model comparison, model HTTP workflow evidence, completed author-pilot archive, post-pilot draft corrections and offline replay preparation. A version 2 report records the commit/tree, each copied file's SHA-256, invoking verifier hash, Python version, exact commands, log hashes, and whether the tested files changed during execution. A nonzero check, skipped/empty contract suite, changed input, incomplete author archive or incomplete copy fails the check. Exit 0 means these offline checks passed; exit 2 means verification failed. The report and per-command logs remain in the chosen output directory.
+The shared eight checks cover all deterministic contracts, corpus integrity, invoice baseline, invoice model comparison, model HTTP workflow evidence, completed author-pilot archive, post-pilot draft corrections and offline replay preparation. Trees containing the [stage-recovery verifier](stage-recovery.md) additionally require its retained twelve-case archive as a ninth offline check; old committed releases retain the eight-check schedule. A version 2 report records the commit/tree, each copied file's SHA-256, invoking verifier hash, Python version, exact commands, log hashes, and whether the tested files changed during execution. A nonzero check, skipped/empty contract suite, changed input, incomplete author/recovery archive or incomplete copy fails the check. Exit 0 means these offline checks passed; exit 2 means verification failed. The report and per-command logs remain in the chosen output directory.
 
 CI runs this committed-tree check and retains its evidence/logs. This is an offline reproducibility check using the invoking verifier; it does not establish that a remote clone is available, run new OCR/inference, verify Linux model support, or rerun human participation. After publishing, a separate clone of the actual tag should run the same command and demo. Keep the [release audit](#generate-the-release-audit) separate: the full receipt rescore still requires explicit CORD setup.
 
@@ -117,7 +119,7 @@ PYTHONPATH=src python3.12 -m docwork.cli release-check \
   --demo-recording evals/portfolio-candidate-browser-2026-10-03/demo.webm
 ```
 
-Without the explicitly prepared CORD source corpus, that full audit retains a pending receipt check. The eight-command checkout verifier and standalone pilot verifier remain fully offline and do not require those downloads.
+Without the explicitly prepared CORD source corpus, that full audit retains a pending receipt check. The checkout verifier and standalone pilot verifier remain fully offline and do not require those downloads.
 
 | Exit | Audit status | Meaning |
 |---|---|---|
@@ -207,3 +209,29 @@ The experimental scope deliberately defers genuine scanner captures, semantic ev
 4. Run the full audit with the completed pilot and recording, run `make release-checkout REF=HEAD` after committing, and retain that exact-commit report. Publish the scoped experimental tag with its [release notes](releases/v0.1.0-experimental.md), and verify a remote clone of the published tag afterward.
 
 Packaging documentation and an audit do not publish or tag a release. Optional PC/GPU inference, framework migration, telemetry, and a VLM are separate workstreams; no claim is made that they have been completed.
+
+The current checkout additionally requires both [group-memory workloads](group-memory.md) and the [continuous narrated demo](narrated-demo.md) whenever their tools are present. These three saved-artifact checks bring the current schedule to twelve. Older committed trees retain the applicable eight/nine checks; missing current archives fail packaging rather than silently reducing the schedule. Saved recording verification audits integrity and reported outcomes without speech synthesis, Chrome, Docker or inference.
+
+## Full v1 publication sequence
+
+The experimental procedure above remains historical. For full v1, close G01–G14 and G15’s prepublication guide/card/presentation and applicable source/runtime/audit checks before separately requested publication. Verify the requested exact commit before tagging; after publication, verify a separate published-tag clone/demo to finish G15. Full v1 closure remains pending until that final check passes. The [contract](v1-release-contract.md#closing-the-release) retains every requirement and makes this order explicit. Neither this runbook nor an evidence index authorizes a commit, tag or publication.
+
+## Corrected-source portfolio audit
+
+The [October 4 corrected-source audit](../evals/storage-inventory-2026-10-04/portfolio-audit/index.html) passes all eleven subset checks with current parser/model/fifteen-control browser evidence, 409 tests, original comparisons/pilot restoration and the continuous narrated recording. The [twelve-check checkout](../evals/storage-inventory-2026-10-04/final-checkout/report.json) separately binds 4499 stable files without runtime assets. Later editorial/gate-evidence additions retain these original snapshot identities; they do not change application/test code.
+
+Reproduce with a fresh restored pilot and new output identities:
+
+```sh
+PYTHONPATH=src python3.12 scripts/archive_review_pilot.py restore \
+  evals/author-review-pilot-2026-10-03 --output-dir artifacts/author-pilot-current-fresh
+PYTHONPATH=src python3.12 -m docwork.cli release-check \
+  --output-dir artifacts/portfolio-current-fresh \
+  --parser-report evals/storage-inventory-2026-10-04/parser/report.json \
+  --model-workflow-directory evals/storage-inventory-2026-10-04/model-workflow \
+  --browser-directory evals/storage-inventory-2026-10-04/review-browser \
+  --pilot-directory artifacts/author-pilot-current-fresh \
+  --demo-recording evals/narrated-demo-2026-10-04/final/demo.webm
+```
+
+Full receipt rescoring still needs the explicitly prepared pinned CORD corpus; it does not download automatically. `evidence_complete` remains a portfolio subset status. The [fifteen-gate review](release-readiness.md) retains actual scan/manual, memory acceptance and final commit/tag/clone gaps.

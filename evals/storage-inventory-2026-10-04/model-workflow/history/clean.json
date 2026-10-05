@@ -1,0 +1,72 @@
+[
+  {
+    "revision": 0,
+    "kind": "received",
+    "actor": "intake",
+    "detail": "",
+    "created_at": "2026-10-04T23:21:42.101541+00:00"
+  },
+  {
+    "revision": 0,
+    "kind": "claimed",
+    "actor": "browser-worker",
+    "detail": "1",
+    "created_at": "2026-10-04T23:21:42.107082+00:00"
+  },
+  {
+    "revision": 0,
+    "kind": "processing_stage",
+    "actor": "browser-worker",
+    "detail": "{\"fence\": 1, \"stage\": \"PARSING\"}",
+    "created_at": "2026-10-04T23:21:42.113343+00:00"
+  },
+  {
+    "revision": 0,
+    "kind": "parser_checkpoint_saved",
+    "actor": "browser-worker",
+    "detail": "2d870ace5edf768001863780e3fc8195d5a74033d7d3a1247b072c10c22ee990",
+    "created_at": "2026-10-04T23:21:44.363292+00:00"
+  },
+  {
+    "revision": 0,
+    "kind": "processing_stage",
+    "actor": "browser-worker",
+    "detail": "{\"fence\": 1, \"stage\": \"EXTRACTING\"}",
+    "created_at": "2026-10-04T23:21:44.366494+00:00"
+  },
+  {
+    "revision": 0,
+    "kind": "processing_stage",
+    "actor": "browser-worker",
+    "detail": "{\"fence\": 1, \"stage\": \"CHECKING\"}",
+    "created_at": "2026-10-04T23:23:00.898552+00:00"
+  },
+  {
+    "revision": 1,
+    "kind": "candidate_created",
+    "actor": "extractor",
+    "detail": "",
+    "created_at": "2026-10-04T23:23:00.909131+00:00"
+  },
+  {
+    "revision": 1,
+    "kind": "approved",
+    "actor": "local:pushyanth",
+    "detail": "afd808d4e983c4aa8cccae198f710d2c6889f685515149b850a2011847947ad6",
+    "created_at": "2026-10-04T23:23:00.929194+00:00"
+  },
+  {
+    "revision": 1,
+    "kind": "exported",
+    "actor": "local:pushyanth",
+    "detail": "json",
+    "created_at": "2026-10-04T23:23:00.935850+00:00"
+  },
+  {
+    "revision": 1,
+    "kind": "exported",
+    "actor": "local:pushyanth",
+    "detail": "csv",
+    "created_at": "2026-10-04T23:23:00.945735+00:00"
+  }
+]

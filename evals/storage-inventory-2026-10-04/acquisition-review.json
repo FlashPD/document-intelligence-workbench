@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "reviewed_at_utc": "2026-10-04T23:34:46.531437+00:00",
+  "status": "no_qualified_scanner_selection",
+  "scope": "Publisher metadata, acquisition methods and downloader review only; no dataset/original files downloaded, no authors contacted, no source labels or predictions produced. This is not legal advice, per-document license approval or forensic capture verification.",
+  "candidates": [
+    {
+      "name": "FATURA",
+      "publisher_record": "https://zenodo.org/records/10371464",
+      "method_source": "https://arxiv.org/html/2311.11856v1#S3.SS1",
+      "observations": [
+        "Paper sections 3.1\u20133.2 describe generated templates, inserted text and 10000 generated JPEG images.",
+        "The publisher record labels the dataset English; that does not turn generated images into physical captures."
+      ],
+      "decision": "Not eligible to supply the required two genuine scanner captures. Could support a separately declared synthetic study, which is not the missing release requirement."
+    },
+    {
+      "name": "KVP10k",
+      "publisher_card": "https://huggingface.co/datasets/ibm-research/KVP10k/blob/main/README.md",
+      "repository": "https://github.com/IBM/KVP10k",
+      "downloader": "https://github.com/IBM/KVP10k/blob/main/download_dataset.py",
+      "method_source": "https://arxiv.org/html/2405.00505v1#S3",
+      "license_identifier_reported_by_publisher": "cdla-permissive-2.0",
+      "license_text": "https://cdla.dev/permissive-2-0/",
+      "observations": [
+        "Repository describes annotations of PDF pages with image_url/page_number metadata and downloads original PDFs from those external URLs.",
+        "Paper section 3 describes Common Crawl and FCC PDF sources, not documented scanner acquisition for selected invoice originals.",
+        "The publisher card reports CDLA-Permissive-2.0 for its dataset; this review has not established applicable reuse/redistribution permission or scanner capture provenance for any selected external PDF."
+      ],
+      "decision": "Candidate metadata/source discovery resource only. No selected originals qualify yet; per-document invoice/language/permission/capture eligibility remains to be established."
+    }
+  ],
+  "required_next_evidence": [
+    "At least eight permitted English invoice originals with two documented genuine scanner captures and clean/degraded/rotated/multi-page treatment coverage.",
+    "Source-inspected labels before either extractor; actual manual semantic/geometry judgments for both variants and separate current-revision approved quality."
+  ],
+  "unchanged": [
+    "Original experimental predictions/pilot/runtime reports",
+    "G06/G11 acquisition and human-assessment requirements",
+    "G12 unavailable peak and boundary acceptance",
+    "No commit/tag/publication authority"
+  ]
+}

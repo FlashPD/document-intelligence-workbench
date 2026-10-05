@@ -1,0 +1,79 @@
+[
+  {
+    "revision": 0,
+    "kind": "received",
+    "actor": "intake",
+    "detail": "",
+    "created_at": "2026-10-04T23:23:00.967811+00:00"
+  },
+  {
+    "revision": 0,
+    "kind": "claimed",
+    "actor": "browser-worker",
+    "detail": "1",
+    "created_at": "2026-10-04T23:23:00.971911+00:00"
+  },
+  {
+    "revision": 0,
+    "kind": "processing_stage",
+    "actor": "browser-worker",
+    "detail": "{\"fence\": 1, \"stage\": \"PARSING\"}",
+    "created_at": "2026-10-04T23:23:00.977013+00:00"
+  },
+  {
+    "revision": 0,
+    "kind": "parser_checkpoint_saved",
+    "actor": "browser-worker",
+    "detail": "4152d57f07f0a7f142f9d060d9c02ae8256d537ce843c6b2047c98f08621d4d4",
+    "created_at": "2026-10-04T23:23:02.920531+00:00"
+  },
+  {
+    "revision": 0,
+    "kind": "processing_stage",
+    "actor": "browser-worker",
+    "detail": "{\"fence\": 1, \"stage\": \"EXTRACTING\"}",
+    "created_at": "2026-10-04T23:23:02.922667+00:00"
+  },
+  {
+    "revision": 0,
+    "kind": "processing_stage",
+    "actor": "browser-worker",
+    "detail": "{\"fence\": 1, \"stage\": \"CHECKING\"}",
+    "created_at": "2026-10-04T23:24:09.858480+00:00"
+  },
+  {
+    "revision": 1,
+    "kind": "candidate_created",
+    "actor": "extractor",
+    "detail": "",
+    "created_at": "2026-10-04T23:24:09.870401+00:00"
+  },
+  {
+    "revision": 2,
+    "kind": "field_edited",
+    "actor": "local:pushyanth",
+    "detail": "fields.total",
+    "created_at": "2026-10-04T23:24:09.974270+00:00"
+  },
+  {
+    "revision": 2,
+    "kind": "approved",
+    "actor": "local:pushyanth",
+    "detail": "dda3e75476f1ab28e857f6c333a576853dfd704777787f54da4a3c4a6e67fe49",
+    "created_at": "2026-10-04T23:24:09.981356+00:00"
+  },
+  {
+    "revision": 2,
+    "kind": "exported",
+    "actor": "local:pushyanth",
+    "detail": "json",
+    "created_at": "2026-10-04T23:24:09.987117+00:00"
+  },
+  {
+    "revision": 2,
+    "kind": "exported",
+    "actor": "local:pushyanth",
+    "detail": "csv",
+    "created_at": "2026-10-04T23:24:09.995789+00:00"
+  }
+]

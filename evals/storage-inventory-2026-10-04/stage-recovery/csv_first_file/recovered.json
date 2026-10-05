@@ -1,0 +1,659 @@
+{
+  "status": {
+    "document_id": "4ba906e952f543c38af23f746a90eecb",
+    "source_name": "fictional-recovery.png",
+    "source_sha256": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+    "media_type": "image/png",
+    "size_bytes": 99913,
+    "status": "APPROVED",
+    "page_image_sha256": "ba4e39cbc6320fcb87f852e87f7d942ca37bd9b7b887bba195632310fc3f3209",
+    "page_count": 1,
+    "current_revision": 1,
+    "job": {
+      "id": "6ad78e2098b24dd5b75817085094faca",
+      "status": "COMPLETE",
+      "attempts": 1,
+      "fence": 1,
+      "error_code": null,
+      "stage": "REVIEW_READY",
+      "profile_json": "{\"extractor\": \"ocr_rules\"}",
+      "stop_requested": 0,
+      "worker_id": "fixture-preparation",
+      "lease_until": null
+    },
+    "parser_checkpoint": {
+      "cache_key": "2d870ace5edf768001863780e3fc8195d5a74033d7d3a1247b072c10c22ee990",
+      "parser_identity": "sha256:93332a57ebdc02c1368925eb02cf6de2ae85260f845f1894be3814ea0f157b27",
+      "created_at": "2026-10-04T22:22:11.517299+00:00"
+    }
+  },
+  "detail": {
+    "document_id": "4ba906e952f543c38af23f746a90eecb",
+    "source_sha256": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+    "source_name": "fictional-recovery.png",
+    "page": {
+      "number": 1,
+      "width_px": 1800,
+      "height_px": 2200,
+      "spans": [
+        {
+          "id": "p1-l0001",
+          "page": 1,
+          "text": "Aster Studio LLC",
+          "box": {
+            "left": 0.06388888888888888,
+            "top": 0.055,
+            "right": 0.33444444444444443,
+            "bottom": 0.07727272727272727
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.36
+        },
+        {
+          "id": "p1-l0002",
+          "page": 1,
+          "text": "INVOICE",
+          "box": {
+            "left": 0.06722222222222222,
+            "top": 0.09681818181818182,
+            "right": 0.21055555555555555,
+            "bottom": 0.1190909090909091
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.37
+        },
+        {
+          "id": "p1-l0003",
+          "page": 1,
+          "text": "Invoice Number: AST-1001",
+          "box": {
+            "left": 0.0661111111111111,
+            "top": 0.1690909090909091,
+            "right": 0.3516666666666667,
+            "bottom": 0.18363636363636363
+          },
+          "method": "tesseract-eng",
+          "confidence": 93.36
+        },
+        {
+          "id": "p1-l0004",
+          "page": 1,
+          "text": "Date: 2026-09-12",
+          "box": {
+            "left": 0.06555555555555556,
+            "top": 0.2109090909090909,
+            "right": 0.25055555555555553,
+            "bottom": 0.22545454545454546
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.85
+        },
+        {
+          "id": "p1-l0005",
+          "page": 1,
+          "text": "Due Date: 2026-10-12",
+          "box": {
+            "left": 0.06555555555555556,
+            "top": 0.25272727272727274,
+            "right": 0.3016666666666667,
+            "bottom": 0.2672727272727273
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.03
+        },
+        {
+          "id": "p1-l0006",
+          "page": 1,
+          "text": "Currency: USD",
+          "box": {
+            "left": 0.065,
+            "top": 0.29454545454545455,
+            "right": 0.22611111111111112,
+            "bottom": 0.3131818181818182
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.38
+        },
+        {
+          "id": "p1-l0007",
+          "page": 1,
+          "text": "Description Qty Unit Price Line Total",
+          "box": {
+            "left": 0.06555555555555556,
+            "top": 0.36818181818181817,
+            "right": 0.47333333333333333,
+            "bottom": 0.38681818181818184
+          },
+          "method": "tesseract-eng",
+          "confidence": 95.95
+        },
+        {
+          "id": "p1-l0008",
+          "page": 1,
+          "text": "Research workshop 2 125.00 250.00",
+          "box": {
+            "left": 0.06555555555555556,
+            "top": 0.41,
+            "right": 0.4572222222222222,
+            "bottom": 0.42863636363636365
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.61
+        },
+        {
+          "id": "p1-l0009",
+          "page": 1,
+          "text": "Subtotal: 250.00",
+          "box": {
+            "left": 0.065,
+            "top": 0.48363636363636364,
+            "right": 0.23777777777777778,
+            "bottom": 0.49818181818181817
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.47
+        },
+        {
+          "id": "p1-l0010",
+          "page": 1,
+          "text": "Tax: 20.00",
+          "box": {
+            "left": 0.06444444444444444,
+            "top": 0.5254545454545455,
+            "right": 0.17666666666666667,
+            "bottom": 0.54
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.41
+        },
+        {
+          "id": "p1-l0011",
+          "page": 1,
+          "text": "Discount: 0.00",
+          "box": {
+            "left": 0.06555555555555556,
+            "top": 0.5672727272727273,
+            "right": 0.21722222222222223,
+            "bottom": 0.5818181818181818
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.65
+        },
+        {
+          "id": "p1-l0012",
+          "page": 1,
+          "text": "Shipping: 0.00",
+          "box": {
+            "left": 0.065,
+            "top": 0.6090909090909091,
+            "right": 0.21666666666666667,
+            "bottom": 0.6277272727272727
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.17
+        },
+        {
+          "id": "p1-l0013",
+          "page": 1,
+          "text": "Total: 270.00",
+          "box": {
+            "left": 0.06444444444444444,
+            "top": 0.6509090909090909,
+            "right": 0.20333333333333334,
+            "bottom": 0.6654545454545454
+          },
+          "method": "tesseract-eng",
+          "confidence": 96.51
+        }
+      ]
+    },
+    "pages": [
+      {
+        "number": 1,
+        "width_px": 1800,
+        "height_px": 2200,
+        "spans": [
+          {
+            "id": "p1-l0001",
+            "page": 1,
+            "text": "Aster Studio LLC",
+            "box": {
+              "left": 0.06388888888888888,
+              "top": 0.055,
+              "right": 0.33444444444444443,
+              "bottom": 0.07727272727272727
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.36
+          },
+          {
+            "id": "p1-l0002",
+            "page": 1,
+            "text": "INVOICE",
+            "box": {
+              "left": 0.06722222222222222,
+              "top": 0.09681818181818182,
+              "right": 0.21055555555555555,
+              "bottom": 0.1190909090909091
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.37
+          },
+          {
+            "id": "p1-l0003",
+            "page": 1,
+            "text": "Invoice Number: AST-1001",
+            "box": {
+              "left": 0.0661111111111111,
+              "top": 0.1690909090909091,
+              "right": 0.3516666666666667,
+              "bottom": 0.18363636363636363
+            },
+            "method": "tesseract-eng",
+            "confidence": 93.36
+          },
+          {
+            "id": "p1-l0004",
+            "page": 1,
+            "text": "Date: 2026-09-12",
+            "box": {
+              "left": 0.06555555555555556,
+              "top": 0.2109090909090909,
+              "right": 0.25055555555555553,
+              "bottom": 0.22545454545454546
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.85
+          },
+          {
+            "id": "p1-l0005",
+            "page": 1,
+            "text": "Due Date: 2026-10-12",
+            "box": {
+              "left": 0.06555555555555556,
+              "top": 0.25272727272727274,
+              "right": 0.3016666666666667,
+              "bottom": 0.2672727272727273
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.03
+          },
+          {
+            "id": "p1-l0006",
+            "page": 1,
+            "text": "Currency: USD",
+            "box": {
+              "left": 0.065,
+              "top": 0.29454545454545455,
+              "right": 0.22611111111111112,
+              "bottom": 0.3131818181818182
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.38
+          },
+          {
+            "id": "p1-l0007",
+            "page": 1,
+            "text": "Description Qty Unit Price Line Total",
+            "box": {
+              "left": 0.06555555555555556,
+              "top": 0.36818181818181817,
+              "right": 0.47333333333333333,
+              "bottom": 0.38681818181818184
+            },
+            "method": "tesseract-eng",
+            "confidence": 95.95
+          },
+          {
+            "id": "p1-l0008",
+            "page": 1,
+            "text": "Research workshop 2 125.00 250.00",
+            "box": {
+              "left": 0.06555555555555556,
+              "top": 0.41,
+              "right": 0.4572222222222222,
+              "bottom": 0.42863636363636365
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.61
+          },
+          {
+            "id": "p1-l0009",
+            "page": 1,
+            "text": "Subtotal: 250.00",
+            "box": {
+              "left": 0.065,
+              "top": 0.48363636363636364,
+              "right": 0.23777777777777778,
+              "bottom": 0.49818181818181817
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.47
+          },
+          {
+            "id": "p1-l0010",
+            "page": 1,
+            "text": "Tax: 20.00",
+            "box": {
+              "left": 0.06444444444444444,
+              "top": 0.5254545454545455,
+              "right": 0.17666666666666667,
+              "bottom": 0.54
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.41
+          },
+          {
+            "id": "p1-l0011",
+            "page": 1,
+            "text": "Discount: 0.00",
+            "box": {
+              "left": 0.06555555555555556,
+              "top": 0.5672727272727273,
+              "right": 0.21722222222222223,
+              "bottom": 0.5818181818181818
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.65
+          },
+          {
+            "id": "p1-l0012",
+            "page": 1,
+            "text": "Shipping: 0.00",
+            "box": {
+              "left": 0.065,
+              "top": 0.6090909090909091,
+              "right": 0.21666666666666667,
+              "bottom": 0.6277272727272727
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.17
+          },
+          {
+            "id": "p1-l0013",
+            "page": 1,
+            "text": "Total: 270.00",
+            "box": {
+              "left": 0.06444444444444444,
+              "top": 0.6509090909090909,
+              "right": 0.20333333333333334,
+              "bottom": 0.6654545454545454
+            },
+            "method": "tesseract-eng",
+            "confidence": 96.51
+          }
+        ]
+      }
+    ],
+    "extraction": {
+      "attempt_id": "6ad78e2098b24dd5b75817085094faca:1",
+      "created_at": "2026-10-04T22:22:11.526574+00:00",
+      "input_sha256": "b998269f14151d17cf04e42e8a1b7ea89a3c27ffbbbb5016ae93d3e05123aa19",
+      "model_id": null,
+      "parser_version": "container-tesseract-v3",
+      "profile": "ocr_rules",
+      "prompt_sha256": null
+    },
+    "revision": 1,
+    "current_revision": 1,
+    "record": {
+      "fields": {
+        "currency": {
+          "evidence_ids": [
+            "p1-l0006"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Currency: USD",
+          "value": "USD"
+        },
+        "discount": {
+          "evidence_ids": [
+            "p1-l0011"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Discount: 0.00",
+          "value": "0.00"
+        },
+        "due_date": {
+          "evidence_ids": [
+            "p1-l0005"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Due Date: 2026-10-12",
+          "value": "2026-10-12"
+        },
+        "invoice_number": {
+          "evidence_ids": [
+            "p1-l0003"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Invoice Number: AST-1001",
+          "value": "AST-1001"
+        },
+        "issue_date": {
+          "evidence_ids": [
+            "p1-l0004"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Date: 2026-09-12",
+          "value": "2026-09-12"
+        },
+        "shipping": {
+          "evidence_ids": [
+            "p1-l0012"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Shipping: 0.00",
+          "value": "0.00"
+        },
+        "subtotal": {
+          "evidence_ids": [
+            "p1-l0009"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Subtotal: 250.00",
+          "value": "250.00"
+        },
+        "supplier_name": {
+          "evidence_ids": [
+            "p1-l0001"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Aster Studio LLC",
+          "value": "Aster Studio LLC"
+        },
+        "tax": {
+          "evidence_ids": [
+            "p1-l0010"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Tax: 20.00",
+          "value": "20.00"
+        },
+        "total": {
+          "evidence_ids": [
+            "p1-l0013"
+          ],
+          "missing_reason": null,
+          "origin": "observed",
+          "raw": "Total: 270.00",
+          "value": "270.00"
+        }
+      },
+      "line_items": [
+        {
+          "description": {
+            "evidence_ids": [
+              "p1-l0008"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Research workshop 2 125.00 250.00",
+            "value": "Research workshop"
+          },
+          "line_total": {
+            "evidence_ids": [
+              "p1-l0008"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Research workshop 2 125.00 250.00",
+            "value": "250.00"
+          },
+          "quantity": {
+            "evidence_ids": [
+              "p1-l0008"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Research workshop 2 125.00 250.00",
+            "value": "2"
+          },
+          "row_id": "row-001",
+          "tax": {
+            "evidence_ids": [],
+            "missing_reason": "not_explicit_on_row",
+            "origin": "observed",
+            "raw": null,
+            "value": null
+          },
+          "unit_price": {
+            "evidence_ids": [
+              "p1-l0008"
+            ],
+            "missing_reason": null,
+            "origin": "observed",
+            "raw": "Research workshop 2 125.00 250.00",
+            "value": "125.00"
+          }
+        }
+      ],
+      "schema_version": "invoice-v1-spike"
+    },
+    "record_hash": "c4600d57017e2021f62b0689a2e65e8aef385d18bd4f663ba76e218c0dc7b9c4",
+    "issues": [],
+    "review_priority": {
+      "version": "review-priority-v1",
+      "points": 0,
+      "signals": []
+    },
+    "decisions": [],
+    "approval": {
+      "document_id": "4ba906e952f543c38af23f746a90eecb",
+      "revision": 1,
+      "record_hash": "c4600d57017e2021f62b0689a2e65e8aef385d18bd4f663ba76e218c0dc7b9c4",
+      "decision_hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "approval_hash": "08b9a6290b4d0c0ca990bc81f30f308b9d7b35e4f6b8f05cfea07191fbfae047",
+      "actor": "automated-recovery-fixture",
+      "policy_version": "review-v1",
+      "created_at": "2026-10-04T22:22:11.529454+00:00"
+    }
+  },
+  "history": [
+    {
+      "revision": 0,
+      "kind": "received",
+      "actor": "intake",
+      "detail": "",
+      "created_at": "2026-10-04T22:22:09.932041+00:00"
+    },
+    {
+      "revision": 0,
+      "kind": "claimed",
+      "actor": "fixture-preparation",
+      "detail": "1",
+      "created_at": "2026-10-04T22:22:09.933875+00:00"
+    },
+    {
+      "revision": 0,
+      "kind": "processing_stage",
+      "actor": "fixture-preparation",
+      "detail": "{\"fence\": 1, \"stage\": \"PARSING\"}",
+      "created_at": "2026-10-04T22:22:09.937290+00:00"
+    },
+    {
+      "revision": 0,
+      "kind": "parser_checkpoint_saved",
+      "actor": "fixture-preparation",
+      "detail": "2d870ace5edf768001863780e3fc8195d5a74033d7d3a1247b072c10c22ee990",
+      "created_at": "2026-10-04T22:22:11.519322+00:00"
+    },
+    {
+      "revision": 0,
+      "kind": "processing_stage",
+      "actor": "fixture-preparation",
+      "detail": "{\"fence\": 1, \"stage\": \"EXTRACTING\"}",
+      "created_at": "2026-10-04T22:22:11.520975+00:00"
+    },
+    {
+      "revision": 0,
+      "kind": "processing_stage",
+      "actor": "fixture-preparation",
+      "detail": "{\"fence\": 1, \"stage\": \"CHECKING\"}",
+      "created_at": "2026-10-04T22:22:11.522613+00:00"
+    },
+    {
+      "revision": 1,
+      "kind": "candidate_created",
+      "actor": "extractor",
+      "detail": "",
+      "created_at": "2026-10-04T22:22:11.526743+00:00"
+    },
+    {
+      "revision": 1,
+      "kind": "approved",
+      "actor": "automated-recovery-fixture",
+      "detail": "08b9a6290b4d0c0ca990bc81f30f308b9d7b35e4f6b8f05cfea07191fbfae047",
+      "created_at": "2026-10-04T22:22:11.529936+00:00"
+    },
+    {
+      "revision": 1,
+      "kind": "exported",
+      "actor": "automated-recovery-fixture",
+      "detail": "json",
+      "created_at": "2026-10-04T22:22:11.534788+00:00"
+    },
+    {
+      "revision": 1,
+      "kind": "exported",
+      "actor": "automated-recovery-fixture",
+      "detail": "csv",
+      "created_at": "2026-10-04T22:22:11.762041+00:00"
+    }
+  ],
+  "attempts": [
+    {
+      "id": "6ad78e2098b24dd5b75817085094faca:1",
+      "document_id": "4ba906e952f543c38af23f746a90eecb",
+      "job_id": "6ad78e2098b24dd5b75817085094faca",
+      "fence": 1,
+      "profile_json": "{\"extractor\": \"ocr_rules\"}",
+      "status": "COMPLETE",
+      "started_at": "2026-10-04T22:22:09.933898+00:00",
+      "finished_at": "2026-10-04T22:22:11.526846+00:00",
+      "error_code": null
+    }
+  ],
+  "counts": {
+    "revisions": 1,
+    "approvals": 1,
+    "exports": 2,
+    "parser_checkpoint_pages": 1
+  },
+  "integrity": "ok",
+  "export_files": {
+    "4ba906e952f543c38af23f746a90eecb/revision-1/line-items.csv": "a96cf49d35e84a7b34efae16c2f8916cc59f34ab451996e899f98753caa17934",
+    "4ba906e952f543c38af23f746a90eecb/revision-1/header.csv": "11893e874d998ae57b6a873d750afc1d544cdc8b7d17c68c1a5316f5197a91df",
+    "4ba906e952f543c38af23f746a90eecb/revision-1/invoice.json": "7a7ec58cafbc72a2df16ed713aea97502d9ac36683513680c58d874c178b8233"
+  },
+  "scratch": []
+}

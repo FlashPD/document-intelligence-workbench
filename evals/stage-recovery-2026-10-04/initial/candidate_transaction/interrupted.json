@@ -1,0 +1,97 @@
+{
+  "status": {
+    "document_id": "59616d501d8f461f9ea155f6f987e0c0",
+    "source_name": "fictional-recovery.png",
+    "source_sha256": "925a3b1858f6b322330ba16148cbd9e498117e89979182fe897af60a90e1a106",
+    "media_type": "image/png",
+    "size_bytes": 99913,
+    "status": "PROCESSING",
+    "page_image_sha256": null,
+    "page_count": 0,
+    "current_revision": 0,
+    "job": {
+      "id": "30d32e69f3274f8eac3a6d6bd0d92d88",
+      "status": "PROCESSING",
+      "attempts": 1,
+      "fence": 1,
+      "error_code": null,
+      "stage": "CHECKING",
+      "profile_json": "{\"extractor\": \"ocr_rules\"}",
+      "stop_requested": 0,
+      "worker_id": "crash-probe",
+      "lease_until": 1791148442.114845
+    },
+    "parser_checkpoint": {
+      "cache_key": "a37cdb779f5caae1ff37b3eaf95354320a493b36a2528c27e68f8969234599e9",
+      "parser_identity": "sha256:09c23c3cf290412c5ae523c636c098d7f11c6a17a6a6ca6261e27419bfb6485c",
+      "created_at": "2026-10-04T21:13:54.171046+00:00"
+    }
+  },
+  "detail": null,
+  "history": [
+    {
+      "revision": 0,
+      "kind": "received",
+      "actor": "intake",
+      "detail": "",
+      "created_at": "2026-10-04T21:13:52.431236+00:00"
+    },
+    {
+      "revision": 0,
+      "kind": "claimed",
+      "actor": "crash-probe",
+      "detail": "1",
+      "created_at": "2026-10-04T21:13:52.573437+00:00"
+    },
+    {
+      "revision": 0,
+      "kind": "processing_stage",
+      "actor": "crash-probe",
+      "detail": "{\"fence\": 1, \"stage\": \"PARSING\"}",
+      "created_at": "2026-10-04T21:13:52.577002+00:00"
+    },
+    {
+      "revision": 0,
+      "kind": "parser_checkpoint_saved",
+      "actor": "crash-probe",
+      "detail": "a37cdb779f5caae1ff37b3eaf95354320a493b36a2528c27e68f8969234599e9",
+      "created_at": "2026-10-04T21:13:54.173341+00:00"
+    },
+    {
+      "revision": 0,
+      "kind": "processing_stage",
+      "actor": "crash-probe",
+      "detail": "{\"fence\": 1, \"stage\": \"EXTRACTING\"}",
+      "created_at": "2026-10-04T21:13:54.175018+00:00"
+    },
+    {
+      "revision": 0,
+      "kind": "processing_stage",
+      "actor": "crash-probe",
+      "detail": "{\"fence\": 1, \"stage\": \"CHECKING\"}",
+      "created_at": "2026-10-04T21:13:54.176597+00:00"
+    }
+  ],
+  "attempts": [
+    {
+      "id": "30d32e69f3274f8eac3a6d6bd0d92d88:1",
+      "document_id": "59616d501d8f461f9ea155f6f987e0c0",
+      "job_id": "30d32e69f3274f8eac3a6d6bd0d92d88",
+      "fence": 1,
+      "profile_json": "{\"extractor\": \"ocr_rules\"}",
+      "status": "PROCESSING",
+      "started_at": "2026-10-04T21:13:52.573466+00:00",
+      "finished_at": null,
+      "error_code": null
+    }
+  ],
+  "counts": {
+    "revisions": 0,
+    "approvals": 0,
+    "exports": 0,
+    "parser_checkpoint_pages": 1
+  },
+  "integrity": "ok",
+  "export_files": {},
+  "scratch": []
+}

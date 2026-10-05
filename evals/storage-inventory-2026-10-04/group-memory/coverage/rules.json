@@ -1,0 +1,974 @@
+{
+  "version": 1,
+  "variant": "ocr_rules",
+  "source_artifact_sha256": {
+    "memory.json": "5c9f22b015de6917248f7ab158752c8e9102d406d69ffaaff0d18d5e15518075",
+    "measurements.json": "b5c39e2c7f59c7570b3a96f92844d2e2cde4d790ade198d94eda15d93abb4618",
+    "report.json": "5f7fa23c3f0e2af9af9969142af90517af48c64e5505aa87967c45c76fa06cb3",
+    "group-report.json": "0a062eb39db173898f3ba6d2001e6d18f3b29ce0f7b95b984254ec8d7f75d825",
+    "native-group-62240.json.gz": "4c2f12de5bc17f0cefee08dbf01ac416545c182548d0e8fcf24cb4a0e53d0ae0",
+    "native-group-62321.json.gz": "d6d6c2e32f5fa67e2e1a2738dd08fd5832cbbf003c1a5b03a004b9151d9d494d",
+    "native-group-62366.json.gz": "9ec76fa7847575576397fb54d2c04c4ad6926f67139cf92c20a496a03794ca6a",
+    "native-group-62411.json.gz": "93eaa04fdd2b40797d4cffa7b15d292ed82ec38f1fc297c2bb24338d290279d8"
+  },
+  "launches": [
+    {
+      "launch": "cold-0",
+      "samples": 2,
+      "first_complete_sample_seconds": 3.3466809580568224,
+      "tail_after_last_complete_sample_seconds": 0.8588497919845395,
+      "query_errors": 1,
+      "errors_by_reason": {
+        "query_or_counter_error": 1
+      },
+      "errors_by_category": {
+        "ProcessLookupError": 1
+      }
+    },
+    {
+      "launch": "cold-1",
+      "samples": 2,
+      "first_complete_sample_seconds": 1.0871746250195429,
+      "tail_after_last_complete_sample_seconds": 0.12778466701274738,
+      "query_errors": 1,
+      "errors_by_reason": {
+        "job_registry_unavailable": 1
+      },
+      "errors_by_category": {
+        "ValueError": 1
+      }
+    },
+    {
+      "launch": "cold-2",
+      "samples": 2,
+      "first_complete_sample_seconds": 0.55345191701781,
+      "tail_after_last_complete_sample_seconds": 0.8536295839585364,
+      "query_errors": 1,
+      "errors_by_reason": {
+        "query_or_counter_error": 1
+      },
+      "errors_by_category": {
+        "ProcessLookupError": 1
+      }
+    },
+    {
+      "launch": "warm",
+      "samples": 61,
+      "first_complete_sample_seconds": 0.46022691699909046,
+      "tail_after_last_complete_sample_seconds": 0.37268845801008865,
+      "query_errors": 12,
+      "errors_by_reason": {
+        "native_inspection_incomplete": 3,
+        "query_or_counter_error": 9
+      },
+      "errors_by_category": {
+        "ValueError": 7,
+        "ProcessLookupError": 5
+      }
+    }
+  ],
+  "stage_window_counts": {
+    "parsing": {
+      "total": 34,
+      "with_intersecting_window": 34,
+      "without_intersecting_window": 0
+    },
+    "extracting": {
+      "total": 34,
+      "with_intersecting_window": 0,
+      "without_intersecting_window": 34
+    },
+    "checking": {
+      "total": 34,
+      "with_intersecting_window": 0,
+      "without_intersecting_window": 34
+    }
+  },
+  "measurements": [
+    {
+      "id": "cold-0",
+      "launch": "cold-0",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 2.1180150508880615,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.48032093048095703
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0016369819641113281,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.004251956939697266,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154093.659261,
+      "processing_finished_at_seconds": 1791154095.788818
+    },
+    {
+      "id": "cold-1",
+      "launch": "cold-1",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.7200851440429688,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.3881247043609619
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0018939971923828125,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.0044078826904296875,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154096.301733,
+      "processing_finished_at_seconds": 1791154098.032121
+    },
+    {
+      "id": "cold-2",
+      "launch": "cold-2",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.846390962600708,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.4456958770751953
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.002755880355834961,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.004778146743774414,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154099.611264,
+      "processing_finished_at_seconds": 1791154101.47302
+    },
+    {
+      "id": "warmup",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.6361188888549805,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.32270312309265137
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.001873016357421875,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.005949974060058594,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154102.039608,
+      "processing_finished_at_seconds": 1791154103.688303
+    },
+    {
+      "id": "warm-0",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.6314740180969238,
+          "inspection_windows_intersecting": 1,
+          "inspection_window_overlap_seconds": 0.19502496719360352
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0015850067138671875,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.0043299198150634766,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154103.742613,
+      "processing_finished_at_seconds": 1791154105.385098
+    },
+    {
+      "id": "warm-1",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.616279125213623,
+          "inspection_windows_intersecting": 1,
+          "inspection_window_overlap_seconds": 0.19444990158081055
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.002048969268798828,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.0055048465728759766,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154105.428802,
+      "processing_finished_at_seconds": 1791154107.056491
+    },
+    {
+      "id": "warm-2",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.6500880718231201,
+          "inspection_windows_intersecting": 1,
+          "inspection_window_overlap_seconds": 0.19419407844543457
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.001550912857055664,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.003988027572631836,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154107.112481,
+      "processing_finished_at_seconds": 1791154108.77259
+    },
+    {
+      "id": "warm-3",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.6097760200500488,
+          "inspection_windows_intersecting": 1,
+          "inspection_window_overlap_seconds": 0.19379091262817383
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0018460750579833984,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.005959033966064453,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154108.804041,
+      "processing_finished_at_seconds": 1791154110.425368
+    },
+    {
+      "id": "warm-4",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.6971440315246582,
+          "inspection_windows_intersecting": 1,
+          "inspection_window_overlap_seconds": 0.19671297073364258
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0021200180053710938,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.003934144973754883,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154110.443434,
+      "processing_finished_at_seconds": 1791154112.154879
+    },
+    {
+      "id": "warm-5",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.6125540733337402,
+          "inspection_windows_intersecting": 1,
+          "inspection_window_overlap_seconds": 0.19292521476745605
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0016160011291503906,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.004316091537475586,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154112.210489,
+      "processing_finished_at_seconds": 1791154113.833511
+    },
+    {
+      "id": "warm-6",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.7588260173797607,
+          "inspection_windows_intersecting": 1,
+          "inspection_window_overlap_seconds": 0.19378900527954102
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0014300346374511719,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.005170106887817383,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154113.893255,
+      "processing_finished_at_seconds": 1791154115.666959
+    },
+    {
+      "id": "warm-7",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.6454739570617676,
+          "inspection_windows_intersecting": 1,
+          "inspection_window_overlap_seconds": 0.19214105606079102
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0017840862274169922,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.004901885986328125,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154115.71796,
+      "processing_finished_at_seconds": 1791154117.373474
+    },
+    {
+      "id": "warm-8",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.9268980026245117,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.39395618438720703
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.00160980224609375,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.004086017608642578,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154117.402165,
+      "processing_finished_at_seconds": 1791154119.33896
+    },
+    {
+      "id": "warm-9",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.7511398792266846,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.3982260227203369
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0028290748596191406,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.004778146743774414,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154119.392518,
+      "processing_finished_at_seconds": 1791154121.156052
+    },
+    {
+      "id": "queue-0",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.6685550212860107,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.39948439598083496
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0016231536865234375,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.006874799728393555,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154121.191294,
+      "processing_finished_at_seconds": 1791154122.875167
+    },
+    {
+      "id": "queue-1",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.757065773010254,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.4002411365509033
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0018010139465332031,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.00677800178527832,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154122.881212,
+      "processing_finished_at_seconds": 1791154124.650807
+    },
+    {
+      "id": "queue-2",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.5444891452789307,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.38542914390563965
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0015978813171386719,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.008042097091674805,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154124.656412,
+      "processing_finished_at_seconds": 1791154126.214245
+    },
+    {
+      "id": "queue-3",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.8489608764648438,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.3848099708557129
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0017070770263671875,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.007736921310424805,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154126.220022,
+      "processing_finished_at_seconds": 1791154128.082321
+    },
+    {
+      "id": "queue-4",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.4693050384521484,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.3861382007598877
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0015420913696289062,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.008417844772338867,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154128.087911,
+      "processing_finished_at_seconds": 1791154129.570788
+    },
+    {
+      "id": "queue-5",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.730119228363037,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.38274431228637695
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0018739700317382812,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.008080005645751953,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154129.576841,
+      "processing_finished_at_seconds": 1791154131.320856
+    },
+    {
+      "id": "queue-6",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.8121929168701172,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.39664697647094727
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.001753091812133789,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.008830070495605469,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154131.32748,
+      "processing_finished_at_seconds": 1791154133.154045
+    },
+    {
+      "id": "queue-7",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.542099952697754,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.3965952396392822
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.001641988754272461,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.00783991813659668,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154133.160052,
+      "processing_finished_at_seconds": 1791154134.715587
+    },
+    {
+      "id": "queue-8",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.5651829242706299,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.3946073055267334
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0015878677368164062,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.008716106414794922,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154134.721827,
+      "processing_finished_at_seconds": 1791154136.301378
+    },
+    {
+      "id": "queue-9",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.414417028427124,
+          "inspection_windows_intersecting": 1,
+          "inspection_window_overlap_seconds": 0.19821810722351074
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.003515958786010742,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.009991884231567383,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154136.307635,
+      "processing_finished_at_seconds": 1791154137.739384
+    },
+    {
+      "id": "queue-10",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.7894477844238281,
+          "inspection_windows_intersecting": 1,
+          "inspection_window_overlap_seconds": 0.19225788116455078
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0018961429595947266,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.00858306884765625,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154137.746344,
+      "processing_finished_at_seconds": 1791154139.550568
+    },
+    {
+      "id": "queue-11",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.6776399612426758,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.3821899890899658
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0016109943389892578,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.0092620849609375,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154139.556933,
+      "processing_finished_at_seconds": 1791154141.249633
+    },
+    {
+      "id": "queue-12",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.7420520782470703,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.3956270217895508
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.001583099365234375,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.00957798957824707,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154141.25656,
+      "processing_finished_at_seconds": 1791154143.013878
+    },
+    {
+      "id": "queue-13",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.6110711097717285,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.38796019554138184
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0016520023345947266,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.010155916213989258,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154143.020352,
+      "processing_finished_at_seconds": 1791154144.646833
+    },
+    {
+      "id": "queue-14",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.7611510753631592,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.4023258686065674
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0015668869018554688,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.009034156799316406,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154144.654048,
+      "processing_finished_at_seconds": 1791154146.430082
+    },
+    {
+      "id": "queue-15",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 1.7579538822174072,
+          "inspection_windows_intersecting": 2,
+          "inspection_window_overlap_seconds": 0.3868591785430908
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0015189647674560547,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.009199142456054688,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154146.436423,
+      "processing_finished_at_seconds": 1791154148.208728
+    },
+    {
+      "id": "queue-16",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 3.6562399864196777,
+          "inspection_windows_intersecting": 4,
+          "inspection_window_overlap_seconds": 0.7790534496307373
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0018229484558105469,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.01388096809387207,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154148.215513,
+      "processing_finished_at_seconds": 1791154151.891273
+    },
+    {
+      "id": "queue-17",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 3.5015811920166016,
+          "inspection_windows_intersecting": 4,
+          "inspection_window_overlap_seconds": 0.7980763912200928
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.001750946044921875,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.01575303077697754,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154151.898256,
+      "processing_finished_at_seconds": 1791154155.42141
+    },
+    {
+      "id": "queue-18",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 3.672814130783081,
+          "inspection_windows_intersecting": 4,
+          "inspection_window_overlap_seconds": 0.7967209815979004
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.0017719268798828125,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.014750957489013672,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154155.429087,
+      "processing_finished_at_seconds": 1791154159.122916
+    },
+    {
+      "id": "queue-19",
+      "launch": "warm",
+      "stages": [
+        {
+          "stage": "parsing",
+          "duration_seconds": 3.913043975830078,
+          "inspection_windows_intersecting": 5,
+          "inspection_window_overlap_seconds": 1.0675468444824219
+        },
+        {
+          "stage": "extracting",
+          "duration_seconds": 0.001828908920288086,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        },
+        {
+          "stage": "checking",
+          "duration_seconds": 0.016170024871826172,
+          "inspection_windows_intersecting": 0,
+          "inspection_window_overlap_seconds": 0.0
+        }
+      ],
+      "processing_started_at_seconds": 1791154159.131202,
+      "processing_finished_at_seconds": 1791154163.067328
+    }
+  ],
+  "limits": "Native inspection windows are not continuous occupancy observations. Intersection does not prove every process/allocation was observed during the stage, and zero intersection does not imply zero memory. Startup predates collector readiness; shutdown continues after application exit. Raw stage events were read from disposable workbenches and cross-checked against hash-bound performance durations. Browser, global OS cache and unattributed kernel/driver memory remain excluded. No peak or full-v1 acceptance is inferred."
+}

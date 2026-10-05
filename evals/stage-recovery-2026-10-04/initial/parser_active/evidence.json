@@ -1,0 +1,23 @@
+{
+  "stale_edit_rejected": false,
+  "unapproved_export_rejected": false,
+  "container_running_at_crash": true,
+  "returncode": -9,
+  "boundary": {
+    "case": "parser_active",
+    "boundary_reached": true,
+    "pid": 34855,
+    "time_utc": "2026-10-04T21:13:20.506215+00:00",
+    "method": "SIGKILL host while isolated sleep probe runs"
+  },
+  "lease_guarded": true,
+  "stale_claim_rejected": true,
+  "resume": {
+    "resumed_in_new_process": true,
+    "pid": 34873,
+    "parser_calls": 1,
+    "supervisor_error": null
+  },
+  "container_removed": true,
+  "original_unchanged": true
+}

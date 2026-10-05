@@ -1,0 +1,46 @@
+{
+  "parser_image_id": "sha256:09c23c3cf290412c5ae523c636c098d7f11c6a17a6a6ca6261e27419bfb6485c",
+  "processes": [
+    {
+      "pid": 35905,
+      "ppid": 19624,
+      "rss_bytes": 74629120,
+      "name": "/Applications/Docker.app/Contents/MacOS/com.docker.virtualization",
+      "native": {
+        "pid": 35905,
+        "start_abstime": 11742866303691,
+        "physical_footprint_bytes": 38029760,
+        "lifetime_max_physical_footprint_bytes": 38029760,
+        "resident_bytes": 74629120,
+        "wired_bytes": 409600
+      },
+      "vmmap_returncode": 0,
+      "footprint_returncode": 0,
+      "docker_backing_files": [],
+      "lsof_returncode": 0
+    },
+    {
+      "pid": 35906,
+      "ppid": 1,
+      "rss_bytes": 1307230208,
+      "name": "/System/Library/Frameworks/Virtualization.framework/Versions/A/XPCServices/com.apple.Virtualization.VirtualMachine.xpc/Contents/MacOS/com.apple.Virtualization.VirtualMachine",
+      "native": {
+        "pid": 35906,
+        "start_abstime": 11742868190075,
+        "physical_footprint_bytes": 1002706944,
+        "lifetime_max_physical_footprint_bytes": 1002706944,
+        "resident_bytes": 1313800192,
+        "wired_bytes": 0
+      },
+      "vmmap_returncode": 0,
+      "footprint_returncode": 0,
+      "docker_backing_files": [
+        "/Users/pushyanth/Library/Containers/com.docker.docker/Data/vms/0/data/Docker.raw"
+      ],
+      "lsof_returncode": 0
+    }
+  ],
+  "group_returncode": 0,
+  "observer_clean_shutdown": true,
+  "scope": "Active-VM read-only capability probe with bounded observer; no workload/peak claim."
+}

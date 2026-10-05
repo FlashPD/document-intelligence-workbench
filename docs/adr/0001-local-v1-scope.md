@@ -25,7 +25,7 @@ Release v1 as a local, single-user invoice workbench on the measured macOS arm64
 
 ## Consequences
 
-V1 requires all mandatory contract gates on the final relevant source. The experimental audit remains a subset. Lifecycle/identity work must preserve existing revisions, fencing, checkpoints and immutable exports.
+V1 requires all mandatory contract gates on the final relevant source. Publication follows G01–G14 and G15’s prepublication evidence; the separate published-tag clone/demo finishes G15 afterward. Full v1 closure waits for that verification. This sequencing does not remove any acceptance requirement. The experimental audit remains a subset. Lifecycle/identity work must preserve existing revisions, fencing, checkpoints and immutable exports.
 
 Keep the original plan unchanged as historical design. This ADR supersedes its framework/converter choices, proposed interface names and optional placement for local v1 while preserving isolation, review authority, recovery, measurement and reproducibility requirements. Later scope changes must explain their effect on acceptance and claims rather than silently removing a difficult gate.
 

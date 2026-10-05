@@ -1,0 +1,7 @@
+{
+  "case": "review_transaction",
+  "boundary_reached": true,
+  "pid": 60556,
+  "time_utc": "2026-10-04T22:22:04.139996+00:00",
+  "uncommitted_event": "field_edited"
+}
